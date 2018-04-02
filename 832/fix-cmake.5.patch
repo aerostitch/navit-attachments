@@ -1,0 +1,44 @@
+Description: Fix cmake config to produce same packages as with the autotools
+ This patch apply various fixes and workaround so that the generated binary
+ packages are close to the one generated with the autotools configuration.
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/832
+Last-Update: 2011-09-18
+Index: navit/cmake/navit_macros.cmake
+===================================================================
+--- navit.orig/cmake/navit_macros.cmake	2011-09-18 21:38:21.000000000 +0200
++++ navit/cmake/navit_macros.cmake	2011-09-18 21:38:55.000000000 +0200
+@@ -11,11 +11,11 @@
+    if (DEFINED ${VARIABLE}_REASON AND NOT ${VARIABLE}_REASON STREQUAL "User defined")
+       set(${VARIABLE} ${ENABLE})
+       set(${VARIABLE}_REASON ${REASON})
+-      string(REPLACE "/" "_" VARIABLE_NAMES ${VARIABLE})
+-      set(${VARIABLE_NAMES}_LIBS ${ARGN})
+    else()
+       message("Do not change user defined settings for ${VARIABLE}")
+    endif()
++   string(REPLACE "/" "_" VARIABLE_NAMES ${VARIABLE})
++   set(${VARIABLE_NAMES}_LIBS ${ARGN})
+ endmacro()
+ 
+ macro(add_feature FEATURE REASON ENABLE)
+Index: navit/navit/binding/dbus/CMakeLists.txt
+===================================================================
+--- navit.orig/navit/binding/dbus/CMakeLists.txt	2011-09-18 21:38:21.000000000 +0200
++++ navit/navit/binding/dbus/CMakeLists.txt	2011-09-18 21:38:55.000000000 +0200
+@@ -1,2 +1,7 @@
+ module_add_library(binding_dbus binding_dbus.c) 
+-install(FILES org.navit_project.navit.service DESTINATION ${CMAKE_INSTALL_PREFIX}/share/dbus-1/services/)
+\ No newline at end of file
++configure_file(
++  org.navit_project.navit.service.in
++  org.navit_project.navit.service
++  @ONLY
++)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.navit_project.navit.service DESTINATION ${CMAKE_INSTALL_PREFIX}/share/dbus-1/services/)
+Index: navit/navit/vehicle/null/CMakeLists.txt
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ navit/navit/vehicle/null/CMakeLists.txt	2011-09-18 21:36:42.000000000 +0200
+@@ -0,0 +1 @@
++module_add_library(vehicle_null vehicle_null.c)

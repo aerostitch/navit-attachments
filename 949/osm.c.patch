@@ -1,0 +1,11 @@
+--- osm.c-original	2012-01-31 08:36:33.000000000 -0400
++++ osm.c	2012-01-31 11:50:53.000000000 -0400
+@@ -1676,7 +1676,7 @@
+ 		nodes_ref_item_bin(item_bin);
+ 		def_flags=item_get_default_flags(types[i]);
+ 		if (def_flags) {
+-			flags_attr_value=(*def_flags | flags[0] | flags[1]) & ~flags[2];
++			flags_attr_value=(*def_flags & ~flags[2]) | flags[0] | flags[1];
+ 			if (flags_attr_value != *def_flags)
+ 				add_flags=1;
+ 		}

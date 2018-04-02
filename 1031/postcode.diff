@@ -1,0 +1,15 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(révision 5016)
++++ navit/maptool/osm.c	(copie de travail)
+@@ -1090,6 +1090,10 @@
+ 		attr_strings_save(attr_string_postal, v);
+ 		level=5;
+ 	}
++	if (! strcmp(k,"addr:postcode") && !attr_strings[attr_string_postal]) {
++		attr_strings_save(attr_string_postal, v);
++		level=5;
++	}
+ 	if (! strcmp(k,"openGeoDB:postal_codes") && !attr_strings[attr_string_postal]) {
+ 		attr_strings_save(attr_string_postal, v);
+ 		level=5;

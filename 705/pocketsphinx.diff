@@ -1,0 +1,102 @@
+Index: continuous.c
+===================================================================
+--- continuous.c	(revision 10762)
++++ continuous.c	(working copy)
+@@ -53,6 +53,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
++#include <stdlib.h>
+ 
+ #if !defined(_WIN32_WCE)
+ #include <signal.h>
+@@ -71,6 +72,8 @@
+ 
+ #include "pocketsphinx.h"
+ 
++char* navit_get_cmd(char*word);
++
+ static const arg_t cont_args_def[] = {
+     POCKETSPHINX_OPTIONS,
+     /* Argument file. */
+@@ -319,6 +322,20 @@
+         printf("%s: %s\n", uttid, hyp);
+         fflush(stdout);
+ 
++        char str[512]  = "";
++        char str2[512] = "";
++        int word_cnt=0;
++	char*tok;
++        while(tok=strtok((word_cnt==0)?hyp:NULL, " \t\n")) {
++          strcat(str2,(navit_get_cmd(tok)==NULL)?"":navit_get_cmd(tok));
++          strcat(str2," ");
++          ++word_cnt;
++        }
++
++        sprintf(str,"/usr/bin/dbus-send --print-reply --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.add_voice_data string:'%s '",str2);
++        system(str);
++	printf("CMD %s\n",str);
++
+         /* Exit if the first word spoken was GOODBYE */
+         if (hyp) {
+             sscanf(hyp, "%s", word);
+@@ -342,11 +359,59 @@
+     longjmp(jbuf, 1);
+ }
+ 
++int  navit_word_map_size;
++typedef char* charptr;
++typedef charptr navit_word_map_item[2];
++navit_word_map_item* navit_word_map;
++
++/*
++ * get replacement word from word map
++ */
++char* navit_get_cmd(char*word) 
++{
++  int i;
++  for(i=0;i<navit_word_map_size;++i) {
++    if(!strcmp(navit_word_map[i][1],word)) {
++      return navit_word_map[i][0];
++    }
++  }
++  return NULL;
++}
++
++/*
++ * load word mapping to enable user to use her/his own command set 
++ */
++void load_navit_word_map()
++{
++  navit_word_map_size = 0;
++  navit_word_map = NULL;
++  FILE*fp;
++  char* fn = "navit_voice_command_map.txt";
++  if((fp=fopen(fn,"rt"))) {
++    while(!feof(fp)) {
++      char str[128];
++      if(fgets(str,127,fp)) {
++        char*tok1 = strtok(str," \t\n");
++        char*tok2 = strtok(NULL," \t\n");
++        if(tok1 && tok2) {
++          navit_word_map = realloc(navit_word_map,sizeof(navit_word_map_item)*(navit_word_map_size+1));
++          navit_word_map[navit_word_map_size][0]=strdup(tok1);
++          navit_word_map[navit_word_map_size][1]=strdup(tok2);
++          ++navit_word_map_size;  
++        }
++      }
++    }
++  }
++  fclose(fp);
++}
++
+ int
+ main(int argc, char *argv[])
+ {
+     char const *cfg;
+ 
++    load_navit_word_map();
++
+     /* Make sure we exit cleanly (needed for profiling among other things) */
+     /* Signals seem to be broken in arm-wince-pe. */
+ #if !defined(GNUWINCE) && !defined(_WIN32_WCE) && !defined(__SYMBIAN32__)

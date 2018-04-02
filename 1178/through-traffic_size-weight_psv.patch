@@ -1,0 +1,233 @@
+Index: maptool/osm.c
+===================================================================
+--- maptool/osm.c	(Revision 5715)
++++ maptool/osm.c	(Arbeitskopie)
+@@ -54,13 +54,31 @@
+ 
+ 
+ int maxspeed_attr_value;
++int vehicle_width_attr_value;
++int vehicle_length_attr_value;
++int vehicle_height_attr_value;
++int vehicle_weight_attr_value;
++int vehicle_axle_weight_attr_value;
+ 
+ char debug_attr_buffer[BUFFER_SIZE];
+ 
+-int flags[4];
+-int flagsa[4];
++/*
++ * meaning of index i of flags (flag[i]):
++ * i=0	general flags
++ * i=1	flagged road users are allowed
++ * i=2	flagged road users are not allowed
++ * i=3	flagged road users have permission for destination
++ * i=4	key value not evaluated (unused)
++ */
++int flags[5];	// collect individual tags related to a single flag, e.x. 'bicycle=' -> AF_BIKE, ...
++int flagsa[5];	// collect 'access=' tags 
++int flagsv[5];	// collect 'vehicle=' tags (subset of 'access' group)
++int flagsmv[5]; // collect 'motor_vehicle=' tags (subset of 'vehicle' group)
++int flagspsv[5];// collect 'psv=' tags (subset of 'motor vehicle' group)
+ 
+ int flags_attr_value;
++int through_traffic_flags_attr_value; // Tell us which road users have the osm key value 'destination'. (Index 3 of all kind of flags)
++				      // Flagged road users here will be allowed, but they get the through_traffic_penalty.
+ 
+ struct attr_bin osmid_attr;
+ long int osmid_attr_value;
+@@ -966,9 +984,11 @@
+ 		return 2;
+ 	if (!strcmp(v,"delivery"))
+ 		return 2;
+-	if (!strcmp(v,"destination"))
+-		return 2;
+-	return 3;
++	if (!strcmp(v,"destination")) {
++		flags[0] |= AF_THROUGH_TRAFFIC_LIMIT;
++		return 3;
++	}
++	return 4;
+ }
+ 
+ static void 
+@@ -1026,24 +1046,71 @@
+ 			flags[0] |= AF_SPEED_LIMIT;
+ 		level=5;
+ 	}
++	if (! strcmp(k,"maxwidth")) {
++		if (strstr(v, "'")) {
++			vehicle_width_attr_value = (int)floor((atof(v) + atof(strstr(v,"'")+1) / 12) * 30.48); // target dimension is [cm]
++		} else {
++			vehicle_width_attr_value = (int)floor(atof(v) * 100);
++		}
++		if (vehicle_width_attr_value)
++			flags[0] |= AF_SIZE_OR_WEIGHT_LIMIT;
++		level=5;
++	}
++	if (! strcmp(k,"maxlength")) {
++		if (strstr(v, "'")) {
++			vehicle_length_attr_value = (int)floor((atof(v) + atof(strstr(v,"'")+1) / 12) * 30.48); // target dimension is [cm]
++		} else {
++			vehicle_length_attr_value = (int)floor(atof(v) * 100);
++		}
++		if (vehicle_length_attr_value)
++			flags[0] |= AF_SIZE_OR_WEIGHT_LIMIT;
++		level=5;
++	}
++	if (! strcmp(k,"maxheight")) {
++		if (strstr(v, "'")) {
++			vehicle_height_attr_value = (int)floor((atof(v) + atof(strstr(v,"'")+1) / 12) * 30.48); // target dimension is [cm]
++		} else {
++			vehicle_height_attr_value = (int)floor(atof(v) * 100);
++		}
++		if (vehicle_height_attr_value)
++			flags[0] |= AF_SIZE_OR_WEIGHT_LIMIT;
++		level=5;
++	}
++	if (! strcmp(k,"maxweight")) {
++		if (strstr(v, "kg")) {
++			vehicle_weight_attr_value = atoi(v); // target dimension is [kg]
++		} else {
++			vehicle_weight_attr_value = (int)floor(atof(v) * 1000);
++		}
++		if (vehicle_weight_attr_value)
++			flags[0] |= AF_SIZE_OR_WEIGHT_LIMIT;
++		level=5;
++	}
++	if (! strcmp(k,"maxaxleload")) {
++		if (strstr(v, "kg")) {
++			vehicle_axle_weight_attr_value = atoi(v); // target dimension is [kg]
++		} else {
++			vehicle_axle_weight_attr_value = (int)floor(atof(v) * 1000);
++		}
++		if (vehicle_axle_weight_attr_value)
++			flags[0] |= AF_SIZE_OR_WEIGHT_LIMIT;
++		level=5;
++	}
+ 	if (! strcmp(k,"toll")) {
+ 		if (!strcmp(v,"1")) {
+ 			flags[0] |= AF_TOLL;
+ 		}
+ 	}
+ 	if (! strcmp(k,"access")) {
+-		if (strcmp(v,"destination")) 
+-			flagsa[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_HORSE|AF_BIKE|AF_PEDESTRIAN;
+-		else
+-			flags[0] |= AF_THROUGH_TRAFFIC_LIMIT;
++		flagsa[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_HORSE|AF_BIKE|AF_PEDESTRIAN;
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"vehicle")) {
+-		flags[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_BIKE;
++		flagsv[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_BIKE;
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"motor_vehicle")) {
+-		flags[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED;
++		flagsmv[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED;
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"bicycle")) {
+@@ -1074,6 +1141,10 @@
+ 		flags[access_value(v)] |= AF_HIGH_OCCUPANCY_CAR;
+ 		level=5;
+ 	}
++	if (! strcmp(k,"psv")) {
++		flags[access_value(v)] |= AF_PUBLIC_BUS|AF_TAXI;
++		level=5;
++	}
+ 	if (! strcmp(k,"bus")) {
+ 		flags[access_value(v)] |= AF_PUBLIC_BUS;
+ 		level=5;
+@@ -1479,9 +1550,18 @@
+ 	item.type=type_street_unkn;
+ 	debug_attr_buffer[0]='\0';
+ 	maxspeed_attr_value=0;
++	vehicle_width_attr_value=0;
++	vehicle_length_attr_value=0;
++	vehicle_height_attr_value=0;
++	vehicle_weight_attr_value=0;
++	vehicle_axle_weight_attr_value=0;
+ 	flags_attr_value = 0;
++	through_traffic_flags_attr_value = 0;
+ 	memset(flags, 0, sizeof(flags));
+ 	memset(flagsa, 0, sizeof(flagsa));
++	memset(flagsv, 0, sizeof(flagsv));
++	memset(flagsmv, 0, sizeof(flagsmv));
++	memset(flagspsv, 0, sizeof(flagspsv));
+ 	debug_attr_buffer[0]='\0';
+ 	osmid_attr_value=id;
+ 	if (wayid < wayid_last && !way_hash) {
+@@ -1715,9 +1795,35 @@
+ 		nodes_ref_item_bin(item_bin);
+ 		def_flags=item_get_default_flags(types[i]);
+ 		if (def_flags) {
+-			flags_attr_value=((*def_flags & ~flagsa[2]) | flags[0] | flags[1] | flagsa[1]) & ~flags[2];
++			/*
++			 * Evaluation of collected tags:
++			 * Tags of a subset dominate enclosing groups.
++			 * e.g. 'bicycle=...' overrules 'vehicle=...'
++			 *	'motor_vehicle=...' overrules 'vehicle=...'
++			 *	'vehicle=...' overrules 'access=...'
++			 * Allowing dominates forbidding if a tag is used twice.
++			 * e.g. 'motor_vehicle=permissive' and 'motor_vehicle=agricultural'
++			 *	-> results in permission
++			 */
++			flags_attr_value=(((((((((
++						*def_flags & ~flagsa[2] ) | flagsa[1]  | flagsa[3]  )
++							   & ~flagsv[2]	) | flagsv[1]  | flagsv[3]  )
++							   & ~flagsmv[2]) | flagsmv[1] | flagsmv[3] )
++							   & ~flagspsv[2])| flagspsv[1]| flagspsv[3])
++							   & ~flags[2]	) | flags[1]  | flags[3] | flags[0];
++			/*
++			 * Road users allowed by a '=yes' have to get removed the through traffic flag.
++			 */
++			through_traffic_flags_attr_value=(((((((((
++								  flagsa[3]  )& ~flagsa[1]  )
++								| flagsv[3]  )& ~flagsv[1]  )
++								| flagsmv[3] )& ~flagsmv[1] )
++								| flagspsv[3])& ~flagspsv[1])
++								| flags[3]   )& ~flags[1];
+ 			if (flags_attr_value != *def_flags)
+ 				add_flags=1;
++			if (through_traffic_flags_attr_value)
++				add_flags=1;
+ 		}
+ 		item_bin_add_attr_string(item_bin, def_flags ? attr_street_name : attr_label, attr_strings[attr_string_label]);
+ 		item_bin_add_attr_string(item_bin, attr_district_name, attr_strings[attr_string_district_name]);
+@@ -1729,6 +1835,18 @@
+ 			item_bin_add_attr_int(item_bin, attr_flags, flags_attr_value);
+ 		if (maxspeed_attr_value)
+ 			item_bin_add_attr_int(item_bin, attr_maxspeed, maxspeed_attr_value);
++		if (vehicle_width_attr_value)
++			item_bin_add_attr_int(item_bin, attr_vehicle_width, vehicle_width_attr_value);
++		if (vehicle_length_attr_value)
++			item_bin_add_attr_int(item_bin, attr_vehicle_length, vehicle_length_attr_value);
++		if (vehicle_height_attr_value)
++			item_bin_add_attr_int(item_bin, attr_vehicle_height, vehicle_height_attr_value);
++		if (vehicle_weight_attr_value)
++			item_bin_add_attr_int(item_bin, attr_vehicle_weight, vehicle_weight_attr_value);
++		if (vehicle_axle_weight_attr_value)
++			item_bin_add_attr_int(item_bin, attr_vehicle_axle_weight, vehicle_axle_weight_attr_value);
++		if (add_flags && through_traffic_flags_attr_value)
++			item_bin_add_attr_int(item_bin, attr_through_traffic_flags, through_traffic_flags_attr_value);
+ 		if(i>0)
+ 			item_bin_add_attr_int(item_bin, attr_duplicate, 1);
+ 		item_bin_write(item_bin,osm->ways);
+Index: route.c
+===================================================================
+--- route.c	(Revision 5715)
++++ route.c	(Arbeitskopie)
+@@ -2195,6 +2195,11 @@
+ 			else
+ 				data.size_weight.axle_weight=-1;
+ 		}
++		if (data.flags & AF_THROUGH_TRAFFIC_LIMIT) {
++			if (item_attr_get(item, attr_through_traffic_flags, &attr))
++				if (!(profile->flags & attr.u.num))			// If the through_traffic_flags do not meet the current vehicle,
++					data.flags &= ~AF_THROUGH_TRAFFIC_LIMIT;	// unset AF_THROUGH_TRAFFIC_LIMIT.
++		}
+ 
+ 		s_pnt=route_graph_add_point(this,&l);
+ 		if (!segmented) {

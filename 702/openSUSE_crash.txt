@@ -1,0 +1,298 @@
+number6@OpenSUSE:~/Desktop/Navit/testing/navit> ./navit 
+Running from source directory
+map_rect_new_textfile unable to open textfile /home/number6/Desktop/Navit/testing/navit/bookmark.txt
+navit:vehicle_new:invalid type 'gpsd'
+navit:convert_to_attrs:failed to create attribute 'weight' with value '36287'
+navit:convert_to_attrs:failed to create attribute 'axle_weight' with value '15422'
+map_rect_new_textfile unable to open textfile /home/number6/Desktop/Navit/testing/navit/destination.txt
+map_rect_new_textfile unable to open textfile /home/number6/Desktop/Navit/testing/navit/bookmark.txt
+navit:main_real:Using '/home/number6/Desktop/Navit/testing/navit/navit.xml'
+GNU gdb (GDB) SUSE (7.1-3.12)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i586-suse-linux".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/navit...done.
+Attaching to program: /home/number6/Desktop/Navit/testing/navit/navit, process 29089
+Reading symbols from /usr/lib/libgthread-2.0.so.0...Missing separate debuginfo for /usr/lib/libgthread-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=c3ddfb692c943f7b8f0cdb701a519cd58021cb4b"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgthread-2.0.so.0
+Reading symbols from /usr/lib/libgmodule-2.0.so.0...Missing separate debuginfo for /usr/lib/libgmodule-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=e6c64dce9703ab5905ca27a3cad01e87c052b451"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgmodule-2.0.so.0
+Reading symbols from /lib/librt.so.1...Missing separate debuginfo for /lib/librt.so.1
+Try: zypper install -C "debuginfo(build-id)=bbf8c6d2b93765386aea68bdc7705f0ed559fa4d"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/librt.so.1
+Reading symbols from /usr/lib/libglib-2.0.so.0...Missing separate debuginfo for /usr/lib/libglib-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=dd45e2c3d23118a2150728855c8182a9d3a2089a"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libglib-2.0.so.0
+Reading symbols from /lib/libz.so.1...Missing separate debuginfo for /lib/libz.so.1
+Try: zypper install -C "debuginfo(build-id)=afddd839a6c18dd308b04b5289c56cc3abd1384f"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libz.so.1
+Reading symbols from /lib/libcrypto.so.1.0.0...Missing separate debuginfo for /lib/libcrypto.so.1.0.0
+Try: zypper install -C "debuginfo(build-id)=ba7768cfd30077c4f63cdc556c9170cc2131d40a"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libcrypto.so.1.0.0
+Reading symbols from /lib/libm.so.6...Missing separate debuginfo for /lib/libm.so.6
+Try: zypper install -C "debuginfo(build-id)=cea8cd6cde71d5c31abbfd61e716cf37338e92f3"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libm.so.6
+Reading symbols from /lib/libpthread.so.0...Missing separate debuginfo for /lib/libpthread.so.0
+Try: zypper install -C "debuginfo(build-id)=9f6e60de92fe5ba3711a0b7188a194d4a3bf790c"
+(no debugging symbols found)...done.
+[Thread debugging using libthread_db enabled]
+Loaded symbols for /lib/libpthread.so.0
+Reading symbols from /lib/libc.so.6...Missing separate debuginfo for /lib/libc.so.6
+Try: zypper install -C "debuginfo(build-id)=694c111567b7c83a6f1b97bb28f6687dbd0d3057"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libc.so.6
+Reading symbols from /lib/libdl.so.2...Missing separate debuginfo for /lib/libdl.so.2
+Try: zypper install -C "debuginfo(build-id)=580696b460256b20961976ebf3b100e5a4c03c10"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libdl.so.2
+Reading symbols from /lib/ld-linux.so.2...Missing separate debuginfo for /lib/ld-linux.so.2
+Try: zypper install -C "debuginfo(build-id)=fbaee3f5e15417f014dc59b0561eb7192ff04c5c"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/ld-linux.so.2
+Reading symbols from /lib/libpcre.so.0...Missing separate debuginfo for /lib/libpcre.so.0
+Try: zypper install -C "debuginfo(build-id)=0b87037442a3442aa20708aeda1f7381cdff6cb2"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libpcre.so.0
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/map/textfile/.libs/libmap_textfile.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/map/textfile/.libs/libmap_textfile.so
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/graphics/gtk_drawing_area/.libs/libgraphics_gtk_drawing_area.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/graphics/gtk_drawing_area/.libs/libgraphics_gtk_drawing_area.so
+Reading symbols from /usr/lib/libgtk-x11-2.0.so.0...Missing separate debuginfo for /usr/lib/libgtk-x11-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=f4082b51d33b0780d2cc697146be51f9a41c7c7b"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib/libgdk-x11-2.0.so.0...Missing separate debuginfo for /usr/lib/libgdk-x11-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=97201a3a361e066082d467c8054eb9e21d87603f"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib/libatk-1.0.so.0...Missing separate debuginfo for /usr/lib/libatk-1.0.so.0
+Try: zypper install -C "debuginfo(build-id)=71031a5856ad3842a67ad9d475007e777a85ac4e"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libatk-1.0.so.0
+Reading symbols from /usr/lib/libpangoft2-1.0.so.0...Missing separate debuginfo for /usr/lib/libpangoft2-1.0.so.0
+Try: zypper install -C "debuginfo(build-id)=804bc3c9a4b3df597de7678c4fdf058b0abb887d"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib/libgdk_pixbuf-2.0.so.0...Missing separate debuginfo for /usr/lib/libgdk_pixbuf-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=00eb705008273bd3919054066133a3c7691591f7"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib/libgio-2.0.so.0...Missing separate debuginfo for /usr/lib/libgio-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=f3cc6694551a3869730014483872e63032ad3dd4"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgio-2.0.so.0
+Reading symbols from /usr/lib/libpangocairo-1.0.so.0...Missing separate debuginfo for /usr/lib/libpangocairo-1.0.so.0
+Try: zypper install -C "debuginfo(build-id)=7e4773afc590bc259ad79c02a5efb3bba731bc70"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib/libcairo.so.2...Missing separate debuginfo for /usr/lib/libcairo.so.2
+Try: zypper install -C "debuginfo(build-id)=bdc295229d9c356b2ec2bdf5f8e9ca7c08937290"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libcairo.so.2
+Reading symbols from /usr/lib/libpango-1.0.so.0...Missing separate debuginfo for /usr/lib/libpango-1.0.so.0
+Try: zypper install -C "debuginfo(build-id)=b63db38d40488c92e066181d413d68709ed25400"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpango-1.0.so.0
+Reading symbols from /usr/lib/libfreetype.so.6...Missing separate debuginfo for /usr/lib/libfreetype.so.6
+Try: zypper install -C "debuginfo(build-id)=f7854380b1be9f69f5016405cd870d477113c6be"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libfreetype.so.6
+Reading symbols from /usr/lib/libfontconfig.so.1...Missing separate debuginfo for /usr/lib/libfontconfig.so.1
+Try: zypper install -C "debuginfo(build-id)=0c83d3120f928034914aa7dcac5fa432ba81c196"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libfontconfig.so.1
+Reading symbols from /usr/lib/libgobject-2.0.so.0...Missing separate debuginfo for /usr/lib/libgobject-2.0.so.0
+Try: zypper install -C "debuginfo(build-id)=6edcc702edc027ed48d6b1b81fbb76d21881df9b"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgobject-2.0.so.0
+Reading symbols from /usr/lib/libX11.so.6...Missing separate debuginfo for /usr/lib/libX11.so.6
+Try: zypper install -C "debuginfo(build-id)=bb9bb703b500ea148087c02d365cedb22b9a27a1"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libX11.so.6
+Reading symbols from /usr/lib/libXfixes.so.3...Missing separate debuginfo for /usr/lib/libXfixes.so.3
+Try: zypper install -C "debuginfo(build-id)=345d2a249a37ee59270a41fb32c6f772fc89fc62"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXfixes.so.3
+Reading symbols from /usr/lib/libXext.so.6...Missing separate debuginfo for /usr/lib/libXext.so.6
+Try: zypper install -C "debuginfo(build-id)=293f71fe0c50f60d8d2f84df1a669825d6919ee1"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXext.so.6
+Reading symbols from /usr/lib/libXrender.so.1...Missing separate debuginfo for /usr/lib/libXrender.so.1
+Try: zypper install -C "debuginfo(build-id)=8abd5577d0fde332613057561817346201d1197b"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXrender.so.1
+Reading symbols from /usr/lib/libXinerama.so.1...Missing separate debuginfo for /usr/lib/libXinerama.so.1
+Try: zypper install -C "debuginfo(build-id)=f9c472c944ed0600187dd40c6df546b2f04bfac3"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXinerama.so.1
+Reading symbols from /usr/lib/libXi.so.6...Missing separate debuginfo for /usr/lib/libXi.so.6
+Try: zypper install -C "debuginfo(build-id)=108f13cec77b597eeb15cb7ff1e2192e67280e9e"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXi.so.6
+Reading symbols from /usr/lib/libXrandr.so.2...Missing separate debuginfo for /usr/lib/libXrandr.so.2
+Try: zypper install -C "debuginfo(build-id)=0393320ba1e27f0aeaf78bd67f591e3eb2ac43ab"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXrandr.so.2
+Reading symbols from /usr/lib/libXcursor.so.1...Missing separate debuginfo for /usr/lib/libXcursor.so.1
+Try: zypper install -C "debuginfo(build-id)=8abd0ec9814854d95aea2f7a3a40b1cc4e2a8361"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXcursor.so.1
+Reading symbols from /usr/lib/libXcomposite.so.1...Missing separate debuginfo for /usr/lib/libXcomposite.so.1
+Try: zypper install -C "debuginfo(build-id)=08c0a303de62bc8ed3ea419e6629f7294f4c0c12"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXcomposite.so.1
+Reading symbols from /usr/lib/libXdamage.so.1...Missing separate debuginfo for /usr/lib/libXdamage.so.1
+Try: zypper install -C "debuginfo(build-id)=16136c63a44cb75069f67675ad4596a28993a2bc"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXdamage.so.1
+Reading symbols from /lib/libresolv.so.2...Missing separate debuginfo for /lib/libresolv.so.2
+Try: zypper install -C "debuginfo(build-id)=e31b0c6ef67cd17db53a672233c2dea4fb8a068d"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libresolv.so.2
+Reading symbols from /lib/libselinux.so.1...Missing separate debuginfo for /lib/libselinux.so.1
+Try: zypper install -C "debuginfo(build-id)=f5d83fe790e94bc334548f9ce22637dcd758b0fe"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libselinux.so.1
+Reading symbols from /usr/lib/libpixman-1.so.0...Missing separate debuginfo for /usr/lib/libpixman-1.so.0
+Try: zypper install -C "debuginfo(build-id)=ff54a34a853630d29bdb73141549971197727d37"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpixman-1.so.0
+Reading symbols from /usr/lib/libpng14.so.14...Missing separate debuginfo for /usr/lib/libpng14.so.14
+Try: zypper install -C "debuginfo(build-id)=f933e11c95c69ff0be82aa26a3a3de5b779bac15"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpng14.so.14
+Reading symbols from /usr/lib/libxcb-render-util.so.0...Missing separate debuginfo for /usr/lib/libxcb-render-util.so.0
+Try: zypper install -C "debuginfo(build-id)=f54489d730cf7e0edb082bac7de445ef89f44302"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb-render-util.so.0
+Reading symbols from /usr/lib/libxcb-render.so.0...Missing separate debuginfo for /usr/lib/libxcb-render.so.0
+Try: zypper install -C "debuginfo(build-id)=5b29982fba2b1dc958dc6d987ad7656fcb6dd88e"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb-render.so.0
+Reading symbols from /usr/lib/libxcb.so.1...Missing separate debuginfo for /usr/lib/libxcb.so.1
+Try: zypper install -C "debuginfo(build-id)=814f3ffdd03ecfdc341895f6384b93457dae6ac0"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb.so.1
+Reading symbols from /lib/libexpat.so.1...Missing separate debuginfo for /lib/libexpat.so.1
+Try: zypper install -C "debuginfo(build-id)=1b6ee46573a022eace0c3655f871a47cfd21869f"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libexpat.so.1
+Reading symbols from /usr/lib/libXau.so.6...Missing separate debuginfo for /usr/lib/libXau.so.6
+Try: zypper install -C "debuginfo(build-id)=46832b565302db261f4a28c6bd62adae502976b0"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXau.so.6
+Reading symbols from /usr/lib/gtk-2.0/2.10.0/engines/libclearlooks.so...Missing separate debuginfo for /usr/lib/gtk-2.0/2.10.0/engines/libclearlooks.so
+Try: zypper install -C "debuginfo(build-id)=ad5a1ec476e3376621ae355057ec4ae1f1e4d3bc"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/2.10.0/engines/libclearlooks.so
+Reading symbols from /usr/lib/gtk-2.0/2.10.0/engines/libpixmap.so...Missing separate debuginfo for /usr/lib/gtk-2.0/2.10.0/engines/libpixmap.so
+Try: zypper install -C "debuginfo(build-id)=8f05cc1144841c321c6896b67ae74f07557d7160"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/2.10.0/engines/libpixmap.so
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/font/freetype/.libs/libfont_freetype.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/font/freetype/.libs/libfont_freetype.so
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/gui/gtk/.libs/libgui_gtk.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/gui/gtk/.libs/libgui_gtk.so
+Reading symbols from /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so...Missing separate debuginfo for /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
+Try: zypper install -C "debuginfo(build-id)=eeb58f9da3a67f427d8d4a26dc2f982296251011"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
+Reading symbols from /usr/lib/pango/1.6.0/modules/pango-basic-fc.so...Missing separate debuginfo for /usr/lib/pango/1.6.0/modules/pango-basic-fc.so
+Try: zypper install -C "debuginfo(build-id)=238d020b72f21d92bcdb464ca82decc25d3df069"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/pango/1.6.0/modules/pango-basic-fc.so
+Reading symbols from /usr/lib/libstdc++.so.6...Missing separate debuginfo for /usr/lib/libstdc++.so.6
+Try: zypper install -C "debuginfo(build-id)=ce93a3739a6cb48569820e7f3af0bb8b0d05a76c"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libstdc++.so.6
+Reading symbols from /lib/libgcc_s.so.1...Missing separate debuginfo for /lib/libgcc_s.so.1
+Try: zypper install -C "debuginfo(build-id)=ea12a9f70518dd6b807755150f1d2c6ba8550fe1"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libgcc_s.so.1
+Reading symbols from /usr/lib/gio/modules/libgioremote-volume-monitor.so...Missing separate debuginfo for /usr/lib/gio/modules/libgioremote-volume-monitor.so
+Try: zypper install -C "debuginfo(build-id)=9113c553a83563b5e4fc3ceec1a462cd1e7abed7"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gio/modules/libgioremote-volume-monitor.so
+Reading symbols from /usr/lib/libgvfscommon.so.0...Missing separate debuginfo for /usr/lib/libgvfscommon.so.0
+Try: zypper install -C "debuginfo(build-id)=c5bc3a3a78b66b3c0898f89dcab97f3a105fd43b"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgvfscommon.so.0
+Reading symbols from /lib/libdbus-1.so.3...Missing separate debuginfo for /lib/libdbus-1.so.3
+Try: zypper install -C "debuginfo(build-id)=3b9b901503e50f57950afee9607afda36b517c2b"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libdbus-1.so.3
+Reading symbols from /usr/lib/gio/modules/libgvfsdbus.so...Missing separate debuginfo for /usr/lib/gio/modules/libgvfsdbus.so
+Try: zypper install -C "debuginfo(build-id)=01c2856c9167a9af39fa592498489372e98346f6"
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gio/modules/libgvfsdbus.so
+Reading symbols from /lib/libudev.so.0...Missing separate debuginfo for /lib/libudev.so.0
+Try: zypper install -C "debuginfo(build-id)=3b71f04df8520383bdba5330db6b0e71bcbedcae"
+(no debugging symbols found)...done.
+Loaded symbols for /lib/libudev.so.0
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/osd/core/.libs/libosd_core.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/osd/core/.libs/libosd_core.so
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/speech/cmdline/.libs/libspeech_cmdline.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/speech/cmdline/.libs/libspeech_cmdline.so
+Reading symbols from /home/number6/Desktop/Navit/testing/navit/map/binfile/.libs/libmap_binfile.so...done.
+Loaded symbols for /home/number6/Desktop/Navit/testing/navit/map/binfile/.libs/libmap_binfile.so
+0xffffe422 in __kernel_vsyscall ()
+#0  0xffffe422 in __kernel_vsyscall ()
+#1  0xb74178c3 in __waitpid_nocancel () from /lib/libc.so.6
+#2  0xb73b4963 in do_system () from /lib/libc.so.6
+#3  0xb74f557b in system () from /lib/libpthread.so.0
+#4  0x0805ece8 in sigsegv (sig=11) at debug.c:78
+#5  <signal handler called>
+#6  0x0000015e in ?? ()
+#7  0x0805779d in vehicle_get_attr (this_=0x81f9590, type=attr_position_coord_geo, attr=0xbf9646a8, iter=0x0)
+    at vehicle.c:186
+#8  0xaa7c7d95 in osd_speed_cam_draw (this_=0x81f9590, navit=0x80a3020, v=0x0) at osd_core.c:1486
+#9  0xaa7c8458 in osd_speed_cam_init (this=0x81f9590, nav=0x80a3020) at osd_core.c:1576
+#10 0x0805cede in callback_call (cb=0x80a2540, pcount=1, p=0xbf9647d0) at callback.c:178
+#11 0x0805d088 in callback_list_call_attr (l=0x80a3160, type=attr_graphics_ready, pcount=1, p=0xbf9647d0) at callback.c:219
+#12 0x0805d0ff in callback_list_call_attr_args (cbl=0x80a3160, type=attr_graphics_ready, count=1) at callback.c:235
+#13 0x0806be74 in navit_handle_resize (this_=0x80a3020, w=792, h=471) at navit.c:287
+#14 0x0806bed5 in navit_resize (data=0x80a3020, w=792, h=471) at navit.c:297
+#15 0x0805cef9 in callback_call (cb=0x80ddd98, pcount=2, p=0xbf964940) at callback.c:175
+#16 0x0805d088 in callback_list_call_attr (l=0x80d2620, type=attr_resize, pcount=2, p=0xbf964940) at callback.c:219
+#17 0x0805d0ff in callback_list_call_attr_args (cbl=0x80d2620, type=attr_resize, count=2) at callback.c:235
+#18 0xb77dfc33 in configure (widget=0x80cf858, event=0x0, user_data=0x80b3878) at graphics_gtk_drawing_area.c:653
+#19 0xb77e1797 in expose (widget=0x80cf858, event=0xbf964de8, user_data=0x80b3878) at graphics_gtk_drawing_area.c:664
+#20 0xb6e6fb04 in ?? () from /usr/lib/libgtk-x11-2.0.so.0
+#21 0xb697df42 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#22 0xb698d7cc in ?? () from /usr/lib/libgobject-2.0.so.0
+#23 0xb69967ba in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#24 0xb6996b57 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#25 0xb6fa2596 in ?? () from /usr/lib/libgtk-x11-2.0.so.0
+#26 0xb6e6e351 in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+#27 0xb6cc448b in ?? () from /usr/lib/libgdk-x11-2.0.so.0
+#28 0xb6cc4437 in ?? () from /usr/lib/libgdk-x11-2.0.so.0
+#29 0xb6cf6854 in ?? () from /usr/lib/libgdk-x11-2.0.so.0
+#30 0xb6cbfcdb in ?? () from /usr/lib/libgdk-x11-2.0.so.0
+#31 0xb6cc1ab7 in gdk_window_process_all_updates () from /usr/lib/libgdk-x11-2.0.so.0
+#32 0xb6de377f in ?? () from /usr/lib/libgtk-x11-2.0.so.0
+#33 0xb6c9f198 in ?? () from /usr/lib/libgdk-x11-2.0.so.0
+#34 0xb771bd40 in ?? () from /usr/lib/libglib-2.0.so.0
+#35 0xb771fb49 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+---Type <return> to continue, or q <return> to quit---
+#36 0xb7720350 in ?? () from /usr/lib/libglib-2.0.so.0
+#37 0xb7720a0f in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#38 0x0805a766 in event_glib_main_loop_run () at event_glib.c:34
+#39 0x0805fb2e in event_main_loop_run () at event.c:38
+#40 0x08053854 in main_real (argc=1, argv=0xbf965304) at start_real.c:180
+#41 0x080535ab in main (argc=1, argv=0xbf965304) at start.c:25
+Detaching from program: /home/number6/Desktop/Navit/testing/navit/navit, process 29089
+

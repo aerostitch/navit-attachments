@@ -1,0 +1,37 @@
+1133,1134d1132
+< 	dbg(0, "Function: %s", function);
+< 
+1172,1173c1170
+< 	else if(!strcmp(function, "setting_RoutingAlgorithm"))
+< 		gui_internal_cmd2_setting_RoutingAlgorithm(this, function, in, out, valid);
+---
+> 
+1208d1204
+< 	{"setting_RoutingAlgorithm",command_cast(gui_internal_cmd2)},
+1222,1247d1217
+< void
+< gui_internal_cmd2_setting_RoutingAlgorithm(struct gui_priv *this, char *function, struct attr **in, struct attr ***out, int *valid)
+< {
+< 	if(in)
+< 	{
+< 		char *str;
+< 		str=attr_to_text(*in, NULL, 0);
+< 
+< 		if(!strcmp(str, "st"))
+< 		{
+< 			use_standard_routing();
+< 			dbg(0, "Using Navit standard Dijkstra");
+< 		}
+< 		if(!strcmp(str, "1T"))
+< 		{
+< 			use_bidirectional_routing_1Thread();
+< 			dbg(0, "Using Bidirectional Dijkstra with 1 Thread");
+< 		}
+< 		if(!strcmp(str, "2T"))
+< 		{
+< 			use_bidirectional_routing_2Threads();
+< 			dbg(0, "Using Bidirectional Dijkstra with 2 Threads");
+< 		}
+< 	}
+< 	gui_internal_prune_menu(this, NULL);
+< }

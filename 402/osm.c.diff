@@ -1,0 +1,20 @@
+--- osm.c	2010-12-26 16:45:11.136209621 +0000
++++ osm.c	2010-12-26 15:38:58.340135286 +0000
+@@ -534,12 +534,12 @@
+ 	"w	highway=pedestrian,area=1		poly_pedestrian\n"
+ 	"w	highway=plaza				poly_plaza\n"
+ 	"w	highway=motorway			highway_land\n"
+-	"w	highway=motorway,rural=0		highway_city\n"
++	"w	highway=motorway,rural=0		highway_land\n"
+ 	"w	highway=motorway_link			ramp\n"
+-	"w	highway=trunk				street_4_land\n"
+-	"w	highway=trunk,name=*,rural=1		street_4_land\n"
+-	"w	highway=trunk,name=*			street_4_city\n"
+-	"w	highway=trunk,rural=0			street_4_city\n"
++	"w	highway=trunk				highway_city\n"
++	"w	highway=trunk,name=*,rural=1		highway_city\n"
++	"w	highway=trunk,name=*			highway_city\n"
++	"w	highway=trunk,rural=0			highway_city\n"
+ 	"w	highway=trunk_link			ramp\n"
+ 	"w	highway=primary				street_4_land\n"
+ 	"w	highway=primary,name=*,rural=1		street_4_land\n"

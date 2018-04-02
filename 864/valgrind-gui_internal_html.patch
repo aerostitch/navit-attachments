@@ -1,0 +1,42 @@
+Description: Fix a read error reported by valgrind during the gui_internal
+ html command processing.
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/864
+Last-Update: 2011-05-24
+Index: navit/navit/command.c
+===================================================================
+--- navit.orig/navit/command.c	2011-05-24 23:39:17.000000000 +0200
++++ navit/navit/command.c	2011-05-24 23:47:10.000000000 +0200
+@@ -851,22 +851,28 @@
+ void
+ command_evaluate(struct attr *attr, const char *expr)
+ {
++	// Once the eval has started we can't rely anymore on the content of
++	// expr which may be freed when the calling widget is destroyed by a
++	// subsequent command call. Hence the g_strdup.
++	const char *expr_dup;
+ 	struct result res;
+ 	struct context ctx;
+ 	memset(&res, 0, sizeof(res));
+ 	memset(&ctx, 0, sizeof(ctx));
+ 	ctx.attr=attr;
+ 	ctx.error=0;
+-	ctx.expr=expr;
++	ctx.expr=expr_dup=g_strdup(expr);
+ 	for (;;) {
+ 		eval_comma(&ctx,&res);
+ 		if (ctx.error)
+-			return;
++			break;
+ 		resolve(&ctx, &res, NULL);
+ 		if (ctx.error)
+-			return;
+-		if (!get_op(&ctx,0,";",NULL)) return;
++			break;
++		if (!get_op(&ctx,0,";",NULL))
++			break;
+ 	}
++	g_free(expr_dup);
+ }
+ 
+ #if 0

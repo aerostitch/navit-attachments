@@ -1,0 +1,118 @@
+diff --git a/autogen.sh b/autogen.sh
+index de55bc8..e1a5447 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -1,5 +1,5 @@
+ #!/bin/sh
+-if [ `uname` == Darwin ]; then
++if [ `uname` = Darwin ]; then
+ 	LIBTOOL=glibtool
+ else
+ 	LIBTOOL=libtool
+diff --git a/configure.in b/configure.in
+index beb4278..2a70c8f 100644
+--- a/configure.in
++++ b/configure.in
+@@ -39,6 +39,7 @@ binding_dbus=yes; binding_dbus_reason=default
+ binding_python=yes; binding_python_reason=default
+ font_freetype=yes; font_freetype_reason=default
+ fontconfig=yes; fontconfig_reason=default
++fribidi=yes; fribidi_reason=default
+ gui_gtk=no; gui_gtk_reason=default
+ gui_win32=no; gui_win32_reason=default
+ gui_internal=yes; gui_internal_reason=default
+@@ -226,6 +227,21 @@ else
+ 		[plugins="no"; plugins_reason="package gmodule and dlopen missing"]
+ 	)
+ fi
++
++# fribidi
++AC_ARG_ENABLE(fribidi, [  --disable-fribidi      dont build with fribidi], fribidi=$enableval, fribidi=yes)
++if test x"${fribidi}" = "xyes"; then
++	AC_CHECK_LIB(fribidi, fribidi_log2vis,
++		     [FRIBIDI_LIBS=AC_DEFINE(USE_FRIBIDI, 1, [Define to 1 if you want to use fribidi])],
++		     [fribidi="no"; fribidi_reason="fribidi library is missing"]
++	)
++    if test x"${fribidi}" = "xyes"; then
++		AC_PATH_PROG([FRIBIDICONFIG], [fribidi-config], [])
++        FRIBIDI_CFLAGS="`${FRIBIDICONFIG} --cflags`"
++        FRIBIDI_LIBS="`${FRIBIDICONFIG} --libs`"
++    fi
++fi
++
+ # plugins
+ AC_ARG_ENABLE(plugins, 	[  --disable-plugins          disable plugins], [ plugins=$enableval;plugin_reason="configure parameter" ])
+ if test "x${plugins}" = "xyes"; then
+@@ -501,7 +517,7 @@ AC_SUBST(PYTHON_LIBS)
+ AM_CONDITIONAL(BINDING_PYTHON, test "x${binding_python}" = "xyes")
+ 
+ # dbus
+-AC_ARG_ENABLE(binding-dbus,   [  --disable-binding-dbus               don't create binding dbus], binding_dbus=$enableval;binding_dbus_reason="configure parameter")
++AC_ARG_ENABLE(binding-dbus,   [  --disable-binding-dbus               don't create binding dbus], binding_dbus=$enableval;binding_dbus_reason="configure parameter") #'
+ if test "x${binding_dbus}" = "xyes" ; then
+ 	PKG_CHECK_MODULES(DBUS, [dbus-glib-1], ,binding_dbus=no)
+ fi
+@@ -759,8 +775,8 @@ then
+ fi
+ AC_SUBST(IPHONE_CFLAGS)
+ AC_SUBST(IPHONE_LIBS)
+-NAVIT_CFLAGS="$NAVIT_CFLAGS $GLIB_CFLAGS $GMODULE_CFLAGS"
+-NAVIT_LIBS="$NAVIT_LIBS $GLIB_LIBS $GMODULE_LIBS $LIBINTL"
++NAVIT_CFLAGS="$NAVIT_CFLAGS $GLIB_CFLAGS $GMODULE_CFLAGS $FRIBIDI_CFLAGS"
++NAVIT_LIBS="$NAVIT_LIBS $GLIB_LIBS $GMODULE_LIBS $LIBINTL $FRIBIDI_LIBS"
+ AC_SUBST(NAVIT_CFLAGS)
+ AC_SUBST(NAVIT_LIBS)
+ AC_SUBST(WORDEXP_LIBS)
+@@ -883,6 +899,7 @@ echo "Samplemap:           $samplemap ($samplemap_reason)"
+ echo "NLS Support:         $enable_nls ($nls_libs)"
+ echo "Font renderers:"
+ echo "  freetype:          $font_freetype ($font_freetype_reason)"
++echo "  fribidi            $fribidi"
+ echo "Graphics types:"
+ echo "  android:  $graphics_android ($graphics_android_reason)"
+ echo "  gtk_drawing_area:  $graphics_gtk_drawing_area ($graphics_gtk_drawing_area_reason)"
+diff --git a/navit/font/freetype/Makefile.am b/navit/font/freetype/Makefile.am
+index e5557fe..6f99c2a 100644
+--- a/navit/font/freetype/Makefile.am
++++ b/navit/font/freetype/Makefile.am
+@@ -6,4 +6,4 @@ else
+   noinst_LTLIBRARIES = libfont_freetype.la
+ endif
+ libfont_freetype_la_SOURCES = font_freetype.c font_freetype.h
+-libfont_freetype_la_LDFLAGS = @FREETYPE2_LIBS@ @FONTCONFIG_LIBS@ -module -avoid-version
++libfont_freetype_la_LDFLAGS = @NAVIT_LIBS@ @FREETYPE2_LIBS@ @FONTCONFIG_LIBS@ -module -avoid-version
+diff --git a/navit/font/freetype/font_freetype.c b/navit/font/freetype/font_freetype.c
+index 313d279..0bf8eb0 100644
+--- a/navit/font/freetype/font_freetype.c
++++ b/navit/font/freetype/font_freetype.c
+@@ -19,6 +19,9 @@
+ #include "color.h"
+ #include "atom.h"
+ #include "font_freetype.h"
++#if USE_FRIBIDI
++#include <fribidi/fribidi.h>
++#endif
+ 
+ #ifndef HAVE_LOOKUP_SCALER
+ #if FREETYPE_MAJOR * 10000 + FREETYPE_MINOR * 100 + FREETYPE_PATCH > 20304
+@@ -192,6 +198,20 @@ font_freetype_text_new(char *text, struct font_freetype_font *font, int dx,
+ #if !USE_CACHING
+ 	FT_Set_Transform(font->face, &matrix, &pen);
+ #endif
++#if USE_FRIBIDI
++    // Need to use fribidi to handle the string properly
++    char visual_text[len*4+1];
++    {
++        FriBidiChar unicode_text[len+1];
++        FriBidiChar visual_unicode_text[len+1];
++        int unicode_len = fribidi_utf8_to_unicode(text, strlen(text), unicode_text);
++        FriBidiCharType base = FRIBIDI_TYPE_LTR;
++        fribidi_boolean fribidi_ret = fribidi_log2vis(unicode_text, unicode_len, &base, visual_unicode_text, NULL, NULL, NULL);
++        // TODO: check return value
++        fribidi_unicode_to_utf8(visual_unicode_text, unicode_len, visual_text);
++        p = visual_text;
++    }
++#endif
+ 
+ 	for (n = 0; n < len; n++) {
+ 

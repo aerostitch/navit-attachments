@@ -1,0 +1,73 @@
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/osd/core/osd_core.c
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/osd/core/osd_core.c	(revision 5224)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/osd/core/osd_core.c	(working copy)
+@@ -81,7 +81,7 @@
+ struct odometer;
+ 
+ int set_std_osd_attr(struct osd_priv_common*opc, struct attr*the_attr);
+-static void osd_odometer_reset(struct osd_priv_common *opc, int force);
++static void osd_odometer_reset(struct osd_priv_common *opc);
+ static void osd_cmd_odometer_reset(struct navit *this, char *function, struct attr **in, struct attr ***out, int *valid);
+ static void osd_odometer_draw(struct osd_priv_common *opc, struct navit *nav, struct vehicle *v);
+ static struct osd_text_item * oti_new(struct osd_text_item * parent);
+@@ -522,10 +522,17 @@
+ {
+ 	if (in && in[0] && ATTR_IS_STRING(in[0]->type) && in[0]->u.str) {
+           GList* list = odometer_list;
++          struct odometer *odm;
+           while(list) {
+-            if(!strcmp(((struct odometer*)((struct osd_priv_common *)(list->data))->data)->name,in[0]->u.str)) {
+-              osd_odometer_reset(list->data,1);
+-	          osd_odometer_draw(list->data,this,NULL);
++            odm = (struct odometer*) ((struct osd_priv_common *) (list->data))->data;
++            if (!strcmp(odm->name, in[0]->u.str)) {
++              double curr_time;
++              struct timeval tv;
++              gettimeofday(&tv, NULL);
++              curr_time = (double) (tv.tv_usec) / 1000000.0 + tv.tv_sec;
++              odm->last_click_time = curr_time;
++              osd_odometer_reset(list->data);
++              osd_odometer_draw(list->data,this,NULL);
+             }
+             list = g_list_next(list);
+           }
+@@ -775,19 +782,16 @@
+ 
+ 
+ static void
+-osd_odometer_reset(struct osd_priv_common *opc, int force)
++osd_odometer_reset(struct osd_priv_common *opc)
+ {
+   struct odometer *this = (struct odometer *)opc->data;
+ 
+-  if(!this->bDisableReset || force) {
+-    this->bActive         = 0;
+-    this->sum_dist        = 0;
+-    this->sum_time        = 0;
+-    this->max_speed       = 0;
+-    this->last_start_time = 0;
+-    this->last_coord.x    = -1;
+-    this->last_coord.y    = -1;
+-  }
++  this->sum_dist        = 0;
++  this->sum_time        = 0;
++  this->max_speed       = 0;
++  this->last_start_time = 0;
++  this->last_coord.x    = -1;
++  this->last_coord.y    = -1;
+ }
+ 
+ static void
+@@ -821,8 +825,9 @@
+ 
+   this->bActive ^= 1;  //toggle active flag
+ 
+-  if (curr_time-double_click_timewin <= this->last_click_time) { //double click handling
+-    osd_odometer_reset(opc,0);
++  if (curr_time-double_click_timewin <= this->last_click_time && !this->bDisableReset) { //double click handling
++      this->bActive = 0;
++      osd_odometer_reset(opc);
+   }
+ 
+   this->last_click_time = curr_time;

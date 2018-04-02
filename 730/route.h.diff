@@ -1,0 +1,13 @@
+*** ../../sdk/navit/navit/route.h	2011-01-15 15:27:29.922573836 +0100
+--- route.h	2011-01-15 13:25:42.682886901 +0100
+***************
+*** 61,66 ****
+--- 61,68 ----
+  	int count;			/**< Number of coordinates this street has */
+  	int flags;
+  	int maxspeed;		/**< Maximum speed allowed on this street. */
++ 	int maxspeed_forward;		/**< Maximum speed allowed on this street. */
++ 	int maxspeed_backward;		/**< Maximum speed allowed on this street. */
+  	struct coord c[0];	/**< Pointer to the coordinates of this street.
+  						 *   DO NOT INSERT FIELDS AFTER THIS. */
+  };

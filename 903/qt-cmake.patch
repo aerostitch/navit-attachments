@@ -1,0 +1,23 @@
+Description: Fix cmake Qt4 detection
+ This detection was broken by the unknown option OPTIONAL.
+Author: Gilles Filippini <pini@debian.org>
+Bug-Debian: http://bugs.debian.org/634522
+Forwarded: http://trac.navit-project.org/ticket/903
+Last-Update: 2011-07-22
+Index: navit/CMakeLists.txt
+===================================================================
+--- navit.orig/CMakeLists.txt	2011-07-22 00:10:29.000000000 +0200
++++ navit/CMakeLists.txt	2011-07-22 00:43:22.000000000 +0200
+@@ -82,7 +82,11 @@
+ SET(QT_USE_QTSVG TRUE)
+ SET(QT_USE_QTXML TRUE)
+ SET(QT_USE_QTDECLARATIVE TRUE)
+-find_package(Qt4 COMPONENTS QtCore QtGui QtXml QtDeclarative QtSvg OPTIONAL)
++if (graphics/qt_qpainter)
++   find_package(Qt4 COMPONENTS QtCore QtGui QtXml QtDeclarative QtSvg REQUIRED)
++else()
++   find_package(Qt4 COMPONENTS QtCore QtGui QtXml QtDeclarative QtSvg)
++endif()
+ #pkg-config based detection
+ find_package(PkgConfig)
+ if(PKG_CONFIG_FOUND)

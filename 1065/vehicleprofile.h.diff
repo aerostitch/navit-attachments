@@ -1,0 +1,12 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/vehicleprofile.h	2012-09-04 20:04:37.391424012 +0200
++++ vehicleprofile.h	2012-09-23 12:54:44.295267000 +0200
+@@ -37,6 +37,9 @@
+ 	int axle_weight;			/**< Axle Weight of the vehicle in kg */
+ 	int dangerous_goods;			/**< Flags of dangerous goods present */
+ 	int through_traffic_penalty;		/**< Penalty when driving on a through traffic limited road */
++/***************************** Rainer ***************************/
++	int manuever_scale;			/**< Zoom Scale while routing during a maneuver */
++/***************************** Rainer ***************************/
+ 	struct attr **attrs;
+ 	GHashTable *roadprofile_hash;
+ };

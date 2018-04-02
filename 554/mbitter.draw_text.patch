@@ -1,0 +1,22 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -970,13 +964,16 @@
+         angle += 360;
+ 
+     SetTextAlign (gr->hMemDC, TA_BASELINE) ;
+-    SetViewportOrgEx (gr->hMemDC, p->x, p->y, NULL) ;
+     font->lf.lfEscapement = font->lf.lfOrientation = ( angle * 10 ) ;
+     DeleteObject (font->hfont) ;
+ 
+     font->hfont = CreateFontIndirect (&font->lf);
+     HFONT hOldFont = SelectObject(gr->hMemDC, font->hfont );
+ 
++    TEXTMETRIC tm;
++    GetTextMetrics(gr->hMemDC, &tm);
++    SetViewportOrgEx (gr->hMemDC, p->x, p->y - tm.tmDescent , NULL) ;
++
+     {
+         wchar_t utf16[1024];
+         const UTF8 *utf8 = (UTF8 *)text;

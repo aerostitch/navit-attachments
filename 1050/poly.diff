@@ -1,0 +1,81 @@
+Index: navit/transform.c
+===================================================================
+--- navit/transform.c	(revision 5149)
++++ navit/transform.c	(working copy)
+@@ -438,12 +438,12 @@
+ 			xc=c1.x;
+ 			yc=c1.y;
+ 		}
+-		if (i != 0 && i != count-1 && mindist) {
++/*		if (i != 0 && i != count-1 && mindist) {
+ 			if (xc > c[k].x-mindist && xc < c[k].x+mindist && yc > c[k].y-mindist && yc < c[k].y+mindist &&
+ 				(c[i+1].x != c[0].x || c[i+1].y != c[0].y))
+ 				continue;
+ 			k=i;
+-		}
++		}*/
+ 		xm=xc;
+ 		ym=yc;
+ //		dbg(2,"0x%x, 0x%x - 0x%x,0x%x contains 0x%x,0x%x\n", t->r.lu.x, t->r.lu.y, t->r.rl.x, t->r.rl.y, c->x, c->y);
+@@ -513,6 +513,17 @@
+ 		}
+ 		xc+=t->offx;
+ 		yc+=t->offy;
++
++		if (i != 0 && i != count-1 && mindist) {
++			/* We expect values of mindist to be within 0..5 pixels. 
++			   That gives difference of about 1 pixel in worst case between abs(dx)+abs(dy) and sqrt(dx*dx+dy*dy).
++			   Should anybody care about that inaccuracy? */
++			if ( (abs(xc - p[k].x) + abs(yc - p[k].y)) < mindist &&
++				(c[i+1].x != c[0].x || c[i+1].y != c[0].y))
++				continue;
++			k=j;
++		}		
++
+ 		p[j].x=xc;
+ 		p[j].y=yc;
+ 		if (width_return) {
+Index: navit/graphics.c
+===================================================================
+--- navit/graphics.c	(revision 5149)
++++ navit/graphics.c	(working copy)
+@@ -1878,7 +1878,7 @@
+ 		graphics_draw_polygon_clipped(gra, gc, pa, count);
+ 		break;
+ 	case element_polyline:
+-		{
++		{	
+ 			gc->meth.gc_set_linewidth(gc->priv, 1);
+ 			if (e->u.polyline.width > 0 && e->u.polyline.dash_num > 0)
+ 				graphics_gc_set_dashes(gc, e->u.polyline.width,
+@@ -2315,7 +2315,7 @@
+ 	if(displaylist->dc.trans!=trans)
+ 		displaylist->dc.trans=transform_dup(trans);
+ 	displaylist->dc.gra=gra;
+-	displaylist->dc.mindist=transform_get_scale(trans)/2;
++	displaylist->dc.mindist=flags&512?15:2;
+ 	// FIXME find a better place to set the background color
+ 	if (l) {
+ 		graphics_gc_set_background(gra->gc[0], &l->color);
+@@ -2652,7 +2652,7 @@
+ 	struct point *pa=g_alloca(sizeof(struct point)*displaylist->dc.maxlen);
+ 	int count;
+ 
+-	count=transform(displaylist->dc.trans, displaylist->dc.pro, di->c, pa, di->count, 1, 0, NULL);
++	count=transform(displaylist->dc.trans, displaylist->dc.pro, di->c, pa, di->count, 0, 0, NULL);
+ 
+ 	if (di->item.type < type_line) {
+ 		return within_dist_point(p, &pa[0], dist);
+Index: navit/navit.c
+===================================================================
+--- navit/navit.c	(revision 5149)
++++ navit/navit.c	(working copy)
+@@ -540,7 +540,7 @@
+ 		graphics_displaylist_move(this_->displaylist, dx, dy);
+ #endif
+ 		graphics_draw_cancel(this_->gra, this_->displaylist);
+-		graphics_displaylist_draw(this_->gra, this_->displaylist, tr, this_->layout_current, this_->graphics_flags);
++		graphics_displaylist_draw(this_->gra, this_->displaylist, tr, this_->layout_current, this_->graphics_flags|512);
+ 		transform_destroy(tr);
+ 		this_->moved=1;
+ 	}

@@ -1,0 +1,299 @@
+-- Building with CMake V2.8.9
+-- The C compiler identification is GNU 4.6.3
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- The CXX compiler identification is GNU 4.6.3
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- LIBDIR variable is not defined. It will be autodetected now.
+-- You can set it manually with -DLIBDIR=<value>
+--    LIB_DIR (highest subdirectory if LIBDIR) is set to 'lib'
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.26") 
+-- checking for module 'glib-2.0'
+--   found glib-2.0, version 2.40.0
+-- Found Glib 
+-- checking for module 'gmodule-2.0'
+--   found gmodule-2.0, version 2.40.0
+-- Found Gmodule 
+-- Found ZLIB: /usr/lib/arm-linux-gnueabihf/libz.so (found version "1.2.7") 
+-- Could NOT find Freetype (missing:  FREETYPE_INCLUDE_DIRS) 
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found.
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found SDL: /usr/lib/arm-linux-gnueabihf/libSDLmain.a;/usr/lib/arm-linux-gnueabihf/libSDL.so;-lpthread  
+-- Could NOT find SDLTTF (missing:  SDLTTF_LIBRARY SDLTTF_INCLUDE_DIR) 
+-- Found SDLIMAGE: /usr/lib/arm-linux-gnueabihf/libSDL_image.so  
+-- Looking for XOpenDisplay in /usr/lib/arm-linux-gnueabihf/libX11.so;/usr/lib/arm-linux-gnueabihf/libXext.so
+-- Looking for XOpenDisplay in /usr/lib/arm-linux-gnueabihf/libX11.so;/usr/lib/arm-linux-gnueabihf/libXext.so - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for connect
+-- Looking for connect - found
+-- Looking for remove
+-- Looking for remove - found
+-- Looking for shmat
+-- Looking for shmat - found
+-- Looking for IceConnectionNumber in ICE
+-- Looking for IceConnectionNumber in ICE - found
+-- Found X11: /usr/lib/arm-linux-gnueabihf/libX11.so
+-- Found OpenGL: /usr/lib/arm-linux-gnueabihf/libGL.so  
+-- Found GLUT: /usr/lib/arm-linux-gnueabihf/libglut.so  
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GTK_INCLUDE_DIR is /usr/include/gtk-2.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GLIBCONFIG_INCLUDE_DIR is /usr/lib/arm-linux-gnueabihf/glib-2.0/include
+-- (DEBUG) GTK2_GLIB_INCLUDE_DIR is /usr/include/glib-2.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GDK_INCLUDE_DIR is /usr/lib/arm-linux-gnueabihf/gtk-2.0/include
+-- (DEBUG) GTK2_GTKGL_INCLUDE_DIR is GTK2_GTKGL_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_PANGO_INCLUDE_DIR is /usr/include/pango-1.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is /usr/include/cairo
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is /usr/include/cairo
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_ATK_INCLUDE_DIR is /usr/include/atk-1.0
+-- (DEBUG) GTK2_GTK_LIBRARY is /usr/lib/arm-linux-gnueabihf/libgtk-x11-2.0.so
+-- (DEBUG) GTK2_GDK_LIBRARY is /usr/lib/arm-linux-gnueabihf/libgdk-x11-2.0.so
+-- (DEBUG) GTK2_GDK_PIXBUF_LIBRARY is /usr/lib/arm-linux-gnueabihf/libgdk_pixbuf-2.0.so
+-- (DEBUG) GTK2_GMODULE_LIBRARY is /usr/lib/arm-linux-gnueabihf/libgmodule-2.0.so
+-- (DEBUG) GTK2_GTHREAD_LIBRARY is /usr/lib/arm-linux-gnueabihf/libgthread-2.0.so
+-- (DEBUG) GTK2_GOBJECT_LIBRARY is /usr/lib/arm-linux-gnueabihf/libgobject-2.0.so
+-- (DEBUG) GTK2_GLIB_LIBRARY is /usr/lib/arm-linux-gnueabihf/libglib-2.0.so
+-- (DEBUG) GTK2_GTKGL_LIBRARY is GTK2_GTKGL_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_PANGO_LIBRARY is /usr/lib/arm-linux-gnueabihf/libpango-1.0.so
+-- (DEBUG) GTK2_PANGO_LIBRARY is /usr/lib/arm-linux-gnueabihf/libpangocairo-1.0.so
+-- (DEBUG) GTK2_ATK_LIBRARY is /usr/lib/arm-linux-gnueabihf/libatk-1.0.so
+-- Found GTK2: /usr/lib/arm-linux-gnueabihf/libgtk-x11-2.0.so;/usr/lib/arm-linux-gnueabihf/libgdk-x11-2.0.so;/usr/lib/arm-linux-gnueabihf/libgdk_pixbuf-2.0.so;/usr/lib/arm-linux-gnueabihf/libgmodule-2.0.so;/usr/lib/arm-linux-gnueabihf/libgthread-2.0.so;/usr/lib/arm-linux-gnueabihf/libgobject-2.0.so;/usr/lib/arm-linux-gnueabihf/libpango-1.0.so;/usr/lib/arm-linux-gnueabihf/libpangocairo-1.0.so;/usr/lib/arm-linux-gnueabihf/libatk-1.0.so
+-- Found Gettext: /usr/bin/msgmerge (found version "0.18.1") 
+-- Found PNG: /usr/lib/arm-linux-gnueabihf/libpng.so (found version "1.2.49") 
+-- checking for module 'dbus-1'
+--   found dbus-1, version 1.6.8
+-- Found DBus 
+-- checking for module 'dbus-glib-1'
+--   found dbus-glib-1, version 0.100.2
+-- Found DBusGLib 
+-- Could NOT find PythonLibs (missing:  PYTHON_INCLUDE_DIRS) 
+-- Found OpenSSL: /usr/lib/arm-linux-gnueabihf/libssl.so;/usr/lib/arm-linux-gnueabihf/libcrypto.so (found version "1.0.1e") 
+-- checking for module 'fontconfig'
+--   found fontconfig, version 2.9.0
+-- Looking for Q_WS_X11
+-- Looking for Q_WS_X11 - found
+-- Looking for Q_WS_WIN
+-- Looking for Q_WS_WIN - not found.
+-- Looking for Q_WS_QWS
+-- Looking for Q_WS_QWS - not found.
+-- Looking for Q_WS_MAC
+-- Looking for Q_WS_MAC - not found.
+-- Found Qt4: /usr/bin/qmake (found suitable version "4.8.2", required is "4.7") 
+-- checking for module 'quesoglc'
+--   found quesoglc, version 0.7.2
+-- checking for module 'liblocation'
+--   package 'liblocation' not found
+-- checking for module 'libosso'
+--   package 'libosso' not found
+-- checking for module 'libgps'
+--   found libgps, version 3.6
+-- checking for module 'libgps>=2.90'
+--   found libgps, version 3.6
+-- checking for module 'libgps>=3.1'
+--   found libgps, version 3.6
+-- checking for module 'libgarmin'
+--   found libgarmin, version 0.1
+-- checking for module 'imlib2'
+--   found imlib2, version 1.4.5
+-- Looking for include file wordexp.h
+-- Looking for include file wordexp.h - found
+-- Looking for include file endian.h
+-- Looking for include file endian.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file byteswap.h
+-- Looking for include file byteswap.h - found
+-- Looking for gypsy_control_get_default in gypsy
+-- Looking for gypsy_control_get_default in gypsy - not found
+-- Looking for include file libspeechd.h
+-- Looking for include file libspeechd.h - found
+-- Looking for include file sys/socket.h
+-- Looking for include file sys/socket.h - found
+-- Looking for include file sys/shm.h
+-- Looking for include file sys/shm.h - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for include file locale.h
+-- Looking for include file locale.h - found
+-- Looking for include file libintl.h
+-- Looking for include file libintl.h - found
+-- Looking for include file sys/time.h
+-- Looking for include file sys/time.h - found
+-- Looking for include file getopt.h
+-- Looking for include file getopt.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for system
+-- Looking for system - found
+-- Looking for CreateProcess
+-- Looking for CreateProcess - not found.
+-- Looking for stpcpy
+-- Looking for stpcpy - found
+-- Looking for sbrk
+-- Looking for sbrk - found
+-- Looking for getdelim
+-- Looking for getdelim - found
+-- Looking for getline
+-- Looking for getline - found
+-- Looking for fsync
+-- Looking for fsync - found
+-- Looking for libintl_fprintf in intl
+-- Looking for libintl_fprintf in intl - not found
+No freetype library found, graphics modules may not be available
+-- Looking for FreeImage_Load in freeimage
+-- Looking for FreeImage_Load in freeimage - found
+-- no Freetype found
+CMake Warning at CMakeLists.txt:491 (message):
+  No XSLT processor available.  You have to configure navit.xml yourself, or
+  install an XSLT processor (supported:
+  saxonb-xslt;saxon;saxon8;saxon-xslt;xsltproc;transform.exe).
+
+
+-- SVG2PNG-Converter: /usr/bin/rsvg-convert
+-- Use plugins: MODULE
+-- Looking for include file malloc.h
+-- Looking for include file malloc.h - found
+-- Looking for include files sys/param.h, sys/mount.h
+-- Looking for include files sys/param.h, sys/mount.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for getcwd
+-- Looking for getcwd - found
+-- Looking for memalign
+-- Looking for memalign - found
+-- Looking for valloc
+-- Looking for valloc - found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for popen
+-- Looking for popen - found
+-- Looking for _atoi64
+-- Looking for _atoi64 - not found
+-- Performing Test FLAG_AVAILABLE_C_-Wno-missing-field-initializers
+-- Performing Test FLAG_AVAILABLE_C_-Wno-missing-field-initializers - Success
+-- Performing Test FLAG_AVAILABLE_CXX_-Wno-missing-field-initializers
+-- Performing Test FLAG_AVAILABLE_CXX_-Wno-missing-field-initializers - Success
+-- Performing Test FLAG_AVAILABLE_C_-Wextra
+-- Performing Test FLAG_AVAILABLE_C_-Wextra - Success
+-- Performing Test FLAG_AVAILABLE_CXX_-Wextra
+-- Performing Test FLAG_AVAILABLE_CXX_-Wextra - Success
+-- Performing Test FLAG_AVAILABLE_C_-Wmissing-prototypes
+-- Performing Test FLAG_AVAILABLE_C_-Wmissing-prototypes - Success
+-- Performing Test FLAG_AVAILABLE_CXX_-Wmissing-prototypes
+-- Performing Test FLAG_AVAILABLE_CXX_-Wmissing-prototypes - Failed
+-- Performing Test FLAG_AVAILABLE_C_-Wstrict-prototypes 
+-- Performing Test FLAG_AVAILABLE_C_-Wstrict-prototypes  - Success
+-- Performing Test FLAG_AVAILABLE_CXX_-Wstrict-prototypes 
+-- Performing Test FLAG_AVAILABLE_CXX_-Wstrict-prototypes  - Failed
+
+Summary:
+
+
+--->>> autoload
+Disabled  osso ( Default )
+
+--->>> binding
+Enabled   dbus ( dbus-glib-1 found )
+Disabled  python ( python libraries not found )
+Disabled  win32 ( Default )
+
+--->>> font
+Disabled  freetype ( freetype not found )
+
+--->>> graphics
+Disabled  android ( FreeType library not found )
+Disabled  cocoa ( Default )
+Disabled  gd ( FreeType library not found )
+Disabled  gtk_drawing_area ( FreeType library not found )
+Enabled   null ( Default )
+Disabled  opengl ( FreeType library not found )
+Disabled  qt_qpainter ( Qt libraries not found )
+Disabled  sdl ( FreeType library not found )
+
+--->>> gui
+Enabled   gtk ( GTK libs found )
+Enabled   internal ( Default )
+Disabled  qml ( Qt Declarative not found )
+
+--->>> map
+Enabled   binfile ( Default )
+Enabled   csv ( Default )
+Enabled   filter ( Default )
+Enabled   garmin ( Garmin library found )
+Enabled   mg ( Default )
+Enabled   shapefile ( Default )
+Enabled   textfile ( Default )
+
+--->>> osd
+Enabled   core ( Default )
+
+--->>> plugin
+Disabled  j1850 ( Default )
+Disabled  pedestrian ( Default )
+
+--->>> speech
+Disabled  android ( Default )
+Enabled   cmdline ( system() call is available )
+Enabled   dbus ( dbus-glib-1 found )
+Disabled  espeak ( Default )
+Disabled  iphone ( Default )
+Enabled   speech_dispatcher ( speech_dispatcher lib found )
+
+--->>> support
+Disabled  espeak ( Default )
+Disabled  ezxml ( native Glib found )
+Disabled  gettext_intl ( native libintl found )
+Disabled  glib ( native Glib found )
+Disabled  libpng ( native libpng found )
+Enabled   shapefile ( Default )
+Disabled  wordexp ( native wordexp found )
+Disabled  zlib ( native zlib found )
+
+--->>> vehicle
+Disabled  android ( Default )
+Enabled   demo ( Default )
+Enabled   file ( Default )
+Enabled   gpsd ( gpsd lib found )
+Enabled   gpsd_dbus ( dbus-glib-1 found )
+Disabled  gypsy ( gypsy lib not found )
+Disabled  iphone ( Default )
+Disabled  maemo ( Default )
+Disabled  null ( Default )
+Disabled  wince ( Default )
+
+--->>> Features
+Enabled   BUILD_MAPTOOL ( default )
+Disabled  DBUS_USE_SYSTEM_BUS ( default )
+Enabled   SAMPLE_MAP ( default )
+Enabled   SVG2PNG ( default )
+Enabled   USE_NATIVE_LANGUAGE_SUPPORT ( Gettext found )
+Enabled   USE_PLUGINS ( default )
+Enabled   USE_ROUTING ( default )
+Enabled   USE_SVG ( default )
+Disabled  XSL_PROCESSING ( Saxon missing )
+
+To configure your build use 'cmake -L' to find changeable variables and run cmake again with 'cmake -D <var-name>=<your value> ...'.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/navit-build

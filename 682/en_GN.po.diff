@@ -1,0 +1,237 @@
+--- po/en_GB_OLD.po	2010-10-25 22:24:28.792582397 +0100
++++ po/en_GB.po	2010-10-25 22:41:42.896583347 +0100
+@@ -86,7 +86,7 @@
+ 
+ #, c-format
+ msgid "%d.%d kilometers"
+-msgstr "%d.%d kilometers"
++msgstr "%d.%d kilometres"
+ 
+ #, c-format
+ msgid "in %d.%d kilometers"
+@@ -107,33 +107,33 @@
+ msgid "exit"
+ msgstr "exit"
+ 
+-msgid "into the ramp"
+-msgstr "into the ramp"
++msgid "onto the ramp"
++msgstr "onto the slip road"
+ 
+ #. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name
+ #, c-format
+ msgid "%sinto the street %s%s%s"
+-msgstr "%sinto the street %s%s%s"
++msgstr "%sonto the street %s%s%s"
+ 
+ #. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Male form. The stuff after | doesn't have to be included
+ #, c-format
+ msgid "%sinto the %s%s%s|male form"
+-msgstr "%sinto the %s%s%s"
++msgstr "%sonto the %s%s%s"
+ 
+ #. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Female form. The stuff after | doesn't have to be included
+ #, c-format
+ msgid "%sinto the %s%s%s|female form"
+-msgstr "%sinto the %s%s%s"
++msgstr "%sonto the %s%s%s"
+ 
+ #. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Neutral form. The stuff after | doesn't have to be included
+ #, c-format
+ msgid "%sinto the %s%s%s|neutral form"
+-msgstr "%sinto the %s%s%s"
++msgstr "%sonto the %s%s%s"
+ 
+ #. TRANSLATORS: gives the name of the next road to turn into (into the E17)
+ #, c-format
+ msgid "%sinto the %s"
+-msgstr "%sinto the %s"
++msgstr "%sonto the %s"
+ 
+ #. TRANSLATORS: right, as in 'Turn right'
+ msgid "right"
+@@ -164,7 +164,7 @@
+ 
+ #, c-format
+ msgid "Enter the roundabout soon and leave it at the %s"
+-msgstr ""
++msgstr "Enter the roundabout soon and leave it at the %s"
+ 
+ #. TRANSLATORS: %s is the distance to the roundabout
+ #, c-format
+@@ -1326,28 +1326,28 @@
+ msgstr "ZoomOut"
+ 
+ msgid "Decrease zoom level"
+-msgstr ""
++msgstr "Reduce zoom level"
+ 
+ msgid "ZoomIn"
+ msgstr "ZoomIn"
+ 
+ msgid "Increase zoom level"
+-msgstr ""
++msgstr "Increase zoom level"
+ 
+ msgid "Recalculate"
+ msgstr "Recalculate"
+ 
+ msgid "Redraw map"
+-msgstr ""
++msgstr "Redraw map"
+ 
+ msgid "Info"
+ msgstr "Info"
+ 
+ msgid "Set destination"
+-msgstr ""
++msgstr "Set destination"
+ 
+ msgid "Opens address search dialog"
+-msgstr ""
++msgstr "Opens address search dialog"
+ 
+ msgid "Stop Navigation"
+ msgstr "Stop Navigation"
+@@ -1359,28 +1359,28 @@
+ msgstr "_Quit"
+ 
+ msgid "Quit the application"
+-msgstr ""
++msgstr "Exit the application"
+ 
+ msgid "Show position cursor"
+-msgstr ""
++msgstr "Show position cursor"
+ 
+ msgid "Lock on Road"
+ msgstr "Lock on Road"
+ 
+ msgid "Keep orientation to the North"
+-msgstr ""
++msgstr "Keep oriented North"
+ 
+ msgid "Switches map orientation to the north or the vehicle"
+-msgstr ""
++msgstr "Switches map orientation to the north of the vehicle"
+ 
+ msgid "Show/hide route description"
+-msgstr ""
++msgstr "Show/hide route description"
+ 
+ msgid "Autozoom"
+ msgstr "Autozoom"
+ 
+ msgid "Enable/disable automatic zoom level changing"
+-msgstr ""
++msgstr "Enable/disable automatic zoom level changing"
+ 
+ msgid "Fullscreen"
+ msgstr "Fullscreen"
+@@ -1444,10 +1444,10 @@
+ msgstr "Back"
+ 
+ msgid "Add Bookmark"
+-msgstr "Add Bookmark"
++msgstr "Add bookmark"
+ 
+ msgid "Add Bookmark folder"
+-msgstr "Add Bookmark folder"
++msgstr "Add bookmark folder"
+ 
+ msgid "Rename"
+ msgstr "Rename"
+@@ -1456,7 +1456,7 @@
+ msgstr "POIs"
+ 
+ msgid "View in Browser"
+-msgstr "View in Browser"
++msgstr "View in browser"
+ 
+ msgid "Streets"
+ msgstr "Streets"
+@@ -1465,25 +1465,25 @@
+ msgstr "House numbers"
+ 
+ msgid "View Attributes"
+-msgstr "View Attributes"
++msgstr "View attributes"
+ 
+ msgid "View on map"
+ msgstr "View on map"
+ 
+ msgid "Cut Bookmark"
+-msgstr "Cut Bookmark"
++msgstr "Cut bookmark"
+ 
+ msgid "Copy Bookmark"
+-msgstr "Copy Bookmark"
++msgstr "Copy bookmark"
+ 
+ msgid "Rename Bookmark"
+-msgstr "Rename Bookmark"
++msgstr "Rename bookmark"
+ 
+ msgid "Paste Bookmark"
+-msgstr "Paste Bookmark"
++msgstr "Paste bookmark"
+ 
+ msgid "Delete Bookmark"
+-msgstr "Delete Bookmark"
++msgstr "Delete bookmark"
+ 
+ msgid "Paste bookmark"
+ msgstr "Paste bookmark"
+@@ -1499,7 +1499,7 @@
+ msgstr "Maps"
+ 
+ msgid "Show Satellite Status"
+-msgstr "Show Satellite Status"
++msgstr "Show satellite status"
+ 
+ msgid " Elevation "
+ msgstr " Elevation "
+@@ -1508,7 +1508,7 @@
+ msgstr " Azimuth "
+ 
+ msgid "Show NMEA Data"
+-msgstr "Show NMEA Data"
++msgstr "Show NMEA data"
+ 
+ msgid "car"
+ msgstr "car"
+@@ -1531,7 +1531,7 @@
+ msgstr "Set as active"
+ 
+ msgid "Show Satellite status"
+-msgstr "Show Satellite status"
++msgstr "Show satellite status"
+ 
+ msgid "Show NMEA data"
+ msgstr "Show NMEA data"
+@@ -1540,13 +1540,13 @@
+ msgstr "Rules"
+ 
+ msgid "Lock on road"
+-msgstr "Lock on road"
++msgstr " Lock to road"
+ 
+ msgid "Northing"
+-msgstr "Northing"
++msgstr " Orient map north"
+ 
+ msgid "Map follows Vehicle"
+-msgstr "Map follows vehicle"
++msgstr " Map follows vehicle"
+ 
+ msgid "Message"
+ msgstr "Message"
+@@ -1581,7 +1581,7 @@
+ msgstr "Vehicle Position"
+ 
+ msgid "Main menu"
+-msgstr "Main menu"
++msgstr "Main Menu"
+ 
+ msgid ""
+ "Show\n"

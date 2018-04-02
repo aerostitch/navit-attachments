@@ -1,0 +1,6 @@
+5181,5182d5180
+< 						 data->prev_button);
+< 	data->button_box->children=g_list_append(data->button_box->children,
+5183a5182,5183
+> 	data->button_box->children=g_list_append(data->button_box->children,
+> 						 data->prev_button);

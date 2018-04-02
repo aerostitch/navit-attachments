@@ -1,0 +1,17 @@
+Index: de.po.in
+===================================================================
+--- de.po.in	(revision 3759)
++++ de.po.in	(working copy)
+@@ -1595,6 +1595,12 @@
+ msgid "Vehicle Position"
+ msgstr "Fahrzeugposition"
+ 
++msgid "Look out! Camera!"
++msgstr "Achtung Blitzer!"
++
++msgid "Please decrease your speed"
++msgstr "Du bist zu schnell"
++
+ #, c-format
+ #~ msgid "%d.%d kilometer"
+ #~ msgstr "%d,%d Kilometer"

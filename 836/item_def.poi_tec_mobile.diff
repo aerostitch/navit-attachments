@@ -1,0 +1,12 @@
+Index: navit/item_def.h
+===================================================================
+--- navit/item_def.h	(revision 4453)
++++ navit/item_def.h	(working copy)
+@@ -333,6 +333,7 @@
+ ITEM(vehicle)
+ ITEM(vehicle_pedestrian)
+ ITEM(bookmark_folder)
++ITEM(tec_mobile)
+ ITEM2(0x7ffffff0,poi_custom0)
+ ITEM(poi_custom1)
+ ITEM(poi_custom2)

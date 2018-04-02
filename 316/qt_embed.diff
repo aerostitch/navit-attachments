@@ -1,0 +1,57 @@
+Index: trunk/navit/navit/graphics/qt_qpainter/graphics_qt_qpainter.cpp
+===================================================================
+--- trunk/navit/navit/graphics/qt_qpainter/graphics_qt_qpainter.cpp	(revision 2077)
++++ trunk/navit/navit/graphics/qt_qpainter/graphics_qt_qpainter.cpp	(working copy)
+@@ -67,7 +67,7 @@
+ #include <QPen>
+ #include <QBrush>
+ #include <QPixmap>
+-#include <QWidget>
++#include <QX11EmbedWidget>
+ #include <QPolygonF>
+ #include <QtGui>
+ #endif
+@@ -78,7 +78,7 @@
+ //# Comment: 
+ //# Authors: Martin Schaller (04/2008), Stefan Klumpp (04/2008)
+ //##############################################################################################################
+-class RenderArea : public QWidget
++class RenderArea : public QX11EmbedWidget
+  {
+      Q_OBJECT
+  public:
+@@ -239,7 +239,7 @@
+ //# Authors: Martin Schaller (04/2008)
+ //##############################################################################################################
+ RenderArea::RenderArea(struct graphics_priv *priv, QWidget *parent, int w, int h, int overlay)
+-	: QWidget(parent)
++	: QX11EmbedWidget(parent)
+ {
+ 	pixmap = new QPixmap(w, h);
+ 	if (!overlay) {
+@@ -1002,6 +1002,12 @@
+ 		meth->get_text_bbox=(void (*)(struct graphics_priv*, struct graphics_font_priv*, char*, int, int, struct point*, int))ret->freetype_methods.get_text_bbox;
+ 	}
+ 	ret->widget= new RenderArea(ret,NULL,w,h,1);
++	char *cp = getenv("NAVIT_XID");
++	unsigned long xid = 0;
++	if (cp)
++		xid = strtol(cp, NULL, 0);
++	if (xid)
++		ret->widget->embedInto(xid);
+ 	ret->wraparound=wraparound;
+ 	ret->painter=new QPainter;
+ 	ret->p=*p;
+@@ -1179,6 +1185,12 @@
+ 	ret->app = new QApplication(argc, argv);
+ #endif
+ 	ret->widget= new RenderArea(ret);
++	char *cp = getenv("NAVIT_XID");
++	unsigned long xid = 0;
++	if (cp)
++		xid = strtol(cp, NULL, 0);
++	if (xid)
++		ret->widget->embedInto(xid);
+ 	ret->widget->cbl=cbl;
+ #if QT_VERSION < 0x040000
+ 	event_gr=ret;

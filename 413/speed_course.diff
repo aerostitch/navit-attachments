@@ -1,0 +1,60 @@
+
+diff --git a/navit/navit/attr_def.h b/navit/navit/attr_def.h
+index 3459bb1..1010937 100644
+--- a/navit/navit/attr_def.h
++++ b/navit/navit/attr_def.h
+@@ -264,6 +269,7 @@ ATTR(position_height)
+ ATTR(position_speed)
+ ATTR(position_direction)
+ ATTR(position_hdop)
++ATTR(position_radius)
+ ATTR2(0x0005ffff,type_double_end)
+ ATTR2(0x00060000,type_coord_geo_begin)
+ ATTR(position_coord_geo)
+diff --git a/navit/navit/vehicle.c b/navit/navit/vehicle.c
+index cf63a3c..42d0962 100644
+--- a/navit/navit/vehicle.c
++++ b/navit/navit/vehicle.c
+@@ -53,15 +53,25 @@ static void
+ vehicle_log_gpx(struct vehicle *this_, struct log *log)
+ {
+ 	struct attr pos_attr;
++	struct attr radius_attr;
+ 	struct attr time_attr;
++	struct attr speed_attr;
++	struct attr course_attr;
+ 	char buffer[256];
+ 	char tbuf[256];
+ 	char *timep;
++	double zero = 0.0f;
+ 
+ 	if (!this_->meth.position_attr_get)
+ 		return;
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_coord_geo, &pos_attr))
+ 		return;
++	if (!this_->meth.position_attr_get(this_->priv, attr_position_radius, &radius_attr))
++		radius_attr.u.numd = &zero;
++	if (!this_->meth.position_attr_get(this_->priv, attr_position_speed, &speed_attr))
++		speed_attr.u.numd = &zero;
++	if (!this_->meth.position_attr_get(this_->priv, attr_position_direction, &course_attr))
++		course_attr.u.numd = &zero;
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_time_iso8601, &time_attr)) {
+ #ifdef HAVE_GLIB
+ 		GTimeVal time; 
+@@ -84,8 +94,13 @@ vehicle_log_gpx(struct vehicle *this_, struct log *log)
+ 	} else {
+ 		timep = time_attr.u.str;
+ 	}
+-	sprintf(buffer,"<trkpt lat=\"%f\" lon=\"%f\">\n\t<time>%s</time>\n</trkpt>\n",
+-		pos_attr.u.coord_geo->lat, pos_attr.u.coord_geo->lng, timep);
++	sprintf(buffer,"<trkpt lat=\"%f\" lon=\"%f\">\n\t<time>%s</time>\n<course>%.1f</course>\n<speed>%.2f</speed>\n<extensions>\n<radius>%.2f</radius>\n</extensions>\n</trkpt>\n",
++		pos_attr.u.coord_geo->lat,
++		pos_attr.u.coord_geo->lng,
++		timep,
++		(*course_attr.u.numd),
++		(*speed_attr.u.numd),
++		(*radius_attr.u.numd));
+ 	log_write(log, buffer, strlen(buffer));
+ }
+ 
+

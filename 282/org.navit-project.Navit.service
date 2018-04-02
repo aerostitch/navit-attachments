@@ -1,0 +1,3 @@
+[D-Bus Service]
+Name=org.navit-project.Navit
+Exec=/usr/bin/navit

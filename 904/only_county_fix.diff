@@ -1,0 +1,20 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c (revision 4838)
++++ navit/maptool/osm.c (working copy)
+@@ -1138,6 +1138,15 @@
+                attr_strings_save(attr_string_county_name, v);
+                level=5;
+        }
++       if (! strcmp(k,"gnis:County")) {
++               /* Most US Towns now carry gnis:County to indicate what county they are
++                * in.  Further, "gnis:" would mean it is in the US
++                * - jwernerny, 20-Oct-2011
++               */
++               attr_strings_save(attr_string_county_name, v);
++               strcpy(is_in_buffer, "USA");
++               level=5;
++       }
+        if (! strcmp(k,"gnis:ST_alpha")) {
+                /*      assume a gnis tag means it is part of the USA:
+                        http://en.wikipedia.org/wiki/Geographic_Names_Information_System

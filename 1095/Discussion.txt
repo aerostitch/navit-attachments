@@ -1,0 +1,82 @@
+tryagain
+
+Thank you for your constructive feedback.
+And sorry for my late answer, I was busy for the last 3 weeks.
+
+You are right, the situation at the crossings with a respective 60 degree turn, which you pointed out sounds indeed a bit confusing.
+At first glance we have a different idea of the strengthening, but it's only partly like this. I try to explain my point of view and
+how I came to my solution.
+
+But first of all I want to take up your idea to say a special phrase for proper exit of crossings.
+
+Let's experiment with the announcement:
+
+1. we could announce the number of street, and the street with the greatest angle gets No.1, (as it is the 'nearest' exit):
+   A crossing with three side streets to the left, for instance would result to
+   - 'Turn strongly left in 200m to baker street. It's the second road.'
+   or
+   - 'Turn strongly left in 200m to the second road, baker street.'
+   or
+   - 'Turn strongly left in 200m to the second of three roads, baker street.'
+   
+2. we could state that 'left', 'right' more precisely when we say
+   - 'Turn strongly left in 200m to baker street. It's the leftmost road.'
+   or
+   - 'turn strongly left in 200m to the leftmost road, baker street.'
+
+The problem will be the generic approach.
+The extension 'leftmost' or 'rightmost' is rather fine, but its the less generic way for more than two streets, nor this can't be translated elegantly
+into many languages that Navit supports, I fear. I can't even find a nice formulation in German, neither.
+Look at this contruct with the first proposal, when there is another crossing just in front of our turn:
+- 'Take the second road to the left. It's the second road.' Hmm.
+
+Native English speakers are encouraged to improve the formulations, of course. And I'm convinced that there may be much more elegant formulations. Give them a try!
+
+The danger of a very precise announcement is that it may become so comprehensive that the user is more confused than well prepared. And in any unclear situation,
+we all know that it's most intuitive to look on the nice graphics of Navit ;-)
+
+
+
+To be honest, you are right, we should unify the angle limits for the strengthening words for the different crossing types, so I update my attachement.
+
+But beware of thinking this would be 'the' solution. There are two reasons, for which the user cannot rely on a strict behavior in turn angle limits:
+1. the bug in the current version that sets strengthening arbitrarily, well this is easy to fix. However, the fact that this bug could remain in the software for such a long time,
+   and nobody has claimed loud enough to fix it shows me that the normal user is not consequently training himself for certain turn angles.
+2. What is more important, when we take the OSM data, for instance, Navit calculates the turn angle as the angle between the imaginary prolongation of the old element
+   and the first element of the street to turn into. Some streets are edited in a way that they make a short bend directly after the junction.
+   This bend can be edited with more or less auxiliary points, which directly influences the turn angle for Navit. And this is no error of OSM.
+   Sure, we could investigate the pathway for a certain distance to gain a 'real' turn angle. But we have to see that the user is always exposed 
+   to crossings with different turn angles that look quite similar in reality or vice versa. So I'm sure that the user will never have the chance to
+   train himself that hard for certain angle limits.
+
+
+Nevertheless, the most important criterion shall be a concise preparation for the user when there is coming a difficult turn.
+
+So let's have a closer look on the crossing types:
+
+1. Crossings  with only one side street:
+In my view this is not a very difficult type. The only 'difficulty' that is worth preparing may be a sharp turn.
+'Easily' is not so important here. In my experience, and this happened to me many times with the current Navit implementation, the extension 'easily' annoyed me, 
+because I can clearly see the pathway anyways. I always interpreted such a behavior as hair-splitting. 
+Btw: Look on motorways. In most cases when motorways split the turn angle is less than 20 degree, and Navit should say 'turn left' here (not 'turn easily left'),
+the driver does not need to be prepared for not to reduce speed. 'Easily left' would be really nerve-racking here.
+(Sure 'keep left' would be better here. This will be part of a proposal that I'm currently working on). I had so many motorway links on my routes that fit to that 
+'slight turn' criterion and the 'easily'-extension has never helped me in those cases.
+'Strongly' is more helpful here, even if I often got a 'strongly' at crossings, that didn't look very 'strong' in reality. (OSM was OK there..)
+
+2. Crossings with more than one side street:
+These types of crossings begin to be more complex so that the user rather needs some preparation. 'Easily' and 'strongly' becomes more sense. 
+And maybe also an anouncement of a special phrase.
+Generally I can understand that you want to use the strengthening for preparation due to the turn angle. I think there is also potential for confusion when the user shall turn into the first of two roads, for instance (i.e. the one with the greater turn angle), but still in the 'easily'-zone). So the proper road is less 'easy' that the other, but still 'easy'. I would be totally confused even if I was already trained on the strengthening roules. You may think different, but for me it's not intuitive, because apart from Navit, when someone describes me a way at a difficult crossing he would always use the 'easily' and 'strongly' in the manner of comparing
+to other turn possibilities. This is the most intuitive way for me. And it does not contain turn angles, but the pure fact of certain exit numbers. So I would recommend to leave out the 'easily' as well as 'strongly' for the 'inner exits', and let the nice graphics do the rest.
+
+
+As a consequence for me strength words as a preparation for more or less sharp turns cannot be applied to every situation. 
+And leaving out certain strength words in the different situations will rather help the user than confuse or annoy him.
+
+I attach a second proposal that unifies the angle limits for strengthening, so that should be less dependent on emphasizing the number of exit.
+
+Let me know your opinion, I'm looking forward to some more feedback.
+
+Robotaxi
+

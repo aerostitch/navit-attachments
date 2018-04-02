@@ -1,0 +1,36 @@
+
+--- navit/vehicle/demo/vehicle_demo.c	(revision 3540)
++++ navit/vehicle/demo/vehicle_demo.c	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2008 Navit Team
++ * Copyright (C) 2005-2008, 2010 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -17,6 +17,7 @@
+  * Boston, MA  02110-1301, USA.
+  */
+ 
++#include <stdlib.h>						/* for rand() and RAND_MAX */
+ #include <glib.h>
+ #include <string.h>
+ #include "config.h"
+@@ -145,7 +146,15 @@
+ 					ci.y = pos.y + dy * len / slen;
+ 					priv->direction =
+ 					    transform_get_angle_delta(&pos, &c, 0);
+-					priv->speed=priv->config_speed;
++					/* priv->speed=priv->config_speed; */
++					/* speed changes so that it should accelerate more than it
++					 * slows down.  - jwerner */
++					priv->speed += 0.25 * ((priv->config_speed * ((double) rand() / (double) RAND_MAX)) - (priv->config_speed * 0.4));
++					if (priv->speed < (0.25 * priv->config_speed))
++						priv->speed = 0.25 * priv->config_speed;
++					if (priv->speed > (4.0 * priv->config_speed))
++						priv->speed = 4.0 * priv->config_speed;
++					
+ 				} else {
+ 					ci.x = pos.x;
+ 					ci.y = pos.y;

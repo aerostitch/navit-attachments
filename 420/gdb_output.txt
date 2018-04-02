@@ -1,0 +1,118 @@
+$ navit 
+gui_internal:gui_internal_new:register
+gui_internal:gui_internal_new:register
+vehicle_gpsd:vehicle_gpsd_try_open:Connected to gpsd fd=4 evwatch=0x92508
+GNU gdb 6.8
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "arm-angstrom-linux-gnueabi"...
+Attaching to program: /usr/bin/navit, process 4446
+Reading symbols from /usr/lib/libgthread-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgthread-2.0.so.0
+Reading symbols from /lib/libpthread.so.0...done.
+Loaded symbols for /lib/libpthread.so.0
+Reading symbols from /lib/librt.so.1...done.
+Loaded symbols for /lib/librt.so.1
+Reading symbols from /usr/lib/libgmodule-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgmodule-2.0.so.0
+Reading symbols from /lib/libdl.so.2...done.
+Loaded symbols for /lib/libdl.so.2
+Reading symbols from /usr/lib/libglib-2.0.so.0...done.
+Loaded symbols for /usr/lib/libglib-2.0.so.0
+Reading symbols from /usr/lib/libz.so.1...done.
+Loaded symbols for /usr/lib/libz.so.1
+Reading symbols from /lib/libm.so.6...done.
+Loaded symbols for /lib/libm.so.6
+Reading symbols from /lib/libgcc_s.so.1...done.
+Loaded symbols for /lib/libgcc_s.so.1
+Reading symbols from /lib/libc.so.6...done.
+Loaded symbols for /lib/libc.so.6
+Reading symbols from /lib/ld-linux.so.3...done.
+Loaded symbols for /lib/ld-linux.so.3
+Reading symbols from /usr/lib/navit/graphics/libgraphics_gtk_drawing_area.so...done.
+Loaded symbols for /usr/lib/navit/graphics/libgraphics_gtk_drawing_area.so
+Reading symbols from /usr/lib/libgtk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib/libgdk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib/libatk-1.0.so.0...done.
+Loaded symbols for /usr/lib/libatk-1.0.so.0
+Reading symbols from /usr/lib/libgdk_pixbuf-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib/libpangocairo-1.0.so.0...done.
+Loaded symbols for /usr/lib/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib/libpango-1.0.so.0...done.
+Loaded symbols for /usr/lib/libpango-1.0.so.0
+Reading symbols from /usr/lib/libcairo.so.2...done.
+Loaded symbols for /usr/lib/libcairo.so.2
+Reading symbols from /usr/lib/libgobject-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgobject-2.0.so.0
+Reading symbols from /usr/lib/libXinerama.so.1...done.
+Loaded symbols for /usr/lib/libXinerama.so.1
+Reading symbols from /usr/lib/libXrandr.so.2...done.
+Loaded symbols for /usr/lib/libXrandr.so.2
+Reading symbols from /usr/lib/libXcursor.so.1...done.
+Loaded symbols for /usr/lib/libXcursor.so.1
+Reading symbols from /usr/lib/libXcomposite.so.1...done.
+Loaded symbols for /usr/lib/libXcomposite.so.1
+Reading symbols from /usr/lib/libXext.so.6...done.
+Loaded symbols for /usr/lib/libXext.so.6
+Reading symbols from /usr/lib/libXdamage.so.1...done.
+Loaded symbols for /usr/lib/libXdamage.so.1
+Reading symbols from /usr/lib/libXfixes.so.3...done.
+Loaded symbols for /usr/lib/libXfixes.so.3
+Reading symbols from /usr/lib/libpixman-1.so.0...done.
+Loaded symbols for /usr/lib/libpixman-1.so.0
+Reading symbols from /usr/lib/libpng12.so.0...done.
+Loaded symbols for /usr/lib/libpng12.so.0
+Reading symbols from /usr/lib/libXrender.so.1...done.
+Loaded symbols for /usr/lib/libXrender.so.1
+Reading symbols from /usr/lib/libX11.so.6...done.
+Loaded symbols for /usr/lib/libX11.so.6
+Reading symbols from /usr/lib/libXau.so.6...done.
+Loaded symbols for /usr/lib/libXau.so.6
+Reading symbols from /usr/lib/libXdmcp.so.6...done.
+Loaded symbols for /usr/lib/libXdmcp.so.6
+Reading symbols from /usr/lib/libgio-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgio-2.0.so.0
+Reading symbols from /usr/lib/libpangoft2-1.0.so.0...done.
+Loaded symbols for /usr/lib/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib/libfontconfig.so.1...done.
+Loaded symbols for /usr/lib/libfontconfig.so.1
+Reading symbols from /usr/lib/libfreetype.so.6...done.
+Loaded symbols for /usr/lib/libfreetype.so.6
+Reading symbols from /usr/lib/libexpat.so.1...done.
+Loaded symbols for /usr/lib/libexpat.so.1
+Reading symbols from /lib/libnss_compat.so.2...done.
+Loaded symbols for /lib/libnss_compat.so.2
+Reading symbols from /lib/libnsl.so.1...done.
+Loaded symbols for /lib/libnsl.so.1
+Reading symbols from /lib/libnss_nis.so.2...done.
+Loaded symbols for /lib/libnss_nis.so.2
+Reading symbols from /lib/libnss_files.so.2...done.
+Loaded symbols for /lib/libnss_files.so.2
+Reading symbols from /usr/lib/navit/font/libfont_freetype.so...done.
+Loaded symbols for /usr/lib/navit/font/libfont_freetype.so
+Reading symbols from /usr/lib/navit/gui/libgui_internal.so...done.
+Loaded symbols for /usr/lib/navit/gui/libgui_internal.so
+Reading symbols from /usr/lib/navit/osd/libosd_core.so...done.
+Loaded symbols for /usr/lib/navit/osd/libosd_core.so
+Reading symbols from /usr/lib/navit/vehicle/libvehicle_gpsd.so...done.
+Loaded symbols for /usr/lib/navit/vehicle/libvehicle_gpsd.so
+Reading symbols from /usr/lib/libgps.so.16...done.
+Loaded symbols for /usr/lib/libgps.so.16
+Reading symbols from /usr/lib/libstdc++.so.6...done.
+Loaded symbols for /usr/lib/libstdc++.so.6
+Reading symbols from /usr/lib/navit/speech/libspeech_cmdline.so...done.
+Loaded symbols for /usr/lib/navit/speech/libspeech_cmdline.so
+Reading symbols from /usr/lib/navit/map/libmap_binfile.so...done.
+Loaded symbols for /usr/lib/navit/map/libmap_binfile.so
+0x40292eac in waitpid () from /lib/libc.so.6
+#0  0x40292eac in waitpid () from /lib/libc.so.6
+#1  0x4023c79c in ?? () from /lib/libc.so.6
+Cannot access memory at address 0x2062645e
+Detaching from program: /usr/bin/navit, process 4446
+

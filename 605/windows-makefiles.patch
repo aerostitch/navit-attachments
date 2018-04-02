@@ -1,0 +1,54 @@
+Index: Makefile.am
+===================================================================
+--- Makefile.am	(revision 3471)
++++ Makefile.am	(working copy)
+@@ -20,6 +20,9 @@
+ SUBDIRS+=intl po man
+ endif
+ SUBDIRS+=navit
++if SUPPORT_WIN32
++NAVIT_MODULE_LDFLAGS+=-no-undefined -Wl,--enable-auto-imports
++endif
+ pkgdoc_DATA = README
+ EXTRA_DIST = README COPYRIGHT LGPL-2 GPL-2 COPYING INSTALL
+ DIST_SUBDIRS=intl po navit man
+Index: navit/font/freetype/Makefile.am
+===================================================================
+--- navit/font/freetype/Makefile.am	(revision 3471)
++++ navit/font/freetype/Makefile.am	(working copy)
+@@ -6,4 +6,4 @@
+   noinst_LTLIBRARIES = libfont_freetype.la
+ endif
+ libfont_freetype_la_SOURCES = font_freetype.c font_freetype.h
+-libfont_freetype_la_LDFLAGS = @FREETYPE2_LIBS@ @FONTCONFIG_LIBS@ @FRIBIDI_LIBS@ -module -avoid-version
++libfont_freetype_la_LDFLAGS = @FREETYPE2_LIBS@ @FONTCONFIG_LIBS@ @FRIBIDI_LIBS@ -module -avoid-version @NAVIT_MODULE_LDFLAGS@ -Wl,--enable-auto-import
+Index: navit/graphics/gtk_drawing_area/Makefile.am
+===================================================================
+--- navit/graphics/gtk_drawing_area/Makefile.am	(revision 3471)
++++ navit/graphics/gtk_drawing_area/Makefile.am	(working copy)
+@@ -2,4 +2,4 @@
+ AM_CPPFLAGS = @GTK2_CFLAGS@ -I$(top_srcdir) -I$(top_srcdir)/navit -DMODULE=graphics_gtk_drawing_area
+ modulegraphics_LTLIBRARIES = libgraphics_gtk_drawing_area.la
+ libgraphics_gtk_drawing_area_la_SOURCES = graphics_gtk_drawing_area.c
+-libgraphics_gtk_drawing_area_la_LDFLAGS = @GTK2_LIBS@ @IMLIB2_LIBS@ -module -avoid-version
++libgraphics_gtk_drawing_area_la_LDFLAGS = @GTK2_LIBS@ @IMLIB2_LIBS@ -module -avoid-version @NAVIT_MODULE_LDFLAGS@
+Index: navit/gui/gtk/Makefile.am
+===================================================================
+--- navit/gui/gtk/Makefile.am	(revision 3471)
++++ navit/gui/gtk/Makefile.am	(working copy)
+@@ -3,4 +3,4 @@
+ modulegui_LTLIBRARIES = libgui_gtk.la
+ libgui_gtk_la_SOURCES = datawindow.c destination.c gui_gtk_statusbar.c gui_gtk_action.c gui_gtk_window.c gui_gtk.h
+ libgui_gtk_la_LIBADD = @GTK2_LIBS@
+-libgui_gtk_la_LDFLAGS = -module -avoid-version
++libgui_gtk_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
+Index: navit/gui/win32/Makefile.am
+===================================================================
+--- navit/gui/win32/Makefile.am	(revision 3471)
++++ navit/gui/win32/Makefile.am	(working copy)
+@@ -7,4 +7,4 @@
+ endif
+ libgui_win32_la_SOURCES = gui_win32.c win32_gui_destination.c win32_gui_notify.c ceglue.h ceglue.c
+ libgui_win32_la_LIBADD = 
+-libgui_win32_la_LDFLAGS = -module -avoid-version
++libgui_win32_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@

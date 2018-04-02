@@ -1,0 +1,67 @@
+Index: navit/debug.c
+===================================================================
+--- navit/debug.c	(revisão 5496)
++++ navit/debug.c	(cópia de trabalho)
+@@ -249,7 +249,7 @@
+ 		if (! fp)
+ 			fp = stderr;
+ 		fprintf(fp,"%s",xbuffer);
+-		fflush(fp);
++		util_flush_os_file_buffer_wrap(fp);
+ #endif
+ #endif
+ 	}
+@@ -290,7 +290,7 @@
+ 		debug_destroy();
+ 		debug_fp = fp;
+ 		fprintf(debug_fp, "Navit log started\n");
+-		fflush(debug_fp);
++		util_flush_os_file_buffer_wrap(debug_fp);
+ 	}
+ }
+ 
+Index: navit/log.c
+===================================================================
+--- navit/log.c	(revisão 5496)
++++ navit/log.c	(cópia de trabalho)
+@@ -137,7 +137,7 @@
+ 		return;
+ 	if (this_->trailer.len) 
+ 		fwrite(this_->trailer.data, 1, this_->trailer.len, this_->f);
+-	fflush(this_->f);
++	util_flush_os_file_buffer_wrap(this_->f);
+ 	fclose(this_->f);
+ 	this_->f=NULL;
+ }
+@@ -175,7 +175,7 @@
+ 	}
+ 	if (flags & log_flag_keep_pointer)
+ 		fseek(this_->f, -this_->data.len, SEEK_CUR);
+-	fflush(this_->f);
++	util_flush_os_file_buffer_wrap(this_->f);
+ 	if (!(flags & log_flag_keep_buffer)) {
+ 		g_free(this_->data.data);
+ 		this_->data.data=NULL;
+Index: navit/util.c
+===================================================================
+--- navit/util.c	(revisão 5496)
++++ navit/util.c	(cópia de trabalho)
+@@ -697,4 +697,17 @@
+ 	return;
+ }
+ 
+-
++/**
++ * Wrapper for fflush.
++ * 
++ * @param in _file a file whose data is to be written to disk.
++ */
++void
++util_flush_os_file_buffer_wrap(FILE *_file)
++{
++#if defined(HAVE_API_WIN32_CE) && defined(__COREDLL__)
++	FlushFileBuffers((HANDLE) _fileno(_file));
++#else
++	fflush(f);
++#endif
++}

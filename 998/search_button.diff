@@ -1,0 +1,45 @@
+Index: navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/Navit.java	(revision 5653)
++++ navit/android/src/org/navitproject/navit/Navit.java	(working copy)
+@@ -624,6 +624,15 @@
+ 		NavitDestroy();
+ 	}
+ 
++	@Override
++	public boolean onSearchRequested() {
++		/* Launch the internal Search Activity */
++		Intent search_intent = new Intent(this, NavitAddressSearchActivity.class);
++		this.startActivityForResult(search_intent, NavitAddressSearch_id);
++		
++		return true;
++	}
++
+ 	public void disableSuspend()
+ 	{
+ 		wl.acquire();
+Index: navit/android/src/org/navitproject/navit/NavitGraphics.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitGraphics.java	(revision 5653)
++++ navit/android/src/org/navitproject/navit/NavitGraphics.java	(working copy)
+@@ -440,7 +440,8 @@
+ 				}
+ 				else if (keyCode == android.view.KeyEvent.KEYCODE_SEARCH)
+ 				{
+-					s = java.lang.String.valueOf((char) 19);
++					/* Search Keys are handled by the main Activity */
++					return false;
+ 				}
+ 				else if (keyCode == android.view.KeyEvent.KEYCODE_BACK)
+ 				{
+@@ -598,6 +599,10 @@
+ 						return handled;
+ 					}
+ 				}
++				else if (keyCode == android.view.KeyEvent.KEYCODE_SEARCH) {
++					/* Search Keys are handled by the main Activity */
++					return false;
++				}
+ 			}
+ 			else if(i!=10)
+ 			{

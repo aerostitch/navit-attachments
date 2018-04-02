@@ -1,0 +1,53 @@
+===== PAREON VERIFY =====
+[M0212] Use after deallocation detected:
+  the read in
+    function binmap_get_estimated_town_size at navit/map/binfile/binfile.c:1941
+    called from function binmap_get_estimated_boundaries at navit/map/binfile/binfile.c:2019
+    called from function binmap_search_new at navit/map/binfile/binfile.c:2137
+    called from function map_search_new at navit/map.c:456
+    called from function mapset_search_get_item at navit/mapset.c:383
+    called from function search_list_get_result at navit/search.c:910
+    called from function gui_internal_search_idle at navit/gui/internal/gui_internal_search.c:326
+    called from function callback_call at navit/callback.c:178
+    called from function callback_list_call_attr at navit/callback.c:229
+    called from function callback_list_call_attr_args at navit/callback.c:245
+    called from function g_main_loop_run
+    called from function event_glib_main_loop_run at navit/event_glib.c:34
+    called from function event_main_loop_run at navit/event.c:50
+    called from function main_real at navit/start_real.c:234
+    called from function main at navit/start.c:25
+    called from function main_thread
+  follows after an earlier de-allocation by `g_free' in
+    function map_rect_destroy_binfile at navit/map/binfile/binfile.c:1661
+    called from function binmap_search_new at navit/map/binfile/binfile.c:2132
+    called from function map_search_new at navit/map.c:456
+    called from function mapset_search_get_item at navit/mapset.c:383
+    called from function search_list_get_result at navit/search.c:910
+    called from function gui_internal_search_idle at navit/gui/internal/gui_internal_search.c:326
+    called from function callback_call at navit/callback.c:178
+    called from function callback_list_call_attr at navit/callback.c:229
+    called from function callback_list_call_attr_args at navit/callback.c:245
+    called from function g_main_loop_run
+    called from function event_glib_main_loop_run at navit/event_glib.c:34
+    called from function event_main_loop_run at navit/event.c:50
+    called from function main_real at navit/start_real.c:234
+    called from function main at navit/start.c:25
+    called from function main_thread
+  where the object was originally created through
+  the heap allocation of a 508 byte object by `g_malloc0_n' in
+    function map_rect_new_binfile_int at navit/map/binfile/binfile.c:1486
+    called from function map_rect_new_binfile at navit/map/binfile/binfile.c:1568
+    called from function binmap_search_new at navit/map/binfile/binfile.c:2128
+    called from function map_search_new at navit/map.c:456
+    called from function mapset_search_get_item at navit/mapset.c:383
+    called from function search_list_get_result at navit/search.c:910
+    called from function gui_internal_search_idle at navit/gui/internal/gui_internal_search.c:326
+    called from function callback_call at navit/callback.c:178
+    called from function callback_list_call_attr at navit/callback.c:229
+    called from function callback_list_call_attr_args at navit/callback.c:245
+    called from function g_main_loop_run
+    called from function event_glib_main_loop_run at navit/event_glib.c:34
+    called from function event_main_loop_run at navit/event.c:50
+    called from function main_real at navit/start_real.c:234
+    called from function main at navit/start.c:25
+    called from function main_thread

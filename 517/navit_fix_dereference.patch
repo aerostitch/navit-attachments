@@ -1,0 +1,13 @@
+Index: navit/navit/xmlconfig.c
+===================================================================
+--- navit/navit/xmlconfig.c	(revision 2857)
++++ navit/navit/xmlconfig.c	(working copy)
+@@ -821,7 +821,7 @@
+ 				text_dup[text_len]='\0';
+ 				attr.type=attr_xml_text;
+ 				attr.u.str=text_dup;
+-				if (curr->object_func && curr->object_func->add_attr)
++				if (curr->object_func && curr->object_func->add_attr && curr->element_attr.u.data)
+ 					curr->object_func->add_attr(curr->element_attr.u.data, &attr);
+ 				g_free(text_dup);
+ 				return;

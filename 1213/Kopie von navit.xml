@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><!--
+	For configuration options used in this file, please read
+	http://wiki.navit-project.org/index.php/Configuring_Navit
+	Do not edit /usr/share/navit/navit.xml : changes would be lost
+	on upgrade. Rather copy it to ~/.navit/.
+-->
+<!DOCTYPE config
+  SYSTEM "navit.dtd">
+<config xmlns:xi="http://www.w3.org/2001/XInclude">
+	<plugins>
+		<plugin path="$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}lib*.so" ondemand="yes"/>
+		<plugin path="$NAVIT_LIBDIR/autoload/${NAVIT_LIBPREFIX}lib*.so"/>
+		<plugin path="$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}libbinding_dbus.so" active="no"/>
+		<plugin path="$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}libgraphics_null.so" active="no"/>
+	</plugins>
+
+	<!-- The global debug level (like using command line option "-d"). Ignored if option -d is used. -->
+	<debug name="global" level="0"/>
+	<!-- Example of setting the debug level for a single function.  -->
+	<debug name="navit:do_draw" level="0"/>
+	<!-- This is here so one can copy&paste the contents of popup menus --> 
+	<debug name="navit:popup_printf_cb" level="0"/>
+	<!-- segv: 1 - show backtrace with gdb and exit, 2 - stay in gdb -->
+	<debug name="segv" level="1"/>
+	<!-- timestamps 0/1 - prefix log messages with a timestamp -->
+	<debug name="timestamps" level="0"/>
+
+	<!-- This line defines which location on the map navit will show after startup.
+		It makes sense to set it to your home coordinates.
+		Center coordinates format:
+		[D][D]DMM.ss[S][S]... N/S [D][D]DMM.ss[S][S]... E/W 
+		[-][D]D.d[d]... [-][D][D]D.d[d]... 
+		[-]0xX [-]0xX -->
+	<navit center="4808 N 1134 E" zoom="256" tracking="1" orientation="-1" recent_dest="250" autozoom_active="1" autozoom_secs="120" >
+		<!-- Use one of gtk_drawing_area, qt_qpainter or sdl. 
+		     On windows systems, use win32 -->
+		<graphics type="win32"/>
+		<!-- The following line let you select which graphical user interface you'd like to use.
+		Options include internal (optimized for touch screen devices), gtk (useful for desktop computers).
+		If you don't like the internal gui, set enabled=yes for the following tag and enabled=no for the gui internal tag -->
+		<gui type="gtk" enabled="no" menubar="1" toolbar="1" statusbar="1"/>
+	<!--
+			In case of the internal GUI, you can even influence the size of the text and of the icons in the toolbar and the viewport.
+			Here's an example for a freerunner: -->
+		<!-- <gui type="internal" font_size="350" icon_xs="32" icon_s="96" icon_l="96"/> -->
+
+.......
+
+	
+further lines are originally from downloade SVN.
+But deleted

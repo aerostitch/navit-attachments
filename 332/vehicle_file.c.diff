@@ -1,0 +1,48 @@
+Index: vehicle_file.c
+===================================================================
+--- vehicle_file.c	(revision 2184)
++++ vehicle_file.c	(working copy)
+@@ -143,6 +143,7 @@
+             int bytes_to_copy = return_pos - buffer + 1;
+             memcpy( return_buffer, buffer, bytes_to_copy );
+             return_buffer[ bytes_to_copy + 1 ] = '\0';
++            return_buffer[ bytes_to_copy ] = '\0';
+ 
+             // printf( "received %d : '%s' bytes to copy\n", bytes_to_copy, return_buffer );
+             rc += vehicle_file_parse( priv, return_buffer );
+@@ -268,9 +269,11 @@
+ 			dbg(0, "'%s' too short\n", buffer);
+ 			return ret;
+ 		}
+-		if (buffer[len - 1] == '\r' || buffer[len - 1] == '\n')
++		if (buffer[len - 1] == '\r' || buffer[len - 1] == '\n') {
+ 			buffer[--len] = '\0';
+-		else
++            if (buffer[len - 1] == '\r')
++            	    buffer[--len] = '\0';
++        } else
+ 			break;
+ 	}
+ 	if (buffer[0] != '$') {
+@@ -462,10 +465,10 @@
+ 	return ret;
+ }
+ 
+-#ifndef _WIN32
+ static void
+ vehicle_file_io(struct vehicle_priv *priv)
+ {
++#ifndef _WIN32
+ 	int size, rc = 0;
+ 	char *str, *tok;
+ 
+@@ -511,8 +514,8 @@
+ 	}
+ 	if (rc)
+ 		callback_list_call_0(priv->cbl);
++#endif
+ }
+-#endif
+ 
+ static void
+ vehicle_file_enable_watch(struct vehicle_priv *priv)

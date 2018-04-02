@@ -1,0 +1,83 @@
+
+D/dalvikvm(  858): GC freed 45 objects / 1808 bytes in 128ms
+I/ActivityManager(  803): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(  803): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1005 uid=10013 gids={3003}
+D/dalvikvm(  786): GC freed 274 objects / 10280 bytes in 686ms
+D/dalvikvm(  786): GC freed 50 objects / 2128 bytes in 176ms
+D/dalvikvm( 1005): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x435ffdb8
+D/dalvikvm( 1005): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x435ffdb8
+D/dalvikvm( 1005): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x435ffdb8
+D/dalvikvm(  786): GC freed 2 objects / 48 bytes in 191ms
+E/Navit   ( 1005): Country US
+E/Navit   ( 1005): Language en
+E/Navit   ( 1005): Res Name en
+E/Navit   ( 1005): result /data/data/org.navitproject.navit/locale/en/LC_MESSAGES/navit.mo
+E/Navit   ( 1005): Res ID 0
+E/Navit   ( 1005): Failed to extract language resource en
+E/Navit   ( 1005): Res Name navit
+E/Navit   ( 1005): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1005): Res ID 2130903061
+E/Navit   ( 1005): Checking /data
+E/Navit   ( 1005): Checking /data/data
+E/Navit   ( 1005): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1005): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 1005): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1005): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    ( 1005): called
+I/DEBUG   (  784): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (  784): Build fingerprint: 'neo/freerunner/freerunner/:1.5/CUPCAKE/eng.sysadmin.20090909.100413:eng/test-keys'
+I/DEBUG   (  784): pid: 1005, tid: 1005  >>> org.navitproject.navit <<<
+I/DEBUG   (  784): signal 4 (SIGILL), fault addr ad03091c
+I/DEBUG   (  784):  r0 0000a9c8  r1 4364b2d0  r2 000009ac  r3 ad088888
+I/DEBUG   (  784):  r4 be8d2530  r5 0000a9c8  r6 80452edc  r7 41049d14
+I/DEBUG   (  784):  r8 4364b2d0  r9 4364c3f0  10 be8d24e0  fp 4364b2d0
+I/DEBUG   (  784):  ip afbc30c8  sp be8d24c0  lr 8043b920  pc ad03091c  cpsr 00000010
+I/DEBUG   (  784):          #00  pc 0003091c  /system/lib/libdvm.so
+I/DEBUG   (  784):          #01  lr 8043b920  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  784): stack:
+I/DEBUG   (  784):     be8d2480  0019a7a8  [heap]
+I/DEBUG   (  784):     be8d2484  afe0ec88  /system/lib/libc.so
+I/DEBUG   (  784):     be8d2488  00002bb0
+I/DEBUG   (  784):     be8d248c  afe0f018  /system/lib/libc.so
+I/DEBUG   (  784):     be8d2490  00002bb0
+I/DEBUG   (  784):     be8d2494  00000003
+I/DEBUG   (  784):     be8d2498  000000da
+I/DEBUG   (  784):     be8d249c  be8d24bc  [stack]
+I/DEBUG   (  784):     be8d24a0  0019a720  [heap]
+I/DEBUG   (  784):     be8d24a4  be8d2530  [stack]
+I/DEBUG   (  784):     be8d24a8  0000a9c8  [heap]
+I/DEBUG   (  784):     be8d24ac  80452edc  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  784):     be8d24b0  41049d14
+I/DEBUG   (  784):     be8d24b4  8043b8f4  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  784):     be8d24b8  e3a07077
+I/DEBUG   (  784):     be8d24bc  ef900077
+I/DEBUG   (  784): #00 be8d24c0  000030f8
+I/DEBUG   (  784):     be8d24c4  afe0b0bb  /system/lib/libc.so
+I/DEBUG   (  784):     be8d24c8  b0015444  /system/bin/linker
+I/DEBUG   (  784):     be8d24cc  00005b94
+I/DEBUG   (  784):     be8d24d0  afe40980
+I/DEBUG   (  784):     be8d24d4  afe3ddd0  /system/lib/libc.so
+I/DEBUG   (  784):     be8d24d8  0000a000  [heap]
+I/DEBUG   (  784):     be8d24dc  80400000  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  784):     be8d24e0  804503ac  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  784):     be8d24e4  00000000
+I/DEBUG   (  784):     be8d24e8  0019a6f0  [heap]
+I/DEBUG   (  784):     be8d24ec  be8d2530  [stack]
+I/DEBUG   (  784):     be8d24f0  00000000
+I/DEBUG   (  784):     be8d24f4  8043b8a8  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  784):     be8d24f8  41049d14
+I/DEBUG   (  784):     be8d24fc  be8d2510  [stack]
+I/DEBUG   (  784):     be8d2500  41049d0c
+I/DEBUG   (  784):     be8d2504  41049cf8
+I/ActivityManager(  803): Process org.navitproject.navit (pid 1005) has died.
+D/Zygote  (  786): Process 1005 terminated by signal (4)
+I/ActivityManager(  803): Low Memory: No more background processes.
+D/dalvikvm(  912): GC freed 11 objects / 368 bytes in 748ms
+D/dalvikvm(  880): GC freed 5 objects / 192 bytes in 735ms
+D/dalvikvm(  943): GC freed 172 objects / 24136 bytes in 755ms
+D/dalvikvm(  954): GC freed 160 objects / 23176 bytes in 766ms
+D/dalvikvm(  856): GC freed 253 objects / 11920 bytes in 790ms
+D/dalvikvm(  803): GC freed 1481 objects / 96984 bytes in 789ms
+D/dalvikvm(  910): GC freed 4794 objects / 268448 bytes in 946ms
+D/dalvikvm(  858): GC freed 198 objects / 8912 bytes in 207ms
+W/InputManagerService(  803): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@437734e8

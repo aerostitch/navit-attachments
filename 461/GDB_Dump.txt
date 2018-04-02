@@ -1,0 +1,203 @@
+GNU gdb (GDB) SUSE (7.1-3.12)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i586-suse-linux".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/number6/Desktop/source/navit/navit/navit...done.
+Attaching to program: /home/number6/Desktop/source/navit/navit/navit, process 18495
+Reading symbols from /usr/lib/libgthread-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgthread-2.0.so.0
+Reading symbols from /usr/lib/libgmodule-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgmodule-2.0.so.0
+Reading symbols from /lib/librt.so.1...(no debugging symbols found)...done.
+Loaded symbols for /lib/librt.so.1
+Reading symbols from /usr/lib/libglib-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libglib-2.0.so.0
+Reading symbols from /lib/libz.so.1...(no debugging symbols found)...done.
+Loaded symbols for /lib/libz.so.1
+Reading symbols from /lib/libcrypto.so.1.0.0...(no debugging symbols found)...done.
+Loaded symbols for /lib/libcrypto.so.1.0.0
+Reading symbols from /lib/libm.so.6...(no debugging symbols found)...done.
+Loaded symbols for /lib/libm.so.6
+Reading symbols from /lib/libpthread.so.0...(no debugging symbols found)...done.
+[Thread debugging using libthread_db enabled]
+Loaded symbols for /lib/libpthread.so.0
+Reading symbols from /lib/libc.so.6...(no debugging symbols found)...done.
+Loaded symbols for /lib/libc.so.6
+Reading symbols from /lib/libdl.so.2...(no debugging symbols found)...done.
+Loaded symbols for /lib/libdl.so.2
+Reading symbols from /lib/ld-linux.so.2...(no debugging symbols found)...done.
+Loaded symbols for /lib/ld-linux.so.2
+Reading symbols from /lib/libpcre.so.0...(no debugging symbols found)...done.
+Loaded symbols for /lib/libpcre.so.0
+Reading symbols from /home/number6/Desktop/source/navit/navit/map/textfile/.libs/libmap_textfile.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/map/textfile/.libs/libmap_textfile.so
+Reading symbols from /home/number6/Desktop/source/navit/navit/graphics/gtk_drawing_area/.libs/libgraphics_gtk_drawing_area.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/graphics/gtk_drawing_area/.libs/libgraphics_gtk_drawing_area.so
+Reading symbols from /usr/lib/libgtk-x11-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib/libgdk-x11-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib/libatk-1.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libatk-1.0.so.0
+Reading symbols from /usr/lib/libpangoft2-1.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib/libgdk_pixbuf-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib/libgio-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgio-2.0.so.0
+Reading symbols from /usr/lib/libpangocairo-1.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib/libcairo.so.2...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libcairo.so.2
+Reading symbols from /usr/lib/libpango-1.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpango-1.0.so.0
+Reading symbols from /usr/lib/libfreetype.so.6...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libfreetype.so.6
+Reading symbols from /usr/lib/libfontconfig.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libfontconfig.so.1
+Reading symbols from /usr/lib/libgobject-2.0.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgobject-2.0.so.0
+Reading symbols from /usr/lib/libX11.so.6...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libX11.so.6
+Reading symbols from /usr/lib/libXfixes.so.3...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXfixes.so.3
+Reading symbols from /usr/lib/libXext.so.6...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXext.so.6
+Reading symbols from /usr/lib/libXrender.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXrender.so.1
+Reading symbols from /usr/lib/libXinerama.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXinerama.so.1
+Reading symbols from /usr/lib/libXi.so.6...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXi.so.6
+Reading symbols from /usr/lib/libXrandr.so.2...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXrandr.so.2
+Reading symbols from /usr/lib/libXcursor.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXcursor.so.1
+Reading symbols from /usr/lib/libXcomposite.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXcomposite.so.1
+Reading symbols from /usr/lib/libXdamage.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXdamage.so.1
+Reading symbols from /lib/libresolv.so.2...(no debugging symbols found)...done.
+Loaded symbols for /lib/libresolv.so.2
+Reading symbols from /lib/libselinux.so.1...(no debugging symbols found)...done.
+Loaded symbols for /lib/libselinux.so.1
+Reading symbols from /usr/lib/libpixman-1.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpixman-1.so.0
+Reading symbols from /usr/lib/libpng14.so.14...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpng14.so.14
+Reading symbols from /usr/lib/libxcb-render-util.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb-render-util.so.0
+Reading symbols from /usr/lib/libxcb-render.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb-render.so.0
+Reading symbols from /usr/lib/libxcb.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb.so.1
+Reading symbols from /lib/libexpat.so.1...(no debugging symbols found)...done.
+Loaded symbols for /lib/libexpat.so.1
+Reading symbols from /usr/lib/libXau.so.6...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXau.so.6
+Reading symbols from /usr/lib/gtk-2.0/2.10.0/engines/libmurrine.so...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/2.10.0/engines/libmurrine.so
+Reading symbols from /usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so
+Reading symbols from /usr/lib/libcanberra-gtk.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libcanberra-gtk.so.0
+Reading symbols from /usr/lib/libcanberra.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libcanberra.so.0
+Reading symbols from /usr/lib/libvorbisfile.so.3...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libvorbisfile.so.3
+Reading symbols from /usr/lib/libltdl.so.7...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libltdl.so.7
+Reading symbols from /usr/lib/libvorbis.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libvorbis.so.0
+Reading symbols from /usr/lib/libogg.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libogg.so.0
+Reading symbols from /usr/lib/gtk-2.0/modules/libgnomebreakpad.so...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/modules/libgnomebreakpad.so
+Reading symbols from /usr/lib/libelf.so.1...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libelf.so.1
+Reading symbols from /usr/lib/libstdc++.so.6...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libstdc++.so.6
+Reading symbols from /lib/libgcc_s.so.1...(no debugging symbols found)...done.
+Loaded symbols for /lib/libgcc_s.so.1
+Reading symbols from /home/number6/Desktop/source/navit/navit/font/freetype/.libs/libfont_freetype.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/font/freetype/.libs/libfont_freetype.so
+Reading symbols from /usr/lib/libfribidi.so.0...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libfribidi.so.0
+Reading symbols from /home/number6/Desktop/source/navit/navit/gui/internal/.libs/libgui_internal.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/gui/internal/.libs/libgui_internal.so
+Reading symbols from /home/number6/Desktop/source/navit/navit/osd/core/.libs/libosd_core.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/osd/core/.libs/libosd_core.so
+Reading symbols from /home/number6/Desktop/source/navit/navit/vehicle/gpsd_dbus/.libs/libvehicle_gpsd_dbus.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/vehicle/gpsd_dbus/.libs/libvehicle_gpsd_dbus.so
+Reading symbols from /usr/lib/libdbus-glib-1.so.2...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libdbus-glib-1.so.2
+Reading symbols from /lib/libdbus-1.so.3...(no debugging symbols found)...done.
+Loaded symbols for /lib/libdbus-1.so.3
+Reading symbols from /home/number6/Desktop/source/navit/navit/speech/cmdline/.libs/libspeech_cmdline.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/speech/cmdline/.libs/libspeech_cmdline.so
+Reading symbols from /home/number6/Desktop/source/navit/navit/map/binfile/.libs/libmap_binfile.so...done.
+Loaded symbols for /home/number6/Desktop/source/navit/navit/map/binfile/.libs/libmap_binfile.so
+Reading symbols from /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so...(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
+0xffffe430 in __kernel_vsyscall ()
+#0  0xffffe430 in __kernel_vsyscall ()
+#1  0xb74028c3 in __waitpid_nocancel () from /lib/libc.so.6
+#2  0xb739f963 in do_system () from /lib/libc.so.6
+#3  0xb74e057b in system () from /lib/libpthread.so.0
+#4  0x0805e9b8 in sigsegv (sig=11) at debug.c:78
+#5  <signal handler called>
+#6  navit_cmd_sys_cmd (this=0x80a2a48, function=0xbff29b20 "sys_cmd", in=0x819b5b0, out=0xbff29b98, valid=0x8108808) at navit.c:741
+#7  0x08088855 in command_table_call (table=<value optimized out>, count=9, data=0x80a2a48, command=0xbff29b20 "sys_cmd", in=0x819b5b0, out=0xbff29b98, 
+    valid=0xbff29b9c) at command.c:897
+#8  0x0805cb60 in callback_call (cb=0x80a2b98, pcount=4, p=0xbff29ab0) at callback.c:163
+#9  0x0805cd68 in callback_list_call_attr (l=0x80a2b88, type=attr_command, pcount=4, p=0xbff29ab0) at callback.c:219
+#10 0x0805cddf in callback_list_call_attr_args (cbl=0x80a2b88, type=attr_command, count=4) at callback.c:235
+#11 0x08088b4d in command_call_function (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:402
+#12 0x08088e25 in eval_postfix (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:444
+#13 eval_unary (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:462
+#14 0x08088ed1 in eval_multiplicative (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:471
+#15 0x0808902e in eval_additive (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:504
+#16 0x08089121 in eval_equality (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:531
+#17 0x0808934d in eval_bitwise_and (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:572
+#18 0x0808941d in eval_bitwise_xor (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:589
+#19 0x080894bd in eval_bitwise_or (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:605
+#20 0x0808958d in eval_logical_and (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:622
+#21 0x0808964d in eval_logical_or (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:638
+#22 0x08089713 in eval_conditional (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:655
+#23 0x08089883 in eval_assignment (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:680
+#24 0x080899ad in eval_comma (ctx=0xbff2a1dc, res=0xbff2a20c) at command.c:697
+#25 0x0808a34a in command_evaluate (attr=0xbff2a270, expr=0x81087f0 "sys_cmd(\"/usr/bin/gedit\")") at command.c:862
+#26 0x08075e19 in osd_std_click (this=0x810873c, nav=0x80a2a48, pressed=1, button=1, p=0xbff2a5e8) at osd.c:84
+#27 0x0805cc24 in callback_call (cb=0x81a40f0, pcount=4, p=0xbff2a360) at callback.c:169
+#28 0x0805cd68 in callback_list_call_attr (l=0x80a2b88, type=attr_button, pcount=4, p=0xbff2a360) at callback.c:219
+#29 0x0805cddf in callback_list_call_attr_args (cbl=0x80a2b88, type=attr_button, count=4) at callback.c:235
+#30 0x0806df81 in navit_handle_button (this_=0x80a2a48, pressed=1, button=1, p=0xbff2a5e8, popup_callback=0x0) at navit.c:378
+#31 0xb60f8791 in gui_internal_button (data=0x8101208, pressed=1, button=1, p=0xbff2a5e8) at gui_internal.c:4942
+#32 0x0805cbfb in callback_call (cb=0x819b5c0, pcount=3, p=0xbff2a550) at callback.c:172
+#33 0x0805cd68 in callback_list_call_attr (l=0x80acee8, type=attr_button, pcount=3, p=0xbff2a550) at callback.c:219
+#34 0x0805cddf in callback_list_call_attr_args (cbl=0x80acee8, type=attr_button, count=3) at callback.c:235
+#35 0xb77cd9b8 in button_press (widget=0x80ce840, event=0x80ce470, user_data=0x8100b38) at graphics_gtk_drawing_area.c:721
+#36 0xb6e5bb04 in ?? () from /usr/lib/libgtk-x11-2.0.so.0
+#37 0xb6969f42 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#38 0xb69797cc in ?? () from /usr/lib/libgobject-2.0.so.0
+#39 0xb69827ba in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#40 0xb6982b57 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#41 0xb6f8e596 in ?? () from /usr/lib/libgtk-x11-2.0.so.0
+#42 0xb6e59c8d in gtk_propagate_event () from /usr/lib/libgtk-x11-2.0.so.0
+#43 0xb6e5a317 in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+#44 0xb6ccb1ba in ?? () from /usr/lib/libgdk-x11-2.0.so.0
+#45 0xb770ab49 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#46 0xb770b350 in ?? () from /usr/lib/libglib-2.0.so.0
+#47 0xb770ba0f in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#48 0x0805a4b6 in event_glib_main_loop_run () at event_glib.c:34
+#49 0x0805f7fe in event_main_loop_run () at event.c:38
+#50 0x080538f4 in main_real (argc=1, argv=0xbff2ace4) at start_real.c:180
+#51 0x0805364b in main (argc=1, argv=0xbff2ace4) at start.c:25
+Detaching from program: /home/number6/Desktop/source/navit/navit/navit, process 18495
+Running from source directory
+map_rect_new_textfile unable to open textfile /home/number6/Desktop/source/navit/navit/bookmark.txt

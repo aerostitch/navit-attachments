@@ -1,0 +1,282 @@
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(wersja 5126)
++++ CMakeLists.txt	(kopia robocza)
+@@ -399,7 +399,7 @@
+ add_feature(BUILD_MAPTOOL "default" TRUE)
+ add_feature(XSL_PROCESSING "default" TRUE)
+ 
+-find_program(XSLT_PROCESSOR NAMES saxon saxon8 saxon-xslt saxonb-xslt xsltproc transform.exe)
++find_program(XSLT_PROCESSOR NAMES saxonb-xslt xsltproc transform.exe)
+ if(XSLT_PROCESSOR)
+    execute_process(COMMAND ${XSLT_PROCESSOR} -snone ${CMAKE_CURRENT_SOURCE_DIR}/cmake/test.xml ${CMAKE_CURRENT_SOURCE_DIR}/cmake/test.xslt
+       RESULT_VARIABLE SAXON_ERROR ERROR_QUIET)
+Index: navit/android/src/org/navitproject/navit/NavitAppConfig.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitAppConfig.java	(wersja 5126)
++++ navit/android/src/org/navitproject/navit/NavitAppConfig.java	(kopia robocza)
+@@ -65,4 +65,14 @@
+ 
+ 		editSettings.commit();
+ 	}
++
++	public void setFullscreen(boolean fullscreen) {
++		SharedPreferences.Editor editSettings = mSettings.edit();
++		editSettings.putBoolean("fullscreen", fullscreen);
++		editSettings.commit();
++	}
++
++	public boolean getFullscreen() {
++		return mSettings.getBoolean("fullscreen", false);
++	}
+ }
+Index: navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/Navit.java	(wersja 5126)
++++ navit/android/src/org/navitproject/navit/Navit.java	(kopia robocza)
+@@ -56,6 +56,8 @@
+ import android.view.Menu;
+ import android.view.MenuItem;
+ import android.view.inputmethod.InputMethodManager;
++import android.view.Window;
++import android.view.WindowManager;
+ import android.widget.RelativeLayout;
+ import android.widget.TextView;
+ import android.widget.Toast;
+@@ -159,14 +161,14 @@
+ 			message.setVerticalFadingEdgeEnabled(true);
+ 			// message.setVerticalScrollBarEnabled(true);
+ 			RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
+-	
++
+ 			message.setLayoutParams(rlp);
+ 			final SpannableString s = new SpannableString(getString(R.string.initial_info_box_message)); // TRANS
+ 			Linkify.addLinks(s, Linkify.WEB_URLS);
+ 			message.setText(s);
+ 			message.setMovementMethod(LinkMovementMethod.getInstance());
+ 			infobox.setView(message);
+-	
++
+ 			// TRANS
+ 			infobox.setPositiveButton(getString(R.string.initial_info_box_OK), new DialogInterface.OnClickListener() {
+ 				public void onClick(DialogInterface arg0, int arg1) {
+@@ -191,12 +193,22 @@
+ 		}
+ 	}
+ 
++	public void loadAndApplyPersistentConfig(NavitAppConfig navitConfig)
++	{
++		if (navitConfig.getFullscreen()) {
++		    fullscreen(1);
++		}
++	}
++
+ 	/** Called when the activity is first created. */
+ 	@Override
+ 	public void onCreate(Bundle savedInstanceState)
+ 	{
+ 		super.onCreate(savedInstanceState);
+ 
++		NavitAppConfig navitConfig = (NavitAppConfig) getApplicationContext();
++		loadAndApplyPersistentConfig(navitConfig);
++
+ 		dialogs = new NavitDialogs(this);
+ 
+ 		NavitResources = getResources();
+@@ -210,17 +222,17 @@
+ 
+ 		// init translated text
+ 		NavitTextTranslations.init();
+-		
++
+ 		// NOTIFICATION
+-		// Setup the status bar notification		
++		// Setup the status bar notification
+ 		// This notification is removed in the exit() function
+ 		NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);	// Grab a handle to the NotificationManager
+ 		Notification NavitNotification = new Notification(R.drawable.icon,"Navit started",System.currentTimeMillis());	// Create a new notification, with the text string to show when the notification first appears
+-		PendingIntent appIntent = PendingIntent.getActivity(getApplicationContext(), 0, getIntent(), 0);
+-		NavitNotification.setLatestEventInfo(getApplicationContext(), "Navit", "Navit running", appIntent);	// Set the text in the notification
++		PendingIntent appIntent = PendingIntent.getActivity(navitConfig, 0, getIntent(), 0);
++		NavitNotification.setLatestEventInfo(navitConfig, "Navit", "Navit running", appIntent);	// Set the text in the notification
+ 		NavitNotification.flags|=Notification.FLAG_ONGOING_EVENT;	// Ensure that the notification appears in Ongoing
+ 		nm.notify(R.string.app_name, NavitNotification);	// Set the notification
+-		
++
+ 		// get the local language -------------
+ 		Locale locale = java.util.Locale.getDefault();
+ 		String lang = locale.getLanguage();
+@@ -359,21 +371,21 @@
+ 		Map<String,String> params = new HashMap<String,String>();
+ 		for (int count=0; count < naviData.length; count++) {
+ 			Matcher m = p.matcher(naviData[count]);
+-			
++
+ 			if (m.matches()) {
+ 				params.put(m.group(1), m.group(2));
+ 			}
+ 		}
+-		
++
+ 		// d: google.navigation:q=blabla-strasse # (this happens when you are offline, or from contacts)
+ 		// a: google.navigation:ll=48.25676,16.643&q=blabla-strasse
+ 		// c: google.navigation:ll=48.25676,16.643
+ 		// b: google.navigation:q=48.25676,16.643
+-		
++
+ 		Float lat;
+ 		Float lon;
+ 		Bundle b = new Bundle();
+-		
++
+ 		String geoString = params.get("ll");
+ 		if (geoString != null) {
+ 			String address = params.get("q");
+@@ -382,7 +394,7 @@
+ 		else {
+ 			geoString = params.get("q");
+ 		}
+-		
++
+ 		if ( geoString != null) {
+ 			if (geoString.matches("^[+-]{0,1}\\d+(|\\.\\d*),[+-]{0,1}\\d+(|\\.\\d*)$")) {
+ 				String geo[] = geoString.split(",");
+@@ -574,7 +586,7 @@
+ 		super.onDestroy();
+ 		Log.e("Navit", "OnDestroy");
+ 		// TODO next call will kill our app the hard way. This should not be necessary, but ensures navit is
+-		// properly restarted and no resources are wasted with navit in background. Remove this call after 
++		// properly restarted and no resources are wasted with navit in background. Remove this call after
+ 		// code review
+ 		NavitDestroy();
+ 	}
+@@ -593,6 +605,21 @@
+ 		finish();
+ 	}
+ 
++	public void fullscreen(int fulscreen)
++	{
++		Log.e("Navit", "Fullscreen " + fulscreen);
++		if (fulscreen != 0) {
++			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
++			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
++		} else {
++			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
++			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
++		}
++
++		NavitAppConfig navitConfig = (NavitAppConfig) getApplicationContext();
++		navitConfig.setFullscreen(fulscreen != 0);
++        }
++
+ 	public native void NavitMain(Navit x, String lang, int version, String display_density_string, String path);
+ 	public native void NavitDestroy();
+ 
+Index: navit/graphics/android/graphics_android.c
+===================================================================
+--- navit/graphics/android/graphics_android.c	(wersja 5126)
++++ navit/graphics/android/graphics_android.c	(kopia robocza)
+@@ -42,8 +42,8 @@
+ 
+ 	jobject NavitGraphics;
+ 	jobject Paint;
+-	
+-	jclass BitmapFactoryClass;	
++
++	jclass BitmapFactoryClass;
+ 	jmethodID BitmapFactory_decodeFile, BitmapFactory_decodeResource;
+ 
+ 	jclass BitmapClass;
+@@ -173,9 +173,9 @@
+ static struct graphics_gc_methods gc_methods = {
+ 	gc_destroy,
+ 	gc_set_linewidth,
+-	gc_set_dashes,	
+-	gc_set_foreground,	
+-	gc_set_background	
++	gc_set_dashes,
++	gc_set_foreground,
++	gc_set_background
+ };
+ 
+ static struct graphics_gc_priv *gc_new(struct graphics_priv *gr, struct graphics_gc_methods *meth)
+@@ -333,7 +333,7 @@
+ 	dbg(1,"enter %p\n",img);
+ 	initPaint(gra, fg);
+ 	(*jnienv)->CallVoidMethod(jnienv, gra->NavitGraphics, gra->NavitGraphics_draw_image, fg->gra->Paint, p->x, p->y, img->Bitmap);
+-	
++
+ }
+ 
+ static void
+@@ -630,15 +630,16 @@
+ 	return 1;
+ }
+ 
++static jclass NavitClass;
++static jmethodID Navit_disableSuspend, Navit_exit, Navit_fullscreen;
++
+ static int
+ graphics_android_fullscreen(struct window *win, int on)
+ {
++	(*jnienv)->CallVoidMethod(jnienv, android_activity, Navit_fullscreen, on);
+ 	return 1;
+ }
+ 
+-static jclass NavitClass;
+-static jmethodID Navit_disableSuspend, Navit_exit;
+-
+ static void
+ graphics_android_disable_suspend(struct window *win)
+ {
+@@ -853,39 +854,42 @@
+ 	if (!find_class_global("org/navitproject/navit/NavitTimeout", &NavitTimeoutClass))
+ 		return NULL;
+ 	NavitTimeout_init = (*jnienv)->GetMethodID(jnienv, NavitTimeoutClass, "<init>", "(IZI)V");
+-	if (NavitTimeout_init == NULL) 
++	if (NavitTimeout_init == NULL)
+ 		return NULL;
+ 	NavitTimeout_remove = (*jnienv)->GetMethodID(jnienv, NavitTimeoutClass, "remove", "()V");
+-	if (NavitTimeout_remove == NULL) 
++	if (NavitTimeout_remove == NULL)
+ 		return NULL;
+ #if 0
+ 	if (!find_class_global("org/navitproject/navit/NavitIdle", &NavitIdleClass))
+ 		return NULL;
+ 	NavitIdle_init = (*jnienv)->GetMethodID(jnienv, NavitIdleClass, "<init>", "(I)V");
+-	if (NavitIdle_init == NULL) 
++	if (NavitIdle_init == NULL)
+ 		return NULL;
+ 	NavitIdle_remove = (*jnienv)->GetMethodID(jnienv, NavitIdleClass, "remove", "()V");
+-	if (NavitIdle_remove == NULL) 
++	if (NavitIdle_remove == NULL)
+ 		return NULL;
+ #endif
+ 
+ 	if (!find_class_global("org/navitproject/navit/NavitWatch", &NavitWatchClass))
+ 		return NULL;
+ 	NavitWatch_init = (*jnienv)->GetMethodID(jnienv, NavitWatchClass, "<init>", "(IIII)V");
+-	if (NavitWatch_init == NULL) 
++	if (NavitWatch_init == NULL)
+ 		return NULL;
+ 	NavitWatch_remove = (*jnienv)->GetMethodID(jnienv, NavitWatchClass, "remove", "()V");
+-	if (NavitWatch_remove == NULL) 
++	if (NavitWatch_remove == NULL)
+ 		return NULL;
+ 
+ 	if (!find_class_global("org/navitproject/navit/Navit", &NavitClass))
+ 		return NULL;
+ 	Navit_disableSuspend = (*jnienv)->GetMethodID(jnienv, NavitClass, "disableSuspend", "()V");
+-	if (Navit_disableSuspend == NULL) 
++	if (Navit_disableSuspend == NULL)
+ 		return NULL;
+ 	Navit_exit = (*jnienv)->GetMethodID(jnienv, NavitClass, "exit", "()V");
+-	if (Navit_exit == NULL) 
++	if (Navit_exit == NULL)
+ 		return NULL;
++	Navit_fullscreen = (*jnienv)->GetMethodID(jnienv, NavitClass, "fullscreen", "(I)V");
++	if (Navit_fullscreen == NULL)
++		return NULL;
+ 	dbg(0,"ok\n");
+         *meth=event_android_methods;
+         return NULL;

@@ -1,0 +1,474 @@
+From 3df3e1ef417de753f03f4742165c25b3bbc11557 Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Fri, 3 Oct 2014 16:20:37 +0200
+Subject: [PATCH 1/8] osd/core: Make button resize correctly with use_overlay
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd/core/osd_core.c |   38 ++++++++++++++++++++++++++++++++------
+ 1 file changed, 32 insertions(+), 6 deletions(-)
+
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index de53e7f..df6c770 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -1434,13 +1434,39 @@ static void
+ osd_button_draw(struct osd_priv_common *opc, struct navit *nav)
+ {
+ 	struct osd_button *this = (struct osd_button *)opc->data;
+-
+-	struct point bp = opc->osd_item.p;
+-	if (!opc->osd_item.configured)
++	struct graphics *gra;
++	gra = navit_get_graphics(nav);
++	this->img = graphics_image_new(gra, this->src);
++	if (!this->img) {
++		dbg(1, "failed to load '%s'\n", this->src);
+ 		return;
+-	osd_wrap_point(&bp, nav);
+-	if(this->img)
+-		graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &bp, this->img);
++	}
++	if (!opc->osd_item.w)
++		opc->osd_item.w=this->img->width;
++	if (!opc->osd_item.h)
++		opc->osd_item.h=this->img->height;
++
++	if(navit_get_blocked(nav)&1)
++	        return;
++
++	if (this->use_overlay) {
++		struct graphics_image *img;
++		struct point p;
++		img=graphics_image_new(opc->osd_item.gr, this->src);
++		p.x=(opc->osd_item.w-this->img->width)/2;
++		p.y=(opc->osd_item.h-this->img->height)/2;
++		osd_std_draw(&opc->osd_item);
++		graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &p, img);
++		graphics_image_free(opc->osd_item.gr, img);
++	} else {
++		struct point bp = opc->osd_item.p;
++		if (!opc->osd_item.configured)
++			return;
++		osd_wrap_point(&bp, nav);
++
++		if(this->img)
++			graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &bp, this->img);
++	}
+ }
+ 
+ static void
+-- 
+1.7.9.5
+
+
+From ab41d5cbddda6fd38f932862282032e862dd802b Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Fri, 3 Oct 2014 17:26:37 +0200
+Subject: [PATCH 2/8] osd/core: Correct relative placement for buttons with
+ use_overlay=0
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd.c               |    2 +-
+ navit/navit/osd.h               |    1 +
+ navit/navit/osd/core/osd_core.c |   14 ++++++++++----
+ 3 files changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/navit/navit/osd.c b/navit/navit/osd.c
+index 00e2411..d125ced 100644
+--- a/navit/navit/osd.c
++++ b/navit/navit/osd.c
+@@ -169,7 +169,7 @@ osd_std_resize(struct osd_item *item)
+  * @param h Available screen height in pixels (the height that corresponds to
+  * 100%)
+  */
+-static void
++void
+ osd_std_calculate_sizes(struct osd_item *item, int w, int h)
+ {
+  	if (item->rel_w) {
+diff --git a/navit/navit/osd.h b/navit/navit/osd.h
+index f30b62b..2c636c1 100644
+--- a/navit/navit/osd.h
++++ b/navit/navit/osd.h
+@@ -71,6 +71,7 @@ void osd_set_keypress(struct navit *nav, struct osd_item *item);
+ void osd_set_std_config(struct navit *nav, struct osd_item *item);
+ void osd_set_std_graphic(struct navit *nav, struct osd_item *item, struct osd_priv *priv);
+ void osd_std_resize(struct osd_item *item);
++void osd_std_calculate_sizes(struct osd_item *item, int w, int h);
+ void osd_std_draw(struct osd_item *item);
+ int osd_set_attr(struct osd *osd, struct attr* attr);
+ int osd_get_attr(struct osd *this_, enum attr_type type, struct attr *attr, struct attr_iter *iter);
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index df6c770..75f8e1e 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -1449,9 +1449,10 @@ osd_button_draw(struct osd_priv_common *opc, struct navit *nav)
+ 	if(navit_get_blocked(nav)&1)
+ 	        return;
+ 
++	struct point p;
++
+ 	if (this->use_overlay) {
+ 		struct graphics_image *img;
+-		struct point p;
+ 		img=graphics_image_new(opc->osd_item.gr, this->src);
+ 		p.x=(opc->osd_item.w-this->img->width)/2;
+ 		p.y=(opc->osd_item.h-this->img->height)/2;
+@@ -1459,13 +1460,18 @@ osd_button_draw(struct osd_priv_common *opc, struct navit *nav)
+ 		graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &p, img);
+ 		graphics_image_free(opc->osd_item.gr, img);
+ 	} else {
+-		struct point bp = opc->osd_item.p;
++		osd_std_calculate_sizes(&opc->osd_item, navit_get_width(nav), navit_get_height(nav));
++
++		p = opc->osd_item.p;
++		p.x+=(opc->osd_item.w-this->img->width)/2;
++		p.y+=(opc->osd_item.h-this->img->height)/2;
++
+ 		if (!opc->osd_item.configured)
+ 			return;
+-		osd_wrap_point(&bp, nav);
++		osd_wrap_point(&p, nav);
+ 
+ 		if(this->img)
+-			graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &bp, this->img);
++			graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &p, this->img);
+ 	}
+ }
+ 
+-- 
+1.7.9.5
+
+
+From 4e47293c367bb3cd175395292f9e617e010cdf06 Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Fri, 3 Oct 2014 21:49:44 +0200
+Subject: [PATCH 3/8] osd/core: remove duplicated code for button
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd/core/osd_core.c |   34 +++++++++++-----------------------
+ 1 file changed, 11 insertions(+), 23 deletions(-)
+
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index 75f8e1e..a2051d9 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -1434,18 +1434,8 @@ static void
+ osd_button_draw(struct osd_priv_common *opc, struct navit *nav)
+ {
+ 	struct osd_button *this = (struct osd_button *)opc->data;
+-	struct graphics *gra;
+-	gra = navit_get_graphics(nav);
+-	this->img = graphics_image_new(gra, this->src);
+-	if (!this->img) {
+-		dbg(1, "failed to load '%s'\n", this->src);
+-		return;
+-	}
+-	if (!opc->osd_item.w)
+-		opc->osd_item.w=this->img->width;
+-	if (!opc->osd_item.h)
+-		opc->osd_item.h=this->img->height;
+ 
++	// FIXME: Do we need this check?
+ 	if(navit_get_blocked(nav)&1)
+ 	        return;
+ 
+@@ -1454,12 +1444,20 @@ osd_button_draw(struct osd_priv_common *opc, struct navit *nav)
+ 	if (this->use_overlay) {
+ 		struct graphics_image *img;
+ 		img=graphics_image_new(opc->osd_item.gr, this->src);
+-		p.x=(opc->osd_item.w-this->img->width)/2;
+-		p.y=(opc->osd_item.h-this->img->height)/2;
++		p.x=(opc->osd_item.w-img->width)/2;
++		p.y=(opc->osd_item.h-img->height)/2;
+ 		osd_std_draw(&opc->osd_item);
+ 		graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &p, img);
+ 		graphics_image_free(opc->osd_item.gr, img);
+ 	} else {
++		struct graphics *gra;
++		gra = navit_get_graphics(nav);
++		this->img = graphics_image_new(gra, this->src);
++		if (!this->img) {
++			dbg(1, "failed to load '%s'\n", this->src);
++			return;
++		}
++
+ 		osd_std_calculate_sizes(&opc->osd_item, navit_get_width(nav), navit_get_height(nav));
+ 
+ 		p = opc->osd_item.p;
+@@ -1553,16 +1551,6 @@ osd_button_set_attr(struct osd_priv_common *opc, struct attr* attr)
+ 		if(navit_get_blocked(nav)&1)
+ 		        return 1;
+ 
+-		if (this_->use_overlay) {
+-			struct graphics_image *img;
+-			struct point p;
+-			img=graphics_image_new(opc->osd_item.gr, this_->src);
+-			p.x=(opc->osd_item.w-this_->img->width)/2;
+-			p.y=(opc->osd_item.h-this_->img->height)/2;
+-			osd_std_draw(&opc->osd_item);
+-			graphics_draw_image(opc->osd_item.gr, opc->osd_item.graphic_bg, &p, img);
+-			graphics_image_free(opc->osd_item.gr, img);
+-		} 
+ 		osd_button_draw(opc,nav);
+ 		navit_draw(opc->osd_item.navit);
+ 		return 1;
+-- 
+1.7.9.5
+
+
+From a9a4e34e6f519211b288c8653a702433ec8ec0b6 Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Sat, 4 Oct 2014 00:04:40 +0200
+Subject: [PATCH 4/8] osd/core: Make text resize correctly
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd/core/osd_core.c |    7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index a2051d9..fb1ea6c 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -2858,14 +2858,13 @@ osd_text_draw(struct osd_priv_common *opc, struct navit *navit, struct vehicle *
+ 		oti=oti->next;
+ 	}
+ 
+-	if ( this->last && str && !strcmp(this->last, str) ) {
+-		do_draw=0;
+-	} else {
++	if ( !this->last || !str || strcmp(this->last, str) ) {
+ 		do_draw=1;
+ 		if (this->last)
+ 			g_free(this->last);
+ 		this->last = g_strdup(str);
+-	}
++	} else if ((opc->osd_item.rel_h) || (opc->osd_item.rel_w) || (opc->osd_item.rel_x) || (opc->osd_item.rel_y))
++		do_draw=1;
+ 
+ 	absbegin=str;
+ 	if (do_draw) {
+-- 
+1.7.9.5
+
+
+From e9f44b4b7932ff0b91fabbe30e7e0d0084e7cf6c Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Sat, 4 Oct 2014 00:09:25 +0200
+Subject: [PATCH 5/8] osd/core: Make gps_status resize correctly
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd/core/osd_core.c |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index fb1ea6c..30fc94c 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -3194,7 +3194,8 @@ osd_gps_status_draw(struct osd_priv_common *opc, struct navit *navit,
+ 	if (this->strength != strength) {
+ 		this->strength=strength;
+ 		do_draw=1;
+-	}
++	} else if ((opc->osd_item.rel_h) || (opc->osd_item.rel_w) || (opc->osd_item.rel_x) || (opc->osd_item.rel_y))
++		do_draw=1;
+ 	if (do_draw) {
+ 		osd_std_draw(&opc->osd_item);
+ 		if (this->active) {
+-- 
+1.7.9.5
+
+
+From 7fb2a485c84a66bc2833887f629b2ad3db82c86b Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Sat, 4 Oct 2014 01:29:55 +0200
+Subject: [PATCH 6/8] osd/core: Make navigation_next_turn resize correctly
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd/core/osd_core.c |    2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index 30fc94c..4f99e50 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -1731,6 +1731,8 @@ osd_nav_next_turn_draw(struct osd_priv_common *opc, struct navit *navit,
+ 			do_draw = 1;
+ 		}
+ 	}
++	if ((opc->osd_item.rel_h) || (opc->osd_item.rel_w) || (opc->osd_item.rel_x) || (opc->osd_item.rel_y))
++		do_draw=1;
+ 	if (mr)
+ 		map_rect_destroy(mr);
+ 
+-- 
+1.7.9.5
+
+
+From db8848fa11e3bd9e97cff8f6c9296614a889a228 Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Sat, 4 Oct 2014 15:41:15 +0200
+Subject: [PATCH 7/8] osd/core: Implement do_draw member for osd_item
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/osd.c               |    2 ++
+ navit/navit/osd.h               |    1 +
+ navit/navit/osd/core/osd_core.c |   14 +++++---------
+ 3 files changed, 8 insertions(+), 9 deletions(-)
+
+diff --git a/navit/navit/osd.c b/navit/navit/osd.c
+index d125ced..33a5776 100644
+--- a/navit/navit/osd.c
++++ b/navit/navit/osd.c
+@@ -208,9 +208,11 @@ osd_std_calculate_sizes_and_redraw(struct osd_item *item, struct osd_priv *priv,
+ 	osd_std_calculate_sizes(item, w, h);
+ 
+ 	osd_std_resize(item);
++	item->do_draw=1;
+ 	if (item->meth.draw) {
+ 		if (navit_get_attr(item->navit, attr_vehicle, &vehicle_attr, NULL)) {
+ 			item->meth.draw(priv, item->navit, vehicle_attr.u.vehicle);
++			item->do_draw=0;
+ 		}
+ 	}
+ }
+diff --git a/navit/navit/osd.h b/navit/navit/osd.h
+index 2c636c1..851377d 100644
+--- a/navit/navit/osd.h
++++ b/navit/navit/osd.h
+@@ -55,6 +55,7 @@ struct osd_item {
+ 	char *command;
+ 	struct command_saved *enable_cs;
+ 	char *accesskey;
++	int do_draw; /**< Whether the item needs to be redrawn. */
+ };
+ 
+ /* prototypes */
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index 4f99e50..a081a56 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -1698,7 +1698,7 @@ osd_nav_next_turn_draw(struct osd_priv_common *opc, struct navit *navit,
+ 	struct nav_next_turn *this = (struct nav_next_turn *)opc->data;
+ 
+ 	struct point p;
+-	int do_draw = 0;
++	int do_draw = opc->osd_item.do_draw;
+ 	struct navigation *nav = NULL;
+ 	struct map *map = NULL;
+ 	struct map_rect *mr = NULL;
+@@ -1731,8 +1731,6 @@ osd_nav_next_turn_draw(struct osd_priv_common *opc, struct navit *navit,
+ 			do_draw = 1;
+ 		}
+ 	}
+-	if ((opc->osd_item.rel_h) || (opc->osd_item.rel_w) || (opc->osd_item.rel_x) || (opc->osd_item.rel_y))
+-		do_draw=1;
+ 	if (mr)
+ 		map_rect_destroy(mr);
+ 
+@@ -2726,7 +2724,7 @@ osd_text_draw(struct osd_priv_common *opc, struct navit *navit, struct vehicle *
+ 	struct osd_text *this = (struct osd_text *)opc->data;
+ 	struct point p, p2[4];
+ 	char *str,*last,*next,*value,*absbegin;
+-	int do_draw = 0;
++	int do_draw = opc->osd_item.do_draw;
+ 	struct attr attr, vehicle_attr, maxspeed_attr, imperial_attr;
+ 	struct navigation *nav = NULL;
+ 	struct tracking *tracking = NULL;
+@@ -2865,8 +2863,7 @@ osd_text_draw(struct osd_priv_common *opc, struct navit *navit, struct vehicle *
+ 		if (this->last)
+ 			g_free(this->last);
+ 		this->last = g_strdup(str);
+-	} else if ((opc->osd_item.rel_h) || (opc->osd_item.rel_w) || (opc->osd_item.rel_x) || (opc->osd_item.rel_y))
+-		do_draw=1;
++	}
+ 
+ 	absbegin=str;
+ 	if (do_draw) {
+@@ -3160,7 +3157,7 @@ osd_gps_status_draw(struct osd_priv_common *opc, struct navit *navit,
+ 	struct gps_status *this = (struct gps_status *)opc->data;
+ 
+ 	struct point p;
+-	int do_draw = 0;
++	int do_draw = opc->osd_item.do_draw;
+ 	struct graphics_image *gr_image;
+ 	char *image;
+ 	struct attr attr, vehicle_attr;
+@@ -3196,8 +3193,7 @@ osd_gps_status_draw(struct osd_priv_common *opc, struct navit *navit,
+ 	if (this->strength != strength) {
+ 		this->strength=strength;
+ 		do_draw=1;
+-	} else if ((opc->osd_item.rel_h) || (opc->osd_item.rel_w) || (opc->osd_item.rel_x) || (opc->osd_item.rel_y))
+-		do_draw=1;
++	}
+ 	if (do_draw) {
+ 		osd_std_draw(&opc->osd_item);
+ 		if (this->active) {
+-- 
+1.7.9.5
+
+
+From e9e599a65e91c8cc31dfb9aac85c91a1ea8291b7 Mon Sep 17 00:00:00 2001
+From: mvglasow <michael -at- vonglasow.com>
+Date: Sun, 5 Oct 2014 23:04:53 +0200
+Subject: [PATCH 8/8] osd/core: Fix resize and update bugs for
+ toggle_announcer
+
+Signed-off-by: mvglasow <michael -at- vonglasow.com>
+---
+ navit/navit/navit.c             |    2 +-
+ navit/navit/osd/core/osd_core.c |   12 ++++--------
+ 2 files changed, 5 insertions(+), 9 deletions(-)
+
+diff --git a/navit/navit/navit.c b/navit/navit/navit.c
+index 243055b..cc05b6a 100644
+--- a/navit/navit/navit.c
++++ b/navit/navit/navit.c
+@@ -1855,7 +1855,7 @@ navit_cmd_announcer_toggle(struct navit *this_)
+         return;
+ 
+     // announce that the speech attribute has changed
+-    callback_list_call_attr_0(this_->attr_cbl, attr_speech);
++    callback_list_call_attr_1(this_->attr_cbl, attr_speech, this_);
+ }
+ 
+ void
+diff --git a/navit/navit/osd/core/osd_core.c b/navit/navit/osd/core/osd_core.c
+index a081a56..25fb0c0 100644
+--- a/navit/navit/osd/core/osd_core.c
++++ b/navit/navit/osd/core/osd_core.c
+@@ -1851,20 +1851,16 @@ osd_nav_toggle_announcer_draw(struct osd_priv_common *opc, struct navit *navit,
+ 	struct nav_toggle_announcer *this = (struct nav_toggle_announcer *)opc->data;
+ 
+ 	struct point p;
+-	int do_draw = 0;
++	int do_draw = opc->osd_item.do_draw;
+ 	struct graphics_image *gr_image;
+ 	char *path;
+ 	char *gui_sound_off = "gui_sound_off";
+ 	char *gui_sound_on = "gui_sound";
+     struct attr attr, speechattr;
+ 
+-    if (this->last_state == -1)
+-    {
+-        if (!navit_get_attr(navit, attr_speech, &speechattr, NULL) || !speech_get_attr(speechattr.u.speech, attr_active, &attr, NULL))
+-            attr.u.num = 1;
+-        this->active = attr.u.num;
+-    } else
+-        this->active = !this->active;
++    if (!navit_get_attr(navit, attr_speech, &speechattr, NULL) || !speech_get_attr(speechattr.u.speech, attr_active, &attr, NULL))
++        attr.u.num = 1;
++    this->active = attr.u.num;
+ 
+     if(this->active != this->last_state)
+     {
+-- 
+1.7.9.5
+

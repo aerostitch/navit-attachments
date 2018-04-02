@@ -1,0 +1,274 @@
+cmake -DCMAKE_TOOLCHAIN_FILE=$SOURCE_PATH/Toolchain/arm-eabi.cmake -DCACHE_SIZE="(20*1024*1024)" -DAVOID_FLOAT=1 -DANDROID_PERMISSIONS="CAMERA" -DANDROID_API_VERSION=8 $SOURCE_PATH
+
+-- The C compiler identification is GNU
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- The CXX compiler identification is GNU
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- checking for module 'glib-2.0'
+--   package 'glib-2.0' not found
+-- Could NOT find ZLIB (missing:  ZLIB_LIBRARY ZLIB_INCLUDE_DIR) 
+-- Could NOT find Freetype (missing:  FREETYPE_LIBRARY FREETYPE_INCLUDE_DIRS) 
+-- Looking for include files CMAKE_HAVE_PTHREAD_H
+-- Looking for include files CMAKE_HAVE_PTHREAD_H - not found.
+-- Could NOT find Threads (missing:  Threads_FOUND) 
+-- Could NOT find OpenGL (missing:  OPENGL_gl_LIBRARY) 
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GTK_INCLUDE_DIR is GTK2_GTK_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GLIBCONFIG_INCLUDE_DIR is GTK2_GLIBCONFIG_INCLUDE_DIR-NOTFOUND
+-- (DEBUG) GTK2_GLIB_INCLUDE_DIR is GTK2_GLIB_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GDK_INCLUDE_DIR is GTK2_GDK_INCLUDE_DIR-NOTFOUND
+-- (DEBUG) GTK2_GTKGL_INCLUDE_DIR is GTK2_GTKGL_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_PANGO_INCLUDE_DIR is GTK2_PANGO_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is GTK2_CAIRO_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is GTK2_CAIRO_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_ATK_INCLUDE_DIR is GTK2_ATK_INCLUDE_DIR-NOTFOUND
+-- (DEBUG) GTK2_GTK_LIBRARY is GTK2_GTK_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GDK_LIBRARY is GTK2_GDK_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GDK_PIXBUF_LIBRARY is GTK2_GDK_PIXBUF_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GMODULE_LIBRARY is GTK2_GMODULE_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GTHREAD_LIBRARY is GTK2_GTHREAD_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GOBJECT_LIBRARY is GTK2_GOBJECT_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GLIB_LIBRARY is GTK2_GLIB_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_GTKGL_LIBRARY is GTK2_GTKGL_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_PANGO_LIBRARY is GTK2_PANGO_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_PANGO_LIBRARY is GTK2_CAIRO_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_ATK_LIBRARY is GTK2_ATK_LIBRARY-NOTFOUND
+-- Found Gettext: /usr/bin/msgmerge 
+-- Could NOT find ZLIB (missing:  ZLIB_LIBRARY ZLIB_INCLUDE_DIR) 
+-- Could NOT find PNG (missing:  PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find PythonLibs (missing:  PYTHON_LIBRARIES PYTHON_INCLUDE_DIRS) 
+-- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing:  OPENSSL_LIBRARIES OPENSSL_INCLUDE_DIR) 
+-- Could NOT find Threads (missing:  Threads_FOUND) 
+-- Could NOT find Qt4 (missing:  QT_QMAKE_EXECUTABLE QT_MOC_EXECUTABLE QT_RCC_EXECUTABLE QT_INCLUDE_DIR QT_LIBRARY_DIR QT_QTCORE_INCLUDE_DIR QT_QTCORE_LIBRARY QT_OPTIONAL_COMPONENTS_INCLUDE_DIR QT_OPTIONAL_COMPONENTS_LIBRARY QT_QTGUI_INCLUDE_DIR QT_QTGUI_LIBRARY QT_QTXML_INCLUDE_DIR QT_QTXML_LIBRARY QT_QTDECLARATIVE_INCLUDE_DIR QT_QTDECLARATIVE_LIBRARY QT_QTSVG_INCLUDE_DIR QT_QTSVG_LIBRARY QT_UIC_EXECUTABLE) (Required is at least version "4.7")
+-- Looking for include files HAVE_WORDEXP
+-- Looking for include files HAVE_WORDEXP - not found.
+-- Looking for include files HAVE_ENDIAN_H
+-- Looking for include files HAVE_ENDIAN_H - not found.
+-- Looking for include files HAVE_STDINT_H
+-- Looking for include files HAVE_STDINT_H - not found.
+-- Looking for include files HAVE_BYTESWAP_H
+-- Looking for include files HAVE_BYTESWAP_H - not found.
+-- Looking for gypsy_control_get_default in gypsy
+-- Looking for gypsy_control_get_default in gypsy - not found
+-- Looking for include files HAVE_LIBSPEECHD
+-- Looking for include files HAVE_LIBSPEECHD - not found.
+-- Looking for include files HAVE_SOCKET
+-- Looking for include files HAVE_SOCKET - not found.
+-- Looking for include files HAVE_SHMEM
+-- Looking for include files HAVE_SHMEM - not found.
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for include files HAVE_LC_MESSAGES
+-- Looking for include files HAVE_LC_MESSAGES - not found.
+-- Looking for include files HAVE_LIBINTL
+-- Looking for include files HAVE_LIBINTL - not found.
+-- Looking for include files HAVE_SYS_TIME_H
+-- Looking for include files HAVE_SYS_TIME_H - not found.
+-- Looking for include files HAVE_GETOPT_H
+-- Looking for include files HAVE_GETOPT_H - not found.
+-- Looking for include files HAVE_STRING_H
+-- Looking for include files HAVE_STRING_H - not found.
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for system
+-- Looking for system - not found.
+-- Looking for CreateProcess
+-- Looking for CreateProcess - not found.
+-- Looking for stpcpy
+-- Looking for stpcpy - not found.
+-- Looking for sbrk
+-- Looking for sbrk - found
+-- Looking for getdelim
+-- Looking for getdelim - found
+-- Looking for getline
+-- Looking for getline - found
+-- Looking for fsync
+-- Looking for fsync - found
+-- using internal zlib
+-- using internal libpng
+-- wordexp.h not found. use internal wordexp
+No freetype library found, graphics modules may not be available
+-- Looking for FreeImage_Load in freeimage
+-- Looking for FreeImage_Load in freeimage - found
+-- no Freetype found
+-- Found XSLT processor: /usr/bin/xsltproc
+Usage: /usr/bin/xsltproc [options] stylesheet file [file ...]
+   Options:
+	--version or -V: show the version of libxml and libxslt used
+	--verbose or -v: show logs of what's happening
+	--output file or -o file: save to a given file
+	--timing: display the time used
+	--repeat: run the transformation 20 times
+	--debug: dump the tree of the result instead
+	--dumpextensions: dump the registered extension elements and functions to stdout
+	--novalid skip the Dtd loading phase
+	--nodtdattr do not default attributes from the DTD
+	--noout: do not dump the result
+	--maxdepth val : increase the maximum depth
+	--maxparserdepth val : increase the maximum parser depth
+	--html: the input document is(are) an HTML file(s)
+	--encoding: the input document character encoding
+	--param name value : pass a (parameter,value) pair
+	       value is an UTF8 XPath expression.
+	       string values must be quoted like "'string'"
+ or	       use stringparam to avoid it
+	--stringparam name value : pass a (parameter, UTF8 string value) pair
+	--path 'paths': provide a set of paths for resources
+	--nonet : refuse to fetch DTDs or entities over network
+	--nowrite : refuse to write to any file or resource
+	--nomkdir : refuse to create directories
+	--writesubtree path : allow file write only with the path subtree
+	--catalogs : use SGML catalogs from $SGML_CATALOG_FILES
+	             otherwise XML Catalogs starting from 
+	         file:///etc/xml/catalog are activated by default
+	--xinclude : do XInclude processing on document input
+	--xincludestyle : do XInclude processing on stylesheets
+	--load-trace : print trace of all external entites loaded
+	--profile or --norman : dump profiling informations 
+
+Project libxslt home page: http://xmlsoft.org/XSLT/
+To report bugs and get help: http://xmlsoft.org/XSLT/bugs.html
+-- SVG2PNG-Converter: /usr/bin/rsvg-convert
+-- XPM2PNG-Converter: /usr/bin/convert
+-- Use plugins: MODULE
+-- Looking for include files HAVE_MALLOC_H
+-- Looking for include files HAVE_MALLOC_H - not found.
+-- Looking for include files HAVE_SYS_MOUNT_H
+-- Looking for include files HAVE_SYS_MOUNT_H - not found.
+-- Looking for include files HAVE_UNISTD_H
+-- Looking for include files HAVE_UNISTD_H - not found.
+-- Looking for getcwd
+-- Looking for getcwd - found
+-- Looking for memalign
+-- Looking for memalign - found
+-- Looking for valloc
+-- Looking for valloc - found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for popen
+-- Looking for popen - found
+-- Looking for _atoi64
+-- Looking for _atoi64 - not found
+-- Performing Test HAS_NO_MISSING_FIELD_INI
+-- Performing Test HAS_NO_MISSING_FIELD_INI - Success
+
+Summary:
+
+
+--->>> autoload
+Disabled  osso ( Default )
+
+--->>> binding
+Disabled  dbus ( dbus-glib-1 not found )
+Disabled  python ( python libraries not found )
+Disabled  win32 ( Default )
+
+--->>> font
+Disabled  freetype ( freetype not found )
+
+--->>> graphics
+Enabled   android ( Android detected )
+Disabled  cocoa ( Default )
+Disabled  gd ( FreeType library not found )
+Disabled  gtk_drawing_area ( FreeType library not found )
+Enabled   null ( Default )
+Disabled  opengl ( FreeType library not found )
+Disabled  qt_qpainter ( Qt libraries not found )
+Disabled  sdl ( FreeType library not found )
+
+--->>> gui
+Disabled  gtk ( GTK libs not found )
+Enabled   internal ( Default )
+Disabled  qml ( Qt Declarative not found )
+
+--->>> map
+Enabled   binfile ( Default )
+Enabled   csv ( Default )
+Enabled   filter ( Default )
+Disabled  garmin ( Garmin library not found )
+Enabled   mg ( Default )
+Enabled   shapefile ( Default )
+Enabled   textfile ( Default )
+
+--->>> osd
+Enabled   core ( Default )
+
+--->>> plugin
+Enabled   pedestrian ( Android detected )
+
+--->>> speech
+Enabled   android ( Android detected )
+Disabled  cmdline ( neither system() nor CreateProcess() found )
+Disabled  dbus ( dbus-glib-1 not found )
+Disabled  espeak ( Default )
+Disabled  iphone ( Default )
+Disabled  speech_dispatcher ( speech_dispatcher lib not found )
+
+--->>> support
+Disabled  espeak ( Default )
+Enabled   ezxml ( Glib not found )
+Enabled   gettext_intl ( native libintl missing )
+Enabled   glib ( Glib not found )
+Enabled   libpng ( native libpng missing )
+Enabled   shapefile ( Default )
+Enabled   wordexp ( native wordexp missing )
+Enabled   zlib ( native zlib missing )
+
+--->>> vehicle
+Enabled   android ( Android detected )
+Enabled   demo ( Default )
+Enabled   file ( Default )
+Disabled  gpsd ( gpsd lib not found )
+Disabled  gpsd_dbus ( dbus-glib-1 not found )
+Disabled  gypsy ( gypsy lib not found )
+Disabled  iphone ( Default )
+Disabled  maemo ( Default )
+Disabled  null ( Default )
+Disabled  wince ( Default )
+
+--->>> Features
+Enabled   BUILD_MAPTOOL ( default )
+Disabled  DBUS_USE_SYSTEM_BUS ( default )
+Enabled   SAMPLE_MAP ( downloading binary map because of cross compiling )
+Enabled   SHARED_LIBNAVIT ( Android detected )
+Enabled   SVG2PNG ( default )
+Enabled   USE_NATIVE_LANGUAGE_SUPPORT ( Gettext found )
+Enabled   USE_PLUGINS ( default )
+Enabled   USE_ROUTING ( default )
+Enabled   USE_SVG ( default )
+Enabled   XPM2PNG ( Android detected )
+Enabled   XSL_PROCESSING ( default )
+
+Processing XSLT files: android;
+See navit/xslt for available XSLT files, and put them into cache variable 'XSLTS' (without extension .xslt).
+
+To configure your build use 'cmake -L' to find changeable variables and run cmake again with 'cmake -D <var-name>=<your value> ...'.
+-- image 'memorial': XPM version skipped in favor of SVG
+-- image 'picnic': XPM version skipped in favor of SVG
+-- image 'castle': XPM version skipped in favor of SVG
+-- image 'sport': XPM version skipped in favor of SVG
+-- image 'shelter': XPM version skipped in favor of SVG
+-- image 'car_dealer': XPM version skipped in favor of SVG
+-- image 'townhall': XPM version skipped in favor of SVG
+-- image 'toggle_fullscreen': XPM version skipped in favor of SVG
+-- image 'theater': XPM version skipped in favor of SVG
+-- image 'biergarten': XPM version skipped in favor of SVG
+-- image 'library': XPM version skipped in favor of SVG
+-- image 'menu': XPM version skipped in favor of SVG
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/navit/src/android-build
+

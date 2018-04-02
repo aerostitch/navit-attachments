@@ -1,0 +1,326 @@
+Index: osm.c
+===================================================================
+--- osm.c	(revision 4854)
++++ osm.c	(working copy)
+@@ -710,6 +710,7 @@
+ 	"w	waterway=canal		water_canal\n"
+ 	"w	waterway=drain		water_drain\n"
+ 	"w	waterway=river		water_river\n"
++	"w	water=river		water_river\n"
+ 	"w	waterway=riverbank	poly_water\n"
+ 	"w	waterway=stream		water_stream\n"
+ 	"w	barrier=ditch	ditch\n"
+@@ -1544,6 +1545,19 @@
+ 		if (!strcmp(v,"administrative") || (experimental && !strcmp(v,"postal_code"))) {
+ 			boundary=1;
+ 		}
++	} else if (!strcmp(k,"natural")) {
++		if (!strcmp(v,"water") ) {
++			boundary=1;
++		}
++	} else if (!strcmp(k,"waterway")) {
++		if (!strcmp(v,"riverbank") ) {
++printf("FOUND waterway=riverbank\n");
++			boundary=1;
++		}
++	} else if (!strcmp(k,"water")) {
++		if (!strcmp(v,"river") ) {
++			boundary=1;
++		}
+ 	} else if (!strcmp(k,"ISO3166-1")) {
+ 		strcpy(iso_code, v);
+ 	}
+@@ -2578,7 +2592,8 @@
+ 				if (ni) {
+ 					c[i]=ni->c;
+ 					if (ni->ref_way > 1 && i != 0 && i != ccount-1 && i != last && item_get_default_flags(ib->type)) {
+-						write_item_part(out, out_index, out_graph, ib, last, i, &last_id);
++						if(!(0 != self_intersect_test(ib) && ib->type==type_poly_water))
++							write_item_part(out, out_index, out_graph, ib, last, i, &last_id);
+ 						last=i;
+ 					}
+ 				} else if (final) {
+@@ -2594,9 +2609,12 @@
+ 			}
+ 		}
+ 		if (ccount) {
+-			write_item_part(out, out_index, out_graph, ib, last, ccount-1, &last_id);
++			//if(0 == self_intersect_test(ib))
++			if(!(0 != self_intersect_test(ib) && ib->type==type_poly_water))
++				write_item_part(out, out_index, out_graph, ib, last, ccount-1, &last_id);
+ 			if (final && ib->type == type_water_line && out_coastline) {
+-				write_item_part(out_coastline, NULL, NULL, ib, last, ccount-1, NULL);
++				if(0 == self_intersect_test(ib))
++					write_item_part(out_coastline, NULL, NULL, ib, last, ccount-1, NULL);
+ 			}
+ 		}
+ 	}
+Index: maptool.c
+===================================================================
+--- maptool.c	(revision 4854)
++++ maptool.c	(working copy)
+@@ -854,9 +854,6 @@
+ 		}
+ 	}
+ 
+-	if (start_phase(&p,"generating coastlines")) {
+-		osm_process_coastlines(&p, suffix);
+-	}
+ 	if (start_phase(&p,"assinging towns to countries")) {
+ 		FILE *towns=tempfile(suffix,"towns",0),*boundaries=NULL,*ways=NULL;
+ 		if (towns) {
+@@ -870,6 +867,10 @@
+ 				tempfile_unlink(suffix,"towns");
+ 		}
+ 	}
++
++	if (start_phase(&p,"generating coastlines")) {
++		osm_process_coastlines(&p, suffix);
++	}
+ 	if (start_phase(&p,"sorting countries")) {
+ 		sort_countries(p.keep_tmpfiles);
+ 		p.countries_loaded=1;
+Index: maptool.h
+===================================================================
+--- maptool.h	(revision 4854)
++++ maptool.h	(working copy)
+@@ -121,6 +121,7 @@
+ struct boundary {
+ 	struct item_bin *ib;
+ 	struct country_table *country;
++	char *natural;
+ 	char *iso2;
+ 	GList *segments,*sorted_segments;
+ 	GList *children;
+@@ -189,6 +190,7 @@
+ int geom_poly_segments_point_inside(GList *in, struct coord *c);
+ void clip_line(struct item_bin *ib, struct rect *r, struct tile_parameter *param, struct item_bin_sink *out);
+ void clip_polygon(struct item_bin *ib, struct rect *r, struct tile_parameter *param, struct item_bin_sink *out);
++int self_intersect_test(struct item_bin*ib);
+ 
+ /* itembin.c */
+ 
+@@ -240,6 +242,7 @@
+ extern struct buffer node_buffer;
+ extern int processed_nodes, processed_nodes_out, processed_ways, processed_relations, processed_tiles;
+ extern struct item_bin *item_bin;
++extern struct item_bin *item_bin_coastline;
+ extern int bytes_read;
+ extern int overlap;
+ extern int unknown_country;
+Index: itembin_buffer.c
+===================================================================
+--- itembin_buffer.c	(revision 4854)
++++ itembin_buffer.c	(working copy)
+@@ -22,8 +22,10 @@
+ #include "debug.h"
+ 
+ 
+-static char buffer[800000];
++static char buffer[8000000];
+ struct item_bin *item_bin=(struct item_bin *)(void *)buffer;
++static char buffer_coastline[8000000];
++struct item_bin *item_bin_coastline=(struct item_bin *)(void *)buffer_coastline;
+ static struct node_item *node_item=(struct node_item *)(void *)buffer;
+ 
+ struct node_item *
+Index: geom.c
+===================================================================
+--- geom.c	(revision 4854)
++++ geom.c	(working copy)
+@@ -620,3 +620,83 @@
+ 		item_bin_write_clipped(ib_in, param, out);
+ 	}
+ }
++
++
++
++
++static int coord_dot_prod (struct coord* c1, struct coord* c2)
++{
++	return c1->x*c2->x + c1->y*c2->y;
++}
++
++
++static void coord_sub (struct coord* c1, struct coord* c2, struct coord* cout)
++{
++	cout->x = c1->x - c2->x;
++	cout->y = c1->y - c2->y;
++}
++
++int self_intersect_test(struct item_bin*ib)
++{
++	int vertices_count = ib->clen/2;
++	if(vertices_count<4) {
++		return 0;
++	}
++	struct coord*vertices = (struct coord*)(ib+1);
++	int i;
++	for (i = 0; i < vertices_count; ++i) {
++                if (i < vertices_count - 1) {
++		    int h;
++                    for (h = i + 1; h < vertices_count; ++h)
++                    {
++                        // Do two vertices lie on top of one another?
++                        if ( i!=0 && h-i!=1 && h-i!=-1 && vertices[i].x == vertices[h].x && vertices[i].y == vertices[h].y ) {
++                            return 1;
++                        }
++                    }
++                }
++
++                int j = (i + 1) % vertices_count;
++                struct coord iToj;
++		coord_sub(&vertices[j], &vertices[i], &iToj);
++                struct coord iTojNormal;
++		iTojNormal.x =  iToj.y;
++		iTojNormal.y = -iToj.x;
++                // i is the first vertex and j is the second
++                int startK = (j + 1) % vertices_count;
++                int endK = (i - 1 + vertices_count) % vertices_count;
++                endK += startK < endK ? 0 : startK + 1;
++                int k = startK;
++                struct coord iTok; 
++		coord_sub(&vertices[k], &vertices[i], &iTok);
++                int onLeftSide = coord_dot_prod(&iTok, &iTojNormal) >= 0;
++                struct coord prevK = vertices[k];
++                ++k;
++                for (; k <= endK; ++k)
++                {
++                    int modK = k % vertices_count;
++		    coord_sub(&vertices[modK], &vertices[i], &iTok);
++                    if (onLeftSide != coord_dot_prod(&iTok, &iTojNormal) >= 0)
++                    {
++                        struct coord prevKtoK, idiff, jdiff;
++			coord_sub(&vertices[modK], &prevK, &prevKtoK);
++                        struct coord prevKtoKNormal;
++			prevKtoKNormal.x = prevKtoK.y;
++			prevKtoKNormal.y = -prevKtoK.x;
++			coord_sub(&vertices[i],&prevK,&idiff);
++			coord_sub(&vertices[j],&prevK,&jdiff);
++                        if ((coord_dot_prod(&idiff, &prevKtoKNormal) >= 0) != (coord_dot_prod(&jdiff, &prevKtoKNormal) >= 0))
++                        {
++                            if(i!=j-1 && i!=j+1) {
++                               return 1;
++			    }
++                        }
++                    }
++                    onLeftSide = coord_dot_prod(&iTok, &iTojNormal) > 0;
++                    prevK = vertices[modK];
++                }
++            }
++            return 0;
++}
++
++
+Index: boundaries.c
+===================================================================
+--- boundaries.c	(revision 4854)
++++ boundaries.c	(working copy)
+@@ -70,6 +70,16 @@
+ 	while ((ib=read_item(boundaries))) {
+ 		char *member=NULL;
+ 		struct boundary *boundary=g_new0(struct boundary, 1);
++
++		//TODO rename natural to a better name
++		boundary->natural = 0; 
++		if( osm_tag_value(ib, "natural") && !strcmp(osm_tag_value(ib, "natural"),"water")) {
++			boundary->natural = 1; 
++		}
++		if( osm_tag_value(ib, "waterway") && !strcmp(osm_tag_value(ib, "waterway"),"riverbank")) {
++			boundary->natural = 1; 
++		}
++
+ 		char *admin_level=osm_tag_value(ib, "admin_level");
+ 		char *iso=osm_tag_value(ib, "ISO3166-1");
+ 		/* disable spain for now since it creates a too large index */
+@@ -92,8 +102,9 @@
+ 			if (sscanf(member,"2:%Ld:%n",&wayid,&read) >= 1) {
+ 				char *rolestr=member+read;
+ 				enum geom_poly_segment_type role;
+-				if (!strcmp(rolestr,"outer") || !strcmp(rolestr,"exclave"))
++				if (!strcmp(rolestr,"outer") || !strcmp(rolestr,"exclave")) {
+ 					role=geom_poly_segment_type_way_outer;
++				}
+ 				else if (!strcmp(rolestr,"inner") || !strcmp(rolestr,"enclave"))
+ 					role=geom_poly_segment_type_way_inner;
+ 				else if (!strcmp(rolestr,""))
+@@ -202,12 +213,18 @@
+ 	while (l) {
+ 		struct boundary *boundary=l->data;
+ 		int first=1;
+-		FILE *f=NULL,*fu=NULL;
++		FILE *f=NULL,*fu=NULL,*coastline=NULL;;
+ 		if (boundary->country) {
+ 			char *name=g_strdup_printf("country_%s_poly",boundary->iso2);
+ 			f=tempfile("",name,1);
+ 			g_free(name);
+ 		}
++		int to_write = 0;
++		if (boundary->natural) {
++			coastline=tempfile("","ways_split",2);
++			struct item_bin *ib=item_bin_coastline;
++			item_bin_init(ib, type_poly_water);
++		}
+ 		boundary->sorted_segments=geom_poly_segments_sort(boundary->segments, geom_poly_segment_type_way_right_side);
+ 		sl=boundary->sorted_segments;
+ 		while (sl) {
+@@ -228,6 +245,19 @@
+ 				item_bin_add_coord(ib, gs->first, gs->last-gs->first+1);
+ 				item_bin_write(ib, f);
+ 			}
++			if (coastline && gs->type==geom_poly_segment_type_way_outer) {
++				struct item_bin *ib=item_bin_coastline;
++				item_bin_add_coord(ib, gs->first, gs->last-gs->first+1);
++				to_write = 1;
++#if 0
++struct coord*crd = gs->first;
++//printf("\nPTR:%p\n",ib);
++while(crd != gs->last) {
++	printf("CRD:%d %d\n",crd->x,crd->y);
++	crd++;
++}
++#endif
++			}
+ 			if (boundary->country) {
+ 				if (!coord_is_equal(*gs->first,*gs->last)) {
+ 					if (!fu) {
+@@ -246,16 +276,38 @@
+ 			}
+ 			sl=g_list_next(sl);
+ 		}	
++
++		if (coastline && to_write ) {
++			struct item_bin *ib=item_bin_coastline;
++			if(0 == self_intersect_test(ib)) {
++				item_bin_write(ib, coastline);
++			} else {
++#if 1
++struct coord*crd = (struct coord*)(ib+1);
++int ii;
++for(ii=0;ii<ib->clen/2;++ii) {
++	printf("CRD:%d %d\n",crd->x,crd->y);
++	crd++;
++}
++#endif
++			}
++			item_bin_init(ib, type_poly_water);
++#if 1
++printf("CRD:\n");
++#endif
++		}
++
+ 		ret=process_boundaries_insert(ret, boundary);
+ 		l=g_list_next(l);
+ 		if (f) 
+ 			fclose(f);
++		if (coastline) 
++			fclose(coastline);
+ 		if (fu) {
+ 			if (boundary->country)
+ 				osm_warning("relation",item_bin_get_relationid(boundary->ib),0,"Broken country polygon '%s'\n",boundary->iso2);
+ 			fclose(fu);
+ 		}
+-		
+ 	}
+ #if 0
+ 	printf("hierarchy\n");

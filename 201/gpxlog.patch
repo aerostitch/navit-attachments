@@ -1,0 +1,13 @@
+Index: navit/vehicle/gpsd/vehicle_gpsd.c
+===================================================================
+--- navit/vehicle/gpsd/vehicle_gpsd.c	(Revision 2071)
++++ navit/vehicle/gpsd/vehicle_gpsd.c	(Arbeitskopie)
+@@ -311,6 +311,8 @@
+ 		break;
+ 	case attr_position_coord_geo:
+ 		attr->u.coord_geo = &priv->geo;
++		if (priv->fix_type != 2 && priv->fix_type != 3)
++			return 0;
+ 		break;
+ 	case attr_position_nmea:
+ 		attr->u.str=priv->nmea_data;

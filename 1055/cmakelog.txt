@@ -1,0 +1,137 @@
+-- LIBDIR variable is not defined. It will be autodetected now.
+-- You can set it manually with -DLIBDIR=<value>
+--    LIB_DIR (highest subdirectory if LIBDIR) is set to 'lib64'
+-- Found Glib 
+-- Found Gmodule 
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_GTK_INCLUDE_DIR is /usr/include/gtk-2.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_GLIBCONFIG_INCLUDE_DIR is /usr/lib/glib-2.0/include
+-- (DEBUG) GTK2_GLIB_INCLUDE_DIR is /usr/include/glib-2.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_GDK_INCLUDE_DIR is /usr/lib/gtk-2.0/include
+-- (DEBUG) GTK2_GTKGL_INCLUDE_DIR is GTK2_GTKGL_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_PANGO_INCLUDE_DIR is /usr/include/pango-1.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is /usr/include/cairo
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is /usr/include/cairo
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro use FindPkgConfig
+-- (DEBUG) GTK2_ATK_INCLUDE_DIR is /usr/include/atk-1.0
+-- (DEBUG) GTK2_GTK_LIBRARY is /usr/lib/libgtk-x11-2.0.so
+-- (DEBUG) GTK2_GDK_LIBRARY is /usr/lib/libgdk-x11-2.0.so
+-- (DEBUG) GTK2_GDK_PIXBUF_LIBRARY is /usr/lib/libgdk_pixbuf-2.0.so
+-- (DEBUG) GTK2_GMODULE_LIBRARY is /usr/lib/libgmodule-2.0.so
+-- (DEBUG) GTK2_GTHREAD_LIBRARY is /usr/lib/libgthread-2.0.so
+-- (DEBUG) GTK2_GOBJECT_LIBRARY is /usr/lib/libgobject-2.0.so
+-- (DEBUG) GTK2_GLIB_LIBRARY is /usr/lib/libglib-2.0.so
+-- (DEBUG) GTK2_GTKGL_LIBRARY is GTK2_GTKGL_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_PANGO_LIBRARY is /usr/lib/libpango-1.0.so
+-- (DEBUG) GTK2_PANGO_LIBRARY is /usr/lib/libpangocairo-1.0.so
+-- (DEBUG) GTK2_ATK_LIBRARY is /usr/lib/libatk-1.0.so
+-- Found GTK2: /usr/lib/libgtk-x11-2.0.so;/usr/lib/libgdk-x11-2.0.so;/usr/lib/libgdk_pixbuf-2.0.so;/usr/lib/libgmodule-2.0.so;/usr/lib/libgthread-2.0.so;/usr/lib/libgobject-2.0.so;/usr/lib/libpango-1.0.so;/usr/lib/libpangocairo-1.0.so;/usr/lib/libatk-1.0.so
+-- Found DBus 
+-- Found DBusGLib 
+-- checking for module 'liblocation'
+--   package 'liblocation' not found
+-- checking for module 'libosso'
+--   package 'libosso' not found
+Qt QTDECLARATIVE library not found.
+-- opengl found: /usr/lib/libGL.so
+-- Found XSLT processor: /usr/bin/saxon-xslt
+-- SVG2PNG-Converter: /usr/bin/ksvgtopng4
+-- Use plugins: MODULE
+
+Summary:
+
+
+--->>> autoload
+Disabled  osso ( Default )
+
+--->>> binding
+Enabled   dbus ( dbus-glib-1 found )
+Disabled  win32 ( Default )
+
+--->>> font
+Enabled   freetype ( freetype found )
+
+--->>> graphics
+Disabled  android ( FreeType library not found )
+Disabled  cocoa ( Default )
+Disabled  gd ( FreeType library not found )
+Enabled   gtk_drawing_area ( GTK libs found )
+Enabled   null ( Default )
+Enabled   opengl ( Found OpenGL )
+Enabled   qt_qpainter ( Qt libraries found )
+Enabled   sdl ( SDL/SDL_image libs found )
+
+--->>> gui
+Enabled   gtk ( GTK libs found )
+Enabled   internal ( Default )
+Disabled  qml ( Qt Declarative not found )
+
+--->>> map
+Enabled   binfile ( Default )
+Enabled   csv ( Default )
+Enabled   filter ( Default )
+Enabled   garmin ( Garmin library found )
+Enabled   mg ( Default )
+Enabled   shapefile ( Default )
+Enabled   textfile ( Default )
+
+--->>> osd
+Enabled   core ( Default )
+
+--->>> plugin
+Disabled  pedestrian ( Default )
+
+--->>> speech
+Disabled  android ( Default )
+Enabled   cmdline ( system() call is available )
+Enabled   dbus ( dbus-glib-1 found )
+Disabled  espeak ( Default )
+Disabled  iphone ( Default )
+Disabled  speech_dispatcher ( speech_dispatcher lib not found )
+
+--->>> support
+Disabled  espeak ( Default )
+Enabled   ezxml ( User defined )
+Enabled   glib ( User defined )
+Enabled   libpng ( User defined )
+Enabled   shapefile ( Default )
+Disabled  wordexp ( native wordexp found )
+Disabled  zlib ( native zlib found )
+
+--->>> vehicle
+Disabled  android ( Default )
+Enabled   demo ( Default )
+Enabled   file ( Default )
+Enabled   gpsd ( gpsd lib found )
+Enabled   gpsd_dbus ( dbus-glib-1 found )
+Disabled  gypsy ( gypsy lib not found )
+Disabled  iphone ( Default )
+Disabled  maemo ( Default )
+Disabled  null ( Default )
+Disabled  wince ( Default )
+
+--->>> Features
+Enabled   BUILD_MAPTOOL ( default )
+Disabled  DBUS_USE_SYSTEM_BUS ( default )
+Enabled   ENABLE_NLS ( default )
+Enabled   SAMPLE_MAP ( default )
+Disabled  SHARED_LIBNAVIT ( default )
+Enabled   SVG2PNG ( default )
+Enabled   USE_PLUGINS ( default )
+Enabled   USE_ROUTING ( default )
+Enabled   USE_SVG ( default )
+Enabled   XSL_PROCESSING ( default )
+
+Processing XSLT files: NONE
+See navit/xslt for available XSLT files, and put them into cache variable 'XSLTS' (without extension .xslt).
+
+To configure your build use 'cmake -L' to find changeable variables and run cmake again with 'cmake -D <var-name>=<your value> ...'.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/mdupont/experiments/fosm/navit

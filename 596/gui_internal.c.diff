@@ -1,0 +1,47 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c (revision 3625)
++++ navit/gui/internal/gui_internal.c (working copy)
+@@ -3000,6 +3000,9 @@
+gui_internal_cmd_paste_bookmark, NULL);
+gui_internal_widget_append(w, wbm);
+bookmarks_item_rewind(mattr.u.bookmarks);
++ struct widget *tbl, *row;
++ tbl=gui_internal_widget_table_new(this,gravity_left_top | flags_fill | flags_expand |orientation_vertical,1);
++ gui_internal_widget_append(w,tbl);
+while ((item=bookmarks_get_item(mattr.u.bookmarks))) {
+if (!item_attr_get(item, attr_label, &attr)) continue;
+label_full=attr.u.str;
+@@ -3009,9 +3012,11 @@
+} else {
+hassub=0;
+}
++ row=gui_internal_widget_table_row_new(this,gravity_left| flags_fill| orientation_horizontal);
+wbm=gui_internal_button_new_with_callback(this, label_full,
+image_new_xs(this, hassub ? "gui_inactive" : "gui_active" ), gravity_left_center|orientation_horizontal|flags_fill,
+hassub ? gui_internal_cmd_bookmarks : gui_internal_cmd_position, NULL);
++ row->children=g_list_append(row->children,wbm);
+if (item_coord_get(item, &c, 1)) {
+wbm->c.x=c.x;
+wbm->c.y=c.y;
+@@ -3021,10 +3026,10 @@
+if (!hassub) {
+wbm->data=(void*)7;//Mark us as a bookmark
+}
+- gui_internal_widget_append(w, wbm);
++ gui_internal_widget_append(tbl, row);
+wbm->prefix=g_strdup(label_full);
+} else {
+- gui_internal_widget_destroy(this, wbm);
++ gui_internal_widget_destroy(this, row);
+}
+}
+}
+@@ -3036,7 +3041,6 @@
+else
+gui_internal_menu_render(this);
+}
+-
+static void
+gui_internal_cmd2_bookmarks(struct gui_priv *this, char *function, struct attr **in, struct attr ***out, int *valid)
+{

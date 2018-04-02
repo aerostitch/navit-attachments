@@ -1,0 +1,517 @@
+Index: navit/xpm/repair_service.svg
+===================================================================
+--- navit/xpm/repair_service.svg	(revision 3370)
++++ navit/xpm/repair_service.svg	(working copy)
+@@ -1,108 +1,24 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <!-- Created with Inkscape (http://www.inkscape.org/) -->
+-<svg
+-   xmlns:dc="http://purl.org/dc/elements/1.1/"
+-   xmlns:cc="http://creativecommons.org/ns#"
+-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+-   xmlns:svg="http://www.w3.org/2000/svg"
+-   xmlns="http://www.w3.org/2000/svg"
+-   xmlns:xlink="http://www.w3.org/1999/xlink"
+-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   width="146"
+-   height="146"
+-   id="svg1875"
+-   sodipodi:version="0.32"
+-   inkscape:version="0.46"
+-   version="1.0"
+-   sodipodi:docbase="C:\Dokumente und Einstellungen\Stefan Fussan\Eigene Dateien\Eigene Bilder\WikiTravel\Kartenentwürfe\eigene Symbole"
+-   sodipodi:docname="repair_service.svg"
+-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+-  <defs
+-     id="defs1877">
+-    <linearGradient
+-       id="linearGradient3165">
+-      <stop
+-         style="stop-color:#222222;stop-opacity:1;"
+-         offset="0"
+-         id="stop3167" />
+-      <stop
+-         id="stop3219"
+-         offset="1"
+-         style="stop-color:#ffff00;stop-opacity:1;" />
++
++<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="22" height="22" id="svg1875" sodipodi:version="0.32" inkscape:version="0.47 r22583" version="1.0" sodipodi:docname="repair_service.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <defs id="defs1877">
++    <linearGradient id="linearGradient3165">
++      <stop style="stop-color:#222222;stop-opacity:1;" offset="0" id="stop3167" />
++      <stop id="stop3219" offset="1" style="stop-color:#ffff00;stop-opacity:1;" />
+     </linearGradient>
+-    <inkscape:perspective
+-       sodipodi:type="inkscape:persp3d"
+-       inkscape:vp_x="0 : 73.285255 : 1"
+-       inkscape:vp_y="0 : 1000 : 0"
+-       inkscape:vp_z="146.84756 : 73.285255 : 1"
+-       inkscape:persp3d-origin="73.423782 : 48.856837 : 1"
+-       id="perspective12" />
+-    <linearGradient
+-       inkscape:collect="always"
+-       xlink:href="#linearGradient3165"
+-       id="linearGradient3171"
+-       x1="3.831939"
+-       y1="83.871284"
+-       x2="114.85167"
+-       y2="83.871284"
+-       gradientUnits="userSpaceOnUse" />
+-    <linearGradient
+-       inkscape:collect="always"
+-       xlink:href="#linearGradient3165"
+-       id="linearGradient3193"
+-       gradientUnits="userSpaceOnUse"
+-       x1="3.831939"
+-       y1="83.871284"
+-       x2="114.85167"
+-       y2="83.871284"
+-       gradientTransform="matrix(0.603089,0,0,0.603089,-766.57606,-38.358163)" />
+-    <linearGradient
+-       inkscape:collect="always"
+-       xlink:href="#linearGradient3165"
+-       id="linearGradient3197"
+-       gradientUnits="userSpaceOnUse"
+-       gradientTransform="matrix(-0.6025928,-2.4459233e-2,2.4459233e-2,-0.6025928,-815.42786,181.77587)"
+-       x1="3.831939"
+-       y1="83.871284"
+-       x2="114.85167"
+-       y2="83.871284" />
+-    <linearGradient
+-       inkscape:collect="always"
+-       xlink:href="#linearGradient3165"
+-       id="linearGradient3200"
+-       gradientUnits="userSpaceOnUse"
+-       gradientTransform="matrix(0.603089,0,0,0.603089,69.70494,-8.863663)"
+-       x1="3.831939"
+-       y1="83.871284"
+-       x2="114.85167"
+-       y2="83.871284" />
++    <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 73.285255 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="146.84756 : 73.285255 : 1" inkscape:persp3d-origin="73.423782 : 48.856837 : 1" id="perspective12" />
++    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3165" id="linearGradient3171" x1="3.831939" y1="83.871284" x2="114.85167" y2="83.871284" gradientUnits="userSpaceOnUse" />
++    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3165" id="linearGradient3193" gradientUnits="userSpaceOnUse" x1="3.831939" y1="83.871284" x2="114.85167" y2="83.871284" gradientTransform="matrix(0.603089,0,0,0.603089,-766.57606,-38.358163)" />
++    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3165" id="linearGradient3197" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-0.6025928,-0.02445923,0.02445923,-0.6025928,-815.42786,181.77587)" x1="3.831939" y1="83.871284" x2="114.85167" y2="83.871284" />
++    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3165" id="linearGradient3200" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.603089,0,0,0.603089,69.70494,-8.863663)" x1="3.831939" y1="83.871284" x2="114.85167" y2="83.871284" />
+   </defs>
+-  <sodipodi:namedview
+-     id="base"
+-     pagecolor="#ffffff"
+-     bordercolor="#666666"
+-     borderopacity="1.0"
+-     inkscape:pageopacity="0.0"
+-     inkscape:pageshadow="2"
+-     inkscape:zoom="3.0009657"
+-     inkscape:cx="73.423782"
+-     inkscape:cy="78.806449"
+-     inkscape:document-units="px"
+-     inkscape:current-layer="layer1"
+-     showgrid="true"
+-     inkscape:window-width="1223"
+-     inkscape:window-height="758"
+-     inkscape:window-x="57"
+-     inkscape:window-y="0" />
+-  <metadata
+-     id="metadata1880">
++  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="23.318182" inkscape:cx="11" inkscape:cy="11" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="true" inkscape:window-width="1223" inkscape:window-height="758" inkscape:window-x="57" inkscape:window-y="0" inkscape:window-maximized="0" />
++  <metadata id="metadata1880">
+     <rdf:RDF>
+-      <cc:Work
+-         rdf:about="">
++      <cc:Work rdf:about="">
+         <dc:format>image/svg+xml</dc:format>
+-        <dc:type
+-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+         <dc:title>Symbol Shop</dc:title>
+         <dc:date>07. Oct. 2006</dc:date>
+         <dc:creator>
+@@ -116,40 +32,20 @@
+           </rdf:Bag>
+         </dc:subject>
+         <dc:description>Symbol for Wikivoyage maps:Shop</dc:description>
+-        <cc:license
+-           rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
++        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
+       </cc:Work>
+-      <cc:License
+-         rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/Reproduction" />
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/Distribution" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/Notice" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/Attribution" />
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/ShareAlike" />
++      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
++        <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction" />
++        <cc:permits rdf:resource="http://web.resource.org/cc/Distribution" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/Notice" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/Attribution" />
++        <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+       </cc:License>
+     </rdf:RDF>
+   </metadata>
+-  <g
+-     inkscape:label="Hintergrund"
+-     inkscape:groupmode="layer"
+-     id="layer1"
+-     transform="translate(836.281, 29.4945)"
+-     style="opacity: 1;">
+-    <path
+-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.01544523000000009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+-       d="M -730.33265,30.650261 C -730.33265,30.650261 -716.49014,37.872205 -703.8014,23.837761 C -694.36219,13.397488 -703.24878,-6.0260713 -703.24878,-6.0260713 C -703.24878,-6.0260713 -719.86936,21.178096 -730.33265,12.181511 C -740.65032,2.4979037 -728.03812,-7.7175113 -718.01059,-18.235263 C -718.01059,-18.235263 -724.13469,-19.72898 -728.95765,-19.630989 C -733.78061,-19.532999 -739.96829,-18.196331 -745.39515,-13.162239 C -758.41374,-1.0858673 -748.83265,15.775259 -748.83265,15.775261 L -791.27015,60.369011 C -791.27015,60.369011 -803.75958,52.962024 -817.58015,65.883385 C -829.0844,76.639121 -820.9239,93.320881 -820.9239,93.320881 C -820.9239,93.320881 -803.40122,68.371309 -792.02015,78.837761 C -782.1037,88.931851 -797.89997,99.314721 -807.63893,107.53213 C -807.63893,107.53213 -789.24202,114.36372 -777.9889,104.74401 C -764.49124,93.205561 -773.39516,75.994011 -773.39515,75.994011 L -730.33265,30.650261 z"
+-       sodipodi:nodetypes="csccccsccscccscc"
+-       id="path16" />
++  <g inkscape:label="Hintergrund" inkscape:groupmode="layer" id="layer1" transform="translate(836.281,-94.5055)">
++    <path style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.47779047;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m -820.35994,103.33028 c 0,0 2.19332,1.1443 4.20382,-1.07943 1.49562,-1.65423 0.0875,-4.731855 0.0875,-4.731855 0,0 -2.63348,4.310445 -4.29138,2.884945 -1.6348,-1.534342 0.36357,-3.152949 1.95241,-4.819464 0,0 -0.97035,-0.236675 -1.73454,-0.221149 -0.76419,0.01553 -1.74461,0.227318 -2.60449,1.024959 -2.06276,1.913474 -0.54466,4.585084 -0.54466,4.585084 l -6.72413,7.06578 c 0,0 -1.97892,-1.17362 -4.16875,0.87374 -1.82283,1.70422 -0.52982,4.34741 -0.52982,4.34741 0,0 2.77644,-3.95321 4.57974,-2.29482 1.57124,1.59939 -0.93164,3.24453 -2.47476,4.54656 0,0 2.91495,1.08245 4.69798,-0.44178 2.13868,-1.82823 0.72787,-4.55537 0.72787,-4.55537 l 6.82315,-7.18461 z" sodipodi:nodetypes="csccccsccscccscc" id="path16" />
+   </g>
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer2"
+-     inkscape:label="Symbol" />
++  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Symbol" transform="translate(0,-124)" />
+ </svg>
+Index: navit/xpm/shop_grocery.svg
+===================================================================
+--- navit/xpm/shop_grocery.svg	(revision 3370)
++++ navit/xpm/shop_grocery.svg	(working copy)
+@@ -1,89 +1,26 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <!-- Created with Inkscape (http://www.inkscape.org/) -->
+-<svg
+-   xmlns:dc="http://purl.org/dc/elements/1.1/"
+-   xmlns:cc="http://creativecommons.org/ns#"
+-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+-   xmlns:svg="http://www.w3.org/2000/svg"
+-   xmlns="http://www.w3.org/2000/svg"
+-   xmlns:xlink="http://www.w3.org/1999/xlink"
+-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   width="146"
+-   height="146"
+-   id="svg1875"
+-   sodipodi:version="0.32"
+-   inkscape:version="0.46"
+-   version="1.0"
+-   sodipodi:docbase="C:\Dokumente und Einstellungen\Stefan Fussan\Eigene Dateien\Eigene Bilder\WikiTravel\Kartenentwürfe\eigene Symbole"
+-   sodipodi:docname="shop_grocery.svg"
+-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+-  <defs
+-     id="defs1877">
+-    <linearGradient
+-       id="linearGradient3158">
+-      <stop
+-         style="stop-color:#060606;stop-opacity:1;"
+-         offset="0"
+-         id="stop3160" />
+-      <stop
+-         id="stop3166"
+-         offset="1"
+-         style="stop-color:#fcc82d;stop-opacity:1;" />
++
++<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="22" height="22" id="svg1875" sodipodi:version="0.32" inkscape:version="0.47 r22583" version="1.0" sodipodi:docname="shop_grocery.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <defs id="defs1877">
++    <linearGradient id="linearGradient3158">
++      <stop style="stop-color:#060606;stop-opacity:1;" offset="0" id="stop3160" />
++      <stop id="stop3166" offset="1" style="stop-color:#fcc82d;stop-opacity:1;" />
+     </linearGradient>
+-    <linearGradient
+-       id="linearGradient3165">
+-      <stop
+-         style="stop-color:#1f1f1f;stop-opacity:1;"
+-         offset="0"
+-         id="stop3167" />
+-      <stop
+-         style="stop-color:#ed4600;stop-opacity:1;"
+-         offset="1"
+-         id="stop3169" />
++    <linearGradient id="linearGradient3165">
++      <stop style="stop-color:#1f1f1f;stop-opacity:1;" offset="0" id="stop3167" />
++      <stop style="stop-color:#ed4600;stop-opacity:1;" offset="1" id="stop3169" />
+     </linearGradient>
+-    <inkscape:perspective
+-       sodipodi:type="inkscape:persp3d"
+-       inkscape:vp_x="0 : 73.285255 : 1"
+-       inkscape:vp_y="0 : 1000 : 0"
+-       inkscape:vp_z="146.84756 : 73.285255 : 1"
+-       inkscape:persp3d-origin="73.423782 : 48.856837 : 1"
+-       id="perspective12" />
+-    <linearGradient
+-       inkscape:collect="always"
+-       xlink:href="#linearGradient3158"
+-       id="linearGradient3164"
+-       x1="-825.11873"
+-       y1="46.535869"
+-       x2="-694.4925"
+-       y2="46.535869"
+-       gradientUnits="userSpaceOnUse" />
++    <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 73.285255 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="146.84756 : 73.285255 : 1" inkscape:persp3d-origin="73.423782 : 48.856837 : 1" id="perspective12" />
++    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3158" id="linearGradient3164" x1="-825.11871" y1="46.53587" x2="-694.49249" y2="46.53587" gradientUnits="userSpaceOnUse" />
++    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3158" id="linearGradient2921" gradientUnits="userSpaceOnUse" x1="-825.11871" y1="46.53587" x2="-694.49249" y2="46.53587" />
+   </defs>
+-  <sodipodi:namedview
+-     id="base"
+-     pagecolor="#ffffff"
+-     bordercolor="#666666"
+-     borderopacity="1.0"
+-     inkscape:pageopacity="0.0"
+-     inkscape:pageshadow="2"
+-     inkscape:zoom="0.5305008"
+-     inkscape:cx="67.106389"
+-     inkscape:cy="83.544468"
+-     inkscape:document-units="px"
+-     inkscape:current-layer="layer1"
+-     showgrid="true"
+-     inkscape:window-width="1094"
+-     inkscape:window-height="800"
+-     inkscape:window-x="113"
+-     inkscape:window-y="-2" />
+-  <metadata
+-     id="metadata1880">
++  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="24.227273" inkscape:cx="11" inkscape:cy="11" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="true" inkscape:window-width="1094" inkscape:window-height="778" inkscape:window-x="113" inkscape:window-y="-2" inkscape:window-maximized="0" />
++  <metadata id="metadata1880">
+     <rdf:RDF>
+-      <cc:Work
+-         rdf:about="">
++      <cc:Work rdf:about="">
+         <dc:format>image/svg+xml</dc:format>
+-        <dc:type
+-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+         <dc:title>Symbol Shop</dc:title>
+         <dc:date>07. Oct. 2006</dc:date>
+         <dc:creator>
+@@ -97,73 +34,30 @@
+           </rdf:Bag>
+         </dc:subject>
+         <dc:description>Symbol for Wikivoyage maps:Shop</dc:description>
+-        <cc:license
+-           rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
++        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
+       </cc:Work>
+-      <cc:License
+-         rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/Reproduction" />
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/Distribution" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/Notice" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/Attribution" />
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/ShareAlike" />
++      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
++        <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction" />
++        <cc:permits rdf:resource="http://web.resource.org/cc/Distribution" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/Notice" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/Attribution" />
++        <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+       </cc:License>
+     </rdf:RDF>
+   </metadata>
+-  <g
+-     inkscape:label="Hintergrund"
+-     inkscape:groupmode="layer"
+-     id="layer1"
+-     transform="translate(836.281, 29.4945)"
+-     style="opacity: 1;">
+-    <path
+-       id="path2386"
+-       style="fill:url(#linearGradient3164);fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+-       d="M -803.29162,95.74954 L -716.98607,95.74954 L -696.9925,25.105617 L -730.98156,25.438843 C -730.98156,25.438843 -729.60032,12.777063 -738.64576,2.7794696 C -744.97706,-4.2182774 -774.63418,-4.8847304 -782.6316,3.1126956 C -793.29484,13.77593 -788.9629,25.105617 -790.2958,25.105617 C -791.62871,25.105617 -822.61873,24.772391 -822.61873,24.772391 L -803.29162,95.74954 z M -741.07095,23.653477 C -741.07095,23.653477 -740.17615,15.450881 -746.036,8.9742076 C -750.13756,4.4409045 -769.35014,4.0091607 -774.53105,9.1900792 C -781.43894,16.09797 -778.39698,23.673231 -779.26047,23.673231 L -741.07095,23.653477 z"
+-       sodipodi:nodetypes="ccccssscccsscc" />
+-    <path
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+-       d="M 122.05448,66.928784 L 103.91125,67.16441"
+-       id="path3190"
+-       transform="translate(-836.281,-29.4945)" />
+-    <path
+-       id="path3192"
+-       d="M -717.99654,49.922484 L -736.13977,50.15811"
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+-    <path
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+-       d="M -721.05968,61.939431 L -739.20291,62.175057"
+-       id="path3194" />
+-    <path
+-       id="path3196"
+-       d="M -723.41594,74.192004 L -741.55917,74.42763"
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+-    <path
+-       id="path3198"
+-       d="M -741.08793,36.963031 L -759.23116,37.198657"
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+-    <path
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+-       d="M -744.85795,49.451231 L -763.00118,49.686857"
+-       id="path3200" />
+-    <path
+-       id="path3202"
+-       d="M -747.92109,61.468178 L -766.06432,61.703804"
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+-    <path
+-       style="fill:none;fill-rule:evenodd;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+-       d="M -750.27735,73.720751 L -768.42058,73.956377"
+-       id="path3204" />
++  <g inkscape:label="Hintergrund" inkscape:groupmode="layer" id="layer1" transform="translate(836.281,-94.5055)">
++    <g id="g2910" transform="matrix(0.16527013,0,0,0.199046,-699.70878,96.139377)">
++      <path sodipodi:nodetypes="ccccssscccsscc" d="m -803.29162,95.74954 86.30555,0 19.99357,-70.643923 -33.98906,0.333226 c 0,0 1.38124,-12.66178 -7.6642,-22.6593734 -6.3313,-6.997747 -35.98842,-7.6642 -43.98584,0.333226 -10.66324,10.6632344 -6.3313,21.9929214 -7.6642,21.9929214 -1.33291,0 -32.32293,-0.333226 -32.32293,-0.333226 l 19.32711,70.977149 z m 62.22067,-72.096063 c 0,0 0.8948,-8.202596 -4.96505,-14.6792694 -4.10156,-4.5333031 -23.31414,-4.9650469 -28.49505,0.2158716 -6.90789,6.9078908 -3.86593,14.4831518 -4.72942,14.4831518 l 38.18952,-0.01975 z" style="fill:url(#linearGradient2921);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" id="path2386" />
++      <path transform="translate(-836.281,-29.4945)" id="path3190" d="M 122.05448,66.928784 103.91125,67.16441" style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
++      <path style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m -717.99654,49.922484 -18.14323,0.235626" id="path3192" />
++      <path id="path3194" d="m -721.05968,61.939431 -18.14323,0.235626" style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
++      <path style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m -723.41594,74.192004 -18.14323,0.235626" id="path3196" />
++      <path style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m -741.08793,36.963031 -18.14323,0.235626" id="path3198" />
++      <path id="path3200" d="m -744.85795,49.451231 -18.14323,0.235626" style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
++      <path style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m -747.92109,61.468178 -18.14323,0.235626" id="path3202" />
++      <path id="path3204" d="m -750.27735,73.720751 -18.14323,0.235626" style="fill:none;stroke:#0093bd;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
++    </g>
+   </g>
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer2"
+-     inkscape:label="Symbol" />
++  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Symbol" transform="translate(0,-124)" />
+ </svg>
+Index: navit/xpm/resort.svg
+===================================================================
+--- navit/xpm/resort.svg	(revision 3370)
++++ navit/xpm/resort.svg	(working copy)
+@@ -1,59 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <!-- Created with Inkscape (http://www.inkscape.org/) -->
+-<svg
+-   xmlns:dc="http://purl.org/dc/elements/1.1/"
+-   xmlns:cc="http://creativecommons.org/ns#"
+-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+-   xmlns:svg="http://www.w3.org/2000/svg"
+-   xmlns="http://www.w3.org/2000/svg"
+-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   width="146"
+-   height="146"
+-   id="svg1875"
+-   sodipodi:version="0.32"
+-   inkscape:version="0.46"
+-   version="1.0"
+-   sodipodi:docbase="C:\Dokumente und Einstellungen\Stefan Fussan\Eigene Dateien\WikiVoyage\Symbole"
+-   sodipodi:docname="resort.svg"
+-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+-  <defs
+-     id="defs1877">
+-    <inkscape:perspective
+-       sodipodi:type="inkscape:persp3d"
+-       inkscape:vp_x="0 : 73.285255 : 1"
+-       inkscape:vp_y="0 : 1000 : 0"
+-       inkscape:vp_z="146.84756 : 73.285255 : 1"
+-       inkscape:persp3d-origin="73.423782 : 48.856837 : 1"
+-       id="perspective10" />
++
++<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="22" height="22" id="svg1875" sodipodi:version="0.32" inkscape:version="0.47 r22583" version="1.0" sodipodi:docname="resort.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <defs id="defs1877">
++    <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 73.285255 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="146.84756 : 73.285255 : 1" inkscape:persp3d-origin="73.423782 : 48.856837 : 1" id="perspective10" />
+   </defs>
+-  <sodipodi:namedview
+-     id="base"
+-     pagecolor="#ff00ff"
+-     bordercolor="#366666"
+-     borderopacity="1"
+-     inkscape:pageopacity="1"
+-     inkscape:pageshadow="2"
+-     inkscape:zoom="3.0009658"
+-     inkscape:cx="63.995508"
+-     inkscape:cy="65.015315"
+-     inkscape:document-units="px"
+-     inkscape:current-layer="layer1"
+-     showgrid="true"
+-     inkscape:window-width="1094"
+-     inkscape:window-height="800"
+-     inkscape:window-x="110"
+-     inkscape:window-y="4"
+-     inkscape:object-nodes="true"
+-     inkscape:object-points="true" />
+-  <metadata
+-     id="metadata1880">
++  <sodipodi:namedview id="base" pagecolor="#ff00ff" bordercolor="#366666" borderopacity="1" inkscape:pageopacity="1" inkscape:pageshadow="2" inkscape:zoom="24.227273" inkscape:cx="11" inkscape:cy="11" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="true" inkscape:window-width="1094" inkscape:window-height="778" inkscape:window-x="110" inkscape:window-y="4" inkscape:object-nodes="true" inkscape:object-points="true" inkscape:window-maximized="0" />
++  <metadata id="metadata1880">
+     <rdf:RDF>
+-      <cc:Work
+-         rdf:about="">
++      <cc:Work rdf:about="">
+         <dc:format>image/svg+xml</dc:format>
+-        <dc:type
+-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+         <dc:title>Symbol Resort</dc:title>
+         <dc:date>02. Feb. 2006</dc:date>
+         <dc:creator>
+@@ -67,46 +24,22 @@
+           </rdf:Bag>
+         </dc:subject>
+         <dc:description>Symbol for Wikivoyage maps: Resort</dc:description>
+-        <cc:license
+-           rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
++        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
+       </cc:Work>
+-      <cc:License
+-         rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/Reproduction" />
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/Distribution" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/Notice" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/Attribution" />
+-        <cc:permits
+-           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+-        <cc:requires
+-           rdf:resource="http://web.resource.org/cc/ShareAlike" />
++      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
++        <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction" />
++        <cc:permits rdf:resource="http://web.resource.org/cc/Distribution" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/Notice" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/Attribution" />
++        <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
++        <cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+       </cc:License>
+     </rdf:RDF>
+   </metadata>
+-  <g
+-     inkscape:label="Ebene 1"
+-     inkscape:groupmode="layer"
+-     id="layer1"
+-     transform="translate(836.281, 29.4945)">
+-    <path
+-       id="path6273"
+-       style="font-size:12px;fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:7.136;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+-       d="M -764.17284,-20.048921 L -693.29368,32.766388 L -693.29368,37.880694 L -713.61867,37.880694 L -713.00133,102.41364 L -811.02301,102.41364 L -811.02301,37.572027 L -832.46473,37.555583 L -832.46473,32.441277 L -764.17284,-20.048921 z"
+-       sodipodi:nodetypes="cccccccccc" />
+-    <text
+-       xml:space="preserve"
+-       style="font-size:37.74900817999999703px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.136;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;stroke-miterlimit:4;stroke-dasharray:none"
+-       x="-793.22296"
+-       y="81.305115"
+-       id="text3153"><tspan
+-         sodipodi:role="line"
+-         id="tspan3155"
+-         x="-793.22296"
+-         y="81.305115"
+-         style="font-size:82.36148833999999397px;font-weight:bold;fill:#ffffff;fill-opacity:1;-inkscape-font-specification:Bitstream Vera Sans Bold;stroke-width:7.136;stroke-miterlimit:4;stroke-dasharray:none">R</tspan></text>
++  <g inkscape:label="Ebene 1" inkscape:groupmode="layer" id="layer1" transform="translate(836.281,-94.5055)">
++    <g id="g2834" transform="matrix(0.14900171,0,0,0.14900171,-711.62752,99.891712)">
++      <path sodipodi:nodetypes="cccccccccc" d="m -764.17284,-20.048921 70.87916,52.815309 0,5.114306 -20.32499,0 0.61734,64.532946 -98.02168,0 0,-64.841613 -21.44172,-0.01644 0,-5.114306 68.29189,-52.490198 z" style="font-size:12px;fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:7.13600016;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path6273" />
++      <text id="text3153" y="81.305115" x="-793.22296" style="font-size:37.74900818px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans" xml:space="preserve"><tspan style="font-size:82.36148834px;font-weight:bold;fill:#ffffff;fill-opacity:1;-inkscape-font-specification:Bitstream Vera Sans Bold" y="81.305115" x="-793.22296" id="tspan3155" sodipodi:role="line">R</tspan></text>
++    </g>
+   </g>
+ </svg>

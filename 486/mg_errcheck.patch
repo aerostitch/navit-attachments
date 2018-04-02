@@ -1,0 +1,52 @@
+diff --git a/navit/map/mg/street.c b/navit/map/mg/street.c
+index 8260dc5..b4493ec 100644
+--- a/navit/map/mg/street.c
++++ b/navit/map/mg/street.c
+@@ -774,7 +774,8 @@ street_get_byid(struct map_rect_priv *mr, struct street_priv *street, int id_hi,
+ 	dbg(1,"enter(%p,%p,0x%x,0x%x,%p)\n", mr, street, id_hi, id_lo, item);
+ 	if (! country)
+ 		return 0;
+-        tree_search_hv(mr->m->dirname, "street", (id_lo >> 8) | (country << 24), id_lo & 0xff, &res);
++        if (! tree_search_hv(mr->m->dirname, "street", (id_lo >> 8) | (country << 24), id_lo & 0xff, &res))
++		return 0;
+ 	dbg(1,"res=0x%x (blk=0x%x)\n", res, res >> 12);
+         block_get_byindex(mr->m->file[mr->current_file], res >> 12, &mr->b);
+ 	street_get_data(street, &mr->b.p);
+diff --git a/navit/map/mg/tree.c b/navit/map/mg/tree.c
+index ef542bc..27459cf 100644
+--- a/navit/map/mg/tree.c
++++ b/navit/map/mg/tree.c
+@@ -145,17 +145,15 @@ tree_search_hv(char *dirname, char *filename, unsigned int search_h, unsigned in
+ 	dbg(1,"enter(%s, %s, 0x%x, 0x%x, %p)\n",dirname, filename, search_h, search_v, result);
+ 	sprintf(buffer, "%s/%s.h1", dirname, filename);
+ 	f_idx_h=file_create_caseinsensitive(buffer, 0);
+-	if (! f_idx_h)
++	if ((!f_idx_h) || (!file_mmap(f_idx_h)))
+ 		return 0;
+-	file_mmap(f_idx_h);	
+ 	sprintf(buffer, "%s/%s.v1", dirname, filename);
+ 	f_idx_v=file_create_caseinsensitive(buffer, 0);
+ 	dbg(1,"%p %p\n", f_idx_h, f_idx_v);
+-	if (! f_idx_v) {
++	if ((!f_idx_v) || (!file_mmap(f_idx_v))) {
+ 		file_destroy(f_idx_h);
+ 		return 0;
+ 	}
+-	file_mmap(f_idx_v);
+ 	if ((h=tree_search_h(f_idx_h, search_h))) {
+ 		dbg(1,"h=0x%x\n", h);
+ 		if ((v=tree_search_v(f_idx_v, h, search_v))) {
+diff --git a/navit/navigation.c b/navit/navigation.c
+index 03afd5a..0d68ff7 100644
+--- a/navit/navigation.c
++++ b/navit/navigation.c
+@@ -687,7 +687,8 @@ navigation_itm_new(struct navigation *this_, struct item *ritem)
+ 		ret->item=*sitem;
+ 		item_hash_insert(this_->hash, sitem, ret);
+ 		mr=map_rect_new(sitem->map, NULL);
+-		sitem=map_rect_get_item_byid(mr, sitem->id_hi, sitem->id_lo);
++		if (! (sitem=map_rect_get_item_byid(mr, sitem->id_hi, sitem->id_lo)))
++			return NULL;
+ 		if (item_attr_get(sitem, attr_street_name, &attr))
+ 			ret->name1=map_convert_string(sitem->map,attr.u.str);
+ 		if (item_attr_get(sitem, attr_street_name_systematic, &attr))

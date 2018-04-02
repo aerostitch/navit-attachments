@@ -1,0 +1,3311 @@
+Index: navit/support/glib/CMakeLists.txt
+===================================================================
+--- navit/support/glib/CMakeLists.txt	(Revision 5496)
++++ navit/support/glib/CMakeLists.txt	(Arbeitskopie)
+@@ -1,3 +1,3 @@
+ supportlib_add_library(support_glib fake.c galiasdef.c gatomic.c gerror.c ghash.c 
+       glib_init.c glist.c gmem.c gmessages.c gprimes.c gprintf.c gslice.c gslist.c
+-      gstrfuncs.c gstring.c gutf8.c gutils.c) 
++      gstrfuncs.c gstring.c gutf8.c gutils.c gnulib/asnprintf.c gnulib/printf.c gnulib/printf-args.c gnulib/printf-parse.c gnulib/vasnprintf.c) 
+Index: navit/support/glib/gnulib/Makefile.am
+===================================================================
+--- navit/support/glib/gnulib/Makefile.am	(Revision 0)
++++ navit/support/glib/gnulib/Makefile.am	(Revision 0)
+@@ -0,0 +1,27 @@
++## Process this file with automake to produce Makefile.in
++include $(top_srcdir)/Makefile.decl
++
++AM_CPPFLAGS = 				\
++	$(glib_INCLUDES) 		\
++	-DG_LOG_DOMAIN=\"GLib\" 	\
++	$(GLIB_DEBUG_FLAGS) 		\
++	-DG_DISABLE_DEPRECATED 		\
++	-DGLIB_COMPILATION
++
++noinst_LTLIBRARIES = libgnulib.la
++
++libgnulib_la_CFLAGS = $(GLIB_HIDDEN_VISIBILITY_CFLAGS)
++libgnulib_la_SOURCES = 	\
++	asnprintf.c \
++	printf-args.c \
++	printf-args.h \
++	printf-parse.c \
++	printf-parse.h \
++	vasnprintf.c \
++	vasnprintf.h \
++	printf.c \
++	printf.h \
++	g-gnulib.h
++
++
++EXTRA_DIST += makefile.msc
+Index: navit/support/glib/gnulib/g-gnulib.h
+===================================================================
+--- navit/support/glib/gnulib/g-gnulib.h	(Revision 0)
++++ navit/support/glib/gnulib/g-gnulib.h	(Revision 0)
+@@ -0,0 +1,49 @@
++/* GLIB - Library of useful routines for C programming
++ * Copyright (C) 2003  Matthias Clasen
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, write to the
++ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
++ * Boston, MA 02111-1307, USA.
++ */
++#ifndef __G_GNULIB_H__
++
++#include "config.h"
++#include <stdlib.h>
++#include "glib/glib.h"
++
++/* Private namespace for gnulib functions */
++#define asnprintf        _g_gnulib_asnprintf
++#define vasnprintf       _g_gnulib_vasnprintf
++#define printf_parse     _g_gnulib_printf_parse
++#define printf_fetchargs _g_gnulib_printf_fetchargs
++
++/* Use GLib memory allocation */
++#undef malloc
++#undef realloc
++#undef free
++#define malloc  g_malloc
++#define realloc g_realloc
++#define free    g_free
++
++/* Ensure only C99 snprintf gets used */
++#undef HAVE_SNPRINTF
++#ifdef HAVE_C99_SNPRINTF
++#define HAVE_SNPRINTF 1
++#else
++#define HAVE_SNPRINTF 0
++#endif
++
++
++#endif  /* __G_GNULIB_H__ */
++
+Index: navit/support/glib/gnulib/vasnprintf.c
+===================================================================
+--- navit/support/glib/gnulib/vasnprintf.c	(Revision 0)
++++ navit/support/glib/gnulib/vasnprintf.c	(Revision 0)
+@@ -0,0 +1,1084 @@
++/* vsprintf with automatic memory allocation.
++   Copyright (C) 1999, 2002-2003 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifndef _WIN32
++/* Tell glibc's <stdio.h> to provide a prototype for snprintf().
++   This must come before <config.h> because <config.h> may include
++   <features.h>, and once <features.h> has been included, it's too late.  */
++#ifndef _GNU_SOURCE
++# define _GNU_SOURCE    1
++#endif
++#endif
++
++#ifdef HAVE_CONFIG_H
++# include <config.h>
++#endif
++#include "glib/galloca.h"
++
++#include "g-gnulib.h"
++
++/* Specification.  */
++#include "vasnprintf.h"
++
++#include <stdio.h>	/* snprintf(), sprintf() */
++#include <stdlib.h>	/* abort(), malloc(), realloc(), free() */
++#include <string.h>	/* memcpy(), strlen() */
++#include <errno.h>	/* errno */
++#include <limits.h>	/* CHAR_BIT */
++#include <float.h>	/* DBL_MAX_EXP, LDBL_MAX_EXP */
++#include "printf-parse.h"
++
++#ifdef HAVE_WCHAR_T
++# ifdef HAVE_WCSLEN
++#  define local_wcslen wcslen
++# else
++   /* Solaris 2.5.1 has wcslen() in a separate library libw.so. To avoid
++      a dependency towards this library, here is a local substitute.
++      Define this substitute only once, even if this file is included
++      twice in the same compilation unit.  */
++#  ifndef local_wcslen_defined
++#   define local_wcslen_defined 1
++static size_t
++local_wcslen (const wchar_t *s)
++{
++  const wchar_t *ptr;
++
++  for (ptr = s; *ptr != (wchar_t) 0; ptr++)
++    ;
++  return ptr - s;
++}
++#  endif
++# endif
++#endif
++
++/* For those losing systems which don't have 'alloca' we have to add
++   some additional code emulating it.  */ 
++#ifdef HAVE_ALLOCA 
++# define freea(p) /* nothing */
++#else
++# define alloca(n) malloc (n) 
++# define freea(p) free (p) 
++#endif
++
++#ifndef HAVE_LONG_LONG_FORMAT
++static int
++print_long_long (char *buf, 
++		 int len, 
++		 int width,
++		 int precision,
++		 unsigned long flags,
++		 char conversion,
++		 unsigned long long number)
++{
++  int negative = FALSE;
++  char buffer[128];
++  char *bufferend;
++  char *pointer;
++  int base;
++  static const char *upper = "0123456789ABCDEFX";
++  static const char *lower = "0123456789abcdefx";
++  const char *digits;
++  int i;
++  char *p;
++  int count;
++
++#define EMIT(c)           \
++  if (p - buf == len - 1) \
++    {                     \
++      *p++ = '\0';        \
++      return len;         \
++    }                     \
++  else                    \
++    *p++ = c;
++  
++  p = buf;
++  
++  switch (conversion) 
++    {
++    case 'o':
++      base = 8;
++      digits = lower;
++      negative = FALSE;
++      break;
++    case 'x':
++      base = 16;
++      digits = lower;
++      negative = FALSE;
++      break;
++    case 'X':
++      base = 16;
++      digits = upper;
++      negative = FALSE;
++      break;
++    default:
++      base = 10;
++      digits = lower;
++      negative = (long long)number < 0;
++      if (negative) 
++	number = -((long long)number);
++      break;
++    }
++
++  /* Build number */
++  pointer = bufferend = &buffer[sizeof(buffer) - 1];
++  *pointer-- = '\0';
++  for (i = 1; i < (int)sizeof(buffer); i++)
++    {
++      *pointer-- = digits[number % base];
++      number /= base;
++      if (number == 0)
++	break;
++    }
++
++  /* Adjust width */
++  width -= (bufferend - pointer) - 1;
++
++  /* Adjust precision */
++  if (precision != -1)
++    {
++      precision -= (bufferend - pointer) - 1;
++      if (precision < 0)
++	precision = 0;
++      flags |= FLAG_ZERO;
++    }
++
++  /* Adjust width further */
++  if (negative || (flags & FLAG_SHOWSIGN) || (flags & FLAG_SPACE))
++    width--;
++  if (flags & FLAG_ALT)
++    {
++      switch (base)
++	{
++	case 16:
++	  width -= 2;
++	  break;
++	case 8:
++	  width--;
++	  break;
++        default:
++	  break;
++	}
++    }
++
++  /* Output prefixes spaces if needed */
++  if (! ((flags & FLAG_LEFT) ||
++	 ((flags & FLAG_ZERO) && (precision == -1))))
++    {
++      count = (precision == -1) ? 0 : precision;
++      while (width-- > count)
++	*p++ = ' ';
++    }
++
++  /* width has been adjusted for signs and alternatives */
++  if (negative) 
++    {
++      EMIT ('-');
++    }
++  else if (flags & FLAG_SHOWSIGN) 
++    {
++      EMIT('+');
++    }
++  else if (flags & FLAG_SPACE) 
++    {
++      EMIT(' ');
++    }
++  
++  if (flags & FLAG_ALT)
++    {
++      switch (base)
++	{
++	case 8:
++	  EMIT('0');
++	  break;
++	case 16:
++	  EMIT('0');
++	  EMIT(digits[16]);
++	  break;
++	default:
++	  break;
++	} /* switch base */
++    }
++  
++  /* Output prefixed zero padding if needed */
++  if (flags & FLAG_ZERO)
++    {
++      if (precision == -1)
++	precision = width;
++      while (precision-- > 0)
++	{
++	  EMIT('0');
++	  width--;
++	}
++    }
++  
++  /* Output the number itself */
++  while (*(++pointer))
++    {
++      EMIT(*pointer);
++    }
++  
++  /* Output trailing spaces if needed */
++  if (flags & FLAG_LEFT)
++    {
++      while (width-- > 0)
++	EMIT(' ');
++    }
++  
++  EMIT('\0');
++  
++  return p - buf - 1;
++}
++#endif
++
++char *
++vasnprintf (char *resultbuf, size_t *lengthp, const char *format, va_list args)
++{
++  char_directives d;
++  arguments a;
++
++  if (printf_parse (format, &d, &a) < 0)
++    {
++      errno = EINVAL;
++      return NULL;
++    }
++
++#define CLEANUP() \
++  free (d.dir);								\
++  if (a.arg)								\
++    free (a.arg);
++
++  if (printf_fetchargs (args, &a) < 0)
++    {
++      CLEANUP ();
++      errno = EINVAL;
++      return NULL;
++    }
++
++  {
++    char *buf =
++      (char *) alloca (7 + d.max_width_length + d.max_precision_length + 6);
++    const char *cp;
++    unsigned int i;
++    char_directive *dp;
++    /* Output string accumulator.  */
++    char *result;
++    size_t allocated;
++    size_t length;
++
++    if (resultbuf != NULL)
++      {
++	result = resultbuf;
++	allocated = *lengthp;
++      }
++    else
++      {
++	result = NULL;
++	allocated = 0;
++      }
++    length = 0;
++    /* Invariants:
++       result is either == resultbuf or == NULL or malloc-allocated.
++       If length > 0, then result != NULL.  */
++
++#define ENSURE_ALLOCATION(needed) \
++    if ((needed) > allocated)						\
++      {									\
++	char *memory;							\
++									\
++	allocated = (allocated > 0 ? 2 * allocated : 12);		\
++	if ((needed) > allocated)					\
++	  allocated = (needed);						\
++	if (result == resultbuf || result == NULL)			\
++	  memory = (char *) malloc (allocated);				\
++	else								\
++	  memory = (char *) realloc (result, allocated);		\
++									\
++	if (memory == NULL)						\
++	  {								\
++	    if (!(result == resultbuf || result == NULL))		\
++	      free (result);						\
++	    freea (buf);						\
++	    CLEANUP ();							\
++	    errno = ENOMEM;						\
++	    return NULL;						\
++	  }								\
++	if (result == resultbuf && length > 0)				\
++	  memcpy (memory, result, length);				\
++	result = memory;						\
++      }
++
++    for (cp = format, i = 0, dp = &d.dir[0]; ; cp = dp->dir_end, i++, dp++)
++      {
++	if (cp != dp->dir_start)
++	  {
++	    size_t n = dp->dir_start - cp;
++
++	    ENSURE_ALLOCATION (length + n);
++	    memcpy (result + length, cp, n);
++	    length += n;
++	  }
++	if (i == d.count)
++	  break;
++
++	/* Execute a single directive.  */
++	if (dp->conversion == '%')
++	  {
++	    if (!(dp->arg_index < 0))
++	      abort ();
++	    ENSURE_ALLOCATION (length + 1);
++	    result[length] = '%';
++	    length += 1;
++	  }
++	else
++	  {
++	    if (!(dp->arg_index >= 0))
++	      abort ();
++
++	    if (dp->conversion == 'n')
++	      {
++		switch (a.arg[dp->arg_index].type)
++		  {
++		  case TYPE_COUNT_SCHAR_POINTER:
++		    *a.arg[dp->arg_index].a.a_count_schar_pointer = length;
++		    break;
++		  case TYPE_COUNT_SHORT_POINTER:
++		    *a.arg[dp->arg_index].a.a_count_short_pointer = length;
++		    break;
++		  case TYPE_COUNT_INT_POINTER:
++		    *a.arg[dp->arg_index].a.a_count_int_pointer = length;
++		    break;
++		  case TYPE_COUNT_LONGINT_POINTER:
++		    *a.arg[dp->arg_index].a.a_count_longint_pointer = length;
++		    break;
++#ifdef HAVE_LONG_LONG
++		  case TYPE_COUNT_LONGLONGINT_POINTER:
++		    *a.arg[dp->arg_index].a.a_count_longlongint_pointer = length;
++		    break;
++#endif
++		  default:
++		    abort ();
++		  }
++	      }
++	    else
++	      {
++		arg_type type = a.arg[dp->arg_index].type;
++		char *p;
++		unsigned int prefix_count;
++		int prefixes[2];
++#if !HAVE_SNPRINTF
++		unsigned int tmp_length;
++		char tmpbuf[700];
++		char *tmp;
++
++		/* Allocate a temporary buffer of sufficient size for calling
++		   sprintf.  */
++		{
++		  unsigned int width;
++		  unsigned int precision;
++
++		  width = 0;
++		  if (dp->width_start != dp->width_end)
++		    {
++		      if (dp->width_arg_index >= 0)
++			{
++			  int arg;
++
++			  if (!(a.arg[dp->width_arg_index].type == TYPE_INT))
++			    abort ();
++			  arg = a.arg[dp->width_arg_index].a.a_int;
++			  width = (arg < 0 ? -arg : arg);
++			}
++		      else
++			{
++			  const char *digitp = dp->width_start;
++
++			  do
++			    width = width * 10 + (*digitp++ - '0');
++			  while (digitp != dp->width_end);
++			}
++		    }
++
++		  precision = 6;
++		  if (dp->precision_start != dp->precision_end)
++		    {
++		      if (dp->precision_arg_index >= 0)
++			{
++			  int arg;
++
++			  if (!(a.arg[dp->precision_arg_index].type == TYPE_INT))
++			    abort ();
++			  arg = a.arg[dp->precision_arg_index].a.a_int;
++			  precision = (arg < 0 ? 0 : arg);
++			}
++		      else
++			{
++			  const char *digitp = dp->precision_start + 1;
++
++			  precision = 0;
++			  while (digitp != dp->precision_end)
++			    precision = precision * 10 + (*digitp++ - '0');
++			}
++		    }
++
++		  switch (dp->conversion)
++		    {
++		    case 'd': case 'i': case 'u':
++# ifdef HAVE_LONG_LONG
++		      if (type == TYPE_LONGLONGINT || type == TYPE_ULONGLONGINT)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned long long) * CHAR_BIT
++					  * 0.30103 /* binary -> decimal */
++					  * 2 /* estimate for FLAG_GROUP */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 1; /* account for leading sign */
++		      else
++# endif
++		      if (type == TYPE_LONGINT || type == TYPE_ULONGINT)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned long) * CHAR_BIT
++					  * 0.30103 /* binary -> decimal */
++					  * 2 /* estimate for FLAG_GROUP */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 1; /* account for leading sign */
++		      else
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned int) * CHAR_BIT
++					  * 0.30103 /* binary -> decimal */
++					  * 2 /* estimate for FLAG_GROUP */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 1; /* account for leading sign */
++		      break;
++
++		    case 'o':
++# ifdef HAVE_LONG_LONG
++		      if (type == TYPE_LONGLONGINT || type == TYPE_ULONGLONGINT)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned long long) * CHAR_BIT
++					  * 0.333334 /* binary -> octal */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 1; /* account for leading sign */
++		      else
++# endif
++		      if (type == TYPE_LONGINT || type == TYPE_ULONGINT)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned long) * CHAR_BIT
++					  * 0.333334 /* binary -> octal */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 1; /* account for leading sign */
++		      else
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned int) * CHAR_BIT
++					  * 0.333334 /* binary -> octal */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 1; /* account for leading sign */
++		      break;
++
++		    case 'x': case 'X':
++# ifdef HAVE_LONG_LONG
++		      if (type == TYPE_LONGLONGINT || type == TYPE_ULONGLONGINT)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned long long) * CHAR_BIT
++					  * 0.25 /* binary -> hexadecimal */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 2; /* account for leading sign or alternate form */
++		      else
++# endif
++# ifdef HAVE_INT64_AND_I64
++		      if (type == TYPE_INT64 || type == TYPE_UINT64)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned __int64) * CHAR_BIT
++					  * 0.25 /* binary -> hexadecimal */
++					  )
++			  + 1 /* turn floor into ceil */
++			  + 2; /* account for leading sign or alternate form */
++		      else
++# endif
++		      if (type == TYPE_LONGINT || type == TYPE_ULONGINT)
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned long) * CHAR_BIT
++					  * 0.25 /* binary -> hexadecimal */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 2; /* account for leading sign or alternate form */
++		      else
++			tmp_length =
++			  (unsigned int) (sizeof (unsigned int) * CHAR_BIT
++					  * 0.25 /* binary -> hexadecimal */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + 2; /* account for leading sign or alternate form */
++		      break;
++
++		    case 'f': case 'F':
++# ifdef HAVE_LONG_DOUBLE
++		      if (type == TYPE_LONGDOUBLE)
++			tmp_length =
++			  (unsigned int) (LDBL_MAX_EXP
++					  * 0.30103 /* binary -> decimal */
++					  * 2 /* estimate for FLAG_GROUP */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + precision
++			  + 10; /* sign, decimal point etc. */
++		      else
++# endif
++			tmp_length =
++			  (unsigned int) (DBL_MAX_EXP
++					  * 0.30103 /* binary -> decimal */
++					  * 2 /* estimate for FLAG_GROUP */
++					 )
++			  + 1 /* turn floor into ceil */
++			  + precision
++			  + 10; /* sign, decimal point etc. */
++		      break;
++
++		    case 'e': case 'E': case 'g': case 'G':
++		    case 'a': case 'A':
++		      tmp_length =
++			precision
++			+ 12; /* sign, decimal point, exponent etc. */
++		      break;
++
++		    case 'c':
++# ifdef HAVE_WINT_T
++		      if (type == TYPE_WIDE_CHAR)
++			tmp_length = MB_CUR_MAX;
++		      else
++# endif
++			tmp_length = 1;
++		      break;
++
++		    case 's':
++# ifdef HAVE_WCHAR_T
++		      if (type == TYPE_WIDE_STRING)
++			tmp_length =
++			  (a.arg[dp->arg_index].a.a_wide_string == NULL
++			  ? 6 /* wcslen(L"(null)") */
++			   : local_wcslen (a.arg[dp->arg_index].a.a_wide_string)) 
++			  * MB_CUR_MAX;
++		      else
++# endif
++			tmp_length = a.arg[dp->arg_index].a.a_string == NULL
++			  ? 6 /* strlen("(null)") */
++			  : strlen (a.arg[dp->arg_index].a.a_string);
++		      break;
++
++		    case 'p':
++		      tmp_length =
++			(unsigned int) (sizeof (void *) * CHAR_BIT
++					* 0.25 /* binary -> hexadecimal */
++				       )
++			  + 1 /* turn floor into ceil */
++			  + 2; /* account for leading 0x */
++		      break;
++
++		    default:
++		      abort ();
++		    }
++
++		  if (tmp_length < width)
++		    tmp_length = width;
++
++		  tmp_length++; /* account for trailing NUL */
++		}
++
++		if (tmp_length <= sizeof (tmpbuf))
++		  tmp = tmpbuf;
++		else
++		  {
++		    tmp = (char *) malloc (tmp_length);
++		    if (tmp == NULL)
++		      {
++			/* Out of memory.  */
++			if (!(result == resultbuf || result == NULL))
++			  free (result);
++			freea (buf);
++			CLEANUP ();
++			errno = ENOMEM;
++			return NULL;
++		      }
++		  }
++#endif
++
++		/* Construct the format string for calling snprintf or
++		   sprintf.  */
++		p = buf;
++		*p++ = '%';
++		if (dp->flags & FLAG_GROUP)
++		  *p++ = '\'';
++		if (dp->flags & FLAG_LEFT)
++		  *p++ = '-';
++		if (dp->flags & FLAG_SHOWSIGN)
++		  *p++ = '+';
++		if (dp->flags & FLAG_SPACE)
++		  *p++ = ' ';
++		if (dp->flags & FLAG_ALT)
++		  *p++ = '#';
++		if (dp->flags & FLAG_ZERO)
++		  *p++ = '0';
++		if (dp->width_start != dp->width_end)
++		  {
++		    size_t n = dp->width_end - dp->width_start;
++		    memcpy (p, dp->width_start, n);
++		    p += n;
++		  }
++		if (dp->precision_start != dp->precision_end)
++		  {
++		    size_t n = dp->precision_end - dp->precision_start;
++		    memcpy (p, dp->precision_start, n);
++		    p += n;
++		  }
++
++		switch (type)
++		  {
++#ifdef HAVE_INT64_AND_I64
++		  case TYPE_INT64:
++		  case TYPE_UINT64:
++		    *p++ = 'I';
++		    *p++ = '6';
++		    *p++ = '4';
++		    break;
++#endif
++#ifdef HAVE_LONG_LONG
++		  case TYPE_LONGLONGINT:
++		  case TYPE_ULONGLONGINT:
++#ifdef HAVE_INT64_AND_I64	/* The system (sn)printf uses %I64. Also assume
++				 * that long long == __int64.
++				 */
++		    *p++ = 'I';
++		    *p++ = '6';
++		    *p++ = '4';
++		    break;
++#else
++		    *p++ = 'l';
++		    /*FALLTHROUGH*/
++#endif
++#endif
++		  case TYPE_LONGINT:
++		  case TYPE_ULONGINT:
++#ifdef HAVE_WINT_T
++		  case TYPE_WIDE_CHAR:
++#endif
++#ifdef HAVE_WCHAR_T
++		  case TYPE_WIDE_STRING:
++#endif
++		    *p++ = 'l';
++		    break;
++#ifdef HAVE_LONG_DOUBLE
++		  case TYPE_LONGDOUBLE:
++		    *p++ = 'L';
++		    break;
++#endif
++		  default:
++		    break;
++		  }
++		*p = dp->conversion;
++#if HAVE_SNPRINTF
++		p[1] = '%';
++		p[2] = 'n';
++		p[3] = '\0';
++#else
++		p[1] = '\0';
++#endif
++
++		/* Construct the arguments for calling snprintf or sprintf.  */
++		prefix_count = 0;
++		if (dp->width_arg_index >= 0)
++		  {
++		    if (!(a.arg[dp->width_arg_index].type == TYPE_INT))
++		      abort ();
++		    prefixes[prefix_count++] = a.arg[dp->width_arg_index].a.a_int;
++		  }
++		if (dp->precision_arg_index >= 0)
++		  {
++		    if (!(a.arg[dp->precision_arg_index].type == TYPE_INT))
++		      abort ();
++		    prefixes[prefix_count++] = a.arg[dp->precision_arg_index].a.a_int;
++		  }
++
++#if HAVE_SNPRINTF
++		/* Prepare checking whether snprintf returns the count
++		   via %n.  */
++		ENSURE_ALLOCATION (length + 1);
++		result[length] = '\0';
++#endif
++
++		for (;;)
++		  {
++		    size_t maxlen;
++		    int count;
++#if HAVE_SNPRINTF
++		    int retcount;
++#endif
++
++		    maxlen = allocated - length;
++		    count = -1;
++
++#if HAVE_SNPRINTF
++		    retcount = 0;
++
++#define SNPRINTF_BUF(arg) \
++		    switch (prefix_count)				    \
++		      {							    \
++		      case 0:						    \
++			retcount = snprintf (result + length, maxlen, buf,  \
++					     arg, &count);		    \
++			break;						    \
++		      case 1:						    \
++			retcount = snprintf (result + length, maxlen, buf,  \
++					     prefixes[0], arg, &count);	    \
++			break;						    \
++		      case 2:						    \
++			retcount = snprintf (result + length, maxlen, buf,  \
++					     prefixes[0], prefixes[1], arg, \
++					     &count);			    \
++			break;						    \
++		      default:						    \
++			abort ();					    \
++		      }
++#else
++#define SNPRINTF_BUF(arg) \
++		    switch (prefix_count)				    \
++		      {							    \
++		      case 0:						    \
++			count = sprintf (tmp, buf, arg);		    \
++			break;						    \
++		      case 1:						    \
++			count = sprintf (tmp, buf, prefixes[0], arg);	    \
++			break;						    \
++		      case 2:						    \
++			count = sprintf (tmp, buf, prefixes[0], prefixes[1],\
++					 arg);				    \
++			break;						    \
++		      default:						    \
++			abort ();					    \
++		      }
++#endif
++
++		    switch (type)
++		      {
++		      case TYPE_SCHAR:
++			{
++			  int arg = a.arg[dp->arg_index].a.a_schar;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_UCHAR:
++			{
++			  unsigned int arg = a.arg[dp->arg_index].a.a_uchar;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_SHORT:
++			{
++			  int arg = a.arg[dp->arg_index].a.a_short;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_USHORT:
++			{
++			  unsigned int arg = a.arg[dp->arg_index].a.a_ushort;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_INT:
++			{
++			  int arg = a.arg[dp->arg_index].a.a_int;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_UINT:
++			{
++			  unsigned int arg = a.arg[dp->arg_index].a.a_uint;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_LONGINT:
++			{
++			  long int arg = a.arg[dp->arg_index].a.a_longint;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_ULONGINT:
++			{
++			  unsigned long int arg = a.arg[dp->arg_index].a.a_ulongint;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#ifdef HAVE_INT64_AND_I64
++		      case TYPE_INT64:
++			{
++			  __int64 arg = a.arg[dp->arg_index].a.a_int64;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_UINT64:
++			{
++			  unsigned __int64 arg = a.arg[dp->arg_index].a.a_uint64;
++			  SNPRINTF_BUF (arg);
++			}
++			break;			
++#endif
++#ifdef HAVE_LONG_LONG
++#ifndef HAVE_LONG_LONG_FORMAT
++		      case TYPE_LONGLONGINT:
++		      case TYPE_ULONGLONGINT:
++			{
++			  unsigned long long int arg = a.arg[dp->arg_index].a.a_ulonglongint;
++			  int width;
++			  int precision;
++
++			  width = 0;
++			  if (dp->width_start != dp->width_end)
++			    {
++			      if (dp->width_arg_index >= 0)
++				{
++				  int arg;
++				  
++				  if (!(a.arg[dp->width_arg_index].type == TYPE_INT))
++				    abort ();
++				  arg = a.arg[dp->width_arg_index].a.a_int;
++				  width = (arg < 0 ? -arg : arg);
++				}
++			      else
++				{
++				  const char *digitp = dp->width_start;
++				  
++				  do
++				    width = width * 10 + (*digitp++ - '0');
++				  while (digitp != dp->width_end);
++				}
++			    }
++
++			  precision = -1;
++			  if (dp->precision_start != dp->precision_end)
++			    {
++			      if (dp->precision_arg_index >= 0)
++				{
++				  int arg;
++				  
++				  if (!(a.arg[dp->precision_arg_index].type == TYPE_INT))
++				    abort ();
++				  arg = a.arg[dp->precision_arg_index].a.a_int;
++				  precision = (arg < 0 ? 0 : arg);
++				}
++			      else
++				{
++				  const char *digitp = dp->precision_start + 1;
++				  
++				  precision = 0;
++				  do
++				    precision = precision * 10 + (*digitp++ - '0');
++				  while (digitp != dp->precision_end);
++				}
++			    }
++			  
++#if HAVE_SNPRINTF
++ 			  count = print_long_long (result + length, maxlen,
++ 						   width, precision,
++ 						   dp->flags,
++ 						   dp->conversion,
++ 						   arg);
++#else
++			  count = print_long_long (tmp, tmp_length,
++						   width, precision,
++						   dp->flags,
++						   dp->conversion,
++						   arg);
++#endif
++			}
++			break;
++#else
++		      case TYPE_LONGLONGINT:
++			{
++			  long long int arg = a.arg[dp->arg_index].a.a_longlongint;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      case TYPE_ULONGLONGINT:
++			{
++			  unsigned long long int arg = a.arg[dp->arg_index].a.a_ulonglongint;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#endif
++#endif
++		      case TYPE_DOUBLE:
++			{
++			  double arg = a.arg[dp->arg_index].a.a_double;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#ifdef HAVE_LONG_DOUBLE
++		      case TYPE_LONGDOUBLE:
++			{
++			  long double arg = a.arg[dp->arg_index].a.a_longdouble;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#endif
++		      case TYPE_CHAR:
++			{
++			  int arg = a.arg[dp->arg_index].a.a_char;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#ifdef HAVE_WINT_T
++		      case TYPE_WIDE_CHAR:
++			{
++			  wint_t arg = a.arg[dp->arg_index].a.a_wide_char;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#endif
++		      case TYPE_STRING:
++			{
++			  const char *arg = a.arg[dp->arg_index].a.a_string == NULL
++			    ? "(null)"
++			    : a.arg[dp->arg_index].a.a_string;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#ifdef HAVE_WCHAR_T
++		      case TYPE_WIDE_STRING:
++			{
++			  const wchar_t *arg = a.arg[dp->arg_index].a.a_wide_string == NULL
++			    ? L"(null)"
++			    : a.arg[dp->arg_index].a.a_wide_string;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++#endif
++		      case TYPE_POINTER:
++			{
++			  void *arg = a.arg[dp->arg_index].a.a_pointer;
++			  SNPRINTF_BUF (arg);
++			}
++			break;
++		      default:
++			abort ();
++		      }
++
++#if HAVE_SNPRINTF
++		    /* Portability: Not all implementations of snprintf()
++		       are ISO C 99 compliant.  Determine the number of
++		       bytes that snprintf() has produced or would have
++		       produced.  */
++		    if (count >= 0)
++		      {
++			/* Verify that snprintf() has NUL-terminated its
++			   result.  */
++			if (count < maxlen && result[length + count] != '\0')
++			  abort ();
++			/* Portability hack.  */
++			if (retcount > count)
++			  count = retcount;
++		      }
++		    else
++		      {
++			/* snprintf() doesn't understand the '%n'
++			   directive.  */
++			if (p[1] != '\0')
++			  {
++			    /* Don't use the '%n' directive; instead, look
++			       at the snprintf() return value.  */
++			    p[1] = '\0';
++			    continue;
++			  }
++			count = retcount;
++		      }
++#endif
++
++		    /* Attempt to handle failure.  */
++		    if (count < 0)
++		      {
++			if (!(result == resultbuf || result == NULL))
++			  free (result);
++			freea (buf);
++			CLEANUP ();
++			errno = EINVAL;
++			return NULL;
++		      }
++
++#if !HAVE_SNPRINTF
++		    if (count >= tmp_length)
++		      /* tmp_length was incorrectly calculated - fix the
++			 code above!  */
++		      abort ();
++#endif
++
++		    /* Make room for the result.  */
++		    if (count >= maxlen)
++		      {
++			/* Need at least count bytes.  But allocate
++			   proportionally, to avoid looping eternally if
++			   snprintf() reports a too small count.  */
++			size_t n = length + count;
++
++			if (n < 2 * allocated)
++			  n = 2 * allocated;
++
++			ENSURE_ALLOCATION (n);
++#if HAVE_SNPRINTF
++			continue;
++#endif
++		      }
++
++#if HAVE_SNPRINTF
++		    /* The snprintf() result did fit.  */
++#else
++		    /* Append the sprintf() result.  */
++		    memcpy (result + length, tmp, count);
++		    if (tmp != tmpbuf)
++		      free (tmp);
++#endif
++
++		    length += count;
++		    break;
++		  }
++	      }
++	  }
++      }
++
++    /* Add the final NUL.  */
++    ENSURE_ALLOCATION (length + 1);
++    result[length] = '\0';
++
++    if (result != resultbuf && length + 1 < allocated)
++      {
++	/* Shrink the allocated memory if possible.  */
++	char *memory;
++
++	memory = (char *) realloc (result, length + 1);
++	if (memory != NULL)
++	  result = memory;
++      }
++
++    freea (buf);
++    CLEANUP ();
++    *lengthp = length;
++    return result;
++  }
++}
+Index: navit/support/glib/gnulib/printf-parse.c
+===================================================================
+--- navit/support/glib/gnulib/printf-parse.c	(Revision 0)
++++ navit/support/glib/gnulib/printf-parse.c	(Revision 0)
+@@ -0,0 +1,498 @@
++/* Formatted output to strings.
++   Copyright (C) 1999-2000, 2002-2003 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifdef HAVE_CONFIG_H
++# include <config.h>
++#endif
++
++#include "g-gnulib.h"
++
++/* Specification.  */
++#include "printf-parse.h"
++
++/* Get size_t, NULL.  */
++#include <stddef.h>
++
++/* Get intmax_t.  */
++#if HAVE_STDINT_H_WITH_UINTMAX
++# include <stdint.h>
++#endif
++#if HAVE_INTTYPES_H_WITH_UINTMAX
++# include <inttypes.h>
++#endif
++
++/* malloc(), realloc(), free().  */
++#include <stdlib.h>
++
++#ifdef STATIC
++STATIC
++#endif
++int
++printf_parse (const char *format, char_directives *d, arguments *a)
++{
++  const char *cp = format;		/* pointer into format */
++  int arg_posn = 0;		/* number of regular arguments consumed */
++  unsigned int d_allocated;		/* allocated elements of d->dir */
++  unsigned int a_allocated;		/* allocated elements of a->arg */
++  unsigned int max_width_length = 0;
++  unsigned int max_precision_length = 0;
++
++  d->count = 0;
++  d_allocated = 1;
++  d->dir = malloc (d_allocated * sizeof (char_directive));
++  if (d->dir == NULL)
++    /* Out of memory.  */
++    return -1;
++
++  a->count = 0;
++  a_allocated = 0;
++  a->arg = NULL;
++
++#define REGISTER_ARG(_index_,_type_) \
++  {									\
++    unsigned int n = (_index_);						\
++    if (n >= a_allocated)						\
++      {									\
++	argument *memory;						\
++	a_allocated = 2 * a_allocated;					\
++	if (a_allocated <= n)						\
++	  a_allocated = n + 1;						\
++	memory = (a->arg						\
++		  ? realloc (a->arg, a_allocated * sizeof (argument))	\
++		  : malloc (a_allocated * sizeof (argument)));		\
++	if (memory == NULL)						\
++	  /* Out of memory.  */						\
++	  goto error;							\
++	a->arg = memory;						\
++      }									\
++    while (a->count <= n)						\
++      a->arg[a->count++].type = TYPE_NONE;				\
++    if (a->arg[n].type == TYPE_NONE)					\
++      a->arg[n].type = (_type_);					\
++    else if (a->arg[n].type != (_type_))				\
++      /* Ambiguous type for positional argument.  */			\
++      goto error;							\
++  }
++
++  while (*cp != '\0')
++    {
++      char c = *cp++;
++      if (c == '%')
++	{
++	  int arg_index = -1;
++	  char_directive *dp = &d->dir[d->count];/* pointer to next directive */
++
++	  /* Initialize the next directive.  */
++	  dp->dir_start = cp - 1;
++	  dp->flags = 0;
++	  dp->width_start = NULL;
++	  dp->width_end = NULL;
++	  dp->width_arg_index = -1;
++	  dp->precision_start = NULL;
++	  dp->precision_end = NULL;
++	  dp->precision_arg_index = -1;
++	  dp->arg_index = -1;
++
++	  /* Test for positional argument.  */
++	  if (*cp >= '0' && *cp <= '9')
++	    {
++	      const char *np;
++
++	      for (np = cp; *np >= '0' && *np <= '9'; np++)
++		;
++	      if (*np == '$')
++		{
++		  unsigned int n = 0;
++
++		  for (np = cp; *np >= '0' && *np <= '9'; np++)
++		    n = 10 * n + (*np - '0');
++		  if (n == 0)
++		    /* Positional argument 0.  */
++		    goto error;
++		  arg_index = n - 1;
++		  cp = np + 1;
++		}
++	    }
++
++	  /* Read the flags.  */
++	  for (;;)
++	    {
++	      if (*cp == '\'')
++		{
++		  dp->flags |= FLAG_GROUP;
++		  cp++;
++		}
++	      else if (*cp == '-')
++		{
++		  dp->flags |= FLAG_LEFT;
++		  cp++;
++		}
++	      else if (*cp == '+')
++		{
++		  dp->flags |= FLAG_SHOWSIGN;
++		  cp++;
++		}
++	      else if (*cp == ' ')
++		{
++		  dp->flags |= FLAG_SPACE;
++		  cp++;
++		}
++	      else if (*cp == '#')
++		{
++		  dp->flags |= FLAG_ALT;
++		  cp++;
++		}
++	      else if (*cp == '0')
++		{
++		  dp->flags |= FLAG_ZERO;
++		  cp++;
++		}
++	      else
++		break;
++	    }
++
++	  /* Parse the field width.  */
++	  if (*cp == '*')
++	    {
++	      dp->width_start = cp;
++	      cp++;
++	      dp->width_end = cp;
++	      if (max_width_length < 1)
++		max_width_length = 1;
++
++	      /* Test for positional argument.  */
++	      if (*cp >= '0' && *cp <= '9')
++		{
++		  const char *np;
++
++		  for (np = cp; *np >= '0' && *np <= '9'; np++)
++		    ;
++		  if (*np == '$')
++		    {
++		      unsigned int n = 0;
++
++		      for (np = cp; *np >= '0' && *np <= '9'; np++)
++			n = 10 * n + (*np - '0');
++		      if (n == 0)
++			/* Positional argument 0.  */
++			goto error;
++		      dp->width_arg_index = n - 1;
++		      cp = np + 1;
++		    }
++		}
++	      if (dp->width_arg_index < 0)
++		dp->width_arg_index = arg_posn++;
++	      REGISTER_ARG (dp->width_arg_index, TYPE_INT);
++	    }
++	  else if (*cp >= '0' && *cp <= '9')
++	    {
++	      unsigned int width_length;
++
++	      dp->width_start = cp;
++	      for (; *cp >= '0' && *cp <= '9'; cp++)
++		;
++	      dp->width_end = cp;
++	      width_length = dp->width_end - dp->width_start;
++	      if (max_width_length < width_length)
++		max_width_length = width_length;
++	    }
++
++	  /* Parse the precision.  */
++	  if (*cp == '.')
++	    {
++	      cp++;
++	      if (*cp == '*')
++		{
++		  dp->precision_start = cp - 1;
++		  cp++;
++		  dp->precision_end = cp;
++		  if (max_precision_length < 2)
++		    max_precision_length = 2;
++
++		  /* Test for positional argument.  */
++		  if (*cp >= '0' && *cp <= '9')
++		    {
++		      const char *np;
++
++		      for (np = cp; *np >= '0' && *np <= '9'; np++)
++			;
++		      if (*np == '$')
++			{
++			  unsigned int n = 0;
++
++			  for (np = cp; *np >= '0' && *np <= '9'; np++)
++			    n = 10 * n + (*np - '0');
++			  if (n == 0)
++			    /* Positional argument 0.  */
++			    goto error;
++			  dp->precision_arg_index = n - 1;
++			  cp = np + 1;
++			}
++		    }
++		  if (dp->precision_arg_index < 0)
++		    dp->precision_arg_index = arg_posn++;
++		  REGISTER_ARG (dp->precision_arg_index, TYPE_INT);
++		}
++	      else
++		{
++		  unsigned int precision_length;
++
++		  dp->precision_start = cp - 1;
++		  for (; *cp >= '0' && *cp <= '9'; cp++)
++		    ;
++		  dp->precision_end = cp;
++		  precision_length = dp->precision_end - dp->precision_start;
++		  if (max_precision_length < precision_length)
++		    max_precision_length = precision_length;
++		}
++	    }
++
++	  {
++	    arg_type type;
++
++	    /* Parse argument type/size specifiers.  */
++	    {
++	      int flags = 0;
++
++	      for (;;)
++		{
++		  if (*cp == 'h')
++		    {
++		      flags |= (1 << (flags & 1));
++		      cp++;
++		    }
++		  else if (*cp == 'L')
++		    {
++		      flags |= 4;
++		      cp++;
++		    }
++		  else if (*cp == 'l')
++		    {
++		      flags += 8;
++		      cp++;
++		    }
++#ifdef HAVE_INT64_AND_I64
++		  else if (cp[0] == 'I' && 
++			   cp[1] == '6' &&
++			   cp[2] == '4')
++		    {
++		      flags = 64;
++		      cp += 3;
++		    }
++#endif
++#ifdef HAVE_INTMAX_T
++		  else if (*cp == 'j')
++		    {
++		      if (sizeof (intmax_t) > sizeof (long))
++			{
++			  /* intmax_t = long long */
++			  flags += 16;
++			}
++		      else if (sizeof (intmax_t) > sizeof (int))
++			{
++			  /* intmax_t = long */
++			  flags += 8;
++			}
++		      cp++;
++		    }
++#endif
++		  else if (*cp == 'z' || *cp == 'Z')
++		    {
++		      /* 'z' is standardized in ISO C 99, but glibc uses 'Z'
++			 because the warning facility in gcc-2.95.2 understands
++			 only 'Z' (see gcc-2.95.2/gcc/c-common.c:1784).  */
++		      if (sizeof (size_t) > sizeof (long))
++			{
++			  /* size_t = long long */
++			  flags += 16;
++			}
++		      else if (sizeof (size_t) > sizeof (int))
++			{
++			  /* size_t = long */
++			  flags += 8;
++			}
++		      cp++;
++		    }
++		  else if (*cp == 't')
++		    {
++		      if (sizeof (ptrdiff_t) > sizeof (long))
++			{
++			  /* ptrdiff_t = long long */
++			  flags += 16;
++			}
++		      else if (sizeof (ptrdiff_t) > sizeof (int))
++			{
++			  /* ptrdiff_t = long */
++			  flags += 8;
++			}
++		      cp++;
++		    }
++		  else
++		    break;
++		}
++
++	      /* Read the conversion character.  */
++	      c = *cp++;
++	      switch (c)
++		{
++		case 'd': case 'i':
++#ifdef HAVE_INT64_AND_I64
++		  if (flags == 64) 
++		    type = TYPE_INT64;
++		  else
++#endif
++#ifdef HAVE_LONG_LONG
++		  if (flags >= 16 || (flags & 4))
++		    type = TYPE_LONGLONGINT;
++		  else
++#endif
++		  if (flags >= 8)
++		    type = TYPE_LONGINT;
++		  else if (flags & 2)
++		    type = TYPE_SCHAR;
++		  else if (flags & 1)
++		    type = TYPE_SHORT;
++		  else
++		    type = TYPE_INT;
++		  break;
++		case 'o': case 'u': case 'x': case 'X':
++#ifdef HAVE_INT64_AND_I64
++		  if (flags == 64)
++		    type = TYPE_UINT64;
++		  else
++#endif
++#ifdef HAVE_LONG_LONG
++		  if (flags >= 16 || (flags & 4))
++		    type = TYPE_ULONGLONGINT;
++		  else
++#endif
++		  if (flags >= 8)
++		    type = TYPE_ULONGINT;
++		  else if (flags & 2)
++		    type = TYPE_UCHAR;
++		  else if (flags & 1)
++		    type = TYPE_USHORT;
++		  else
++		    type = TYPE_UINT;
++		  break;
++		case 'f': case 'F': case 'e': case 'E': case 'g': case 'G':
++		case 'a': case 'A':
++#ifdef HAVE_LONG_DOUBLE
++		  if (flags >= 16 || (flags & 4))
++		    type = TYPE_LONGDOUBLE;
++		  else
++#endif
++		  type = TYPE_DOUBLE;
++		  break;
++		case 'c':
++		  if (flags >= 8)
++#ifdef HAVE_WINT_T
++		    type = TYPE_WIDE_CHAR;
++#else
++		    goto error;
++#endif
++		  else
++		    type = TYPE_CHAR;
++		  break;
++#ifdef HAVE_WINT_T
++		case 'C':
++		  type = TYPE_WIDE_CHAR;
++		  c = 'c';
++		  break;
++#endif
++		case 's':
++		  if (flags >= 8)
++#ifdef HAVE_WCHAR_T
++		    type = TYPE_WIDE_STRING;
++#else
++		    goto error;
++#endif
++		  else
++		    type = TYPE_STRING;
++		  break;
++#ifdef HAVE_WCHAR_T
++		case 'S':
++		  type = TYPE_WIDE_STRING;
++		  c = 's';
++		  break;
++#endif
++		case 'p':
++		  type = TYPE_POINTER;
++		  break;
++		case 'n':
++#ifdef HAVE_LONG_LONG
++		  if (flags >= 16 || (flags & 4))
++		    type = TYPE_COUNT_LONGLONGINT_POINTER;
++		  else
++#endif
++		  if (flags >= 8)
++		    type = TYPE_COUNT_LONGINT_POINTER;
++		  else if (flags & 2)
++		    type = TYPE_COUNT_SCHAR_POINTER;
++		  else if (flags & 1)
++		    type = TYPE_COUNT_SHORT_POINTER;
++		  else
++		    type = TYPE_COUNT_INT_POINTER;
++		  break;
++		case '%':
++		  type = TYPE_NONE;
++		  break;
++		default:
++		  /* Unknown conversion character.  */
++		  goto error;
++		}
++	    }
++
++	    if (type != TYPE_NONE)
++	      {
++		dp->arg_index = arg_index;
++		if (dp->arg_index < 0)
++		  dp->arg_index = arg_posn++;
++		REGISTER_ARG (dp->arg_index, type);
++	      }
++	    dp->conversion = c;
++	    dp->dir_end = cp;
++	  }
++
++	  d->count++;
++	  if (d->count >= d_allocated)
++	    {
++	      char_directive *memory;
++
++	      d_allocated = 2 * d_allocated;
++	      memory = realloc (d->dir, d_allocated * sizeof (char_directive));
++	      if (memory == NULL)
++		/* Out of memory.  */
++		goto error;
++	      d->dir = memory;
++	    }
++	}
++    }
++  d->dir[d->count].dir_start = cp;
++
++  d->max_width_length = max_width_length;
++  d->max_precision_length = max_precision_length;
++  return 0;
++
++error:
++  if (a->arg)
++    free (a->arg);
++  if (d->dir)
++    free (d->dir);
++  return -1;
++}
+Index: navit/support/glib/gnulib/printf-args.c
+===================================================================
+--- navit/support/glib/gnulib/printf-args.c	(Revision 0)
++++ navit/support/glib/gnulib/printf-args.c	(Revision 0)
+@@ -0,0 +1,133 @@
++/* Decomposed printf argument list.
++   Copyright (C) 1999, 2002-2003 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifdef HAVE_CONFIG_H
++# include <config.h>
++#endif
++
++#include "g-gnulib.h"
++
++/* Specification.  */
++#include "printf-args.h"
++
++#ifdef STATIC
++STATIC
++#endif
++int
++printf_fetchargs (va_list args, arguments *a)
++{
++  unsigned int i;
++  argument *ap;
++
++  for (i = 0, ap = &a->arg[0]; i < a->count; i++, ap++)
++    switch (ap->type)
++      {
++      case TYPE_SCHAR:
++	ap->a.a_schar = va_arg (args, /*signed char*/ int);
++	break;
++      case TYPE_UCHAR:
++	ap->a.a_uchar = va_arg (args, /*unsigned char*/ int);
++	break;
++      case TYPE_SHORT:
++	ap->a.a_short = va_arg (args, /*short*/ int);
++	break;
++      case TYPE_USHORT:
++	ap->a.a_ushort = va_arg (args, /*unsigned short*/ int);
++	break;
++      case TYPE_INT:
++	ap->a.a_int = va_arg (args, int);
++	break;
++      case TYPE_UINT:
++	ap->a.a_uint = va_arg (args, unsigned int);
++	break;
++      case TYPE_LONGINT:
++	ap->a.a_longint = va_arg (args, long int);
++	break;
++      case TYPE_ULONGINT:
++	ap->a.a_ulongint = va_arg (args, unsigned long int);
++	break;
++#ifdef HAVE_LONG_LONG
++      case TYPE_LONGLONGINT:
++	ap->a.a_longlongint = va_arg (args, long long int);
++	break;
++      case TYPE_ULONGLONGINT:
++	ap->a.a_ulonglongint = va_arg (args, unsigned long long int);
++	break;
++#endif
++#ifdef HAVE_INT64_AND_I64
++      case TYPE_INT64:
++	ap->a.a_int64 = va_arg (args, __int64);
++	break;
++      case TYPE_UINT64:
++	ap->a.a_uint64 = va_arg (args, unsigned __int64);
++	break;
++#endif
++      case TYPE_DOUBLE:
++	ap->a.a_double = va_arg (args, double);
++	break;
++#ifdef HAVE_LONG_DOUBLE
++      case TYPE_LONGDOUBLE:
++	ap->a.a_longdouble = va_arg (args, long double);
++	break;
++#endif
++      case TYPE_CHAR:
++	ap->a.a_char = va_arg (args, int);
++	break;
++#ifdef HAVE_WINT_T
++      case TYPE_WIDE_CHAR:
++#ifdef _WIN32
++	ap->a.a_wide_char = va_arg (args, int);
++#else
++	ap->a.a_wide_char = va_arg (args, wint_t);
++#endif
++	break;
++#endif
++      case TYPE_STRING:
++	ap->a.a_string = va_arg (args, const char *);
++	break;
++#ifdef HAVE_WCHAR_T
++      case TYPE_WIDE_STRING:
++	ap->a.a_wide_string = va_arg (args, const wchar_t *);
++	break;
++#endif
++      case TYPE_POINTER:
++	ap->a.a_pointer = va_arg (args, void *);
++	break;
++      case TYPE_COUNT_SCHAR_POINTER:
++	ap->a.a_count_schar_pointer = va_arg (args, signed char *);
++	break;
++      case TYPE_COUNT_SHORT_POINTER:
++	ap->a.a_count_short_pointer = va_arg (args, short *);
++	break;
++      case TYPE_COUNT_INT_POINTER:
++	ap->a.a_count_int_pointer = va_arg (args, int *);
++	break;
++      case TYPE_COUNT_LONGINT_POINTER:
++	ap->a.a_count_longint_pointer = va_arg (args, long int *);
++	break;
++#ifdef HAVE_LONG_LONG
++      case TYPE_COUNT_LONGLONGINT_POINTER:
++	ap->a.a_count_longlongint_pointer = va_arg (args, long long int *);
++	break;
++#endif
++      default:
++	/* Unknown type.  */
++	return -1;
++      }
++  return 0;
++}
+Index: navit/support/glib/gnulib/README
+===================================================================
+--- navit/support/glib/gnulib/README	(Revision 0)
++++ navit/support/glib/gnulib/README	(Revision 0)
+@@ -0,0 +1,44 @@
++The files
++ 
++ asnprintf.c 
++ printf-args.c
++ printf-args.h
++ printf-parse.c
++ printf-parse.h
++ vasnprintf.c
++ vasnprintf.h
++
++are taken from the vasnprintf module of the GNUlib package, which can
++be found at: 
++
++ http://www.gnu.org/software/gnulib/
++
++All files have been modified to include g-gnulib.h. 
++
++vasnprintf.c has also been modified to include support for long long 
++printing if the system printf doesn't. This code is protected by 
++#ifndef HAVE_LONG_LONG_FORMAT.
++
++Code has been added to printf-args.[ch], printf-parse.c and vasnprintf.c
++to support printing of __int64 values with the I64 format modifier. This
++is protected by #ifdef HAVE_INT64_AND_I64.
++
++The files
++
++ printf.h 
++ printf.c
++ g-gnulib.h
++
++have been written by me. printf.[hc] contain implementations of the  
++remaining functions in the printf family based on vasnprintf. 
++g-gnulib.h is included by all source files in order to move all
++exported functions to the _g_gnulib namespace, replace malloc by
++g_malloc and make sure that snprintf is only used if it implements 
++C99 return value semantics. 
++
++Matthias Clasen
++November 1, 2003
++
++
++
++
+Index: navit/support/glib/gnulib/makefile.msc
+===================================================================
+--- navit/support/glib/gnulib/makefile.msc	(Revision 0)
++++ navit/support/glib/gnulib/makefile.msc	(Revision 0)
+@@ -0,0 +1,18 @@
++TOP = ..\..\..
++!INCLUDE ..\..\build\win32\make.msc
++
++INCLUDES = -I ..\.. -I ..
++DEFINES = -DHAVE_CONFIG_H -DHAVE_LONG_LONG_FORMAT
++
++OBJECTS = \
++	asnprintf.obj \
++	printf.obj \
++	printf-args.obj \
++	printf-parse.obj \
++	vasnprintf.obj
++
++all : gnulib.lib
++
++gnulib.lib : $(OBJECTS)
++	lib -out:gnulib.lib $(OBJECTS)
++
+Index: navit/support/glib/gnulib/vasnprintf.h
+===================================================================
+--- navit/support/glib/gnulib/vasnprintf.h	(Revision 0)
++++ navit/support/glib/gnulib/vasnprintf.h	(Revision 0)
+@@ -0,0 +1,61 @@
++/* vsprintf with automatic memory allocation.
++   Copyright (C) 2002-2003 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifndef _VASNPRINTF_H
++#define _VASNPRINTF_H
++
++/* Get va_list.  */
++#include <stdarg.h>
++
++/* Get size_t.  */
++#include <stddef.h>
++
++#ifndef __attribute__
++/* This feature is available in gcc versions 2.5 and later.  */
++# if __GNUC__ < 2 || (__GNUC__ == 2 && __GNUC_MINOR__ < 5) || __STRICT_ANSI__
++#  define __attribute__(Spec) /* empty */
++# endif
++/* The __-protected variants of `format' and `printf' attributes
++   are accepted by gcc versions 2.6.4 (effectively 2.7) and later.  */
++# if __GNUC__ < 2 || (__GNUC__ == 2 && __GNUC_MINOR__ < 7)
++#  define __format__ format
++#  define __printf__ printf
++# endif
++#endif
++
++#ifdef	__cplusplus
++extern "C" {
++#endif
++
++/* Write formatted output to a string dynamically allocated with malloc().
++   You can pass a preallocated buffer for the result in RESULTBUF and its
++   size in *LENGTHP; otherwise you pass RESULTBUF = NULL.
++   If successful, return the address of the string (this may be = RESULTBUF
++   if no dynamic memory allocation was necessary) and set *LENGTHP to the
++   number of resulting bytes, excluding the trailing NUL.  Upon error, set
++   errno and return NULL.  */
++extern char * asnprintf (char *resultbuf, size_t *lengthp, const char *format, ...)
++       __attribute__ ((__format__ (__printf__, 3, 4)));
++extern char * vasnprintf (char *resultbuf, size_t *lengthp, const char *format, va_list args)
++       __attribute__ ((__format__ (__printf__, 3, 0)));
++
++#ifdef	__cplusplus
++}
++#endif
++
++#endif /* _VASNPRINTF_H */
+Index: navit/support/glib/gnulib/printf-parse.h
+===================================================================
+--- navit/support/glib/gnulib/printf-parse.h	(Revision 0)
++++ navit/support/glib/gnulib/printf-parse.h	(Revision 0)
+@@ -0,0 +1,74 @@
++/* Parse printf format string.
++   Copyright (C) 1999, 2002 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifndef _PRINTF_PARSE_H
++#define _PRINTF_PARSE_H
++
++#include "printf-args.h"
++
++/* Private namespace for gnulib functions */
++#define printf_parse _g_gnulib_printf_parse
++
++/* Flags */
++#define FLAG_GROUP	 1	/* ' flag */
++#define FLAG_LEFT	 2	/* - flag */
++#define FLAG_SHOWSIGN	 4	/* + flag */
++#define FLAG_SPACE	 8	/* space flag */
++#define FLAG_ALT	16	/* # flag */
++#define FLAG_ZERO	32
++
++/* A parsed directive.  */
++typedef struct
++{
++  const char* dir_start;
++  const char* dir_end;
++  int flags;
++  const char* width_start;
++  const char* width_end;
++  int width_arg_index;
++  const char* precision_start;
++  const char* precision_end;
++  int precision_arg_index;
++  char conversion; /* d i o u x X f e E g G c s p n U % but not C S */
++  int arg_index;
++}
++char_directive;
++
++/* A parsed format string.  */
++typedef struct
++{
++  unsigned int count;
++  char_directive *dir;
++  unsigned int max_width_length;
++  unsigned int max_precision_length;
++}
++char_directives;
++
++
++/* Parses the format string.  Fills in the number N of directives, and fills
++   in directives[0], ..., directives[N-1], and sets directives[N].dir_start
++   to the end of the format string.  Also fills in the arg_type fields of the
++   arguments and the needed count of arguments.  */
++#ifdef STATIC
++STATIC
++#else
++extern
++#endif
++int printf_parse (const char *format, char_directives *d, arguments *a);
++
++#endif /* _PRINTF_PARSE_H */
+Index: navit/support/glib/gnulib/printf-args.h
+===================================================================
+--- navit/support/glib/gnulib/printf-args.h	(Revision 0)
++++ navit/support/glib/gnulib/printf-args.h	(Revision 0)
+@@ -0,0 +1,142 @@
++/* Decomposed printf argument list.
++   Copyright (C) 1999, 2002-2003 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifndef _PRINTF_ARGS_H
++#define _PRINTF_ARGS_H
++
++/* Get wchar_t.  */
++#ifdef HAVE_WCHAR_T
++# include <stddef.h>
++#endif
++
++/* Get wint_t.  */
++#ifdef HAVE_WINT_T
++# include <wchar.h>
++#endif
++
++/* Get va_list.  */
++#include <stdarg.h>
++
++
++/* Argument types */
++typedef enum
++{
++  TYPE_NONE,
++  TYPE_SCHAR,
++  TYPE_UCHAR,
++  TYPE_SHORT,
++  TYPE_USHORT,
++  TYPE_INT,
++  TYPE_UINT,
++  TYPE_LONGINT,
++  TYPE_ULONGINT,
++#ifdef HAVE_LONG_LONG
++  TYPE_LONGLONGINT,
++  TYPE_ULONGLONGINT,
++#endif
++#ifdef HAVE_INT64_AND_I64
++  TYPE_INT64,
++  TYPE_UINT64,
++#endif
++  TYPE_DOUBLE,
++#ifdef HAVE_LONG_DOUBLE
++  TYPE_LONGDOUBLE,
++#endif
++  TYPE_CHAR,
++#ifdef HAVE_WINT_T
++  TYPE_WIDE_CHAR,
++#endif
++  TYPE_STRING,
++#ifdef HAVE_WCHAR_T
++  TYPE_WIDE_STRING,
++#endif
++  TYPE_POINTER,
++  TYPE_COUNT_SCHAR_POINTER,
++  TYPE_COUNT_SHORT_POINTER,
++  TYPE_COUNT_INT_POINTER,
++  TYPE_COUNT_LONGINT_POINTER
++#ifdef HAVE_LONG_LONG
++, TYPE_COUNT_LONGLONGINT_POINTER
++#endif
++} arg_type;
++
++/* Polymorphic argument */
++typedef struct
++{
++  arg_type type;
++  union
++  {
++    signed char			a_schar;
++    unsigned char		a_uchar;
++    short			a_short;
++    unsigned short		a_ushort;
++    int				a_int;
++    unsigned int		a_uint;
++    long int			a_longint;
++    unsigned long int		a_ulongint;
++#ifdef HAVE_LONG_LONG
++    long long int		a_longlongint;
++    unsigned long long int	a_ulonglongint;
++#endif
++#ifdef HAVE_INT64_AND_I64
++    __int64                     a_int64;
++    unsigned __int64            a_uint64;
++#endif
++    float			a_float;
++    double			a_double;
++#ifdef HAVE_LONG_DOUBLE
++    long double			a_longdouble;
++#endif
++    int				a_char;
++#ifdef HAVE_WINT_T
++    wint_t			a_wide_char;
++#endif
++    const char*			a_string;
++#ifdef HAVE_WCHAR_T
++    const wchar_t*		a_wide_string;
++#endif
++    void*			a_pointer;
++    signed char *		a_count_schar_pointer;
++    short *			a_count_short_pointer;
++    int *			a_count_int_pointer;
++    long int *			a_count_longint_pointer;
++#ifdef HAVE_LONG_LONG
++    long long int *		a_count_longlongint_pointer;
++#endif
++  }
++  a;
++}
++argument;
++
++typedef struct
++{
++  unsigned int count;
++  argument *arg;
++}
++arguments;
++
++
++/* Fetch the arguments, putting them into a. */
++#ifdef STATIC
++STATIC
++#else
++extern
++#endif
++int printf_fetchargs (va_list args, arguments *a);
++
++#endif /* _PRINTF_ARGS_H */
+Index: navit/support/glib/gnulib/Makefile.in
+===================================================================
+--- navit/support/glib/gnulib/Makefile.in	(Revision 0)
++++ navit/support/glib/gnulib/Makefile.in	(Revision 0)
+@@ -0,0 +1,835 @@
++# Makefile.in generated by automake 1.13.1 from Makefile.am.
++# @configure_input@
++
++# Copyright (C) 1994-2012 Free Software Foundation, Inc.
++
++# This Makefile.in is free software; the Free Software Foundation
++# gives unlimited permission to copy and/or distribute it,
++# with or without modifications, as long as this notice is preserved.
++
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
++# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
++# PARTICULAR PURPOSE.
++
++@SET_MAKE@
++
++# GLIB - Library of useful C routines
++
++VPATH = @srcdir@
++am__make_dryrun = \
++  { \
++    am__dry=no; \
++    case $$MAKEFLAGS in \
++      *\\[\ \	]*) \
++        echo 'am--echo: ; @echo "AM"  OK' | $(MAKE) -f - 2>/dev/null \
++          | grep '^AM OK$$' >/dev/null || am__dry=yes;; \
++      *) \
++        for am__flg in $$MAKEFLAGS; do \
++          case $$am__flg in \
++            *=*|--*) ;; \
++            *n*) am__dry=yes; break;; \
++          esac; \
++        done;; \
++    esac; \
++    test $$am__dry = yes; \
++  }
++pkgdatadir = $(datadir)/@PACKAGE@
++pkgincludedir = $(includedir)/@PACKAGE@
++pkglibdir = $(libdir)/@PACKAGE@
++pkglibexecdir = $(libexecdir)/@PACKAGE@
++am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
++install_sh_DATA = $(install_sh) -c -m 644
++install_sh_PROGRAM = $(install_sh) -c
++install_sh_SCRIPT = $(install_sh) -c
++INSTALL_HEADER = $(INSTALL_DATA)
++transform = $(program_transform_name)
++NORMAL_INSTALL = :
++PRE_INSTALL = :
++POST_INSTALL = :
++NORMAL_UNINSTALL = :
++PRE_UNINSTALL = :
++POST_UNINSTALL = :
++build_triplet = @build@
++host_triplet = @host@
++DIST_COMMON = $(top_srcdir)/Makefile.decl $(srcdir)/Makefile.in \
++	$(srcdir)/Makefile.am $(top_srcdir)/depcomp README
++subdir = glib/gnulib
++ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
++am__aclocal_m4_deps = $(top_srcdir)/m4macros/attributes.m4 \
++	$(top_srcdir)/m4macros/gtk-doc.m4 \
++	$(top_srcdir)/m4macros/libtool.m4 \
++	$(top_srcdir)/m4macros/ltoptions.m4 \
++	$(top_srcdir)/m4macros/ltsugar.m4 \
++	$(top_srcdir)/m4macros/ltversion.m4 \
++	$(top_srcdir)/m4macros/lt~obsolete.m4 \
++	$(top_srcdir)/acinclude.m4 $(top_srcdir)/acglib.m4 \
++	$(top_srcdir)/glib/libcharset/codeset.m4 \
++	$(top_srcdir)/glib/libcharset/glibc21.m4 \
++	$(top_srcdir)/m4macros/glib-gettext.m4 \
++	$(top_srcdir)/configure.ac
++am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
++	$(ACLOCAL_M4)
++mkinstalldirs = $(install_sh) -d
++CONFIG_HEADER = $(top_builddir)/config.h
++CONFIG_CLEAN_FILES =
++CONFIG_CLEAN_VPATH_FILES =
++LTLIBRARIES = $(noinst_LTLIBRARIES)
++libgnulib_la_LIBADD =
++am_libgnulib_la_OBJECTS = libgnulib_la-asnprintf.lo \
++	libgnulib_la-printf-args.lo libgnulib_la-printf-parse.lo \
++	libgnulib_la-vasnprintf.lo libgnulib_la-printf.lo
++libgnulib_la_OBJECTS = $(am_libgnulib_la_OBJECTS)
++AM_V_lt = $(am__v_lt_@AM_V@)
++am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
++am__v_lt_0 = --silent
++am__v_lt_1 = 
++libgnulib_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
++	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libgnulib_la_CFLAGS) \
++	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
++AM_V_P = $(am__v_P_@AM_V@)
++am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
++am__v_P_0 = false
++am__v_P_1 = :
++AM_V_GEN = $(am__v_GEN_@AM_V@)
++am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
++am__v_GEN_0 = @echo "  GEN     " $@;
++am__v_GEN_1 = 
++AM_V_at = $(am__v_at_@AM_V@)
++am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
++am__v_at_0 = @
++am__v_at_1 = 
++DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
++depcomp = $(SHELL) $(top_srcdir)/depcomp
++am__depfiles_maybe = depfiles
++am__mv = mv -f
++COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
++	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
++LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
++	$(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) \
++	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
++	$(AM_CFLAGS) $(CFLAGS)
++AM_V_CC = $(am__v_CC_@AM_V@)
++am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
++am__v_CC_0 = @echo "  CC      " $@;
++am__v_CC_1 = 
++CCLD = $(CC)
++LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
++	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
++	$(AM_LDFLAGS) $(LDFLAGS) -o $@
++AM_V_CCLD = $(am__v_CCLD_@AM_V@)
++am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
++am__v_CCLD_0 = @echo "  CCLD    " $@;
++am__v_CCLD_1 = 
++SOURCES = $(libgnulib_la_SOURCES)
++DIST_SOURCES = $(libgnulib_la_SOURCES)
++am__can_run_installinfo = \
++  case $$AM_UPDATE_INFO_DIR in \
++    n|no|NO) false;; \
++    *) (install-info --version) >/dev/null 2>&1;; \
++  esac
++am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
++# Read a list of newline-separated strings from the standard input,
++# and print each of them once, without duplicates.  Input order is
++# *not* preserved.
++am__uniquify_input = $(AWK) '\
++  BEGIN { nonempty = 0; } \
++  { items[$$0] = 1; nonempty = 1; } \
++  END { if (nonempty) { for (i in items) print i; }; } \
++'
++# Make sure the list of sources is unique.  This is necessary because,
++# e.g., the same source file might be shared among _SOURCES variables
++# for different programs/libraries.
++am__define_uniq_tagged_files = \
++  list='$(am__tagged_files)'; \
++  unique=`for i in $$list; do \
++    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
++  done | $(am__uniquify_input)`
++ETAGS = etags
++CTAGS = ctags
++DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
++ABS_GLIB_RUNTIME_LIBDIR = @ABS_GLIB_RUNTIME_LIBDIR@
++ABS_TAPSET_DIR = @ABS_TAPSET_DIR@
++ACLOCAL = @ACLOCAL@
++ALLOCA = @ALLOCA@
++AMTAR = @AMTAR@
++AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
++AR = @AR@
++AS = @AS@
++AUTOCONF = @AUTOCONF@
++AUTOHEADER = @AUTOHEADER@
++AUTOMAKE = @AUTOMAKE@
++AWK = @AWK@
++CATALOGS = @CATALOGS@
++CATOBJEXT = @CATOBJEXT@
++CC = @CC@
++CCDEPMODE = @CCDEPMODE@
++CFLAGS = @CFLAGS@
++CONFIG_STATUS_DEPENDENCIES = @CONFIG_STATUS_DEPENDENCIES@
++CPP = @CPP@
++CPPFLAGS = @CPPFLAGS@
++CXX = @CXX@
++CXXCPP = @CXXCPP@
++CXXDEPMODE = @CXXDEPMODE@
++CXXFLAGS = @CXXFLAGS@
++CYGPATH_W = @CYGPATH_W@
++DATADIRNAME = @DATADIRNAME@
++DBUS1_CFLAGS = @DBUS1_CFLAGS@
++DBUS1_LIBS = @DBUS1_LIBS@
++DBUS_DAEMON = @DBUS_DAEMON@
++DEFS = @DEFS@
++DEPDIR = @DEPDIR@
++DLLTOOL = @DLLTOOL@
++DSYMUTIL = @DSYMUTIL@
++DTRACE = @DTRACE@
++DUMPBIN = @DUMPBIN@
++ECHO_C = @ECHO_C@
++ECHO_N = @ECHO_N@
++ECHO_T = @ECHO_T@
++EGREP = @EGREP@
++EXEEXT = @EXEEXT@
++FAM_LIBS = @FAM_LIBS@
++FGREP = @FGREP@
++GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
++GIO = @GIO@
++GIO_MODULE_DIR = @GIO_MODULE_DIR@
++GLIBC21 = @GLIBC21@
++GLIB_BINARY_AGE = @GLIB_BINARY_AGE@
++GLIB_COMPILE_RESOURCES = @GLIB_COMPILE_RESOURCES@
++GLIB_COMPILE_SCHEMAS = @GLIB_COMPILE_SCHEMAS@
++GLIB_DEBUG_FLAGS = @GLIB_DEBUG_FLAGS@
++GLIB_EXTRA_CFLAGS = @GLIB_EXTRA_CFLAGS@
++GLIB_GENMARSHAL = @GLIB_GENMARSHAL@
++GLIB_HIDDEN_VISIBILITY_CFLAGS = @GLIB_HIDDEN_VISIBILITY_CFLAGS@
++GLIB_INTERFACE_AGE = @GLIB_INTERFACE_AGE@
++GLIB_LINK_FLAGS = @GLIB_LINK_FLAGS@
++GLIB_MAJOR_VERSION = @GLIB_MAJOR_VERSION@
++GLIB_MICRO_VERSION = @GLIB_MICRO_VERSION@
++GLIB_MINOR_VERSION = @GLIB_MINOR_VERSION@
++GLIB_RUNTIME_LIBDIR = @GLIB_RUNTIME_LIBDIR@
++GLIB_VERSION = @GLIB_VERSION@
++GLIB_WARN_CFLAGS = @GLIB_WARN_CFLAGS@
++GLIB_WIN32_STATIC_COMPILATION_DEFINE = @GLIB_WIN32_STATIC_COMPILATION_DEFINE@
++GMOFILES = @GMOFILES@
++GMSGFMT = @GMSGFMT@
++GREP = @GREP@
++GSPAWN = @GSPAWN@
++GTHREAD_COMPILE_IMPL_DEFINES = @GTHREAD_COMPILE_IMPL_DEFINES@
++GTKDOC_CHECK = @GTKDOC_CHECK@
++GTKDOC_DEPS_CFLAGS = @GTKDOC_DEPS_CFLAGS@
++GTKDOC_DEPS_LIBS = @GTKDOC_DEPS_LIBS@
++GTKDOC_MKPDF = @GTKDOC_MKPDF@
++GTKDOC_REBASE = @GTKDOC_REBASE@
++G_LIBS_EXTRA = @G_LIBS_EXTRA@
++G_MODULE_BROKEN_RTLD_GLOBAL = @G_MODULE_BROKEN_RTLD_GLOBAL@
++G_MODULE_HAVE_DLERROR = @G_MODULE_HAVE_DLERROR@
++G_MODULE_IMPL = @G_MODULE_IMPL@
++G_MODULE_LDFLAGS = @G_MODULE_LDFLAGS@
++G_MODULE_LIBS = @G_MODULE_LIBS@
++G_MODULE_LIBS_EXTRA = @G_MODULE_LIBS_EXTRA@
++G_MODULE_NEED_USCORE = @G_MODULE_NEED_USCORE@
++G_MODULE_PLUGIN_LIBS = @G_MODULE_PLUGIN_LIBS@
++G_MODULE_SUPPORTED = @G_MODULE_SUPPORTED@
++G_THREAD_CFLAGS = @G_THREAD_CFLAGS@
++G_THREAD_LIBS = @G_THREAD_LIBS@
++G_THREAD_LIBS_EXTRA = @G_THREAD_LIBS_EXTRA@
++G_THREAD_LIBS_FOR_GTHREAD = @G_THREAD_LIBS_FOR_GTHREAD@
++HTML_DIR = @HTML_DIR@
++ICONV_LIBS = @ICONV_LIBS@
++INDENT = @INDENT@
++INSTALL = @INSTALL@
++INSTALL_DATA = @INSTALL_DATA@
++INSTALL_PROGRAM = @INSTALL_PROGRAM@
++INSTALL_SCRIPT = @INSTALL_SCRIPT@
++INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
++INSTOBJEXT = @INSTOBJEXT@
++INTLLIBS = @INTLLIBS@
++LD = @LD@
++LDFLAGS = @LDFLAGS@
++LIBELF_CFLAGS = @LIBELF_CFLAGS@
++LIBELF_LIBS = @LIBELF_LIBS@
++LIBFFI_CFLAGS = @LIBFFI_CFLAGS@
++LIBFFI_LIBS = @LIBFFI_LIBS@
++LIBOBJS = @LIBOBJS@
++LIBS = @LIBS@
++LIBTOOL = @LIBTOOL@
++LIB_EXE_MACHINE_FLAG = @LIB_EXE_MACHINE_FLAG@
++LIPO = @LIPO@
++LN_S = @LN_S@
++LTLIBOBJS = @LTLIBOBJS@
++LTP = @LTP@
++LTP_GENHTML = @LTP_GENHTML@
++LT_AGE = @LT_AGE@
++LT_CURRENT = @LT_CURRENT@
++LT_CURRENT_MINUS_AGE = @LT_CURRENT_MINUS_AGE@
++LT_RELEASE = @LT_RELEASE@
++LT_REVISION = @LT_REVISION@
++MAINT = @MAINT@
++MAKEINFO = @MAKEINFO@
++MANIFEST_TOOL = @MANIFEST_TOOL@
++MKDIR_P = @MKDIR_P@
++MKINSTALLDIRS = @MKINSTALLDIRS@
++MSGFMT = @MSGFMT@
++MSGFMT_OPTS = @MSGFMT_OPTS@
++NAMESER_COMPAT_INCLUDE = @NAMESER_COMPAT_INCLUDE@
++NETWORK_LIBS = @NETWORK_LIBS@
++NM = @NM@
++NMEDIT = @NMEDIT@
++OBJDUMP = @OBJDUMP@
++OBJEXT = @OBJEXT@
++OTOOL = @OTOOL@
++OTOOL64 = @OTOOL64@
++PACKAGE = @PACKAGE@
++PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
++PACKAGE_NAME = @PACKAGE_NAME@
++PACKAGE_STRING = @PACKAGE_STRING@
++PACKAGE_TARNAME = @PACKAGE_TARNAME@
++PACKAGE_URL = @PACKAGE_URL@
++PACKAGE_VERSION = @PACKAGE_VERSION@
++PATH_SEPARATOR = @PATH_SEPARATOR@
++PCRE_CFLAGS = @PCRE_CFLAGS@
++PCRE_LIBS = @PCRE_LIBS@
++PCRE_REQUIRES = @PCRE_REQUIRES@
++PCRE_WARN_CFLAGS = @PCRE_WARN_CFLAGS@
++PERL = @PERL@
++PERL_PATH = @PERL_PATH@
++PKG_CONFIG = @PKG_CONFIG@
++PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
++PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
++PLATFORMDEP = @PLATFORMDEP@
++POFILES = @POFILES@
++POSUB = @POSUB@
++PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
++PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
++PYTHON = @PYTHON@
++PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
++PYTHON_PLATFORM = @PYTHON_PLATFORM@
++PYTHON_PREFIX = @PYTHON_PREFIX@
++PYTHON_VERSION = @PYTHON_VERSION@
++RANLIB = @RANLIB@
++REBUILD = @REBUILD@
++SED = @SED@
++SELINUX_LIBS = @SELINUX_LIBS@
++SET_MAKE = @SET_MAKE@
++SHELL = @SHELL@
++SHTOOL = @SHTOOL@
++STRIP = @STRIP@
++USE_NLS = @USE_NLS@
++VERSION = @VERSION@
++WINDRES = @WINDRES@
++WSPIAPI_INCLUDE = @WSPIAPI_INCLUDE@
++XATTR_LIBS = @XATTR_LIBS@
++XGETTEXT = @XGETTEXT@
++XMLCATALOG = @XMLCATALOG@
++XML_CATALOG_FILE = @XML_CATALOG_FILE@
++XSLTPROC = @XSLTPROC@
++ZLIB_CFLAGS = @ZLIB_CFLAGS@
++ZLIB_LIBS = @ZLIB_LIBS@
++abs_builddir = @abs_builddir@
++abs_srcdir = @abs_srcdir@
++abs_top_builddir = @abs_top_builddir@
++abs_top_srcdir = @abs_top_srcdir@
++ac_ct_AR = @ac_ct_AR@
++ac_ct_CC = @ac_ct_CC@
++ac_ct_CXX = @ac_ct_CXX@
++ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
++am__include = @am__include@
++am__leading_dot = @am__leading_dot@
++am__quote = @am__quote@
++am__tar = @am__tar@
++am__untar = @am__untar@
++bindir = @bindir@
++build = @build@
++build_alias = @build_alias@
++build_cpu = @build_cpu@
++build_os = @build_os@
++build_vendor = @build_vendor@
++builddir = @builddir@
++config_h_INCLUDES = @config_h_INCLUDES@
++datadir = @datadir@
++datarootdir = @datarootdir@
++docdir = @docdir@
++dvidir = @dvidir@
++exec_prefix = @exec_prefix@
++gio_INCLUDES = @gio_INCLUDES@
++glib_INCLUDES = @glib_INCLUDES@
++gmodule_INCLUDES = @gmodule_INCLUDES@
++gobject_INCLUDES = @gobject_INCLUDES@
++host = @host@
++host_alias = @host_alias@
++host_cpu = @host_cpu@
++host_os = @host_os@
++host_vendor = @host_vendor@
++htmldir = @htmldir@
++includedir = @includedir@
++infodir = @infodir@
++install_sh = @install_sh@
++libdir = @libdir@
++libexecdir = @libexecdir@
++localedir = @localedir@
++localstatedir = @localstatedir@
++mandir = @mandir@
++mkdir_p = @mkdir_p@
++ms_librarian = @ms_librarian@
++oldincludedir = @oldincludedir@
++pdfdir = @pdfdir@
++pkgpyexecdir = @pkgpyexecdir@
++pkgpythondir = @pkgpythondir@
++prefix = @prefix@
++program_transform_name = @program_transform_name@
++psdir = @psdir@
++pyexecdir = @pyexecdir@
++pythondir = @pythondir@
++sbindir = @sbindir@
++sharedstatedir = @sharedstatedir@
++srcdir = @srcdir@
++sysconfdir = @sysconfdir@
++target_alias = @target_alias@
++top_build_prefix = @top_build_prefix@
++top_builddir = @top_builddir@
++top_srcdir = @top_srcdir@
++
++#GTESTER = gtester 			# for non-GLIB packages
++GTESTER = $(top_builddir)/glib/gtester			# for the GLIB package
++GTESTER_REPORT = $(top_builddir)/glib/gtester-report	# for the GLIB package
++
++# initialize variables for unconditional += appending
++EXTRA_DIST = makefile.msc
++TEST_PROGS = 
++AM_CPPFLAGS = \
++	$(glib_INCLUDES) 		\
++	-DG_LOG_DOMAIN=\"GLib\" 	\
++	$(GLIB_DEBUG_FLAGS) 		\
++	-DG_DISABLE_DEPRECATED 		\
++	-DGLIB_COMPILATION
++
++noinst_LTLIBRARIES = libgnulib.la
++libgnulib_la_CFLAGS = $(GLIB_HIDDEN_VISIBILITY_CFLAGS)
++libgnulib_la_SOURCES = \
++	asnprintf.c \
++	printf-args.c \
++	printf-args.h \
++	printf-parse.c \
++	printf-parse.h \
++	vasnprintf.c \
++	vasnprintf.h \
++	printf.c \
++	printf.h \
++	g-gnulib.h
++
++all: all-am
++
++.SUFFIXES:
++.SUFFIXES: .c .lo .o .obj
++$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/Makefile.decl $(am__configure_deps)
++	@for dep in $?; do \
++	  case '$(am__configure_deps)' in \
++	    *$$dep*) \
++	      ( cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh ) \
++	        && { if test -f $@; then exit 0; else break; fi; }; \
++	      exit 1;; \
++	  esac; \
++	done; \
++	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu glib/gnulib/Makefile'; \
++	$(am__cd) $(top_srcdir) && \
++	  $(AUTOMAKE) --gnu glib/gnulib/Makefile
++.PRECIOUS: Makefile
++Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
++	@case '$?' in \
++	  *config.status*) \
++	    cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh;; \
++	  *) \
++	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)'; \
++	    cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe);; \
++	esac;
++$(top_srcdir)/Makefile.decl:
++
++$(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
++	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
++
++$(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
++	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
++$(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
++	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
++$(am__aclocal_m4_deps):
++
++clean-noinstLTLIBRARIES:
++	-test -z "$(noinst_LTLIBRARIES)" || rm -f $(noinst_LTLIBRARIES)
++	@list='$(noinst_LTLIBRARIES)'; \
++	locs=`for p in $$list; do echo $$p; done | \
++	      sed 's|^[^/]*$$|.|; s|/[^/]*$$||; s|$$|/so_locations|' | \
++	      sort -u`; \
++	test -z "$$locs" || { \
++	  echo rm -f $${locs}; \
++	  rm -f $${locs}; \
++	}
++libgnulib.la: $(libgnulib_la_OBJECTS) $(libgnulib_la_DEPENDENCIES) $(EXTRA_libgnulib_la_DEPENDENCIES) 
++	$(AM_V_CCLD)$(libgnulib_la_LINK)  $(libgnulib_la_OBJECTS) $(libgnulib_la_LIBADD) $(LIBS)
++
++mostlyclean-compile:
++	-rm -f *.$(OBJEXT)
++
++distclean-compile:
++	-rm -f *.tab.c
++
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgnulib_la-asnprintf.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgnulib_la-printf-args.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgnulib_la-printf-parse.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgnulib_la-printf.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgnulib_la-vasnprintf.Plo@am__quote@
++
++.c.o:
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c $<
++
++.c.obj:
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c `$(CYGPATH_W) '$<'`
++
++.c.lo:
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
++
++libgnulib_la-asnprintf.lo: asnprintf.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -MT libgnulib_la-asnprintf.lo -MD -MP -MF $(DEPDIR)/libgnulib_la-asnprintf.Tpo -c -o libgnulib_la-asnprintf.lo `test -f 'asnprintf.c' || echo '$(srcdir)/'`asnprintf.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgnulib_la-asnprintf.Tpo $(DEPDIR)/libgnulib_la-asnprintf.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='asnprintf.c' object='libgnulib_la-asnprintf.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -c -o libgnulib_la-asnprintf.lo `test -f 'asnprintf.c' || echo '$(srcdir)/'`asnprintf.c
++
++libgnulib_la-printf-args.lo: printf-args.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -MT libgnulib_la-printf-args.lo -MD -MP -MF $(DEPDIR)/libgnulib_la-printf-args.Tpo -c -o libgnulib_la-printf-args.lo `test -f 'printf-args.c' || echo '$(srcdir)/'`printf-args.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgnulib_la-printf-args.Tpo $(DEPDIR)/libgnulib_la-printf-args.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='printf-args.c' object='libgnulib_la-printf-args.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -c -o libgnulib_la-printf-args.lo `test -f 'printf-args.c' || echo '$(srcdir)/'`printf-args.c
++
++libgnulib_la-printf-parse.lo: printf-parse.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -MT libgnulib_la-printf-parse.lo -MD -MP -MF $(DEPDIR)/libgnulib_la-printf-parse.Tpo -c -o libgnulib_la-printf-parse.lo `test -f 'printf-parse.c' || echo '$(srcdir)/'`printf-parse.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgnulib_la-printf-parse.Tpo $(DEPDIR)/libgnulib_la-printf-parse.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='printf-parse.c' object='libgnulib_la-printf-parse.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -c -o libgnulib_la-printf-parse.lo `test -f 'printf-parse.c' || echo '$(srcdir)/'`printf-parse.c
++
++libgnulib_la-vasnprintf.lo: vasnprintf.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -MT libgnulib_la-vasnprintf.lo -MD -MP -MF $(DEPDIR)/libgnulib_la-vasnprintf.Tpo -c -o libgnulib_la-vasnprintf.lo `test -f 'vasnprintf.c' || echo '$(srcdir)/'`vasnprintf.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgnulib_la-vasnprintf.Tpo $(DEPDIR)/libgnulib_la-vasnprintf.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vasnprintf.c' object='libgnulib_la-vasnprintf.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -c -o libgnulib_la-vasnprintf.lo `test -f 'vasnprintf.c' || echo '$(srcdir)/'`vasnprintf.c
++
++libgnulib_la-printf.lo: printf.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -MT libgnulib_la-printf.lo -MD -MP -MF $(DEPDIR)/libgnulib_la-printf.Tpo -c -o libgnulib_la-printf.lo `test -f 'printf.c' || echo '$(srcdir)/'`printf.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgnulib_la-printf.Tpo $(DEPDIR)/libgnulib_la-printf.Plo
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='printf.c' object='libgnulib_la-printf.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgnulib_la_CFLAGS) $(CFLAGS) -c -o libgnulib_la-printf.lo `test -f 'printf.c' || echo '$(srcdir)/'`printf.c
++
++mostlyclean-libtool:
++	-rm -f *.lo
++
++clean-libtool:
++	-rm -rf .libs _libs
++
++ID: $(am__tagged_files)
++	$(am__define_uniq_tagged_files); mkid -fID $$unique
++tags: tags-am
++TAGS: tags
++
++tags-am: $(TAGS_DEPENDENCIES) $(am__tagged_files)
++	set x; \
++	here=`pwd`; \
++	$(am__define_uniq_tagged_files); \
++	shift; \
++	if test -z "$(ETAGS_ARGS)$$*$$unique"; then :; else \
++	  test -n "$$unique" || unique=$$empty_fix; \
++	  if test $$# -gt 0; then \
++	    $(ETAGS) $(ETAGSFLAGS) $(AM_ETAGSFLAGS) $(ETAGS_ARGS) \
++	      "$$@" $$unique; \
++	  else \
++	    $(ETAGS) $(ETAGSFLAGS) $(AM_ETAGSFLAGS) $(ETAGS_ARGS) \
++	      $$unique; \
++	  fi; \
++	fi
++ctags: ctags-am
++
++CTAGS: ctags
++ctags-am: $(TAGS_DEPENDENCIES) $(am__tagged_files)
++	$(am__define_uniq_tagged_files); \
++	test -z "$(CTAGS_ARGS)$$unique" \
++	  || $(CTAGS) $(CTAGSFLAGS) $(AM_CTAGSFLAGS) $(CTAGS_ARGS) \
++	     $$unique
++
++GTAGS:
++	here=`$(am__cd) $(top_builddir) && pwd` \
++	  && $(am__cd) $(top_srcdir) \
++	  && gtags -i $(GTAGS_ARGS) "$$here"
++cscopelist: cscopelist-am
++
++cscopelist-am: $(am__tagged_files)
++	list='$(am__tagged_files)'; \
++	case "$(srcdir)" in \
++	  [\\/]* | ?:[\\/]*) sdir="$(srcdir)" ;; \
++	  *) sdir=$(subdir)/$(srcdir) ;; \
++	esac; \
++	for i in $$list; do \
++	  if test -f "$$i"; then \
++	    echo "$(subdir)/$$i"; \
++	  else \
++	    echo "$$sdir/$$i"; \
++	  fi; \
++	done >> $(top_builddir)/cscope.files
++
++distclean-tags:
++	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
++
++distdir: $(DISTFILES)
++	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
++	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
++	list='$(DISTFILES)'; \
++	  dist_files=`for file in $$list; do echo $$file; done | \
++	  sed -e "s|^$$srcdirstrip/||;t" \
++	      -e "s|^$$topsrcdirstrip/|$(top_builddir)/|;t"`; \
++	case $$dist_files in \
++	  */*) $(MKDIR_P) `echo "$$dist_files" | \
++			   sed '/\//!d;s|^|$(distdir)/|;s,/[^/]*$$,,' | \
++			   sort -u` ;; \
++	esac; \
++	for file in $$dist_files; do \
++	  if test -f $$file || test -d $$file; then d=.; else d=$(srcdir); fi; \
++	  if test -d $$d/$$file; then \
++	    dir=`echo "/$$file" | sed -e 's,/[^/]*$$,,'`; \
++	    if test -d "$(distdir)/$$file"; then \
++	      find "$(distdir)/$$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
++	    fi; \
++	    if test -d $(srcdir)/$$file && test $$d != $(srcdir); then \
++	      cp -fpR $(srcdir)/$$file "$(distdir)$$dir" || exit 1; \
++	      find "$(distdir)/$$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
++	    fi; \
++	    cp -fpR $$d/$$file "$(distdir)$$dir" || exit 1; \
++	  else \
++	    test -f "$(distdir)/$$file" \
++	    || cp -p $$d/$$file "$(distdir)/$$file" \
++	    || exit 1; \
++	  fi; \
++	done
++check-am: all-am
++	$(MAKE) $(AM_MAKEFLAGS) check-local
++check: check-am
++all-am: Makefile $(LTLIBRARIES)
++installdirs:
++install: install-am
++install-exec: install-exec-am
++install-data: install-data-am
++uninstall: uninstall-am
++
++install-am: all-am
++	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
++
++installcheck: installcheck-am
++install-strip:
++	if test -z '$(STRIP)'; then \
++	  $(MAKE) $(AM_MAKEFLAGS) INSTALL_PROGRAM="$(INSTALL_STRIP_PROGRAM)" \
++	    install_sh_PROGRAM="$(INSTALL_STRIP_PROGRAM)" INSTALL_STRIP_FLAG=-s \
++	      install; \
++	else \
++	  $(MAKE) $(AM_MAKEFLAGS) INSTALL_PROGRAM="$(INSTALL_STRIP_PROGRAM)" \
++	    install_sh_PROGRAM="$(INSTALL_STRIP_PROGRAM)" INSTALL_STRIP_FLAG=-s \
++	    "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'" install; \
++	fi
++mostlyclean-generic:
++
++clean-generic:
++
++distclean-generic:
++	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
++	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
++
++maintainer-clean-generic:
++	@echo "This command is intended for maintainers to use"
++	@echo "it deletes files that may require special tools to rebuild."
++clean: clean-am
++
++clean-am: clean-generic clean-libtool clean-noinstLTLIBRARIES \
++	mostlyclean-am
++
++distclean: distclean-am
++	-rm -rf ./$(DEPDIR)
++	-rm -f Makefile
++distclean-am: clean-am distclean-compile distclean-generic \
++	distclean-tags
++
++dvi: dvi-am
++
++dvi-am:
++
++html: html-am
++
++html-am:
++
++info: info-am
++
++info-am:
++
++install-data-am:
++
++install-dvi: install-dvi-am
++
++install-dvi-am:
++
++install-exec-am:
++
++install-html: install-html-am
++
++install-html-am:
++
++install-info: install-info-am
++
++install-info-am:
++
++install-man:
++
++install-pdf: install-pdf-am
++
++install-pdf-am:
++
++install-ps: install-ps-am
++
++install-ps-am:
++
++installcheck-am:
++
++maintainer-clean: maintainer-clean-am
++	-rm -rf ./$(DEPDIR)
++	-rm -f Makefile
++maintainer-clean-am: distclean-am maintainer-clean-generic
++
++mostlyclean: mostlyclean-am
++
++mostlyclean-am: mostlyclean-compile mostlyclean-generic \
++	mostlyclean-libtool
++
++pdf: pdf-am
++
++pdf-am:
++
++ps: ps-am
++
++ps-am:
++
++uninstall-am:
++
++.MAKE: check-am install-am install-strip
++
++.PHONY: CTAGS GTAGS TAGS all all-am check check-am check-local clean \
++	clean-generic clean-libtool clean-noinstLTLIBRARIES \
++	cscopelist-am ctags ctags-am distclean distclean-compile \
++	distclean-generic distclean-libtool distclean-tags distdir dvi \
++	dvi-am html html-am info info-am install install-am \
++	install-data install-data-am install-dvi install-dvi-am \
++	install-exec install-exec-am install-html install-html-am \
++	install-info install-info-am install-man install-pdf \
++	install-pdf-am install-ps install-ps-am install-strip \
++	installcheck installcheck-am installdirs maintainer-clean \
++	maintainer-clean-generic mostlyclean mostlyclean-compile \
++	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
++	tags tags-am uninstall uninstall-am
++
++
++### testing rules
++
++# test: run all tests in cwd and subdirs
++test: test-nonrecursive
++@OS_UNIX_TRUE@	@ for subdir in $(SUBDIRS) . ; do \
++@OS_UNIX_TRUE@	    test "$$subdir" = "." -o "$$subdir" = "po" || \
++@OS_UNIX_TRUE@	    ( cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $@ ) || exit $? ; \
++@OS_UNIX_TRUE@	  done
++
++# test-nonrecursive: run tests only in cwd
++@OS_UNIX_TRUE@test-nonrecursive: ${TEST_PROGS}
++@OS_UNIX_TRUE@	@test -z "${TEST_PROGS}" || G_DEBUG=gc-friendly MALLOC_CHECK_=2 MALLOC_PERTURB_=$$(($${RANDOM:-256} % 256)) ${GTESTER} --verbose ${TEST_PROGS}
++@OS_UNIX_FALSE@test-nonrecursive:
++
++# test-report: run tests in subdirs and generate report
++# perf-report: run tests in subdirs with -m perf and generate report
++# full-report: like test-report: with -m perf and -m slow
++test-report perf-report full-report:	${TEST_PROGS}
++	@test -z "${TEST_PROGS}" || { \
++	  case $@ in \
++	  test-report) test_options="-k";; \
++	  perf-report) test_options="-k -m=perf";; \
++	  full-report) test_options="-k -m=perf -m=slow";; \
++	  esac ; \
++	  if test -z "$$GTESTER_LOGDIR" ; then	\
++	    ${GTESTER} --verbose $$test_options -o test-report.xml ${TEST_PROGS} ; \
++	  elif test -n "${TEST_PROGS}" ; then \
++	    ${GTESTER} --verbose $$test_options -o `mktemp "$$GTESTER_LOGDIR/log-XXXXXX"` ${TEST_PROGS} ; \
++	  fi ; \
++	}
++	@ ignore_logdir=true ; \
++	  if test -z "$$GTESTER_LOGDIR" ; then \
++	    GTESTER_LOGDIR=`mktemp -d "\`pwd\`/.testlogs-XXXXXX"`; export GTESTER_LOGDIR ; \
++	    ignore_logdir=false ; \
++	  fi ; \
++	  if test -d "$(top_srcdir)/.git" ; then \
++	    REVISION=`git describe` ; \
++	  else \
++	    REVISION=$(VERSION) ; \
++	  fi ; \
++	  for subdir in $(SUBDIRS) . ; do \
++	    test "$$subdir" = "." -o "$$subdir" = "po" || \
++	    ( cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $@ ) || exit $? ; \
++	  done ; \
++	  $$ignore_logdir || { \
++	    echo '<?xml version="1.0"?>'              > $@.xml ; \
++	    echo '<report-collection>'               >> $@.xml ; \
++	    echo '<info>'                            >> $@.xml ; \
++	    echo '  <package>$(PACKAGE)</package>'   >> $@.xml ; \
++	    echo '  <version>$(VERSION)</version>'   >> $@.xml ; \
++	    echo "  <revision>$$REVISION</revision>" >> $@.xml ; \
++	    echo '</info>'                           >> $@.xml ; \
++	    for lf in `ls -L "$$GTESTER_LOGDIR"/.` ; do \
++	      sed '1,1s/^<?xml\b[^>?]*?>//' <"$$GTESTER_LOGDIR"/"$$lf" >> $@.xml ; \
++	    done ; \
++	    echo >> $@.xml ; \
++	    echo '</report-collection>' >> $@.xml ; \
++	    rm -rf "$$GTESTER_LOGDIR"/ ; \
++	    ${GTESTER_REPORT} --version 2>/dev/null 1>&2 ; test "$$?" != 0 || ${GTESTER_REPORT} $@.xml >$@.html ; \
++	  }
++.PHONY: test test-report perf-report full-report test-nonrecursive
++
++.PHONY: lcov genlcov lcov-clean
++# use recursive makes in order to ignore errors during check
++lcov:
++	-$(MAKE) $(AM_MAKEFLAGS) -k check
++	$(MAKE) $(AM_MAKEFLAGS) genlcov
++
++# we have to massage the lcov.info file slightly to hide the effect of libtool
++# placing the objects files in the .libs/ directory separate from the *.c
++# we also have to delete tests/.libs/libmoduletestplugin_*.gcda
++genlcov:
++	rm -f $(top_builddir)/tests/.libs/libmoduletestplugin_*.gcda
++	$(LTP) --directory $(top_builddir) --capture --output-file glib-lcov.info --test-name GLIB_PERF --no-checksum --compat-libtool
++	LANG=C $(LTP_GENHTML) --prefix $(top_builddir) --output-directory glib-lcov --title "GLib Code Coverage" --legend --show-details glib-lcov.info
++	@echo "file://$(abs_top_builddir)/glib-lcov/index.html"
++
++lcov-clean:
++	-$(LTP) --directory $(top_builddir) -z
++	-rm -rf glib-lcov.info glib-lcov
++	-find -name '*.gcda' -print | xargs rm
++
++# run tests in cwd as part of make check
++check-local: test-nonrecursive
++
++# Tell versions [3.59,3.63) of GNU make to not export all variables.
++# Otherwise a system limit (for SysV at least) may be exceeded.
++.NOEXPORT:
+Index: navit/support/glib/gnulib/printf.c
+===================================================================
+--- navit/support/glib/gnulib/printf.c	(Revision 0)
++++ navit/support/glib/gnulib/printf.c	(Revision 0)
+@@ -0,0 +1,154 @@
++/* GLIB - Library of useful routines for C programming
++ * Copyright (C) 2003 Matthias Clasen
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, write to the
++ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
++ * Boston, MA 02111-1307, USA.
++ */
++
++/*
++ * Modified by the GLib Team and others 2003.  See the AUTHORS
++ * file for a list of people on the GLib Team.  See the ChangeLog
++ * files for a list of changes.  These files are distributed with
++ * GLib at ftp://ftp.gtk.org/pub/gtk/. 
++ */
++
++#ifdef HAVE_CONFIG_H
++# include <config.h>
++#endif
++#include <string.h>
++#include <stdlib.h>
++#include <stdio.h>
++#include "g-gnulib.h"
++#include "vasnprintf.h"
++#include "printf.h"
++
++int _g_gnulib_printf (char const *format, ...)
++{
++  va_list args;
++  int retval;
++
++  va_start (args, format);
++  retval = _g_gnulib_vprintf (format, args);
++  va_end (args);
++
++  return retval;
++}
++
++int _g_gnulib_fprintf (FILE *file, char const *format, ...)
++{
++  va_list args;
++  int retval;
++
++  va_start (args, format);
++  retval = _g_gnulib_vfprintf (file, format, args);
++  va_end (args);
++  
++  return retval;
++}
++
++int _g_gnulib_sprintf (char *string, char const *format, ...)
++{
++  va_list args;
++  int retval;
++
++  va_start (args, format);
++  retval = _g_gnulib_vsprintf (string, format, args);
++  va_end (args);
++  
++  return retval;
++}
++
++int _g_gnulib_snprintf (char *string, size_t n, char const *format, ...)
++{
++  va_list args;
++  int retval;
++
++  va_start (args, format);
++  retval = _g_gnulib_vsnprintf (string, n, format, args);
++  va_end (args);
++  
++  return retval;
++}
++
++int _g_gnulib_vprintf (char const *format, va_list args)         
++{
++  return _g_gnulib_vfprintf (stdout, format, args);
++}
++
++int _g_gnulib_vfprintf (FILE *file, char const *format, va_list args)
++{
++  char *result;
++  size_t length;
++
++  result = vasnprintf (NULL, &length, format, args);
++  if (result == NULL) 
++    return -1;
++
++  fwrite (result, 1, length, file);
++  free (result);
++  
++  return length;
++}
++
++int _g_gnulib_vsprintf (char *string, char const *format, va_list args)
++{
++  char *result;
++  size_t length;
++
++  result = vasnprintf (NULL, &length, format, args);
++  if (result == NULL) 
++    return -1;
++
++  memcpy (string, result, length + 1);
++  free (result);
++  
++  return length;  
++}
++
++int _g_gnulib_vsnprintf (char *string, size_t n, char const *format, va_list args)
++{
++  char *result;
++  size_t length;
++
++  result = vasnprintf (NULL, &length, format, args);
++  if (result == NULL) 
++    return -1;
++
++  if (n > 0) 
++    {
++      memcpy (string, result, MIN(length + 1, n));
++      string[n - 1] = 0;
++    }
++
++  free (result);
++  
++  return length;  
++}
++
++int _g_gnulib_vasprintf (char **result, char const *format, va_list args)
++{
++  size_t length;
++
++  *result = vasnprintf (NULL, &length, format, args);
++  if (*result == NULL) 
++    return -1;
++  
++  return length;  
++}
++
++
++
++
++
+Index: navit/support/glib/gnulib/asnprintf.c
+===================================================================
+--- navit/support/glib/gnulib/asnprintf.c	(Revision 0)
++++ navit/support/glib/gnulib/asnprintf.c	(Revision 0)
+@@ -0,0 +1,40 @@
++/* Formatted output to strings.
++   Copyright (C) 1999, 2002 Free Software Foundation, Inc.
++
++   This program is free software; you can redistribute it and/or modify it
++   under the terms of the GNU Library General Public License as published
++   by the Free Software Foundation; either version 2, or (at your option)
++   any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Library General Public License for more details.
++
++   You should have received a copy of the GNU Library General Public
++   License along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
++   USA.  */
++
++#ifdef HAVE_CONFIG_H
++# include <config.h>
++#endif
++
++#include "g-gnulib.h"
++
++/* Specification.  */
++#include "vasnprintf.h"
++
++#include <stdarg.h>
++
++char *
++asnprintf (char *resultbuf, size_t *lengthp, const char *format, ...)
++{
++  va_list args;
++  char *result;
++
++  va_start (args, format);
++  result = vasnprintf (resultbuf, lengthp, format, args);
++  va_end (args);
++  return result;
++}
+Index: navit/support/glib/gnulib/printf.h
+===================================================================
+--- navit/support/glib/gnulib/printf.h	(Revision 0)
++++ navit/support/glib/gnulib/printf.h	(Revision 0)
+@@ -0,0 +1,57 @@
++/* GLIB - Library of useful routines for C programming
++ * Copyright (C) 2003  Matthias Clasen
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, write to the
++ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
++ * Boston, MA 02111-1307, USA.
++ */
++#ifndef __GNULIB_PRINTF_H__
++#define __GNULIB_PRINTF_H__
++
++#include <stdarg.h>
++#include <stdio.h>
++
++int _g_gnulib_printf    (char const *format, 
++			 ...);
++int _g_gnulib_fprintf   (FILE        *file,
++			 char const *format, 
++			 ...);
++int _g_gnulib_sprintf   (char       *string,
++			 char const *format, 
++			 ...);
++int _g_gnulib_snprintf  (char       *string,
++			 size_t       n,
++			 char const *format, 
++			 ...);
++int _g_gnulib_vprintf   (char const *format,
++			 va_list      args);            
++int _g_gnulib_vfprintf  (FILE        *file,
++			 char const *format,
++			 va_list      args);
++int _g_gnulib_vsprintf  (char       *string,
++			 char const *format,
++			 va_list      args);
++int _g_gnulib_vsnprintf (char       *string,
++			 size_t       n,
++			 char const *format,
++			 va_list      args);
++int _g_gnulib_vasprintf (char       **result,
++			 char const *format,
++			 va_list      args);
++
++
++#endif /* __GNULIB_PRINTF_H__ */
++
++
++
+Index: navit/support/glib/glibconfig.h
+===================================================================
+--- navit/support/glib/glibconfig.h	(Revision 5496)
++++ navit/support/glib/glibconfig.h	(Arbeitskopie)
+@@ -244,7 +244,10 @@
+ 
+ #define G_MODULE_SUFFIX "dll"
+ 
+-#define HAVE_GOOD_PRINTF
++#ifndef HAVE_API_WIN32_CE
++  #define HAVE_GOOD_PRINTF
++#endif
++#define HAVE_ALLOCA 
+ #define NO_SYS_SIGLIST_DECL
+ #define GLIB_STATIC_COMPILATION
+ #define G_DISABLE_CHECKS

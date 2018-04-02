@@ -1,0 +1,181 @@
+I/ActivityManager( 1279): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit bnds=[245,446][355,564] }
+I/ActivityManager( 1279): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1868 uid=10061 gids={1006, 3003, 1015}
+I/dalvikvm( 1868): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 1868): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=48)
+D/dalvikvm( 1868): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44ed91d0
+D/dalvikvm( 1868): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44ed91d0
+D/dalvikvm( 1868): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x44ed91d0
+E/Navit   ( 1868): Country DE
+E/Navit   ( 1868): Language de
+E/Navit   ( 1868): Res Name de
+E/Navit   ( 1868): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 1868): Res ID 2130903047
+E/Navit   ( 1868): Checking /data
+E/Navit   ( 1868): Checking /data/data
+E/Navit   ( 1868): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1868): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 1868): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 1868): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 1868): Res Name navit
+E/Navit   ( 1868): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1868): Res ID 2130903067
+E/Navit   ( 1868): Checking /data
+E/Navit   ( 1868): Checking /data/data
+E/Navit   ( 1868): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1868): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libexif.so' for 'NavitMain' (wrong CL)
+E/test    ( 1868): called
+E/navit   ( 1868): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xab10 thiz=0x44f30a60 activity=0x44f30a60 lang=de_DE
+E/navit   ( 1868): graphics_android:plugin_init:enter
+E/navit   ( 1868): vehicle_android:plugin_init:enter
+E/navit   ( 1868): graphics_android:event_android_new:enter
+E/navit   ( 1868): graphics_android:event_android_new:ok
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/NavitGraphics( 1868): FocusChange true
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f373f8
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f3abb8
+E/navit   ( 1868): graphics_android:graphics_android_new:returning 0x316d38
+E/navit   ( 1868): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 1868): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 1868): vehicle_android:vehicle_android_init:at 4 android_activity=0x44f30a60
+D/LocationManager( 1868): Constructor: service = android.location.ILocationManager$Stub$Proxy@44f3b438
+D/LocationManager( 1868): getAllProviders
+E/NavitVehicle( 1868): Providers [network, gps]
+E/NavitVehicle( 1868): Provider gps
+W/GpsLocationProvider( 1279): Duplicate add listener for uid 10061
+D/GpsLocationProvider( 1279): setMinTime 0
+D/GpsLocationProvider( 1279): startNavigating
+E/navit   ( 1868): vehicle_android:vehicle_android_init:result=0x44f3af30
+E/navit   ( 1868): vehicle_android:vehicle_android_new_android:return
+E/navit   ( 1868): speech_android:speech_android_init:at 3
+E/navit   ( 1868): speech_android:speech_android_init:at 4 android_activity=0x44f30a60
+D/dalvikvm( 1868): GC freed 3042 objects / 202112 bytes in 55ms
+D/GpsLocationProvider( 1279): Acquiring wakelock
+E/navit   ( 1868): speech_android:speech_android_init:result=0x44f40da8
+E/navit   ( 1868): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+V/TtsService( 1643): TtsService.onCreate()
+E/TTS is loading( 1643): /data/data/com.google.tts/lib/libttspico.so
+E/NavitSpeech( 1868): In Demnaechst der Strasse folgen
+V/SynthProxy( 1643): AudioTrack started
+V/TtsService( 1643): TtsService.setLanguage(deu, DEU, )
+I/SVOX Pico Engine( 1643): loaded de-DE successfully
+I/SynthProxy( 1643): setting speech rate to 100
+E/TtsService( 1643): onCreate completed.
+E/navit   ( 1868): navit:main_real:Using '/sdcard/navit.xml'
+E/navit   ( 1868): graphics_android:event_android_main_loop_run:enter
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libwebcore.so' for 'NavitActivity' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitActivity' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libexif.so' for 'NavitActivity' (wrong CL)
+E/navit   ( 1868): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 3
+E/Navit   ( 1868): OnStart
+E/navit   ( 1868): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 2
+E/Navit   ( 1868): OnResume
+E/navit   ( 1868): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 1
+D/dalvikvm( 1868): GC freed 1217 objects / 70680 bytes in 49ms
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libwebcore.so' for 'SizeChangedCallback' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libmedia_jni.so' for 'SizeChangedCallback' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libexif.so' for 'SizeChangedCallback' (wrong CL)
+E/navit   ( 1868): navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x31b2b0 320 519
+E/navit   ( 1868): graphics_android:resize_callback:w=320 h=519 ok
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f37458
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f25618
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x4e2d58
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44edcf48
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f254f8
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x4e2fb8
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed9d58
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f253d8
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x4e4ec0
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed7ff8
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f252b8
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x4e7748
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed4140
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f25190
+E/navit   ( 1868): graphics_android:overlay_new:returning 0xbbb00
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed41a0
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f24f70
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x503a30
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed4200
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f24e50
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x508470
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/gui_strength_-1_32_32.png
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed4418
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f248f8
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x50a760
+E/navit   ( 1868): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+E/navit   ( 1868): graphics_android:graphics_android_init:at 3
+E/navit   ( 1868): graphics_android:graphics_android_init:at 4 android_activity=0x44f30a60
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44ed44d8
+E/navit   ( 1868): graphics_android:graphics_android_init:result=0x44f246b8
+E/navit   ( 1868): graphics_android:overlay_new:returning 0x50cd00
+I/ActivityManager( 1279): Displayed activity org.navitproject.navit/.Navit: 1583 ms (total 1583 ms)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libwebcore.so' for 'TimeoutCallback' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libmedia_jni.so' for 'TimeoutCallback' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libexif.so' for 'TimeoutCallback' (wrong CL)
+W/BatteryStatsImpl( 1279): Couldn't get kernel wake lock stats
+D/WifiService( 1279): ACTION_BATTERY_CHANGED pluggedType: 2
+D/GpsLocationProvider( 1279): TTFF: 9709
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libwebcore.so' for 'VehicleCallback' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libmedia_jni.so' for 'VehicleCallback' (wrong CL)
+D/dalvikvm( 1868): +++ not scanning '/system/lib/libexif.so' for 'VehicleCallback' (wrong CL)
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_furnish.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_furnish.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_furnish.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_furnish.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_handg.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_handg.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_furnish.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_furnish.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_furnish.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_furnish.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_handg.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_handg.xpm'
+D/dalvikvm( 1868): GC freed 6608 objects / 521368 bytes in 67ms
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_furnish.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_furnish.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_furnish.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_furnish.xpm'
+E/navit   ( 1868): graphics_android:image_new:Failed to open res/drawable/shop_handg.xpm
+E/navit   ( 1868): navit:displayitem_draw:failed to load icon 'shop_handg.xpm'
+I/dalvikvm( 1868): In threadExitCheck 0xbd90
+E/dalvikvm( 1868): Native thread exited without telling us
+E/dalvikvm( 1868): VM aborting
+I/ActivityManager( 1279): Process org.navitproject.navit (pid 1868) has died.
+W/GpsLocationProvider( 1279): Unneeded remove listener for uid 1000
+D/GpsLocationProvider( 1279): stopNavigating
+V/TtsService( 1643): onDestroy() completed
+I/WindowManager( 1279): WIN DEATH: Window{44d924c8 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+I/UsageStats( 1279): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+D/Zygote  ( 1051): Process 1868 terminated by signal (11)
+E/Workspace( 1367): mCurrentScreen = 2
+W/InputManagerService( 1279): Got RemoteException sending setActive(false) notification to pid 1868 uid 10061
+D/GpsLocationProvider( 1279): Releasing wakelock
+

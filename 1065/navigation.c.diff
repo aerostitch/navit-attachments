@@ -1,0 +1,49 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/navigation.c	2012-09-04 20:04:37.395424012 +0200
++++ navigation.c	2012-09-05 21:28:49.950561000 +0200
+@@ -1496,6 +1496,46 @@
+ 	return ret;
+ }
+ 
++/***************************** Rainer ***************************/
++int 
++get_dist_to_next_maneuver(struct navigation *nav)
++{
++	if (!nav->first){
++		return -1;
++	} else {
++		return nav->first->dest_length-nav->cmd_first->itm->dest_length;
++	}
++}
++
++
++int 
++get_distance_of_first_announcement(struct navigation *nav)
++{
++	if (!nav->first){
++		return -1;
++	} else {
++		return nav->announce[nav->first->way.item.type-route_item_first][2];
++	}
++}
++
++
++enum item_type
++get_target_street_type(struct navigation *nav)
++{
++	if (!nav->first){
++		return -1;
++	} else {
++		//return nav->first->next->way.item.type;
++		//return nav->cmd_first->itm->way.item.type;
++		//return nav->cmd_first->next->itm->way.item.type;
++		//return nav->cmd_first->prev->itm->way.item.type;
++		return nav->first->next->way.item.type;
++	}
++}
++
++
++/***************************** Rainer ***************************/
++
+ static char *
+ show_maneuver(struct navigation *nav, struct navigation_itm *itm, struct navigation_command *cmd, enum attr_type type, int connect)
+ {

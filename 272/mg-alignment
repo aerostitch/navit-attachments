@@ -1,0 +1,105 @@
+Alignment fix for mg plugin.
+Index: navit-0.1.1.~svn2067/navit/map/mg/mg.h
+===================================================================
+--- navit-0.1.1.~svn2067.orig/navit/map/mg/mg.h	2009-03-01 18:34:09.000000000 +0100
++++ navit-0.1.1.~svn2067/navit/map/mg/mg.h	2009-03-01 19:12:05.000000000 +0100
+@@ -151,6 +151,11 @@
+ 	int tmp_len;
+ 	unsigned char *tmp_data;
+ };
++static inline void street_name_numbers_get_coord(struct street_name_numbers * str, struct coord * c) {
++	unsigned char *p=(unsigned char *)str->c;
++	c->x=get_u32_unal(&p);
++	c->y=get_u32_unal(&p);
++}
+ 
+ struct street_name_number {
+         int len;
+@@ -239,10 +244,12 @@
+ };
+ 
+ struct block_offset {
+-	unsigned short offset;
+-	unsigned short block;
++/*	unsigned short offset;
++	unsigned short block;*/
++	unsigned char p[4];
+ };
+-
++static inline unsigned short block_offset_get_offset(struct block_offset * blk) { unsigned char *p = blk->p; return get_u16_unal(&p); }
++static inline unsigned short block_offset_get_block(struct block_offset * blk) { unsigned char *p = blk->p+2; return get_u16_unal(&p); }
+ 
+ struct tree_search_node {
+ 	struct tree_hdr *hdr;
+Index: navit-0.1.1.~svn2067/navit/map/mg/town.c
+===================================================================
+--- navit-0.1.1.~svn2067.orig/navit/map/mg/town.c	2009-03-01 18:34:09.000000000 +0100
++++ navit-0.1.1.~svn2067/navit/map/mg/town.c	2009-03-01 19:08:51.000000000 +0100
+@@ -275,9 +275,9 @@
+ 	}
+ 	if (! mr->search_blk_count)
+ 		return NULL;
+-	dbg(1,"block 0x%x offset 0x%x\n", mr->search_blk_off->block, mr->search_blk_off->offset);
+-	block_get_byindex(mr->m->file[mr->current_file], mr->search_blk_off->block, &mr->b);
+-	mr->b.p=mr->b.block_start+mr->search_blk_off->offset;
++	dbg(1,"block 0x%x offset 0x%x\n", block_offset_get_block(mr->search_blk_off), block_offset_get_offset(mr->search_blk_off));
++	block_get_byindex(mr->m->file[mr->current_file], block_offset_get_block(mr->search_blk_off), &mr->b);
++	mr->b.p=mr->b.block_start+block_offset_get_offset(mr->search_blk_off);
+ 	town_get(mr, &mr->town, &mr->item);
+ 	mr->search_blk_off++;
+ 	mr->search_blk_count--;
+Index: navit-0.1.1.~svn2067/navit/map/mg/street.c
+===================================================================
+--- navit-0.1.1.~svn2067.orig/navit/map/mg/street.c	2009-03-01 18:34:10.000000000 +0100
++++ navit-0.1.1.~svn2067/navit/map/mg/street.c	2009-03-01 19:08:51.000000000 +0100
+@@ -52,8 +52,8 @@
+ 	name_numbers->dist=get_u32_unal(p);
+ 	name_numbers->country=get_u32_unal(p);
+ 	name_numbers->c=coord_get(p);
+-	name_numbers->first=get_u24(p);
+-	name_numbers->last=get_u24(p);
++	name_numbers->first=get_u24_unal(p);
++	name_numbers->last=get_u24_unal(p);
+ 	name_numbers->segment_count=get_u32_unal(p);
+ 	name_numbers->segments=(struct street_name_segment *)(*p);
+ 	(*p)+=sizeof(struct street_name_segment)*name_numbers->segment_count;
+@@ -71,8 +71,8 @@
+         name_number->len=get_u16_unal(p);
+         name_number->tag=get_u8(p);
+         name_number->c=coord_get(p);
+-        name_number->first=get_u24(p);
+-        name_number->last=get_u24(p);
++        name_number->first=get_u24_unal(p);
++        name_number->last=get_u24_unal(p);
+         name_number->segment=(struct street_name_segment *)p;
+ 	*p=start+name_number->len;
+ }
+@@ -627,7 +627,7 @@
+ 	dbg(1,"aux_data=%p\n", p);
+ 	if (count) {
+ 		street_name_numbers_get(&snns, &p);
+-		*c=*(snns.c);
++		street_name_numbers_get_coord(&snns, c);
+ 		return 1;
+ 	}
+ 	
+Index: navit-0.1.1.~svn2067/navit/data.h
+===================================================================
+--- navit-0.1.1.~svn2067.orig/navit/data.h	2009-03-01 18:34:10.000000000 +0100
++++ navit-0.1.1.~svn2067/navit/data.h	2009-03-01 19:08:51.000000000 +0100
+@@ -53,6 +53,15 @@
+ 
+ 
+ static inline unsigned int
++get_u24_unal(unsigned char **p) {
++	unsigned long ret;
++	ret=get_u16_unal(p);
++	ret|=*((*p)++) << 16;
++	return ret;
++}
++
++
++static inline unsigned int
+ get_u32(unsigned char **p) {
+ 	unsigned long ret;
+ 	ret=*((unsigned int *)*p);

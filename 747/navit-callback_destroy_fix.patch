@@ -1,0 +1,13 @@
+Index: binding/dbus/binding_dbus.c
+===================================================================
+--- binding/dbus/binding_dbus.c	(Revision 3941)
++++ binding/dbus/binding_dbus.c	(Arbeitskopie)
+@@ -762,7 +762,7 @@
+ static DBusHandlerResult
+ request_callback_destroy(DBusConnection *connection, DBusMessage *message)
+ {
+-	return request_destroy(connection, message, "search_list", NULL, (void (*)(void *)) request_callback_destroy_do);
++	return request_destroy(connection, message, "callback", NULL, (void (*)(void *)) request_callback_destroy_do);
+ }
+ 
+ static DBusHandlerResult

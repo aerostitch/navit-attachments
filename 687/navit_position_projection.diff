@@ -1,0 +1,188 @@
+Index: attr_def.h
+===================================================================
+--- attr_def.h	(revision 3636)
++++ attr_def.h	(working copy)
+@@ -210,6 +210,7 @@
+ ATTR(search_active)
+ ATTR(unsuspend)
+ ATTR(announce_on)
++ATTR(position_projection)
+ ATTR2(0x0002ffff,type_int_end)
+ ATTR2(0x00030000,type_string_begin)
+ ATTR(type)
+Index: navit.c
+===================================================================
+--- navit.c	(revision 3636)
++++ navit.c	(working copy)
+@@ -142,6 +142,7 @@
+ 	int flags;
+ 		 /* 1=No graphics ok */
+ 		 /* 2=No gui ok */
++	int position_projection;
+ };
+ 
+ struct gui *main_loop_gui;
+@@ -721,6 +722,7 @@
+ 	this_->tracking_flag=1;
+ 	this_->recentdest_count=10;
+ 	this_->osd_configuration=-1;
++	this_->position_projection=0;
+ 
+ 	this_->center_timeout = 10;
+ 	this_->use_mousewheel = 1;
+@@ -1534,6 +1536,9 @@
+ 		attr_updated=(this_->autozoom_active != attr->u.num);
+ 		this_->autozoom_active = attr->u.num;
+ 		break;
++	case attr_position_projection:
++		this_->position_projection = attr->u.num;
++		break;
+ 	case attr_center:
+ 		transform_from_geo(transform_get_projection(this_->trans), attr->u.coord_geo, &co);
+ 		dbg(1,"0x%x,0x%x\n",co.x,co.y);
+@@ -2026,7 +2031,7 @@
+ static void
+ navit_vehicle_update(struct navit *this_, struct navit_vehicle *nv)
+ {
+-	struct attr attr_valid, attr_dir, attr_speed, attr_pos;
++	struct attr attr_valid, attr_dir, attr_speed, attr_pos,attr_pos_no_tracking;
+ 	struct pcoord cursor_pc;
+ 	struct point cursor_pnt, *pnt=&cursor_pnt;
+ 	struct tracking *tracking=NULL;
+@@ -2056,6 +2061,7 @@
+ 	if (get_attr(attr_object, attr_position_valid, &attr_valid, NULL))
+ 		if (!attr_valid.u.num != attr_position_valid_invalid)
+ 			return;
++	vehicle_get_attr(nv->vehicle, attr_position_coord_geo, &attr_pos_no_tracking, NULL);
+ 	if (! get_attr(attr_object, attr_position_direction, &attr_dir, NULL) ||
+ 	    ! get_attr(attr_object, attr_position_speed, &attr_speed, NULL) ||
+ 	    ! get_attr(attr_object, attr_position_coord_geo, &attr_pos, NULL)) {
+@@ -2064,7 +2070,14 @@
+ 	}
+ 	nv->dir=*attr_dir.u.numd;
+ 	nv->speed=*attr_speed.u.numd;
+-	transform_from_geo(pro, attr_pos.u.coord_geo, &nv->coord);
++	if(!this_->position_projection || !tracking) {
++		transform_from_geo(pro, attr_pos.u.coord_geo, &nv->coord);
++	}
++	else {
++		transform_from_geo(pro, attr_pos_no_tracking.u.coord_geo, &nv->coord);
++		struct coord*coord_proj = tracking_get_pos_proj(tracking, &nv->coord);
++		nv->coord = *coord_proj;
++	}
+ 	if (nv != this_->vehicle) {
+ 		navit_vehicle_draw(this_, nv, NULL);
+ 		profile(0,"return 3\n");
+@@ -2085,6 +2098,7 @@
+ 		navit_disable_suspend();
+ 
+ 	transform(this_->trans, pro, &nv->coord, &cursor_pnt, 1, 0, 0, NULL);
++
+ 	if (this_->button_pressed != 1 && this_->follow_cursor && nv->follow_curr <= nv->follow && 
+ 		(nv->follow_curr == 1 || !transform_within_border(this_->trans, &cursor_pnt, border)))
+ 		navit_set_center_cursor_draw(this_);
+Index: track.c
+===================================================================
+--- track.c	(revision 3636)
++++ track.c	(working copy)
+@@ -87,7 +87,7 @@
+ 	struct tracking_line *lines;
+ 	struct tracking_line *curr_line;
+ 	int pos;
+-	struct coord curr[2], curr_in, curr_out;
++	struct coord curr[2], curr_in, curr_out, curr_out_proj;
+ 	int curr_angle;
+ 	struct coord last[2], last_in, last_out;
+ 	struct cdf_data cdf;
+@@ -298,6 +298,78 @@
+ 	return &tr->curr_out;
+ }
+ 
++struct coord *
++tracking_get_pos_proj_last(struct tracking *tr)
++{
++	return &tr->curr_out_proj;
++}
++
++struct coord *
++tracking_get_pos_proj(struct tracking *tr, struct coord* pt)
++{
++	//calculate curr_out_proj
++	struct coord a, b, c;		// viewing from c0
++	struct coord a_, b_, c_;	// viewing from c1
++	int base_idx = tr->pos;
++	if(0<base_idx){		//check three consecutive segments (before, current, after)
++		--base_idx;
++	}
++
++	struct coord* coords = tr->curr_line->street->c;
++	int count = tr->curr_line->street->count;
++	int cnt = 0; //try only three segments
++	int minx,miny,maxx,maxy;
++	int dist = INT_MAX;
++	int bFound = 0;
++	do {
++		struct coord c0 = tr->curr_line->street->c[base_idx];
++		struct coord c1 = tr->curr_line->street->c[base_idx+1];
++
++		b.x = c1.x - c0.x;
++		b.y = c1.y - c0.y;
++		a.x = pt->x - c0.x;
++		a.y = pt->y - c0.y;
++
++		int b_len_sq = b.x*b.x + b.y*b.y;
++		int ab = a.x*b.x + a.y*b.y;
++		if(b_len_sq) {
++			double b_factor = (double)ab / b_len_sq;
++			c.x = b.x*b_factor;
++			c.y = b.y*b_factor;
++
++			c.x += c0.x;
++			c.y += c0.y;
++		}
++
++		//calculate distance squeres from current segment
++		int curr_dist;
++		b_.x = c0.x - c1.x;
++		b_.y = c0.y - c1.y;
++		a_.x = pt->x - c1.x;
++		a_.y = pt->y - c1.y;
++		int ab_ = a_.x*b_.x + a_.y*b_.y;
++		if(ab<0) { 		// if /A/*/B/*cos(alpha) < 0  than take the distance sq from c0
++			curr_dist = (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y);
++		}
++		else if(ab_<0) {	// if /A_/*/B_/*cos(alpha_) < 0  than take the distance sq from c1
++			curr_dist = (a_.x-b_.x)*(a_.x-b_.x) + (a_.y-b_.y)*(a_.y-b_.y);
++		}
++		else {			//take the distance sq between the input point and the projected point
++			curr_dist = (a.x-c.x)*(a.x-c.x) + (a.y-c.y)*(a.y-c.y);
++			bFound = 1;
++		}
++		if(bFound || curr_dist<dist) {
++			dist=curr_dist;
++			tr->curr_out_proj = c;
++			tr->curr_out = c;
++		}
++		++cnt;
++		++base_idx;
++	} while( !bFound && cnt<=3 && (base_idx+1)<count);
++
++	return &tr->curr_out_proj;
++}
++
+ int
+ tracking_get_street_direction(struct tracking *tr)
+ {
+Index: track.h
+===================================================================
+--- track.h	(revision 3636)
++++ track.h	(working copy)
+@@ -39,6 +39,8 @@
+ struct vehicleprofile;
+ int tracking_get_angle(struct tracking *tr);
+ struct coord *tracking_get_pos(struct tracking *tr);
++struct coord *tracking_get_pos_proj(struct tracking *tr, struct coord* pt);
++struct coord *tracking_get_pos_proj_last(struct tracking *tr);
+ int tracking_get_street_direction(struct tracking *tr);
+ int tracking_get_segment_pos(struct tracking *tr);
+ struct street_data *tracking_get_street_data(struct tracking *tr);

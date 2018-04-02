@@ -1,0 +1,283 @@
+Index: navit-svn/navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit-svn/navit/android/src/org/navitproject/navit/Navit.java	(revision 6040)
++++ navit-svn/navit/android/src/org/navitproject/navit/Navit.java	(working copy)
+@@ -23,7 +23,6 @@
+ import java.io.FileOutputStream;
+ import java.io.InputStream;
+ import java.io.FileInputStream;
+-import java.io.FileOutputStream;
+ import java.io.IOException;
+ import java.util.HashMap;
+ import java.util.Locale;
+@@ -65,7 +64,6 @@
+ import android.widget.TextView;
+ import android.widget.Toast;
+ 
+-
+ public class Navit extends Activity
+ {
+ 
+@@ -84,6 +82,7 @@
+ 	public static final int          NavitDownloaderSelectMap_id    = 967;
+ 	public static final int          MAP_NUM_PRIMARY                = 11;
+ 	public static final int          NavitAddressSearch_id          = 70;
++	public static final int          NavitSelectStorage_id          = 43;
+ 	public static String             NavitLanguage;
+ 	public static Resources          NavitResources                 = null;
+ 
+@@ -90,7 +89,7 @@
+ 	public static final int          MAP_NUM_SECONDARY              = 12;
+ 	static final String              NAVIT_PACKAGE_NAME             = "org.navitproject.navit";
+ 	static final String              TAG                            = "Navit";
+-	static final String              MAP_FILENAME_PATH              = Environment.getExternalStorageDirectory().getPath() + "/navit/";
++	static  String              	  map_filename_path             =null;
+ 	static final String              NAVIT_DATA_DIR                 = "/data/data/" + NAVIT_PACKAGE_NAME;
+ 	static final String              NAVIT_DATA_SHARE_DIR           = NAVIT_DATA_DIR + "/share";
+ 	static final String              FIRST_STARTUP_FILE             = NAVIT_DATA_SHARE_DIR + "/has_run_once.txt";
+@@ -181,6 +180,7 @@
+ 				while ((i = resourcestream.read(buf)) != -1) {
+ 					resultfilestream.write(buf, 0, i);
+ 				}
++				resultfilestream.close();
+ 			} catch (Exception e) {
+ 				Log.e(TAG, "Exception " + e.getMessage());
+ 				return false;
+@@ -293,9 +295,13 @@
+ 			NavitTextTranslations.sub_language = country.toUpperCase(locale);
+ 		}
+ 		Log.e("Navit", "Language " + lang);
++		
++		SharedPreferences prefs = getSharedPreferences(NAVIT_PREFS,MODE_PRIVATE);
++		
++		map_filename_path  = prefs.getString("filenamePath", Environment.getExternalStorageDirectory().getPath() + "/navit/");
+ 
+ 		// make sure the new path for the navitmap.bin file(s) exist!!
+-		File navit_maps_dir = new File(MAP_FILENAME_PATH);
++		File navit_maps_dir = new File(map_filename_path);
+ 		navit_maps_dir.mkdirs();
+ 
+ 		// make sure the share dir exists
+@@ -359,9 +365,10 @@
+ 			Log.e("Navit", "Failed to extract navit.xml for " + my_display_density);
+ 		}
+ 
+-		// --> dont use android.os.Build.VERSION.SDK_INT, needs API >= 4
+-		Log.e("Navit", "android.os.Build.VERSION.SDK_INT=" + Integer.valueOf(android.os.Build.VERSION.SDK));
+-		NavitMain(this, NavitLanguage, Integer.valueOf(android.os.Build.VERSION.SDK), my_display_density, NAVIT_DATA_DIR+"/bin/navit");
++		
++		
++		Log.d("Navit", "android.os.Build.VERSION.SDK_INT=" + android.os.Build.VERSION.SDK_INT);
++		NavitMain(this, NavitLanguage, android.os.Build.VERSION.SDK_INT, my_display_density, NAVIT_DATA_DIR+"/bin/navit",map_filename_path);
+ 
+ 		showInfos();
+@@ -472,9 +490,10 @@
+ 		menu.add(1, 5, 400, getString(R.string.optionsmenu_toggle_poi)); //TRANS
+ 
+ 		menu.add(1, 6, 500, getString(R.string.optionsmenu_address_search)); //TRANS
+-
++		menu.add(1, 10, 500, "set map location");
+ 		menu.add(1, 99, 900, getString(R.string.optionsmenu_exit_navit)); //TRANS
+ 		
++		/* nog aan te passen */
+ 		/* Only show the Backup to SD-Card Option if we really have one */
+ 		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
+ 		    menu.add(1, 7, 700, getString(R.string.optionsmenu_backup_restore)); //TRANS
+@@ -529,6 +548,7 @@
+ 		// Handle item selection
+ 		switch (id)
+ 		{
++		
+ 			case 1 :
+ 				// zoom in
+ 				Message.obtain(N_NavitGraphics.callback_handler, NavitGraphics.msg_type.CLB_ZOOM_IN.ordinal()).sendToTarget();
+@@ -546,6 +566,10 @@
+ 				Intent map_download_list_activity = new Intent(this, NavitDownloadSelectMapActivity.class);
+ 				startActivityForResult(map_download_list_activity, Navit.NavitDownloaderSelectMap_id);
+ 				break;
++			
++			
++				
++				
+ 			case 5 :
+ 				// toggle the normal POI layers (to avoid double POIs)
+ 				Message msg = Message.obtain(N_NavitGraphics.callback_handler, NavitGraphics.msg_type.CLB_CALL_CMD.ordinal());
+@@ -571,6 +595,14 @@
+ 			    /* Backup / Restore */
+ 			    showDialog(NavitDialogs.DIALOG_BACKUP_RESTORE);
+ 			    break;
++			    
++			    
++			    
++			case 10:
++				setMapLocation();			
++				break;
++				
++				
+ 			case 99 :
+ 				// exit
+ 				this.onStop();
+@@ -613,6 +645,21 @@
+ 				msg.sendToTarget();
+ 			}
+ 			break;
++		case NavitSelectStorage_id :
++			
++			if(resultCode == RESULT_OK) 
++			{			
++        		String newDir = data.getStringExtra(FileBrowserActivity.returnDirectoryParameter);
++        		Log.d(TAG, "selected path= "+newDir); 
++        		SharedPreferences prefs = this.getSharedPreferences(NAVIT_PREFS,MODE_PRIVATE);
++        		SharedPreferences.Editor  prefs_editor = prefs.edit();
++        		prefs_editor.putString("filenamePath", newDir+"/navit/");
++        		prefs_editor.commit();
++        		map_filename_path = newDir+"/navit/"; 
++        		Toast.makeText(this, "New location set to "+map_filename_path+"\n Restart Navit to apply the changes",Toast.LENGTH_LONG).show(); 		
++        	}
++			else Log.w(TAG, "select path failed");
++			break;
+ 		default :
+ 			//Log.e("Navit", "onActivityResult " + requestCode + " " + resultCode);
+ 			ActivityResults[requestCode].onActivityResult(requestCode, resultCode, data);
+@@ -640,6 +687,19 @@
+ 		return true;
+ 	}
+ 
++	
++	public boolean setMapLocation()
++	{
++		Intent fileExploreIntent = new Intent(this,FileBrowserActivity.class);
++		fileExploreIntent.putExtra(FileBrowserActivity.startDirectoryParameter, "/mnt");
++		startActivityForResult(fileExploreIntent,NavitSelectStorage_id);
++		
++		return true;
++	}
++	
++	
++	
++	
+ 	@Override
+ 	public void onDestroy()
+ 	{
+@@ -676,7 +736,7 @@
+ 		finish();
+ 	}
+ 
+-	public native void NavitMain(Navit x, String lang, int version, String display_density_string, String path);
++	public native void NavitMain(Navit x, String lang, int version, String display_density_string, String path, String path2);
+ 	public native void NavitDestroy();
+ 
+ 	/*
+@@ -686,6 +746,8 @@
+ 	 */
+ 	static
+ 	{
++		
+ 		System.loadLibrary("navit");
+ 	}
+ }
++
+Index: navit-svn/navit/android/src/org/navitproject/navit/NavitMapDownloader.java
+===================================================================
+--- navit-svn/navit/android/src/org/navitproject/navit/NavitMapDownloader.java	(revision 6040)
++++ navit-svn/navit/android/src/org/navitproject/navit/NavitMapDownloader.java	(working copy)
+@@ -298,7 +298,7 @@
+ 		new osm_map_values(Navit._("Venezuela"), "-73.6", "0.4", "-59.7", "12.8", 124001905L, 1)
+ 	};
+ 
+-	public  static final String         MAP_FILENAME_PATH                       = Navit.MAP_FILENAME_PATH;
++	public  static final String         MAP_FILENAME_PATH                       = Navit.map_filename_path;
+ 	
+ 	public static NavitMap[] getAvailableMaps() {
+ 		class filterMaps implements FilenameFilter {
+Index: navit-svn/navit/android.c
+===================================================================
+--- navit-svn/navit/android.c	(revision 6040)
++++ navit-svn/navit/android.c	(working copy)
+@@ -74,10 +74,11 @@
+ }
+ 
+ JNIEXPORT void JNICALL
+-Java_org_navitproject_navit_Navit_NavitMain( JNIEnv* env, jobject thiz, jobject activity, jobject lang, int version, jobject display_density_string, jobject path)
++Java_org_navitproject_navit_Navit_NavitMain( JNIEnv* env, jobject thiz, jobject activity, jobject lang, int version, jobject display_density_string, jobject path, jobject map_path)
+ {
+ 	const char *langstr;
+ 	const char *displaydensitystr;
++	const char *map_filename_path;
+ 	android_version=version;
+ 	__android_log_print(ANDROID_LOG_ERROR,"test","called");
+ 	jnienv=env;
+@@ -91,11 +92,17 @@
+ 	dbg(lvl_debug,"*****displaydensity=%s\n",displaydensitystr);
+ 	setenv("ANDROID_DENSITY",displaydensitystr,1);
+ 	(*env)->ReleaseStringUTFChars(env, display_density_string, displaydensitystr);
++
++	map_filename_path=(*env)->GetStringUTFChars(env, map_path, NULL);
++	setenv("MAP_FILENAME_PATH",map_filename_path,1);
++	(*env)->ReleaseStringUTFChars(env, display_density_string, map_filename_path);
++
+ 	const char *strings=(*env)->GetStringUTFChars(env, path, NULL);
+ 	main_real(1, &strings);
+ 	(*env)->ReleaseStringUTFChars(env, path, strings);
+ }
+ 
++
+ JNIEXPORT void JNICALL
+ Java_org_navitproject_navit_Navit_NavitDestroy( JNIEnv* env)
+ {
+ Index: navit-svn/navit/maps.c
+===================================================================
+--- navit-svn/navit/maps.c	(revision 6040)
++++ navit-svn/navit/maps.c	(working copy)
+@@ -43,6 +43,18 @@
+ 	attrs_dup=attr_list_dup(attrs);
+ 	data=attr_search(attrs_dup, NULL, attr_data);
+ 	if (data) {
++
++
++		if ((strlen(data->u.str)>0) && (data->u.str[0]!= '/'))
++		{
++			char *modified_path = g_strdup_printf("%s%s",getenv("MAP_FILENAME_PATH"),data->u.str);
++			g_free(data->u.str);
++			data->u.str = modified_path;
++		}
++
++
++
++
+ 		struct file_wordexp *wexp=file_wordexp_new(data->u.str);
+ 		int i,count=file_wordexp_get_count(wexp);
+ 		char **array=file_wordexp_get_array(wexp);
+Index: navit-svn/navit/start_real.c
+===================================================================
+--- navit-svn/navit/start_real.c	(revision 6040)
++++ navit-svn/navit/start_real.c	(working copy)
+@@ -170,10 +170,11 @@
+ 		list = g_list_append(list,g_strdup("navit.xml.local"));
+ 		list = g_list_append(list,g_strdup("navit.xml"));
+ #ifdef HAVE_API_ANDROID
+-		// new preferred location (the new one should have priority over the legacy!)
+-		list = g_list_append(list,g_strdup("/sdcard/navit/navit.xml"));
+-		// legacy location, still supported
+-		list = g_list_append(list,g_strdup("/sdcard/navit.xml"));
++		list = g_list_append(list,g_strjoin(NULL,getenv("MAP_FILENAME_PATH"), "navit.xml" , NULL));
++		/* new preferred location (the new one should have priority over the legacy!) */
++		/* list = g_list_append(list,g_strdup("/sdcard/navit/navit.xml")); */
++		/* legacy location, still supported */
++		/*list = g_list_append(list,g_strdup("/sdcard/navit.xml")); */
+ #endif
+ 		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_SHAREDIR"), "/navit.xml.local" , NULL));
+ 		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_SHAREDIR"), "/navit.xml" , NULL));
+Index: navit-svn/navit/xslt/map_sdcard_navitmap_bin.xslt
+===================================================================
+--- navit-svn/navit/xslt/map_sdcard_navitmap_bin.xslt	(revision 6040)
++++ navit-svn/navit/xslt/map_sdcard_navitmap_bin.xslt	(working copy)
+@@ -1,6 +1,7 @@
+ <?xml version="1.0"?>
+ <xsl:transform version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude">
+ 	<xsl:template match="/config/navit/mapset/xi:include">
+-		<maps type="binfile" data="/sdcard/navit/*.bin" />
++		<maps type="binfile" data="*.bin" />
++		<maps type="textfile" data="*.txt" />
+ 	</xsl:template>
+ </xsl:transform>

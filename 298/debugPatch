@@ -1,0 +1,140 @@
+Index: navit/debug.c
+===================================================================
+--- navit/debug.c	(revision 2032)
++++ navit/debug.c	(working copy)
+@@ -38,6 +38,8 @@
+ int segv_level=0;
+ int timestamp_prefix=0;
+ 
++int indent=0;  //intent level is incremented and decremented when using instrumented version for entry/exit else always 0
++
+ static int dummy;
+ static GHashTable *debug_hash;
+ static const char *gdb_program;
+@@ -120,7 +122,7 @@
+ 	return (int)(g_hash_table_lookup(debug_hash, name));
+ }
+ 
+-static void debug_timestamp(FILE *fp)
++static void debug_timestamp(FILE *fp) 
+ {
+ 	struct timeval tv;
+ 
+@@ -142,18 +144,26 @@
+ 	char buffer[4096];
+ #else
+ 	char buffer[mlen+flen+3];
++	
+ #endif
+ 	FILE *fp=debug_fp;
+-
++	int i=0;
+ 	sprintf(buffer, "%s:%s", module, function);
+ 	if (debug_level_get(module) >= level || debug_level_get(buffer) >= level) {
+ #ifndef DEBUG_WIN32_CE_MESSAGEBOX
+ 		if (! fp)
+ 			fp = stderr;
++		if (indent > 0){  /*if indent is not 0 then */
++			for (i=0; i<indent; i++){   
++				fprintf(fp,"-");   /*prefix output with 1 '-' per indent level*/
++			}
++		}
+ 		if (timestamp_prefix)
+ 			debug_timestamp(fp);
++		
+ 		if (prefix)
+ 			fprintf(fp,"%s:",buffer);
++					
+ 		vfprintf(fp,fmt, ap);
+ 		fflush(fp);
+ #else
+@@ -210,3 +220,59 @@
+ 		fflush(debug_fp);
+ 	}
+ }
++
++
++/* Output trace file pointer */
++static FILE *fp;  /*used in the constructor methods*/
++int debugptr = &debug_timestamp;  /*used to identify pointer to static method debug_timestamp so we can exclude it from entry/exit logging*/
++
++void main_constructor( void )
++{
++  
++  fp =stderr;	/*At the moment we put all instrumented output to stderr */
++	indent=0; /*set indent to 0*/
++  if (fp == NULL) exit(-1); /*If we had any trouble getting a pointer to stderr then FAIL*/
++}
++/*Close file handle after main is finished*/
++void main_destructor( void )
++{
++  fclose( fp );
++}
++/*instrumentation function that gets called on entry into any function if you compile with -finstrument-functions*/
++void __cyg_profile_func_enter( void *this, void *callsite )
++{
++  /* Function Entry Address */
++  int i=0;  /*define iterator int for use in for loop*/
++ if ((int *) this == (int *) debugptr){  /*check if this function is debug_timestamp since that's a sub function within the debug statement
++								the output gets werid if you trace it's entry/exit*/
++	/*don't do entry/exit for timestamp function*/
++ }else{	 
++        indent++; 	/*we've entered a function so increment the indent*/
++	if (indent > 0){ /*if indent is more than 0*/
++		for (i=0; i<indent; i++){
++			fprintf(fp,"-");	/*prefix out output with one - for each indent level*/
++		}
++	}	
++  fprintf(fp, "Entering E%p\n", (int *)this);  /*output a log statement showing Entering EfunctionPointer*/
++ }	
++}
++
++/*instrumentation function that gets called on exit from any function if you compile with -finstrument-functions*/
++void __cyg_profile_func_exit( void *this, void *callsite )
++{
++  /* Function Exit Address */
++  /*dbg_decrement_indent();*/
++	 int i=0;  /*define iterator int for use in for loop*/
++	if ((int *) this == (int *) debugptr){/*check if this function is debug_timestamp since that's a sub function within the debug statement
++								the output gets werid if you trace it's entry/exit*/
++	/*don't do entry/exit for timestamp function*/
++ }else{	
++ indent--;	/*we've entered a function so increment the indent*/
++	if (indent > 0){  /*if indent is more than 0*/
++		for (i=0; i<indent; i++){
++			fprintf(fp,"-");  /*prefix out output with one - for each indent level*/
++		}
++	}	
++  fprintf(fp, "Exiting X%p\n", (int *)this);  /*output a log statement showing Exiting XfunctionPointer*/
++}
++}
+\ No newline at end of file
+Index: navit/debug.h
+===================================================================
+--- navit/debug.h	(revision 2032)
++++ navit/debug.h	(working copy)
+@@ -41,9 +41,21 @@
+ void debug_level_set(const char *name, int level);
+ int debug_level_get(const char *name);
+ struct debug *debug_new(struct attr *parent, struct attr **attrs);
+-void debug_vprintf(int level, const char *module, const int mlen, const char *function, const int flen, int prefix, const char *fmt, va_list ap);
+-void debug_printf(int level, const char *module, const int mlen, const char *function, const int flen, int prefix, const char *fmt, ...);
++void debug_vprintf(int level, const char *module, const int mlen, const char *function, const int flen, int prefix, const char *fmt, va_list ap)
++ __attribute__ ((no_instrument_function));
++void debug_printf(int level, const char *module, const int mlen, const char *function, const int flen, int prefix, const char *fmt, ...)
++ __attribute__ ((no_instrument_function));
+ void debug_assert_fail(char *module, const int mlen,const char *function, const int flen, char *file, int line, char *expr);
++void __cyg_profile_func_enter( void *func_address, void *call_site )
++                                __attribute__ ((no_instrument_function));
++
++void __cyg_profile_func_exit ( void *func_address, void *call_site )
++                                __attribute__ ((no_instrument_function));
++void main_constructor( void )
++	__attribute__ ((no_instrument_function, constructor));
++
++void main_destructor( void )
++	__attribute__ ((no_instrument_function, destructor));
+ /* end of prototypes */
+ 
+ #ifdef __cplusplus
+

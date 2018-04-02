@@ -1,0 +1,48 @@
+navit/Makefile.am:10: wildcard $(top_builddir: non-POSIX variable name
+navit/Makefile.am:10: (probably a GNU make extension)
+navit/Makefile.am:64: foreach xslt, $(subst $(comma: non-POSIX variable name
+navit/Makefile.am:64: (probably a GNU make extension)
+navit/Makefile.am:64: addsuffix .xslt,$(addprefix xslt/,$(xslt: non-POSIX variable name
+navit/Makefile.am:64: (probably a GNU make extension)
+navit/Makefile.am:80: subst $(comma: non-POSIX variable name
+navit/Makefile.am:80: (probably a GNU make extension)
+navit/Makefile.am:93: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:93: (probably a GNU make extension)
+navit/Makefile.am:94: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:94: (probably a GNU make extension)
+navit/Makefile.am:95: shell cd $(builddir: non-POSIX variable name
+navit/Makefile.am:95: (probably a GNU make extension)
+navit/Makefile.am:97: shell cd ../po && echo *.mo: non-POSIX variable name
+navit/Makefile.am:97: (probably a GNU make extension)
+navit/gui/qml/Makefile.am:7: `%'-style pattern rules are a GNU make extension
+navit/gui/qml/Makefile.am:9: `%'-style pattern rules are a GNU make extension
+navit/maps/Makefile.am:26: subst .shp,,$<: non-POSIX variable name
+navit/maps/Makefile.am:26: (probably a GNU make extension)
+navit/xpm/Makefile.am:198: `%'-style pattern rules are a GNU make extension
+navit/xpm/Makefile.am:200: `%'-style pattern rules are a GNU make extension
+navit/xpm/Makefile.am:203: addsuffix .png,$(basename $(svgs: non-POSIX variable name
+navit/xpm/Makefile.am:203: (probably a GNU make extension)
+navit/xpm/Makefile.am:204: word 1,$(subst x, ,$(scale: non-POSIX variable name
+navit/xpm/Makefile.am:204: (probably a GNU make extension)
+navit/xpm/Makefile.am:205: word $(words $(scale: non-POSIX variable name
+navit/xpm/Makefile.am:205: (probably a GNU make extension)
+navit/xpm/Makefile.am:205: subst x, ,$(scale: non-POSIX variable name
+navit/xpm/Makefile.am:205: (probably a GNU make extension)
+navit/xpm/Makefile.am:210: foreach scale, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:210: (probably a GNU make extension)
+navit/xpm/Makefile.am:210: addsuffix _$(xsize: non-POSIX variable name
+navit/xpm/Makefile.am:210: (probably a GNU make extension)
+navit/xpm/Makefile.am:210: basename $(svgs: non-POSIX variable name
+navit/xpm/Makefile.am:210: (probably a GNU make extension)
+navit/xpm/Makefile.am:214: foreach scale, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:214: (probably a GNU make extension)
+navit/xpm/Makefile.am:214: addsuffix _$(xsize: non-POSIX variable name
+navit/xpm/Makefile.am:214: (probably a GNU make extension)
+navit/xpm/Makefile.am:214: basename $(flag_svgs: non-POSIX variable name
+navit/xpm/Makefile.am:214: (probably a GNU make extension)
+navit/xpm/Makefile.am:218: foreach scale, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:218: (probably a GNU make extension)
+navit/xpm/Makefile.am:218: addsuffix _$(xsize: non-POSIX variable name
+navit/xpm/Makefile.am:218: (probably a GNU make extension)
+navit/xpm/Makefile.am:218: basename $(nav_svgs: non-POSIX variable name
+navit/xpm/Makefile.am:218: (probably a GNU make extension)

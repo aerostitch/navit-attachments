@@ -1,0 +1,18 @@
+Navit log started
+22:32:23.000|vehicle_wince:vehicle_wince_new:on_eof=0
+22:32:23.000|vehicle_wince:wince_port_reader_thread:GPS Port:[COX8]
+22:32:24.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:25.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:26.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:27.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:28.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:29.000|graphics_win32:MakeMemoryDC:resize memDC to: 236 290 
+22:32:29.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:30.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:30.000|graphics_win32:event_win32_remove_idle:enter
+22:32:31.000|navit:main:Using '\Storage Card\navit/navit.xml'
+22:32:31.000|graphics_win32:event_win32_main_loop_run:enter
+22:32:31.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:32.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:33.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8
+22:32:34.000|vehicle_wince:wince_port_reader_thread:Waiting to connect to COX8

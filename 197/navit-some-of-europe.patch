@@ -1,0 +1,20 @@
+Index: navit/osm2navit.c
+===================================================================
+--- navit/osm2navit.c	(revision 1247)
++++ navit/osm2navit.c	(working copy)
+@@ -331,8 +331,15 @@
+ } country_table[] = {
+ 	{ 40,"Austria,Österreich,AUT"},
+ 	{124,"Canada"},
++	{208,"Denmark,Danmark,DK"},
++	{246,"Finland,Suomi"},
++	{250,"France,République française"},
+ 	{276,"Germany,Deutschland,Bundesrepublik Deutschland"},
++	{380,"Italy,Italia"},
++	{578,"Norway,Norge,Noreg,NO"},
++	{752,"Sweden,Sverige,Konungariket Sverige,SE"},
+ 	{528,"Nederland,The Netherlands,Niederlande,NL"},
++	{724,"Spain,España,Espana,Reino de España"},
+ 	{756,"Schweiz"},
+ 	{840,"USA"}
+ };

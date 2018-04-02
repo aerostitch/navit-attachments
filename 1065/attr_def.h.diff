@@ -1,0 +1,31 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/attr_def.h	2012-09-04 20:04:37.391424012 +0200
++++ attr_def.h	2012-09-23 12:58:13.223276000 +0200
+@@ -103,6 +103,9 @@
+ ATTR(autozoom)
+ ATTR(version)
+ ATTR(autozoom_min)
++/* ********************** Rainer *************************
++ATTR(dynamic_zoom_min)
++* ********************** Rainer *************************/
+ ATTR(maxspeed)
+ ATTR(cdf_histsize)
+ ATTR(message_maxage)
+@@ -174,6 +177,8 @@
+ ATTR(street_count)
+ ATTR(min_dist)
+ ATTR(max_dist)
++ATTR(zoom_scale)
++ATTR(manuever_scale)
+ ATTR2(0x00027500,type_rel_abs_begin)
+ /* These attributes are int that can either hold relative		*
+  * or absolute values. A relative value is indicated by 		*
+@@ -236,6 +241,9 @@
+ ATTR(persistent)
+ ATTR(waypoints_flag) /* toggle for "set as destination" to switch between start a new route or add */
+ ATTR(no_warning_if_map_file_missing)
++/* ********************** Rainer *************************/
++ATTR(dynamic_zoom_active)
++/* ********************** Rainer *************************/
+ ATTR2(0x0002ffff,type_int_end)
+ ATTR2(0x00030000,type_string_begin)
+ ATTR(type)

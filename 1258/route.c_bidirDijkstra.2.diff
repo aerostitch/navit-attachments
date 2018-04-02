@@ -1,0 +1,1524 @@
+79,93d78
+< /* =================================================================
+<  * These part of the Header is used by multithreaded implementations
+<  */
+< #include "util.h"
+< #include <pthread.h>
+< #include <glib.h>
+< 
+< /**@brief varaibles used for enabling and disabling functions
+<  *
+<  * These variables are influenced by the menue and control if the bidirectional routing
+<  * and also the parallel graph buildup are used or not.
+<  */
+< int useBidirectionalRouting = 0;
+< int useBidirectionalMultiThread = 0;
+< 
+96,126d80
+< /**@brief varaibles used for time measurement
+<  */
+< double timestamp_update = (double)0.0;
+< double timestamp_build = (double)0.0;
+< double timestamp_binextract = (double)0.0;
+< double timestamp_flood = (double)0.0;
+< double timestamp_floodbidirectional = (double)0.0;
+< double timestamp_build_next_map = (double)0.0;
+< 
+< /* Needed for bidirectional Search */
+< struct route_graph_common_point {
+< 	struct route_graph_point *pointref;	/* reference to common point with lowest costs mu */
+< 	int mu;								/* costs mu with path over this common point */
+< 	int value_p_min;					/* costs of actual point within target to source flooding */
+< 	int value_p_min_back;				/* costs of actual point within source to target flooding */
+< };
+< 
+< struct route_graph_flood_bidirectional_threadstruct {
+< 	struct route_graph *graph;
+< 	struct route_info *src;
+< 	struct route_info *dst;
+< 	struct vehicleprofile *profile;
+< 	struct route_graph_point *initial_point;
+< 	struct route_graph_common_point *common_point;
+< };
+< 
+< pthread_mutex_t lock_common_point;
+< // translation for Windows and other OS's needed!
+< 
+< /* ================================================================= */
+< 
+148,151d101
+< 
+< 	/* Extension to the route_graph_point used for bidirectional dijkstra */
+< 	struct route_graph_segment *fromseg; /**< Pointer to the segment used to reach this point */
+< 
+154,155d103
+< 	struct fibheap_el *el_back;				 /**< When this point is put on a Fibonacci heap, this is a pointer
+< 										  *  to this point's heap-element */
+157d104
+< 	int value_common;						 /**< The cost at which one can reach the destination from this point on */
+159c106
+< 	int flags;							/**< Flags for this point (eg traffic distortion) */
+---
+> 	int flags;						/**< Flags for this point (eg traffic distortion) */
+366,373c313
+< 
+< static void route_graph_flood(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb, struct route_info *src);
+< static void route_graph_flood_standard(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb);
+< static void route_graph_flood_bidirectional(struct route_graph *this, struct route_info *src, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb);
+< static void route_graph_flood_bidirectional2Threads(struct route_graph *this, struct route_info *src, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb);
+< static int flood_bidirectional_target_to_source(void *attr);
+< static int flood_bidirectional_source_to_target(void *attr);
+< static int calculate_costs_and_set_refs(struct vehicleprofile *profile, struct route_graph_point *src_point, struct route_info *src, struct route_graph_point * common_point ,struct route_graph_point * dst_point, struct route_info *dst);
+---
+> static void route_graph_flood(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb);
+375a316
+> 
+869,870c810
+< 			//route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb);
+< 			route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb, this->pos);
+---
+> 			route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb);
+1394c1334
+< 		route_graph_flood(this->graph, this->current_dst, this->vehicleprofile,	this->route_graph_flood_done_cb, this->pos);
+---
+> 		route_graph_flood(this->graph, this->current_dst, this->vehicleprofile,	this->route_graph_flood_done_cb);
+1535d1474
+< 			curr->fromseg=NULL;
+1537,1538d1475
+< 			curr->el_back=NULL;
+< 			curr->value_common=INT_MAX;
+2118c2055
+< 	if (!route_through_traffic_allowed(profile, over) && from && from->seg && route_through_traffic_allowed(profile, from->seg))
+---
+> 	if (!route_through_traffic_allowed(profile, over) && from && route_through_traffic_allowed(profile, from->seg)) 
+2384,2407d2320
+<  * @brief Switch between different Dijkstra implementations
+<  */
+< static void
+< route_graph_flood(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb, struct route_info *src)
+< {
+< 
+< 	if(useBidirectionalRouting)
+< 	{
+< 		if(useBidirectionalMultiThread)
+< 		{
+< 			route_graph_flood_bidirectional2Threads(this, src, dst, profile, cb);
+< 		}
+< 		else
+< 		{
+< 			route_graph_flood_bidirectional(this, src, dst, profile, cb);
+< 		}
+< 	}
+< 	else
+< 	{
+< 		route_graph_flood_standard(this, dst, profile, cb);
+< 	}
+< }
+< 
+< /**
+2419c2332
+< route_graph_flood_standard(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb)
+---
+> route_graph_flood(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb)
+2421,2422d2333
+< 	timestamp_flood = now_ms();
+< 
+2426c2337
+< 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs from target to source*/
+---
+> 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs */
+2428,2429c2339
+< 	// heap for Target - Source
+< 	heap = fh_makekeyheap();
+---
+> 	heap = fh_makekeyheap();   
+2431,2432d2340
+< 	// Fill Heap initial with first segment(s) of source
+< 	// and get local costs for this segment(s)
+2449d2356
+< 
+2454d2360
+< 
+2529,3240d2434
+< 
+< 	dbg(0,"route_graph_flood() took: %.3f ms\n", now_ms() - timestamp_flood);
+< 
+< 	callback_call_0(cb);
+< 	dbg(1,"return\n");
+< }
+< 
+< /**
+<  * @brief Calculates the routing costs for each point,  starting from 2 points
+<  *
+<  * This function is the heart of routing. It assigns each point in the route graph a
+<  * cost at which one can reach the destination from this point on. Additionally it assigns
+<  * each point a segment one should follow from this point on to reach the destination at the
+<  * stated costs.
+<  *
+<  * This function uses Dijkstra's algorithm to do the routing. To understand it you should have a look
+<  * at this algorithm.
+<  */
+< static void
+< route_graph_flood_bidirectional(struct route_graph *this, struct route_info *src, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb)
+< {
+< 
+< 	//const int dbg_level = 0;
+< 	//debug_route = 1;
+< 	timestamp_floodbidirectional = now_ms();
+< 
+< 	struct route_graph_point *p_min = NULL;
+< 	struct route_graph_segment *s=NULL;
+< 	int min, new,val;
+< 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs from target to source*/
+< 
+< 	// Values for Source - Target search (Back)
+< 	struct route_graph_point *p_min_back = NULL;
+< 	struct route_graph_segment *s_back = NULL;
+< 	int min_back, new_back, val_back, mu, mu_tmp;
+< 	struct fibheap *heap_back; /* This heap will hold all points with "temporarily" calculated costs from source to target*/
+< 
+< 	//struct route_graph_point *curr;
+< 	struct route_graph_point *common_point;
+< 	struct route_graph_point *source_point;
+< 	struct route_graph_point *destination_point;
+< 
+< 	mu = INT_MAX;
+< 	mu_tmp = INT_MAX;
+< 	min = INT_MAX;
+< 	min_back = INT_MAX;
+< 	// heap for Target to CommonPoint
+<  	heap = fh_makekeyheap();
+< 	// heap for Source to CommonPoint
+< 	heap_back = fh_makekeyheap();
+< 
+< 	// Fill Heap initial with first points reachable by initial segment
+< 	// where target is located on and get local costs for this partial segment(s) / Position within this Segment
+< 	while ((s=route_graph_get_segment(this, dst->street, s))) {
+< 		val=route_value_seg(profile, NULL, s, -1);
+< 		if (val != INT_MAX)
+< 		{
+< 			val=val*(100-dst->percent)/100;
+< 			s->end->seg=s;
+< 			s->end->value=val;
+< 			s->end->el=fh_insertkey(heap, s->end->value, s->end);
+< 			destination_point = s->end;
+< 			min = val;
+< 		}
+< 		val=route_value_seg(profile, NULL, s, 1);
+< 		if (val != INT_MAX)
+< 		{
+< 			val=val*dst->percent/100;
+< 			s->start->seg=s;
+< 			s->start->value=val;
+< 			s->start->el=fh_insertkey(heap, s->start->value, s->start);
+< 
+< 			if(val < min)
+< 			{
+< 				destination_point = s->start;
+< 			}
+< 		}
+< 	}
+< 
+< 	// Fill Heap initial with first points reachable by initial segment
+< 	// where source (tp) is located on and get local costs for this partial segment(s) / Position within this Segment
+< 
+< 	while ((s_back=route_graph_get_segment(this, src->street, s_back))) {
+< 		val_back = route_value_seg(profile, NULL, s_back, 1);
+< 		if (val_back != INT_MAX)
+< 		{
+< 			val_back = val_back*(100-src->percent)/100;
+< 			s_back->end->fromseg = s_back;
+< 			// set costs for point start of initial segment
+< 			s_back->end->value = val_back;
+< 			s_back->end->el_back = fh_insertkey(heap_back, s_back->end->value, s_back->end);
+< 			source_point = s_back->end;
+< 			min_back = val_back;
+< 		}
+< 		val_back = route_value_seg(profile, NULL, s_back, -1);
+< 		if (val_back != INT_MAX)
+< 		{
+< 			val_back = val_back*src->percent/100;
+< 			s_back->start->fromseg = s_back;
+< 			// set costs for point end of initial segment
+< 			s_back->start->value = val_back;
+< 			s_back->start->el_back = fh_insertkey(heap_back, s_back->start->value, s_back->start);
+< 			if(val_back < min_back)
+< 			{
+< 				source_point = s_back->start;
+< 			}
+< 		}
+< 	}
+< 
+< 	min = INT_MAX;
+< 	min_back = INT_MAX;
+< 
+< 	//=====================================
+< 
+< 	for (;;) {
+< 
+< 		p_min = fh_extractmin(heap); /* Starting Dijkstra by selecting the point with the minimum costs on the heap */
+< 		//dbg(dbg_level,"extract p=%p min=%d, 0x%x, 0x%x\n", p_min, min, p_min->c.x, p_min->c.y);
+< 
+< 		p_min_back = fh_extractmin(heap_back);
+< 		//dbg(dbg_level,"extract_back p=%p min=%d, 0x%x, 0x%x\n", p_min_back, min_back, p_min_back->c.x, p_min_back->c.y);
+< 
+< 		// termination consition: both heaps are empty
+< 		if (!p_min && !p_min_back )
+< 		{
+< 			dbg(1,"both heaps empty\n");
+< 			break;
+< 		}
+< 
+< 		if(p_min_back)
+< 		{
+< 			// Costs to reach this point:
+< 			min_back = p_min_back->value;
+< 		}
+< 		if(p_min)
+< 		{
+< 			// Costs to reach this point:
+< 			min = p_min->value;
+< 		}
+< 
+< 		// termination condition: found shortest possible route from source to target
+< 		if ( mu < (min + min_back))
+< 		{
+< 			dbg(1,"%d < %d\n", mu, (min + min_back));
+< 			break;
+< 		}
+< 
+< 		// executing dijkstra starting from destination
+< 		if ( p_min ){
+< 			// Forward Step (flood direction is from target to source/common point)
+< 			if (debug_route)
+< 			{
+< 				printf("extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min, p_min->el, min, p_min->c.x, p_min->c.y);
+< 			}
+< 			p_min->el = NULL; /* This point is permanently calculated now, we've taken it out of the heap */
+< 			s = p_min->start;
+< 
+< 			//dbg(0,"forward step: outgoing edges\n");
+< 			// Outgoing Egdes:
+< 			while (s) { /* Iterating all the segments leading away from our point to update the points at their ends */
+< 				val = route_value_seg(profile, p_min, s, -1);
+< 				if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+< 					if (profile->turn_around_penalty2)
+< 						val+=profile->turn_around_penalty2;
+< 					else
+< 						val=INT_MAX;
+< 				}
+< 				if (val != INT_MAX) {
+< 					new=min+val;
+< 					if (debug_route)
+< 						printf("begin %d len %d vs %d (0x%x,0x%x)\n",new,val,s->end->value, s->end->c.x, s->end->c.y);
+< 					if(s->end->fromseg != NULL)
+< 					{
+< 						//dbg(dbg_level,"found common point\n");
+< 						mu_tmp = new + s->end->value;
+< 						if (mu_tmp < mu)
+< 						{
+< 							mu = mu_tmp;
+< 							s->end->seg=s;
+< 							common_point = s->end;
+< 							//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 						}
+< 					}
+< 					else
+< 					{
+< 						if (new < s->end->value) { /* We've found a less costly way to reach the end of s, update it */
+< 							s->end->value=new;
+< 							s->end->seg=s;
+< 							if (! s->end->el) {
+< 								if (debug_route)
+< 									printf("insert_end p=%p el=%p val=%d ", s->end, s->end->el, s->end->value);
+< 								s->end->el=fh_insertkey(heap, new, s->end);
+< 								if (debug_route)
+< 									printf("el new=%p\n", s->end->el);
+< 							}
+< 							else {
+< 								if (debug_route)
+< 									printf("replace_end p=%p el=%p val=%d\n", s->end, s->end->el, s->end->value);
+< 								fh_replacekey(heap, s->end->el, new);
+< 							}
+< 						}
+< 					}
+< 					if (debug_route)
+< 						printf("\n");
+< 				}
+< 				s=s->start_next;
+< 			}
+< 			s = p_min->end;
+< 			//dbg(dbg_level,"forward step: incoming edges\n");
+< 			// Incoming Egdes:
+< 			while (s) { /* Doing the same as above with the segments leading towards our point */
+< 				val = route_value_seg(profile, p_min, s, 1);
+< 				if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+< 					if (profile->turn_around_penalty2)
+< 						val+=profile->turn_around_penalty2;
+< 					else
+< 						val=INT_MAX;
+< 				}
+< 				if (val != INT_MAX) {
+< 					new = min + val;
+< 					if (debug_route)
+< 						printf("end %d len %d vs %d (0x%x,0x%x)\n",new,val,s->start->value,s->start->c.x, s->start->c.y);
+< 					if(s->start->fromseg != NULL)
+< 					{
+< 						//dbg(dbg_level,"found common point\n");
+< 						mu_tmp = new + s->start->value;
+< 						if (mu_tmp < mu)
+< 						{
+< 							mu = mu_tmp;
+< 							s->start->seg=s;
+< 							common_point = s->start;
+< 							//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 						}
+< 					}
+< 					else
+< 					{
+< 						if (new < s->start->value) {
+< 							s->start->value=new;
+< 							s->start->seg=s;
+< 							if (! s->start->el) {
+< 								if (debug_route)
+< 									printf("insert_start p=%p el=%p val=%d ", s->start, s->start->el, s->start->value);
+< 								s->start->el=fh_insertkey(heap, new, s->start);
+< 								if (debug_route)
+< 									printf("el new=%p\n", s->start->el);
+< 							}
+< 							else {
+< 								if (debug_route)
+< 									printf("replace_start p=%p el=%p val=%d\n", s->start, s->start->el, s->start->value);
+< 								fh_replacekey(heap, s->start->el, new);
+< 							}
+< 						}
+< 					}
+< 					if (debug_route)
+< 						printf("\n");
+< 				}
+< 				s=s->end_next;
+< 			}
+< 		}
+< 
+< 		// executing dijkstra starting from source
+< 		if(p_min_back){
+< 			// ===============================================================================================================================
+< 			// Backward Step (flood direction is from source to target/common point)
+< 			// set ->fromseg  when common_point point is found for constructing the
+< 			// final route path with ->ref afterwards
+< 
+< 			if (debug_route)
+< 			{
+< 				printf("extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min_back, p_min_back->el, min_back, p_min_back->c.x, p_min_back->c.y);
+< 			}
+< 			p_min_back->el_back=NULL; /* This point is permanently calculated now, we've taken it out of the heap */
+< 			s_back = p_min_back->start;
+< 			//dbg(dbg_level,"backward step: outgoing edges\n");
+< 
+< 			while (s_back) { /* Iterating all the segments leading away from our point to update the points at their ends */
+< 				val_back = route_value_seg(profile, p_min_back, s_back, 1);
+< 				if (val_back != INT_MAX && item_is_equal(s_back->data.item, p_min_back->fromseg->data.item)) {
+< 					if (profile->turn_around_penalty2)
+< 						val_back += profile->turn_around_penalty2;
+< 					else
+< 						val_back = INT_MAX;
+< 				}
+< 				if (val_back != INT_MAX)
+< 				{
+< 					new_back = min_back + val_back;
+< 					if(s_back->end->seg != NULL)
+< 					{
+< 						//dbg(dbg_level,"found common point\n");
+< 						mu_tmp = new_back + s_back->end->value;
+< 						//s_back->end->value_common = mu_tmp;
+< 						if (mu_tmp < mu)
+< 						{
+< 							mu = mu_tmp;
+< 							common_point = s_back->end;
+< 							s_back->end->fromseg = s_back;
+< 							//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 						}
+< 					}
+< 					else
+< 					{
+< 						if (new_back < s_back->end->value) { /* We've found a less costly way to reach the end of s, update it */
+< 							s_back->end->value = new_back;
+< 							s_back->end->fromseg = s_back;
+< 
+< 							if (! s_back->end->el_back)
+< 							{
+< 								if (debug_route)
+< 									printf("insert_end p_back=%p el_back=%p val_back=%d ", s_back->end, s_back->end->el_back, s_back->end->value);
+< 								s_back->end->el_back = fh_insertkey(heap_back, new_back, s_back->end);
+< 							}
+< 							else
+< 							{
+< 								if (debug_route)
+< 									printf("replaced_end p_back=%p el_back=%p val_back=%d ", s_back->end, s_back->end->el_back, s_back->end->value);
+< 								fh_replacekey(heap_back, s_back->end->el_back, new_back);
+< 							}
+< 						}
+< 					}
+< 				}
+< 				s_back=s_back->start_next;
+< 			}
+< 
+< 			//dbg(dbg_level,"backward step: incoming edges\n");
+< 			s_back=p_min_back->end;
+< 			while (s_back) { /* Doing the same as above with the segments leading towards our point */
+< 				val_back = route_value_seg(profile, p_min_back, s_back, -1);
+< 				if (val_back != INT_MAX && item_is_equal(s_back->data.item, p_min_back->fromseg->data.item)) {
+< 					if (profile->turn_around_penalty2)
+< 						val_back += profile->turn_around_penalty2;
+< 					else
+< 						val_back = INT_MAX;
+< 				}
+< 				if (val_back != INT_MAX) {
+< 					new_back = min_back + val_back;
+< 					if(s_back->start->seg != NULL)
+< 					{
+< 						//dbg(dbg_level,"found common point\n");
+< 						mu_tmp = new_back + s_back->start->value;
+< 						if (mu_tmp < mu)
+< 						{
+< 							mu = mu_tmp;
+< 							s_back->start->fromseg = s_back;
+< 							common_point = s_back->start;
+< 							//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 						}
+< 					}
+< 					else
+< 					{
+< 						if (new_back < s_back->start->value) {
+< 							s_back->start->value = new_back;
+< 							s_back->start->fromseg = s_back;
+< 
+< 							if (! s_back->start->el_back)
+< 							{
+< 								if (debug_route)
+< 									printf("insert_start p_back=%p el_back=%p val_back=%d ", s_back->start, s_back->start->el_back, s_back->start->value);
+< 								s_back->start->el_back = fh_insertkey(heap_back, new_back, s_back->start);
+< 							}
+< 							else
+< 							{
+< 								if (debug_route)
+< 									printf("replaced_start p_back=%p el_back=%p val_back=%d ", s_back->start, s_back->start->el_back, s_back->start->value);
+< 								fh_replacekey(heap_back, s_back->start->el_back, new_back);
+< 							}
+< 						}
+< 					}
+< 				}
+< 				s_back=s_back->end_next;
+< 			}
+< 		}
+< 	} // end loop
+< 
+< 	/*
+< 	 * following start->fromseg, which indicates the least costly way
+< 	 * to reach the source from the common point and save taken path
+< 	 * by setting ->seg
+< 	 */
+< //	dbg(dbg_level,"backward step: traversing from common point to source\n");
+< //
+< //	s = common_point->fromseg;
+< //	if(s->start == common_point)
+< //	{
+< //		curr = s->end;
+< //	}else{
+< //		curr = s->start;
+< //	}
+< //
+< //	s->start->seg = s;
+< //	s->end->seg = s;
+< //	//curr = s->start;
+< //
+< //	for (;;) {
+< //
+< //		printf("curr %p - s->seg %p [ S: %p, E: %p ]\n", curr, curr->fromseg, curr->fromseg->start, curr->fromseg->end);
+< //
+< //		if(curr == s->start )
+< //		{
+< //			curr = s->end;
+< //			s->end->seg = s;
+< //
+< //
+< //		}else{
+< //			curr = s->start;
+< //			s->start->seg = s;
+< //		}
+< //
+< //		// reached source?
+< //		if( item_is_equal(src->street->item, s->data.item) )
+< //		{
+< //			//s_back->end->seg = s_back;
+< //			dbg(dbg_level, "reached Source\n");
+< //			break;
+< //		}
+< //
+< //		// avoid loop:
+< //		if( item_is_equal(curr->fromseg->data.item, s->data.item) )
+< //		{
+< //			dbg(dbg_level, "loop detected!\n");
+< //			break;
+< //		}
+< //
+< //		s = curr->fromseg;
+< //
+< //	}
+< 
+< // bad idea, confuses References!
+< //			timestamp_reverse = now_ms();
+< //			struct route_graph_point *curr;
+< //			for (i = 0 ; i < HASH_SIZE ; i++) {
+< //				curr=this->hash[i];
+< //				while (curr) {
+< //					if (curr->fromseg)
+< //					{
+< //						curr->fromseg->start->seg = curr->fromseg;
+< //					}
+< //					curr=curr->hash_next;
+< //				}
+< //			}
+< //			dbg(dbg_level, "reverse took %.2f ms\n", now_ms() - timestamp_reverse);
+< //
+< 
+< 	calculate_costs_and_set_refs(profile, source_point, src, common_point , destination_point, dst);
+< 	//dbg(dbg_level,"result costs %d\n", mu_tmp);
+< 
+< 	fh_deleteheap(heap);
+< 	fh_deleteheap(heap_back);
+< 
+< 
+< 	dbg(0,"route_graph_flood_bidirectional() took: %.3f ms\n", now_ms() - timestamp_floodbidirectional);
+< 
+< 	callback_call_0(cb);
+< 	dbg(1,"return\n");
+< }
+< 
+< /**
+<  * @brief Calculates the routing costs for each point,  starting from 2 points with 2 threads
+<  *
+<  * This function is the heart of routing. It assigns each point in the route graph a
+<  * cost at which one can reach the destination from this point on. Additionally it assigns
+<  * each point a segment one should follow from this point on to reach the destination at the
+<  * stated costs.
+<  *
+<  * This function uses Dijkstra's algorithm to do the routing. To understand it you should have a look
+<  * at this algorithm.
+<  */
+< static void
+< route_graph_flood_bidirectional2Threads(struct route_graph *this, struct route_info *src, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb)
+< {
+< //	const int dbg_level = 0;
+< //	debug_route = 1;
+< 	timestamp_floodbidirectional = now_ms();
+< 	struct route_graph_common_point *common_point = g_new0(struct route_graph_common_point, 1);
+< 	// initialization of common point variables
+< 	common_point->pointref = NULL;
+< 	common_point->mu = INT_MAX;
+< 
+< 	pthread_t st;
+< //	pthread_t ts;
+< 	int st_ret;
+< //	int ts_ret;
+< 	struct route_graph_flood_bidirectional_threadstruct st_attr;
+< //	struct route_graph_flood_bidirectional_threadstruct ts_attr;
+< 
+< 	// initialize thread parameter structs
+< 	st_attr.graph = this;
+< 	st_attr.common_point = common_point;
+< 	st_attr.initial_point = NULL; /* set by thread-function*/
+< 	st_attr.profile = profile;
+< 	st_attr.src = src;
+< 	st_attr.dst = dst;
+< 
+< //	ts_attr.graph = this;
+< //	ts_attr.common_point = common_point;
+< //	ts_attr.initial_point = NULL; /* set by thread-function*/
+< //	ts_attr.profile = profile;
+< //	ts_attr.src = src;
+< //	ts_attr.dst = dst;
+< 
+< 	// start two threads for bidirectional flooding
+< 	if( pthread_create( &st, NULL, &flood_bidirectional_source_to_target, (void*)&st_attr)!=0)
+< 	{
+< 		dbg(0,"Error creating Thread for flood_bidirectional_source_to_target()");
+< 	}
+< //	if( pthread_create( &st, NULL, &flood_bidirectional_target_to_source, (void*)&ts_attr)!=0)
+< //	{
+< //		dbg(0,"Error creating Thread for flood_bidirectional_target_to_source()");
+< //	}
+< 
+< 	// target to source flooding within this function:
+< 	struct route_graph_point *source_point = NULL;
+< 	struct route_graph_point *p_min = NULL;
+< 	struct route_graph_segment *s=NULL;
+< 	int min, new, val, mu_tmp, mu;
+< 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs from target to source*/
+< 
+< 	mu_tmp = INT_MAX;
+< 	mu = INT_MAX;
+< 	min = INT_MAX;
+< 	// heap for Target to CommonPoint
+<  	heap = fh_makekeyheap();
+< 
+< 	// Fill Heap initial with first points reachable by initial segment
+< 	// where target is located on and get local costs for this partial segment(s) / Position within this Segment
+< 	while ((s=route_graph_get_segment(this, dst->street, s))) {
+< 		val=route_value_seg(profile, NULL, s, -1);
+< 		if (val != INT_MAX)
+< 		{
+< 			val=val*(100-dst->percent)/100;
+< 			s->end->seg=s;
+< 			s->end->value=val;
+< 			s->end->el=fh_insertkey(heap, s->end->value, s->end);
+< 			source_point = s->end;
+< 			min = val;
+< 		}
+< 		val=route_value_seg(profile, NULL, s, 1);
+< 		if (val != INT_MAX)
+< 		{
+< 			val=val*dst->percent/100;
+< 			s->start->seg=s;
+< 			s->start->value=val;
+< 			s->start->el=fh_insertkey(heap, s->start->value, s->start);
+< 
+< 			if(val < min)
+< 			{
+< 				source_point = s->start;
+< 			}
+< 		}
+< 	}
+< 
+< 	min = INT_MAX;
+< 	/* infinite loop */
+< 	for (;;) {
+< 
+< 		p_min = fh_extractmin(heap); /* Starting Dijkstra by selecting the point with the minimum costs on the heap */
+< 		//dbg(dbg_level,"extract p=%p min=%d, 0x%x, 0x%x\n", p_min, min, p_min->c.x, p_min->c.y);
+< 
+< 		// termination consition: both heaps are empty
+< 		if (!p_min)
+< 		{
+< 			dbg(1,"t-s heap empty\n");
+< 			break;
+< 		}
+< 
+< 		min=p_min->value;
+< 
+< 		common_point->value_p_min = min;
+< 		//pthread_mutex_lock(&lock_common_point);
+< 		// termination condition: found shortest possible route from source to target
+< 		mu = common_point->mu;
+< 		if ( mu < (common_point->value_p_min_back + min))
+< 		{
+< 			dbg(1,"%d < %d\n", mu, (common_point->value_p_min_back + min));
+< 			//pthread_mutex_unlock(&lock_common_point);
+< 			break;
+< 		}
+< 		//pthread_mutex_unlock(&lock_common_point);
+< 
+< 
+< //		if (debug_route)
+< //		{
+< //			printf("extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min, p_min->el, min, p_min->c.x, p_min->c.y);
+< //		}
+< 
+< 		p_min->el = NULL; /* This point is permanently calculated now, we've taken it out of the heap */
+< 		s = p_min->start;
+< 
+< 		// Outgoing Egdes:
+< 		while (s) { /* Iterating all the segments leading away from our point to update the points at their ends */
+< 			val = route_value_seg(profile, p_min, s, -1);
+< 			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+< 				if (profile->turn_around_penalty2)
+< 					val+=profile->turn_around_penalty2;
+< 				else
+< 					val=INT_MAX;
+< 			}
+< 			if (val != INT_MAX) {
+< 				new=min+val;
+< //				if (debug_route)
+< //					printf("begin %d len %d vs %d (0x%x,0x%x)\n",new,val,s->end->value, s->end->c.x, s->end->c.y);
+< 				if(s->end->fromseg != NULL)
+< 				{
+< 					//dbg(dbg_level,"found common point\n");
+< 					mu_tmp = new + s->end->value;
+< 					pthread_mutex_lock(&lock_common_point);
+< 					if (mu_tmp < common_point->mu)
+< 					{
+< 						common_point->mu = mu_tmp;
+< 						s->end->seg=s;
+< 						common_point->pointref = s->end;
+< 						//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 					}
+< 					pthread_mutex_unlock(&lock_common_point);
+< 				}
+< 				else
+< 				{
+< 					if (new < s->end->value) { /* We've found a less costly way to reach the end of s, update it */
+< 						s->end->seg=s;
+< 						s->end->value=new;
+< 
+< 						if (! s->end->el) {
+< //							if (debug_route)
+< //								printf("insert_end p=%p el=%p val=%d ", s->end, s->end->el, s->end->value);
+< 							s->end->el=fh_insertkey(heap, new, s->end);
+< //							if (debug_route)
+< //								printf("el new=%p\n", s->end->el);
+< 						}
+< 						else {
+< //							if (debug_route)
+< //								printf("replace_end p=%p el=%p val=%d\n", s->end, s->end->el, s->end->value);
+< 							fh_replacekey(heap, s->end->el, new);
+< 						}
+< 					}
+< 				}
+< //				if (debug_route)
+< //					printf("\n");
+< 			}
+< 			s=s->start_next;
+< 		} // end while loop
+< 
+< 		s = p_min->end;
+< 		// Incoming Egdes:
+< 		while (s) { /* Doing the same as above with the segments leading towards our point */
+< 			val = route_value_seg(profile, p_min, s, 1);
+< 			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+< 				if (profile->turn_around_penalty2)
+< 					val+=profile->turn_around_penalty2;
+< 				else
+< 					val=INT_MAX;
+< 			}
+< 			if (val != INT_MAX) {
+< 				new = min + val;
+< //				if (debug_route)
+< //					printf("end %d len %d vs %d (0x%x,0x%x)\n",new,val,s->start->value,s->start->c.x, s->start->c.y);
+< 				if(s->start->fromseg != NULL)
+< 				{
+< 					//dbg(dbg_level,"found common point\n");
+< 					mu_tmp = new + s->start->value;
+< 					pthread_mutex_lock(&lock_common_point);
+< 					if (mu_tmp < common_point->mu)
+< 					{
+< 						common_point->mu = mu_tmp;
+< 						s->start->seg=s;
+< 						common_point->pointref = s->start;
+< 						//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 					}
+< 					pthread_mutex_unlock(&lock_common_point);
+< 				}
+< 				else
+< 				{
+< 					if (new < s->start->value) {
+< 						s->start->value=new;
+< 						s->start->seg=s;
+< 						if (! s->start->el) {
+< //							if (debug_route)
+< //								printf("insert_start p=%p el=%p val=%d ", s->start, s->start->el, s->start->value);
+< 							s->start->el=fh_insertkey(heap, new, s->start);
+< //							if (debug_route)
+< //								printf("el new=%p\n", s->start->el);
+< 						}
+< 						else {
+< //							if (debug_route)
+< //								printf("replace_start p=%p el=%p val=%d\n", s->start, s->start->el, s->start->value);
+< 							fh_replacekey(heap, s->start->el, new);
+< 						}
+< 					}
+< 				}
+< //				if (debug_route)
+< //					printf("\n");
+< 			}
+< 			s=s->end_next;
+< 		} // end while loop
+< 	} // end for loop
+< 
+< 	//=====================================
+< 
+< 	fh_deleteheap(heap);
+< 
+< 
+< 	// blocking wait for Thread:
+< 	pthread_join(st, &st_ret);
+< 	//pthread_join(ts, &ts_ret);
+< 
+< 	/*
+< 	 * following start->fromseg, which indicates the least costly way
+< 	 * to reach the source from the common point and save taken path
+< 	 * by setting ->seg
+< 	 */
+< 	calculate_costs_and_set_refs(profile, st_attr.initial_point, src, common_point->pointref , source_point, dst);
+< 	//dbg(dbg_level,"result costs %d\n", mu_tmp);
+< 
+< 	dbg(0," took: %.3f ms\n", now_ms() - timestamp_floodbidirectional);
+3242d2435
+< 	g_free(common_point);
+3246,3822d2438
+< static int
+< flood_bidirectional_source_to_target(void *attr)
+< {
+< 	struct route_graph_flood_bidirectional_threadstruct *st_attr = (struct route_graph_flood_bidirectional_threadstruct*)attr;
+< 	struct route_graph *this = st_attr->graph;
+< 	struct route_info *src = st_attr->src;
+< //	struct route_info *dst = st_attr->dst;
+< 	struct vehicleprofile *profile = st_attr->profile;
+< 	struct route_graph_common_point *common_point = st_attr->common_point;
+< 
+< 	struct route_graph_point *p_min_back = NULL;
+< 	struct route_graph_segment *s_back = NULL;
+< 	int min_back, new_back, val_back, mu_tmp, mu;
+< 	struct fibheap *heap_back; /* This heap will hold all points with "temporarily" calculated costs from source to target*/
+< 
+< 	mu_tmp = INT_MAX;
+< 	mu = INT_MAX;
+< 	min_back = INT_MAX;
+< 	// heap for Source to CommonPoint
+< 	heap_back = fh_makekeyheap();
+< 
+< 	// Fill Heap initial with first points reachable by initial segment
+< 	// where source (tp) is located on and get local costs for this partial segment(s) / Position within this Segment
+< 	while ((s_back=route_graph_get_segment(this, src->street, s_back))) {
+< 		val_back = route_value_seg(profile, NULL, s_back, 1);
+< 		if (val_back != INT_MAX)
+< 		{
+< 			val_back = val_back*(100-src->percent)/100;
+< 			s_back->end->fromseg = s_back;
+< 			// set costs for point start of initial segment
+< 			s_back->end->value = val_back;
+< 			s_back->end->el_back = fh_insertkey(heap_back, s_back->end->value, s_back->end);
+< 			st_attr->initial_point = s_back->end;
+< 			min_back = val_back;
+< 		}
+< 		val_back = route_value_seg(profile, NULL, s_back, -1);
+< 		if (val_back != INT_MAX)
+< 		{
+< 			val_back = val_back*src->percent/100;
+< 			s_back->start->fromseg = s_back;
+< 			// set costs for point end of initial segment
+< 			s_back->start->value = val_back;
+< 			s_back->start->el_back = fh_insertkey(heap_back, s_back->start->value, s_back->start);
+< 			if(val_back < min_back)
+< 			{
+< 				st_attr->initial_point = s_back->start;
+< 			}
+< 		}
+< 	}
+< 	min_back = INT_MAX;
+< 	//=====================================
+< 	for (;;) {
+< 		p_min_back = fh_extractmin(heap_back);
+< 		//dbg(dbg_level,"extract_back p=%p min=%d, 0x%x, 0x%x\n", p_min_back, min_back, p_min_back->c.x, p_min_back->c.y);
+< 
+< 		// termination condition: heap is empty
+< 		if (!p_min_back )
+< 		{
+< 			dbg(1,"s-t heap empty\n");
+< 			break;
+< 		}
+< 
+< 		// Costs to reach this point:
+< 		min_back = p_min_back->value;
+< 
+< 		common_point->value_p_min_back = min_back;
+< 		//pthread_mutex_lock(&lock_common_point);
+< 		// termination condition: found shortest possible route from source to target
+< 		mu = common_point->mu;
+< 		if ( mu < (common_point->value_p_min + min_back))
+< 		{
+< 			dbg(1,"%d < %d\n", mu, (common_point->value_p_min + min_back));
+< 			//pthread_mutex_unlock(&lock_common_point);
+< 			break;
+< 		}
+< 		//pthread_mutex_unlock(&lock_common_point);
+< 
+< //		if (debug_route)
+< //		{
+< //			printf("extract p_back=%p free el=%p min_back=%d, 0x%x, 0x%x\n", p_min_back, p_min_back->el, min_back, p_min_back->c.x, p_min_back->c.y);
+< //		}
+< 
+< 		p_min_back->el_back=NULL; /* This point is permanently calculated now, we've taken it out of the heap */
+< 		s_back = p_min_back->start;
+< 		//dbg(dbg_level,"backward step: outgoing edges\n");
+< 
+< 		while (s_back) { /* Iterating all the segments leading away from our point to update the points at their ends */
+< 			val_back = route_value_seg(profile, p_min_back, s_back, 1);
+< 			if (val_back != INT_MAX && item_is_equal(s_back->data.item, p_min_back->fromseg->data.item)) {
+< 				if (profile->turn_around_penalty2)
+< 					val_back += profile->turn_around_penalty2;
+< 				else
+< 					val_back = INT_MAX;
+< 			}
+< 			if (val_back != INT_MAX)
+< 			{
+< 				new_back = min_back + val_back;
+< 				if(s_back->end->seg != NULL)
+< 				{
+< 					//dbg(dbg_level,"found common point\n");
+< 					mu_tmp = new_back + s_back->end->value;
+< 					pthread_mutex_lock(&lock_common_point);
+< 					if (mu_tmp <  common_point->mu)
+< 					{
+< 						common_point->mu = mu_tmp;
+< 						common_point->pointref = s_back->end;
+< 						s_back->end->fromseg = s_back;
+< 						//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 					}
+< 					pthread_mutex_unlock(&lock_common_point);
+< 				}
+< 				else
+< 				{
+< 					if (new_back < s_back->end->value) { /* We've found a less costly way to reach the end of s, update it */
+< 						s_back->end->value = new_back;
+< 						s_back->end->fromseg = s_back;
+< 
+< 						if (! s_back->end->el_back)
+< 						{
+< //							if (debug_route)
+< //								printf("insert_end p_back=%p el_back=%p val_back=%d ", s_back->end, s_back->end->el_back, s_back->end->value);
+< 							s_back->end->el_back = fh_insertkey(heap_back, new_back, s_back->end);
+< 						}
+< 						else
+< 						{
+< //							if (debug_route)
+< //								printf("replaced_end p_back=%p el_back=%p val_back=%d ", s_back->end, s_back->end->el_back, s_back->end->value);
+< 							fh_replacekey(heap_back, s_back->end->el_back, new_back);
+< 						}
+< 					}
+< 				}
+< 			}
+< 			s_back=s_back->start_next;
+< 		} // end while loop
+< 
+< 		//dbg(dbg_level,"backward step: incoming edges\n");
+< 		s_back=p_min_back->end;
+< 		while (s_back) { /* Doing the same as above with the segments leading towards our point */
+< 			val_back = route_value_seg(profile, p_min_back, s_back, -1);
+< 			if (val_back != INT_MAX && item_is_equal(s_back->data.item, p_min_back->fromseg->data.item)) {
+< 				if (profile->turn_around_penalty2)
+< 					val_back += profile->turn_around_penalty2;
+< 				else
+< 					val_back = INT_MAX;
+< 			}
+< 			if (val_back != INT_MAX) {
+< 				new_back = min_back + val_back;
+< 				if(s_back->start->seg != NULL)
+< 				{
+< 					//dbg(dbg_level,"found common point\n");
+< 					mu_tmp = new_back + s_back->start->value;
+< 					pthread_mutex_lock(&lock_common_point);
+< 					if (mu_tmp <  common_point->mu)
+< 					{
+< 						common_point->mu = mu_tmp;
+< 						common_point->pointref = s_back->start;
+< 						s_back->start->fromseg = s_back;
+< 						//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 					}
+< 					pthread_mutex_unlock(&lock_common_point);
+< 
+< 				}
+< 				else
+< 				{
+< 					if (new_back < s_back->start->value) {
+< 						s_back->start->fromseg = s_back;
+< 						s_back->start->value = new_back;
+< 
+< 						if (! s_back->start->el_back)
+< 						{
+< //							if (debug_route)
+< //								printf("insert_start p_back=%p el_back=%p val_back=%d ", s_back->start, s_back->start->el_back, s_back->start->value);
+< 							s_back->start->el_back = fh_insertkey(heap_back, new_back, s_back->start);
+< 						}
+< 						else
+< 						{
+< //							if (debug_route)
+< //								printf("replaced_start p_back=%p el_back=%p val_back=%d ", s_back->start, s_back->start->el_back, s_back->start->value);
+< 							fh_replacekey(heap_back, s_back->start->el_back, new_back);
+< 						}
+< 					}
+< 				}
+< 			}
+< 			s_back=s_back->end_next;
+< 		} // end while loop
+< 	} // end for loop
+< 
+< 	//=====================================
+< 	fh_deleteheap(heap_back);
+< 
+< 	return 0;
+< }
+< 
+< static int
+< flood_bidirectional_target_to_source(void *attr)
+< {
+< 	struct route_graph_flood_bidirectional_threadstruct *st_attr = (struct route_graph_flood_bidirectional_threadstruct*)attr;
+< 	struct route_graph *this = st_attr->graph;
+< 	struct route_info *dst = st_attr->dst;
+< 	struct vehicleprofile *profile = st_attr->profile;
+< 	struct route_graph_common_point *common_point = st_attr->common_point;
+< 
+< 	struct route_graph_point *p_min = NULL;
+< 	struct route_graph_segment *s=NULL;
+< 	int min, new,val;
+< 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs from target to source*/
+< 	int mu_tmp, mu;
+< 
+< 	mu_tmp = INT_MAX;
+< 	mu = INT_MAX;
+< 	min = INT_MAX;
+< 	// heap for Target to CommonPoint
+<  	heap = fh_makekeyheap();
+< 
+< 	// Fill Heap initial with first points reachable by initial segment
+< 	// where target is located on and get local costs for this partial segment(s) / Position within this Segment
+< 	while ((s=route_graph_get_segment(this, dst->street, s))) {
+< 		val=route_value_seg(profile, NULL, s, -1);
+< 		if (val != INT_MAX)
+< 		{
+< 			val=val*(100-dst->percent)/100;
+< 			s->end->seg=s;
+< 			s->end->value=val;
+< 			s->end->el=fh_insertkey(heap, s->end->value, s->end);
+< 			st_attr->initial_point = s->end;
+< 			min = val;
+< 		}
+< 		val=route_value_seg(profile, NULL, s, 1);
+< 		if (val != INT_MAX)
+< 		{
+< 			val=val*dst->percent/100;
+< 			s->start->seg=s;
+< 			s->start->value=val;
+< 			s->start->el=fh_insertkey(heap, s->start->value, s->start);
+< 
+< 			if(val < min)
+< 			{
+< 				st_attr->initial_point = s->start;
+< 			}
+< 		}
+< 	}
+< 
+< 	min = INT_MAX;
+< 	//=====================================
+< 
+< 	/* infinite loop */
+< 	for (;;) {
+< 
+< 		p_min = fh_extractmin(heap); /* Starting Dijkstra by selecting the point with the minimum costs on the heap */
+< 		//dbg(dbg_level,"extract p=%p min=%d, 0x%x, 0x%x\n", p_min, min, p_min->c.x, p_min->c.y);
+< 
+< 		// termination consition: both heaps are empty
+< 		if (!p_min)
+< 		{
+< 			dbg(1,"t-s heap empty\n");
+< 			break;
+< 		}
+< 
+< 		min=p_min->value;
+< 
+< 		common_point->value_p_min = min;
+< 		//pthread_mutex_lock(&lock_common_point);
+< 		// termination condition: found shortest possible route from source to target
+< 		mu = common_point->mu;
+< 		if ( mu < (common_point->value_p_min_back + min))
+< 		{
+< 			dbg(1,"%d < %d\n", mu, (common_point->value_p_min_back + min));
+< 			//pthread_mutex_unlock(&lock_common_point);
+< 			break;
+< 		}
+< 		//pthread_mutex_unlock(&lock_common_point);
+< 
+< 
+< //		if (debug_route)
+< //		{
+< //			printf("extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min, p_min->el, min, p_min->c.x, p_min->c.y);
+< //		}
+< 
+< 		p_min->el = NULL; /* This point is permanently calculated now, we've taken it out of the heap */
+< 		s = p_min->start;
+< 
+< 		// Outgoing Egdes:
+< 		while (s) { /* Iterating all the segments leading away from our point to update the points at their ends */
+< 			val = route_value_seg(profile, p_min, s, -1);
+< 			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+< 				if (profile->turn_around_penalty2)
+< 					val+=profile->turn_around_penalty2;
+< 				else
+< 					val=INT_MAX;
+< 			}
+< 			if (val != INT_MAX) {
+< 				new=min+val;
+< //				if (debug_route)
+< //					printf("begin %d len %d vs %d (0x%x,0x%x)\n",new,val,s->end->value, s->end->c.x, s->end->c.y);
+< 				if(s->end->fromseg != NULL)
+< 				{
+< 					//dbg(dbg_level,"found common point\n");
+< 					mu_tmp = new + s->end->value;
+< 					pthread_mutex_lock(&lock_common_point);
+< 					if (mu_tmp < common_point->mu)
+< 					{
+< 						common_point->mu = mu_tmp;
+< 						s->end->seg=s;
+< 						common_point->pointref = s->end;
+< 						//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 					}
+< 					pthread_mutex_unlock(&lock_common_point);
+< 				}
+< 				else
+< 				{
+< 					if (new < s->end->value) { /* We've found a less costly way to reach the end of s, update it */
+< 						s->end->seg=s;
+< 						s->end->value=new;
+< 
+< 						if (! s->end->el) {
+< //							if (debug_route)
+< //								printf("insert_end p=%p el=%p val=%d ", s->end, s->end->el, s->end->value);
+< 							s->end->el=fh_insertkey(heap, new, s->end);
+< //							if (debug_route)
+< //								printf("el new=%p\n", s->end->el);
+< 						}
+< 						else {
+< //							if (debug_route)
+< //								printf("replace_end p=%p el=%p val=%d\n", s->end, s->end->el, s->end->value);
+< 							fh_replacekey(heap, s->end->el, new);
+< 						}
+< 					}
+< 				}
+< //				if (debug_route)
+< //					printf("\n");
+< 			}
+< 			s=s->start_next;
+< 		} // end while loop
+< 
+< 		s = p_min->end;
+< 		// Incoming Egdes:
+< 		while (s) { /* Doing the same as above with the segments leading towards our point */
+< 			val = route_value_seg(profile, p_min, s, 1);
+< 			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+< 				if (profile->turn_around_penalty2)
+< 					val+=profile->turn_around_penalty2;
+< 				else
+< 					val=INT_MAX;
+< 			}
+< 			if (val != INT_MAX) {
+< 				new = min + val;
+< //				if (debug_route)
+< //					printf("end %d len %d vs %d (0x%x,0x%x)\n",new,val,s->start->value,s->start->c.x, s->start->c.y);
+< 				if(s->start->fromseg != NULL)
+< 				{
+< 					//dbg(dbg_level,"found common point\n");
+< 					mu_tmp = new + s->start->value;
+< 					pthread_mutex_lock(&lock_common_point);
+< 					if (mu_tmp < common_point->mu)
+< 					{
+< 						common_point->mu = mu_tmp;
+< 						s->start->seg=s;
+< 						common_point->pointref = s->start;
+< 						//dbg(dbg_level,"costs for common point: %d\n", mu);
+< 					}
+< 					pthread_mutex_unlock(&lock_common_point);
+< 				}
+< 				else
+< 				{
+< 					if (new < s->start->value) {
+< 						s->start->value=new;
+< 						s->start->seg=s;
+< 						if (! s->start->el) {
+< //							if (debug_route)
+< //								printf("insert_start p=%p el=%p val=%d ", s->start, s->start->el, s->start->value);
+< 							s->start->el=fh_insertkey(heap, new, s->start);
+< //							if (debug_route)
+< //								printf("el new=%p\n", s->start->el);
+< 						}
+< 						else {
+< //							if (debug_route)
+< //								printf("replace_start p=%p el=%p val=%d\n", s->start, s->start->el, s->start->value);
+< 							fh_replacekey(heap, s->start->el, new);
+< 						}
+< 					}
+< 				}
+< //				if (debug_route)
+< //					printf("\n");
+< 			}
+< 			s=s->end_next;
+< 		} // end while loop
+< 	} // end for loop
+< 
+< 	//=====================================
+< 
+< 	fh_deleteheap(heap);
+< 	return 0;
+< }
+< 
+< 
+< 
+< /**
+<  * @brief calculate costs from source to target over common_point and set ref
+<  * to maintain functionality of other routines
+<  *
+<  * following start->fromseg, which indicates the least costly way
+<  * to reach the source from the common point and save taken path
+<  * by setting ->seg, summarize costs and also summarize costs from
+<  * common point to destination by following common_point->ref
+<  *
+<  *
+<  * @param src_point The starting point
+<  * @param src position of user
+<  * @param common_point The common point of both searches
+<  * @param dst position of destination
+<  * @param destination_point The destination point
+<  * @return mu, the summarized costs
+<  */
+< 
+< static int
+< calculate_costs_and_set_refs(struct vehicleprofile *profile, struct route_graph_point *src_point, struct route_info *src, struct route_graph_point * common_point ,struct route_graph_point * dst_point, struct route_info *dst)
+< {
+< 	int dbg_level = 1;
+< 	int mu;
+< 	struct route_graph_point *  curr;
+< 	struct route_graph_segment * s;
+< 
+< 	dbg(dbg_level,"traversing from common point to source\n");
+< 
+< 	if(!common_point || !common_point->fromseg)
+< 	{
+< 		return INT_MAX;
+< 	}
+< 
+< 	if(!src_point || !dst_point)
+< 	{
+< 		dbg(dbg_level,"source or destination point not set\n");
+< 		return INT_MAX;
+< 	}
+< 
+< 	s = common_point->fromseg;
+< 	curr = common_point;
+< 
+< 	//while(curr->fromseg) {
+< 	while(s) {
+< 
+< 		//dbg(dbg_level, "curr %p - s->seg %p [ S: %p, E: %p ]\n", curr, curr->fromseg, curr->fromseg->start, curr->fromseg->end);
+< 
+< 		if(curr == s->start )
+< 		{
+< 			curr = s->end;
+< 			s->end->seg = s;
+< 
+< 		}else{
+< 			curr = s->start;
+< 			s->start->seg = s;
+< 		}
+< 
+< 		// reached source?
+< //		if( item_is_equal(src->street->item, s->data.item) )
+< //		{
+< //			src_point->seg = s;
+< //			dbg(dbg_level, "reached Source\n");
+< //			break;
+< //		}
+< 
+< 		if( src_point == curr )
+< 		{
+< 			dbg(dbg_level, "setting ref reached Source\n");
+< 			break;
+< 		}
+< 
+< 		// avoid loop:
+< 		if( item_is_equal(curr->fromseg->data.item, s->data.item) )
+< 		{
+< 			dbg(dbg_level, "setting ref detected loop!\n");
+< 			break;
+< 		}
+< 
+< 		s = curr->fromseg;
+< 	}
+< 
+< #if 0
+< 	// TEST Travelling from Source to Target:
+< 	curr = src_point;
+< 	s = src_point->seg;
+< 
+< 	while (s) {
+< 
+< 		//dbg(dbg_level, "curr %p - s->seg %p [ S: %p, E: %p ]\n", curr, curr->seg, curr->seg->start, curr->seg->end);
+< 
+< 		// reached Destination?
+< 		if( item_is_equal(dst->street->item, s->data.item) )
+< 		{
+< 			dbg(dbg_level, "TEST: reached Destination\n");
+< 			break;
+< 		}
+< 
+< 		if(curr == s->start )
+< 		{
+< 			curr = s->end;
+< 
+< 		}else{
+< 			curr = s->start;
+< 		}
+< 
+< 		// avoid loop:
+< 		if( item_is_equal(curr->seg->data.item, s->data.item) )
+< 		{
+< 			dbg(dbg_level, "TEST: loop detected!\n");
+< 			break;
+< 		}
+< 
+< 		s = curr->seg;
+< 	}
+< #endif
+< 
+< 	// summarize costs from destination to one step before common point
+< 	// common point is always found by both searches but has costs of
+< 	// search starting from Source
+< 	if(common_point == common_point->seg->start)
+< 	{
+< 		mu = common_point->seg->end->value;
+< 	}else{
+< 		mu = common_point->seg->start->value;
+< 	}
+< 
+< 	// costs from common point one step in direction destination
+< 	mu += route_value_seg(profile, NULL, common_point->seg, 1);
+< 	//mu += route_value_seg(profile, common_point, common_point->seg, 1);
+< 
+< 	// summarize costs from source to common point
+< 	mu += common_point->value;
+< 
+< 	dbg(dbg_level, "Costs of Path mu = %d\n", mu);
+< 	return mu;
+< }
+< 
+< /**
+<  * @brief sets default navit routing implementation
+<  *
+<  *
+<  * @return int In every case 1
+<  */
+< int
+< use_standard_routing()
+< {
+< 	useBidirectionalRouting = 0;
+< 	useBidirectionalMultiThread = 0;
+< 	return 1;
+< }
+< 
+< /**
+<  * @brief sets singlethreaded bidirectional dijkstra implementation as routing algorithm
+<  *
+<  *
+<  * @return int In every case 1
+<  */
+< int
+< use_bidirectional_routing_1Thread()
+< {
+< 	useBidirectionalRouting = 1;
+< 	useBidirectionalMultiThread = 0;
+< 	return 1;
+< }
+< 
+< /**
+<  * @brief sets bidirectional dijkstra implementation with two threads as routing algorithm
+<  *
+<  *
+<  * @return int In every case 1
+<  */
+< int
+< use_bidirectional_routing_2Threads()
+< {
+< 	// ToDo: check if more than one Core is available
+< 	useBidirectionalRouting = 1;
+< 	useBidirectionalMultiThread = 1;
+< 	return 1;
+< }
+< 
+< 
+3992,3993c2608
+< 			//route_graph_flood(this, dst, profile, NULL);
+< 			route_graph_flood(this, dst, profile, NULL, pos);
+---
+> 			route_graph_flood(this, dst, profile, NULL);
+4009d2623
+< 		//printf("s %p - s->seg %p [ S: %p, E: %p ]\n", start, start->fromseg, start->fromseg->start, start->fromseg->end);
+4011,4012c2625
+< 
+< 		if (s->start == start) {
+---
+> 		if (s->start == start) {		
+4037d2649
+< 	//timestamp_build_next_map = now_ms();
+4045,4047c2657
+< 
+< 	//dbg(0, "took %.2lf\n", now_ms() - timestamp_build_next_map);
+< 
+---
+> 		
+4190d2799
+< 	// double timestamp_restrictions = now_ms();
+4202d2810
+< 	// dbg(0," took: %.2f ms\n", now_ms()-timestamp_restrictions);
+4208,4209d2815
+< 	dbg(0,"build took: %.2f ms\n", now_ms()-timestamp_build);
+< 
+4233,4234d2838
+< 	//double tmptimestamp = now_ms();
+< 
+4239c2843
+< 		for (;;) {
+---
+> 		for (;;) {	
+4256,4257d2859
+< 
+< 	//dbg(0," took: %.2f ms\n", now_ms()-tmptimestamp);
+4279,4281d2880
+< 
+< 	double tmptimestamp = (double)0.0;
+< 
+4283,4287d2881
+< 	dbg(1,"enter\n");
+< 
+< 	tmptimestamp = now_ms();
+< 	ret->sel=route_calc_selection(c, count, profile); // 0.01 ms
+< 	dbg(0,"route_calc_selection() took: %.2f ms\n", now_ms()-tmptimestamp);
+4288a2883
+> 	dbg(1,"enter\n");
+4290,4293c2885,2886
+< 	tmptimestamp = now_ms();
+< 	ret->h=mapset_open(ms); // 0.00 ms
+< 	dbg(0,"mapset_open() took: %.2f ms\n", now_ms()-tmptimestamp);
+< 
+---
+> 	ret->sel=route_calc_selection(c, count, profile);
+> 	ret->h=mapset_open(ms);
+4296d2888
+< 
+4302c2894
+< 	} else {
+---
+> 	} else
+4305,4307d2896
+< 		dbg(0," took: %.2f ms\n", now_ms()-timestamp_build);
+< 	}
+< 
+4314,4316c2903
+< 	// dbg(0," took: %.2f ms\n", now_ms()-timestamp_update);
+< 	//route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, cb);
+< 	route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, cb, this->pos);
+---
+> 	route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, cb);
+4330,4332d2916
+< 
+< 	timestamp_update = now_ms();
+< 
+4352,4354d2935
+< 
+< 	timestamp_build = now_ms();
+< 
+4357c2938
+< 		while (this->graph->busy)
+---
+> 		while (this->graph->busy) 
+4360,4361d2940
+< 	
+< 	// dbg(0," took: %.2f ms\n", now_ms()-timestamp_update);
+5495a4075
+> 	g_free(this_);

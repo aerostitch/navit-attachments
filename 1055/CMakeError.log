@@ -1,0 +1,241 @@
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=pthread_create   CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lpthreads 
+/usr/bin/ld: error: cannot find -lpthreads
+/usr/bin/ld: CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o: in function main:CheckFunctionExists.c(.text+0x15): error: undefined reference to 'pthread_create'
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+
+Determining if the function gypsy_control_get_default exists in the gypsy failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=gypsy_control_get_default   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=gypsy_control_get_default   CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lgypsy 
+/usr/bin/ld: error: cannot find -lgypsy
+/usr/bin/ld: CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o: in function main:CheckFunctionExists.c(.text+0x15): error: undefined reference to 'gypsy_control_get_default'
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+
+Determining if files libspeechd.h exist failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:2:24: error: libspeechd.h: Datei oder Verzeichnis nicht gefunden
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+Source:
+/* */
+#include <libspeechd.h>
+
+
+int main(){return 0;}
+
+Determining if the CreateProcess exist failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:21: error: windows.h: Datei oder Verzeichnis nicht gefunden
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: ‘CreateProcess’ undeclared (first use in this function)
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+File /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <windows.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef CreateProcess
+  cmakeRequireSymbol(0,&CreateProcess);
+#endif
+  return 0;
+}
+
+Determining if the function libintl_fprintf exists in the intl failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=libintl_fprintf   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=libintl_fprintf   CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lintl 
+/usr/bin/ld: error: cannot find -lintl
+/usr/bin/ld: CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o: in function main:CheckFunctionExists.c(.text+0x15): error: undefined reference to 'libintl_fprintf'
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+
+Determining if the function FreeImage_Load exists in the freeimage failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=FreeImage_Load   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=FreeImage_Load   CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lfreeimage 
+/usr/bin/ld: error: cannot find -lfreeimage
+/usr/bin/ld: CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o: in function main:CheckFunctionExists.c(.text+0x15): error: undefined reference to 'FreeImage_Load'
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+
+Determining if the function _atoi64 exists failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=_atoi64   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=_atoi64   CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic 
+/usr/bin/ld: CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o: in function main:CheckFunctionExists.c(.text+0x15): error: undefined reference to '_atoi64'
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -I/usr/include/qt4   -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: ‘Q_WS_WIN’ undeclared (first use in this function)
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+File /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <QtCore/qglobal.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef Q_WS_WIN
+  cmakeRequireSymbol(0,&Q_WS_WIN);
+#endif
+  return 0;
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -I/usr/include/qt4   -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: ‘Q_WS_QWS’ undeclared (first use in this function)
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+File /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <QtCore/qglobal.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef Q_WS_QWS
+  cmakeRequireSymbol(0,&Q_WS_QWS);
+#endif
+  return 0;
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -I/usr/include/qt4   -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: ‘Q_WS_MAC’ undeclared (first use in this function)
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make[1]: Leaving directory `/home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec/fast] Fehler 2
+
+File /home/mdupont/experiments/fosm/navit/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <QtCore/qglobal.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef Q_WS_MAC
+  cmakeRequireSymbol(0,&Q_WS_MAC);
+#endif
+  return 0;
+}
+

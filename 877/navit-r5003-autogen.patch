@@ -1,0 +1,15 @@
+--- navit-r5003-orig/navit/xpm/Makefile.am	2012-03-31 11:03:19.000000000 +0200
++++ navit-r5003/navit/xpm/Makefile.am	2012-03-31 11:15:54.000000000 +0200
+@@ -25,10 +25,8 @@
+ 
+ image_DATA += biergarten.xpm
+ image_DATA += restroom.xpm
+-xpm_DATA += biergarten.xpm
+-xpm_DATA += restroom.xpm
+-xpm_DATA += menu.xpm
+-xpm_DATA += toggle_fullscreen.xpm
++image_DATA += menu.xpm
++image_DATA += toggle_fullscreen.xpm
+ 
+ ## Obsolete end
+ 

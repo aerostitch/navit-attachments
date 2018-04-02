@@ -1,0 +1,45 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -1420,6 +1419,40 @@
+     int yMax = 13*font->size/256;
+     int xMax = 9*font->size*len/256;
+ 
++    if ( NULL == font->hfont )
++    {
++#ifdef WIN_USE_SYSFONT
++        font->hfont = (HFONT) GetStockObject (SYSTEM_FONT);
++        GetObject (font->hfont, sizeof (LOGFONT), &font->lf);
++#else
++        font->hfont = EzCreateFont (gr->hMemDC, TEXT ("Arial"), font->size/2, 0, 0, TRUE);
++        GetObject ( font->hfont, sizeof (LOGFONT), &font->lf) ;
++#endif
++    }
++
++    HFONT hOldFont = SelectObject(gr->hMemDC, font->hfont );
++
++    {
++        wchar_t utf16[1024];
++        const UTF8 *utf8 = (UTF8 *)text;
++        UTF16 *utf16p = (UTF16 *) utf16;
++        if (ConvertUTF8toUTF16(&utf8, utf8+strlen(text),
++                               &utf16p, utf16p+sizeof(utf16),
++                               lenientConversion) == conversionOK)
++        {
++            SIZE size;
++            if (GetTextExtentPointW(gr->hMemDC, utf16, (wchar_t*) utf16p - utf16, &size)) {
++                yMax = size.cy;
++                xMax = size.cx;
++            }
++        }
++    }
++
++    SelectObject(gr->hMemDC, hOldFont);
++
++    DeleteObject(font->hfont);
++    font->hfont = NULL;
++    
+     ret[0].x = xMin;
+     ret[0].y = -yMin;
+     ret[1].x = xMin;

@@ -1,0 +1,54 @@
+Description: Install icons into NAVIT_SHAREDIR/icons
+ It doesn't make sense to put icons into a directory named "xpm" since most
+ of them are png and svg files.
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/681
+Last-Update: 2011-04-17
+Index: navit/CMakeLists.txt
+===================================================================
+--- navit.orig/CMakeLists.txt	2011-04-17 22:00:44.000000000 +0200
++++ navit/CMakeLists.txt	2011-04-17 22:01:05.000000000 +0200
+@@ -19,7 +19,7 @@
+ set(BIN_DIR bin)
+ set(SHARE_DIR share/navit)
+ set(LOCALE_DIR share)
+-set(IMAGE_DIR share/navit/xpm)
++set(IMAGE_DIR share/navit/icons)
+ set(LIB_DIR lib)
+ 
+ ### Detect environment
+@@ -342,7 +342,7 @@
+    set(BIN_DIR ./)
+    set(SHARE_DIR ./)
+    set(LOCALE_DIR ./)
+-   set(IMAGE_DIR xpm)
++   set(IMAGE_DIR icons)
+ 
+    
+    if(HAVE_GTK2 AND NOT MSVC)
+Index: navit/navit/graphics.c
+===================================================================
+--- navit.orig/navit/graphics.c	2011-04-17 21:57:18.000000000 +0200
++++ navit/navit/graphics.c	2011-04-17 21:58:40.000000000 +0200
+@@ -1671,7 +1671,7 @@
+ 		static char *navit_sharedir;
+ 		if (! navit_sharedir)
+ 			navit_sharedir = getenv("NAVIT_SHAREDIR");
+-		ret=g_strdup_printf("%s/xpm/%s", navit_sharedir, icon);
++		ret=g_strdup_printf("%s/icons/%s", navit_sharedir, icon);
+ #endif
+ 	}
+ 	if (wordexp)
+Index: navit/navit/gui/qml/gui_qml.cpp
+===================================================================
+--- navit.orig/navit/gui/qml/gui_qml.cpp	2011-04-17 21:51:07.000000000 +0200
++++ navit/navit/gui/qml/gui_qml.cpp	2011-04-17 21:57:09.000000000 +0200
+@@ -458,7 +458,7 @@
+ 		this_->skin=g_strdup("navit");
+ 	}
+ 	if ( this_->icon_src==NULL ) {
+-		this_->icon_src=g_strjoin(NULL,getenv("NAVIT_SHAREDIR"),"/xpm/",NULL);
++		this_->icon_src=graphics_icon_path("");
+ 	}
+ 
+ 	if ((attr=attr_search(attrs, NULL, attr_callback_list))) {

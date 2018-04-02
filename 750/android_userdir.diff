@@ -1,0 +1,13 @@
+Index: main.c
+===================================================================
+--- main.c	(revision 4658)
++++ main.c	(working copy)
+@@ -84,7 +84,7 @@
+ 	{"NAVIT_LIBDIR",      ":",          "::/navit",      ":\\lib",      ":/lib"},
+ 	{"NAVIT_SHAREDIR",    ":",          ":/share/navit", ":",           ":/share"},
+ 	{"NAVIT_LOCALEDIR",   ":/../locale",":/share/locale",":\\locale",   ":/locale"},
+-	{"NAVIT_USER_DATADIR",":",          "~/.navit",      ":\\data",     ":/home"},
++	{"NAVIT_USER_DATADIR",":",          "~/.navit",      ":\\data",     "/sdcard/navit"},
+ #if 1
+ 	{"NAVIT_LOGFILE",     NULL,         NULL,            ":\\navit.log",NULL},
+ #endif

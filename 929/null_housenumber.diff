@@ -1,0 +1,16 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 4786)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -3719,7 +3719,10 @@
+ 			wc->data=param;
+ 			wc->state |= STATE_SENSITIVE;
+ 			wc->speech=g_strdup(text);
+-			gui_internal_widget_append(search_list, wc);
++			if (! strcmp(wm_name,"House number") && !res->street->name) 
++				gui_internal_widget_append(search_list, wc);
++			else 
++				gui_internal_widget_prepend(search_list, wc);
+ 		}
+ 		wc->name=g_strdup(name);
+ 		if (res->c)

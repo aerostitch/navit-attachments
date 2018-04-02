@@ -1,0 +1,38 @@
+These two lines repeat over and over:
+
+garmin_obj.c:549:3|Loading level:0 bits:23
+garmin_obj.c:517:3|Loading I04FC07F basemap:yes
+garmin_obj.c:549:3|Loading level:0 bits:23
+garmin_obj.c:517:3|Loading I04FC07E basemap:yes
+
+
+
+
+------ Ctrl -c, followed by bt command
+
+Program received signal SIGINT, Interrupt.
+[Switching to Thread -1212709184 (LWP 6640)]
+0xffffe410 in __kernel_vsyscall ()
+(gdb) bt
+#0  0xffffe410 in __kernel_vsyscall ()
+#1  0xb7d6cc53 in read () from /lib/tls/i686/cmov/libc.so.6
+#2  0xb78f7026 in gread (g=0x8624728, buf=0xbfe20852, count=87) at garmin.c:85
+#3  0xb78fde41 in gar_init_net (sub=0x8624908) at garmin_net.c:94
+#4  0xb78f9c09 in gar_load_subfile_data (sub=0x8624908) at garmin_rgn.c:681
+#5  0xb78f692f in gar_get_objects (gm=0x9056db8, level=13, rect=0x0, 
+    ret=0x909b7f8, flags=2) at garmin_obj.c:524
+#6  0xb78ef324 in gmap_rect_new (map=0x8145378, sel=0x900fb70) at garmin.c:599
+#7  0x08054f2f in map_rect_new (m=0x8145848, sel=0x900fb70) at map.c:108
+#8  0x0805cda6 in route_find_nearest_street (ms=<value optimized out>, 
+    pc=0x806a7d0) at route.c:1162
+#9  0x0805e1e7 in route_set_position (this=0x81454b8, pos=0x806a7d0)
+    at route.c:243
+#10 0x08057080 in navit_set_position (this_=0x80a48c8, c=0x57) at navit.c:1093
+#11 0xb78c91a6 in activate (dummy=0x904ef20, menu=0x57) at gui_gtk_action.c:408
+#12 0xb7247c09 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#13 0xb723a772 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#14 0xb724b323 in ?? () from /usr/lib/libgobject-2.0.so.0
+#15 0x090581d0 in ?? ()
+#16 0x00000000 in ?? ()
+

@@ -1,0 +1,460 @@
+launch with file /sdcard/navitmap.bin exists:
+
+
+I/ActivityManager(  862): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(  862): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1583 uid=10023 gids={3003}
+I/WindowManager(  862): Setting rotation to 1, animFlags=0
+I/WindowManager(  862): Config changed: { scale=1.0 imsi=0/0 locale=de_DE touch=3 key=1/1/2 nav=1 orien=2 }
+W/WindowManager(  862): performLayoutAndPlaceSurfacesLocked called while in layout
+D/StatusBar(  862): updateResources
+D/dalvikvm( 1583): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4622f88
+D/dalvikvm( 1583): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4622f88
+D/dalvikvm( 1583): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x4622f88
+E/Navit   ( 1583): Country DE
+E/Navit   ( 1583): Language de
+E/Navit   ( 1583): Res Name de
+E/Navit   ( 1583): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 1583): Res ID 2130903047
+E/Navit   ( 1583): Checking /data
+E/Navit   ( 1583): Checking /data/data
+E/Navit   ( 1583): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1583): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 1583): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 1583): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 1583): Res Name navit
+E/Navit   ( 1583): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1583): Res ID 2130903069
+E/Navit   ( 1583): Checking /data
+E/Navit   ( 1583): Checking /data/data
+E/Navit   ( 1583): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1583): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 1583): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1583): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    ( 1583): called
+E/navit   ( 1583): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c0 thiz=0x467c308 activity=0x467c308 lang=de_DE
+E/navit   ( 1583): graphics_android:plugin_init:enter
+E/navit   ( 1583): vehicle_android:plugin_init:enter
+W/WindowManager(  862): App freeze timeout expired.
+W/WindowManager(  862): Force clearing freeze: AppWindowToken{4791148 token=HistoryRecord{4799c78 {org.navitproject.navit/org.navitproject.navit.Navit}}}
+E/navit   ( 1583): graphics_android:event_android_new:enter
+E/navit   ( 1583): graphics_android:event_android_new:ok
+E/navit   ( 1583): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1583): graphics_android:graphics_android_init:at 3
+E/navit   ( 1583): graphics_android:graphics_android_init:at 4 android_activity=0x467c308
+E/NavitGraphics( 1583): FocusChange true
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x4682d20
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x46866b8
+E/navit   ( 1583): graphics_android:graphics_android_new:returning 0x1fbf90
+E/navit   ( 1583): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 1583): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 1583): vehicle_android:vehicle_android_init:at 4 android_activity=0x467c308
+D/LocationManager( 1583): Constructor: service = android.location.ILocationManager$Stub$Proxy@46872d0
+D/LocationManager( 1583): getAllProviders
+E/NavitVehicle( 1583): Providers [gps]
+E/NavitVehicle( 1583): Provider gps
+E/navit   ( 1583): vehicle_android:vehicle_android_init:result=0x4686ba8
+E/navit   ( 1583): vehicle_android:vehicle_android_new_android:return
+E/navit   ( 1583): speech_android:speech_android_init:at 3
+E/navit   ( 1583): speech_android:speech_android_init:at 4 android_activity=0x467c308
+D/dalvikvm( 1583): GC freed 3096 objects / 198632 bytes in 799ms
+D/dalvikvm(  862): GC freed 4938 objects / 251272 bytes in 594ms
+I/ActivityManager(  862): Start proc com.google.tts for service com.google.tts/.TTSService: pid=1589 uid=10026 gids={3003}
+E/navit   ( 1583): speech_android:speech_android_init:result=0x468a170
+E/navit   ( 1583): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+E/NavitSpeech( 1583): In Demnaechst der Strasse folgen
+D/dalvikvm( 1589): Trying to load lib /data/data/com.google.tts/lib/libspeechsynthesis.so 0x4622d38
+D/dalvikvm( 1589): Added shared lib /data/data/com.google.tts/lib/libspeechsynthesis.so 0x4622d38
+I/DEBUG   (  846): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (  846): Build fingerprint: 'neo/freerunner/freerunner/:1.5/CUPCAKE/eng.serdar.20100130.174221:eng/test-keys'
+I/DEBUG   (  846): pid: 1589, tid: 1589  >>> com.google.tts <<<
+I/DEBUG   (  846): signal 4 (SIGILL), fault addr ad03ee44
+I/DEBUG   (  846):  r0 0000a978  r1 019c5334  r2 01080030  r3 ad088c30
+I/DEBUG   (  846):  r4 0000bc28  r5 00000000  r6 80407544  r7 04622d38
+I/DEBUG   (  846):  r8 00002071  r9 0000bc28  10 01049d00  fp 00000000
+I/DEBUG   (  846):  ip 00000000  sp 019c5330  lr 8040756c  pc ad03ee44  cpsr 00000010
+I/DEBUG   (  846):          #00  pc 0003ee44  /system/lib/libdvm.so
+I/DEBUG   (  846):          #01  lr 8040756c  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846): stack:
+I/DEBUG   (  846):     019c52f0  00000034  
+I/DEBUG   (  846):     019c52f4  00000010  
+I/DEBUG   (  846):     019c52f8  0004e660  [heap]
+I/DEBUG   (  846):     019c52fc  0467e784  
+I/DEBUG   (  846):     019c5300  00000107  
+I/DEBUG   (  846):     019c5304  b00002e4  /system/bin/linker
+I/DEBUG   (  846):     019c5308  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c530c  b00040ec  /system/bin/linker
+I/DEBUG   (  846):     019c5310  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c5314  ad0758dc  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5318  b0015444  /system/bin/linker
+I/DEBUG   (  846):     019c531c  00005b94  
+I/DEBUG   (  846):     019c5320  0000a978  [heap]
+I/DEBUG   (  846):     019c5324  00010004  [heap]
+I/DEBUG   (  846):     019c5328  e3a07077  
+I/DEBUG   (  846):     019c532c  ef900077  
+I/DEBUG   (  846): #00 019c5330  019c5330  [stack]
+I/DEBUG   (  846):     019c5334  00000000  
+I/DEBUG   (  846):     019c5338  0000bc28  [heap]
+I/DEBUG   (  846):     019c533c  00000000  
+I/DEBUG   (  846):     019c5340  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c5344  ad043a7b  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5348  04622d38  /mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  846):     019c534c  00000008  
+I/DEBUG   (  846):     019c5350  ad21f421  /system/lib/libnativehelper.so
+I/DEBUG   (  846):     019c5354  ad06fa08  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5358  ad089e10  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c535c  001929d0  [heap]
+I/DEBUG   (  846):     019c5360  ad00e740  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5364  04622d38  /mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  846):     019c5368  001929d0  [heap]
+I/DEBUG   (  846):     019c536c  019c53d0  [stack]
+I/DEBUG   (  846):     019c5370  ad00e740  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5374  ad05a4db  /system/lib/libdvm.so
+W/ActivityManager(  862): Launch timeout has expired, giving up wake lock!
+W/ActivityManager(  862): Activity idle timeout for HistoryRecord{4799c78 {org.navitproject.navit/org.navitproject.navit.Navit}}
+D/Zygote  (  847): Process 1589 terminated by signal (4)
+I/ActivityManager(  862): Process com.google.tts (pid 1589) has died.
+W/ActivityManager(  862): Scheduling restart of crashed service com.google.tts/.TTSService in 5000ms
+I/ActivityManager(  862): Low Memory: No more background processes.
+W/TabControl( 1088): Free WebView cache
+E/ActivityThread(  862): Failed to find provider info for android.server.checkin
+D/dalvikvm( 1040): GC freed 31 objects / 1104 bytes in 1024ms
+D/dalvikvm( 1288): GC freed 31 objects / 1096 bytes in 1087ms
+D/dalvikvm( 1029): GC freed 35 objects / 1216 bytes in 1151ms
+D/dalvikvm(  938): GC freed 32 objects / 1120 bytes in 1154ms
+D/dalvikvm( 1048): GC freed 31 objects / 1080 bytes in 1116ms
+D/dalvikvm(  997): GC freed 41 objects / 1384 bytes in 1169ms
+D/dalvikvm( 1062): GC freed 124 objects / 7248 bytes in 1227ms
+D/dalvikvm( 1088): GC freed 39 objects / 1272 bytes in 1200ms
+D/dalvikvm(  862): GC freed 1211 objects / 50904 bytes in 1203ms
+W/Checkin (  862): Can't log event SYSTEM_SERVICE_LOOPING: java.lang.IllegalArgumentException: Unknown URL content://android.server.checkin/events
+D/dalvikvm(  914): GC freed 262 objects / 11032 bytes in 1248ms
+D/dalvikvm(  910): GC freed 1164 objects / 49136 bytes in 1341ms
+D/dalvikvm( 1088): GC freed 2 objects / 48 bytes in 324ms
+E/navit   ( 1583): navit:main_real:Using '/data/data/org.navitproject.navit/share/navit.xml'
+E/navit   ( 1583): graphics_android:event_android_main_loop_run:enter
+D/dalvikvm( 1583): +++ not scanning '/system/lib/libwebcore.so' for 'NavitActivity' (wrong CL)
+D/dalvikvm( 1583): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitActivity' (wrong CL)
+E/navit   ( 1583): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 3
+E/Navit   ( 1583): OnStart
+E/navit   ( 1583): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 2
+E/Navit   ( 1583): OnResume
+E/navit   ( 1583): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 1
+D/dalvikvm( 1583): GC freed 1390 objects / 98760 bytes in 100ms
+D/dalvikvm( 1583): GC freed 5 objects / 144 bytes in 251ms
+D/dalvikvm( 1583): +++ not scanning '/system/lib/libwebcore.so' for 'SizeChangedCallback' (wrong CL)
+D/dalvikvm( 1583): +++ not scanning '/system/lib/libmedia_jni.so' for 'SizeChangedCallback' (wrong CL)
+E/navit   ( 1583): navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x1fc1c8 640 430
+E/navit   ( 1583): graphics_android:resize_callback:w=640 h=430 ok
+E/navit   ( 1583): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1583): graphics_android:graphics_android_init:at 3
+E/navit   ( 1583): graphics_android:graphics_android_init:at 4 android_activity=0x467c308
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x467d0b0
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x466e7d0
+E/navit   ( 1583): graphics_android:overlay_new:returning 0x2c2858
+E/navit   ( 1583): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1583): graphics_android:graphics_android_init:at 3
+E/navit   ( 1583): graphics_android:graphics_android_init:at 4 android_activity=0x467c308
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x467aa50
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x466ada0
+E/navit   ( 1583): graphics_android:overlay_new:returning 0x2c4340
+E/navit   ( 1583): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1583): graphics_android:graphics_android_init:at 3
+E/navit   ( 1583): graphics_android:graphics_android_init:at 4 android_activity=0x467c308
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x467aab0
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x466a730
+E/navit   ( 1583): graphics_android:overlay_new:returning 0x2c4768
+E/navit   ( 1583): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1583): graphics_android:graphics_android_init:at 3
+E/navit   ( 1583): graphics_android:graphics_android_init:at 4 android_activity=0x467c308
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x467ab10
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x466a520
+E/navit   ( 1583): graphics_android:overlay_new:returning 0x2c8c88
+E/navit   ( 1583): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1583): graphics_android:graphics_android_init:at 3
+E/navit   ( 1583): graphics_android:graphics_android_init:at 4 android_activity=0x467c308
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x467ab70
+E/navit   ( 1583): graphics_android:graphics_android_init:result=0x466a310
+E/navit   ( 1583): graphics_android:overlay_new:returning 0x2c9120
+E/navit   ( 1583): navit:file_data_read_compressed:uncompress failed
+D/libc-abort( 1583): abort() called in pid 1583
+I/ActivityManager(  862): Process org.navitproject.navit (pid 1583) has died.
+I/WindowManager(  862): WIN DEATH: Window{47f1d18 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+D/Zygote  (  847): Process 1583 exited cleanly (1)
+I/WindowManager(  862): Setting rotation to 0, animFlags=0
+I/WindowManager(  862): Config changed: { scale=1.0 imsi=0/0 locale=de_DE touch=3 key=1/1/2 nav=1 orien=1 }
+I/WindowManager(  862): Config changed: { scale=1.0 imsi=0/0 locale=de_DE touch=3 key=1/1/2 nav=1 orien=1 }
+I/ActivityManager(  862): Low Memory: No more background processes.
+W/TabControl( 1088): Free WebView cache
+I/WindowManager(  862): Config changed: { scale=1.0 imsi=0/0 locale=de_DE touch=3 key=1/1/2 nav=1 orien=1 }
+W/InputManagerService(  862): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@47197f0
+D/dalvikvm( 1029): GC freed 35 objects / 1216 bytes in 1319ms
+W/SurfaceComposerClient(  862): lock_layer timed out (is the CPU pegged?) layer=2, lcblk=0x336c120, state=00000015 (was 0000000d)
+W/SurfaceComposerClient(  862): lock_layer() timed out but didn't appear to need to be locked and we recovered (layer=2, lcblk=0x336c120, state=00000015)
+D/dalvikvm( 1288): GC freed 31 objects / 1088 bytes in 1301ms
+D/dalvikvm( 1040): GC freed 31 objects / 1104 bytes in 1279ms
+D/dalvikvm(  938): GC freed 32 objects / 1104 bytes in 1424ms
+D/dalvikvm(  997): GC freed 41 objects / 1384 bytes in 1391ms
+D/dalvikvm(  910): GC freed 72 objects / 2360 bytes in 1558ms
+D/dalvikvm( 1048): GC freed 31 objects / 1088 bytes in 1343ms
+D/dalvikvm( 1088): GC freed 39 objects / 1272 bytes in 1553ms
+D/dalvikvm( 1062): GC freed 124 objects / 6912 bytes in 1723ms
+D/dalvikvm(  914): GC freed 322 objects / 12272 bytes in 1587ms
+W/WindowManager(  862): Window freeze timeout expired.
+D/dalvikvm(  862): GC freed 937 objects / 46440 bytes in 1038ms
+W/WindowManager(  862): Force clearing orientation change: Window{497b2f0 com.android.launcher/com.android.launcher.Launcher paused=false}
+D/StatusBar(  862): updateResources
+D/dalvikvm( 1088): GC freed 2 objects / 48 bytes in 1046ms
+D/dalvikvm(  862): GC freed 1131 objects / 53744 bytes in 283ms
+
+
+
+launch without providing any mapfile:
+
+
+I/ActivityManager(  862): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(  862): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1699 uid=10023 gids={3003}
+I/WindowManager(  862): Setting rotation to 1, animFlags=0
+I/WindowManager(  862): Config changed: { scale=1.0 imsi=0/0 locale=de_DE touch=3 key=1/1/2 nav=1 orien=2 }
+D/StatusBar(  862): updateResources
+D/dalvikvm( 1699): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4788f88
+D/dalvikvm( 1699): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4788f88
+D/dalvikvm( 1699): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x4788f88
+E/Navit   ( 1699): Country DE
+E/Navit   ( 1699): Language de
+E/Navit   ( 1699): Res Name de
+E/Navit   ( 1699): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 1699): Res ID 2130903047
+E/Navit   ( 1699): Checking /data
+E/Navit   ( 1699): Checking /data/data
+E/Navit   ( 1699): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1699): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 1699): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 1699): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 1699): Res Name navit
+E/Navit   ( 1699): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1699): Res ID 2130903069
+E/Navit   ( 1699): Checking /data
+E/Navit   ( 1699): Checking /data/data
+E/Navit   ( 1699): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1699): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    ( 1699): called
+E/navit   ( 1699): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c0 thiz=0x47e2308 activity=0x47e2308 lang=de_DE
+E/navit   ( 1699): graphics_android:plugin_init:enter
+E/navit   ( 1699): vehicle_android:plugin_init:enter
+E/navit   ( 1699): graphics_android:event_android_new:enter
+E/navit   ( 1699): graphics_android:event_android_new:ok
+E/navit   ( 1699): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+W/WindowManager(  862): App freeze timeout expired.
+W/WindowManager(  862): Force clearing freeze: AppWindowToken{49ab298 token=HistoryRecord{46ede50 {org.navitproject.navit/org.navitproject.navit.Navit}}}
+E/navit   ( 1699): graphics_android:graphics_android_init:at 3
+E/navit   ( 1699): graphics_android:graphics_android_init:at 4 android_activity=0x47e2308
+E/NavitGraphics( 1699): FocusChange true
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47e8d20
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47ec6b8
+E/navit   ( 1699): graphics_android:graphics_android_new:returning 0x1fb5f0
+E/navit   ( 1699): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 1699): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 1699): vehicle_android:vehicle_android_init:at 4 android_activity=0x47e2308
+D/LocationManager( 1699): Constructor: service = android.location.ILocationManager$Stub$Proxy@47ed2d0
+D/LocationManager( 1699): getAllProviders
+E/NavitVehicle( 1699): Providers [gps]
+E/NavitVehicle( 1699): Provider gps
+E/navit   ( 1699): vehicle_android:vehicle_android_init:result=0x47ecba8
+E/navit   ( 1699): vehicle_android:vehicle_android_new_android:return
+E/navit   ( 1699): speech_android:speech_android_init:at 3
+E/navit   ( 1699): speech_android:speech_android_init:at 4 android_activity=0x47e2308
+D/dalvikvm( 1699): GC freed 3046 objects / 196736 bytes in 749ms
+D/dalvikvm(  862): GC freed 2166 objects / 103008 bytes in 549ms
+I/ActivityManager(  862): Start proc com.google.tts for service com.google.tts/.TTSService: pid=1705 uid=10026 gids={3003}
+E/navit   ( 1699): speech_android:speech_android_init:result=0x47f0170
+E/navit   ( 1699): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+E/navit   ( 1699): map_binfile:map_binfile_open:Failed to load '/sdcard/navitmap.bin'
+E/NavitSpeech( 1699): In Demnaechst der Strasse folgen
+D/dalvikvm( 1705): Trying to load lib /data/data/com.google.tts/lib/libspeechsynthesis.so 0x4788d38
+D/dalvikvm( 1705): Added shared lib /data/data/com.google.tts/lib/libspeechsynthesis.so 0x4788d38
+I/DEBUG   (  846): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (  846): Build fingerprint: 'neo/freerunner/freerunner/:1.5/CUPCAKE/eng.serdar.20100130.174221:eng/test-keys'
+I/DEBUG   (  846): pid: 1705, tid: 1705  >>> com.google.tts <<<
+I/DEBUG   (  846): signal 4 (SIGILL), fault addr ad03ee44
+I/DEBUG   (  846):  r0 0000a978  r1 019c5334  r2 01080030  r3 ad088c30
+I/DEBUG   (  846):  r4 0000bc28  r5 00000000  r6 80407544  r7 04788d38
+I/DEBUG   (  846):  r8 00002071  r9 0000bc28  10 01049d00  fp 00000000
+I/DEBUG   (  846):  ip 00000000  sp 019c5330  lr 8040756c  pc ad03ee44  cpsr 00000010
+I/DEBUG   (  846):          #00  pc 0003ee44  /system/lib/libdvm.so
+I/DEBUG   (  846):          #01  lr 8040756c  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846): stack:
+I/DEBUG   (  846):     019c52f0  00000034  
+I/DEBUG   (  846):     019c52f4  00000010  
+I/DEBUG   (  846):     019c52f8  0004e660  [heap]
+I/DEBUG   (  846):     019c52fc  0467e784  
+I/DEBUG   (  846):     019c5300  00000107  
+I/DEBUG   (  846):     019c5304  b00002e4  /system/bin/linker
+I/DEBUG   (  846):     019c5308  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c530c  b00040ec  /system/bin/linker
+I/DEBUG   (  846):     019c5310  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c5314  ad0758dc  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5318  b0015444  /system/bin/linker
+I/DEBUG   (  846):     019c531c  00005b94  
+I/DEBUG   (  846):     019c5320  0000a978  [heap]
+I/DEBUG   (  846):     019c5324  00010004  [heap]
+I/DEBUG   (  846):     019c5328  e3a07077  
+I/DEBUG   (  846):     019c532c  ef900077  
+I/DEBUG   (  846): #00 019c5330  019c5330  [stack]
+I/DEBUG   (  846):     019c5334  00000000  
+I/DEBUG   (  846):     019c5338  0000bc28  [heap]
+I/DEBUG   (  846):     019c533c  00000000  
+I/DEBUG   (  846):     019c5340  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c5344  ad043a7b  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5348  04788d38  /mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  846):     019c534c  00000008  
+I/DEBUG   (  846):     019c5350  ad21f421  /system/lib/libnativehelper.so
+I/DEBUG   (  846):     019c5354  ad06fa08  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5358  ad089e10  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c535c  00192048  [heap]
+I/DEBUG   (  846):     019c5360  ad00e740  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5364  04788d38  /mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  846):     019c5368  00192048  [heap]
+I/DEBUG   (  846):     019c536c  019c53d0  [stack]
+I/DEBUG   (  846):     019c5370  ad00e740  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5374  ad05a4db  /system/lib/libdvm.so
+W/ActivityManager(  862): Launch timeout has expired, giving up wake lock!
+W/ActivityManager(  862): Activity idle timeout for HistoryRecord{46ede50 {org.navitproject.navit/org.navitproject.navit.Navit}}
+D/Zygote  (  847): Process 1705 terminated by signal (4)
+I/ActivityManager(  862): Process com.google.tts (pid 1705) has died.
+W/ActivityManager(  862): Scheduling restart of crashed service com.google.tts/.TTSService in 5000ms
+I/ActivityManager(  862): Low Memory: No more background processes.
+W/TabControl( 1088): Free WebView cache
+E/ActivityThread(  862): Failed to find provider info for android.server.checkin
+W/Checkin (  862): Can't log event SYSTEM_SERVICE_LOOPING: java.lang.IllegalArgumentException: Unknown URL content://android.server.checkin/events
+D/dalvikvm( 1040): GC freed 31 objects / 1104 bytes in 999ms
+D/dalvikvm( 1048): GC freed 31 objects / 1096 bytes in 1052ms
+D/dalvikvm( 1288): GC freed 31 objects / 1096 bytes in 1127ms
+D/dalvikvm(  938): GC freed 32 objects / 1088 bytes in 1150ms
+D/dalvikvm( 1062): GC freed 256 objects / 15456 bytes in 1193ms
+D/dalvikvm( 1029): GC freed 35 objects / 1200 bytes in 1230ms
+D/dalvikvm( 1088): GC freed 39 objects / 1280 bytes in 1215ms
+D/dalvikvm(  910): GC freed 84 objects / 2992 bytes in 1285ms
+D/dalvikvm(  997): GC freed 41 objects / 1384 bytes in 1250ms
+D/dalvikvm(  862): GC freed 585 objects / 24488 bytes in 1207ms
+D/dalvikvm(  914): GC freed 448 objects / 17224 bytes in 1292ms
+D/dalvikvm( 1088): GC freed 2 objects / 48 bytes in 274ms
+E/navit   ( 1699): navit:main_real:Using '/data/data/org.navitproject.navit/share/navit.xml'
+E/navit   ( 1699): graphics_android:event_android_main_loop_run:enter
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libwebcore.so' for 'NavitActivity' (wrong CL)
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitActivity' (wrong CL)
+E/navit   ( 1699): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 3
+E/Navit   ( 1699): OnStart
+E/navit   ( 1699): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 2
+E/Navit   ( 1699): OnResume
+E/navit   ( 1699): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 1
+D/dalvikvm( 1699): GC freed 1380 objects / 98344 bytes in 100ms
+D/dalvikvm( 1699): GC freed 5 objects / 144 bytes in 248ms
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libwebcore.so' for 'SizeChangedCallback' (wrong CL)
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libmedia_jni.so' for 'SizeChangedCallback' (wrong CL)
+E/navit   ( 1699): navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x1fb828 640 430
+E/navit   ( 1699): graphics_android:resize_callback:w=640 h=430 ok
+E/navit   ( 1699): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 3
+E/navit   ( 1699): graphics_android:graphics_android_init:at 4 android_activity=0x47e2308
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47e30b0
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47d47d0
+E/navit   ( 1699): graphics_android:overlay_new:returning 0x2c25c0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 3
+E/navit   ( 1699): graphics_android:graphics_android_init:at 4 android_activity=0x47e2308
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47e0a50
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47d0da0
+E/navit   ( 1699): graphics_android:overlay_new:returning 0x2c40a8
+E/navit   ( 1699): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 3
+E/navit   ( 1699): graphics_android:graphics_android_init:at 4 android_activity=0x47e2308
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47e0ab0
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47d0730
+E/navit   ( 1699): graphics_android:overlay_new:returning 0x2c44d0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 3
+E/navit   ( 1699): graphics_android:graphics_android_init:at 4 android_activity=0x47e2308
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47e0b10
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47d0520
+E/navit   ( 1699): graphics_android:overlay_new:returning 0x2c89f0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 2 jnienv=0xa9c0
+E/navit   ( 1699): graphics_android:graphics_android_init:at 3
+E/navit   ( 1699): graphics_android:graphics_android_init:at 4 android_activity=0x47e2308
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47e0b70
+E/navit   ( 1699): graphics_android:graphics_android_init:result=0x47d0310
+E/navit   ( 1699): graphics_android:overlay_new:returning 0x2c8e88
+W/IInputConnectionWrapper(  914): showStatusIcon on inactive InputConnection
+I/ActivityManager(  862): Displayed activity org.navitproject.navit/.Navit: 13086 ms
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libwebcore.so' for 'TimeoutCallback' (wrong CL)
+D/dalvikvm( 1699): +++ not scanning '/system/lib/libmedia_jni.so' for 'TimeoutCallback' (wrong CL)
+I/ActivityManager(  862): Start proc com.google.tts for service com.google.tts/.TTSService: pid=1713 uid=10026 gids={3003}
+D/dalvikvm( 1713): Trying to load lib /data/data/com.google.tts/lib/libspeechsynthesis.so 0x4788df8
+D/dalvikvm( 1713): Added shared lib /data/data/com.google.tts/lib/libspeechsynthesis.so 0x4788df8
+I/DEBUG   (  846): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (  846): Build fingerprint: 'neo/freerunner/freerunner/:1.5/CUPCAKE/eng.serdar.20100130.174221:eng/test-keys'
+I/DEBUG   (  846): pid: 1713, tid: 1713  >>> com.google.tts <<<
+I/DEBUG   (  846): signal 4 (SIGILL), fault addr ad03ee44
+I/DEBUG   (  846):  r0 0000a978  r1 019c5334  r2 01080030  r3 ad088c30
+I/DEBUG   (  846):  r4 0000bc28  r5 00000000  r6 80407544  r7 04788df8
+I/DEBUG   (  846):  r8 00002071  r9 0000bc28  10 01049d00  fp 00000000
+I/DEBUG   (  846):  ip 00000000  sp 019c5330  lr 8040756c  pc ad03ee44  cpsr 00000010
+I/DEBUG   (  846):          #00  pc 0003ee44  /system/lib/libdvm.so
+I/DEBUG   (  846):          #01  lr 8040756c  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846): stack:
+I/DEBUG   (  846):     019c52f0  00000034  
+I/DEBUG   (  846):     019c52f4  00000010  
+I/DEBUG   (  846):     019c52f8  0004e660  [heap]
+I/DEBUG   (  846):     019c52fc  0467e784  
+I/DEBUG   (  846):     019c5300  00000107  
+I/DEBUG   (  846):     019c5304  b00002e4  /system/bin/linker
+I/DEBUG   (  846):     019c5308  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c530c  b00040ec  /system/bin/linker
+I/DEBUG   (  846):     019c5310  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c5314  ad0758dc  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5318  b0015444  /system/bin/linker
+I/DEBUG   (  846):     019c531c  00005b94  
+I/DEBUG   (  846):     019c5320  0000a978  [heap]
+I/DEBUG   (  846):     019c5324  00010004  [heap]
+I/DEBUG   (  846):     019c5328  e3a07077  
+I/DEBUG   (  846):     019c532c  ef900077  
+I/DEBUG   (  846): #00 019c5330  019c5330  [stack]
+I/DEBUG   (  846):     019c5334  00000000  
+I/DEBUG   (  846):     019c5338  0000bc28  [heap]
+I/DEBUG   (  846):     019c533c  00000000  
+I/DEBUG   (  846):     019c5340  80407544  /data/data/com.google.tts/lib/libspeechsynthesis.so
+I/DEBUG   (  846):     019c5344  ad043a7b  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5348  04788df8  /mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  846):     019c534c  00000008  
+I/DEBUG   (  846):     019c5350  ad21f421  /system/lib/libnativehelper.so
+I/DEBUG   (  846):     019c5354  ad06fa08  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5358  ad089e10  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c535c  00193238  [heap]
+I/DEBUG   (  846):     019c5360  ad00e740  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5364  04788df8  /mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  846):     019c5368  00193238  [heap]
+I/DEBUG   (  846):     019c536c  019c53d0  [stack]
+I/DEBUG   (  846):     019c5370  ad00e740  /system/lib/libdvm.so
+I/DEBUG   (  846):     019c5374  ad05a4db  /system/lib/libdvm.so
+I/ActivityManager(  862): Process com.google.tts (pid 1713) has died.
+W/ActivityManager(  862): Scheduling restart of crashed service com.google.tts/.TTSService in 10000ms
+I/ActivityManager(  862): Low Memory: No more background processes.
+W/TabControl( 1088): Free WebView cache
+E/ActivityThread(  862): Failed to find provider info for android.server.checkin
+D/Zygote  (  847): Process 1713 terminated by signal (4)
+D/dalvikvm( 1040): GC freed 5 objects / 192 bytes in 1043ms
+D/dalvikvm( 1029): GC freed 7 objects / 248 bytes in 1136ms
+D/dalvikvm(  938): GC freed 5 objects / 192 bytes in 1160ms
+D/dalvikvm( 1048): GC freed 5 objects / 200 bytes in 1130ms
+D/dalvikvm( 1288): GC freed 5 objects / 192 bytes in 1190ms
+D/dalvikvm( 1062): GC freed 93 objects / 5040 bytes in 1213ms
+D/dalvikvm(  910): GC freed 22 objects / 824 bytes in 1261ms
+D/dalvikvm(  997): GC freed 7 objects / 240 bytes in 1218ms
+D/dalvikvm( 1088): GC freed 9 objects / 296 bytes in 1230ms
+D/dalvikvm( 1699): GC freed 73 objects / 3784 bytes in 1312ms
+D/dalvikvm(  862): GC freed 679 objects / 32768 bytes in 1210ms
+W/Checkin (  862): Can't log event SYSTEM_SERVICE_LOOPING: java.lang.IllegalArgumentException: Unknown URL content://android.server.checkin/events
+D/dalvikvm(  914): GC freed 224 objects / 7480 bytes in 1258ms
+D/dalvikvm( 1088): GC freed 2 objects / 48 bytes in 147ms
+

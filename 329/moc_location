@@ -1,0 +1,23 @@
+Index: navit/configure.in
+===================================================================
+--- navit.orig/configure.in	2009-03-30 15:13:31.000000000 +0200
++++ navit/configure.in	2009-03-30 15:47:07.000000000 +0200
+@@ -642,6 +642,8 @@
+ fi
+ if test "x${graphics_qt_qpainter}" = "xyes" ; then
+ 	AC_DEFINE(USE_GRAPICS_QT_QPAINTER, 1, [Build with graphics qt_qpainter])
++	MOC=`pkg-config QtGui --variable=moc_location`
++	AC_SUBST(MOC)
+ fi
+ AC_SUBST(QT_GUI_CFLAGS)
+ AC_SUBST(QT_GUI_LIBS)
+Index: navit/navit/graphics/qt_qpainter/Makefile.am
+===================================================================
+--- navit.orig/navit/graphics/qt_qpainter/Makefile.am	2009-03-30 15:47:42.000000000 +0200
++++ navit/navit/graphics/qt_qpainter/Makefile.am	2009-03-30 15:48:31.000000000 +0200
+@@ -5,4 +5,4 @@
+ libgraphics_qt_qpainter_la_LDFLAGS = @QT_GUI_LIBS@ -module
+ BUILT_SOURCES = graphics_qt_qpainter.moc
+ graphics_qt_qpainter.moc:
+-	moc $(srcdir)/graphics_qt_qpainter.cpp >graphics_qt_qpainter.moc
++	@MOC@ $(srcdir)/graphics_qt_qpainter.cpp >graphics_qt_qpainter.moc

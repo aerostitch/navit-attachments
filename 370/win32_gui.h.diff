@@ -1,0 +1,47 @@
+Index: win32_gui.h
+===================================================================
+--- win32_gui.h	(revision 2260)
++++ win32_gui.h	(working copy)
+@@ -5,6 +5,7 @@
+ #include "coord.h"
+ #include "point.h"
+ #include "graphics.h"
++#include "event.h"
+ 
+ #define ID_CHILD_GFX 100
+ #define ID_CHILD_TOOLBAR (ID_CHILD_GFX + 1)
+@@ -45,32 +46,14 @@
+ };
+ 
+ 
+-struct graphics_priv {
+-	struct point p;
+-	int width;
+-	int height;
+-	int library_init;
+-	int visible;
+-	HANDLE wnd_parent_handle;
+-	HANDLE wnd_handle;
+-	COLORREF bg_color;
++struct graphics_priv;
+ 
+-
+-	void (*resize_callback)(void *data, int w, int h);
+-	void *resize_callback_data;
+-	void (*motion_callback)(void *data, struct point *p);
+-	void *motion_callback_data;
+-	void (*button_callback)(void *data, int press, int button, struct point *p);
+-	void *button_callback_data;
+-	enum draw_mode_num mode;
+-};
+-
+ struct menu_priv *gui_gtk_menubar_new(struct gui_priv *gui, struct menu_methods *meth);
+ struct menu_priv *gui_gtk_toolbar_new(struct gui_priv *gui, struct menu_methods *meth);
+ struct statusbar_priv *gui_gtk_statusbar_new(struct gui_priv *gui, struct statusbar_methods *meth);
+ struct menu_priv *gui_gtk_popup_new(struct gui_priv *gui, struct menu_methods *meth);
+ struct datawindow_priv *gui_gtk_datawindow_new(struct gui_priv *gui, char *name, struct callback *click, struct callback *close, struct datawindow_methods *meth);
+ 
+-struct graphics_priv* win32_graphics_new( struct graphics_methods *meth, struct attr **attrs);
++struct graphics_priv* win32_graphics_new( struct navit *nav, struct graphics_methods *meth, struct attr **attrs, struct callback_list *cbl);
+ 
+ #endif

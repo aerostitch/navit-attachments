@@ -1,0 +1,21 @@
+Index: navit.c
+===================================================================
+--- navit.c	(revision 2813)
++++ navit.c	(working copy)
+@@ -2298,13 +2298,13 @@
+ 	}
+ 	if (sscanf(iso8601_attr.u.str,"%d-%02d-%02dT",&year,&month,&day) != 3)
+ 		return;
++	if (vehicle_get_attr(n->vehicle->vehicle, attr_position_valid, &geo_attr,NULL) && geo_attr.u.num==attr_position_valid_invalid) {
++		return; //No valid fix yet
++	}
+ 	if (vehicle_get_attr(n->vehicle->vehicle, attr_position_coord_geo,&geo_attr,NULL)!=1) {
+ 		//No position - no sun
+ 		return;
+ 	}
+-	if (vehicle_get_attr(n->vehicle->vehicle, attr_position_valid, &geo_attr,NULL) && geo_attr.u.num==attr_position_valid_invalid) {
+-		return; //No valid fix yet
+-	}
+ 	
+ 	//We calculate sunrise anyway, cause it is need both for day and for night
+         if (__sunriset__(year,month,day,geo_attr.u.coord_geo->lat,geo_attr.u.coord_geo->lng,35,1,&trise,&tset)!=0) {

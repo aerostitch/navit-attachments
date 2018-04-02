@@ -1,0 +1,252 @@
+xxxxx@xxxxxx:~$ navit
+navit:navit_command_register:registering 'zoom_in'
+navit:navit_command_register:registering 'zoom_out'
+vehicle_gpsd:vehicle_gpsd_new_gpsd:Retry interval not defined, setting 
+to 10
+vehicle_gpsd:vehicle_gpsd_try_open:Connected to gpsd fd=4 
+iochan=0x8222cc8 watch=0xd
+Using '/etc/navit/navit.xml'
+GNU gdb 6.8-debian
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later 
+<http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show 
+copying"
+and "show warranty" for details.
+This GDB was configured as "i486-linux-gnu"...
+(no debugging symbols found)
+Attaching to program: /usr/bin/navit, process 20172
+Reading symbols from /usr/lib/libgmodule-2.0.so.0...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/libgmodule-2.0.so.0
+Reading symbols from /lib/tls/i686/cmov/libdl.so.2...(no debugging 
+symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libdl.so.2
+Reading symbols from /usr/lib/libgthread-2.0.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgthread-2.0.so.0
+Reading symbols from /lib/tls/i686/cmov/librt.so.1...(no debugging 
+symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/librt.so.1
+Reading symbols from /usr/lib/libglib-2.0.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libglib-2.0.so.0
+Reading symbols from /usr/lib/libz.so.1...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libz.so.1
+Reading symbols from /lib/tls/i686/cmov/libm.so.6...
+(no debugging symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libm.so.6
+Reading symbols from /lib/tls/i686/cmov/libpthread.so.0...(no debugging 
+symbols found)...done.
+[Thread debugging using libthread_db enabled]
+[New Thread 0xb7cca720 (LWP 20172)]
+Loaded symbols for /lib/tls/i686/cmov/libpthread.so.0
+Reading symbols from /lib/tls/i686/cmov/libc.so.6...
+(no debugging symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libc.so.6
+Reading symbols from /lib/libselinux.so.1...(no debugging symbols 
+found)...done.
+Loaded symbols for /lib/libselinux.so.1
+Reading symbols from /lib/ld-linux.so.2...
+(no debugging symbols found)...done.
+Loaded symbols for /lib/ld-linux.so.2
+Reading symbols from /usr/lib/libpcre.so.3...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libpcre.so.3
+Reading symbols from /usr/lib/navit/data/libdata_binfile.so...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/data/libdata_binfile.so
+Reading symbols from /usr/lib/navit/data/libdata_mg.so...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/navit/data/libdata_mg.so
+Reading symbols from /usr/lib/navit/data/libdata_poi_geodownload.so...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/data/libdata_poi_geodownload.so
+Reading symbols from /usr/lib/navit/data/libdata_textfile.so...(no 
+debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/data/libdata_textfile.so
+Reading symbols from 
+/usr/lib/navit/graphics/libgraphics_gtk_drawing_area.so...
+(no debugging symbols found)...done.
+Loaded symbols for 
+/usr/lib/navit/graphics/libgraphics_gtk_drawing_area.so
+Reading symbols from /usr/lib/libgtk-x11-2.0.so.0...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib/libgdk-x11-2.0.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib/libatk-1.0.so.0...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libatk-1.0.so.0
+Reading symbols from /usr/lib/libgdk_pixbuf-2.0.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib/libpangocairo-1.0.so.0...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib/libpango-1.0.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpango-1.0.so.0
+Reading symbols from /usr/lib/libcairo.so.2...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libcairo.so.2
+Reading symbols from /usr/lib/libgobject-2.0.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgobject-2.0.so.0
+Reading symbols from /usr/lib/libfreetype.so.6...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libfreetype.so.6
+Reading symbols from /usr/lib/libfontconfig.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libfontconfig.so.1
+Reading symbols from /usr/lib/libX11.so.6...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libX11.so.6
+Reading symbols from /usr/lib/libXcomposite.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXcomposite.so.1
+Reading symbols from /usr/lib/libXdamage.so.1...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libXdamage.so.1
+Reading symbols from /usr/lib/libXfixes.so.3...
+---Type <return> to continue, or q <return> to quit---
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXfixes.so.3
+Reading symbols from /usr/lib/libXext.so.6...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libXext.so.6
+Reading symbols from /usr/lib/libXrender.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXrender.so.1
+Reading symbols from /usr/lib/libXinerama.so.1...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libXinerama.so.1
+Reading symbols from /usr/lib/libXi.so.6...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXi.so.6
+Reading symbols from /usr/lib/libXrandr.so.2...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libXrandr.so.2
+Reading symbols from /usr/lib/libXcursor.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXcursor.so.1
+Reading symbols from /usr/lib/libpangoft2-1.0.so.0...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib/libpng12.so.0...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libpng12.so.0
+Reading symbols from /usr/lib/libpixman-1.so.0...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libpixman-1.so.0
+Reading symbols from /usr/lib/libstdc++.so.6...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libstdc++.so.6
+Reading symbols from /lib/libgcc_s.so.1...(no debugging symbols 
+found)...done.
+Loaded symbols for /lib/libgcc_s.so.1
+Reading symbols from /usr/lib/libexpat.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libexpat.so.1
+Reading symbols from /usr/lib/libxcb-xlib.so.0...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libxcb-xlib.so.0
+Reading symbols from /usr/lib/libxcb.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libxcb.so.1
+Reading symbols from /usr/lib/libXau.so.6...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/libXau.so.6
+Reading symbols from /usr/lib/libXdmcp.so.6...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libXdmcp.so.6
+Reading symbols from /lib/tls/i686/cmov/libnss_compat.so.2...(no 
+debugging symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libnss_compat.so.2
+Reading symbols from /lib/tls/i686/cmov/libnsl.so.1...
+(no debugging symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libnsl.so.1
+Reading symbols from /lib/tls/i686/cmov/libnss_nis.so.2...(no debugging 
+symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libnss_nis.so.2
+Reading symbols from /lib/tls/i686/cmov/libnss_files.so.2...
+(no debugging symbols found)...done.
+Loaded symbols for /lib/tls/i686/cmov/libnss_files.so.2
+Reading symbols from /usr/lib/navit/gui/libgui_gtk.so...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/navit/gui/libgui_gtk.so
+Reading symbols from /usr/lib/navit/gui/libgui_internal.so...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/gui/libgui_internal.so
+Reading symbols from /usr/lib/navit/osd/libosd_core.so...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/navit/osd/libosd_core.so
+Reading symbols from /usr/lib/navit/speech/libspeech_cmdline.so...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/speech/libspeech_cmdline.so
+Reading symbols from 
+/usr/lib/navit/speech/libspeech_speech_dispatcher.so...(no debugging 
+symbols found)...done.
+Loaded symbols for /usr/lib/navit/speech/libspeech_speech_dispatcher.so
+Reading symbols from /usr/lib/libspeechd.so.2...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libspeechd.so.2
+Reading symbols from /usr/lib/navit/vehicle/libvehicle_demo.so...(no 
+debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/vehicle/libvehicle_demo.so
+Reading symbols from /usr/lib/navit/vehicle/libvehicle_file.so...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/vehicle/libvehicle_file.so
+Reading symbols from /usr/lib/navit/vehicle/libvehicle_gpsd.so...(no 
+debugging symbols found)...done.
+Loaded symbols for /usr/lib/navit/vehicle/libvehicle_gpsd.so
+Reading symbols from /usr/lib/libgps.so.17...
+(no debugging symbols found)...done.
+Loaded symbols for /usr/lib/libgps.so.17
+Reading symbols from /usr/lib/gtk-2.0/2.10.0/engines/libpixmap.so...(no 
+debugging symbols found)...done.
+Loaded symbols for /usr/lib/gtk-2.0/2.10.0/engines/libpixmap.so
+Reading symbols from 
+/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so...
+(no debugging symbols found)...done.
+Loaded symbols for 
+/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
+Reading symbols from 
+/usr/lib/pango/1.6.0/modules/pango-basic-fc.so...(no debugging symbols 
+found)...done.
+Loaded symbols for /usr/lib/pango/1.6.0/modules/pango-basic-fc.so
+Reading symbols from 
+/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so...
+(no debugging symbols found)...done.
+Loaded symbols for 
+/usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so
+(no debugging symbols found)
+0xb7f8a410 in __kernel_vsyscall ()
+#0  0xb7f8a410 in __kernel_vsyscall ()
+#1  0xb7d445fa in ?? () from /lib/tls/i686/cmov/libc.so.6
+#2  0xb7e69d7d in system () from /lib/tls/i686/cmov/libpthread.so.0
+#3  0x080504d3 in ?? ()
+---Type <return> to continue, or q <return> to quit---
+#4  <signal handler called>
+#5  0x08064da1 in mapset_open ()
+#6  0x0805bdc7 in tracking_update ()
+#7  0x08067cb1 in ?? ()
+#8  0x0805f63d in callback_call ()
+#9  0x0805f6c7 in callback_list_call_attr ()
+#10 0x0805f713 in callback_list_call ()
+#11 0xb729e470 in ?? () from /usr/lib/navit/vehicle/libvehicle_gpsd.so
+#12 0xb7259ab9 in gps_poll () from /usr/lib/libgps.so.17
+#13 0xb729e1ab in ?? () from /usr/lib/navit/vehicle/libvehicle_gpsd.so
+#14 0xb7f1a0ed in ?? () from /usr/lib/libglib-2.0.so.0
+#15 0xb7ee5dd6 in g_main_context_dispatch () from 
+/usr/lib/libglib-2.0.so.0
+#16 0xb7ee9193 in ?? () from /usr/lib/libglib-2.0.so.0
+#17 0xb7ee9577 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#18 0x08050b86 in ?? ()
+#19 0x0805084e in event_main_loop_run ()
+#20 0x0804ff54 in main ()
+Detaching from program: /usr/bin/navit, process 20172
+xxxxx@xxxx

@@ -1,0 +1,196 @@
+Index: navit/map/mg/street.c
+===================================================================
+--- navit/map/mg/street.c	(revision 2816)
++++ navit/map/mg/street.c	(working copy)
+@@ -189,12 +189,12 @@
+         dx=r->rl.x-r->lu.x;
+         dy=r->lu.y-r->rl.y;
+ 	dbg_assert(dx > 0);
+-	dbg_assert(dy > 0); 
++	dbg_assert(dy > 0);
+         if (dx > 32767 || dy > 32767)
+                 bytes=3;
+         if (dx > 8388608 || dy > 8388608)
+-                bytes=4;                  
+-	
++                bytes=4;
++
+ 	return bytes;
+ }
+ 
+@@ -202,7 +202,7 @@
+ {
+ 	unsigned char *p;
+ 	int x,y,flags=0;
+-		
++
+ 	p=*pos;
+         x=*p++;
+         x|=(*p++) << 8;
+@@ -260,7 +260,7 @@
+ static void
+ street_coord_rewind(void *priv_data)
+ {
+-	struct street_priv *street=priv_data; 
++	struct street_priv *street=priv_data;
+ 
+ 	street->p=street->next=NULL;
+ 	street->status=street->status_rewind;
+@@ -270,7 +270,7 @@
+ street_coord_get_helper(struct street_priv *street, struct coord *c)
+ {
+ 	unsigned char *n;
+-	if (street->p+street->bytes*2 >= street->end) 
++	if (street->p+street->bytes*2 >= street->end)
+ 		return 0;
+ 	if (street->status >= 4)
+ 		return 0;
+@@ -426,7 +426,7 @@
+ 	street->header=(struct street_header *)(*p);
+ 	(*p)+=sizeof(struct street_header);
+ 	street->type_count=street_header_get_count(street->header);
+-	street->type=(struct street_type *)(*p);	
++	street->type=(struct street_type *)(*p);
+ 	(*p)+=street->type_count*sizeof(struct street_type);
+ }
+ 
+@@ -563,7 +563,7 @@
+ 						break;
+ 					case 0xf:
+ 						dir=-dir;
+-						break;	
++						break;
+ 					default:
+ 						dbg(0,"unknown tag 0x%x\n",nn.tag);
+ #if 0
+@@ -579,13 +579,13 @@
+ 					project(c, scount, dir, dlr, &street->hnc[street->hn_count]);
+ 					street->hn[street->hn_count]=nn.first;
+ 					street->hn_count++;
+-					g_assert(street->hn_count < 100);
++					dbg_assert(street->hn_count < 100);
+ 					project(c, scount, -dir, dlr, &street->hnc[street->hn_count]);
+ 					street->hn[street->hn_count]=nn.last;
+ 					street->hn_count++;
+-					g_assert(street->hn_count < 100);
++					dbg_assert(street->hn_count < 100);
+ 					dbg(1,"found %d%s %d%s\n",nn.first.number,nn.first.suffix,nn.last.number,nn.last.suffix);
+-				}	
++				}
+ 			}
+ 		}
+ 	}
+@@ -605,7 +605,7 @@
+ 		return 0;
+ 	if (!street->hn_count)
+ 		street_lookup_housenumber(street);
+-	if (street->housenumber > street->hn_count) 
++	if (street->housenumber > street->hn_count)
+ 		return 0;
+ 	item->type=type_town_label;
+ 	item->id_hi = (item->id_hi & 0xffffff) | (street->housenumber*0x10000000+0x1000000);
+@@ -620,7 +620,7 @@
+ 
+ int
+ street_get(struct map_rect_priv *mr, struct street_priv *street, struct item *item)
+-{	
++{
+ 	int *flags;
+ 	struct coord_rect r;
+ 	for (;;) {
+@@ -648,7 +648,7 @@
+ 			street->coord_begin=mr->b.p;
+ 			street_coord_get_begin(&street->coord_begin);
+ 			street->p=street->coord_begin;
+-			street->type--; 
++			street->type--;
+ 			item->meth=&street_meth;
+ 			item->priv_data=street;
+ 		} else {
+@@ -673,7 +673,7 @@
+ 		item->id_lo=street_str_get_segid(street->str) > 0 ? street_str_get_segid(street->str) : -street_str_get_segid(street->str);
+ 		switch(street_str_get_type(street->str) & 0x1f) {
+ 		case 0xf: /* very small street */
+-			if (street_str_get_limit(street->str) == 0x33) 
++			if (street_str_get_limit(street->str) == 0x33)
+ 				item->type=type_street_nopass;
+ 			else
+ 				item->type=type_street_0;
+@@ -690,7 +690,7 @@
+ 		case 0xa:
+ 			if ((street_str_get_limit(street->str) == 0x03 || street_str_get_limit(street->str) == 0x30) && street_header_get_order(street->header) < 4)
+ 				item->type=type_street_4_city;
+-			else	
++			else
+ 				item->type=type_street_3_city;
+ 			break;
+ 		case 0x9:
+@@ -757,7 +757,7 @@
+ 		street->more=1;
+ 		street->housenumber=1;
+ 		street->hn_count=0;
+-		if (!map_selection_contains_item(mr->cur_sel, 0, item->type)) 
++		if (!map_selection_contains_item(mr->cur_sel, 0, item->type))
+ 			continue;
+ 		item->meth=&street_meth;
+ 		item->priv_data=street;
+@@ -809,7 +809,7 @@
+         char name[0];
+ } __attribute__((packed));
+ 
+-static unsigned char 
++static unsigned char
+ latin1_tolower(unsigned char c)
+ {
+ 	if (c >= 'A' && c <= 'Z')
+@@ -897,7 +897,7 @@
+ 		}
+ 	}
+ 	dbg(1,"d=%d\n", d);
+-	return d;	
++	return d;
+ }
+ 
+ static int
+@@ -911,7 +911,7 @@
+ 	*p+=sizeof(*i)+strlen(i->name)+1;
+ 
+ 	dbg(1,"block 0x%x\n", i->block);
+-	
++
+ 	ret=street_search_compare_do(mr, i->country, i->town_assoc, i->name);
+ 	if (ret <= 0)
+ 		mr->search_block=i->block;
+@@ -988,7 +988,7 @@
+ 		street_name_numbers_get_coord(&snns, c);
+ 		return 1;
+ 	}
+-	
++
+ 	return 0;
+ }
+ 
+@@ -1332,7 +1332,7 @@
+ 		mr->item.id_hi+=1;
+ 	mr->item.id_lo=mr->search_item.id_lo;
+ 	dbg(1,"getting name_number %p vs %p + %d\n",mr->street.name_numbers.tmp_data,mr->street.name_numbers.aux_data, mr->street.name_numbers.aux_len);
+-	if (!street_name_number_next(mr)) 
++	if (!street_name_number_next(mr))
+ 		return 0;
+ 	dbg(1,"enter\n");
+ 	// debug(mr);
+@@ -1359,7 +1359,7 @@
+ 		delta=current-firstn;
+ 	}
+ 	if (percentage) {
+-		if (len) 
++		if (len)
+ 			*percentage=delta*100/len;
+ 		else
+ 			*percentage=50;
+@@ -1387,4 +1387,4 @@
+ 			return &mr->item;
+ 		}
+ 	}
+-} 
++}

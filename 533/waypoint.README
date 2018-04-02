@@ -1,0 +1,53 @@
+100103  17:25 this script used to feed navit a list of destinations, one at the time
+and set the next waypoint as destination if you are near the current waypoint
+
+This makes it possible to set a route from A to B via C,
+by just puting the lat/lon pairs in a file:
+51.1234;5.1234;Point A
+52.1234;6.1234;Point C
+53.1234;7.1234;Point B
+
+And if A is your starting point, that can be ommitted altogether.
+
+So instead of having the shortest route, or the fastest route, you can now plan a
+route along a road with the maximum number of sharp bents in it.
+(ideal for motorcycle lovers)
+Or you can share a route you drove and enjoyed with others.
+I think you can use itinerary files used by other navigation software too, if they have the fields in the same order.
+
+How does this all work?
+Well, the script is intended to be placed in the subdirectroy "scripts" in your home directory (mkdir ~/scripts)
+and to be started by cron every minute. (* * * * * if test -x ~/scripts/waypoint.sh; then ~/scripts/waypoint.sh; fi)
+It will then read nmea data from gpsd (needs to be running anyway)
+and convert that data with gpsbabel.  (needs to be installed)
+This wil give you the current lat/long.
+If the current lat/lon is close enough to the current waypoint, the next waypoint is set as destination by a dbus call.
+(libbinding_dbus.so" active="yes" needs to be set in navit.xml and dbus needs to be running, but it probably is)
+
+How close is close?
+Well, that is defined by the MAX_DELTA parameter in the script.
+for example, with max_delta=10000 and the waypoint at lat=52.100 and long 5.100 then any location between 52.000,5.000 and 52.200,5.200
+would be considered "close" (100 * 100 = 10000)
+
+                                              52.100,5.100 and 52.100,5.100 
+with a max_delta of 1024 any location between 52.068,5.068 and 52.132,5.132 would be close ( 32 * 32 = 1024 ) -> aprox 10   Km radius at this latitude
+with a max_delta of  100 any location between 52.090,5.090 and 52.110,5.110 would be close ( 10 * 10 =  100 ) -> aprox  2   Km radius at this latitude
+with a max_delta of    9 any location between 52.097,5.097 and 52.103,5.103 would be close (  3 *  3 =    9 ) -> aprox  0.1 Km radius at this latitude
+If this script is ran every minute and your max speed is 120 Km/h (=2 Km/min) you don't want to go below max_delta=100,
+or you might overshoot your waypoint.
+
+In case you can not reach your next waypoint because there is a roadblock or you changed your mind, do the following:
+edit the ~/itinerary.csv file and remove the problematic waypoints.
+Then remove the destination.set file (rm /dev/shm/destination.set).
+The next time the script is run by cron the new waypoint is set as destination.
+
+It is easiest to keep a source file and copy that to the ~/itinerary.csv file,
+the ~/itinerary.csv is removed and recreated every time you are near a waypoint.
+
+This script is free software, feel free to use and/or modify it in anyway you like, for example add fields to have a per waypoint max_delta.
+Please don't operate a laptop/pda while driving, let someone else drive while you use this script.
+
+Have fun, adn drive safely!
+
+Kind regards,
+Ed

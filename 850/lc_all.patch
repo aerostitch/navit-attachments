@@ -1,0 +1,23 @@
+Description: Set lang instead of LC_ALL to prevent decimal separator bugs
+ In case LC_ALL is set, unset it and set LANG instead.
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/850
+Last-Update: 2011-05-08
+Index: navit/navit/main.c
+===================================================================
+--- navit.orig/navit/main.c	2011-05-08 00:17:11.000000000 +0200
++++ navit/navit/main.c	2011-05-08 00:23:49.000000000 +0200
+@@ -407,8 +407,12 @@
+ 	main_setup_environment(2);
+ #endif	/* _WIN32 || _WIN32_WCE */
+ 
+-	if (getenv("LC_ALL"))
++	if (getenv("LC_ALL")) {
+ 		dbg(0,"Warning: LC_ALL is set, this might lead to problems (e.g. strange positions from GPS)\n");
++		dbg(0,"Warning: Unsetting LC_ALL and setting LANG instead as a workaround.\n");
++		setenv("LANG", getenv("LC_ALL"), 1);
++		unsetenv("LC_ALL");
++	}
+ 	s = getenv("NAVIT_WID");
+ 	if (s) {
+ 		setenv("SDL_WINDOWID", s, 0);

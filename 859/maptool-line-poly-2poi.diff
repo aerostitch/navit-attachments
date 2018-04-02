@@ -1,0 +1,300 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revision 4606)
++++ navit/maptool/osm.c	(working copy)
+@@ -1540,6 +1540,7 @@
+ 	int *def_flags,add_flags;
+ 	enum item_type types[10];
+ 	struct item_bin *item_bin;
++	int count_lines=0, count_areas=0;
+ 
+ 	in_way=0;
+ 
+@@ -1567,8 +1568,10 @@
+ 			continue;
+ 		if (ignore_unkown && (types[i] == type_street_unkn || types[i] == type_point_unkn))
+ 			continue;
+-		if(!osm->way2poi && types[i]<type_line)
+-			continue;
++		if(types[i]<type_area) 	
++			count_lines++;	
++		else	
++			count_areas++;
+ 		item_bin=init_item(types[i]);
+ 		item_bin_add_coord(item_bin, coord_buffer, coord_count);
+ 		nodes_ref_item_bin(item_bin);
+@@ -1589,7 +1592,7 @@
+ 			item_bin_add_attr_int(item_bin, attr_maxspeed, maxspeed_attr_value);
+ 		item_bin_write(item_bin,osm->ways);
+ 	}
+-	if(osm->way2poi) {
++	if(osm->line2poi) {
+ 		count=attr_longest_match(attr_mapping_way2poi, attr_mapping_way2poi_count, types, sizeof(types)/sizeof(enum item_type));
+ 		dbg_assert(count < 10);
+ 		for (i = 0 ; i < count ; i++) {
+@@ -1606,8 +1609,7 @@
+ 			item_bin_add_attr_string(item_bin, attr_county_name, attr_strings[attr_string_county_name]); 
+ 			item_bin_add_attr_string(item_bin, attr_url, attr_strings[attr_string_url]);
+ 			item_bin_add_attr_longlong(item_bin, attr_osm_wayid, osmid_attr_value);
+-
+-			item_bin_write(item_bin,osm->way2poi);
++			item_bin_write(item_bin, count_areas<count_lines?osm->line2poi:osm->poly2poi);
+ 		}
+ 	}
+ 	attr_longest_match_clear();
+@@ -2133,18 +2135,39 @@
+ 	}
+ }
+ 
++FILE *
++resolve_ways_file(FILE *in, char *suffix, char *filename)
++{
++	char *newfilename=g_strdup_printf("%s_new",filename);
++	FILE *new=tempfile(suffix,newfilename,1);
++	resolve_ways(in, new);
++	fclose(in);
++	fclose(new);
++	tempfile_rename(suffix,newfilename,filename);
++	g_free(newfilename);
++	return tempfile(suffix,filename,0);
++}
++
++/**
++  * Get POI coordinates from area/line coordinates.
++  * @param in *in input file with area/line coordinates.
++  * @param in *out output file with POI coordinates
++  * @param in type input file original contents type: type_line or type_area
++  * @returns nothing
++  */
+ void
+-process_way2poi(FILE *in, FILE *out)
++process_way2poi(FILE *in, FILE *out, int type)
+ {
+ 	struct item_bin *ib;
+ 	while ((ib=read_item(in))) {
+ 		int count=ib->clen/2;
+ 		if(count>1 && ib->type<type_line) {
+ 			struct coord *c=(struct coord *)(ib+1), c1, c2;
+-			if(count>2) {
+-				if(!geom_poly_centroid(c, count, &c1)) {
+-					// we have poly with zero area
+-					// Falling back to coordinates of its first vertex...
++			int done=0;
++			if(type==type_area) {
++				if(count<3) {
++					osm_warning("way",item_bin_get_wayid(ib),0,"Broken polygon, less than 3 points defined\n");
++				}  else if(!geom_poly_centroid(c, count, &c1)) {
+ 					osm_warning("way",item_bin_get_wayid(ib),0,"Broken polygon, area is 0\n");
+ 				} else {
+ 					if(geom_poly_point_inside(c, count, &c1)) {
+@@ -2153,12 +2176,13 @@
+ 						geom_poly_closest_point(c, count, &c1, &c2);
+ 						c[0]=c2;
+ 					}
++					done=1;
+ 				}
+-			} else if (count==2) {
+-				osm_warning("way",item_bin_get_wayid(ib),0, "Expected polygon, but only two points defined\n");
+-				c[0].x=(c[0].x+c[1].x)/2;
+-				c[0].y=(c[0].y+c[1].y)/2;
+ 			}
++			if(!done) {
++				geom_line_middle(c,count,&c1);
++				c[0]=c1;
++			}
+ 			write_item_part(out, NULL, NULL, ib, 0, 0, NULL);
+ 		}
+ 	}
+Index: navit/maptool/maptool.c
+===================================================================
+--- navit/maptool/maptool.c	(revision 4606)
++++ navit/maptool/maptool.c	(working copy)
+@@ -346,7 +346,7 @@
+ 
+ int main(int argc, char **argv)
+ {
+-	FILE *ways=NULL, *way2poi=NULL, *ways_split=NULL,*ways_split_index=NULL,*nodes=NULL,*turn_restrictions=NULL,*graph=NULL,*coastline=NULL,*tilesdir,*coords,*relations=NULL,*boundaries=NULL;
++	FILE *ways=NULL, *line2poi=NULL, *poly2poi=NULL, *ways_split=NULL,*ways_split_index=NULL,*nodes=NULL,*turn_restrictions=NULL,*graph=NULL,*coastline=NULL,*tilesdir,*coords,*relations=NULL,*boundaries=NULL;
+ 	FILE *files[10];
+ 	FILE *references[10];
+ 	struct maptool_params p;
+@@ -427,15 +427,18 @@
+ 			nodes=tempfile(suffix,"nodes",1);
+ 		if (p.process_ways && p.process_nodes) {
+ 			turn_restrictions=tempfile(suffix,"turn_restrictions",1);
+-			if(doway2poi)
+-				way2poi=tempfile(suffix,"way2poi",1);
++			if(doway2poi) {
++				line2poi=tempfile(suffix,"line2poi",1);
++				poly2poi=tempfile(suffix,"poly2poi",1);
++			}
+ 		}
+ 		if (p.process_relations)
+ 			boundaries=tempfile(suffix,"boundaries",1);
+ 		phase=1;
+ 		fprintf(stderr,"PROGRESS: Phase 1: collecting data\n");
+ 		osm.ways=ways;
+-		osm.way2poi=way2poi;
++		osm.line2poi=line2poi;
++		osm.poly2poi=poly2poi;
+ 		osm.nodes=nodes;
+ 		osm.turn_restrictions=turn_restrictions;
+ 		osm.boundaries=boundaries;
+@@ -470,25 +473,29 @@
+ 					ref_ways(ways);
+ 					save_buffer("coords.tmp",&node_buffer, i*slice_size);
+ 				}
+-				if(way2poi) {
+-					FILE *way2poinew=tempfile(suffix,"way2poi_resolved_new",1);
+-					resolve_ways(way2poi, way2poinew);
+-					fclose(way2poi);
+-					fclose(way2poinew);
+-					tempfile_rename(suffix,"way2poi_resolved_new","way2poi_resolved");
+-					way2poi=tempfile(suffix,"way2poi_resolved",0);
++				if(line2poi) {
++					line2poi=resolve_ways_file(line2poi, suffix, "line2poi_resolved");
+ 					if (first && !p.keep_tmpfiles) 
+-						tempfile_unlink(suffix,"way2poi");
++						tempfile_unlink(suffix,"line2poi");
+ 				}
++				if(poly2poi) {
++					poly2poi=resolve_ways_file(poly2poi, suffix, "poly2poi_resolved");
++					if (first && !p.keep_tmpfiles) 
++						tempfile_unlink(suffix,"poly2poi");
++				}
+ 				first=0;
+ 			}
+ 		}
+ 		if (ways)
+ 			fclose(ways);
+-		if (way2poi) {
+-			process_way2poi(way2poi, nodes);
+-			fclose(way2poi);
++		if (line2poi) {
++			process_way2poi(line2poi, nodes, type_line);
++			fclose(line2poi);
+ 		}
++		if (poly2poi) {
++			process_way2poi(poly2poi, nodes, type_area);
++			fclose(poly2poi);
++		}
+ 		if (nodes)
+ 			fclose(nodes);
+ 		if (turn_restrictions)
+Index: navit/maptool/maptool.h
+===================================================================
+--- navit/maptool/maptool.h	(revision 4606)
++++ navit/maptool/maptool.h	(working copy)
+@@ -32,6 +32,8 @@
+ #define LONGLONG_FMT "%lld"
+ #endif
+ 
++#define sq(x) ((double)(x)*(x))
++
+ #define BUFFER_SIZE 1280
+ 
+ #define debug_tile(x) 0
+@@ -143,6 +145,7 @@
+ 
+ void geom_coord_copy(struct coord *from, struct coord *to, int count, int reverse);
+ void geom_coord_revert(struct coord *c, int count);
++int geom_line_middle(struct coord *p, int count, struct coord *c);
+ long long geom_poly_area(struct coord *c, int count);
+ int geom_poly_centroid(struct coord *c, int count, struct coord *r);
+ int geom_poly_point_inside(struct coord *cp, int count, struct coord *c);
+@@ -236,7 +239,8 @@
+ 	FILE *turn_restrictions;
+ 	FILE *nodes;
+ 	FILE *ways;
+-	FILE *way2poi;
++	FILE *line2poi;
++	FILE *poly2poi;
+ };
+ 
+ void osm_add_tag(char *k, char *v);
+@@ -254,7 +258,8 @@
+ void process_turn_restrictions(FILE *in, FILE *coords, FILE *ways, FILE *ways_index, FILE *out);
+ void ref_ways(FILE *in);
+ void resolve_ways(FILE *in, FILE *out);
+-void process_way2poi(FILE *in, FILE *out);
++FILE *resolve_ways_file(FILE *in, char *suffix, char *filename);
++void process_way2poi(FILE *in, FILE *out, int type);
+ int map_find_intersections(FILE *in, FILE *out, FILE *out_index, FILE *out_graph, FILE *out_coastline, int final);
+ void write_countrydir(struct zip_info *zip_info);
+ void remove_countryfiles(void);
+Index: navit/maptool/geom.c
+===================================================================
+--- navit/maptool/geom.c	(revision 4606)
++++ navit/maptool/geom.c	(working copy)
+@@ -17,6 +17,7 @@
+  * Boston, MA  02110-1301, USA.
+  */
+ #include <string.h>
++#include <math.h>
+ #include "maptool.h"
+ 
+ void
+@@ -32,6 +33,41 @@
+ 		*to++=*--from;	
+ }
+ 
++/**
++  * Get coordinates of polyline middle point.
++  * @param in *p array of poly vertex coordinates
++  * @param in count count of poly vertexes
++  * @param out *c coordinates of middle point
++  * @returns number of first vertex of segment containing middle point
++  */
++int
++geom_line_middle(struct coord *p, int count, struct coord *c)
++{
++	double length=0,half=0,len=0;
++	int i;
++
++	if(count==1) {
++		*c=*p;
++		return 0;
++	}
++	
++	for (i=0; i<count-1; i++) {
++		length+=sqrt(sq(p[i].x-p[i+1].x)+sq(p[i].y-p[i+1].y));
++	}
++
++	length/=2;
++	for (i=0; (i<count-1) && (half<length); i++) {
++		len=sqrt(sq(p[i].x-p[i+1].x)+sq(p[i].y-p[i+1].y));
++		half+=len;
++	}
++	i--;
++	half-=length;
++	c->x=(p[i].x*half+p[i+1].x*(len-half))/len;
++	c->y=(p[i].y*half+p[i+1].y*(len-half))/len;
++	return i;
++}
++
++
+ void
+ geom_coord_revert(struct coord *c, int count)
+ {
+@@ -78,7 +114,7 @@
+ int
+ geom_poly_centroid(struct coord *p, int count, struct coord *c)
+ {
+-	long long area=0/*geom_poly_area(p, count)*/;
++	long long area=0;
+ 	long long sx=0,sy=0,tmp;
+ 	int i,j;
+ 	long long x0=p[0].x, y0=p[0].y, xi, yi, xj, yj;
+Index: navit/maptool/ch.c
+===================================================================
+--- navit/maptool/ch.c	(revision 4606)
++++ navit/maptool/ch.c	(working copy)
+@@ -142,8 +142,6 @@
+ 	g_slice_free(struct item_id, data);
+ }
+ 
+-#define sq(x) ((double)(x)*(x))
+-
+ static void
+ add_node_to_hash(FILE *idx, GHashTable *hash, struct coord *c, int *nodes)
+ {

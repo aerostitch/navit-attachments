@@ -1,0 +1,49 @@
+Fixes spelling errors reported by lintian
+Index: navit/navit/font/freetype/font_freetype.c
+===================================================================
+--- navit.orig/navit/font/freetype/font_freetype.c	2010-01-11 15:39:43.000000000 +0100
++++ navit/navit/font/freetype/font_freetype.c	2010-01-11 15:42:10.000000000 +0100
+@@ -357,7 +357,7 @@
+ 	}
+ 	font->size=size;
+ #ifdef HAVE_FONTCONFIG
+-	dbg(2, " about to search for fonts, prefered = %s\n", fontfamily);
++	dbg(2, " about to search for fonts, preferred = %s\n", fontfamily);
+ 	family = g_malloc(sizeof(fontfamilies) + sizeof(fontfamily));
+ 	if (fontfamily) {
+ 		memcpy(family, &fontfamily, sizeof(fontfamily));
+Index: navit/navit/map/garmin/garmin.c
+===================================================================
+--- navit.orig/navit/map/garmin/garmin.c	2010-01-11 15:39:43.000000000 +0100
++++ navit/navit/map/garmin/garmin.c	2010-01-11 15:42:10.000000000 +0100
+@@ -418,7 +418,7 @@
+ 			attr->u.num |= AF_SEGMENTED;
+ 		return 1;
+ 	default:
+-		dlog(1, "Dont know about attribute %d[%04X]=%s yet\n", attr_type,attr_type, attr_to_name(attr_type));
++		dlog(1, "Don't know about attribute %d[%04X]=%s yet\n", attr_type,attr_type, attr_to_name(attr_type));
+ 	}
+ 
+ 	return 0;
+@@ -567,7 +567,7 @@
+ 	case attr_town_streets_item:
+ 		return 0;
+ 	default:
+-		dlog(1, "Dont know about attribute %d[%04X]=%s yet\n",
++		dlog(1, "Don't know about attribute %d[%04X]=%s yet\n",
+ 				attr_type,attr_type, attr_to_name(attr_type));
+ 	}
+ 
+Index: navit/navit/graphics.c
+===================================================================
+--- navit.orig/navit/graphics.c	2010-01-11 15:45:53.000000000 +0100
++++ navit/navit/graphics.c	2010-01-11 15:46:02.000000000 +0100
+@@ -1774,7 +1774,7 @@
+ 			}
+ 			break;
+ 		default:
+-			dbg(0,"dont know how to draw %d\n", e->type);
++			dbg(0,"don't know how to draw %d\n", e->type);
+ 		}
+ 		graphics_gc_destroy(gc);
+ 		es=g_list_next(es);

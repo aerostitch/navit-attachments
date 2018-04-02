@@ -1,0 +1,305 @@
+20:07:14.758|vehicle_file:vehicle_file_io:vehicle_file_io : enter
+20:07:14.765|vehicle_file:vehicle_file_io:size=1021 pos=1023 buffer='$GPGSV,3,2,09,23,05,306,19,16,29,302,18,31,42,223,,06,15,261,*7C
+$GPGSV,3,3,09,13,06,337,*43
+$GPGSA,A,3,05,21,23,25,29,,,,,,,,2.2,1.0,2.0*3A
+$GPGGA,200621.40,5001.267227,N,00847.118612,E,1,06,1.0,199.0,M,0.492001,M,-14.0670515,0130*55
+$GPRMC,200621.40,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*59
+$GPGSA,A,3,05,16,21,23,25,29,,,,,,,2.2,1.0,2.0*3D
+$GPGGA,200622.19,5001.267227,N,00847.118612,E,1,06,1.0,199.0,M,0.493001,M,-14.0670515,0130*5B
+$GPRMC,200622.19,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*56
+$GPGSA,A,3,05,16,21,23,25,29,,,,,,,2.2,1.0,2.0*3D
+$GPGGA,200622.93,5001.267227,N,00847.118612,E,1,05,1.0,199.0,M,0.493001,M,-14.0670515,0130*5A
+$GPRMC,200622.93,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*54
+$GPGSA,A,3,05,16,21,25,29,,,,,,,,2.2,1.0,2.0*3C
+$GPGGA,200623.68,5001.267227,N,00847.118612,E,1,05,1.0,199.0,M,0.493001,M,-14.0670515,0130*5F
+$GPRMC,200623.68,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*51
+$GPGSA,A,3,05,16,21,25,29,,,,,,,,2.2,1.0,2.0*3C
+'
+20:07:14.778|vehicle_file:vehicle_file_io:line='$GPGSV,3,2,09,23,05,306,19,16,29,302,18,31,42,223,,06,15,261,*7C
+'
+20:07:14.788|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSV,3,2,09,23,05,306,19,16,29,302,18,31,42,223,,06,15,261,*7C
+'
+20:07:14.795|vehicle_file:vehicle_file_io:line='$GPGSV,3,3,09,13,06,337,*43
+'
+20:07:14.802|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSV,3,3,09,13,06,337,*43
+'
+20:07:14.814|vehicle_file:vehicle_file_io:line='$GPGSA,A,3,05,21,23,25,29,,,,,,,,2.2,1.0,2.0*3A
+'
+20:07:14.824|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,3,05,21,23,25,29,,,,,,,,2.2,1.0,2.0*3A
+'
+20:07:14.832|vehicle_file:vehicle_file_io:line='$GPGGA,200621.40,5001.267227,N,00847.118612,E,1,06,1.0,199.0,M,0.492001,M,-14.0670515,0130*55
+'
+20:07:14.839|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,200621.40,5001.267227,N,00847.118612,E,1,06,1.0,199.0,M,0.492001,M,-14.0670515,0130*55
+'
+20:07:14.851|vehicle_file:vehicle_file_parse:latitude '50.0211' longitude 8.7853
+20:07:14.861|vehicle_file:vehicle_file_io:line='$GPRMC,200621.40,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*59
+'
+20:07:14.915|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,200621.40,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*59
+'
+20:07:14.922|vehicle_file:vehicle_file_io:line='$GPGSA,A,3,05,16,21,23,25,29,,,,,,,2.2,1.0,2.0*3D
+'
+20:07:14.932|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,3,05,16,21,23,25,29,,,,,,,2.2,1.0,2.0*3D
+'
+20:07:14.942|vehicle_file:vehicle_file_io:line='$GPGGA,200622.19,5001.267227,N,00847.118612,E,1,06,1.0,199.0,M,0.493001,M,-14.0670515,0130*5B
+'
+20:07:14.950|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,200622.19,5001.267227,N,00847.118612,E,1,06,1.0,199.0,M,0.493001,M,-14.0670515,0130*5B
+'
+20:07:14.957|vehicle_file:vehicle_file_parse:latitude '50.0211' longitude 8.7853
+20:07:14.968|vehicle_file:vehicle_file_io:line='$GPRMC,200622.19,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*56
+'
+20:07:14.978|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,200622.19,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*56
+'
+20:07:14.985|vehicle_file:vehicle_file_io:line='$GPGSA,A,3,05,16,21,23,25,29,,,,,,,2.2,1.0,2.0*3D
+'
+20:07:14.992|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,3,05,16,21,23,25,29,,,,,,,2.2,1.0,2.0*3D
+'
+20:07:15.003|vehicle_file:vehicle_file_io:line='$GPGGA,200622.93,5001.267227,N,00847.118612,E,1,05,1.0,199.0,M,0.493001,M,-14.0670515,0130*5A
+'
+20:07:15.012|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,200622.93,5001.267227,N,00847.118612,E,1,05,1.0,199.0,M,0.493001,M,-14.0670515,0130*5A
+'
+20:07:15.020|vehicle_file:vehicle_file_parse:latitude '50.0211' longitude 8.7853
+20:07:15.028|vehicle_file:vehicle_file_io:line='$GPRMC,200622.93,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*54
+'
+20:07:15.038|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,200622.93,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*54
+'
+20:07:15.048|vehicle_file:vehicle_file_io:line='$GPGSA,A,3,05,16,21,25,29,,,,,,,,2.2,1.0,2.0*3C
+'
+20:07:15.055|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,3,05,16,21,25,29,,,,,,,,2.2,1.0,2.0*3C
+'
+20:07:15.062|vehicle_file:vehicle_file_io:line='$GPGGA,200623.68,5001.267227,N,00847.118612,E,1,05,1.0,199.0,M,0.493001,M,-14.0670515,0130*5F
+'
+20:07:15.073|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,200623.68,5001.267227,N,00847.118612,E,1,05,1.0,199.0,M,0.493001,M,-14.0670515,0130*5F
+'
+20:07:15.083|vehicle_file:vehicle_file_parse:latitude '50.0211' longitude 8.7853
+20:07:15.091|vehicle_file:vehicle_file_io:line='$GPRMC,200623.68,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*51
+'
+20:07:15.098|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,200623.68,A,5001.267227,N,00847.118612,E,000.0,000.0,040611,,,A*51
+'
+20:07:15.109|vehicle_file:vehicle_file_io:now pos=48 buffer='$GPGSA,A,3,05,16,21,25,29,,,,,,,,2.2,1.0,2.0*3C
+'
+20:07:15.120|navit:callback_call:cb->pcount=2
+20:07:15.127|navit:callback_call:cb->p[0]=0x6a4f8
+20:07:15.136|navit:callback_call:pcount=0
+20:07:15.148|navit:tracking_update:Static speed: 5, static distance: 25
+20:07:15.156|navit:tracking_update:static speed 0.000000 coord 0xee814,0x624ecc vs 0xee7f1,0x624edc
+20:07:15.164|navit:tracking_get_attr:enter position_valid
+20:07:15.172|navit:tracking_get_attr:enter position_direction
+20:07:15.183|navit:tracking_get_attr:enter position_speed
+20:07:15.191|navit:tracking_get_attr:enter position_coord_geo
+20:07:15.198|navit:route_set_position_from_tracking:enter
+20:07:15.207|navit:route_set_position_from_tracking:position 0xee7ea,0x624ed2 item 0xae,0x3e34 direction 1 pos 0 lenpos 46 lenneg 9
+20:07:15.218|navit:route_set_position_from_tracking:c->x=0xee7ea, c->y=0x624ed2 pos=0 item=(0xae,0x3e34)
+20:07:15.226|navit:route_set_position_from_tracking:street 0=(0xee7e8,0x624ec4) 1=(0xee7f6,0x624f1a)
+20:07:15.234|navit:route_path_update:enter 0
+20:07:15.242|navit:route_path_update:busy building graph
+20:07:15.252|navit:route_set_position_from_tracking:ret
+20:07:15.260|navit:transform:count=1
+20:07:15.268|navit:transform_setup_matrix:yaw=0 pitch=0 center=0xee7ea,0x624ef2
+20:07:15.276|navit:transform_setup_matrix:scale_shift=0 order=15 scale=0.437500 fac=585.142857
+20:07:15.287|navit:transform_reverse_near_far:160,120
+20:07:15.295|navit:transform_reverse_near_far:160,192
+20:07:15.303|navit:update_transformation:from 0xee7ea,0x624ed2 to 0xee7ea,0x624ef2
+20:07:15.311|navit:transform:count=1
+20:07:15.321|navit:callback_call:cb->pcount=1
+20:07:15.330|navit:callback_call:cb->p[0]=0x73d90
+20:07:15.337|navit:callback_call:pcount=2
+20:07:15.345|navit:callback_call:p[0]=0x6a4f8
+20:07:15.356|navit:tracking_get_attr:enter street_name
+20:07:15.364|navit:cache_lookup:get 30985570
+20:07:15.371|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.380|navit:cache_lookup:in cache T2
+20:07:15.390|navit:cache_lookup:get 4453926
+20:07:15.398|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.406|navit:cache_lookup:in cache T2
+20:07:15.414|navit:cache_lookup:get 4453956
+20:07:15.424|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.432|navit:cache_lookup:in cache T2
+20:07:15.440|navit:cache_lookup:get 4453970
+20:07:15.448|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.458|navit:cache_lookup:in cache T2
+20:07:15.467|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.476|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.484|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.495|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.503|navit:tracking_get_attr:enter street_name_systematic
+20:07:15.511|navit:cache_lookup:get 30985570
+20:07:15.519|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.529|navit:cache_lookup:in cache T2
+20:07:15.539|navit:cache_lookup:get 4453926
+20:07:15.552|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.561|navit:cache_lookup:in cache T2
+20:07:15.570|navit:cache_lookup:get 4453956
+20:07:15.580|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.589|navit:cache_lookup:in cache T2
+20:07:15.598|navit:cache_lookup:get 4453970
+20:07:15.606|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.615|navit:cache_lookup:in cache T2
+20:07:15.648|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.656|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.665|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.674|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.683|navit:callback_call:cb->pcount=1
+20:07:15.691|navit:callback_call:cb->p[0]=0x73d90
+20:07:15.699|navit:callback_call:pcount=2
+20:07:15.708|navit:callback_call:p[0]=0x6a4f8
+20:07:15.717|navit:tracking_get_attr:enter street_name
+20:07:15.725|navit:cache_lookup:get 30985570
+20:07:15.734|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.744|navit:cache_lookup:in cache T2
+20:07:15.753|navit:cache_lookup:get 4453926
+20:07:15.761|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.770|navit:cache_lookup:in cache T2
+20:07:15.779|navit:cache_lookup:get 4453956
+20:07:15.789|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.797|navit:cache_lookup:in cache T2
+20:07:15.806|navit:cache_lookup:get 4453970
+20:07:15.814|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.823|navit:cache_lookup:in cache T2
+20:07:15.831|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.840|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.848|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.858|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.867|navit:tracking_get_attr:enter street_name_systematic
+20:07:15.877|navit:cache_lookup:get 30985570
+20:07:15.888|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:15.897|navit:cache_lookup:in cache T2
+20:07:15.906|navit:cache_lookup:get 4453926
+20:07:15.914|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:15.922|navit:cache_lookup:in cache T2
+20:07:15.931|navit:cache_lookup:get 4453956
+20:07:15.940|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.948|navit:cache_lookup:in cache T2
+20:07:15.957|navit:cache_lookup:get 4453970
+20:07:15.965|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:15.974|navit:cache_lookup:in cache T2
+20:07:15.983|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:15.991|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.000|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.008|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.017|navit:callback_call:cb->pcount=1
+20:07:16.025|navit:callback_call:cb->p[0]=0x73fc8
+20:07:16.034|navit:callback_call:pcount=2
+20:07:16.042|navit:callback_call:p[0]=0x6a4f8
+20:07:16.051|navit:callback_call:cb->pcount=1
+20:07:16.060|navit:callback_call:cb->p[0]=0x74240
+20:07:16.069|navit:callback_call:pcount=2
+20:07:16.078|navit:callback_call:p[0]=0x6a4f8
+20:07:16.087|navit:tracking_get_attr:enter maxspeed
+20:07:16.096|navit:cache_lookup:get 30985570
+20:07:16.105|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.113|navit:cache_lookup:in cache T2
+20:07:16.122|navit:cache_lookup:get 4453926
+20:07:16.130|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.139|navit:cache_lookup:in cache T2
+20:07:16.147|navit:cache_lookup:get 4453956
+20:07:16.156|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:16.164|navit:cache_lookup:in cache T2
+20:07:16.173|navit:cache_lookup:get 4453970
+20:07:16.181|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.191|navit:cache_lookup:in cache T2
+20:07:16.200|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:16.208|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.217|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.225|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.234|navit:callback_call:cb->pcount=1
+20:07:16.243|navit:callback_call:cb->p[0]=0x74240
+20:07:16.251|navit:callback_call:pcount=2
+20:07:16.260|navit:callback_call:p[0]=0x6a4f8
+20:07:16.269|navit:tracking_get_attr:enter maxspeed
+20:07:16.278|navit:cache_lookup:get 30985570
+20:07:16.286|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.295|navit:cache_lookup:in cache T2
+20:07:16.304|navit:cache_lookup:get 4453926
+20:07:16.312|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.321|navit:cache_lookup:in cache T2
+20:07:16.329|navit:cache_lookup:get 4453956
+20:07:16.338|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:16.371|navit:cache_lookup:in cache T2
+20:07:16.380|navit:cache_lookup:get 4453970
+20:07:16.388|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.397|navit:cache_lookup:in cache T2
+20:07:16.407|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:16.415|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.426|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.435|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.443|navit:callback_call:cb->pcount=1
+20:07:16.452|navit:callback_call:cb->p[0]=0x744c0
+20:07:16.462|navit:callback_call:pcount=2
+20:07:16.470|navit:callback_call:p[0]=0x6a4f8
+20:07:16.479|navit:callback_call:cb->pcount=1
+20:07:16.488|navit:callback_call:cb->p[0]=0x74700
+20:07:16.499|navit:callback_call:pcount=2
+20:07:16.507|navit:callback_call:p[0]=0x6a4f8
+20:07:16.515|navit:callback_call:cb->pcount=1
+20:07:16.523|navit:callback_call:cb->p[0]=0x748d8
+20:07:16.533|navit:callback_call:pcount=2
+20:07:16.541|navit:callback_call:p[0]=0x6a4f8
+20:07:16.550|navit:callback_call:cb->pcount=1
+20:07:16.559|navit:callback_call:cb->p[0]=0x74a48
+20:07:16.569|navit:callback_call:pcount=2
+20:07:16.577|navit:callback_call:p[0]=0x6a4f8
+20:07:16.584|navit:callback_call:cb->pcount=1
+20:07:16.592|navit:callback_call:cb->p[0]=0x74cd8
+20:07:16.603|navit:callback_call:pcount=2
+20:07:16.611|navit:callback_call:p[0]=0x6a4f8
+20:07:16.618|navit:tracking_get_attr:enter maxspeed
+20:07:16.626|navit:cache_lookup:get 30985570
+20:07:16.637|navit:cache_lookup:found 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.645|navit:cache_lookup:in cache T2
+20:07:16.653|navit:cache_lookup:get 4453926
+20:07:16.662|navit:cache_lookup:found 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.672|navit:cache_lookup:in cache T2
+20:07:16.680|navit:cache_lookup:get 4453956
+20:07:16.689|navit:cache_lookup:found 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:16.701|navit:cache_lookup:in cache T2
+20:07:16.711|navit:cache_lookup:get 4453970
+20:07:16.722|navit:cache_lookup:found 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.736|navit:cache_lookup:in cache T2
+20:07:16.743|navit:cache_entry_destroy:destroy 0x43f644 0x0 0xe 0x7d900 0x0
+20:07:16.752|navit:cache_entry_destroy:destroy 0x43f626 0x0 0x1e 0x7d900 0x0
+20:07:16.760|navit:cache_entry_destroy:destroy 0x1d8cd62 0x0 0x3c 0x7d900 0x0
+20:07:16.771|navit:cache_entry_destroy:destroy 0x43f652 0x0 0x9ab0 0x7d900 0x1
+20:07:16.779|navit:tracking_get_attr:enter position_speed
+20:07:16.787|navit:callback_call:cb->pcount=1
+20:07:16.796|navit:callback_call:cb->p[0]=0x758e0
+20:07:16.806|navit:callback_call:pcount=2
+20:07:16.814|navit:callback_call:p[0]=0x6a4f8
+20:07:16.821|navit:callback_call:cb->pcount=1
+20:07:16.830|navit:callback_call:cb->p[0]=0x6d908
+20:07:16.840|navit:callback_call:pcount=0
+20:07:16.848|navit:callback_call:cb->pcount=1
+20:07:16.856|navit:callback_call:cb->p[0]=0x73060
+20:07:16.864|navit:callback_call:pcount=1
+20:07:16.874|navit:callback_call:p[0]=0xbeb625c0
+20:07:16.882|navit:callback_call:cb->pcount=1
+20:07:16.890|navit:callback_call:cb->p[0]=0x6a4f8
+20:07:16.898|navit:callback_call:pcount=1
+20:07:16.908|navit:callback_call:p[0]=0xbeb625c0
+20:07:16.916|navit:callback_call:cb->pcount=1
+20:07:16.924|navit:callback_call:cb->p[0]=0x73060
+20:07:16.932|navit:callback_call:pcount=3
+20:07:16.942|navit:callback_call:p[0]=0x1
+20:07:16.960|navit:callback_call:cb->pcount=1
+20:07:16.968|navit:callback_call:cb->p[0]=0x6a4f8
+20:07:16.978|navit:callback_call:pcount=3
+20:07:16.988|navit:callback_call:p[0]=0x1
+20:07:16.996|navit:navit_button:enter 1 1 ignore 1
+20:07:17.004|navit:callback_call:cb->pcount=1
+20:07:17.013|navit:callback_call:cb->p[0]=0x73060
+20:07:17.023|navit:callback_call:pcount=3
+20:07:17.031|navit:callback_call:p[0]=(nil)
+20:07:17.039|navit:eval_postfix:function call
+20:07:17.048|navit:command_call_function:function=quit
+20:07:17.059|navit:command_call_function:function call quit from gui
+20:07:17.110|navit:callback_call:cb->pcount=3
+20:07:17.117|navit:callback_call:cb->p[0]=0x405a37bc
+20:07:17.125|navit:callback_call:pcount=4
+20:07:17.136|navit:callback_call:p[0]=0xbeb620b4
+20:07:17.145|vehicle_file:vehicle_file_close:enter, priv->fd='8'
+20:07:17.152|vehicle_file:vehicle_file_disable_watch:vehicle_file_disable_watch : enter
+20:07:17.203|navit:route_graph_build_done:cancel=1
+20:07:17.216|graphics_sdl:graphics_destroy:graphics_destroy 0x6ed88 0
+20:07:17.225|navit:callback_call:cb->pcount=1
+20:07:17.235|navit:callback_call:cb->p[0]=0x6d908
+20:07:17.244|navit:callback_call:pcount=0
+20:07:17.253|navit:debug_dump_mallocs:mallocs 0

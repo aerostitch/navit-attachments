@@ -1,0 +1,13 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/navigation.h	2012-09-04 20:04:37.395424012 +0200
++++ navigation.h	2012-08-28 20:47:55.829842000 +0200
+@@ -45,6 +45,10 @@
+ struct map *navigation_get_map(struct navigation *this_);
+ void navigation_set_route(struct navigation *this_, struct route *route);
+ void navigation_init(void);
++/***************************** Rainer ***************************/
++int get_dist_to_next_maneuver(struct navigation *nav);
++int get_distance_of_first_announcement(struct navigation *nav);
++enum item_type get_target_street_type(struct navigation *nav);
+ /* end of prototypes */
+ #ifdef __cplusplus
+ }

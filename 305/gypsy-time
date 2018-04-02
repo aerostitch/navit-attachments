@@ -1,0 +1,42 @@
+Index: navit-0.1.1.~svn2032/navit/vehicle/gypsy/vehicle_gypsy.c
+===================================================================
+--- navit-0.1.1.~svn2032.orig/navit/vehicle/gypsy/vehicle_gypsy.c	2009-02-22 19:46:16.000000000 +0100
++++ navit-0.1.1.~svn2032/navit/vehicle/gypsy/vehicle_gypsy.c	2009-02-22 19:46:23.000000000 +0100
+@@ -48,6 +48,8 @@
+ 	double direction;
+ 	double height;
+ 	int fix_type;
++	time_t fix_time;
++	char fixiso8601[128];
+ 	int sats;
+ 	int sats_used;
+ 	guint retry_timer;
+@@ -84,6 +86,9 @@
+ 	struct vehicle_priv *priv = vehicle_last;
+ 	int cb = FALSE;
+ 
++	if (timestamp > 0)
++		priv->fix_time = timestamp;
++
+ 	if (fields_set & GYPSY_POSITION_FIELDS_LATITUDE)
+ 	{
+ 		cb = TRUE;
+@@ -277,6 +282,18 @@
+ 		if (!priv->have_cords)
+ 			return 0;
+ 		break;
++	case attr_position_time_iso8601:
++		{
++		struct tm tm;
++		if (!priv->fix_time)
++			return 0;
++		if (gmtime_r(&priv->fix_time, &tm)) {
++			strftime(priv->fixiso8601, sizeof(priv->fixiso8601),
++					"%Y-%m-%dT%TZ", &tm);
++			attr->u.str=priv->fixiso8601;
++		} else
++			return 0;
++		}
+ 	case attr_active:
+ 	  active = attr_search(priv->attrs,NULL,attr_active);
+ 	  if(active != NULL && active->u.num == 1)

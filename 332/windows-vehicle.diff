@@ -1,0 +1,636 @@
+diff -r 14609e8d2be6 navit/configure.in
+--- a/navit/configure.in	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/configure.in	Thu Jul 15 18:33:52 2010 -0400
+@@ -129,6 +129,7 @@
+ then
+ 	NAVIT_CFLAGS="$NAVIT_CFLAGS -I\$(top_srcdir)/navit/support/win32"
+ 	NAVIT_LIBS="$NAVIT_LIBS -L\$(top_builddir)/navit/support/win32 -lsupport_win32"
++	NAVIT_SOCKET_LDFLAGS="$MODULE_LDFLAGS -lws2_32"
+ fi
+ 
+ 
+@@ -146,6 +147,7 @@
+ AC_SUBST(MODULE_LDFLAGS)
+ AC_SUBST(MODULE_LIBADD)
+ AC_SUBST(NAVIT_MODULE_LDFLAGS)
++AC_SUBST(NAVIT_SOCKET_LDFLAGS)
+ 
+ LIBS="$LIBS -lm"
+ if test "$win32" == "no" -a test "$host_os" != "cygwin"; then
+@@ -359,6 +361,7 @@
+ AC_SUBST(ZLIB_LIBS)
+ 
+ AC_CHECK_HEADER(sys/socket.h, AC_DEFINE([HAVE_SOCKET],[],Define to 1 if you have sockets))
++AC_CHECK_HEADER(winsock2.h, AC_DEFINE([HAVE_WINSOCK],[],Define to 1 if you have Windows sockets))
+ 
+ # gtk
+ PKG_CHECK_MODULES(GTK2, [gtk+-2.0], [gtk2_pkgconfig=yes], [gtk2_pkgconfig=no])
+diff -r 14609e8d2be6 navit/navit/Makefile.am
+--- a/navit/navit/Makefile.am	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/navit/Makefile.am	Thu Jul 15 18:33:52 2010 -0400
+@@ -34,7 +34,7 @@
+ 
+ if SHARED_LIBNAVIT
+   lib_LTLIBRARIES        = lib@LIBNAVIT@.la
+-  lib@LIBNAVIT@_la_LDFLAGS = -avoid-version @MODULE_LDFLAGS@ -no-undefined -Wl,--no-undefined
++  lib@LIBNAVIT@_la_LDFLAGS = -avoid-version @MODULE_LDFLAGS@ @NAVIT_SOCKET_LDFLAGS@ -no-undefined -Wl,--no-undefined
+ else
+   noinst_LTLIBRARIES        = lib@LIBNAVIT@.la
+ endif
+diff -r 14609e8d2be6 navit/navit/support/win32/Makefile.am
+--- a/navit/navit/support/win32/Makefile.am	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/navit/support/win32/Makefile.am	Thu Jul 15 18:33:52 2010 -0400
+@@ -1,4 +1,5 @@
+ include $(top_srcdir)/Makefile.inc
+ AM_CPPFLAGS = @NAVIT_CFLAGS@ -I$(top_srcdir)/navit -DMODULE=support_win32
+ noinst_LTLIBRARIES = libsupport_win32.la
+-libsupport_win32_la_SOURCES = mmap.c win32_init.c sys/mman.h ConvertUTF.c ConvertUTF.h
++libsupport_win32_la_SOURCES = mmap.c win32_init.c sys/mman.h ConvertUTF.c ConvertUTF.h serial_io.c addwinsock.c
++
+diff -r 14609e8d2be6 navit/navit/support/win32/addwinsock.c
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/navit/navit/support/win32/addwinsock.c	Thu Jul 15 18:33:52 2010 -0400
+@@ -0,0 +1,8 @@
++#include "addwinsock.h"
++
++int inet_aton(const char *cp, struct in_addr *inp)
++{
++	unsigned long addr = inet_addr(cp);
++	inp->S_un.S_addr = addr;
++	return addr != -1;
++}
+diff -r 14609e8d2be6 navit/navit/support/win32/addwinsock.h
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/navit/navit/support/win32/addwinsock.h	Thu Jul 15 18:33:52 2010 -0400
+@@ -0,0 +1,8 @@
++#ifndef ADD_WINSOCK
++#define ADD_WINSOCK
++
++#include <winsock2.h>
++
++int inet_aton(const char *cp, struct in_addr *inp);
++
++#endif
+diff -r 14609e8d2be6 navit/navit/support/win32/serial_io.c
+--- a/navit/navit/support/win32/serial_io.c	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/navit/support/win32/serial_io.c	Thu Jul 15 18:33:52 2010 -0400
+@@ -3,24 +3,24 @@
+ #include "serial_io.h"
+ #include "debug.h"
+ 
+-//***************************************************************************
+-/** @fn int serial_io_init( const char* port, const char* strsettings )
+-*****************************************************************************
+-* @b Description: initialise a serial port communication
+-*****************************************************************************
+-* @param      port : port name
+-*                 example 'COM7'
+-* @param      strsettings : port settings
+-*                 example ; 'baud=115200 parity=N data=8 stop=1'
+-*****************************************************************************
+-* @return     file descriptor
+-*             -1 if error
+-*****************************************************************************
+-**/
++//***************************************************************************
++/** @fn int serial_io_init( const char* port, const char* strsettings )
++*****************************************************************************
++* @b Description: initialise a serial port communication
++*****************************************************************************
++* @param      port : port name
++*                 example 'COM7'
++* @param      strsettings : port settings
++*                 example ; 'baud=115200 parity=N data=8 stop=1'
++*****************************************************************************
++* @return     file descriptor
++*             -1 if error
++*****************************************************************************
++**/
+ int serial_io_init( const char* port, const char* strsettings )
+ {
+     HANDLE hCom = NULL;
+-
++
+         char strport[16];
+         snprintf( strport, sizeof( strport ), "\\\\.\\%s", port );
+ 
+@@ -48,7 +48,7 @@
+                         0,
+                         NULL
+                 );
+-                dbg(1, "return (fd) : '-1' : serial_io_init error : '%s'\n", lpMsgBuf);
++                dbg(1, "return (fd) : '-1' : serial_io_init error : '%s'\n", lpMsgBuf);
+ 
+                 LocalFree( lpMsgBuf );       // Free the buffer.
+                 return -1;
+@@ -73,34 +73,34 @@
+ 
+         SetCommTimeouts(hCom, &sCT);
+ 
+-        dbg(1, "serial_io_init return (fd) : '%d'\n", (int)hCom);
+-
++        dbg(1, "serial_io_init return (fd) : '%d'\n", (int)hCom);
++
+    return (int)hCom;
+ }
+ 
+-//***************************************************************************
+-/** @fn int serial_io_read( int fd, char * buffer, int buffer_size )
+-*****************************************************************************
+-* @b Description: Read bytes on the serial port
+-*****************************************************************************
+-* @param      fd : file descriptor
+-* @param      buffer : buffer for data
+-* @param      buffer_size : size in byte of the buffer
+-*****************************************************************************
+-* @return     number of bytes read
+-*****************************************************************************
+-* @remarks buffer must be allocated by the caller
+-*****************************************************************************
+-**/
++//***************************************************************************
++/** @fn int serial_io_read( int fd, char * buffer, int buffer_size )
++*****************************************************************************
++* @b Description: Read bytes on the serial port
++*****************************************************************************
++* @param      fd : file descriptor
++* @param      buffer : buffer for data
++* @param      buffer_size : size in byte of the buffer
++*****************************************************************************
++* @return     number of bytes read
++*****************************************************************************
++* @remarks buffer must be allocated by the caller
++*****************************************************************************
++**/
+ int serial_io_read( int fd, char * buffer, int buffer_size )
+ {
+-        dbg(1, "serial_io_read fd = %d buffer_size = %d\n", fd, buffer_size);
+-
++        dbg(1, "serial_io_read fd = %d buffer_size = %d\n", fd, buffer_size);
++
+         DWORD dwBytesIn = 0;
+ 
+         if (fd <= 0)
+         {
+-               dbg(0, "serial_io_read return (dwBytesIn) : '0'\n");
++               dbg(0, "serial_io_read return (dwBytesIn) : '0'\n");
+                *buffer = 0;
+                 return 0;
+         }
+@@ -111,36 +111,36 @@
+         {
+                 buffer[dwBytesIn] = 0;
+         }
+-        else
++        else
+         {
+-            dwBytesIn = 0;
++            dwBytesIn = 0;
+ 			buffer[0] = 0;
+         }
+-        if (dwBytesIn > 0)
+-        {
+-            dbg(1,"GPS < %s\n",buffer );
+-        }
++        if (dwBytesIn > 0)
++        {
++            dbg(1,"GPS < %s\n",buffer );
++        }
+         buffer[buffer_size - 1] = 0;
+ 
+-        dbg(2, "serial_io_read return (dwBytesIn) : '%d'\n", dwBytesIn);
++        dbg(2, "serial_io_read return (dwBytesIn) : '%d'\n", dwBytesIn);
+         return dwBytesIn;
+ }
+ 
+-//***************************************************************************
+-/** @fn int serial_io_write(int fd, const char * buffer)
+-*****************************************************************************
+-* @b Description: Write bytes on the serial port
+-*****************************************************************************
+-* @param      fd : file descriptor
+-* @param      buffer : data buffer (null terminated)
+-*****************************************************************************
+-* @return     number of bytes written
+-*****************************************************************************
+-**/
++//***************************************************************************
++/** @fn int serial_io_write(int fd, const char * buffer)
++*****************************************************************************
++* @b Description: Write bytes on the serial port
++*****************************************************************************
++* @param      fd : file descriptor
++* @param      buffer : data buffer (null terminated)
++*****************************************************************************
++* @return     number of bytes written
++*****************************************************************************
++**/
+ int serial_io_write(int fd, const char * buffer)
+ {
+-        dbg(1, "serial_io_write fd = %d buffer = '%s'\n",fd, buffer);
+-
++        dbg(1, "serial_io_write fd = %d buffer = '%s'\n",fd, buffer);
++
+         DWORD dwBytesOut = 0;
+ 
+         WriteFile((HANDLE)fd, buffer, strlen(buffer), &dwBytesOut, NULL);
+@@ -148,18 +148,18 @@
+         return dwBytesOut;
+ }
+ 
+-//***************************************************************************
+-/** @fn void serial_io_shutdown(int fd )
+-*****************************************************************************
+-* @b Description: Terminate serial communication
+-*****************************************************************************
+-* @param      fd : file descriptor
+-*****************************************************************************
+-**/
++//***************************************************************************
++/** @fn void serial_io_shutdown(int fd )
++*****************************************************************************
++* @b Description: Terminate serial communication
++*****************************************************************************
++* @param      fd : file descriptor
++*****************************************************************************
++**/
+ void serial_io_shutdown(int fd )
+ {
+-       dbg(1, "serial_io_shutdown fd = %d\n",fd);
+-
++       dbg(1, "serial_io_shutdown fd = %d\n",fd);
++
+         if (fd > 0)
+         {
+                 CloseHandle((HANDLE)fd);
+diff -r 14609e8d2be6 navit/navit/support/win32/serial_io.h
+--- a/navit/navit/support/win32/serial_io.h	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/navit/support/win32/serial_io.h	Thu Jul 15 18:33:52 2010 -0400
+@@ -3,7 +3,40 @@
+ 
+ int serial_io_init( const char* port, const char* strsettings );
+ int serial_io_read(int fd, char * buffer, int buffer_size );
+-int WriteSerial(int fd, const char * buffer);
++int serial_io_write(int fd, const char * buffer);
+ void serial_io_shutdown(int fd );
++typedef unsigned int speed_t;
++
++#define B0 0000000
++#define B50 0000001
++#define B75 0000002
++#define B110 0000003
++#define B134 0000004 
++#define B150 0000005
++#define B200 0000006
++#define B300 0000007
++#define B600 0000010
++#define B1200 0000011
++#define B1800 0000012
++#define B2400 0000013
++#define B4800 0000014
++#define B9600 0000015
++#define B19200 0000016
++#define B38400 0000017
++#define B57600 0010001
++#define B115200 0010002
++#define B230400 0010003
++#define B460800 0010004
++#define B500000 0010005
++#define B576000 0010006
++#define B921600 0010007
++#define B1000000 0010010
++#define B1152000 0010011
++#define B1500000 0010012
++#define B2000000 0010013
++#define B2500000 0010014
++#define B3000000 0010015
++#define B3500000 0010016
++#define B4000000 0010017
+ 
+ #endif
+diff -r 14609e8d2be6 navit/navit/vehicle/file/Makefile.am
+--- a/navit/navit/vehicle/file/Makefile.am	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/navit/vehicle/file/Makefile.am	Thu Jul 15 18:33:52 2010 -0400
+@@ -1,12 +1,15 @@
+ include $(top_srcdir)/Makefile.inc
+ AM_CPPFLAGS = @NAVIT_CFLAGS@ -I$(top_srcdir)/navit
+-modulevehicle_LTLIBRARIES = libvehicle_file.la libvehicle_pipe.la libvehicle_socket.la
++modulevehicle_LTLIBRARIES = libvehicle_file.la libvehicle_pipe.la libvehicle_socket.la libvehicle_serial.la
+ libvehicle_file_la_CFLAGS=-DMODULE=vehicle_file
+ libvehicle_file_la_SOURCES = vehicle_file.c
+-libvehicle_file_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
++libvehicle_file_la_LDFLAGS = -module -avoid-version @NAVIT_SOCKET_LDFLAGS@ @NAVIT_MODULE_LDFLAGS@
+ libvehicle_pipe_la_CFLAGS=-DMODULE=vehicle_pipe
+ libvehicle_pipe_la_SOURCES = vehicle_pipe.c
+ libvehicle_pipe_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
+ libvehicle_socket_la_CFLAGS=-DMODULE=vehicle_socket
+ libvehicle_socket_la_SOURCES = vehicle_socket.c
+ libvehicle_socket_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
++libvehicle_serial_la_CFLAGS=-DMODULE=vehicle_serial
++libvehicle_serial_la_SOURCES = vehicle_serial.c
++libvehicle_serial_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
+diff -r 14609e8d2be6 navit/navit/vehicle/file/vehicle_file.c
+--- a/navit/navit/vehicle/file/vehicle_file.c	Wed Jul 14 07:40:31 2010 +0000
++++ b/navit/navit/vehicle/file/vehicle_file.c	Thu Jul 15 18:33:52 2010 -0400
+@@ -44,6 +44,17 @@
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
+ #endif
++#ifdef HAVE_WINSOCK
++#include <winsock2.h>
++int inet_aton(const char *cp, struct in_addr *inp);
++
++int inet_aton(const char *cp, struct in_addr *inp)
++{
++	unsigned long addr = inet_addr(cp);
++	inp->S_un.S_addr = addr;
++	return addr!=-1;
++}
++#endif
+ 
+ static void vehicle_file_disable_watch(struct vehicle_priv *priv);
+ static void vehicle_file_enable_watch(struct vehicle_priv *priv);
+@@ -53,7 +64,7 @@
+ 
+ 
+ enum file_type {
+-	file_type_pipe = 1, file_type_device, file_type_file, file_type_socket
++	file_type_pipe = 1, file_type_device, file_type_file, file_type_socket, file_type_serial
+ };
+ 
+ static int buffer_size = 1024;
+@@ -96,11 +107,10 @@
+ 	int no_data_count;
+ 	struct event_timeout * timeout;
+ 	struct callback *timeout_callback;
+-#else
++#endif
+ 	enum file_type file_type;
+ 	FILE *file;
+ 	struct event_watch *watch;
+-#endif
+ 	speed_t baudrate;
+ 	struct attr ** attrs;
+ 	char fixiso8601[128];
+@@ -205,34 +215,13 @@
+ static int
+ vehicle_file_open(struct vehicle_priv *priv)
+ {
+-#ifdef _WIN32
+-    dbg(1, "enter, priv->source='%s'\n", priv->source);
+-
+-    if ( priv->source )
+-    {
+-        char* raw_setting_str = g_strdup( priv->source );
+-
+-        char* strport = strchr(raw_setting_str, ':' );
+-        char* strsettings = strchr(raw_setting_str, ' ' );
+-
+-        if ( strport && strsettings )
+-        {
+-            strport++;
+-            *strsettings = '\0';
+-            strsettings++;
+-
+-            priv->fd=serial_io_init( strport, strsettings );
+-        }
+-        g_free( raw_setting_str );
+-
+-        // Add the callback
+-        dbg(2, "Add the callback ...\n", priv->source);
+-   		priv->timeout_callback=callback_new_1(callback_cast(vehicle_win32_serial_track), priv);
+-    }
+-#else
+ 	char *name;
+ 	struct stat st;
++#ifndef _WIN32
+ 	struct termios tio;
++#else
++	#define O_NDELAY 0
++#endif
+ 
+ 	name = priv->source + 5;
+ 	if (!strncmp(priv->source, "file:", 5)) {
+@@ -242,7 +231,9 @@
+ 		stat(name, &st);
+ 		if (S_ISREG(st.st_mode)) {
+ 			priv->file_type = file_type_file;
+-		} else {
++		}
++#ifndef _WIN32
++		else {
+ 			tcgetattr(priv->fd, &tio);
+ 			cfmakeraw(&tio);
+ 			cfsetispeed(&tio, priv->baudrate);
+@@ -258,8 +249,13 @@
+ 			return 0;
+ 		priv->fd = fileno(priv->file);
+ 		priv->file_type = file_type_pipe;
+-#ifdef HAVE_SOCKET
++#endif //!_WIN32
++#if defined(HAVE_SOCKET) || defined(HAVE_WINSOCK) 
+ 	} else if (!strncmp(priv->source,"socket:", 7)) {
++		#ifdef _WIN32
++		WSADATA wsi;
++		WSAStartup(0x00020002,&wsi);
++		#endif
+ 		char *p,*s=g_strdup(priv->source+7);
+ 		struct sockaddr_in sin;
+ 		p=strchr(s,':');
+@@ -285,9 +281,31 @@
+ 			}
+ 		}
+ 		priv->file_type = file_type_socket;
+-#endif
+-	}
+-#endif
++#endif //HAVE_SOCKET
++	} else if (!strncmp(priv->source,"serial:",7)) {
++#ifdef _WIN32
++		char* raw_setting_str = g_strdup( priv->source );
++
++		char* strport = strchr(raw_setting_str, ':' );
++		char* strsettings = strchr(raw_setting_str, ' ' );
++
++		if ( strport && strsettings )
++		{
++		    strport++;
++		    *strsettings = '\0';
++		    strsettings++;
++
++		    priv->fd=serial_io_init( strport, strsettings );
++		}
++		g_free( raw_setting_str );
++		priv->file_type = file_type_serial;
++		// Add the callback
++		dbg(2, "Add the callback ...\n", priv->source);
++			priv->timeout_callback=callback_new_1(callback_cast(vehicle_win32_serial_track), priv);
++#else
++		//TODO - add linux serial
++#endif //!_WIN32
++    }
+     return(priv->fd != -1);
+ }
+ 
+@@ -305,19 +323,24 @@
+     dbg(1, "enter, priv->fd='%d'\n", priv->fd);
+ 	vehicle_file_disable_watch(priv);
+ #ifdef _WIN32
+-    if (priv->timeout_callback) {
++    if(priv->file_type == file_type_serial)
++    {
++        if (priv->timeout_callback) {
+    		callback_destroy(priv->timeout_callback);
+ 		priv->timeout_callback=NULL;	// dangling pointer! prevent double freeing.
++        }
++	serial_io_shutdown( priv->fd );
+     }
+-	serial_io_shutdown( priv->fd );
+-#else
++    else
++#endif
++    {
+ 	if (priv->file)
+ 		pclose(priv->file);
+ 	else if (priv->fd >= 0)
+ 		close(priv->fd);
+ 	priv->file = NULL;
+-#endif
+ 	priv->fd = -1;
++    }
+ }
+ 
+ //***************************************************************************
+@@ -393,7 +416,7 @@
+ 		return ret;
+ 	}
+ 	if (bcsum != csum && priv->checksum_ignore == 0) {
+-		dbg(0, "wrong checksum in '%s'\n", buffer);
++		dbg(0, "wrong checksum in '%s was %x should be %x'\n", buffer,bcsum,csum);
+ 		return ret;
+ 	}
+ 
+@@ -457,14 +480,12 @@
+ 		g_free(priv->nmea_data);
+ 		priv->nmea_data=priv->nmea_data_buf;
+ 		priv->nmea_data_buf=NULL;
+-#ifndef _WIN32
+ 		if (priv->file_type == file_type_file) {
+ 			if (priv->watch) {
+ 				vehicle_file_disable_watch(priv);
+ 				event_add_timeout(priv->time, 0, priv->cbt);
+ 			}
+ 		}
+-#endif
+ 	}
+ 	if (!strncmp(buffer, "$GPVTG", 6)) {
+ 		/* 0      1      2 34 5    6 7   8
+@@ -583,14 +604,13 @@
+ *****************************************************************************
+ * @param      priv : pointer on the private data of the plugin
+ *****************************************************************************
+-* @remarks Not used on WIN32 operating system
++* @remarks 
+ *****************************************************************************
+ **/
+ static void
+ vehicle_file_io(struct vehicle_priv *priv)
+ {
+ 	dbg(1, "vehicle_file_io : enter\n");
+-#ifndef _WIN32
+ 	int size, rc = 0;
+ 	char *str, *tok;
+ 
+@@ -635,7 +655,6 @@
+ 	}
+ 	if (rc)
+ 		callback_list_call_attr_0(priv->cbl, attr_position_coord_geo);
+-#endif
+ }
+ 
+ //***************************************************************************
+@@ -652,14 +671,18 @@
+ 	dbg(1, "enter\n");
+ #ifdef _WIN32
+ 	// add an event : don't use glib timers and g_timeout_add
++    if (priv->file_type == file_type_serial)
++    {
+ 	if (priv->timeout_callback != NULL)
+-        priv->timeout = event_add_timeout(500, 1, priv->timeout_callback);
++            priv->timeout = event_add_timeout(500, 1, priv->timeout_callback);
++        else
++            dbg(1, "error : watch not enabled : priv->timeout_callback is null\n"); }
+     else
+-        dbg(1, "error : watch not enabled : priv->timeout_callback is null\n");
+-#else
++#endif
++    {
+ 	if (! priv->watch)
+ 		priv->watch = event_add_watch((void *)priv->fd, event_watch_cond_read, priv->cb);
+-#endif
++    }
+ }
+ 
+ //***************************************************************************
+@@ -675,15 +698,20 @@
+ {
+ 	dbg(1, "vehicle_file_disable_watch : enter\n");
+ #ifdef _WIN32
++    if(priv->file_type == file_type_serial)
++    {
+     if (priv->timeout) {
+ 		event_remove_timeout(priv->timeout);
+ 		priv->timeout=NULL;		// dangling pointer! prevent double freeing.
++        }
+     }
+-#else
++    else
++#endif //!_WIN32
++    {
+ 	if (priv->watch)
+ 		event_remove_watch(priv->watch);
+ 	priv->watch = NULL;
+-#endif
++    }
+ }
+ 
+ //***************************************************************************
+@@ -969,4 +997,5 @@
+ 	plugin_register_vehicle_type("file", vehicle_file_new_file);
+ 	plugin_register_vehicle_type("pipe", vehicle_file_new_file);
+ 	plugin_register_vehicle_type("socket", vehicle_file_new_file);
++	plugin_register_vehicle_type("serial", vehicle_file_new_file);
+ }
+diff -r 14609e8d2be6 navit/navit/vehicle/file/vehicle_serial.c
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/navit/navit/vehicle/file/vehicle_serial.c	Thu Jul 15 18:33:52 2010 -0400
+@@ -0,0 +1,27 @@
++/**
++ * Navit, a modular navigation system.
++ * Copyright (C) 2005-2008 Navit Team
++ *
++ * This program is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU General Public License
++ * version 2 as published by the Free Software Foundation.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the
++ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
++ * Boston, MA  02110-1301, USA.
++ */
++
++#include "config.h"
++#include "plugin.h"
++
++void
++plugin_init(void)
++{
++	plugin_get_vehicle_type("file");
++}
+diff -r 14609e8d2be6 navit/navit/xpm/cursor.png
+Binary file navit/navit/xpm/cursor.png has changed

@@ -1,0 +1,278 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec103404460/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec103404460.dir/build.make CMakeFiles/cmTryCompileExec103404460.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec103404460.dir/CheckSymbolExists.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTryCompileExec103404460.dir/CheckSymbolExists.c.o   -c /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec103404460
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec103404460.dir/link.txt --verbose=1
+/usr/bin/gcc         CMakeFiles/cmTryCompileExec103404460.dir/CheckSymbolExists.c.o  -o cmTryCompileExec103404460 -rdynamic 
+CMakeFiles/cmTryCompileExec103404460.dir/CheckSymbolExists.c.o: In Funktion `main':
+CheckSymbolExists.c:(.text+0x16): Nicht definierter Verweis auf `pthread_create'
+collect2: error: ld returned 1 exit status
+make[3]: *** [cmTryCompileExec103404460] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec103404460/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+File /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec878606580/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec878606580.dir/build.make CMakeFiles/cmTryCompileExec878606580.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec878606580.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec878606580.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec878606580
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec878606580.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec878606580.dir/CheckFunctionExists.c.o  -o cmTryCompileExec878606580 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[3]: *** [cmTryCompileExec878606580] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec878606580/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec443753820/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec443753820.dir/build.make CMakeFiles/cmTryCompileExec443753820.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec443753820.dir/CheckSymbolExists.cxx.o
+/usr/bin/g++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec443753820.dir/CheckSymbolExists.cxx.o -c /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+   return ((int*)(&Q_WS_WIN))[argc];
+                   ^
+make[3]: *** [CMakeFiles/cmTryCompileExec443753820.dir/CheckSymbolExists.cxx.o] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec443753820/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+File /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4087885134/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4087885134.dir/build.make CMakeFiles/cmTryCompileExec4087885134.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4087885134.dir/CheckSymbolExists.cxx.o
+/usr/bin/g++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec4087885134.dir/CheckSymbolExists.cxx.o -c /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+   return ((int*)(&Q_WS_QWS))[argc];
+                   ^
+make[3]: *** [CMakeFiles/cmTryCompileExec4087885134.dir/CheckSymbolExists.cxx.o] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec4087885134/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+File /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1687834779/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1687834779.dir/build.make CMakeFiles/cmTryCompileExec1687834779.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1687834779.dir/CheckSymbolExists.cxx.o
+/usr/bin/g++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec1687834779.dir/CheckSymbolExists.cxx.o -c /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+   return ((int*)(&Q_WS_MAC))[argc];
+                   ^
+make[3]: *** [CMakeFiles/cmTryCompileExec1687834779.dir/CheckSymbolExists.cxx.o] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec1687834779/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+File /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function gypsy_control_get_default exists in the gypsy failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3644992619/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3644992619.dir/build.make CMakeFiles/cmTryCompileExec3644992619.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3644992619.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=gypsy_control_get_default   -o CMakeFiles/cmTryCompileExec3644992619.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3644992619
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3644992619.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=gypsy_control_get_default    CMakeFiles/cmTryCompileExec3644992619.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3644992619 -rdynamic -lgypsy 
+/usr/bin/ld: cannot find -lgypsy
+collect2: error: ld returned 1 exit status
+make[3]: *** [cmTryCompileExec3644992619] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec3644992619/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+
+Determining if the CreateProcess exist failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1352038989/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1352038989.dir/build.make CMakeFiles/cmTryCompileExec1352038989.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1352038989.dir/CheckSymbolExists.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTryCompileExec1352038989.dir/CheckSymbolExists.c.o   -c /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:21: fatal error: windows.h: Datei oder Verzeichnis nicht gefunden
+ #include <windows.h>
+                     ^
+compilation terminated.
+make[3]: *** [CMakeFiles/cmTryCompileExec1352038989.dir/CheckSymbolExists.c.o] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec1352038989/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+File /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CreateProcess
+  return ((int*)(&CreateProcess))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function libintl_fprintf exists in the intl failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3100207305/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3100207305.dir/build.make CMakeFiles/cmTryCompileExec3100207305.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3100207305.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=libintl_fprintf   -o CMakeFiles/cmTryCompileExec3100207305.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3100207305
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3100207305.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=libintl_fprintf    CMakeFiles/cmTryCompileExec3100207305.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3100207305 -rdynamic -lintl 
+/usr/bin/ld: cannot find -lintl
+collect2: error: ld returned 1 exit status
+make[3]: *** [cmTryCompileExec3100207305] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec3100207305/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function FreeImage_Load exists in the freeimage failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec616057177/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec616057177.dir/build.make CMakeFiles/cmTryCompileExec616057177.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec616057177.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=FreeImage_Load   -o CMakeFiles/cmTryCompileExec616057177.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec616057177
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec616057177.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=FreeImage_Load    CMakeFiles/cmTryCompileExec616057177.dir/CheckFunctionExists.c.o  -o cmTryCompileExec616057177 -rdynamic -lfreeimage 
+/usr/bin/ld: cannot find -lfreeimage
+collect2: error: ld returned 1 exit status
+make[3]: *** [cmTryCompileExec616057177] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec616057177/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _atoi64 exists failed with the following output:
+Change Dir: /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1727633015/fast"
+make[2]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1727633015.dir/build.make CMakeFiles/cmTryCompileExec1727633015.dir/build
+make[3]: Betrete Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1727633015.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=_atoi64   -o CMakeFiles/cmTryCompileExec1727633015.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1727633015
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1727633015.dir/link.txt --verbose=1
+/usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=_atoi64    CMakeFiles/cmTryCompileExec1727633015.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1727633015 -rdynamic 
+CMakeFiles/cmTryCompileExec1727633015.dir/CheckFunctionExists.c.o: In Funktion `main':
+CheckFunctionExists.c:(.text+0x15): Nicht definierter Verweis auf `_atoi64'
+collect2: error: ld returned 1 exit status
+make[3]: *** [cmTryCompileExec1727633015] Fehler 1
+make[3]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec1727633015/fast] Fehler 2
+make[2]: Verlasse Verzeichnis '/db/entwicklung/ubuntu/navit/navit/run/navit/obj-x86_64-linux-gnu/CMakeFiles/CMakeTmp'
+
+

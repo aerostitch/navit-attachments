@@ -1,0 +1,32 @@
+Index: navit/item_def.h
+===================================================================
+--- navit/item_def.h	(revisione 5225)
++++ navit/item_def.h	(copia locale)
+@@ -326,6 +326,9 @@
+ ITEM(poi_tree)
+ ITEM(poi_shop_furniture)
+ ITEM(poi_shop_parfum)
++ITEM(poi_bicycle_rental)
++ITEM(poi_bicycle_parking)
++ITEM(poi_car_sharing)
+ ITEM(poi_shop_drugstore)
+ ITEM(poi_shop_photo)
+ ITEM(ch_node)
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revisione 5225)
++++ navit/maptool/osm.c	(copia locale)
+@@ -385,9 +385,12 @@
+ 	"?	amenity=bank		poi_bank\n"
+ 	"?	amenity=bar		poi_bar\n"
+ 	"n	amenity=bench		poi_bench\n"
++	"?	amenity=bicycle_rental	poi_bicycle_rental\n"
++	"?	amenity=bicycle_parking	poi_bicycle_parking\n"
+ 	"?	amenity=biergarten	poi_biergarten\n"
+ 	"?	amenity=bus_station	poi_bus_station\n"
+ 	"?	amenity=cafe		poi_cafe\n"
++	"?	amenity=car_sharing	poi_car_sharing\n"
+ 	"?	amenity=car_wash	poi_car_wash\n"
+ 	"?	amenity=cinema		poi_cinema\n"
+ 	"?	amenity=college		poi_school_college\n"
+

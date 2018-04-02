@@ -1,0 +1,391 @@
+[root@surfplank2 src]# navit
+binding_dbus:plugin_init:enter 1
+navit:vehicle_new:invalid type 'gpsd'
+navit:main:Error parsing 'navit.xml': Unknown element 'speed' at line 114, char 62
+
+GNU gdb Fedora (6.8-29.fc10)
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu"...
+Attaching to program: /usr/local/bin/navit, process 22001
+Reading symbols from /lib64/libgthread-2.0.so.0...done.
+Loaded symbols for /lib64/libgthread-2.0.so.0
+Reading symbols from /lib64/librt.so.1...done.
+Loaded symbols for /lib64/librt.so.1
+Reading symbols from /lib64/libgmodule-2.0.so.0...done.
+Loaded symbols for /lib64/libgmodule-2.0.so.0
+Reading symbols from /lib64/libglib-2.0.so.0...done.
+Loaded symbols for /lib64/libglib-2.0.so.0
+Reading symbols from /lib64/libz.so.1...done.
+Loaded symbols for /lib64/libz.so.1
+Reading symbols from /lib64/libm.so.6...done.
+Loaded symbols for /lib64/libm.so.6
+Reading symbols from /lib64/libpthread.so.0...done.
+[Thread debugging using libthread_db enabled]
+[New Thread 0x7fb77ff926f0 (LWP 22001)]
+Loaded symbols for /lib64/libpthread.so.0
+Reading symbols from /lib64/libc.so.6...done.
+Loaded symbols for /lib64/libc.so.6
+Reading symbols from /lib64/ld-linux-x86-64.so.2...done.
+Loaded symbols for /lib64/ld-linux-x86-64.so.2
+Reading symbols from /lib64/libdl.so.2...done.
+Loaded symbols for /lib64/libdl.so.2
+Reading symbols from /usr/local/lib/navit/binding/libbinding_dbus.so...done.
+Loaded symbols for /usr/local/lib/navit/binding/libbinding_dbus.so
+Reading symbols from /usr/lib64/libdbus-glib-1.so.2...done.
+Loaded symbols for /usr/lib64/libdbus-glib-1.so.2
+Reading symbols from /lib64/libdbus-1.so.3...done.
+Loaded symbols for /lib64/libdbus-1.so.3
+Reading symbols from /lib64/libgobject-2.0.so.0...done.
+Loaded symbols for /lib64/libgobject-2.0.so.0
+Reading symbols from /lib64/libnsl.so.1...done.
+Loaded symbols for /lib64/libnsl.so.1
+Reading symbols from /lib64/libcap.so.2...done.
+Loaded symbols for /lib64/libcap.so.2
+Reading symbols from /usr/local/lib/navit/graphics/libgraphics_gtk_drawing_area.so...done.
+Loaded symbols for /usr/local/lib/navit/graphics/libgraphics_gtk_drawing_area.so
+Reading symbols from /usr/lib64/libgtk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib64/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib64/libgdk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib64/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib64/libatk-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libatk-1.0.so.0
+Reading symbols from /lib64/libgio-2.0.so.0...done.
+Loaded symbols for /lib64/libgio-2.0.so.0
+Reading symbols from /usr/lib64/libpangoft2-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib64/libgdk_pixbuf-2.0.so.0...done.
+Loaded symbols for /usr/lib64/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib64/libpangocairo-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib64/libcairo.so.2...done.
+Loaded symbols for /usr/lib64/libcairo.so.2
+Reading symbols from /usr/lib64/libpango-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libpango-1.0.so.0
+Reading symbols from /usr/lib64/libfreetype.so.6...done.
+Loaded symbols for /usr/lib64/libfreetype.so.6
+Reading symbols from /usr/lib64/libfontconfig.so.1...done.
+Loaded symbols for /usr/lib64/libfontconfig.so.1
+Reading symbols from /usr/lib64/libX11.so.6...done.
+Loaded symbols for /usr/lib64/libX11.so.6
+Reading symbols from /usr/lib64/libXcomposite.so.1...done.
+Loaded symbols for /usr/lib64/libXcomposite.so.1
+Reading symbols from /usr/lib64/libXdamage.so.1...done.
+Loaded symbols for /usr/lib64/libXdamage.so.1
+Reading symbols from /usr/lib64/libXfixes.so.3...done.
+Loaded symbols for /usr/lib64/libXfixes.so.3
+Reading symbols from /usr/lib64/libpng12.so.0...done.
+Loaded symbols for /usr/lib64/libpng12.so.0
+Reading symbols from /usr/lib64/libXext.so.6...done.
+Loaded symbols for /usr/lib64/libXext.so.6
+Reading symbols from /usr/lib64/libXrender.so.1...done.
+Loaded symbols for /usr/lib64/libXrender.so.1
+Reading symbols from /usr/lib64/libXinerama.so.1...done.
+Loaded symbols for /usr/lib64/libXinerama.so.1
+Reading symbols from /usr/lib64/libXi.so.6...done.
+Loaded symbols for /usr/lib64/libXi.so.6
+Reading symbols from /usr/lib64/libXrandr.so.2...done.
+Loaded symbols for /usr/lib64/libXrandr.so.2
+Reading symbols from /usr/lib64/libXcursor.so.1...done.
+Loaded symbols for /usr/lib64/libXcursor.so.1
+Reading symbols from /lib64/libselinux.so.1...done.
+Loaded symbols for /lib64/libselinux.so.1
+Reading symbols from /usr/lib64/libpixman-1.so.0...done.
+Loaded symbols for /usr/lib64/libpixman-1.so.0
+Reading symbols from /lib64/libexpat.so.1...done.
+Loaded symbols for /lib64/libexpat.so.1
+Reading symbols from /usr/lib64/libxcb-xlib.so.0...done.
+Loaded symbols for /usr/lib64/libxcb-xlib.so.0
+Reading symbols from /usr/lib64/libxcb.so.1...done.
+Loaded symbols for /usr/lib64/libxcb.so.1
+Reading symbols from /usr/lib64/libXau.so.6...done.
+Loaded symbols for /usr/lib64/libXau.so.6
+Reading symbols from /usr/lib64/libXdmcp.so.6...done.
+Loaded symbols for /usr/lib64/libXdmcp.so.6
+Reading symbols from /lib64/libnss_files.so.2...done.
+Loaded symbols for /lib64/libnss_files.so.2
+Reading symbols from /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so
+Reading symbols from /usr/lib64/gtk-2.0/modules/libgnomebreakpad.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/modules/libgnomebreakpad.so
+Reading symbols from /usr/lib64/libelf.so.1...done.
+Loaded symbols for /usr/lib64/libelf.so.1
+Reading symbols from /usr/lib64/libstdc++.so.6...done.
+Loaded symbols for /usr/lib64/libstdc++.so.6
+Reading symbols from /lib64/libgcc_s.so.1...done.
+Loaded symbols for /lib64/libgcc_s.so.1
+Reading symbols from /usr/lib64/gtk-2.0/modules/libcanberra-gtk-module.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/modules/libcanberra-gtk-module.so
+Reading symbols from /usr/lib64/libcanberra.so.0...done.
+Loaded symbols for /usr/lib64/libcanberra.so.0
+Reading symbols from /usr/lib64/libcanberra-gtk.so.0...done.
+Loaded symbols for /usr/lib64/libcanberra-gtk.so.0
+Reading symbols from /usr/lib64/libvorbisfile.so.3...done.
+Loaded symbols for /usr/lib64/libvorbisfile.so.3
+Reading symbols from /usr/lib64/libvorbis.so.0...done.
+Loaded symbols for /usr/lib64/libvorbis.so.0
+Reading symbols from /usr/lib64/libogg.so.0...done.
+Loaded symbols for /usr/lib64/libogg.so.0
+Reading symbols from /usr/lib64/libtdb.so.1...done.
+Loaded symbols for /usr/lib64/libtdb.so.1
+Reading symbols from /usr/lib64/libltdl.so.3...done.
+Loaded symbols for /usr/lib64/libltdl.so.3
+Reading symbols from /usr/local/lib/navit/font/libfont_freetype.so...done.
+Loaded symbols for /usr/local/lib/navit/font/libfont_freetype.so
+Reading symbols from /usr/local/lib/navit/gui/libgui_gtk.so...done.
+Loaded symbols for /usr/local/lib/navit/gui/libgui_gtk.so
+Reading symbols from /usr/lib64/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
+0x00000036da8a7b55 in waitpid () from /lib64/libc.so.6
+#0  0x00000036da8a7b55 in waitpid () from /lib64/libc.so.6
+#1  0x00000036da83f181 in do_system () from /lib64/libc.so.6
+#2  0x000000000040b54b in sigsegv (sig=<value optimized out>) at debug.c:62
+#3  <signal handler called>
+#4  0x000000000042a7e0 in navit_draw_async (this_=0xece600, async=0)
+    at navit.c:198
+#5  0x000000000042ade4 in navit_scale (this_=0xece600, scale=128, p=0x0, 
+    draw=1) at navit.c:491
+#6  0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#7  0x000000396c4214bd in ?? () from /lib64/libgobject-2.0.so.0
+#8  0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#9  0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#10 0x000000313b06ce43 in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#11 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#12 0x000000396c4214bd in ?? () from /lib64/libgobject-2.0.so.0
+#13 0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#14 0x000000396c422ee7 in g_signal_emit_by_name ()
+   from /lib64/libgobject-2.0.so.0
+#15 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#16 0x000000396c4214bd in ?? () from /lib64/libgobject-2.0.so.0
+#17 0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#18 0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#19 0x000000313b0850fd in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#20 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#21 0x000000396c420dd8 in ?? () from /lib64/libgobject-2.0.so.0
+#22 0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#23 0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#24 0x000000313b08434d in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#25 0x000000313b129a08 in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#26 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#27 0x000000396c42119b in ?? () from /lib64/libgobject-2.0.so.0
+#28 0x000000396c4229ea in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#29 0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#30 0x000000313b22c7de in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#31 0x000000313b122373 in gtk_propagate_event ()
+   from /usr/lib64/libgtk-x11-2.0.so.0
+#32 0x000000313b123493 in gtk_main_do_event ()
+   from /usr/lib64/libgtk-x11-2.0.so.0
+#33 0x000000313ac4debc in ?? () from /usr/lib64/libgdk-x11-2.0.so.0
+Missing separate debuginfos, use: debuginfo-install atk-1.24.0-1.fc10.x86_64 bug-buddy-2.24.2-1.fc10.x86_64 cairo-1.8.0-1.fc10.x86_64 dbus-glib-0.76-3.fc10.x86_64 dbus-libs-1.2.4-2.fc10.x86_64 elfutils-libelf-0.140-1.fc10.x86_64 expat-2.0.1-5.x86_64 fontconfig-2.6.0-3.fc10.x86_64 freetype-2.3.7-2.fc10.x86_64 glib2-2.18.4-1.fc10.x86_64 glibc-2.9-3.x86_64 gtk-nodoka-engine-0.7.2-1.fc10.x86_64 gtk2-2.14.7-7.fc10.x86_64 libX11-1.1.5-2.fc10.x86_64 libXau-1.0.4-1.fc10.x86_64 libXcomposite-0.4.0-5.fc10.x86_64 libXcursor-1.1.9-3.fc10.x86_64 libXdamage-1.1.1-4.fc9.x86_64 libXdmcp-1.0.2-6.fc10.x86_64 libXext-1.0.4-1.fc9.x86_64 libXfixes-4.0.3-4.fc10.x86_64 libXi-1.1.3-4.fc9.x86_64 libXinerama-1.0.3-2.fc10.x86_64 libXrandr-1.2.3-1.fc10.x86_64 libXrender-0.9.4-3.fc9.x86_64 libcanberra-0.10-3.fc10.x86_64 libcanberra-gtk2-0.10-3.fc10.x86_64 libcap-2.10-2.fc10.x86_64 libgcc-4.3.2-7.x86_64 libogg-1.1.3-9.fc9.x86_64 libpng-1.2.35-1.fc10.x86_64 libselinux-2.0.78-1.fc10.x86_64 libstdc++-4.3.2-7.x86_64 libtdb-1.1.1-27.fc10.x86_64 libtool-ltdl-1.5.26-4.fc10.x86_64 libvorbis-1.2.0-5.fc10.x86_64 libxcb-1.1.91-5.fc10.x86_64 pango-1.22.3-1.fc10.x86_64 pixman-0.12.0-2.fc10.x86_64 zlib-1.2.3-18.fc9.x86_64
+---Type <return> to continue, or q <return> to quit---
+#34 0x000000396c03779b in g_main_context_dispatch ()
+   from /lib64/libglib-2.0.so.0
+#35 0x000000396c03af6d in ?? () from /lib64/libglib-2.0.so.0
+#36 0x000000396c03b49d in g_main_loop_run () from /lib64/libglib-2.0.so.0
+#37 0x000000000040ad0e in main (argc=<value optimized out>, 
+    argv=<value optimized out>) at start.c:183
+Detaching from program: /usr/local/bin/navit, process 22001
+[root@surfplank2 src]# navit
+binding_dbus:plugin_init:enter 1
+navit:vehicle_new:invalid type 'gpsd'
+navit:main:Error parsing 'navit.xml': Unknown element 'speed' at line 114, char 62
+
+GNU gdb Fedora (6.8-29.fc10)
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu"...
+Attaching to program: /usr/local/bin/navit, process 22001
+Reading symbols from /lib64/libgthread-2.0.so.0...done.
+Loaded symbols for /lib64/libgthread-2.0.so.0
+Reading symbols from /lib64/librt.so.1...done.
+Loaded symbols for /lib64/librt.so.1
+Reading symbols from /lib64/libgmodule-2.0.so.0...done.
+Loaded symbols for /lib64/libgmodule-2.0.so.0
+Reading symbols from /lib64/libglib-2.0.so.0...done.
+Loaded symbols for /lib64/libglib-2.0.so.0
+Reading symbols from /lib64/libz.so.1...done.
+Loaded symbols for /lib64/libz.so.1
+Reading symbols from /lib64/libm.so.6...done.
+Loaded symbols for /lib64/libm.so.6
+Reading symbols from /lib64/libpthread.so.0...done.
+[Thread debugging using libthread_db enabled]
+[New Thread 0x7fb77ff926f0 (LWP 22001)]
+Loaded symbols for /lib64/libpthread.so.0
+Reading symbols from /lib64/libc.so.6...done.
+Loaded symbols for /lib64/libc.so.6
+Reading symbols from /lib64/ld-linux-x86-64.so.2...done.
+Loaded symbols for /lib64/ld-linux-x86-64.so.2
+Reading symbols from /lib64/libdl.so.2...done.
+Loaded symbols for /lib64/libdl.so.2
+Reading symbols from /usr/local/lib/navit/binding/libbinding_dbus.so...done.
+Loaded symbols for /usr/local/lib/navit/binding/libbinding_dbus.so
+Reading symbols from /usr/lib64/libdbus-glib-1.so.2...done.
+Loaded symbols for /usr/lib64/libdbus-glib-1.so.2
+Reading symbols from /lib64/libdbus-1.so.3...done.
+Loaded symbols for /lib64/libdbus-1.so.3
+Reading symbols from /lib64/libgobject-2.0.so.0...done.
+Loaded symbols for /lib64/libgobject-2.0.so.0
+Reading symbols from /lib64/libnsl.so.1...done.
+Loaded symbols for /lib64/libnsl.so.1
+Reading symbols from /lib64/libcap.so.2...done.
+Loaded symbols for /lib64/libcap.so.2
+Reading symbols from /usr/local/lib/navit/graphics/libgraphics_gtk_drawing_area.so...done.
+Loaded symbols for /usr/local/lib/navit/graphics/libgraphics_gtk_drawing_area.so
+Reading symbols from /usr/lib64/libgtk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib64/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib64/libgdk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib64/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib64/libatk-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libatk-1.0.so.0
+Reading symbols from /lib64/libgio-2.0.so.0...done.
+Loaded symbols for /lib64/libgio-2.0.so.0
+Reading symbols from /usr/lib64/libpangoft2-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib64/libgdk_pixbuf-2.0.so.0...done.
+Loaded symbols for /usr/lib64/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib64/libpangocairo-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib64/libcairo.so.2...done.
+Loaded symbols for /usr/lib64/libcairo.so.2
+Reading symbols from /usr/lib64/libpango-1.0.so.0...done.
+Loaded symbols for /usr/lib64/libpango-1.0.so.0
+Reading symbols from /usr/lib64/libfreetype.so.6...done.
+Loaded symbols for /usr/lib64/libfreetype.so.6
+Reading symbols from /usr/lib64/libfontconfig.so.1...done.
+Loaded symbols for /usr/lib64/libfontconfig.so.1
+Reading symbols from /usr/lib64/libX11.so.6...done.
+Loaded symbols for /usr/lib64/libX11.so.6
+Reading symbols from /usr/lib64/libXcomposite.so.1...done.
+Loaded symbols for /usr/lib64/libXcomposite.so.1
+Reading symbols from /usr/lib64/libXdamage.so.1...done.
+Loaded symbols for /usr/lib64/libXdamage.so.1
+Reading symbols from /usr/lib64/libXfixes.so.3...done.
+Loaded symbols for /usr/lib64/libXfixes.so.3
+Reading symbols from /usr/lib64/libpng12.so.0...done.
+Loaded symbols for /usr/lib64/libpng12.so.0
+Reading symbols from /usr/lib64/libXext.so.6...done.
+Loaded symbols for /usr/lib64/libXext.so.6
+Reading symbols from /usr/lib64/libXrender.so.1...done.
+Loaded symbols for /usr/lib64/libXrender.so.1
+Reading symbols from /usr/lib64/libXinerama.so.1...done.
+Loaded symbols for /usr/lib64/libXinerama.so.1
+Reading symbols from /usr/lib64/libXi.so.6...done.
+Loaded symbols for /usr/lib64/libXi.so.6
+Reading symbols from /usr/lib64/libXrandr.so.2...done.
+Loaded symbols for /usr/lib64/libXrandr.so.2
+Reading symbols from /usr/lib64/libXcursor.so.1...done.
+Loaded symbols for /usr/lib64/libXcursor.so.1
+Reading symbols from /lib64/libselinux.so.1...done.
+Loaded symbols for /lib64/libselinux.so.1
+Reading symbols from /usr/lib64/libpixman-1.so.0...done.
+Loaded symbols for /usr/lib64/libpixman-1.so.0
+Reading symbols from /lib64/libexpat.so.1...done.
+Loaded symbols for /lib64/libexpat.so.1
+Reading symbols from /usr/lib64/libxcb-xlib.so.0...done.
+Loaded symbols for /usr/lib64/libxcb-xlib.so.0
+Reading symbols from /usr/lib64/libxcb.so.1...done.
+Loaded symbols for /usr/lib64/libxcb.so.1
+Reading symbols from /usr/lib64/libXau.so.6...done.
+Loaded symbols for /usr/lib64/libXau.so.6
+Reading symbols from /usr/lib64/libXdmcp.so.6...done.
+Loaded symbols for /usr/lib64/libXdmcp.so.6
+Reading symbols from /lib64/libnss_files.so.2...done.
+Loaded symbols for /lib64/libnss_files.so.2
+Reading symbols from /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so
+Reading symbols from /usr/lib64/gtk-2.0/modules/libgnomebreakpad.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/modules/libgnomebreakpad.so
+Reading symbols from /usr/lib64/libelf.so.1...done.
+Loaded symbols for /usr/lib64/libelf.so.1
+Reading symbols from /usr/lib64/libstdc++.so.6...done.
+Loaded symbols for /usr/lib64/libstdc++.so.6
+Reading symbols from /lib64/libgcc_s.so.1...done.
+Loaded symbols for /lib64/libgcc_s.so.1
+Reading symbols from /usr/lib64/gtk-2.0/modules/libcanberra-gtk-module.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/modules/libcanberra-gtk-module.so
+Reading symbols from /usr/lib64/libcanberra.so.0...done.
+Loaded symbols for /usr/lib64/libcanberra.so.0
+Reading symbols from /usr/lib64/libcanberra-gtk.so.0...done.
+Loaded symbols for /usr/lib64/libcanberra-gtk.so.0
+Reading symbols from /usr/lib64/libvorbisfile.so.3...done.
+Loaded symbols for /usr/lib64/libvorbisfile.so.3
+Reading symbols from /usr/lib64/libvorbis.so.0...done.
+Loaded symbols for /usr/lib64/libvorbis.so.0
+Reading symbols from /usr/lib64/libogg.so.0...done.
+Loaded symbols for /usr/lib64/libogg.so.0
+Reading symbols from /usr/lib64/libtdb.so.1...done.
+Loaded symbols for /usr/lib64/libtdb.so.1
+Reading symbols from /usr/lib64/libltdl.so.3...done.
+Loaded symbols for /usr/lib64/libltdl.so.3
+Reading symbols from /usr/local/lib/navit/font/libfont_freetype.so...done.
+Loaded symbols for /usr/local/lib/navit/font/libfont_freetype.so
+Reading symbols from /usr/local/lib/navit/gui/libgui_gtk.so...done.
+Loaded symbols for /usr/local/lib/navit/gui/libgui_gtk.so
+Reading symbols from /usr/lib64/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so...done.
+Loaded symbols for /usr/lib64/gtk-2.0/2.10.0/loaders/libpixbufloader-xpm.so
+0x00000036da8a7b55 in waitpid () from /lib64/libc.so.6
+#0  0x00000036da8a7b55 in waitpid () from /lib64/libc.so.6
+#1  0x00000036da83f181 in do_system () from /lib64/libc.so.6
+#2  0x000000000040b54b in sigsegv (sig=<value optimized out>) at debug.c:62
+#3  <signal handler called>
+#4  0x000000000042a7e0 in navit_draw_async (this_=0xece600, async=0)
+    at navit.c:198
+#5  0x000000000042ade4 in navit_scale (this_=0xece600, scale=128, p=0x0, 
+    draw=1) at navit.c:491
+#6  0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#7  0x000000396c4214bd in ?? () from /lib64/libgobject-2.0.so.0
+#8  0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#9  0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#10 0x000000313b06ce43 in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#11 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#12 0x000000396c4214bd in ?? () from /lib64/libgobject-2.0.so.0
+#13 0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#14 0x000000396c422ee7 in g_signal_emit_by_name ()
+   from /lib64/libgobject-2.0.so.0
+#15 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#16 0x000000396c4214bd in ?? () from /lib64/libgobject-2.0.so.0
+#17 0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#18 0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#19 0x000000313b0850fd in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#20 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#21 0x000000396c420dd8 in ?? () from /lib64/libgobject-2.0.so.0
+#22 0x000000396c422b68 in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#23 0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#24 0x000000313b08434d in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#25 0x000000313b129a08 in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#26 0x000000396c40b7dd in g_closure_invoke () from /lib64/libgobject-2.0.so.0
+#27 0x000000396c42119b in ?? () from /lib64/libgobject-2.0.so.0
+#28 0x000000396c4229ea in g_signal_emit_valist ()
+   from /lib64/libgobject-2.0.so.0
+#29 0x000000396c423093 in g_signal_emit () from /lib64/libgobject-2.0.so.0
+#30 0x000000313b22c7de in ?? () from /usr/lib64/libgtk-x11-2.0.so.0
+#31 0x000000313b122373 in gtk_propagate_event ()
+   from /usr/lib64/libgtk-x11-2.0.so.0
+#32 0x000000313b123493 in gtk_main_do_event ()
+   from /usr/lib64/libgtk-x11-2.0.so.0
+#33 0x000000313ac4debc in ?? () from /usr/lib64/libgdk-x11-2.0.so.0
+Missing separate debuginfos, use: debuginfo-install atk-1.24.0-1.fc10.x86_64 bug-buddy-2.24.2-1.fc10.x86_64 cairo-1.8.0-1.fc10.x86_64 dbus-glib-0.76-3.fc10.x86_64 dbus-libs-1.2.4-2.fc10.x86_64 elfutils-libelf-0.140-1.fc10.x86_64 expat-2.0.1-5.x86_64 fontconfig-2.6.0-3.fc10.x86_64 freetype-2.3.7-2.fc10.x86_64 glib2-2.18.4-1.fc10.x86_64 glibc-2.9-3.x86_64 gtk-nodoka-engine-0.7.2-1.fc10.x86_64 gtk2-2.14.7-7.fc10.x86_64 libX11-1.1.5-2.fc10.x86_64 libXau-1.0.4-1.fc10.x86_64 libXcomposite-0.4.0-5.fc10.x86_64 libXcursor-1.1.9-3.fc10.x86_64 libXdamage-1.1.1-4.fc9.x86_64 libXdmcp-1.0.2-6.fc10.x86_64 libXext-1.0.4-1.fc9.x86_64 libXfixes-4.0.3-4.fc10.x86_64 libXi-1.1.3-4.fc9.x86_64 libXinerama-1.0.3-2.fc10.x86_64 libXrandr-1.2.3-1.fc10.x86_64 libXrender-0.9.4-3.fc9.x86_64 libcanberra-0.10-3.fc10.x86_64 libcanberra-gtk2-0.10-3.fc10.x86_64 libcap-2.10-2.fc10.x86_64 libgcc-4.3.2-7.x86_64 libogg-1.1.3-9.fc9.x86_64 libpng-1.2.35-1.fc10.x86_64 libselinux-2.0.78-1.fc10.x86_64 libstdc++-4.3.2-7.x86_64 libtdb-1.1.1-27.fc10.x86_64 libtool-ltdl-1.5.26-4.fc10.x86_64 libvorbis-1.2.0-5.fc10.x86_64 libxcb-1.1.91-5.fc10.x86_64 pango-1.22.3-1.fc10.x86_64 pixman-0.12.0-2.fc10.x86_64 zlib-1.2.3-18.fc9.x86_64
+---Type <return> to continue, or q <return> to quit---
+#34 0x000000396c03779b in g_main_context_dispatch ()
+   from /lib64/libglib-2.0.so.0
+#35 0x000000396c03af6d in ?? () from /lib64/libglib-2.0.so.0
+#36 0x000000396c03b49d in g_main_loop_run () from /lib64/libglib-2.0.so.0
+#37 0x000000000040ad0e in main (argc=<value optimized out>, 
+    argv=<value optimized out>) at start.c:183
+Detaching from program: /usr/local/bin/navit, process 22001
+

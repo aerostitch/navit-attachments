@@ -1,0 +1,20 @@
+--- osm2navit.c.orig	2009-07-09 16:44:53.000000000 +0200
++++ osm2navit.c	2009-07-09 16:46:41.000000000 +0200
+@@ -221,7 +221,7 @@
+ 	"w	highway=footway,piste:type=nordic	footway_and_piste_nordic\n"
+ 	"w	highway=living_street	living_street\n"
+ 	"w	highway=minor		street_1_land\n"
+-	"w	highway=motorway	highway_city\n"
++	"w	highway=motorway	highway_land\n"
+ 	"w	highway=motorway_link	ramp\n"
+ 	"w	highway=parking_lane	street_parking_lane\n"
+ 	"w	highway=path		path\n"
+@@ -263,7 +263,7 @@
+ 	"w	highway=track,tracktype=grade3		track_unpaved\n"
+ 	"w	highway=track,tracktype=grade4		track_ground\n"
+ 	"w	highway=track,tracktype=grade5		track_grass\n"
+-	"w	highway=trunk		street_4_city\n"
++	"w	highway=trunk		highway_city\n"
+ 	"w	highway=trunk_link	ramp\n"
+ 	"w	highway=unclassified	street_1_city\n"
+ 	"w	highway=unclassified,area=1	poly_street_1\n"

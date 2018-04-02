@@ -1,0 +1,40 @@
+Index: navit-0.1.1.~svn2032/navit/vehicle/gypsy/vehicle_gypsy.c
+===================================================================
+--- navit-0.1.1.~svn2032.orig/navit/vehicle/gypsy/vehicle_gypsy.c	2009-02-22 17:24:08.000000000 +0100
++++ navit-0.1.1.~svn2032/navit/vehicle/gypsy/vehicle_gypsy.c	2009-02-22 19:45:35.000000000 +0100
+@@ -52,6 +52,7 @@
+ 	int sats_used;
+ 	guint retry_timer;
+ 	struct attr ** attrs;
++	int have_cords;
+ } *vehicle_last;
+ 
+ #define DEFAULT_RETRY_INTERVAL 10 // seconds
+@@ -99,7 +100,10 @@
+ 	}
+ 
+ 	if (cb)
++	{
++		priv->have_cords = 1;
+ 		callback_list_call_0(priv->cbl);
++	}
+ }
+ 
+ static void 
+@@ -266,6 +270,8 @@
+ 		break;
+ 	case attr_position_coord_geo:
+ 		attr->u.coord_geo = &priv->geo;
++		if (!priv->have_cords)
++			return 0;
+ 		break;
+ 	case attr_active:
+ 	  active = attr_search(priv->attrs,NULL,attr_active);
+@@ -298,6 +304,7 @@
+ 	dbg(1, "enter\n");
+ 	source = attr_search(attrs, NULL, attr_source);
+ 	ret = g_new0(struct vehicle_priv, 1);
++	ret->have_cords = 0;
+ 	ret->source = g_strdup(source->u.str);
+ 	ret->attrs = attrs;
+ 	retry_int = attr_search(attrs, NULL, attr_retry_interval);

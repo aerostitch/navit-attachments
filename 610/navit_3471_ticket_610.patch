@@ -1,0 +1,187 @@
+Index: navit/vehicle.c
+===================================================================
+--- navit/vehicle.c	(revision 3471)
++++ navit/vehicle.c	(working copy)
+@@ -388,6 +388,12 @@
+ 	}
+ }
+ 
++/**
++ * Writes to an NMEA log.
++ *
++ * @param this_ Pointer to the vehicle structure of the data source
++ * @param log Pointer to a log structure for the log file
++ */
+ static void
+ vehicle_log_nmea(struct vehicle *this_, struct log *log)
+ {
+@@ -432,6 +438,12 @@
+ 	g_free(end);
+ }
+ 
++/**
++ * Writes to a GPX log.
++ *
++ * @param this_ Pointer to the vehicle structure of the data source
++ * @param log Pointer to a log structure for the log file
++ */
+ static void
+ vehicle_log_gpx(struct vehicle *this_, struct log *log)
+ {
+@@ -447,7 +459,7 @@
+ 	else
+ 		attr_types=NULL;
+ 	if (this_->meth.position_attr_get(this_->priv, attr_position_fix_type, &fix_attr)) {
+-		if (fix_attr.u.num != 2 && fix_attr.u.num != 3) 
++		if (!fix_attr.u.num) 
+ 			return; 
+ 	}
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_coord_geo, &attr))
+@@ -488,6 +500,12 @@
+ 	g_free(logstr);
+ }
+ 
++/**
++ * Writes to a text log.
++ *
++ * @param this_ Pointer to the vehicle structure of the data source
++ * @param log Pointer to a log structure for the log file
++ */
+ static void
+ vehicle_log_textfile(struct vehicle *this_, struct log *log)
+ {
+@@ -496,7 +514,7 @@
+ 	if (!this_->meth.position_attr_get)
+ 		return;
+ 	if (this_->meth.position_attr_get(this_->priv, attr_position_fix_type, &fix_attr)) {
+-		if (fix_attr.u.num != 2 && fix_attr.u.num != 3) 
++		if (!fix_attr.u.num) 
+ 			return; 
+ 	}
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_coord_geo, &pos_attr))
+@@ -506,6 +524,12 @@
+ 	log_write(log, logstr, strlen(logstr), 0);
+ }
+ 
++/**
++ * Writes to a binary log.
++ *
++ * @param this_ Pointer to the vehicle structure of the data source
++ * @param log Pointer to a log structure for the log file
++ */
+ static void
+ vehicle_log_binfile(struct vehicle *this_, struct log *log)
+ {
+@@ -519,7 +543,7 @@
+ 	if (!this_->meth.position_attr_get)
+ 		return;
+ 	if (this_->meth.position_attr_get(this_->priv, attr_position_fix_type, &fix_attr)) {
+-		if (fix_attr.u.num != 2 && fix_attr.u.num != 3) 
++		if (!fix_attr.u.num) 
+ 			return; 
+ 	}
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_coord_geo, &pos_attr))
+@@ -560,6 +584,12 @@
+ 	}
+ }
+ 
++/**
++ * Register a new log to receive data.
++ *
++ * @param this_ Pointer to the vehicle structure of the data source
++ * @param log Pointer to a log structure for the log file
++ */
+ static int
+ vehicle_add_log(struct vehicle *this_, struct log *log)
+ {
+Index: navit/vehicle/android/vehicle_android.c
+===================================================================
+--- navit/vehicle/android/vehicle_android.c	(revision 3471)
++++ navit/vehicle/android/vehicle_android.c	(working copy)
+@@ -59,7 +59,7 @@
+ /**
+  * @brief Free the android_vehicle
+  * 
+- * @param priv
++ * @param priv pointer to a vehicle_priv structure for the vehicle
+  * @returns nothing
+  */
+ static void
+@@ -70,12 +70,12 @@
+ }
+ 
+ /**
+- * @brief Provide the outside with information
+- * 
+- * @param priv
+- * @param type TODO: What can this be?
+- * @param attr
+- * @returns true/false
++ * @brief Retrieves a vehicle attribute.
++ *
++ * @param priv pointer to a vehicle_priv structure for the vehicle
++ * @param type an attr_type specifying the attribute to retrieve
++ * @param attr pointer to an attr structure that will receive the attribute data
++ * @returns true for success, false for failure
+  */
+ static int
+ vehicle_android_position_attr_get(struct vehicle_priv *priv,
+Index: navit/vehicle/wince/vehicle_wince.c
+===================================================================
+--- navit/vehicle/wince/vehicle_wince.c	(revision 3471)
++++ navit/vehicle/wince/vehicle_wince.c	(working copy)
+@@ -578,6 +578,12 @@
+ }
+ 
+ 
++/**
++ * @brief Free the wince_vehicle
++ * 
++ * @param priv pointer to a vehicle_priv structure for the vehicle
++ * @returns nothing
++ */
+ static void
+ vehicle_wince_destroy(struct vehicle_priv *priv)
+ {
+@@ -589,6 +595,14 @@
+ 	g_free(priv);
+ }
+ 
++/**
++ * @brief Retrieves a vehicle attribute.
++ *
++ * @param priv pointer to a vehicle_priv structure for the vehicle
++ * @param type an attr_type specifying the attribute to retrieve
++ * @param attr pointer to an attr structure that will receive the attribute data
++ * @returns true for success, false for failure
++ */
+ static int
+ vehicle_wince_position_attr_get(struct vehicle_priv *priv,
+ 			       enum attr_type type, struct attr *attr)
+@@ -658,6 +672,14 @@
+ 	vehicle_wince_position_attr_get,
+ };
+ 
++/**
++ * @brief Create wince_vehicle
++ * 
++ * @param meth
++ * @param cbl
++ * @param attrs
++ * @returns vehicle_priv
++ */
+ static struct vehicle_priv *
+ vehicle_wince_new(struct vehicle_methods
+ 		      *meth, struct callback_list
+@@ -720,6 +742,11 @@
+ 	return NULL;
+ }
+ 
++/**
++ * @brief register vehicle_wince
++ * 
++ * @returns nothing
++ */
+ void
+ plugin_init(void)
+ {

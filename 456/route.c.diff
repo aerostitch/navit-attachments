@@ -1,0 +1,20 @@
+--- /tmp/route.c        2010-04-07 11:23:44.000000000 +0200
++++ navit/route.c       2010-04-07 11:14:52.000000000 +0200
+@@ -861,13 +861,13 @@
+        struct map_selection *ret,*sel;
+        sel=route_rect(4, c1, c2, 25, 0);
+        ret=sel;
+-       sel->next=route_rect(8, c1, c1, 0, 40000);
++       sel->next=route_rect(8, c1, c1, 0, 400000);
+        sel=sel->next;
+-       sel->next=route_rect(18, c1, c1, 0, 10000);
++       sel->next=route_rect(18, c1, c1, 0, 100000);
+        sel=sel->next;
+-       sel->next=route_rect(8, c2, c2, 0, 40000);
++       sel->next=route_rect(8, c2, c2, 0, 400000);
+        sel=sel->next;
+-       sel->next=route_rect(18, c2, c2, 0, 10000);
++       sel->next=route_rect(18, c2, c2, 0, 100000);
+        /* route_selection=ret; */
+        return ret;
+ }

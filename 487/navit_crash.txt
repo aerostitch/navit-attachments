@@ -1,0 +1,92 @@
+I/ActivityManager( 1062): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10100000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/Launcher( 1111): onPause
+I/mWorkspace( 1111): closeDrawer
+I/ActivityManager( 1062): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=3057 uid=10041 gids={3003}
+W/InputManagerService( 1062): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@43620668
+I/dalvikvm( 3057): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 3057): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=48)
+D/dalvikvm( 3057): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43326e58
+D/dalvikvm( 3057): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43326e58
+D/dalvikvm( 3057): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x43326e58
+E/Navit   ( 3057): Country US
+E/Navit   ( 3057): Language en
+E/Navit   ( 3057): Res Name en
+E/Navit   ( 3057): result /data/data/org.navitproject.navit/locale/en/LC_MESSAGES/navit.mo
+E/Navit   ( 3057): Res ID 0
+E/Navit   ( 3057): Failed to extract language resource en
+E/Navit   ( 3057): Res Name navit
+E/Navit   ( 3057): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 3057): Res ID 2130903061
+E/Navit   ( 3057): Checking /data
+E/Navit   ( 3057): Checking /data/data
+E/Navit   ( 3057): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3057): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 3057): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 3057): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    ( 3057): called
+E/navit   ( 3057): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c8 thiz=0x433724a8 activity=0x433724a8 lang=en_US
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   ( 3057): graphics_android:plugin_init:enter
+E/navit   ( 3057): vehicle_android:plugin_init:enter
+E/navit   ( 3057): graphics_android:event_android_new:enter
+E/navit   ( 3057): graphics_android:event_android_new:ok
+E/navit   ( 3057): graphics_android:graphics_android_init:at 2 jnienv=0xa9c8
+E/navit   ( 3057): graphics_android:graphics_android_init:at 3
+E/navit   ( 3057): graphics_android:graphics_android_init:at 4 android_activity=0x433724a8
+E/NavitGraphics( 3057): FocusChange true
+E/navit   ( 3057): graphics_android:graphics_android_init:result=0x43377360
+E/navit   ( 3057): graphics_android:graphics_android_new:returning 0x1fa040
+E/navit   ( 3057): gui_internal:gui_internal_new:register
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('%s_wh_59_59.png') returned 2077096
+E/navit   ( 3057): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 3057): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 3057): vehicle_android:vehicle_android_init:at 4 android_activity=0x433724a8
+D/LocationManager( 3057): Constructor: service = android.location.ILocationManager$Stub$Proxy@4337b5c8
+D/LocationManager( 3057): getAllProviders
+E/NavitVehicle( 3057): Providers [gps, network]
+E/NavitVehicle( 3057): Provider gps
+D/GpsLocationProvider( 1062): setMinTime 0
+D/lib_locapi( 1062): loc_eng_set_fix_frequency, client = 0, interval = 1 s
+D/lib_locapi( 1062): loc_eng_ioctl: client = 0, ioctl_type = 2, cb_data =0x0
+D/lib_locapi( 1062): loc_eng_ioctl: loc_ioctl returned 0
+D/lib_locapi( 1062): loc_event_cb, client = 0, loc_event = 0x80
+D/lib_locapi( 1062): loc_eng_ioctl_process_cb: callback arrived for client = 0, ioctl = 2, status = 0
+D/lib_locapi( 1062): loc_eng_ioctl_wait_cb: pthread_cond_timedwait returned 0
+D/lib_locapi( 1062): loc_eng_ioctl_wait_cb: returned 1
+D/lib_locapi( 1062): loc_eng_set_position mode, client = 0, interval = 1, mode = 0
+D/lib_locapi( 1062): loc_eng_set_position_mode: accuracy 100(meter) response_time 2(sec)
+D/lib_locapi( 1062): loc_eng_ioctl: client = 0, ioctl_type = 2, cb_data =0x0
+D/lib_locapi( 1062): loc_eng_ioctl: loc_ioctl returned 0
+D/lib_locapi( 1062): loc_event_cb, client = 0, loc_event = 0x80
+D/lib_locapi( 1062): loc_eng_ioctl_process_cb: callback arrived for client = 0, ioctl = 2, status = 0
+D/lib_locapi( 1062): loc_eng_ioctl_wait_cb: pthread_cond_timedwait returned 0
+D/lib_locapi( 1062): loc_eng_ioctl_wait_cb: returned 1
+D/lib_locapi( 1062): loc_eng_start
+E/navit   ( 3057): vehicle_android:vehicle_android_init:result=0x4337aea0
+E/navit   ( 3057): vehicle_android:vehicle_android_new_android:return
+E/navit   ( 3057): speech_android:speech_android_init:at 3
+E/navit   ( 3057): speech_android:speech_android_init:at 4 android_activity=0x433724a8
+D/lib_locapi( 1062): loc_event_cb, client = 0, loc_event = 0x100
+D/lib_locapi( 1062): loc_eng_report_status: event = 1
+V/GpsLocationProvider( 1062): reportStatus status: 3
+D/dalvikvm( 3057): GC freed 3821 objects / 238624 bytes in 108ms
+I/ActivityManager( 1062): Start proc com.google.tts for service com.google.tts/.TTSService: pid=3064 uid=10042 gids={3003}
+E/navit   ( 3057): speech_android:speech_android_init:result=0x4337eb70
+E/navit   ( 3057): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+E/NavitSpeech( 3057): In Demnaechst der Strasse folgen
+E/navit   ( 3057): navit:file_wordexp_new:wordexp('/sdcard/navitmap.bin') returned 967312
+I/ActivityManager( 1062): Process org.navitproject.navit (pid 3057) has died.
+D/lib_locapi( 1062): loc_eng_stop
+D/lib_locapi( 1062): loc_event_cb, client = 0, loc_event = 0x1
+D/lib_locapi( 1062): loc_eng_report_position: ignore position report when session status = 4
+D/Zygote  ( 1015): Process 3057 exited cleanly (1)
+I/Launcher( 1111): onResume  mRestoring = false
+W/InputManagerService( 1062): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@435a3bb8
+I/dalvikvm( 3064): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 3064): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=32)

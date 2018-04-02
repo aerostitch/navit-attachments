@@ -1,0 +1,95 @@
+Index: binfile.c
+===================================================================
+--- binfile.c	(revision 4710)
++++ binfile.c	(working copy)
+@@ -1992,6 +1992,30 @@
+ 		return g_ascii_strcasecmp(name, match);
+ }
+ 
++static int
++fuzzy_cmp(char *name, char *match, int partial)
++{
++	int i=0;
++	int ret=-1;
++	char *str=g_strdup(name);
++	char *word=str;
++	do {
++		for (i = 0 ; i < 3 ; i++) {
++			char *exp_name=linguistics_expand_special(word,i);
++			if (exp_name && !ascii_cmp(exp_name, match, partial))
++				ret=0;
++			g_free(exp_name);
++			if (!ret)
++				break;
++		}
++		if (!ret)
++			break;
++		word=linguistics_next_word(word);
++	} while (word);
++	g_free(str);
++	return ret;
++}
++
+ struct duplicate
+ {
+ 	struct coord c;
+@@ -2057,13 +2081,13 @@
+ 			case attr_town_or_district_name:
+ 				if (map_search->mr->tile_depth > 1 && item_is_town(*it) && !item_is_district(*it) && map_search->search->type != attr_district_name) {
+ 					if (binfile_attr_get(it->priv_data, attr_town_name_match, &at) || binfile_attr_get(it->priv_data, attr_town_name, &at)) {
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
++						if (!fuzzy_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
+ 							return it;
+ 					}
+ 				}
+ 				if (map_search->mr->tile_depth > 1 && item_is_district(*it) && map_search->search->type != attr_town_name) {
+ 					if (binfile_attr_get(it->priv_data, attr_district_name_match, &at) || binfile_attr_get(it->priv_data, attr_district_name, &at)) {
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
++						if (!fuzzy_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
+ 							return it;
+ 					}
+ 				}
+@@ -2071,7 +2095,7 @@
+ 			case attr_street_name:
+ 				if (map_search->mode == 1) {
+ 					if (binfile_attr_get(it->priv_data, attr_street_name_match, &at) || binfile_attr_get(it->priv_data, attr_street_name, &at)) {
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_street_name)) {
++						if (!fuzzy_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_street_name)) {
+ 							return it;
+ 						}
+ 					}
+@@ -2080,24 +2104,7 @@
+ 				if (item_is_street(*it)) {
+ 					struct attr at;
+ 					if (map_selection_contains_item_rect(map_search->mr->sel, it) && binfile_attr_get(it->priv_data, attr_label, &at)) {
+-						int i,match=0;
+-						char *str=g_strdup(at.u.str);
+-						char *word=str;
+-						do {
+-							for (i = 0 ; i < 3 ; i++) {
+-								char *name=linguistics_expand_special(word,i);
+-								if (name && !ascii_cmp(name, map_search->search->u.str, map_search->partial))
+-									match=1;
+-								g_free(name);
+-								if (match)
+-									break;
+-							}
+-							if (match)
+-								break;
+-							word=linguistics_next_word(word);
+-						} while (word);
+-						g_free(str);
+-						if (match && !duplicate(map_search, it, attr_label)) {
++						if (!fuzzy_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_label)) {
+ 							item_coord_rewind(it);
+ 							return it;
+ 						}
+@@ -2115,7 +2122,7 @@
+ 					if (binfile_attr_get(it->priv_data, attr_house_number, &at))
+ 					{
+ 						// match housenumber to our string
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial))
++						if (!fuzzy_cmp(at.u.str, map_search->search->u.str, map_search->partial))
+ 						{
+ 							//binfile_attr_get(it->priv_data, attr_street_name, &at);
+ 							//dbg(0,"hnnn B1 street_name=%s",at.u.str);

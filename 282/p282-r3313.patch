@@ -1,0 +1,173 @@
+Index: navit/Makefile.am
+===================================================================
+--- navit/Makefile.am	(revision 3313)
++++ navit/Makefile.am	(working copy)
+@@ -26,6 +26,10 @@
+ AM_CPPFLAGS = -I$(top_srcdir)/navit/fib-1.1 @NAVIT_CFLAGS@ @ZLIB_CFLAGS@ -DPREFIX=\"@prefix@\" -DLIBDIR=\"@libdir@\" -DMODULE=navit
+ BUILT_SOURCES = version.h navit_config.h
+ 
++if USE_OSSO
++    AM_CPPFLAGS += @LIBOSSO_CFLAGS@
++endif
++
+ if BIN_NAVIT
+   bin_PROGRAMS = navit
+ endif
+@@ -42,6 +46,10 @@
+   lib@LIBNAVIT@_la_LIBADD += -Lsupport/libc -lsupport_libc
+ endif
+ 
++if USE_OSSO
++    lib@LIBNAVIT@_la_LIBADD += @LIBOSSO_LIBS@
++endif 
++
+ pkgdata_DATA = navit.xml
+ 
+ EXTRA_DIST = navit_shipped.xml navit.dtd
+@@ -121,6 +129,9 @@
+   navit_LDADD += -lgdi32 -lcomctl32 -lwinmm
+ endif
+ 
++if USE_OSSO
++    navit_LDADD += @LIBOSSO_CFLAGS@
++endif
+ 
+ resource.rsc: $(top_srcdir)/navit/gui/win32/resources/resource.rc
+ 	$(WINDRES) -I $(top_srcdir)/navit/gui/win32/resources $(top_srcdir)/navit/gui/win32/resources/resource.rc resource.rsc
+Index: navit/navit.c
+===================================================================
+--- navit/navit.c	(revision 3313)
++++ navit/navit.c	(working copy)
+@@ -63,6 +63,10 @@
+ #include "sunriset.h"
+ #include "bookmarks.h"
+ 
++#ifdef HAVE_OSSO
++#include "libosso.h"
++#endif
++
+ /**
+  * @defgroup navit the navit core instance. navit is the object containing nearly everything: A set of maps, one or more vehicle, a graphics object for rendering the map, a gui object for displaying the user interface, a route object, a navigation object and so on. Be warned that it is theoretically possible to have more than one navit object
+  * @{
+@@ -142,6 +146,9 @@
+ 	int flags;
+ 		 /* 1=No graphics ok */
+ 		 /* 2=No gui ok */
++#ifdef HAVE_OSSO
++	osso_context_t *osso_context; 
++#endif
+ };
+ 
+ struct gui *main_loop_gui;
+@@ -702,7 +709,50 @@
+ 	{"fmt_coordinates",command_cast(navit_cmd_fmt_coordinates)},
+ };
+ 	
++#ifdef HAVE_OSSO
++static void 
++navit_osso_display_on(struct navit *this_) 
++{ 
++    osso_return_t err; 
++    err=osso_display_blanking_pause(this_->osso_context); 
++    dbg(1,"Unblank result: ", err == OSSO_OK ? "Ok" : (err == OSSO_ERROR ? "Error" : "Invalid context")); 
++}
+ 
++static gboolean 
++osso_cb_hw_state_idle(osso_hw_state_t *state) 
++{ 
++    dbg(0,"(inact=%d, save=%d, shut=%d, memlow=%d, state=%d)\n", 
++            state->system_inactivity_ind, 
++            state->save_unsaved_data_ind, state->shutdown_ind, 
++            state->memory_low_ind, state->sig_device_mode_ind); 
++
++    if(state->shutdown_ind) 
++    { 
++	/* we  are going  down, down,  down */ 
++        navit_destroy(global_navit); 
++        exit(1); 
++    } 
++
++    g_free(state); 
++
++    return FALSE;
++} 
++
++/** 
++ * * Handle osso events 
++ * * @param state Osso hardware state 
++ * * @param  data ptr to private data 
++ * * @returns nothing 
++ **/ 
++static void 
++osso_cb_hw_state(osso_hw_state_t *state, gpointer data) 
++{ 
++    osso_hw_state_t *state_copy = g_new(osso_hw_state_t, 1); 
++    memcpy(state_copy, state, sizeof(osso_hw_state_t)); 
++    g_idle_add((GSourceFunc)osso_cb_hw_state_idle, state_copy); 
++} 
++#endif /* HAVE_OSSO */
++
+ struct navit *
+ navit_new(struct attr *parent, struct attr **attrs)
+ {
+@@ -753,7 +803,19 @@
+ 	command_add_table(this_->attr_cbl, commands, sizeof(commands)/sizeof(struct command_table), this_);
+ 
+ 	this_->messages = messagelist_new(attrs);
+-	
++
++#ifdef HAVE_OSSO
++	dbg(1,"Installing osso context for org.navit_project.navit\n"); 
++        this_->osso_context = osso_initialize("org.navit_project.navit",VERSION, TRUE, NULL); 
++        if(this_->osso_context == NULL) { 
++    	    dbg(0, "error initiating osso context\n"); 
++        } 
++        osso_hw_set_event_cb(this_->osso_context, NULL, osso_cb_hw_state, NULL); 
++        
++        /* add callback to unblank screen on gps event */ 
++        navit_add_callback(this_, callback_new_attr_1(callback_cast(navit_osso_display_on), attr_position_coord_geo, this_)); 
++#endif /* HAVE_OSSO */
++
+ 	return this_;
+ }
+ 
+@@ -2324,6 +2386,11 @@
+ void
+ navit_destroy(struct navit *this_)
+ {
++
++#ifdef HAVE_OSSO
++	osso_deinitialize(this_->osso_context);
++#endif /* HAVE_OSSO */
++
+ 	/* TODO: destroy objects contained in this_ */
+ 	if (this_->vehicle)
+ 		vehicle_destroy(this_->vehicle->vehicle);
+Index: configure.in
+===================================================================
+--- configure.in	(revision 3313)
++++ configure.in	(working copy)
+@@ -218,6 +218,15 @@
+ 		], [
+ 		AC_MSG_RESULT(no)
+ 	])
++        PKG_CHECK_MODULES(LIBOSSO, libosso, [ 
++	        AC_DEFINE(HAVE_OSSO, 1, [Have the osso library]) 
++	        AC_SUBST(OSSO_CFLAGS) 
++                AC_SUBST(OSSO_LIBS) 
++                enable_osso=yes
++                ], [ 
++                enable_osso=no
++                AC_MSG_RESULT(no) 
++        ])
+ 	if test x"${enable_hildon}" = xyes ; then
+ 		AC_DEFINE(USE_HILDON, 1, [Build with maemo/hildon support])
+ 		AC_SUBST(HILDON_CFLAGS)
+@@ -225,6 +234,7 @@
+ 	fi
+ fi
+ AM_CONDITIONAL(USE_HILDON, test "${enable_hildon}" = "xyes")
++AM_CONDITIONAL(USE_OSSO, [ test "$enable_osso" = "yes" ])
+ 
+ AC_ARG_ENABLE(garmin, [  --disable-garmin             disable garmin support], USE_GARMIN=$enableval, USE_GARMIN=yes)
+ 

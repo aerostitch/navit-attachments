@@ -1,0 +1,750 @@
+Index: navit/android/res/values/strings.xml
+===================================================================
+--- navit/android/res/values/strings.xml	(revision 5532)
++++ navit/android/res/values/strings.xml	(working copy)
+@@ -28,6 +28,7 @@
+ 	<string name="optionsmenu_toggle_poi">Toggle POIs</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Exit Navit</string>
++    <string name="optionsmenu_backup_restore">Backup / Restore</string>
+ 
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+@@ -59,6 +60,21 @@
+ 	<string name="address_search_set_destination">Setting destination to:</string>
+ 	<string name="address_search_towns">Towns</string>
+ 	<string name="address_search_streets">Streets</string>
++    
++    <!--  Backup Restore -->
++    <string name="choose_an_action">Choose an Action</string>
++    <string name="please_insert_an_sd_card">Please insert an SD Card</string>
++    <string name="backing_up">Backing up...</string>
++    <string name="failed_to_create_backup_directory">Failed to create backup directory</string>
++    <string name="backup_failed">Backup Failed</string>
++    <string name="no_backup_found">No Backup found</string>
++    <string name="failed_to_restore">Failed to restore</string>
++    <string name="backup_successful">Backup Successful</string>
++    <string name="restore_successful_please_restart_navit">Restore Successful\nPlease restart Navit</string>
++    <string-array name="dialog_backup_restore_items">
++		<item >Backup</item>
++        <item >Restore</item>
++	</string-array>
+ 
+ </resources>
+ 
+Index: navit/android/res/values-de/strings.xml
+===================================================================
+--- navit/android/res/values-de/strings.xml	(revision 5532)
++++ navit/android/res/values-de/strings.xml	(working copy)
+@@ -24,7 +24,8 @@
+ 	<string name="optionsmenu_toggle_poi">POI ein/aus</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Navit beenden</string>
+-
++    <string name="optionsmenu_backup_restore">Sichern / Wiederherstellen</string>
++    
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+ 	<string name="position_popup_drive_here">Ziel setzen</string>
+@@ -55,5 +56,21 @@
+ 	<string name="address_search_set_destination">Neues Fahrziel:</string>
+ 	<string name="address_search_towns">Städte</string>
+ 	<string name="address_search_streets">Straßen</string>
++    
++    <!--  Backup Restore -->
++    <string name="choose_an_action">Bitte auswählen</string>
++    <string name="please_insert_an_sd_card">Bitte eine SD Karte einlegen</string>
++    <string name="backing_up">Sichern...</string>
++    <string name="failed_to_create_backup_directory">Sicherungsverzeichnis konnte nicht erstellt werden</string>
++    <string name="backup_failed">Sicherung Fehlgeschlagen</string>
++    <string name="no_backup_found">Keine Sicherung gefunden</string>
++    <string name="failed_to_restore">Fehler beim Wiederherstellen</string>
++    <string name="backup_successful">Sicherung erfolgreich</string>
++    <string name="restore_successful_please_restart_navit">Sicherung Erfolgreich\nNavit bitte neustarten</string>
++    <string-array name="dialog_backup_restore_items">
++		<item >Sichern</item>
++        <item >Wiederherstellen</item>
++	</string-array>
++    
+ </resources>
+ 
+Index: navit/android/res/values-fr/strings.xml
+===================================================================
+--- navit/android/res/values-fr/strings.xml	(revision 5532)
++++ navit/android/res/values-fr/strings.xml	(working copy)
+@@ -24,7 +24,8 @@
+ 	<string name="optionsmenu_toggle_poi">POI on/off</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Quitter Navit</string>
+-
++    <string name="optionsmenu_backup_restore">Backup / Restore</string>
++    
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+ 	<string name="position_popup_drive_here">Conduire ici</string>
+@@ -53,5 +54,21 @@
+ 	<string name="address_search_set_destination">Destination fixée à:</string>
+ 	<string name="address_search_towns">Villes</string>
+ 	<string name="address_search_streets">Rues</string>
++    
++    <!--  Backup Restore -->
++    <string name="choose_an_action">Choose an Action</string>
++    <string name="please_insert_an_sd_card">Please insert an SD Card</string>
++    <string name="backing_up">Backing up...</string>
++    <string name="failed_to_create_backup_directory">Failed to create backup directory</string>
++    <string name="backup_failed">Backup Failed</string>
++    <string name="no_backup_found">No Backup found</string>
++    <string name="failed_to_restore">Failed to restore</string>
++    <string name="backup_successful">Backup Successful</string>
++    <string name="restore_successful_please_restart_navit">Restore Successful\nPlease restart Navit</string>
++    <string-array name="dialog_backup_restore_items">
++		<item >Backup</item>
++        <item >Restore</item>
++	</string-array>
++    
+ </resources>
+ 
+Index: navit/android/res/values-nl/strings.xml
+===================================================================
+--- navit/android/res/values-nl/strings.xml	(revision 5532)
++++ navit/android/res/values-nl/strings.xml	(working copy)
+@@ -24,6 +24,7 @@
+ 	<string name="optionsmenu_toggle_poi">Schakel POIs</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Verlaat Navit</string>
++	<string name="optionsmenu_backup_restore">Backup / Restore</string>
+ 
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+@@ -53,5 +54,21 @@
+ 	<string name="address_search_set_destination">Bestemming ingesteld:</string>
+ 	<string name="address_search_towns">Steden</string>
+ 	<string name="address_search_streets">Straten</string>
++    
++    <!--  Backup Restore -->
++    <string name="choose_an_action">Choose an Action</string>
++    <string name="please_insert_an_sd_card">Please insert an SD Card</string>
++    <string name="backing_up">Backing up...</string>
++    <string name="failed_to_create_backup_directory">Failed to create backup directory</string>
++    <string name="backup_failed">Backup Failed</string>
++    <string name="no_backup_found">No Backup found</string>
++    <string name="failed_to_restore">Failed to restore</string>
++    <string name="backup_successful">Backup Successful</string>
++    <string name="restore_successful_please_restart_navit">Restore Successful\nPlease restart Navit</string>
++    <string-array name="dialog_backup_restore_items">
++		<item >Backup</item>
++        <item >Restore</item>
++	</string-array>
++    
+ </resources>
+ 
+Index: navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/Navit.java	(revision 5532)
++++ navit/android/src/org/navitproject/navit/Navit.java	(working copy)
+@@ -19,15 +19,6 @@
+ 
+ package org.navitproject.navit;
+ 
+-import java.io.File;
+-import java.io.FileOutputStream;
+-import java.io.InputStream;
+-import java.util.HashMap;
+-import java.util.Locale;
+-import java.util.Map;
+-import java.util.regex.Matcher;
+-import java.util.regex.Pattern;
+-
+ import android.app.Activity;
+ import android.app.AlertDialog;
+ import android.app.Dialog;
+@@ -61,7 +52,16 @@
+ import android.widget.TextView;
+ import android.widget.Toast;
+ 
++import java.io.File;
++import java.io.FileOutputStream;
++import java.io.InputStream;
++import java.util.HashMap;
++import java.util.Locale;
++import java.util.Map;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
+ 
++
+ public class Navit extends Activity
+ {
+ 
+@@ -160,16 +160,17 @@
+ 			message.setVerticalFadingEdgeEnabled(true);
+ 			// message.setVerticalScrollBarEnabled(true);
+ 			RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);
+-	
++
+ 			message.setLayoutParams(rlp);
+ 			final SpannableString s = new SpannableString(getString(R.string.initial_info_box_message)); // TRANS
+ 			Linkify.addLinks(s, Linkify.WEB_URLS);
+ 			message.setText(s);
+ 			message.setMovementMethod(LinkMovementMethod.getInstance());
+ 			infobox.setView(message);
+-	
++
+ 			// TRANS
+ 			infobox.setPositiveButton(getString(R.string.initial_info_box_OK), new DialogInterface.OnClickListener() {
++				@Override
+ 				public void onClick(DialogInterface arg0, int arg1) {
+ 					Log.e("Navit", "Ok, user saw the infobox");
+ 				}
+@@ -177,6 +178,7 @@
+ 
+ 			// TRANS
+ 			infobox.setNeutralButton(getString(R.string.initial_info_box_more_info), new DialogInterface.OnClickListener() {
++				@Override
+ 				public void onClick(DialogInterface arg0, int arg1) {
+ 					Log.e("Navit", "user wants more info, show the website");
+ 					String url = "http://wiki.navit-project.org/index.php/Navit_on_Android";
+@@ -211,9 +213,9 @@
+ 
+ 		// init translated text
+ 		NavitTextTranslations.init();
+-		
++
+ 		// NOTIFICATION
+-		// Setup the status bar notification		
++		// Setup the status bar notification
+ 		// This notification is removed in the exit() function
+ 		NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);	// Grab a handle to the NotificationManager
+ 		Notification NavitNotification = new Notification(R.drawable.icon,"Navit started",System.currentTimeMillis());	// Create a new notification, with the text string to show when the notification first appears
+@@ -221,7 +223,7 @@
+ 		NavitNotification.setLatestEventInfo(getApplicationContext(), "Navit", "Navit running", appIntent);	// Set the text in the notification
+ 		NavitNotification.flags|=Notification.FLAG_ONGOING_EVENT;	// Ensure that the notification appears in Ongoing
+ 		nm.notify(R.string.app_name, NavitNotification);	// Set the notification
+-		
++
+ 		// get the local language -------------
+ 		Locale locale = java.util.Locale.getDefault();
+ 		String lang = locale.getLanguage();
+@@ -346,21 +348,21 @@
+ 		Map<String,String> params = new HashMap<String,String>();
+ 		for (int count=0; count < naviData.length; count++) {
+ 			Matcher m = p.matcher(naviData[count]);
+-			
++
+ 			if (m.matches()) {
+ 				params.put(m.group(1), m.group(2));
+ 			}
+ 		}
+-		
++
+ 		// d: google.navigation:q=blabla-strasse # (this happens when you are offline, or from contacts)
+ 		// a: google.navigation:ll=48.25676,16.643&q=blabla-strasse
+ 		// c: google.navigation:ll=48.25676,16.643
+ 		// b: google.navigation:q=48.25676,16.643
+-		
++
+ 		Float lat;
+ 		Float lon;
+ 		Bundle b = new Bundle();
+-		
++
+ 		String geoString = params.get("ll");
+ 		if (geoString != null) {
+ 			String address = params.get("q");
+@@ -369,7 +371,7 @@
+ 		else {
+ 			geoString = params.get("q");
+ 		}
+-		
++
+ 		if ( geoString != null) {
+ 			if (geoString.matches("^[+-]{0,1}\\d+(|\\.\\d*),[+-]{0,1}\\d+(|\\.\\d*)$")) {
+ 				String geo[] = geoString.split(",");
+@@ -417,6 +419,10 @@
+ 
+ 		menu.add(1, 6, 500, getString(R.string.optionsmenu_address_search)); //TRANS
+ 
++		/* Only show the Backup to SD-Card Option if we really have one */
++		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
++			menu.add(1, 7, 700, getString(R.string.optionsmenu_backup_restore)); //TRANS
++
+ 		menu.add(1, 99, 900, getString(R.string.optionsmenu_exit_navit)); //TRANS
+ 		return true;
+ 	}
+@@ -500,6 +506,11 @@
+ 				Intent search_intent = new Intent(this, NavitAddressSearchActivity.class);
+ 				this.startActivityForResult(search_intent, NavitAddressSearch_id);
+ 				break;
++
++			case 7:
++				/* Backup / Restore */
++				showDialog(NavitDialogs.DIALOG_BACKUP_RESTORE);
++				break;
+ 			case 99 :
+ 				// exit
+ 				this.onStop();
+@@ -521,35 +532,37 @@
+ 		msg.sendToTarget();
+ 	}
+ 
++	@Override
+ 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+ 	{
+ 		switch (requestCode)
+ 		{
+-		case Navit.NavitDownloaderSelectMap_id :
+-			if (resultCode == Activity.RESULT_OK)
+-			{
+-				Message msg = dialogs.obtainMessage(NavitDialogs.MSG_START_MAP_DOWNLOAD
+-						, data.getIntExtra("map_index", -1), 0);
+-				msg.sendToTarget();
+-			}
+-			break;
+-		case NavitAddressSearch_id :
+-			if (resultCode == Activity.RESULT_OK) {
+-				Bundle destination = data.getExtras();
+-				Toast.makeText( getApplicationContext(),getString(R.string.address_search_set_destination) + "\n" + destination.getString("q"), Toast.LENGTH_LONG).show(); //TRANS
++			case Navit.NavitDownloaderSelectMap_id :
++				if (resultCode == Activity.RESULT_OK)
++				{
++					Message msg = dialogs.obtainMessage(NavitDialogs.MSG_START_MAP_DOWNLOAD
++							, data.getIntExtra("map_index", -1), 0);
++					msg.sendToTarget();
++				}
++				break;
++			case NavitAddressSearch_id :
++				if (resultCode == Activity.RESULT_OK) {
++					Bundle destination = data.getExtras();
++					Toast.makeText( getApplicationContext(),getString(R.string.address_search_set_destination) + "\n" + destination.getString("q"), Toast.LENGTH_LONG).show(); //TRANS
+ 
+-				Message msg = Message.obtain(N_NavitGraphics.callback_handler, NavitGraphics.msg_type.CLB_SET_DESTINATION.ordinal());
+-				msg.setData(destination);
+-				msg.sendToTarget();
+-			}
+-			break;
+-		default :
+-			//Log.e("Navit", "onActivityResult " + requestCode + " " + resultCode);
+-			ActivityResults[requestCode].onActivityResult(requestCode, resultCode, data);
+-			break;
++					Message msg = Message.obtain(N_NavitGraphics.callback_handler, NavitGraphics.msg_type.CLB_SET_DESTINATION.ordinal());
++					msg.setData(destination);
++					msg.sendToTarget();
++				}
++				break;
++			default :
++				//Log.e("Navit", "onActivityResult " + requestCode + " " + resultCode);
++				ActivityResults[requestCode].onActivityResult(requestCode, resultCode, data);
++				break;
+ 		}
+ 	}
+ 
++	@Override
+ 	protected Dialog onCreateDialog(int id)
+ 	{
+ 		return dialogs.createDialog(id);
+@@ -561,7 +574,7 @@
+ 		super.onDestroy();
+ 		Log.e("Navit", "OnDestroy");
+ 		// TODO next call will kill our app the hard way. This should not be necessary, but ensures navit is
+-		// properly restarted and no resources are wasted with navit in background. Remove this call after 
++		// properly restarted and no resources are wasted with navit in background. Remove this call after
+ 		// code review
+ 		NavitDestroy();
+ 	}
+Index: navit/android/src/org/navitproject/navit/NavitBackupRestoreTask.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitBackupRestoreTask.java	(revision 0)
++++ navit/android/src/org/navitproject/navit/NavitBackupRestoreTask.java	(working copy)
+@@ -0,0 +1,201 @@
++package org.navitproject.navit;
++
++import android.app.Activity;
++import android.app.NotificationManager;
++import android.app.ProgressDialog;
++import android.content.Context;
++import android.content.SharedPreferences.Editor;
++import android.os.AsyncTask;
++import android.os.Environment;
++import android.widget.Toast;
++
++import java.io.File;
++import java.io.FileInputStream;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.io.ObjectInputStream;
++import java.io.ObjectOutputStream;
++import java.util.Map;
++import java.util.Map.Entry;
++
++public class NavitBackupRestoreTask extends AsyncTask<Void, Void, String> {
++
++	public static final int BACKUP = 1;
++	public static final int RESTORE = 2;
++
++	private Activity mActivity;
++	private ProgressDialog mDialog;
++	private int mRequest;
++
++	public NavitBackupRestoreTask (Activity context, int request) {
++		mActivity = context;
++		mRequest = request;
++	}
++
++	@Override
++	protected void onPreExecute() {
++		super.onPreExecute();
++
++		mDialog = new ProgressDialog(mActivity);
++		mDialog.setIndeterminate(true);
++		mDialog.setMessage(mActivity.getString(R.string.backing_up));
++		mDialog.show();
++	}
++
++	@SuppressWarnings("unchecked")
++	@Override
++	protected String doInBackground(Void... v) {
++		File backupDir = new File(Environment.getExternalStorageDirectory().getPath() + "/navit/backup");
++
++		switch (mRequest) {
++			case BACKUP:
++
++				/* Check if the Backup Directory exists and create it if not */
++				if(!backupDir.isDirectory()){
++					if(!backupDir.mkdirs())
++						return mActivity.getString(R.string.failed_to_create_backup_directory);
++				}
++
++				ObjectOutputStream preferencesOOs = null;
++				try{
++					/* Backup Files in home */
++					copyFileIfExists(Navit.NAVIT_DATA_DIR + "/home/bookmark.txt", backupDir.getPath() + "/bookmark.txt");
++					copyFileIfExists(Navit.NAVIT_DATA_DIR + "/home/destination.txt", backupDir.getPath() + "/destination.txt");
++					copyFileIfExists(Navit.NAVIT_DATA_DIR + "/home/gui_internal.txt", backupDir.getPath() + "/gui_internal.txt");
++
++					/* Backup Shared Preferences */
++					preferencesOOs = new ObjectOutputStream(new FileOutputStream(backupDir.getPath() + "/preferences.bak"));
++					preferencesOOs.writeObject(mActivity.getSharedPreferences(Navit.NAVIT_PREFS, Context.MODE_PRIVATE).getAll());
++
++				} catch (IOException e) {
++					e.printStackTrace();
++					return mActivity.getString(R.string.backup_failed);
++				} finally {
++					/* Close Stream to prevent Resource Leaks */
++					try {
++						if(preferencesOOs != null)
++							preferencesOOs.close();
++					} catch (IOException e) {
++						e.printStackTrace();
++						return mActivity.getString(R.string.backup_failed);
++					}
++				}
++
++				return null;
++			case RESTORE:
++
++				/* Check if there is a Backup Directory */
++				if(!backupDir.isDirectory())
++					return mActivity.getString(R.string.no_backup_found);
++
++				ObjectInputStream preferenceOIS = null;
++				try {
++					/* Restore Files in home */
++					copyFileIfExists(backupDir.getPath() + "/bookmark.txt", Navit.NAVIT_DATA_DIR + "/home/bookmark.txt");
++					copyFileIfExists(backupDir.getPath() + "/destination.txt", Navit.NAVIT_DATA_DIR + "/home/destination.txt");
++					copyFileIfExists(backupDir.getPath() + "/gui_internal.txt", Navit.NAVIT_DATA_DIR + "/home/gui_internal.txt");
++
++					/* Restore Shared Preferences */
++					preferenceOIS = new ObjectInputStream(new FileInputStream(backupDir.getPath() + "/preferences.bak"));
++					Map<String, ?> entries = (Map<String, ?>) preferenceOIS.readObject();
++
++					Editor prefEditor = mActivity.getSharedPreferences(Navit.NAVIT_PREFS, Context.MODE_PRIVATE).edit();
++
++					/* Remove all old Preferences */
++					prefEditor.clear();
++
++					/* Iterate through all Entries and add them to our Preferences */
++					for(Entry<String, ?> entry : entries.entrySet()) {
++						Object value = entry.getValue();
++						String key = entry.getKey();
++
++						if(value instanceof Boolean)
++							prefEditor.putBoolean(key, ((Boolean) value).booleanValue());
++						else if(value instanceof Float)
++							prefEditor.putFloat(key, ((Float) value).floatValue());
++						else if(value instanceof Integer)
++							prefEditor.putInt(key, ((Integer) value).intValue());
++						else if(value instanceof Long)
++							prefEditor.putLong(key, ((Long) value).longValue());
++						else if(value instanceof String)
++							prefEditor.putString(key, (String) value);
++					}
++
++					if(!prefEditor.commit())
++						return mActivity.getString(R.string.failed_to_restore);
++
++				} catch (Exception e) {
++					e.printStackTrace();
++					return mActivity.getString(R.string.failed_to_restore);
++				} finally {
++					try {
++						/* Close Stream to prevent Resource leak */
++						if(preferenceOIS != null)
++							preferenceOIS.close();
++					} catch (IOException e) {
++
++					}
++				}
++
++				return null;
++		}
++
++		/* We should never end up here */
++		return mActivity.getString(R.string.backup_failed);
++	}
++
++	private void copyFileIfExists(String source, String destination) throws IOException {
++		File file = new File(source);
++
++		if(!file.exists())
++			return;
++
++		FileInputStream is = null;
++		FileOutputStream os = null;
++
++		try{
++			is = new FileInputStream(source);
++			os = new FileOutputStream(destination);
++
++			int len;
++			byte buffer[] = new byte[1024];
++
++			while((len = is.read(buffer)) != -1) {
++				os.write(buffer, 0, len);
++			}
++
++		} finally {
++			/* Close the FileStreams to prevent Resource leaks */
++			if(is != null)
++				is.close();
++
++			if(os != null)
++				os.close();
++		}
++	}
++
++	@Override
++	protected void onPostExecute(String result) {
++		super.onPostExecute(result);
++
++		if(result != null){
++			Toast.makeText(mActivity, result, Toast.LENGTH_LONG).show();
++			return;
++		}
++
++		if(mRequest == BACKUP){
++			Toast.makeText(mActivity, mActivity.getString(R.string.backup_successful), Toast.LENGTH_LONG).show();
++		}
++		else if(mRequest == RESTORE) {
++			/* If we restored the Settings, then Navit needs to be restarted
++			 * Currently the User has to restart it by himself */
++			Toast.makeText(mActivity, mActivity.getString(R.string.restore_successful_please_restart_navit), Toast.LENGTH_LONG).show();
++			NotificationManager nm = (NotificationManager) mActivity.getSystemService(Context.NOTIFICATION_SERVICE);
++			nm.cancel(R.string.app_name);
++			NavitVehicle.removeListener();
++			mActivity.finish();
++		}
++
++		mDialog.dismiss();
++	}
++}
+Index: navit/android/src/org/navitproject/navit/NavitDialogs.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitDialogs.java	(revision 5532)
++++ navit/android/src/org/navitproject/navit/NavitDialogs.java	(working copy)
+@@ -1,10 +1,12 @@
+ package org.navitproject.navit;
+ 
+ 
++import android.app.AlertDialog;
+ import android.app.Dialog;
+ import android.app.ProgressDialog;
+ import android.content.DialogInterface;
+ import android.os.Bundle;
++import android.os.Environment;
+ import android.os.Handler;
+ import android.os.Message;
+ import android.util.Log;
+@@ -13,6 +15,7 @@
+ public class NavitDialogs extends Handler{
+ 	// Dialogs
+ 	public static final int           DIALOG_MAPDOWNLOAD               = 1;
++	public static final int           DIALOG_BACKUP_RESTORE            = 2;
+ 
+ 	// dialog messages
+ 	static final int MSG_MAP_DOWNLOAD_FINISHED   = 0;
+@@ -26,6 +29,7 @@
+ 
+ 	private ProgressDialog                    mapdownloader_dialog     = null;
+ 	private NavitMapDownloader                mapdownloader            = null;
++	private AlertDialog                       backupRestoreDialog      = null;
+ 
+ 	private Navit mActivity;
+ 
+@@ -39,14 +43,14 @@
+ 	{
+ 		Message msg = mHandler.obtainMessage(what);
+ 		Bundle data = new Bundle();
+-		
++
+ 		data.putString("title", title);
+-		data.putString("text", text); 
+-		data.putInt("value1", value1); 
++		data.putString("text", text);
++		data.putInt("value1", value1);
+ 		data.putInt("value2", value2);
+ 		data.putInt("dialog_num", dialog_num);
+ 		msg.setData(data);
+-		
++
+ 		mHandler.sendMessage(msg);
+ 	}
+ 
+@@ -55,53 +59,53 @@
+ 	{
+ 		switch (msg.what)
+ 		{
+-		case MSG_MAP_DOWNLOAD_FINISHED :
+-		{
+-			// dismiss dialog, remove dialog
+-			mActivity.dismissDialog(DIALOG_MAPDOWNLOAD);
+-			mActivity.removeDialog(DIALOG_MAPDOWNLOAD);
+-			if (msg.getData().getInt("value1") == 1) {
+-				Message activate_map_msg =
+-				        Message.obtain(Navit.N_NavitGraphics.callback_handler,
+-				                NavitGraphics.msg_type.CLB_LOAD_MAP.ordinal());
+-				activate_map_msg.setData(msg.getData());
+-				activate_map_msg.sendToTarget();
++			case MSG_MAP_DOWNLOAD_FINISHED :
++			{
++				// dismiss dialog, remove dialog
++				mActivity.dismissDialog(DIALOG_MAPDOWNLOAD);
++				mActivity.removeDialog(DIALOG_MAPDOWNLOAD);
++				if (msg.getData().getInt("value1") == 1) {
++					Message activate_map_msg =
++							Message.obtain(Navit.N_NavitGraphics.callback_handler,
++									NavitGraphics.msg_type.CLB_LOAD_MAP.ordinal());
++					activate_map_msg.setData(msg.getData());
++					activate_map_msg.sendToTarget();
++				}
++				break;
+ 			}
+-			break;
+-		}
+-		case MSG_PROGRESS_BAR :
+-			// change progressbar values
+-			mapdownloader_dialog.setMax(msg.getData().getInt("value1"));
+-			mapdownloader_dialog.setProgress(msg.getData().getInt("value2"));
+-			mapdownloader_dialog.setTitle(msg.getData().getString("title"));
+-			mapdownloader_dialog.setMessage(msg.getData().getString("text"));
+-			break;
+-		case MSG_TOAST :
+-			Toast.makeText(mActivity, msg.getData().getString("text"), Toast.LENGTH_SHORT).show();
+-			break;
+-		case MSG_TOAST_LONG :
+-			Toast.makeText(mActivity, msg.getData().getString("text"), Toast.LENGTH_LONG).show();
+-			break;
+-		case MSG_START_MAP_DOWNLOAD:
+-		{
+-			int download_map_id = msg.arg1;
+-			Log.d("Navit", "PRI id=" + download_map_id);
+-			// set map id to download
++			case MSG_PROGRESS_BAR :
++				// change progressbar values
++				mapdownloader_dialog.setMax(msg.getData().getInt("value1"));
++				mapdownloader_dialog.setProgress(msg.getData().getInt("value2"));
++				mapdownloader_dialog.setTitle(msg.getData().getString("title"));
++				mapdownloader_dialog.setMessage(msg.getData().getString("text"));
++				break;
++			case MSG_TOAST :
++				Toast.makeText(mActivity, msg.getData().getString("text"), Toast.LENGTH_SHORT).show();
++				break;
++			case MSG_TOAST_LONG :
++				Toast.makeText(mActivity, msg.getData().getString("text"), Toast.LENGTH_LONG).show();
++				break;
++			case MSG_START_MAP_DOWNLOAD:
++			{
++				int download_map_id = msg.arg1;
++				Log.d("Navit", "PRI id=" + download_map_id);
++				// set map id to download
+ 
+-			// show the map download progressbar, and download the map
+-			if (download_map_id > -1)
+-			{
+-				mapdownloader = new NavitMapDownloader(download_map_id);
+-				mActivity.showDialog(NavitDialogs.DIALOG_MAPDOWNLOAD);
+-				mapdownloader.start();
++				// show the map download progressbar, and download the map
++				if (download_map_id > -1)
++				{
++					mapdownloader = new NavitMapDownloader(download_map_id);
++					mActivity.showDialog(NavitDialogs.DIALOG_MAPDOWNLOAD);
++					mapdownloader.start();
++				}
+ 			}
+-		}
+-		break;
+-		case MSG_REMOVE_DIALOG_GENERIC :
+-			// dismiss dialog, remove dialog - generic
+-			mActivity.dismissDialog(msg.getData().getInt("dialog_num"));
+-			mActivity.removeDialog(msg.getData().getInt("dialog_num"));
+ 			break;
++			case MSG_REMOVE_DIALOG_GENERIC :
++				// dismiss dialog, remove dialog - generic
++				mActivity.dismissDialog(msg.getData().getInt("dialog_num"));
++				mActivity.removeDialog(msg.getData().getInt("dialog_num"));
++				break;
+ 		}
+ 	}
+ 
+@@ -119,6 +123,7 @@
+ 				mapdownloader_dialog.setMax(200);
+ 				DialogInterface.OnDismissListener onDismissListener = new DialogInterface.OnDismissListener()
+ 				{
++					@Override
+ 					public void onDismiss(DialogInterface dialog)
+ 					{
+ 						Log.e("Navit", "onDismiss: mapdownloader_dialog");
+@@ -131,6 +136,34 @@
+ 						Navit.get_text("Map data (c) OpenStreetMap contributors, CC-BY-SA"),
+ 						Toast.LENGTH_LONG).show(); //TRANS
+ 				return mapdownloader_dialog;
++
++			case DIALOG_BACKUP_RESTORE:
++				/* Create a Dialog that Displays Options wether to Backup or Restore */
++				AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
++				builder.setTitle(mActivity.getString(R.string.choose_an_action)).
++				setCancelable(true).
++				setItems(R.array.dialog_backup_restore_items,
++						new DialogInterface.OnClickListener() {
++
++					@Override
++					public void onClick(DialogInterface dialog, int which) {
++						/* Notify User if no SD Card present */
++						if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
++							Toast.makeText(mActivity, mActivity.getString(R.string.please_insert_an_sd_card), Toast.LENGTH_LONG).show();
++
++						switch (which) {
++							case 0:
++								/* Backup */
++								new NavitBackupRestoreTask(mActivity, NavitBackupRestoreTask.BACKUP).execute();
++								break;
++							case 1:
++								/* Restore */
++								new NavitBackupRestoreTask(mActivity, NavitBackupRestoreTask.RESTORE).execute();
++								break;
++						}
++					}});
++
++				return builder.create();
+ 		}
+ 		// should never get here!!
+ 		return null;

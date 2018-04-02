@@ -1,0 +1,133 @@
+*** ../../sdk/navit/navit/maptool/osm.c	2011-01-15 15:27:20.002572453 +0100
+--- maptool/osm.c	2011-01-15 15:45:56.606644045 +0100
+***************
+*** 20,25 ****
+--- 20,27 ----
+  
+  
+  int maxspeed_attr_value;
++ int maxspeed_forward_attr_value;
++ int maxspeed_backward_attr_value;
+  
+  char debug_attr_buffer[BUFFER_SIZE];
+  
+***************
+*** 930,935 ****
+--- 932,957 ----
+  			flags[0] |= AF_SPEED_LIMIT;
+  		level=5;
+  	}
++ 	if (! strcmp(k,"maxspeed:forward")) {
++ 		if (strstr(v, "mph")) {
++ 			maxspeed_forward_attr_value = (int)floor(atof(v) * 1.609344);
++ 		} else {
++ 			maxspeed_forward_attr_value = atoi(v);
++ 		}
++ 		if (maxspeed_backward_attr_value >= 0)
++ 			flags[0] |= AF_SPEED_LIMIT;
++ 		level=5;
++ 	}
++ 	if (! strcmp(k,"maxspeed:backward")) {
++ 		if (strstr(v, "mph")) {
++ 			maxspeed_backward_attr_value = (int)floor(atof(v) * 1.609344);
++ 		} else {
++ 			maxspeed_backward_attr_value = atoi(v);
++ 		}
++ 		if (maxspeed_backward_attr_value >= 0)
++ 			flags[0] |= AF_SPEED_LIMIT;
++ 		level=5;
++ 	}
+  	if (! strcmp(k,"access")) {
+  		flags[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_HORSE|AF_BIKE|AF_PEDESTRIAN;
+  		level=5;
+***************
+*** 1348,1353 ****
+--- 1370,1377 ----
+  	item.type=type_street_unkn;
+  	debug_attr_buffer[0]='\0';
+  	maxspeed_attr_value=0;
++ 	maxspeed_forward_attr_value=0;
++ 	maxspeed_backward_attr_value=0;
+  	flags_attr_value = 0;
+  	memset(flags, 0, sizeof(flags));
+  	debug_attr_buffer[0]='\0';
+***************
+*** 1531,1538 ****
+  			item_bin_add_attr_string(item_bin, attr_debug, debug_attr_buffer);
+  		if (add_flags)
+  			item_bin_add_attr_int(item_bin, attr_flags, flags_attr_value);
+! 		if (maxspeed_attr_value)
+! 			item_bin_add_attr_int(item_bin, attr_maxspeed, maxspeed_attr_value);
+  		item_bin_write(item_bin,out);
+  	}
+  }
+--- 1555,1623 ----
+  			item_bin_add_attr_string(item_bin, attr_debug, debug_attr_buffer);
+  		if (add_flags)
+  			item_bin_add_attr_int(item_bin, attr_flags, flags_attr_value);
+! 
+!         if (flags[0] & AF_SPEED_LIMIT) {
+!             // We must have valid speed limits for all 3 fields - determine them if not defined on map, at least one of them is filled...
+! 
+!             if (maxspeed_attr_value == 0) { // no "default" speed
+!             printf("%d %d %d -> ", maxspeed_attr_value, maxspeed_forward_attr_value, maxspeed_backward_attr_value);
+!                 if (maxspeed_forward_attr_value > 0) {
+!                     if (maxspeed_backward_attr_value > 0) {
+!                         if (maxspeed_forward_attr_value < maxspeed_backward_attr_value)
+!                             maxspeed_attr_value = maxspeed_forward_attr_value;
+!                         else
+!                             maxspeed_attr_value = maxspeed_backward_attr_value;
+!                     } else {
+!                         maxspeed_attr_value = maxspeed_forward_attr_value;
+!                         maxspeed_backward_attr_value = maxspeed_forward_attr_value;
+!                     }
+!                 } else {   // we only have a backward speed
+!                     maxspeed_attr_value = maxspeed_backward_attr_value;
+!                     maxspeed_forward_attr_value = maxspeed_backward_attr_value;
+!                 }
+!             printf("%d %d %d\n", maxspeed_attr_value, maxspeed_forward_attr_value, maxspeed_backward_attr_value);
+!             }
+! 
+!             if (maxspeed_forward_attr_value == 0) { // no "forward" speed
+!                 if (maxspeed_attr_value > 0) {
+!                     if (maxspeed_backward_attr_value > 0) {
+!                         if (maxspeed_attr_value < maxspeed_backward_attr_value)
+!                            maxspeed_forward_attr_value = maxspeed_attr_value;
+!                         else
+!                            maxspeed_forward_attr_value = maxspeed_backward_attr_value;
+!                     } else {
+!                         maxspeed_forward_attr_value = maxspeed_attr_value;
+!                         maxspeed_backward_attr_value = maxspeed_attr_value;
+!                     }
+!                 } else {  // we only have a backward speed
+!                     maxspeed_forward_attr_value = maxspeed_backward_attr_value;
+!                     maxspeed_attr_value = maxspeed_backward_attr_value;
+!                 }
+!             }
+! 
+!             if (maxspeed_backward_attr_value == 0) { // no "backward" speed
+!                 if (maxspeed_attr_value > 0) {
+!                     if (maxspeed_forward_attr_value > 0) {
+!                         if (maxspeed_attr_value < maxspeed_forward_attr_value)
+!                            maxspeed_backward_attr_value = maxspeed_attr_value;
+!                         else
+!                            maxspeed_backward_attr_value = maxspeed_forward_attr_value;
+!                     } else {
+!                         maxspeed_forward_attr_value = maxspeed_attr_value;
+!                         maxspeed_backward_attr_value = maxspeed_attr_value;
+!                     }
+!                 } else {  // we only have a forward speed
+!                     maxspeed_backward_attr_value = maxspeed_forward_attr_value;
+!                     maxspeed_attr_value = maxspeed_forward_attr_value;
+!                 }
+!             }
+! 
+! 
+! 		    item_bin_add_attr_int(item_bin, attr_maxspeed, maxspeed_attr_value);
+!             item_bin_add_attr_int(item_bin, attr_maxspeed_forward, maxspeed_forward_attr_value);
+!             item_bin_add_attr_int(item_bin, attr_maxspeed_backward, maxspeed_backward_attr_value);
+!         }
+! 
+  		item_bin_write(item_bin,out);
+  	}
+  }

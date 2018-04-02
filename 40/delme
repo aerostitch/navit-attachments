@@ -1,0 +1,89 @@
+Index: navit/track.c
+===================================================================
+--- navit/track.c	(revision 2189)
++++ navit/track.c	(working copy)
+@@ -414,7 +414,7 @@
+ 		if (!mr)
+ 			continue;
+ 		while ((item=map_rect_get_item(mr))) {
+-			if (item->type >= type_street_0 && item->type <= type_ferry) {
++			if (acceptable_road(item->type)) {
+ 				street=street_get_data(item);
+ 				if (street_data_within_selection(street, sel)) {
+ 					tl=g_malloc(sizeof(struct tracking_line)+(street->count-1)*sizeof(int));
+Index: navit/track.h
+===================================================================
+--- navit/track.h	(revision 2189)
++++ navit/track.h	(working copy)
+@@ -47,4 +47,7 @@
+ }
+ #endif
+ 
++#define acceptable_road(x) (x >= type_street_0 && x <= type_track_grass)
++
+ #endif
++
+Index: navit/route.c
+===================================================================
+--- navit/route.c	(revision 2189)
++++ navit/route.c	(working copy)
+@@ -400,9 +406,15 @@
+ 		this->destination_distance = 50; // Default value
+ 	}
+ 	this->cbl2=callback_list_new();
++#if 0
++	this->preferences.flags_forward_mask=AF_ONEWAYREV|AF_PEDESTRIAN;
++	this->preferences.flags_reverse_mask=AF_ONEWAY|AF_PEDESTRIAN;
++	this->preferences.flags=AF_PEDESTRIAN;
++#else
+ 	this->preferences.flags_forward_mask=AF_ONEWAYREV|AF_CAR;
+ 	this->preferences.flags_reverse_mask=AF_ONEWAY|AF_CAR;
+ 	this->preferences.flags=AF_CAR;
++#endif
+ 
+ 	return this;
+ }
+@@ -1427,6 +1447,10 @@
+ static int
+ route_time_seg(struct route_preferences *preferences, struct route_segment_data *over)
+ {
++	if (1) {
++		return over->len*36.0/5.0;
++	}
++
+ 	int pspeed=preferences->speedlist[over->item.type-route_item_first];
+ 	int speed=pspeed;
+ 	if (preferences->maxspeed_handling != 2 && (over->flags & AF_SPEED_LIMIT)) {
+@@ -1456,8 +1480,8 @@
+ #if 0
+ 	dbg(0,"flags 0x%x mask 0x%x flags 0x%x\n", over->flags, dir >= 0 ? preferences->flags_forward_mask : preferences->flags_reverse_mask, preferences->flags);
+ #endif
+-	if ((over->flags & (dir >= 0 ? preferences->flags_forward_mask : preferences->flags_reverse_mask)) != preferences->flags)
+-		return INT_MAX;
++	//	if ((over->flags & (dir >= 0 ? preferences->flags_forward_mask : preferences->flags_reverse_mask)) != preferences->flags)
++	//	return INT_MAX;
+ 	return route_time_seg(preferences, over);
+ }
+ 
+Index: navit/item.h
+===================================================================
+--- navit/item.h	(revision 2189)
++++ navit/item.h	(working copy)
+@@ -33,7 +33,7 @@
+ };
+ 
+ #define route_item_first type_street_0
+-#define route_item_last type_ferry
++#define route_item_last type_track_grass
+ extern int default_flags[];
+ 
+ #include "attr.h"
+@@ -46,7 +46,7 @@
+       we want navit's town search to find them
+ */
+ #define item_is_town(item) ((item).type >= type_town_label && (item).type <= type_district_label_1e7)
+-#define item_is_street(item) ((item).type >= type_street_nopass && (item).type <= type_ferry)
++#define item_is_street(item) ((item).type >= type_street_nopass && (item).type <= type_track_grass)
+ 
+ #define item_is_equal_id(a,b) ((a).id_hi == (b).id_hi && (a).id_lo == (b).id_lo)
+ #define item_is_equal(a,b) (item_is_equal_id(a,b) && (a).map == (b).map)

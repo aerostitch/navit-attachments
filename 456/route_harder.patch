@@ -1,0 +1,83 @@
+Index: navit/route.c
+===================================================================
+--- navit/route.c	(revision 3510)
++++ navit/route.c	(working copy)
+@@ -253,6 +253,7 @@
+ 	int route_status;		/**< Route Status */
+ 	struct pcoord pc;
+ 	struct vehicle *v;
++	int try_harder;
+ };
+ 
+ /**
+@@ -726,8 +727,18 @@
+ 			route_status.u.num=route_status_path_done_incremental;
+ 		else
+ 			route_status.u.num=route_status_path_done_new;
+-	} else 
++	} else {
+ 		route_status.u.num=route_status_not_found;
++
++		dbg(0,"try harder\n");
++		// Try to rebuild the graph with smaller roads
++		if (this->try_harder == 0) {
++			this->try_harder = 1;
++			route_graph_destroy(this->graph);
++			this->graph=NULL;
++			route_path_update(this, 1, 1);
++		}
++	}
+ 	route_set_attr(this, &route_status);
+ }
+ 
+@@ -927,7 +938,7 @@
+  * @param c2 Corder 2 of the rectangle
+  */
+ static struct map_selection *
+-route_calc_selection(struct coord *c, int count)
++route_calc_selection(struct coord *c, int count, int try_harder)
+ {
+ 	struct map_selection *ret,*sel;
+ 	int i;
+@@ -939,7 +950,7 @@
+ 	r.rl=c[0];
+ 	for (i = 1 ; i < count ; i++)
+ 		coord_rect_extend(&r, &c[i]);
+-	sel=route_rect(4, &r.lu, &r.rl, 25, 0);
++	sel=route_rect(try_harder?8:4, &r.lu, &r.rl, 25, 0);
+ 	ret=sel;
+ 	for (i = 0 ; i < count ; i++) {
+ 		sel->next=route_rect(8, &c[i], &c[i], 0, 40000);
+@@ -1017,6 +1028,7 @@
+ 	route_graph_destroy(this->graph);
+ 	this->graph=NULL;
+ 	this->current_dst=route_get_dst(this);
++	this->try_harder=0;
+ 	route_path_update(this, 1, async);
+ 	profile(0,"end");
+ }
+@@ -2465,13 +2477,13 @@
+  * @return The new route graph.
+  */
+ static struct route_graph *
+-route_graph_build(struct mapset *ms, struct coord *c, int count, struct callback *done_cb, int async)
++route_graph_build(struct mapset *ms, struct coord *c, int count, struct callback *done_cb, int async, int try_harder)
+ {
+ 	struct route_graph *ret=g_new0(struct route_graph, 1);
+ 
+ 	dbg(1,"enter\n");
+ 
+-	ret->sel=route_calc_selection(c, count);
++	ret->sel=route_calc_selection(c, count, try_harder);
+ 	ret->h=mapset_open(ms);
+ 	ret->done_cb=done_cb;
+ 	ret->busy=1;
+@@ -2522,7 +2534,7 @@
+ 		c[i++]=dst->c;
+ 		tmp=g_list_next(tmp);
+ 	}
+-	this->graph=route_graph_build(this->ms, c, 2, this->route_graph_done_cb, async);
++	this->graph=route_graph_build(this->ms, c, 2, this->route_graph_done_cb, async, this->try_harder);
+ 	if (! async) {
+ 		while (this->graph->busy) 
+ 			route_graph_build_idle(this->graph);

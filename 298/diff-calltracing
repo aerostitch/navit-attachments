@@ -1,0 +1,52 @@
+Index: navit/Makefile.am
+===================================================================
+--- navit/Makefile.am	(revision 2042)
++++ navit/Makefile.am	(working copy)
+@@ -35,7 +35,10 @@
+ 	navit_nls.h
+ 
+ navit_SOURCES = start.c
+-navit_LDADD = libnavit.la @NAVIT_LIBS@ @ZLIB_LIBS@ @INTLLIBS@ -Lfib-1.1 -lfib
++if USE_CALLTRACING
++  navit_SOURCES += instrument.c
++endif
++navit_LDADD = libnavit.la @NAVIT_LIBS@ @OSSO_LIBS@ @ZLIB_LIBS@ @INTLLIBS@ -Lfib-1.1 -lfib
+ 
+ osm2navit_CPPFLAGS = $(AM_CPPFLAGS) @ZLIB_CFLAGS@ @POSTGRESQL_CFLAGS@
+ osm2navit_SOURCES = osm2navit.c
+Index: configure.in
+===================================================================
+--- configure.in	(revision 2042)
++++ configure.in	(working copy)
+@@ -53,6 +53,7 @@
+ vehicle_gpsd=yes; vehicle_gpsd_reason=default
+ vehicle_gypsy=yes; vehicle_gypsy_reason=default
+ vehicle_wince=no; vehicle_wince_reason=default
++calltracing=no;calltracing_reason=default;
+ 
+ m4_ifndef([AC_USE_SYSTEM_EXTENSIONS],
+ 	[AC_DEFUN([AC_USE_SYSTEM_EXTENSIONS], [AC_GNU_SOURCE])])
+@@ -668,6 +676,15 @@
+ 		,
+ )
+ 
++## Add Call tracing
++## if enabled, adds instrument.c to navit
++# calltracing
++AC_ARG_ENABLE(calltracing, [--enable-calltracing   enable calltracing], [ calltracing=$enableval ])
++if test "x${calltracing}" = "xyes"; then
++	CFLAGS="$CFLAGS -finstrument-functions"
++fi
++AM_CONDITIONAL(USE_CALLTRACING, test "x${calltracing}" = "xyes")
++
+ PACKAGE=navit
+ AC_DEFINE_UNQUOTED(PACKAGE, "$PACKAGE")
+ AC_DEFINE_UNQUOTED(VERSION, "$VERSION")
+@@ -948,6 +971,7 @@
+ else
+ 	nls_libs="$LIBINTL"
+ fi
++echo "CallTracing:         $calltracing ($calltracing_reason)"
+ echo "Plugins:             $plugins ($plugins_reason)"
+ echo "Postgresql:          $postgresql ($postgresql_reason)"
+ echo "Samplemap:           $samplemap ($samplemap_reason)"

@@ -1,0 +1,40 @@
+Index: osd_core.c
+===================================================================
+--- osd_core.c	(revision 2260)
++++ osd_core.c	(working copy)
+@@ -145,7 +145,7 @@
+ {
+ 	struct point p;
+ 	struct attr attr_dir, destination_attr, position_attr;
+-	double dir, vdir = 0;
++	double dir, yaw = 0;
+ 	char *buffer;
+ 	struct coord c1, c2;
+ 	enum projection pro;
+@@ -156,13 +156,10 @@
+ 	graphics_draw_circle(this->osd_item.gr,
+ 			     this->osd_item.graphic_fg_white, &p, 50);
+ 	if (v) {
+-		if (vehicle_get_attr
+-		    (v, attr_position_direction, &attr_dir, NULL)) {
+-			vdir = *attr_dir.u.numd;
+-			handle(this->osd_item.gr,
+-			       this->osd_item.graphic_fg_white, &p, 20,
+-			       -vdir);
+-		}
++		yaw=transform_get_yaw(navit_get_trans(nav));
++        handle(this->osd_item.gr,
++               this->osd_item.graphic_fg_white, &p, 20,
++               -yaw);
+ 
+ 		if (navit_get_attr
+ 		    (nav, attr_destination, &destination_attr, NULL)
+@@ -175,7 +172,7 @@
+ 			c2.y = destination_attr.u.pcoord->y;
+ 			dir =
+ 			    atan2(c2.x - c1.x, c2.y - c1.y) * 180.0 / M_PI;
+-			dir -= vdir;
++			dir -= yaw;
+ 			handle(this->osd_item.gr, this->green, &p, 20,
+ 			       dir);
+ 			buffer=format_distance(transform_distance(pro, &c1, &c2),"");

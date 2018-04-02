@@ -1,0 +1,41 @@
+ 
+E/PackageInstallationReceiver(  302): Remove /data/local/tmp/org.navitproject.navit.apk Fail!
+E/Navit   ( 2238): Country PL
+E/Navit   ( 2238): Language pl
+E/Navit   ( 2238): Res Name pl
+E/Navit   ( 2238): result /data/data/org.navitproject.navit/locale/pl/LC_MESSAGES/navit.mo
+E/Navit   ( 2238): Res ID 2130903069
+E/Navit   ( 2238): Checking /data
+E/Navit   ( 2238): Checking /data/data
+E/Navit   ( 2238): Checking /data/data/org.navitproject.navit
+E/Navit   ( 2238): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 2238): Creating dir
+E/Navit   ( 2238): Checking /data/data/org.navitproject.navit/locale/pl
+E/Navit   ( 2238): Creating dir
+E/Navit   ( 2238): Checking /data/data/org.navitproject.navit/locale/pl/LC_MESSAGES
+E/Navit   ( 2238): Creating dir
+E/Navit   ( 2238): Extracting resource
+E/Navit   ( 2238): Res Name navit
+E/Navit   ( 2238): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 2238): Res ID 2130903064
+E/Navit   ( 2238): Checking /data
+E/Navit   ( 2238): Checking /data/data
+E/Navit   ( 2238): Checking /data/data/org.navitproject.navit
+E/Navit   ( 2238): Checking /data/data/org.navitproject.navit/share
+E/Navit   ( 2238): Creating dir
+E/Navit   ( 2238): Extracting resource
+E/test    ( 2238): called
+E/navit   ( 2238): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c8 thiz=0x435c3a50 activity=0x435c3a50 lang=pl_PL
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   ( 2238): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   ( 2238): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot find library'
+E/navit   ( 2238): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot find library'
+E/navit   ( 2238): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot find library'
+E/navit   ( 2238): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot find library'
+E/navit   ( 2238): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot find library'
+E/navit   ( 2238): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot find library'

@@ -1,0 +1,1594 @@
+1 	# translation of it.po to Italiano
+2 	# Italian translations for navit
+3 	# Copyright (C) 2007, 2008 The Navit Team
+4 	# This file is distributed under the same license as the navit package.
+5 	# Andrea GHENSI <andrea.ghensi@gmail.com> 2007
+6 	# Niccolo Rigacci <niccolo@rigacci.org>, 2008.
+7 	msgid ""
+8 	msgstr ""
+9 	"Project-Id-Version: navit 0.2.0\n"
+10 	"Report-Msgid-Bugs-To: \n"
+11 	"POT-Creation-Date: 2010-05-18 13:40+0200\n"
+12 	"PO-Revision-Date: 2010-05-18 09:27+0000\n"
+13 	"Last-Translator: Marco Ciampa <ciampix@libero.it>\n"
+14 	"Language-Team: Italiano\n"
+15 	"MIME-Version: 1.0\n"
+16 	"Content-Type: text/plain; charset=UTF-8\n"
+17 	"Content-Transfer-Encoding: 8bit\n"
+18 	"Plural-Forms: nplurals=2; plural=n != 1;\n"
+19 	"X-Generator: Launchpad (build Unknown)\n"
+20 	"X-Report-Errors: https://translations.launchpad.net/navit/trunk/+pots/navit\n"
+21 	
+22 	#, c-format
+23 	msgid "Running from source directory\n"
+24 	msgstr "Esecuzione dalla cartella di compilazione\n"
+25 	
+26 	#, c-format
+27 	msgid "setting '%s' to '%s'\n"
+28 	msgstr "impostazione di '%s' a '%s'\n"
+29 	
+30 	msgid "zeroth"
+31 	msgstr "zero"
+32 	
+33 	msgid "first"
+34 	msgstr "primo"
+35 	
+36 	msgid "second"
+37 	msgstr "secondo"
+38 	
+39 	msgid "third"
+40 	msgstr "terzo"
+41 	
+42 	msgid "fourth"
+43 	msgstr "quarto"
+44 	
+45 	msgid "fifth"
+46 	msgstr "quinto"
+47 	
+48 	msgid "sixth"
+49 	msgstr "sesto"
+50 	
+51 	msgid "zeroth exit"
+52 	msgstr "Uscita zero"
+53 	
+54 	msgid "first exit"
+55 	msgstr "prima uscita"
+56 	
+57 	msgid "second exit"
+58 	msgstr "seconda uscita"
+59 	
+60 	msgid "third exit"
+61 	msgstr "terza uscita"
+62 	
+63 	msgid "fourth exit"
+64 	msgstr "quarta uscita"
+65 	
+66 	msgid "fifth exit"
+67 	msgstr "quinta uscita"
+68 	
+69 	msgid "sixth exit"
+70 	msgstr "sesta uscita"
+71 	
+72 	#, c-format
+73 	msgid "%d m"
+74 	msgstr "%d m"
+75 	
+76 	#, c-format
+77 	msgid "in %d m"
+78 	msgstr "fra %d m"
+79 	
+80 	#, c-format
+81 	msgid "%d meters"
+82 	msgstr "%d metri"
+83 	
+84 	#, c-format
+85 	msgid "in %d meters"
+86 	msgstr "fra %d metri"
+87 	
+88 	#, c-format
+89 	msgid "%d.%d kilometers"
+90 	msgstr "%d.%d chilometri"
+91 	
+92 	#, c-format
+93 	msgid "in %d.%d kilometers"
+94 	msgstr "fra %d,%d chilometri"
+95 	
+96 	#, c-format
+97 	msgid "one kilometer"
+98 	msgid_plural "%d kilometers"
+99 	msgstr[0] "un chilometro"
+100 	msgstr[1] "%d chilometri"
+101 	
+102 	#, c-format
+103 	msgid "in one kilometer"
+104 	msgid_plural "in %d kilometers"
+105 	msgstr[0] "fra un chilometro"
+106 	msgstr[1] "fra %d chilometri"
+107 	
+108 	msgid "exit"
+109 	msgstr "esci"
+110 	
+111 	msgid "into the ramp"
+112 	msgstr "nella rampa"
+113 	
+114 	#. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name
+115 	#, c-format
+116 	msgid "%sinto the street %s%s%s"
+117 	msgstr "%sin %s%s%s"
+118 	
+119 	#. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Male form. The stuff after | doesn't have to be included
+120 	#, c-format
+121 	msgid "%sinto the %s%s%s|male form"
+122 	msgstr "%sin %s%s%s"
+123 	
+124 	#. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Female form. The stuff after | doesn't have to be included
+125 	#, c-format
+126 	msgid "%sinto the %s%s%s|female form"
+127 	msgstr "%sin %s%s%s"
+128 	
+129 	#. TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Neutral form. The stuff after | doesn't have to be included
+130 	#, c-format
+131 	msgid "%sinto the %s%s%s|neutral form"
+132 	msgstr "%sin %s%s%s"
+133 	
+134 	#. TRANSLATORS: gives the name of the next road to turn into (into the E17)
+135 	#, c-format
+136 	msgid "%sinto the %s"
+137 	msgstr "%sin %s"
+138 	
+139 	#. TRANSLATORS: right, as in 'Turn right'
+140 	msgid "right"
+141 	msgstr "destra"
+142 	
+143 	#. TRANSLATORS: left, as in 'Turn left'
+144 	msgid "left"
+145 	msgstr "sinistra"
+146 	
+147 	#. TRANSLATORS: Don't forget the ending space
+148 	msgid "easily "
+149 	msgstr "leggermente "
+150 	
+151 	#. TRANSLATORS: Don't forget the ending space
+152 	msgid "strongly "
+153 	msgstr "decisamente "
+154 	
+155 	#. TRANSLATORS: Don't forget the ending space
+156 	msgid "really strongly "
+157 	msgstr "molto decisamente "
+158 	
+159 	#. TRANSLATORS: Don't forget the ending space
+160 	msgid "unknown "
+161 	msgstr "facendo quasi inversione "
+162 	
+163 	msgid "When possible, please turn around"
+164 	msgstr "Appena possibile, invertire il senso di marcia"
+165 	
+166 	msgid "Enter the roundabout soon"
+167 	msgstr "Tra poco si entrerà in rotonda"
+168 	
+169 	#. TRANSLATORS: %s is the distance to the roundabout
+170 	#, c-format
+171 	msgid "In %s, enter the roundabout"
+172 	msgstr "Tra %s entrare nella rotonda"
+173 	
+174 	#, c-format
+175 	msgid "Leave the roundabout at the %s"
+176 	msgstr "Alla rotonda prendere la %s"
+177 	
+178 	#, c-format
+179 	msgid "then leave the roundabout at the %s"
+180 	msgstr "e alla rotonda prendere la %s"
+181 	
+182 	#, c-format
+183 	msgid "Follow the road for the next %s"
+184 	msgstr "Seguire la strada per i prossimi %s"
+185 	
+186 	msgid "soon"
+187 	msgstr "tra poco"
+188 	
+189 	#. TRANSLATORS: First argument is the how manieth street to take, second the direction
+190 	#, c-format
+191 	msgid "Take the %1$s road to the %2$s"
+192 	msgstr "Prendere la %1$s strada a %2$s"
+193 	
+194 	#, c-format
+195 	msgid "after %i roads"
+196 	msgstr "tra %i strade"
+197 	
+198 	msgid "now"
+199 	msgstr "adesso"
+200 	
+201 	#, c-format
+202 	msgid "then take the %1$s road to the %2$s"
+203 	msgstr "poi prendere la %1$s strada a %2$s"
+204 	
+205 	msgid "error"
+206 	msgstr "errore"
+207 	
+208 	#. TRANSLATORS: The first argument is strength, the second direction, the third distance and the fourth destination Example: 'Turn 'slightly' 'left' in '100 m' 'onto baker street'
+209 	#, c-format
+210 	msgid "Turn %1$s%2$s %3$s%4$s"
+211 	msgstr "Svoltare %1$s%2$s %3$s%4$s"
+212 	
+213 	#. TRANSLATORS: First argument is strength, second direction, third how many roads to skip, fourth destination
+214 	#, c-format
+215 	msgid "then turn %1$s%2$s %3$s%4$s"
+216 	msgstr "poi girare %1$s%2$s %3$s%4$s"
+217 	
+218 	#, c-format
+219 	msgid "You have reached your destination %s"
+220 	msgstr "Siete arrivati a destinazione %s"
+221 	
+222 	msgid "then you have reached your destination."
+223 	msgstr "poi sarete arrivati a destinazione"
+224 	
+225 	msgid "Position"
+226 	msgstr "Posizione"
+227 	
+228 	msgid "Command"
+229 	msgstr "Indicazione"
+230 	
+231 	msgid "Length"
+232 	msgstr "Distanza"
+233 	
+234 	msgid "km"
+235 	msgstr "km"
+236 	
+237 	msgid "m"
+238 	msgstr "m"
+239 	
+240 	msgid "Time"
+241 	msgstr "Tempo"
+242 	
+243 	msgid "Destination Length"
+244 	msgstr "Distanza all'arrivo"
+245 	
+246 	msgid "Destination Time"
+247 	msgstr "Tempo all'arrivo"
+248 	
+249 	msgid "Roadbook"
+250 	msgstr "Quaderno di viaggio"
+251 	
+252 	msgid "Set as position"
+253 	msgstr "Imposta come posizione"
+254 	
+255 	msgid "Set as destination"
+256 	msgstr "Imposta come destinazione"
+257 	
+258 	msgid "Add as bookmark"
+259 	msgstr "Aggiungi come segnalibro"
+260 	
+261 	#, c-format
+262 	msgid "Point 0x%x 0x%x"
+263 	msgstr "Punto 0x%x, 0x%x"
+264 	
+265 	#, c-format
+266 	msgid "Screen coord : %d %d"
+267 	msgstr "Coordinate schermo: %d, %d"
+268 	
+269 	#. 020
+270 	msgid "Andorra"
+271 	msgstr "Andorra"
+272 	
+273 	#. 784
+274 	msgid "United Arab Emirates"
+275 	msgstr "Emirati Arabi Uniti"
+276 	
+277 	#. 004
+278 	msgid "Afghanistan"
+279 	msgstr "Afghanistan"
+280 	
+281 	#. 028
+282 	msgid "Antigua and Barbuda"
+283 	msgstr "Antigua e Barbuda"
+284 	
+285 	#. 660
+286 	msgid "Anguilla"
+287 	msgstr "Anguilla"
+288 	
+289 	#. 008
+290 	msgid "Albania"
+291 	msgstr "Albania"
+292 	
+293 	#. 051
+294 	msgid "Armenia"
+295 	msgstr "Armenia"
+296 	
+297 	#. 530
+298 	msgid "Netherlands Antilles"
+299 	msgstr "Antille olandesi"
+300 	
+301 	#. 024
+302 	msgid "Angola"
+303 	msgstr "Angola"
+304 	
+305 	#. 010
+306 	msgid "Antarctica"
+307 	msgstr "Antartide"
+308 	
+309 	#. 032
+310 	msgid "Argentina"
+311 	msgstr "Argentina"
+312 	
+313 	#. 016
+314 	msgid "American Samoa"
+315 	msgstr "Samoa Americane"
+316 	
+317 	#. 040
+318 	msgid "Austria"
+319 	msgstr "Austria"
+320 	
+321 	#. 036
+322 	msgid "Australia"
+323 	msgstr "Australia"
+324 	
+325 	#. 533
+326 	msgid "Aruba"
+327 	msgstr "Aruba"
+328 	
+329 	#. 248
+330 	msgid "Aland Islands"
+331 	msgstr "Isole Åland"
+332 	
+333 	#. 031
+334 	msgid "Azerbaijan"
+335 	msgstr "Azerbaigian"
+336 	
+337 	#. 070
+338 	msgid "Bosnia and Herzegovina"
+339 	msgstr "Bosnia - Herzegovina"
+340 	
+341 	#. 052
+342 	msgid "Barbados"
+343 	msgstr "Barbados"
+344 	
+345 	#. 050
+346 	msgid "Bangladesh"
+347 	msgstr "Bangladesh"
+348 	
+349 	#. 056
+350 	msgid "Belgium"
+351 	msgstr "Belgio"
+352 	
+353 	#. 854
+354 	msgid "Burkina Faso"
+355 	msgstr "Burkina Faso"
+356 	
+357 	#. 100
+358 	msgid "Bulgaria"
+359 	msgstr "Bulgaria"
+360 	
+361 	#. 048
+362 	msgid "Bahrain"
+363 	msgstr "Bahrain"
+364 	
+365 	#. 108
+366 	msgid "Burundi"
+367 	msgstr "Burundi"
+368 	
+369 	#. 204
+370 	msgid "Benin"
+371 	msgstr "Benin"
+372 	
+373 	#. 652
+374 	msgid "Saint Barthelemy"
+375 	msgstr "Saint-Barthélemy"
+376 	
+377 	#. 060
+378 	msgid "Bermuda"
+379 	msgstr "Bermuda"
+380 	
+381 	#. 096
+382 	msgid "Brunei Darussalam"
+383 	msgstr "Brunei"
+384 	
+385 	#. 068
+386 	msgid "Bolivia"
+387 	msgstr "Bolivia"
+388 	
+389 	#. 076
+390 	msgid "Brazil"
+391 	msgstr "Brasile"
+392 	
+393 	#. 044
+394 	msgid "Bahamas"
+395 	msgstr "Bahamas"
+396 	
+397 	#. 064
+398 	msgid "Bhutan"
+399 	msgstr "Bhutan"
+400 	
+401 	#. 074
+402 	msgid "Bouvet Island"
+403 	msgstr "Isola Bouvet"
+404 	
+405 	#. 072
+406 	msgid "Botswana"
+407 	msgstr "Botswana"
+408 	
+409 	#. 112
+410 	msgid "Belarus"
+411 	msgstr "Bielorussia"
+412 	
+413 	#. 084
+414 	msgid "Belize"
+415 	msgstr "Belize"
+416 	
+417 	#. 124
+418 	msgid "Canada"
+419 	msgstr "Canada"
+420 	
+421 	#. 166
+422 	msgid "Cocos (Keeling) Islands"
+423 	msgstr "Isole Cocos"
+424 	
+425 	#. 180
+426 	msgid "Congo, Democratic Republic of the"
+427 	msgstr "Congo, Repubblica Democratica del"
+428 	
+429 	#. 140
+430 	msgid "Central African Republic"
+431 	msgstr "Repubblica Centrafricana"
+432 	
+433 	#. 178
+434 	msgid "Congo"
+435 	msgstr "Congo"
+436 	
+437 	#. 756
+438 	msgid "Switzerland"
+439 	msgstr "Svizzera"
+440 	
+441 	#. 384
+442 	msgid "Cote d'Ivoire"
+443 	msgstr "Costa d'Avorio"
+444 	
+445 	#. 184
+446 	msgid "Cook Islands"
+447 	msgstr "Isole Cook"
+448 	
+449 	#. 152
+450 	msgid "Chile"
+451 	msgstr "Cile"
+452 	
+453 	#. 120
+454 	msgid "Cameroon"
+455 	msgstr "Camerun"
+456 	
+457 	#. 156
+458 	msgid "China"
+459 	msgstr "Cina"
+460 	
+461 	#. 170
+462 	msgid "Colombia"
+463 	msgstr "Colombia"
+464 	
+465 	#. 188
+466 	msgid "Costa Rica"
+467 	msgstr "Costa Rica"
+468 	
+469 	#. 192
+470 	msgid "Cuba"
+471 	msgstr "Cuba"
+472 	
+473 	#. 132
+474 	msgid "Cape Verde"
+475 	msgstr "Capo Verde"
+476 	
+477 	#. 162
+478 	msgid "Christmas Island"
+479 	msgstr "Isola di Natale"
+480 	
+481 	#. 196
+482 	msgid "Cyprus"
+483 	msgstr "Cipro"
+484 	
+485 	#. 203
+486 	msgid "Czech Republic"
+487 	msgstr "Repubblica Ceca"
+488 	
+489 	#. 276
+490 	msgid "Germany"
+491 	msgstr "Germania"
+492 	
+493 	#. 262
+494 	msgid "Djibouti"
+495 	msgstr "Gibuti"
+496 	
+497 	#. 208
+498 	msgid "Denmark"
+499 	msgstr "Danimarca"
+500 	
+501 	#. 212
+502 	msgid "Dominica"
+503 	msgstr "Dominica"
+504 	
+505 	#. 214
+506 	msgid "Dominican Republic"
+507 	msgstr "Repubblica Dominicana"
+508 	
+509 	#. 012
+510 	msgid "Algeria"
+511 	msgstr "Algeria"
+512 	
+513 	#. 218
+514 	msgid "Ecuador"
+515 	msgstr "Ecuador"
+516 	
+517 	#. 233
+518 	msgid "Estonia"
+519 	msgstr "Estonia"
+520 	
+521 	#. 818
+522 	msgid "Egypt"
+523 	msgstr "Egitto"
+524 	
+525 	#. 732
+526 	msgid "Western Sahara"
+527 	msgstr "Sahara Occidentale"
+528 	
+529 	#. 232
+530 	msgid "Eritrea"
+531 	msgstr "Eritrea"
+532 	
+533 	#. 724
+534 	msgid "Spain"
+535 	msgstr "Spagna"
+536 	
+537 	#. 231
+538 	msgid "Ethiopia"
+539 	msgstr "Etiopia"
+540 	
+541 	#. 246
+542 	msgid "Finland"
+543 	msgstr "Finlandia"
+544 	
+545 	#. 242
+546 	msgid "Fiji"
+547 	msgstr "Figi"
+548 	
+549 	#. 238
+550 	msgid "Falkland Islands (Malvinas)"
+551 	msgstr "Isole Falkland (Malvinas)"
+552 	
+553 	#. 583
+554 	msgid "Micronesia, Federated States of"
+555 	msgstr "Stati Federati di Micronesia"
+556 	
+557 	#. 234
+558 	msgid "Faroe Islands"
+559 	msgstr "Isole Fær Øer"
+560 	
+561 	#. 250
+562 	msgid "France"
+563 	msgstr "Francia"
+564 	
+565 	#. 266
+566 	msgid "Gabon"
+567 	msgstr "Gabon"
+568 	
+569 	#. 826
+570 	msgid "United Kingdom"
+571 	msgstr "Regno Unito"
+572 	
+573 	#. 308
+574 	msgid "Grenada"
+575 	msgstr "Grenada"
+576 	
+577 	#. 268
+578 	msgid "Georgia"
+579 	msgstr "Georgia"
+580 	
+581 	#. 254
+582 	msgid "French Guiana"
+583 	msgstr "Guyana Francese"
+584 	
+585 	#. 831
+586 	msgid "Guernsey"
+587 	msgstr "Guernsey"
+588 	
+589 	#. 288
+590 	msgid "Ghana"
+591 	msgstr "Ghana"
+592 	
+593 	#. 292
+594 	msgid "Gibraltar"
+595 	msgstr "Gibilterra"
+596 	
+597 	#. 304
+598 	msgid "Greenland"
+599 	msgstr "Groenlandia"
+600 	
+601 	#. 270
+602 	msgid "Gambia"
+603 	msgstr "Gambia"
+604 	
+605 	#. 324
+606 	msgid "Guinea"
+607 	msgstr "Guinea"
+608 	
+609 	#. 312
+610 	msgid "Guadeloupe"
+611 	msgstr "Guadalupa"
+612 	
+613 	#. 226
+614 	msgid "Equatorial Guinea"
+615 	msgstr "Guinea Equatoriale"
+616 	
+617 	#. 300
+618 	msgid "Greece"
+619 	msgstr "Grecia"
+620 	
+621 	#. 239
+622 	msgid "South Georgia and the South Sandwich Islands"
+623 	msgstr "Georgia del Sud e Isole delle Sandwich meridionali"
+624 	
+625 	#. 320
+626 	msgid "Guatemala"
+627 	msgstr "Guatemala"
+628 	
+629 	#. 316
+630 	msgid "Guam"
+631 	msgstr "Guam"
+632 	
+633 	#. 624
+634 	msgid "Guinea-Bissau"
+635 	msgstr "Guinea-Bissau"
+636 	
+637 	#. 328
+638 	msgid "Guyana"
+639 	msgstr "Guyana"
+640 	
+641 	#. 344
+642 	msgid "Hong Kong"
+643 	msgstr "Hong Kong"
+644 	
+645 	#. 334
+646 	msgid "Heard Island and McDonald Islands"
+647 	msgstr "Isole Heard e McDonald"
+648 	
+649 	#. 340
+650 	msgid "Honduras"
+651 	msgstr "Honduras"
+652 	
+653 	#. 191
+654 	msgid "Croatia"
+655 	msgstr "Croazia"
+656 	
+657 	#. 332
+658 	msgid "Haiti"
+659 	msgstr "Haiti"
+660 	
+661 	#. 348
+662 	msgid "Hungary"
+663 	msgstr "Ungheria"
+664 	
+665 	#. 360
+666 	msgid "Indonesia"
+667 	msgstr "Indonesia"
+668 	
+669 	#. 372
+670 	msgid "Ireland"
+671 	msgstr "Irlanda"
+672 	
+673 	#. 376
+674 	msgid "Israel"
+675 	msgstr "Israele"
+676 	
+677 	#. 833
+678 	msgid "Isle of Man"
+679 	msgstr "Isola di Man"
+680 	
+681 	#. 356
+682 	msgid "India"
+683 	msgstr "India"
+684 	
+685 	#. 086
+686 	msgid "British Indian Ocean Territory"
+687 	msgstr "Territorio Britannico dell'Oceano Indiano"
+688 	
+689 	#. 368
+690 	msgid "Iraq"
+691 	msgstr "Iraq"
+692 	
+693 	#. 364
+694 	msgid "Iran, Islamic Republic of"
+695 	msgstr "Iran, Repubblica Islamica dell'"
+696 	
+697 	#. 352
+698 	msgid "Iceland"
+699 	msgstr "Islanda"
+700 	
+701 	#. 380
+702 	msgid "Italy"
+703 	msgstr "Italia"
+704 	
+705 	#. 832
+706 	msgid "Jersey"
+707 	msgstr "Jersey"
+708 	
+709 	#. 388
+710 	msgid "Jamaica"
+711 	msgstr "Giamaica"
+712 	
+713 	#. 400
+714 	msgid "Jordan"
+715 	msgstr "Giordania"
+716 	
+717 	#. 392
+718 	msgid "Japan"
+719 	msgstr "Giappone"
+720 	
+721 	#. 404
+722 	msgid "Kenya"
+723 	msgstr "Kenya"
+724 	
+725 	#. 417
+726 	msgid "Kyrgyzstan"
+727 	msgstr "Kirghizistan"
+728 	
+729 	#. 116
+730 	msgid "Cambodia"
+731 	msgstr "Cambogia"
+732 	
+733 	#. 296
+734 	msgid "Kiribati"
+735 	msgstr "Kiribati"
+736 	
+737 	#. 174
+738 	msgid "Comoros"
+739 	msgstr "Comore"
+740 	
+741 	#. 659
+742 	msgid "Saint Kitts and Nevis"
+743 	msgstr "Saint Kitts e Nevis"
+744 	
+745 	#. 408
+746 	msgid "Korea, Democratic People's Republic of"
+747 	msgstr "Corea, Repubblica Democratica Popolare di"
+748 	
+749 	#. 410
+750 	msgid "Korea, Republic of"
+751 	msgstr "Corea, Repubblica di"
+752 	
+753 	#. 414
+754 	msgid "Kuwait"
+755 	msgstr "Kuwait"
+756 	
+757 	#. 136
+758 	msgid "Cayman Islands"
+759 	msgstr "Isole Cayman"
+760 	
+761 	#. 398
+762 	msgid "Kazakhstan"
+763 	msgstr "Kazakistan"
+764 	
+765 	#. 418
+766 	msgid "Lao People's Democratic Republic"
+767 	msgstr "Laos, Repubblica popolare democratica del"
+768 	
+769 	#. 422
+770 	msgid "Lebanon"
+771 	msgstr "Libano"
+772 	
+773 	#. 662
+774 	msgid "Saint Lucia"
+775 	msgstr "Santa Lucia"
+776 	
+777 	#. 438
+778 	msgid "Liechtenstein"
+779 	msgstr "Liechtenstein"
+780 	
+781 	#. 144
+782 	msgid "Sri Lanka"
+783 	msgstr "Sri Lanka"
+784 	
+785 	#. 430
+786 	msgid "Liberia"
+787 	msgstr "Liberia"
+788 	
+789 	#. 426
+790 	msgid "Lesotho"
+791 	msgstr "Lesotho"
+792 	
+793 	#. 440
+794 	msgid "Lithuania"
+795 	msgstr "Lituania"
+796 	
+797 	#. 442
+798 	msgid "Luxembourg"
+799 	msgstr "Lussemburgo"
+800 	
+801 	#. 428
+802 	msgid "Latvia"
+803 	msgstr "Lettonia"
+804 	
+805 	#. 434
+806 	msgid "Libyan Arab Jamahiriya"
+807 	msgstr "Libia"
+808 	
+809 	#. 504
+810 	msgid "Morocco"
+811 	msgstr "Marocco"
+812 	
+813 	#. 492
+814 	msgid "Monaco"
+815 	msgstr "Principato di Monaco"
+816 	
+817 	#. 498
+818 	msgid "Moldova, Republic of"
+819 	msgstr "Moldavia"
+820 	
+821 	#. 499
+822 	msgid "Montenegro"
+823 	msgstr "Montenegro"
+824 	
+825 	#. 663
+826 	msgid "Saint Martin (French part)"
+827 	msgstr "Saint-Martin (parte francese)"
+828 	
+829 	#. 450
+830 	msgid "Madagascar"
+831 	msgstr "Madagascar"
+832 	
+833 	#. 584
+834 	msgid "Marshall Islands"
+835 	msgstr "Isole Marshall"
+836 	
+837 	#. 807
+838 	msgid "Macedonia, the former Yugoslav Republic of"
+839 	msgstr "Repubblica di Macedonia"
+840 	
+841 	#. 466
+842 	msgid "Mali"
+843 	msgstr "Mali"
+844 	
+845 	#. 104
+846 	msgid "Myanmar"
+847 	msgstr "Myanmar"
+848 	
+849 	#. 496
+850 	msgid "Mongolia"
+851 	msgstr "Mongolia"
+852 	
+853 	#. 446
+854 	msgid "Macao"
+855 	msgstr "Macao"
+856 	
+857 	#. 580
+858 	msgid "Northern Mariana Islands"
+859 	msgstr "Isole Marianne Settentrionali"
+860 	
+861 	#. 474
+862 	msgid "Martinique"
+863 	msgstr "Martinica"
+864 	
+865 	#. 478
+866 	msgid "Mauritania"
+867 	msgstr "Mauritania"
+868 	
+869 	#. 500
+870 	msgid "Montserrat"
+871 	msgstr "Montserrat"
+872 	
+873 	#. 470
+874 	msgid "Malta"
+875 	msgstr "Malta"
+876 	
+877 	#. 480
+878 	msgid "Mauritius"
+879 	msgstr "Mauritius"
+880 	
+881 	#. 462
+882 	msgid "Maldives"
+883 	msgstr "Maldive"
+884 	
+885 	#. 454
+886 	msgid "Malawi"
+887 	msgstr "Malawi"
+888 	
+889 	#. 484
+890 	msgid "Mexico"
+891 	msgstr "Messico"
+892 	
+893 	#. 458
+894 	msgid "Malaysia"
+895 	msgstr "Malesia"
+896 	
+897 	#. 508
+898 	msgid "Mozambique"
+899 	msgstr "Mozambico"
+900 	
+901 	#. 516
+902 	msgid "Namibia"
+903 	msgstr "Namibia"
+904 	
+905 	#. 540
+906 	msgid "New Caledonia"
+907 	msgstr "Nuova Caledonia"
+908 	
+909 	#. 562
+910 	msgid "Niger"
+911 	msgstr "Niger"
+912 	
+913 	#. 574
+914 	msgid "Norfolk Island"
+915 	msgstr "Isola Norfolk"
+916 	
+917 	#. 566
+918 	msgid "Nigeria"
+919 	msgstr "Nigeria"
+920 	
+921 	#. 558
+922 	msgid "Nicaragua"
+923 	msgstr "Nicaragua"
+924 	
+925 	#. 528
+926 	msgid "Netherlands"
+927 	msgstr "Olanda"
+928 	
+929 	#. 578
+930 	msgid "Norway"
+931 	msgstr "Norvegia"
+932 	
+933 	#. 524
+934 	msgid "Nepal"
+935 	msgstr "Nepal"
+936 	
+937 	#. 520
+938 	msgid "Nauru"
+939 	msgstr "Nauru"
+940 	
+941 	#. 570
+942 	msgid "Niue"
+943 	msgstr "Niue"
+944 	
+945 	#. 554
+946 	msgid "New Zealand"
+947 	msgstr "Nuova Zelanda"
+948 	
+949 	#. 512
+950 	msgid "Oman"
+951 	msgstr "Oman"
+952 	
+953 	#. 591
+954 	msgid "Panama"
+955 	msgstr "Panama"
+956 	
+957 	#. 604
+958 	msgid "Peru"
+959 	msgstr "Perù"
+960 	
+961 	#. 258
+962 	msgid "French Polynesia"
+963 	msgstr "Polinesia francese"
+964 	
+965 	#. 598
+966 	msgid "Papua New Guinea"
+967 	msgstr "Papua Nuova Guinea"
+968 	
+969 	#. 608
+970 	msgid "Philippines"
+971 	msgstr "Filippine"
+972 	
+973 	#. 586
+974 	msgid "Pakistan"
+975 	msgstr "Pakistan"
+976 	
+977 	#. 616
+978 	msgid "Poland"
+979 	msgstr "Polonia"
+980 	
+981 	#. 666
+982 	msgid "Saint Pierre and Miquelon"
+983 	msgstr "Saint-Pierre e Miquelon"
+984 	
+985 	#. 612
+986 	msgid "Pitcairn"
+987 	msgstr "Isole Pitcairn"
+988 	
+989 	#. 630
+990 	msgid "Puerto Rico"
+991 	msgstr "Porto Rico"
+992 	
+993 	#. 275
+994 	msgid "Palestinian Territory, Occupied"
+995 	msgstr "Palestina"
+996 	
+997 	#. 620
+998 	msgid "Portugal"
+999 	msgstr "Portogallo"
+1000 	
+1001 	#. 585
+1002 	msgid "Palau"
+1003 	msgstr "Palau"
+1004 	
+1005 	#. 600
+1006 	msgid "Paraguay"
+1007 	msgstr "Paraguay"
+1008 	
+1009 	#. 634
+1010 	msgid "Qatar"
+1011 	msgstr "Qatar"
+1012 	
+1013 	#. 638
+1014 	msgid "Reunion"
+1015 	msgstr "Isola della Riunione"
+1016 	
+1017 	#. 642
+1018 	msgid "Romania"
+1019 	msgstr "Romania"
+1020 	
+1021 	#. 688
+1022 	msgid "Serbia"
+1023 	msgstr "Serbia"
+1024 	
+1025 	#. 643
+1026 	msgid "Russian Federation"
+1027 	msgstr "Federazione Russa"
+1028 	
+1029 	#. 646
+1030 	msgid "Rwanda"
+1031 	msgstr "Ruanda"
+1032 	
+1033 	#. 682
+1034 	msgid "Saudi Arabia"
+1035 	msgstr "Arabia Saudita"
+1036 	
+1037 	#. 090
+1038 	msgid "Solomon Islands"
+1039 	msgstr "Isole Salomone"
+1040 	
+1041 	#. 690
+1042 	msgid "Seychelles"
+1043 	msgstr "Seychelles"
+1044 	
+1045 	#. 736
+1046 	msgid "Sudan"
+1047 	msgstr "Sudan"
+1048 	
+1049 	#. 752
+1050 	msgid "Sweden"
+1051 	msgstr "Svezia"
+1052 	
+1053 	#. 702
+1054 	msgid "Singapore"
+1055 	msgstr "Singapore"
+1056 	
+1057 	#. 654
+1058 	msgid "Saint Helena"
+1059 	msgstr "Sant'Elena"
+1060 	
+1061 	#. 705
+1062 	msgid "Slovenia"
+1063 	msgstr "Slovenia"
+1064 	
+1065 	#. 744
+1066 	msgid "Svalbard and Jan Mayen"
+1067 	msgstr "Svalbard e Jan Mayen"
+1068 	
+1069 	#. 703
+1070 	msgid "Slovakia"
+1071 	msgstr "Slovacchia"
+1072 	
+1073 	#. 694
+1074 	msgid "Sierra Leone"
+1075 	msgstr "Sierra Leone"
+1076 	
+1077 	#. 674
+1078 	msgid "San Marino"
+1079 	msgstr "San Marino"
+1080 	
+1081 	#. 686
+1082 	msgid "Senegal"
+1083 	msgstr "Senegal"
+1084 	
+1085 	#. 706
+1086 	msgid "Somalia"
+1087 	msgstr "Somalia"
+1088 	
+1089 	#. 740
+1090 	msgid "Suriname"
+1091 	msgstr "Suriname"
+1092 	
+1093 	#. 678
+1094 	msgid "Sao Tome and Principe"
+1095 	msgstr "São Tomé e Príncipe"
+1096 	
+1097 	#. 222
+1098 	msgid "El Salvador"
+1099 	msgstr "El Salvador"
+1100 	
+1101 	#. 760
+1102 	msgid "Syrian Arab Republic"
+1103 	msgstr "Siria"
+1104 	
+1105 	#. 748
+1106 	msgid "Swaziland"
+1107 	msgstr "Swaziland"
+1108 	
+1109 	#. 796
+1110 	msgid "Turks and Caicos Islands"
+1111 	msgstr "Turks e Caicos"
+1112 	
+1113 	#. 148
+1114 	msgid "Chad"
+1115 	msgstr "Ciad"
+1116 	
+1117 	#. 260
+1118 	msgid "French Southern Territories"
+1119 	msgstr "Terre Australi e Antartiche Francesi"
+1120 	
+1121 	#. 768
+1122 	msgid "Togo"
+1123 	msgstr "Togo"
+1124 	
+1125 	#. 764
+1126 	msgid "Thailand"
+1127 	msgstr "Thailandia"
+1128 	
+1129 	#. 762
+1130 	msgid "Tajikistan"
+1131 	msgstr "Tagikistan"
+1132 	
+1133 	#. 772
+1134 	msgid "Tokelau"
+1135 	msgstr "Tokelau"
+1136 	
+1137 	#. 626
+1138 	msgid "Timor-Leste"
+1139 	msgstr "Timor Est"
+1140 	
+1141 	#. 795
+1142 	msgid "Turkmenistan"
+1143 	msgstr "Turkmenistan"
+1144 	
+1145 	#. 788
+1146 	msgid "Tunisia"
+1147 	msgstr "Tunisia"
+1148 	
+1149 	#. 776
+1150 	msgid "Tonga"
+1151 	msgstr "Tonga"
+1152 	
+1153 	#. 792
+1154 	msgid "Turkey"
+1155 	msgstr "Turchia"
+1156 	
+1157 	#. 780
+1158 	msgid "Trinidad and Tobago"
+1159 	msgstr "Trinidad e Tobago"
+1160 	
+1161 	#. 798
+1162 	msgid "Tuvalu"
+1163 	msgstr "Tuvalu"
+1164 	
+1165 	#. 158
+1166 	msgid "Taiwan, Province of China"
+1167 	msgstr "Taiwan"
+1168 	
+1169 	#. 834
+1170 	msgid "Tanzania, United Republic of"
+1171 	msgstr "Tanzania"
+1172 	
+1173 	#. 804
+1174 	msgid "Ukraine"
+1175 	msgstr "Ucraina"
+1176 	
+1177 	#. 800
+1178 	msgid "Uganda"
+1179 	msgstr "Uganda"
+1180 	
+1181 	#. 581
+1182 	msgid "United States Minor Outlying Islands"
+1183 	msgstr "Isole minori esterne degli Stati Uniti"
+1184 	
+1185 	#. 840
+1186 	msgid "United States"
+1187 	msgstr "Stati Uniti"
+1188 	
+1189 	#. 858
+1190 	msgid "Uruguay"
+1191 	msgstr "Uruguay"
+1192 	
+1193 	#. 860
+1194 	msgid "Uzbekistan"
+1195 	msgstr "Uzbekistan"
+1196 	
+1197 	#. 336
+1198 	msgid "Holy See (Vatican City State)"
+1199 	msgstr "Città del Vaticano"
+1200 	
+1201 	#. 670
+1202 	msgid "Saint Vincent and the Grenadines"
+1203 	msgstr "Saint Vincent e Grenadine"
+1204 	
+1205 	#. 862
+1206 	msgid "Venezuela"
+1207 	msgstr "Venezuela"
+1208 	
+1209 	#. 092
+1210 	msgid "Virgin Islands, British"
+1211 	msgstr "Isole Vergini britanniche"
+1212 	
+1213 	#. 850
+1214 	msgid "Virgin Islands, U.S."
+1215 	msgstr "Isole Vergini americane"
+1216 	
+1217 	#. 704
+1218 	msgid "Viet Nam"
+1219 	msgstr "Vietnam"
+1220 	
+1221 	#. 548
+1222 	msgid "Vanuatu"
+1223 	msgstr "Vanuatu"
+1224 	
+1225 	#. 876
+1226 	msgid "Wallis and Futuna"
+1227 	msgstr "Wallis e Futuna"
+1228 	
+1229 	#. 882
+1230 	msgid "Samoa"
+1231 	msgstr "Samoa"
+1232 	
+1233 	#. 887
+1234 	msgid "Yemen"
+1235 	msgstr "Yemen"
+1236 	
+1237 	#. 175
+1238 	msgid "Mayotte"
+1239 	msgstr "Mayotte"
+1240 	
+1241 	#. 710
+1242 	msgid "South Africa"
+1243 	msgstr "Sudafrica"
+1244 	
+1245 	#. 894
+1246 	msgid "Zambia"
+1247 	msgstr "Zambia"
+1248 	
+1249 	#. 716
+1250 	msgid "Zimbabwe"
+1251 	msgstr "Zimbabwe"
+1252 	
+1253 	msgid "* Unknown, add is_in tags to those cities"
+1254 	msgstr "* Sconosciuto, aggiungi tag is_in a quelle città"
+1255 	
+1256 	msgid "Car"
+1257 	msgstr "Automobile"
+1258 	
+1259 	msgid "Iso2"
+1260 	msgstr "Iso2"
+1261 	
+1262 	msgid "Iso3"
+1263 	msgstr "Iso3"
+1264 	
+1265 	msgid "Country"
+1266 	msgstr "Stato"
+1267 	
+1268 	msgid "Postal"
+1269 	msgstr "Postale"
+1270 	
+1271 	msgid "Town"
+1272 	msgstr "Centro abitato"
+1273 	
+1274 	msgid "District"
+1275 	msgstr "Regione"
+1276 	
+1277 	msgid "Street"
+1278 	msgstr "Via"
+1279 	
+1280 	msgid "Number"
+1281 	msgstr "Numero"
+1282 	
+1283 	msgid "Enter Destination"
+1284 	msgstr "Inserire la destinazione"
+1285 	
+1286 	msgid "Zip Code"
+1287 	msgstr "C.A.P."
+1288 	
+1289 	msgid "City"
+1290 	msgstr "Città"
+1291 	
+1292 	msgid "District/Township"
+1293 	msgstr "Regione/provincia"
+1294 	
+1295 	msgid "Map"
+1296 	msgstr "Mappa"
+1297 	
+1298 	msgid "Bookmark"
+1299 	msgstr "Posto"
+1300 	
+1301 	msgid "Destination"
+1302 	msgstr "Destinazione"
+1303 	
+1304 	msgid "Display"
+1305 	msgstr "Visualizza"
+1306 	
+1307 	msgid "Route"
+1308 	msgstr "Percorso"
+1309 	
+1310 	msgid "Former Destinations"
+1311 	msgstr "Destinazioni precedenti"
+1312 	
+1313 	msgid "Bookmarks"
+1314 	msgstr "Posti"
+1315 	
+1316 	msgid "Layout"
+1317 	msgstr "Layout"
+1318 	
+1319 	msgid "Projection"
+1320 	msgstr "Proiezione"
+1321 	
+1322 	msgid "Vehicle"
+1323 	msgstr "Veicolo"
+1324 	
+1325 	msgid "ZoomOut"
+1326 	msgstr "Zoom -"
+1327 	
+1328 	msgid "ZoomIn"
+1329 	msgstr "Zoom +"
+1330 	
+1331 	msgid "Recalculate"
+1332 	msgstr "Ricalcola"
+1333 	
+1334 	msgid "Info"
+1335 	msgstr "Informazioni"
+1336 	
+1337 	msgid "Stop Navigation"
+1338 	msgstr "Interrompi la navigazione"
+1339 	
+1340 	msgid "Test"
+1341 	msgstr "Prova"
+1342 	
+1343 	msgid "_Quit"
+1344 	msgstr "_Esci"
+1345 	
+1346 	msgid "Cursor"
+1347 	msgstr "Posizione attuale"
+1348 	
+1349 	msgid "Lock on Road"
+1350 	msgstr "Prosegui su questa strada"
+1351 	
+1352 	msgid "Northing"
+1353 	msgstr "Visione verso nord"
+1354 	
+1355 	msgid "Autozoom"
+1356 	msgstr "Zoom automatico"
+1357 	
+1358 	msgid "Fullscreen"
+1359 	msgstr "Schermo intero"
+1360 	
+1361 	msgid "Data"
+1362 	msgstr "Dati"
+1363 	
+1364 	msgid "N"
+1365 	msgstr "N"
+1366 	
+1367 	msgid "NE"
+1368 	msgstr "NE"
+1369 	
+1370 	msgid "E"
+1371 	msgstr "E"
+1372 	
+1373 	msgid "SE"
+1374 	msgstr "SE"
+1375 	
+1376 	msgid "S"
+1377 	msgstr "S"
+1378 	
+1379 	msgid "SW"
+1380 	msgstr "SO"
+1381 	
+1382 	msgid "W"
+1383 	msgstr "O"
+1384 	
+1385 	msgid "NW"
+1386 	msgstr "NO"
+1387 	
+1388 	msgid "No"
+1389 	msgstr "No"
+1390 	
+1391 	msgid "2D"
+1392 	msgstr "2D"
+1393 	
+1394 	msgid "3D"
+1395 	msgstr "3D"
+1396 	
+1397 	msgid "OT"
+1398 	msgstr "OT"
+1399 	
+1400 	#, c-format
+1401 	msgid "Route %4.0fkm %02d:%02d ETA"
+1402 	msgstr "Percorso %4.0f km, %02d:%02d ETA"
+1403 	
+1404 	msgid "Route 0000km 0+00:00 ETA"
+1405 	msgstr "Percorso 0000 km, 00:00 ETA"
+1406 	
+1407 	msgid "Back to map"
+1408 	msgstr "Torna alla mappa"
+1409 	
+1410 	msgid "Main Menu"
+1411 	msgstr "Menù principale"
+1412 	
+1413 	msgid "Help"
+1414 	msgstr "Aiuto"
+1415 	
+1416 	msgid "Back"
+1417 	msgstr "Indietro"
+1418 	
+1419 	msgid "Add Bookmark"
+1420 	msgstr "Aggiungere un posto"
+1421 	
+1422 	msgid "Add Bookmark folder"
+1423 	msgstr "Aggiungere una cartella di posti"
+1424 	
+1425 	msgid "Rename"
+1426 	msgstr "Rinomina"
+1427 	
+1428 	msgid "POIs"
+1429 	msgstr "Punti d'interesse"
+1430 	
+1431 	msgid "View in Browser"
+1432 	msgstr "Visualizza nel browser"
+1433 	
+1434 	msgid "Streets"
+1435 	msgstr "Strade"
+1436 	
+1437 	msgid "House numbers"
+1438 	msgstr "Numeri civici"
+1439 	
+1440 	msgid "View Attributes"
+1441 	msgstr "Visualizza attributi"
+1442 	
+1443 	msgid "View on map"
+1444 	msgstr "Visualizza sulla mappa"
+1445 	
+1446 	msgid "Cut Bookmark"
+1447 	msgstr "Taglia posto"
+1448 	
+1449 	msgid "Copy Bookmark"
+1450 	msgstr "Copia posto"
+1451 	
+1452 	msgid "Rename Bookmark"
+1453 	msgstr "Rinomina posto"
+1454 	
+1455 	msgid "Paste Bookmark"
+1456 	msgstr "Incolla posto"
+1457 	
+1458 	msgid "Delete Bookmark"
+1459 	msgstr "Cancella posto"
+1460 	
+1461 	msgid "Paste bookmark"
+1462 	msgstr "Incolla posto"
+1463 	
+1464 	#, c-format
+1465 	msgid "Bookmark %s"
+1466 	msgstr "Posto %s"
+1467 	
+1468 	msgid "House number"
+1469 	msgstr "Numero civico"
+1470 	
+1471 	msgid "Maps"
+1472 	msgstr "Mappe"
+1473 	
+1474 	msgid "Show Satellite Status"
+1475 	msgstr "Mostra stato satellite"
+1476 	
+1477 	msgid " Elevation "
+1478 	msgstr " Elevazione "
+1479 	
+1480 	msgid " Azimuth "
+1481 	msgstr " Azimuth "
+1482 	
+1483 	msgid "Show NMEA Data"
+1484 	msgstr "Mostra dati NMEA"
+1485 	
+1486 	msgid "car"
+1487 	msgstr "automobile"
+1488 	
+1489 	msgid "bike"
+1490 	msgstr "bicicletta"
+1491 	
+1492 	msgid "pedestrian"
+1493 	msgstr "pedone"
+1494 	
+1495 	#, c-format
+1496 	msgid "Current profile: %s"
+1497 	msgstr "Profilo corrente: %s"
+1498 	
+1499 	#, c-format
+1500 	msgid "Change profile to: %s"
+1501 	msgstr "Cambia profilo con: %s"
+1502 	
+1503 	msgid "Set as active"
+1504 	msgstr "Imposta come attivo"
+1505 	
+1506 	msgid "Show Satellite status"
+1507 	msgstr "Mostra stato satellite"
+1508 	
+1509 	msgid "Show NMEA data"
+1510 	msgstr "Mostra dati NMEA"
+1511 	
+1512 	msgid "Rules"
+1513 	msgstr "Regole"
+1514 	
+1515 	msgid "Lock on road"
+1516 	msgstr "Blocca sulla strada"
+1517 	
+1518 	msgid "Map follows Vehicle"
+1519 	msgstr "La mappa segue il veicolo"
+1520 	
+1521 	msgid "Message"
+1522 	msgstr "Messaggio"
+1523 	
+1524 	msgid "Route Description"
+1525 	msgstr "Descrizione del percorso"
+1526 	
+1527 	msgid "Height Profile"
+1528 	msgstr "Altimetria"
+1529 	
+1530 	msgid "Show Locale"
+1531 	msgstr "Mostra la localizzazione"
+1532 	
+1533 	msgid "About Navit"
+1534 	msgstr "Info su Navit"
+1535 	
+1536 	#. Authors
+1537 	msgid "By"
+1538 	msgstr "di"
+1539 	
+1540 	#. Contributors
+1541 	msgid "And all the Navit Team"
+1542 	msgstr "e tutta la squadra Navit"
+1543 	
+1544 	msgid "members and contributors."
+1545 	msgstr "membri e contributori."
+1546 	
+1547 	msgid "Main menu"
+1548 	msgstr "Menù principale"
+1549 	
+1550 	msgid ""
+1551 	"Show\n"
+1552 	"Map"
+1553 	msgstr ""
+1554 	"Mostra\n"
+1555 	"Mappa"
+1556 	
+1557 	msgid "Settings"
+1558 	msgstr "Impostazioni"
+1559 	
+1560 	msgid "Tools"
+1561 	msgstr "Strumenti"
+1562 	
+1563 	msgid "About"
+1564 	msgstr "Info"
+1565 	
+1566 	msgid "Actions"
+1567 	msgstr "Azioni"
+1568 	
+1569 	msgid "Quit"
+1570 	msgstr "Esci"
+1571 	
+1572 	msgid ""
+1573 	"Stop\n"
+1574 	"Navigation"
+1575 	msgstr "Stop"
+1576 	
+1577 	msgid "Window Mode"
+1578 	msgstr "Modalità finestre"
+1579 	
+1580 	msgid "Description"
+1581 	msgstr "Descrizione"
+1582 	
+1583 	msgid "horse"
+1584 	msgstr "cavallo"
+1585 	
+1586 	msgid "Map Point"
+1587 	msgstr "Punto sulla mappa"
+1588 	
+1589 	msgid "Vehicle Position"
+1590 	msgstr "Posizione del veicolo"
+1591 	
+1592 	#, c-format
+1593 	#~ msgid "%d.%d kilometer"
+1594 	#~ msgstr "%d,%d chilometri"

@@ -1,0 +1,23 @@
+--- navit-0.0.3.abk/src/mapset.c	2007-08-28 19:31:11.000000000 +0200
++++ navit-0.0.3/src/mapset.c	2007-12-14 12:53:29.000000000 +0100
+@@ -89,8 +89,18 @@
+ 	this->item=item;
+ 	this->search_attr=search_attr;
+ 	this->partial=partial;
+-	this->ms=map_search_new(this->map->data, item, search_attr, partial);
+-	return this;
++    if (this->map)
++    {
++        this->ms=map_search_new(this->map->data, item, search_attr, partial);
++    }
++    else
++    {
++        printf("Can't search in a NULL mapset!");
++        exit(-1);
++    }
++
++    return this;
++
+ }
+ 
+ struct item *

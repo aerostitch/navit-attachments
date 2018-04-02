@@ -1,0 +1,285 @@
+Navit log started
+binding_win32:module_binding_win32_init:enter
+navit:main_real:Loading navit.xml
+binding_win32:win32_main_navit:enter
+binding_win32:win32_main_navit:enter2
+navit:file_wordexp_new:wordexp('debug_%Y%m%d-%i.txt') returned 1
+navit:osd_new:new osd 03113FB8
+navit:osd_new:new osd 03114CB8
+navit:osd_new:new osd 03116F50
+navit:osd_new:new osd 031173D0
+navit:osd_new:new osd 03118408
+navit:osd_new:new osd 03118898
+navit:osd_new:new osd 03118C20
+navit:osd_new:new osd 03119028
+navit:osd_new:new osd 0311B008
+navit:osd_new:new osd 03118EA0
+navit:osd_new:new osd 0311BEE0
+navit:file_wordexp_new:wordexp('%s_wh_96_96.png') returned 1
+navit:osd_new:new osd 03118EC8
+navit:osd_new:new osd 0311C558
+navit:osd_new:new osd 0311CAD8
+navit:osd_new:new osd 0311CE10
+navit:osd_new:new osd 0311D1D8
+navit:osd_new:new osd 0311C990
+navit:osd_new:new osd 0311DA40
+vehicle_file:vehicle_file_new_file:on_eof=0
+vehicle_file:vehicle_file_new_file:Failed to open 'serial:COM4 baud=4800'
+vehicle_file:vehicle_file_new_file:on_eof=0
+vehicle_file:vehicle_file_new_file:Failed to open 'serial:COM4 baud=4800'
+vehicle_demo:vehicle_demo_set_attr_do:unsupported attribute name
+vehicle_demo:vehicle_demo_set_attr_do:unsupported attribute active
+vehicle_demo:vehicle_demo_set_attr_do:unsupported attribute follow
+speech_espeak:espeak_new:path_home set to D:\Prda\PrQu\Navit_Betr\Entw_Navit\Navit_PC\run/espeak-data
+speech_espeak:espeak_new:Testing D:\Prda\PrQu\Navit_Betr\Entw_Navit\Navit_PC\run/espeak-data/voices/de-de and D:\Prda\PrQu\Navit_Betr\Entw_Navit\Navit_PC\run/espeak-data/voices/de/de-de
+speech_espeak:espeak_new:Language full de-de lang de result de
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+navit:attr_data_size:size for item_type unknown
+graphics_win32:create_memory_dc:resize memDC to: 792 547 
+graphics_win32:create_memory_dc:resize memDC to: 1024 749 
+graphics_win32:WndProc:resize gfx to: 1024 749 
+graphics_win32:create_memory_dc:resize memDC to: 80 45 
+graphics_win32:create_memory_dc:resize memDC to: 160 60 
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+graphics_win32:create_memory_dc:resize memDC to: 128 128 
+graphics_win32:create_memory_dc:resize memDC to: 160 60 
+graphics_win32:create_memory_dc:resize memDC to: 160 60 
+graphics_win32:create_memory_dc:resize memDC to: 90 90 
+graphics_win32:create_memory_dc:resize memDC to: 160 60 
+graphics_win32:create_memory_dc:resize memDC to: 210 60 
+graphics_win32:create_memory_dc:resize memDC to: 210 60 
+graphics_win32:create_memory_dc:resize memDC to: 210 60 
+graphics_win32:create_memory_dc:resize memDC to: 480 60 
+graphics_win32:create_memory_dc:resize memDC to: 210 60 
+navit:main_real:Using config file 'navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+graphics_win32:create_memory_dc:resize memDC to: 52 52 
+graphics_win32:create_memory_dc:resize memDC to: 52 52 
+graphics_win32:create_memory_dc:resize memDC to: 52 52 
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+navit:navit_set_attr_do:setting osd_configuration to 715827882 (was -1)
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+vehicle_demo:vehicle_demo_set_attr_do:unsupported attribute active
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+graphics_win32:create_memory_dc:resize memDC to: 786 522 
+graphics_win32:WndProc:resize gfx to: 786 522 
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+support_win32:serial_io_read:serial_io_read return (dwBytesIn) : '0'
+navit:navit_destroy:enter 0104DC98
+binding_win32:win32_main_navit:enter
+graphics_win32:event_win32_main_loop_quit:enter
+navit:debug_dump_mallocs:mallocs 0

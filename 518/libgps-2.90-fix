@@ -1,0 +1,123 @@
+d5db05b5fd83c961237aea1f51b74cb448c221c7
+diff --git a/navit/attr_def.h b/navit/attr_def.h
+index d2ee03e..03fbe67 100644
+--- a/navit/attr_def.h
++++ b/navit/attr_def.h
+@@ -226,7 +226,6 @@ ATTR(description)
+ ATTR(gc_type)
+ ATTR(layout)
+ ATTR(position_nmea)
+-ATTR(gpsd_query)
+ ATTR(on_eof)
+ ATTR(command)
+ ATTR(src)
+diff --git a/navit/navit_shipped.xml b/navit/navit_shipped.xml
+index b975d8e..b6af6b8 100644
+--- a/navit/navit_shipped.xml
++++ b/navit/navit_shipped.xml
+@@ -99,7 +99,7 @@ Navigation</text></img>
+ 		<osd enabled="no" type="button" x="-96" y="-96" command="zoom_in()" src="zoom_in.xpm"/>
+ 		<osd enabled="no" type="button" x="0" y="-96" command="zoom_out()" src="zoom_out.xpm"/> 
+ 
+-		<vehicle name="Local GPS" profilename="car" enabled="yes" active="1" source="gpsd://localhost" gpsd_query="w+xj">
++		<vehicle name="Local GPS" profilename="car" enabled="yes" active="1" source="gpsd://localhost">
+ 			<!-- Navit can write a tracklog in several formats (gpx, nmea or textfile): -->
+ 			<log enabled="no" type="gpx" attr_types="position_time_iso8601,position_direction,position_speed,profilename,position_radius" data="track_%Y%m%d-%i.gpx" flush_size="1000" flush_time="30"/>
+ 		</vehicle>
+diff --git a/navit/vehicle/gpsd/vehicle_gpsd.c b/navit/vehicle/gpsd/vehicle_gpsd.c
+index 4bba75f..a51d93f 100644
+--- a/navit/vehicle/gpsd/vehicle_gpsd.c
++++ b/navit/vehicle/gpsd/vehicle_gpsd.c
+@@ -36,7 +36,6 @@
+ 
+ static struct vehicle_priv {
+ 	char *source;
+-	char *gpsd_query;
+ 	struct callback_list *cbl;
+ 	struct callback *cb;
+ 	struct event_watch *evwatch;
+@@ -69,8 +68,7 @@ static struct vehicle_priv {
+ static void vehicle_gpsd_io(struct vehicle_priv *priv);
+ 
+ static void
+-vehicle_gpsd_callback(struct gps_data_t *data, char *buf, size_t len,
+-		      int level)
++vehicle_gpsd_callback(struct gps_data_t *data, char *buf, size_t len)
+ {
+ 	char *pos,*nmea_data_buf;
+         int i=0,sats_signal=0;
+@@ -108,16 +106,16 @@ vehicle_gpsd_callback(struct gps_data_t *data, char *buf, size_t len,
+ 		data->set &= ~ALTITUDE_SET;
+ 	}
+ 	if (data->set & SATELLITE_SET) {
+-                if(data->satellites > 0) {
++                if(data->satellites_visible > 0) {
+                         sats_signal=0;
+-                        for( i=0;i<data->satellites;i++) {
++                        for( i=0;i<data->satellites_visible;i++) {
+                                if (data->ss[i] > 0)
+                                         sats_signal++;
+                         }
+                 }
+-		if (priv->sats_used != data->satellites_used || priv->sats != data->satellites || priv->sats_signal != sats_signal ) {
++		if (priv->sats_used != data->satellites_used || priv->sats != data->satellites_visible || priv->sats_signal != sats_signal ) {
+ 			priv->sats_used = data->satellites_used;
+-			priv->sats = data->satellites;
++			priv->sats = data->satellites_visible;
+                         priv->sats_signal = sats_signal;
+ 			callback_list_call_attr_0(priv->cbl, attr_position_sats);
+ 		}
+@@ -135,10 +133,10 @@ vehicle_gpsd_callback(struct gps_data_t *data, char *buf, size_t len,
+ 		priv->fix_time = data->fix.time;
+ 		data->set &= ~TIME_SET;
+ 	}
+-	if (data->set & PDOP_SET) {
+-		dbg(1, "pdop : %g\n", data->pdop);
+-		priv->hdop = data->hdop;
+-		data->set &= ~PDOP_SET;
++	if (data->set & DOP_SET) {
++		dbg(1, "pdop : %g\n", data->dop.pdop);
++		priv->hdop = data->dop.pdop;
++		data->set &= ~DOP_SET;
+ 	}
+ 	if (data->set & LATLON_SET) {
+ 		priv->geo.lat = data->fix.latitude;
+@@ -180,7 +178,7 @@ vehicle_gpsd_try_open(gpointer *data)
+ 		dbg(0,"gps_open failed for '%s'. Retrying in %d seconds. Have you started gpsd?\n", priv->source, priv->retry_interval);
+ 		return TRUE;
+ 	}
+-	gps_query(priv->gps, priv->gpsd_query);
++	gps_stream(priv->gps, WATCH_ENABLE, NULL);
+ 	gps_set_raw_hook(priv->gps, vehicle_gpsd_callback);
+ 	priv->cb = callback_new_1(callback_cast(vehicle_gpsd_io), priv);
+ 	priv->evwatch = event_add_watch((void *)priv->gps->gps_fd, event_watch_cond_read, priv->cb);
+@@ -268,8 +266,6 @@ vehicle_gpsd_destroy(struct vehicle_priv *priv)
+ 	vehicle_gpsd_close(priv);
+ 	if (priv->source)
+ 		g_free(priv->source);
+-	if (priv->gpsd_query)
+-		g_free(priv->gpsd_query);
+ 	g_free(priv);
+ }
+ 
+@@ -350,19 +346,12 @@ vehicle_gpsd_new_gpsd(struct vehicle_methods
+ 		      *cbl, struct attr **attrs)
+ {
+ 	struct vehicle_priv *ret;
+-	struct attr *source, *query, *retry_int;
++	struct attr *source, *retry_int;
+ 
+ 	dbg(1, "enter\n");
+ 	source = attr_search(attrs, NULL, attr_source);
+ 	ret = g_new0(struct vehicle_priv, 1);
+ 	ret->source = g_strdup(source->u.str);
+-	query = attr_search(attrs, NULL, attr_gpsd_query);
+-	if (query) {
+-		ret->gpsd_query = g_strconcat(query->u.str, "\n", NULL);
+-	} else {
+-		ret->gpsd_query = g_strdup("w+x\n");
+-	}
+-	dbg(1,"Format string for gpsd_query: %s\n",ret->gpsd_query);
+ 	retry_int = attr_search(attrs, NULL, attr_retry_interval);
+ 	if (retry_int) {
+ 		ret->retry_interval = retry_int->u.num;

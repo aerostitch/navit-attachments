@@ -1,0 +1,31 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revision 4499)
++++ navit/maptool/osm.c	(working copy)
+@@ -495,6 +495,8 @@
+ 	"n	traffic_sign=city_limit	traffic_sign_city_limit\n"
+ 	"n	highway=speed_camera	tec_common\n"
+ 	"w	*=*			street_unkn\n"
++	"w	addr:housenumber=*	house_number\n"
++	"w	addr:street=*		street_name\n"
+ 	"w	addr:interpolation=even	house_number_interpolation_even\n"
+ 	"w	addr:interpolation=odd	house_number_interpolation_odd\n"
+ 	"w	addr:interpolation=all	house_number_interpolation_all\n"
+@@ -1531,7 +1533,7 @@
+ 	}
+ 	for (i = 0 ; i < count ; i++) {
+ 		add_flags=0;
+-		if (types[i] == type_none)
++		if (types[i] == type_none || types[i] == type_street_name)
+ 			continue;
+ 		if (ignore_unkown && (types[i] == type_street_unkn || types[i] == type_point_unkn))
+ 			continue;
+@@ -1545,6 +1547,8 @@
+ 		}
+ 		item_bin_add_attr_string(item_bin, def_flags ? attr_street_name : attr_label, attr_strings[attr_string_label]);
+ 		item_bin_add_attr_string(item_bin, attr_street_name_systematic, attr_strings[attr_string_street_name_systematic]);
++		item_bin_add_attr_string(item_bin, attr_house_number, attr_strings[attr_string_house_number]);
++		item_bin_add_attr_string(item_bin, attr_street_name, attr_strings[attr_string_street_name]);
+ 		item_bin_add_attr_longlong(item_bin, attr_osm_wayid, osmid_attr_value);
+ 		if (debug_attr_buffer[0])
+ 			item_bin_add_attr_string(item_bin, attr_debug, debug_attr_buffer);

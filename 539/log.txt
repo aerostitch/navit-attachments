@@ -1,0 +1,78 @@
+D/SearchDialog( 1161): launching Intent { act=android.intent.action.MAIN dat=content://applications/applications/org.navitproject.navit/org.navitproject.navit.Navit flg=0x14000000 (has extras) }
+I/SearchDialog( 1161): Starting (uid 10023, com.android.providers.applications) content://applications/applications/org.navitproject.navit/org.navitproject.navit.Navit#Intent;action=android.intent.action.MAIN;launchFlags=0x14000000;component=com.android.providers.applications/.ApplicationLauncher;S.user_query=na;S.search_mode=global_search_suggestion;end
+I/ActivityManager( 1161): Starting activity: Intent { act=android.intent.action.MAIN dat=content://applications/applications/org.navitproject.navit/org.navitproject.navit.Navit flg=0x14000000 cmp=com.android.providers.applications/.ApplicationLauncher (has extras) }
+I/ActivityManager( 1161): Starting activity: Intent { act=android.intent.action.MAIN flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+I/ActivityManager( 1161): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=3489 uid=10087 gids={3003, 1015}
+D/dalvikvm( 3489): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b070
+D/dalvikvm( 3489): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b070
+D/dalvikvm( 3489): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b070
+E/Navit   ( 3489): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 3489): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3489): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 3489): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 3489): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 3489): Res Name navit
+E/Navit   ( 3489): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 3489): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3489): Checking /data/data/org.navitproject.navit/share
+E/navit   ( 3489): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xab10 thiz=0x44ce6cd8 activity=0x44ce6cd8 lang=de_DE
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_malloc0'...'
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'plugin_register_vehicle_type'...'
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libspeech_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_malloc'...'
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'map_priv_is'...'
+E/navit   ( 3489): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+I/ActivityManager( 1161): Process org.navitproject.navit (pid 3489) has died.
+W/UsageStats( 1161): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+D/SearchDialog( 1161): launching Intent { act=android.intent.action.MAIN dat=content://applications/applications/org.navitproject.navit/org.navitproject.navit.Navit flg=0x14000000 (has extras) }
+I/SearchDialog( 1161): Starting (uid 10023, com.android.providers.applications) content://applications/applications/org.navitproject.navit/org.navitproject.navit.Navit#Intent;action=android.intent.action.MAIN;launchFlags=0x14000000;component=com.android.providers.applications/.ApplicationLauncher;S.user_query=na;S.search_mode=global_search_suggestion;end
+I/ActivityManager( 1161): Starting activity: Intent { act=android.intent.action.MAIN dat=content://applications/applications/org.navitproject.navit/org.navitproject.navit.Navit flg=0x14000000 cmp=com.android.providers.applications/.ApplicationLauncher (has extras) }
+I/ActivityManager( 1161): Starting activity: Intent { act=android.intent.action.MAIN flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+I/ActivityManager( 1161): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=3495 uid=10087 gids={3003, 1015}
+D/dalvikvm( 3495): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b070
+D/dalvikvm( 3495): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b070
+D/dalvikvm( 3495): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b070
+E/Navit   ( 3495): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 3495): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3495): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 3495): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 3495): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 3495): Res Name navit
+E/Navit   ( 3495): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 3495): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3495): Checking /data/data/org.navitproject.navit/share
+E/navit   ( 3495): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xab10 thiz=0x44ce6cd8 activity=0x44ce6cd8 lang=de_DE
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_malloc0'...'
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'plugin_register_vehicle_type'...'
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libspeech_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_malloc'...'
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'map_priv_is'...'
+E/navit   ( 3495): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+I/ActivityManager( 1161): Process org.navitproject.navit (pid 3495) has died.
+W/UsageStats( 1161): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+I/ActivityManager( 1161): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+I/ActivityManager( 1161): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=3506 uid=10087 gids={3003, 1015}
+D/dalvikvm( 3506): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b178
+D/dalvikvm( 3506): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b178
+D/dalvikvm( 3506): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x44c9b178
+E/Navit   ( 3506): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 3506): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3506): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 3506): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 3506): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 3506): Res Name navit
+E/Navit   ( 3506): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 3506): Checking /data/data/org.navitproject.navit
+E/Navit   ( 3506): Checking /data/data/org.navitproject.navit/share
+E/navit   ( 3506): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xab10 thiz=0x44ce6de0 activity=0x44ce6de0 lang=de_DE
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_malloc0'...'
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'plugin_register_vehicle_type'...'
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libspeech_android.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_malloc'...'
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'map_priv_is'...'
+E/navit   ( 3506): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot load library: reloc_library[1232]:  1057 cannot locate 'g_strdup_printf'...'
+I/ActivityManager( 1161): Process org.navitproject.navit (pid 3506) has died.
+W/UsageStats( 1161): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit

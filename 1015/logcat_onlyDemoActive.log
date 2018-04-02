@@ -1,0 +1,58 @@
+
+02-27 16:59:30.364 14943 14943 E navit   : navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xabd8 thiz=0x40523b10 activity=0x40523b10 lang=de_DE
+02-27 16:59:30.504 14943 14943 E navit   : graphics_android:plugin_init:enter
+02-27 16:59:30.512 14943 14943 E navit   : vehicle_android:plugin_init:enter
+02-27 16:59:30.512 14943 14943 E navit   : graphics_android:event_android_new:enter
+02-27 16:59:30.520 14943 14943 E navit   : graphics_android:event_android_new:ok
+02-27 16:59:30.520 14943 14943 E navit   : graphics_android:graphics_android_init:at 2 jnienv=0xabd8
+02-27 16:59:30.520 14943 14943 E navit   : graphics_android:graphics_android_init:at 3
+02-27 16:59:30.520 14943 14943 E navit   : graphics_android:graphics_android_init:at 4 android_activity=0x40523b10
+02-27 16:59:30.528 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x4052fea0
+02-27 16:59:30.528 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x40532138
+02-27 16:59:30.528 14943 14943 E navit   : graphics_android:graphics_android_new:returning 0x32ed08
+02-27 16:59:30.528 14943 14943 E navit   : navit:vehicle_new:invalid type 'demo'
+02-27 16:59:30.536 14943 14943 E navit   : navit:convert_to_attrs:failed to create attribute 'weight' with value '36287'
+02-27 16:59:30.536 14943 14943 E navit   : navit:convert_to_attrs:failed to create attribute 'axle_weight' with value '15422'
+02-27 16:59:30.536 14943 14943 E navit   : speech_android:speech_android_init:at 3
+02-27 16:59:30.536 14943 14943 E navit   : speech_android:speech_android_init:at 4 android_activity=0x40523b10
+02-27 16:59:30.629 14943 14943 E navit   : speech_android:speech_android_init:result=0x405323e0
+02-27 16:59:30.629 14943 14943 E navit   : speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+02-27 16:59:30.637 14943 14943 E navit   : map_binfile:map_binfile_open:Failed to load '/sdcard/navitmap.bin'
+02-27 16:59:30.872 14943 14943 E navit   : navit:main_real:Using '/data/data/org.navitproject.navit/share/navit.xml'
+02-27 16:59:30.872 14943 14943 E navit   : graphics_android:event_android_main_loop_run:enter
+02-27 16:59:30.872 14943 14943 E navit   : navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 3
+02-27 16:59:30.872 14943 14943 E navit   : navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 2
+02-27 16:59:30.872 14943 14943 E navit   : navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 1
+02-27 16:59:30.934 14943 14943 E navit   : navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x32f180 320 544
+02-27 16:59:30.934 14943 14943 E navit   : graphics_android:resize_callback:w=320 h=544 ok
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 2 jnienv=0xabd8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 3
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 4 android_activity=0x40523b10
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x404cd458
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x405211b0
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:overlay_new:returning 0x40fe48
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 2 jnienv=0xabd8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 3
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 4 android_activity=0x40523b10
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x4053c078
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x4051d638
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:overlay_new:returning 0x2c0768
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 2 jnienv=0xabd8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 3
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 4 android_activity=0x40523b10
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x4053c0d8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x4051d518
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:overlay_new:returning 0x33c408
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 2 jnienv=0xabd8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 3
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:at 4 android_activity=0x40523b10
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x40524bf8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:graphics_android_init:result=0x4051d3f8
+02-27 16:59:30.942 14943 14943 E navit   : graphics_android:overlay_new:returning 0x341ae0
+02-27 16:59:36.559 14943 14943 E navit   : gui_internal:gui_internal_set_refresh_callback:cond=(null)
+02-27 16:59:37.965 14943 14943 E navit   : gui_internal:gui_internal_set_refresh_callback:cond=(null)
+02-27 16:59:43.364 14943 14943 E navit   : gui_internal:gui_internal_set_refresh_callback:cond=(null)
+02-27 16:59:47.325 14943 14943 E navit   : gui_internal:gui_internal_set_refresh_callback:cond=(null)
+02-27 16:59:48.418 14943 14943 E navit   : gui_internal:gui_internal_set_refresh_callback:cond=(null)
+02-27 16:59:49.137 14943 14943 E navit   : graphics_android:event_android_main_loop_quit:enter
+02-27 16:59:49.145 14943 14943 E navit   : navit:Java_org_navitproject_navit_Navit_NavitActivity:enter -1

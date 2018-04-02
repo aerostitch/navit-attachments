@@ -1,0 +1,57 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -237,7 +231,7 @@
+     hdc = GetDC( gr->wnd_handle );
+     // Creates memory DC
+     gr->hMemDC = CreateCompatibleDC(hdc);
+-    dbg(0, "resize memDC to: %d %d \n", gr->width, gr->height );
++    dbg(1, "resize memDC to: %d %d \n", gr->width, gr->height );
+ 
+ 
+ #ifndef  FAST_TRANSPARENCY
+@@ -369,7 +363,7 @@
+             gra_priv->width = LOWORD( lParam );
+             gra_priv->height  = HIWORD( lParam );
+             create_memory_dc(gra_priv);
+-            dbg(0, "resize gfx to: %d %d \n", gra_priv->width, gra_priv->height );
++            dbg(1, "resize gfx to: %d %d \n", gra_priv->width, gra_priv->height );
+             callback_list_call_attr_2(gra_priv->cbl, attr_resize, (void *)gra_priv->width, (void *)gra_priv->height);
+         }
+         break;
+@@ -1526,7 +1559,7 @@
+ {
+     MSG msg;
+ 
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+     while (GetMessage(&msg, 0, 0, 0))
+     {
+         TranslateMessage(&msg);       /*  Keyboard input.      */
+@@ -1537,7 +1570,7 @@
+ 
+ static void event_win32_main_loop_quit(void)
+ {
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+ #ifdef HAVE_API_WIN32_CE
+     HWND hwndTaskbar = FindWindow(L"HHTaskBar", NULL);
+     HWND hwndSip = FindWindow(L"MS_SIPBUTTON", NULL);
+@@ -1553,14 +1586,14 @@
+ static struct event_watch *
+             event_win32_add_watch(void *h, enum event_watch_cond cond, struct callback *cb)
+ {
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+     return NULL;
+ }
+ 
+ static void
+ event_win32_remove_watch(struct event_watch *ev)
+ {
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+ }
+ 
+ static GList *timers;

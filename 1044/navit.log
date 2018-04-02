@@ -1,0 +1,1588 @@
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+navit:navit_unref:refcount 1
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 63 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 4 intervals delay.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+navit:navit_unref:refcount 0
+navit:navit_destroy:enter 004F4F60
+navit:vehicle_unref:refcount 0
+navit:tracking_unref:refcount 1
+binding_win32:win32_main_navit:entergraphics_win32:event_win32_main_loop_quit:enter
+navit:debug_dump_mallocs:mallocs 0
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 70 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 71 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 72 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 73 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 74 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 75 intervals gone.
+navit:navit_unref:refcount 1
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 76 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 76 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 18 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+navit:navit_unref:refcount 0
+navit:navit_destroy:enter 004F4F60
+navit:vehicle_unref:refcount 0
+navit:tracking_unref:refcount 1
+binding_win32:win32_main_navit:entergraphics_win32:event_win32_main_loop_quit:enter
+navit:debug_dump_mallocs:mallocs 0
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 70 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 71 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 72 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 73 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 74 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 75 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 76 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 77 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 78 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 79 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 80 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 81 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 82 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 83 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+navit:navit_unref:refcount 1
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 84 intervals gone.
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 85 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 85 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 18 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 32 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_cmd_bookmarks:full_labled: EMZ
+gui_internal:gui_internal_cmd_bookmarks:full_labled: Home
+gui_internal:gui_internal_cmd_bookmarks:full_labled: VM Traun
+gui_internal:gui_internal_cmd_bookmarks:full_labled: Gufguf
+gui_internal:gui_internal_cmd_bookmarks:full_labled: Sulz
+gui_internal:gui_internal_cmd_bookmarks:full_labled: FH Linz
+gui_internal:gui_internal_cmd_position_do:x=0x18653d y=0x5dba1c
+gui_internal:gui_internal_cmd_set_destination:c=1:0x18653d,0x5dba1c
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 70 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 71 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 72 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 73 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 74 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 75 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 76 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 77 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 78 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+navit:navit_unref:refcount 1
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 79 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 79 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 28 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 14 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+navit:command_new:entry 351 exit 24
+navit:command_new:entry 298 exit 207
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 51 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 10 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 16 intervals delay.
+navit:command_new:entry 351 exit 24
+navit:command_new:entry 298 exit 207
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 5 intervals delay.
+navit:command_new:entry 351 exit 24
+navit:command_new:entry 298 exit 207
+navit:command_new:entry 351 exit 24
+navit:command_new:entry 298 exit 207
+navit:command_new:entry 351 exit 24
+navit:command_new:entry 298 exit 207
+navit:route_path_new:no route found, pos blocked
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 70 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 71 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 72 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 73 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 74 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 75 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 76 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 77 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 78 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 79 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 80 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 81 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 82 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 83 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 84 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 85 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 86 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 87 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 88 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 89 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 90 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 91 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 92 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 93 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 94 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 95 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 96 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 97 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 98 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 99 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 100 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 101 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 102 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 103 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 104 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 105 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 106 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 107 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 108 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 109 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 110 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 111 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 112 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 113 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 114 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 115 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 116 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 117 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 118 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 119 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 120 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 121 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 122 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 123 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 124 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 125 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 126 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 127 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 128 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 129 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 130 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 131 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 132 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 133 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 134 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 135 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 136 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 137 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 138 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 139 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 140 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 141 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 142 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 143 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 144 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 145 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 146 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 147 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 148 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 149 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 150 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 151 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 152 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 153 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 154 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 155 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 156 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 157 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 158 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 159 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 160 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 161 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 162 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 163 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 164 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 165 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 166 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 167 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 168 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 169 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 170 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 171 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 172 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 173 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 174 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 175 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 176 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 177 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 178 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 179 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 180 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 181 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 182 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 183 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 184 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 185 intervals gone.
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+navit:navit_unref:refcount 1
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 70 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 70 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 14 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 20 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+navit:route_path_new:no route found, pos blocked
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+navit:navit_unref:refcount 1
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in ' vj4ÓL,,,,,154719.903,V,N*7F'
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 69 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 3 intervals delay.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_cmd_bookmarks:full_labled: EMZ
+gui_internal:gui_internal_cmd_bookmarks:full_labled: Home
+gui_internal:gui_internal_cmd_bookmarks:full_labled: VM Traun
+gui_internal:gui_internal_cmd_bookmarks:full_labled: Gufguf
+gui_internal:gui_internal_cmd_bookmarks:full_labled: Sulz
+gui_internal:gui_internal_cmd_bookmarks:full_labled: FH Linz
+gui_internal:gui_internal_cmd_position_do:x=0x18324b y=0x5db821
+gui_internal:gui_internal_cmd_set_destination:c=1:0x18324b,0x5db821
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 57 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 8 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 3 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 8 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 10 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 8 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 4 intervals delay.
+navit:route_path_new:no route found, pos blocked
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+Navit log started
+navit:navit_new:return 004F4F60
+navit:navit_ref:refcount 2
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[COM5:]
+navit:vehicle_ref:refcount 2
+vehicle_wince:initDevice:Init Device
+navit:vehicle_unref:refcount 1
+navit:tracking_ref:refcount 2
+navit:tracking_unref:refcount 1
+speech_espeak:espeak_new:path_home set to \Mounted Volume\navit/espeak-data
+speech_espeak:espeak_new:Testing \Mounted Volume\navit/espeak-data/voices/de-at and \Mounted Volume\navit/espeak-data/voices/de/de-at
+speech_espeak:espeak_new:Language full de-at lang de result de-at
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 22 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 23 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 24 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 25 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 26 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 27 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 28 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 29 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 30 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 31 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 32 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 33 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 34 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 35 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 36 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 37 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 38 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 39 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 40 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 41 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 42 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 43 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 44 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 45 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 46 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 47 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 48 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 49 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 50 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 51 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 52 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 53 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 54 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 55 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 56 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 57 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 58 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:create_memory_dc:resize memDC to: 480 272 
+graphics_win32:WndProc:resize gfx to: 480 272 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 59 intervals gone.
+navit:tracking_ref:refcount 2
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 60 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 61 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 62 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 63 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 64 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 65 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 66 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 67 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 68 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 69 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 70 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 71 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 480 22 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 72 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 40 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 73 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 74 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 106 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 95 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 76 25 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 75 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 30 25 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 191 50 
+navit:osd_set_std_graphic:accesskey (null)
+graphics_win32:create_memory_dc:resize memDC to: 50 50 
+navit:osd_set_std_graphic:accesskey (null)
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 76 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 100 50 
+navit:osd_set_std_graphic:accesskey (null)
+navit:navit_unref:refcount 1
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 77 intervals gone.
+navit:main_real:Using config file '\Mounted Volume\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 78 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 78 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 17 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 11 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 12 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 13 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 14 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 15 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 16 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 17 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 18 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 19 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 20 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 21 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 21 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 3 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 3 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 3 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 7 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 5 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 3 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 5 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 10 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 8 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 6 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 7 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 8 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 9 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 10 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 10 intervals delay.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 1 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 2 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 3 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 4 intervals gone.
+vehicle_wince:wince_reader_thread:Will GPS data be ever processed by the main thread? Already 5 intervals gone.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 5 intervals delay.

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gpx version='1.1' creator='Navit http://navit.sourceforge.net'
+     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+     xmlns:navit='http://www.navit-project.org/schema/navit'
+     xmlns='http://www.topografix.com/GPX/1/1'
+     xsi:schemaLocation='http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd'>
+<trk>
+<trkseg>
+<trkpt lat="50.948837" lon="-2.932647">
+	<time>2013-08-24T14:17:53.000Z</time>
+	<course>92.4</course>
+	<speed>11.88</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948700" lon="-2.928935">
+	<time>2013-08-24T14:18:14.000Z</time>
+	<course>97.3</course>
+	<speed>11.78</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948681" lon="-2.928583">
+	<time>2013-08-24T14:18:16.000Z</time>
+	<course>94.7</course>
+	<speed>13.22</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948662" lon="-2.928183">
+	<time>2013-08-24T14:18:18.000Z</time>
+	<course>94.7</course>
+	<speed>15.18</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948639" lon="-2.927537">
+	<time>2013-08-24T14:18:21.000Z</time>
+	<course>91.4</course>
+	<speed>15.43</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948635" lon="-2.927313">
+	<time>2013-08-24T14:18:22.000Z</time>
+	<course>90.3</course>
+	<speed>15.84</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948635" lon="-2.927313">
+	<time>2013-08-24T14:18:22.000Z</time>
+	<course>91.7</course>
+	<speed>16.26</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948627" lon="-2.927087">
+	<time>2013-08-24T14:18:23.000Z</time>
+	<course>92.3</course>
+	<speed>16.82</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948616" lon="-2.926605">
+	<time>2013-08-24T14:18:25.000Z</time>
+	<course>92.4</course>
+	<speed>17.34</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948608" lon="-2.926353">
+	<time>2013-08-24T14:18:26.000Z</time>
+	<course>92.6</course>
+	<speed>17.90</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948601" lon="-2.926095">
+	<time>2013-08-24T14:18:27.000Z</time>
+	<course>92.3</course>
+	<speed>18.47</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948593" lon="-2.925828">
+	<time>2013-08-24T14:18:28.000Z</time>
+	<course>92.0</course>
+	<speed>18.78</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948593" lon="-2.925828">
+	<time>2013-08-24T14:18:28.000Z</time>
+	<course>90.9</course>
+	<speed>18.73</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948582" lon="-2.925293">
+	<time>2013-08-24T14:18:30.000Z</time>
+	<course>92.0</course>
+	<speed>18.93</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+<trkpt lat="50.948574" lon="-2.925023">
+	<time>2013-08-24T14:18:31.000Z</time>
+	<course>94.5</course>
+	<speed>18.98</speed>
+	<extensions>
+		<navit:profilename>car</navit:profilename>
+	</extensions>
+</trkpt>
+</trkseg>
+</trk>
+</gpx>

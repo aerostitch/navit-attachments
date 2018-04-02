@@ -1,0 +1,12 @@
+--- navit/navit/osm2navit.c	2008-06-15 19:05:44.000000000 +0200
++++ navit_b/navit/osm2navit.c	2008-06-15 19:05:26.000000000 +0200
+@@ -175,7 +175,9 @@
+ 	"w	highway=road	street_1_city\n"
+ 	"w	highway=minor		street_1_land\n"
+ 	"w	highway=tertiary	street_2_city\n"
++	"w	highway=tertiary_link	ramp\n"
+ 	"w	highway=secondary	street_3_city\n"
++	"w	highway=secondary_link	ramp\n"
+ 	"w	highway=primary		street_4_city\n"
+ 	"w	highway=primary_link	ramp\n"
+ 	"w	highway=trunk		street_4_city\n"

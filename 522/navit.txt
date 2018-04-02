@@ -1,0 +1,31 @@
+I/ActivityManager( 1127): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager( 1127): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1538 uid=10083 gids={3003}
+E/Navit   ( 1538): Country FR
+E/Navit   ( 1538): Language en
+E/Navit   ( 1538): Res Name en
+E/Navit   ( 1538): result /data/data/org.navitproject.navit/locale/en/LC_MESSAGES/navit.mo
+E/Navit   ( 1538): Res ID 0
+E/Navit   ( 1538): Failed to extract language resource en
+E/Navit   ( 1538): Res Name navit
+E/Navit   ( 1538): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1538): Res ID 2130903064
+E/Navit   ( 1538): Checking /data
+E/Navit   ( 1538): Checking /data/data
+E/Navit   ( 1538): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1538): Checking /data/data/org.navitproject.navit/share
+E/test    ( 1538): called
+E/navit   ( 1538): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c8 thiz=0x44967ce0 activity=0x44967ce0 lang=en_FR
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   ( 1538): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   ( 1538): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot find library'
+E/navit   ( 1538): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot find library'
+E/navit   ( 1538): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot find library'
+E/navit   ( 1538): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot find library'
+E/navit   ( 1538): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot find library'
+E/navit   ( 1538): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot find library'
+I/ActivityManager( 1127): Process org.navitproject.navit (pid 1538) has died.

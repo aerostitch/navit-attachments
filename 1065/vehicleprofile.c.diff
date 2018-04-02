@@ -1,0 +1,24 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/vehicleprofile.c	2012-09-04 20:04:37.391424012 +0200
++++ vehicleprofile.c	2012-09-23 13:22:28.795336000 +0200
+@@ -76,6 +76,11 @@
+ 	case attr_through_traffic_penalty:
+ 		this_->through_traffic_penalty=attr->u.num;
+ 		break;
++/***************************** Rainer ***************************/
++	case attr_manuever_scale:
++		this_->manuever_scale=attr->u.num;
++		break;
++/***************************** Rainer ***************************/
+ 	default:
+ 		break;
+ 	}
+@@ -98,6 +103,9 @@
+ 	this_->weight=-1;
+ 	this_->axle_weight=-1;
+ 	this_->through_traffic_penalty=9000;
++/***************************** Rainer ***************************/
++	this_->manuever_scale=32;
++/***************************** Rainer ***************************/
+ 	for (attr=attrs;*attr; attr++)
+ 		vehicleprofile_set_attr_do(this_, *attr);
+ 	return this_;

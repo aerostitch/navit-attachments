@@ -1,0 +1,72 @@
+route_mode = 0 : auto
+route_mode = 1 : onroad
+route_mode = 2 : creates an 'offroad' route, or one segment between pos. and dest.
+route_mode = 3 : experimental shortest onroad route
+
+
+below is for the penalty - system
+
+maxspeed_handling :
+
+0 = always, means replace route_weight with maxspeed, in vanilla routing.
+in the penalty system : speed_used is weighted speed or weighted maxspeed if avalable in OSM
+penalized speed = (maxspeed or  speed) * (route_weight / 100) * (roundabout_weight / 100) 
+route_weight and roundabout_weight are not mandatory, so no need to insert a '100' value
+to leave some speed untouched.
+1 = only when it limits speed and follows the same wieghting as above
+2 = never
+
+<vehicleprofile name="car" route_depth="4:25%,8:40000,18:10000" flags="0x4000000" flags_forward_mask="0x4000002" flags_reverse_mask="0x4000001" maxspeed_handling="0" route_mode="0" static_speed="5" static_distance="25">
+			<roadprofile item_types="street_0,living_street,street_service,track_gravelled,track_unpaved,street_parking_lane" speed="10"/>	
+			<roadprofile item_types="street_1_city" speed="30" route_weight="90" />
+			<roadprofile item_types="street_2_city,track_paved" speed="30" route_weight="90"/>
+			<roadprofile item_types="street_3_city" speed="50" route_weight="90" roundabout_weight="70"/>
+			<roadprofile item_types="street_4_city" speed="60" route_weight="90" roundabout_weight="70"/>
+			<roadprofile item_types="highway_city" speed="100" />
+			<roadprofile item_types="street_1_land" speed="62" route_weight="90" roundabout_weight="70"/>
+			<roadprofile item_types="street_2_land" speed="65" route_weight="90" roundabout_weight="70"/>
+			<roadprofile item_types="street_3_land" speed="70" route_weight="90" roundabout_weight="70"/>
+			<roadprofile item_types="street_4_land" speed="80" route_weight="95" roundabout_weight="75"/>
+			<roadprofile item_types="street_n_lanes" speed="120" route_weight="95" />
+			<roadprofile item_types="highway_land" speed="120"  />
+			<roadprofile item_types="ramp" speed="90" route_weight="80"/>
+			<roadprofile item_types="roundabout" speed="10"/><!-- does not apply to OSM -->
+			<roadprofile item_types="ferry" speed="40" route_weight="100"/>
+		</vehicleprofile>
+
+<vehicleprofile name="car_new_shortest" route_depth="18:25%,18:40000" flags="0x4000000" flags_forward_mask="0x4000002" flags_reverse_mask="0x4000001" maxspeed_handling="0" route_mode="3" static_speed="5" static_distance="25">
+			<roadprofile item_types="street_0,living_street,street_service,track_gravelled,track_unpaved,street_parking_lane" speed="10"/>	
+			<roadprofile item_types="street_1_city" speed="30" route_weight="90" />
+			<roadprofile item_types="street_2_city,track_paved" speed="30" route_weight="90"/>
+			<roadprofile item_types="street_3_city" speed="50" route_weight="90" roundabout_weight="70"/>
+			<roadprofile item_types="street_4_city" speed="60" route_weight="90" roundabout_weight="60"/>
+			<roadprofile item_types="highway_city" speed="100" />
+			<roadprofile item_types="street_1_land" speed="62" route_weight="90" roundabout_weight="60"/>
+			<roadprofile item_types="street_2_land" speed="65" route_weight="90" roundabout_weight="60"/>
+			<roadprofile item_types="street_3_land" speed="70" route_weight="90" roundabout_weight="60"/>
+			<roadprofile item_types="street_4_land" speed="80" route_weight="95" roundabout_weight="65"/>
+			<roadprofile item_types="street_n_lanes" speed="120" route_weight="95" />
+			<roadprofile item_types="highway_land" speed="120"  />
+			<roadprofile item_types="ramp" speed="90" route_weight="80"/>
+			<roadprofile item_types="roundabout" speed="10"/><!-- does not apply to OSM -->
+			<roadprofile item_types="ferry" speed="40" route_weight="100"/>
+		</vehicleprofile>
+
+
+		<vehicleprofile name="car_shortest" flags="0x4000000" flags_forward_mask="0x4000002" flags_reverse_mask="0x4000001" maxspeed_handling="0" route_mode="0" static_speed="5" static_distance="25">
+			<roadprofile item_types="street_0,street_1_city,living_street,street_service,track_gravelled,track_unpaved,street_parking_lane" speed="60" />
+			<roadprofile item_types="street_2_city,track_paved" speed="60" />
+			<roadprofile item_types="street_3_city" speed="60"  />
+			<roadprofile item_types="street_4_city" speed="60"  />
+			<roadprofile item_types="highway_city" speed="60"  />
+			<roadprofile item_types="street_1_land" speed="60"  />
+			<roadprofile item_types="street_2_land" speed="60"  />
+			<roadprofile item_types="street_3_land" speed="60"  />
+			<roadprofile item_types="street_4_land" speed="60" />
+			<roadprofile item_types="street_n_lanes" speed="60" />
+			<roadprofile item_types="highway_land" speed="60"  />
+			<roadprofile item_types="ramp" speed="60" />
+			<roadprofile item_types="roundabout" speed="60" /><!-- does not apply to OSM -->
+			<roadprofile item_types="ferry" speed="60"/>
+		</vehicleprofile>
+

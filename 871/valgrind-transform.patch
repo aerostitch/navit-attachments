@@ -1,0 +1,20 @@
+Description: Fix a read error reported by valgrind with sequence:
+ Click on map / Action / Point on map
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/871
+Last-Update: 2011-0--02
+Index: navit/navit/transform.c
+===================================================================
+--- navit.orig/navit/transform.c	2011-06-01 00:02:55.000000000 +0200
++++ navit/navit/transform.c	2011-06-01 00:20:43.000000000 +0200
+@@ -1441,7 +1441,9 @@
+ 		return transform_within_dist_point(ref, c, dist);
+ 	if (type < type_area)
+ 		return transform_within_dist_polyline(ref, c, count, 0, dist);
+-	return transform_within_dist_polygon(ref, c, count, dist);
++	if (count)
++		return transform_within_dist_polygon(ref, c, count, dist);
++	return 0;
+ }
+ 
+ void

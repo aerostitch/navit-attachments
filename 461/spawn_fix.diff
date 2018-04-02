@@ -1,0 +1,31 @@
+Index: navit/util.c
+===================================================================
+--- navit/util.c	(revision 4499)
++++ navit/util.c	(working copy)
+@@ -538,9 +538,12 @@
+ 		dbg(0, "CreateProcess(%s,%s), PID=%i\n",argv[0],cmdline,r->pr.dwProcessId);
+ 		g_free(cmd);
+ #else
++    		STARTUPINFO startupInfo;
++		memset(&startupInfo, 0, sizeof(startupInfo));
++		startupInfo.cb = sizeof(startupInfo);
+ 		cmdline=spawn_process_compose_cmdline(argv);
+ 		args=newSysString(cmdline);
+-		dwRet=CreateProcess(NULL, args, NULL, NULL, 0, 0, NULL, NULL, NULL, &(r->pr));
++		dwRet=CreateProcess(NULL, args, NULL, NULL, 0, 0, NULL, NULL, &startupInfo, &(r->pr));
+ 		dbg(0, "CreateProcess(%s), PID=%i\n",cmdline,r->pr.dwProcessId);
+ #endif
+ 		g_free(cmdline);
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 4499)
++++ CMakeLists.txt	(working copy)
+@@ -134,7 +134,7 @@
+ else(Glib_FOUND)
+    set_with_reason(support/glib "Glib not found" TRUE ${INTL_LIBS})
+    # speech/cmdline doesn't build with our glib anymore
+-   set_with_reason(speech/cmdline "does not build with support/glib" FALSE)
++   #set_with_reason(speech/cmdline "does not build with support/glib" FALSE)
+ endif(Glib_FOUND)
+ if (Gmodule_FOUND)
+    set(HAVE_GMODULE 1)

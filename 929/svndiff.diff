@@ -1,0 +1,210 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 4733)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -2274,44 +2274,11 @@
+ 	return r;
+ }
+ 
+-/**
+- * POI search/filtering parameters.
+- *
+- */
+-
+ struct poi_param {
+-
++		unsigned char sel, selnb, pagenb, dist, isAddressFilter;
++		char *filterstr; /* Filter string, casefold()ed and divided into substrings at the spaces, which are replaced by ASCII 0*/
++		GList *filter; /* list of pointers to individual substrings of filterstr */
+ 		/**
+- 		 * =1 if selnb is defined, 0 otherwize.
+-		 */
+-		unsigned char sel;
+-
+-		/**
+- 		 * Index to struct selector selectors[], shows what type of POIs is defined.
+-		 */		
+-		unsigned char selnb;
+-		/**
+- 		 * Page number to display.
+-		 */		
+-		unsigned char pagenb;
+-		/**
+- 		 * Radius (number of 10-kilometer intervals) to search for POIs.
+-		 */		
+-		unsigned char dist;
+-		/**
+- 		 * Should filter phrase be compared to postal address of the POI.
+- 		 * =1 - address filter, =0 - name filter
+-		 */		
+-		unsigned char isAddressFilter;
+-		/**
+- 		 * Filter string, casefold()ed and divided into substrings at the spaces, which are replaced by ASCII 0*.
+-		 */		
+-		char *filterstr; 
+-		/**
+- 		 * list of pointers to individual substrings of filterstr.
+-		 */		
+-		GList *filter;
+-		/**
+ 		 * Number of POIs in this list
+ 		 */
+ 		int count;
+@@ -2347,11 +2314,8 @@
+ 	memcpy(r,p,sizeof(struct poi_param));
+ 	r->filter=NULL;
+ 	r->filterstr=NULL;
+-	if(p->filterstr) {
+-		char *last=g_list_last(l)->data;
+-		int len=(last - p->filterstr) + strlen(last)+1;
+-		r->filterstr=g_memdup(p->filterstr,len);
+-	}
++	if(p->filterstr)
++		r->filterstr=g_strdup(p->filterstr);
+ 	while(l) {
+ 		r->filter=g_list_append(r->filter, r->filterstr + ((char*)(l->data) - p->filterstr) );
+ 		l=g_list_next(l);
+@@ -2422,11 +2386,11 @@
+ 	get_direction(dirbuf, transform_get_angle_delta(center, c, 0), 1);
+ 	type=item_to_name(item->type);
+ 	if (name[0]) {
+-		wl->name=g_strdup_printf("%s %s",type,name);
++		wl->name=g_strdup_printf("%s (%s)",name,type);
+ 	} else {
+ 		wl->name=g_strdup(type);
+ 	}
+-	text=g_strdup_printf("%s %s %s %s", distbuf, dirbuf, type, name);
++	text=g_strdup_printf("%s %s (%s %s)", distbuf, name, dirbuf, type);
+ 	wt=gui_internal_label_new(this, text);
+ 	wt->datai=dist;
+ 	gui_internal_widget_append(wl, wt);
+@@ -2509,7 +2473,25 @@
+ 		char *long_name, *s;
+ 		GList *f;
+ 		if (param->isAddressFilter) {
+-			s=gui_internal_compose_item_address_string(item);
++			s=g_strdup("");
++			if(item_attr_get(item, attr_house_number, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			if(item_attr_get(item, attr_street_name, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			if(item_attr_get(item, attr_street_name_systematic, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			if(item_attr_get(item, attr_district_name, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			if(item_attr_get(item, attr_town_name, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			if(item_attr_get(item, attr_county_name, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			if(item_attr_get(item, attr_country_name, &attr)) 
++				s=g_strjoin(" ",s,attr.u.str,NULL);
++			
++			if(item_attr_get(item, attr_address, &attr)) 
++				s=g_strjoin(" ",s,"|",attr.u.str,NULL);
++			
+ 		} else if (item_attr_get(item, attr_label, &attr)) {
+ 			s=g_strdup_printf("%s %s", item_to_name(item->type), attr.u.str);
+ 		} else {
+@@ -2616,7 +2598,7 @@
+ 		dbg(1,"len=%d\n", len);
+ 		if (len && (wm->text[len-1] == '\n' || wm->text[len-1] == '\r')) {
+ 			wm->text[len-1]='\0';
+-			//gui_internal_cmd_pois_filter_do(this, wm, wm); // Doesnt clean filter editor from the screen. How to disable its redrawal after POI list is drawn?
++			//gui_internal_cmd_pois_filter_do(this, wm, wm); // Doesnt clean filter editor from the screen. How to disable it redrawing after POI list is drawn?
+ 		}
+ 	}
+ }
+@@ -2691,8 +2673,7 @@
+ 	struct selector *isel;
+ 	int pagenb;
+ 	int prevdist;
+-	// Starting value and increment of count of items to be extracted
+-	const int pagesize = 50; 
++	const int pagesize = 50; // Starting value and increment of count of items to be extracted
+ 	int maxitem, it = 0, i;
+ 	struct item_data *items;
+ 	struct fibheap* fh = fh_makekeyheap();
+@@ -4635,6 +4616,7 @@
+ 		navit_set_attr(this->nav, &vehicle);
+ 	}
+ 	save_vehicle_xml(v);
++	gui_internal_prune_menu(this, NULL);
+ }
+ 
+ /**
+Index: navit/command.c
+===================================================================
+--- navit/command.c	(revision 4733)
++++ navit/command.c	(working copy)
+@@ -111,11 +111,39 @@
+ }*/
+ 
+ static int
++is_string(struct result *res)
++{
++	if (res && attr_type_string_begin <= res->attr.type && res->attr.type <= attr_type_string_end ) {
++		return 1;
++	}
++	else {
++		return 0;
++	}
++}
++
++static int
+ is_double(struct result *res)
+ {
+-	return 0;
++	if (res && attr_type_double_begin <= res->attr.type && res->attr.type <= attr_type_double_end ) {
++		return 1;
++	}
++	else {
++		return 0;
++	}
+ }
+ 
++
++static int
++is_int(struct result *res)
++{
++	if (res && attr_type_int_begin <= res->attr.type && res->attr.type <= attr_type_int_end ) {
++		return 1;
++	}
++	else {
++		return 0;
++	}
++}
++
+ static void
+ dump(struct result *res)
+ {
+@@ -254,6 +282,15 @@
+ 
+ 
+ static void
++set_string(struct context *ctx, struct result *res, char* val)
++{
++	result_free(res);
++	res->attr.type=attr_type_string_begin;
++	res->attr.u.str=g_strdup(val);
++}
++
++
++static void
+ eval_value(struct context *ctx, struct result *res) {
+ 	const char *op;
+ 	int len,dots=0;
+@@ -507,8 +544,13 @@
+ 		if (!(op=get_op(ctx,0,"-","+",NULL))) return;
+     		eval_multiplicative(ctx, &tmp);
+ 		if (ctx->error) return;
+-		if (is_double(res) || is_double(&tmp)) {
++		if (is_string(res) || is_string(&tmp)) {
+ 			if (op[0] == '+')
++				set_string(ctx, res, g_strdup_printf( "%s%s",  get_string(ctx, res) , get_string(ctx, &tmp)));
++			else
++				return;
++		} else if (is_double(res) || is_double(&tmp)) {
++			if (op[0] == '+')
+ 				set_double(ctx, res, get_double(ctx, res) + get_double(ctx, &tmp));
+ 			else
+ 				set_double(ctx, res, get_double(ctx, res) - get_double(ctx, &tmp));

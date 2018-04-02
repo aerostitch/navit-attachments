@@ -1,0 +1,18 @@
+20:56:02.866|graphics_sdl:graphics_sdl_new:using screen 320x240@16
+20:56:02.972|vehicle_file:vehicle_file_new_file:on_eof=0
+20:56:03.338|map_binfile:map_binfile_zip_setup:num_disk 0
+20:56:07.737|navit:main_real:Using '/mnt/sdcard/navit/share/config/tomtom320.xml'
+20:56:08.133|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.227|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.245|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.268|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.284|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.300|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.317|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.346|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.359|navit:osd_set_std_graphic:accesskey (null)
+20:56:08.371|navit:transform_distance:Unknown projection: 0
+20:56:47.468|navit:osd_evaluate_command:calling command 'zoom_out()'
+20:57:12.061|navit:osd_evaluate_command:calling command 'zoom_out()'
+20:57:58.390|navit:osd_evaluate_command:calling command 'zoom_out()'
+20:58:21.257|gui_internal:gui_internal_set_refresh_callback:cond=(null)

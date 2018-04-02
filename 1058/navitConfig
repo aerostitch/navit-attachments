@@ -1,0 +1,654 @@
+jacob-brandenburgs-macbook:navit jbranden$ ./autogen.sh && ./configure --prefix=/opt/local --disable-binding-python
+Copying file ABOUT-NLS
+Copying file config.rpath
+Copying file intl/ChangeLog
+Copying file intl/Makefile.in
+Copying file intl/bindtextdom.c
+Copying file intl/config.charset
+Copying file intl/dcgettext.c
+Copying file intl/dcigettext.c
+Copying file intl/dcngettext.c
+Copying file intl/dgettext.c
+Copying file intl/dngettext.c
+Copying file intl/eval-plural.h
+Copying file intl/explodename.c
+Copying file intl/finddomain.c
+Copying file intl/gettext.c
+Copying file intl/gettextP.h
+Copying file intl/gmo.h
+Copying file intl/hash-string.h
+Copying file intl/intl-compat.c
+Copying file intl/l10nflist.c
+Copying file intl/libgnuintl.h.in
+Copying file intl/loadinfo.h
+Copying file intl/loadmsgcat.c
+Copying file intl/localcharset.c
+Copying file intl/localcharset.h
+Copying file intl/locale.alias
+Copying file intl/localealias.c
+Copying file intl/localename.c
+Copying file intl/log.c
+Copying file intl/ngettext.c
+Copying file intl/os2compat.c
+Copying file intl/os2compat.h
+Copying file intl/osdep.c
+Copying file intl/plural-exp.c
+Copying file intl/plural-exp.h
+Copying file intl/plural.c
+Copying file intl/plural.y
+Copying file intl/printf-args.c
+Copying file intl/printf-args.h
+Copying file intl/printf-parse.c
+Copying file intl/printf-parse.h
+Copying file intl/printf.c
+Copying file intl/ref-add.sin
+Copying file intl/ref-del.sin
+Copying file intl/relocatable.c
+Copying file intl/relocatable.h
+Copying file intl/textdomain.c
+Copying file intl/vasnprintf.c
+Copying file intl/vasnprintf.h
+Copying file intl/vasnwprintf.h
+Copying file intl/wprintf-parse.h
+Copying file intl/xsize.h
+Creating directory m4
+Copying file m4/codeset.m4
+Copying file m4/gettext.m4
+Copying file m4/glibc21.m4
+Copying file m4/iconv.m4
+Copying file m4/intdiv0.m4
+Copying file m4/intmax.m4
+Copying file m4/inttypes-pri.m4
+Copying file m4/inttypes.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/isc-posix.m4
+Copying file m4/lcmessage.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/longdouble.m4
+Copying file m4/longlong.m4
+Copying file m4/nls.m4
+Copying file m4/po.m4
+Copying file m4/printf-posix.m4
+Copying file m4/progtest.m4
+Copying file m4/signed.m4
+Copying file m4/size_max.m4
+Copying file m4/stdint_h.m4
+Copying file m4/uintmax_t.m4
+Copying file m4/ulonglong.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/xsize.m4
+Copying file mkinstalldirs
+Copying file po/Makefile.in.in
+Copying file po/Makevars.template
+Copying file po/Rules-quot
+Copying file po/boldquot.sed
+Copying file po/en@boldquot.header
+Copying file po/en@quot.header
+Copying file po/insert-header.sin
+Copying file po/quot.sed
+Copying file po/remove-potcdate.sin
+glibtoolize: putting auxiliary files in `.'.
+glibtoolize: copying file `./ltmain.sh'
+glibtoolize: putting macros in AC_CONFIG_MACRO_DIR, `m4'.
+glibtoolize: copying file `m4/libtool.m4'
+glibtoolize: copying file `m4/ltoptions.m4'
+glibtoolize: copying file `m4/ltsugar.m4'
+glibtoolize: copying file `m4/ltversion.m4'
+glibtoolize: copying file `m4/lt~obsolete.m4'
+configure.in:181: installing './compile'
+configure.in:90: installing './config.guess'
+configure.in:90: installing './config.sub'
+configure.in:5: installing './install-sh'
+configure.in:5: installing './missing'
+Makefile.am: installing './INSTALL'
+navit/Makefile.am:10: warning: wildcard $(top_builddir: non-POSIX variable name
+navit/Makefile.am:10: (probably a GNU make extension)
+navit/Makefile.am:64: warning: foreach xslt, $(subst $(comma: non-POSIX variable name
+navit/Makefile.am:64: (probably a GNU make extension)
+navit/Makefile.am:64: warning: addsuffix .xslt,$(addprefix xslt/,$(xslt: non-POSIX variable name
+navit/Makefile.am:64: (probably a GNU make extension)
+navit/Makefile.am:107: warning: subst $(comma: non-POSIX variable name
+navit/Makefile.am:107: (probably a GNU make extension)
+navit/Makefile.am:132: warning: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:132: (probably a GNU make extension)
+navit/Makefile.am:133: warning: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:133: (probably a GNU make extension)
+navit/Makefile.am:134: warning: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:134: (probably a GNU make extension)
+navit/Makefile.am:140: warning: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:140: (probably a GNU make extension)
+navit/Makefile.am:141: warning: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:141: (probably a GNU make extension)
+navit/Makefile.am:142: warning: shell cd $(srcdir: non-POSIX variable name
+navit/Makefile.am:142: (probably a GNU make extension)
+navit/Makefile.am:148: warning: shell cd $(builddir: non-POSIX variable name
+navit/Makefile.am:148: (probably a GNU make extension)
+navit/Makefile.am:149: warning: shell cd $(builddir: non-POSIX variable name
+navit/Makefile.am:149: (probably a GNU make extension)
+navit/Makefile.am:150: warning: shell cd $(builddir: non-POSIX variable name
+navit/Makefile.am:150: (probably a GNU make extension)
+navit/Makefile.am:153: warning: shell cd ../po && echo *.mo: non-POSIX variable name
+navit/Makefile.am:153: (probably a GNU make extension)
+navit/Makefile.am: installing './depcomp'
+navit/gui/qml/Makefile.am:7: warning: '%'-style pattern rules are a GNU make extension
+navit/gui/qml/Makefile.am:9: warning: '%'-style pattern rules are a GNU make extension
+navit/maps/Makefile.am:26: warning: subst .shp,,$<: non-POSIX variable name
+navit/maps/Makefile.am:26: (probably a GNU make extension)
+navit/xpm/Makefile.am:247: warning: '%'-style pattern rules are a GNU make extension
+navit/xpm/Makefile.am:249: warning: '%'-style pattern rules are a GNU make extension
+navit/xpm/Makefile.am:252: warning: addsuffix .png,$(basename $(svgs: non-POSIX variable name
+navit/xpm/Makefile.am:252: (probably a GNU make extension)
+navit/xpm/Makefile.am:253: warning: word 1,$(subst x, ,$(scale: non-POSIX variable name
+navit/xpm/Makefile.am:253: (probably a GNU make extension)
+navit/xpm/Makefile.am:254: warning: word $(words $(scale: non-POSIX variable name
+navit/xpm/Makefile.am:254: (probably a GNU make extension)
+navit/xpm/Makefile.am:254: warning: subst x, ,$(scale: non-POSIX variable name
+navit/xpm/Makefile.am:254: (probably a GNU make extension)
+navit/xpm/Makefile.am:259: warning: '%'-style pattern rules are a GNU make extension
+navit/xpm/Makefile.am:265: warning: foreach scale, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:265: (probably a GNU make extension)
+navit/xpm/Makefile.am:265: warning: addsuffix _$(xsize: non-POSIX variable name
+navit/xpm/Makefile.am:265: (probably a GNU make extension)
+navit/xpm/Makefile.am:265: warning: basename $(svgs: non-POSIX variable name
+navit/xpm/Makefile.am:265: (probably a GNU make extension)
+navit/xpm/Makefile.am:267: warning: foreach extension,svg svgz, $(foreach size, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:267: (probably a GNU make extension)
+navit/xpm/Makefile.am:267: warning: eval $(call scaling_rule_template,$(size: non-POSIX variable name
+navit/xpm/Makefile.am:267: (probably a GNU make extension)
+navit/xpm/Makefile.am:272: warning: foreach scale, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:272: (probably a GNU make extension)
+navit/xpm/Makefile.am:272: warning: addsuffix _$(xsize: non-POSIX variable name
+navit/xpm/Makefile.am:272: (probably a GNU make extension)
+navit/xpm/Makefile.am:272: warning: basename $(flag_svgs: non-POSIX variable name
+navit/xpm/Makefile.am:272: (probably a GNU make extension)
+navit/xpm/Makefile.am:274: warning: foreach extension,svg svgz, $(foreach size, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:274: (probably a GNU make extension)
+navit/xpm/Makefile.am:274: warning: eval $(call scaling_rule_template,$(size: non-POSIX variable name
+navit/xpm/Makefile.am:274: (probably a GNU make extension)
+navit/xpm/Makefile.am:279: warning: foreach scale, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:279: (probably a GNU make extension)
+navit/xpm/Makefile.am:279: warning: addsuffix _$(xsize: non-POSIX variable name
+navit/xpm/Makefile.am:279: (probably a GNU make extension)
+navit/xpm/Makefile.am:279: warning: basename $(nav_svgs: non-POSIX variable name
+navit/xpm/Makefile.am:279: (probably a GNU make extension)
+navit/xpm/Makefile.am:281: warning: foreach extension,svg svgz, $(foreach size, $(subst $(comma: non-POSIX variable name
+navit/xpm/Makefile.am:281: (probably a GNU make extension)
+navit/xpm/Makefile.am:281: warning: eval $(call scaling_rule_template,$(size: non-POSIX variable name
+navit/xpm/Makefile.am:281: (probably a GNU make extension)
+***** WARNING *****
+Support for autotools will be removed soon from navit, please use cmake instead
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... ./install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking build system type... i386-apple-darwin9.8.0
+checking host system type... i386-apple-darwin9.8.0
+./configure: line 4010: test: too many arguments
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for gcc... gcc
+checking whether we are using the GNU Objective C compiler... yes
+checking whether gcc accepts -g... yes
+checking dependency style of gcc... gcc3
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking whether we are using the GNU Objective C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking whether gcc and cc understand -c and -o together... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking for pkg-config... /opt/local/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking whether byte ordering is bigendian... no
+checking for HILDON... no
+no
+checking for GPSBT... no
+no
+checking for LIBOSSO... no
+no
+no
+checking for bzcat... /opt/local/bin/bzcat
+checking for GLIB... yes
+checking for GMODULE... yes
+checking for AES_encrypt in -lcrypto... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld
+checking if the linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -p
+checking the name lister (/usr/bin/nm -p) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert i386-apple-darwin9.8.0 file names to i386-apple-darwin9.8.0 format... func_convert_file_noop
+checking how to convert i386-apple-darwin9.8.0 file names to toolchain format... func_convert_file_noop
+checking for /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -p output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... ld: unknown option: -force_load
+no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin9.8.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld
+checking if the linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) is GNU ld... no
+checking whether the g++ linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fno-common -DPIC
+checking if g++ PIC flag -fno-common -DPIC works... yes
+checking if g++ static flag -static works... no
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin9.8.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking for winsock2.h... no
+checking for GTK2... yes
+checking for fsync... yes
+checking for system... yes
+checking for CreateProcess... no
+checking for sbrk... yes
+checking for SDL... no
+checking for pg_config... no
+checking for PostgreSQL libraries with ... no
+checking for FREETYPE2... yes
+checking for FONTCONFIG... yes
+checking for FRIBIDI2... no
+checking for FRIBIDI... no
+checking for IMLIB2... no
+checking GL/gl.h usability... no
+checking GL/gl.h presence... no
+checking for GL/gl.h... no
+configure: WARNING: *** no GL/gl.h -- opengl graphics support disabled;graphics_opengl=no;graphics_opengl_reason="GL/gl.h header missing"
+checking GL/glut.h usability... no
+checking GL/glut.h presence... no
+checking for GL/glut.h... no
+configure: WARNING: *** no GL/glut.h -- opengl graphics support disabled
+checking GL/freeglut.h usability... no
+checking GL/freeglut.h presence... no
+checking for GL/freeglut.h... no
+configure: WARNING: *** no GL/freeglut.h -- opengl support disabled
+checking GL/glc.h usability... no
+checking GL/glc.h presence... no
+checking for GL/glc.h... no
+configure: WARNING: *** no GL/glc.h -- opengl graphics support disabled
+checking FreeImage.h usability... no
+checking FreeImage.h presence... no
+checking for FreeImage.h... no
+configure: WARNING: *** no FreeImage.h -- opengl support disabled
+checking shapefil.h usability... no
+checking shapefil.h presence... no
+checking for shapefil.h... no
+checking libshp/shapefil.h usability... no
+checking libshp/shapefil.h presence... no
+checking for libshp/shapefil.h... no
+checking for DBFDeleteField in -lshp... no
+configure: WARNING: *** The shapefile library(libshp) from the system is to old or not found!  -- using included copy
+checking for LIBGARMIN... no
+checking for DBUS... no
+checking for rsvg-convert... no
+checking for ksvgtopng... no
+checking for ksvgtopng4... no
+checking for inkscape... no
+checking for convert... /usr/local/bin/convert
+checking for gettext... no
+checking for xgettext... xgettext
+checking for msgmerge... msgmerge
+checking for msgfmt... msgfmt
+xgettext and gettext() exist; will build i18n support for af ar ast bg ca cs da de de_CH el en_AU en_GB eo es et eu fi fo fr fr_CH gl he hr hu id it ja jv kk lt lv mk nb nds nl nn pl pt pt_BR ro ru sk sl sr sv ta te th tr uk ur vi zh_CN zh_HK 
+checking whether NLS is requested... yes
+checking for msgfmt... /opt/local/bin/msgfmt
+checking for gmsgfmt... /opt/local/bin/msgfmt
+checking for xgettext... /opt/local/bin/xgettext
+checking for msgmerge... /opt/local/bin/msgmerge
+checking for ranlib... (cached) ranlib
+checking for strerror in -lcposix... no
+checking for an ANSI C-conforming const... yes
+checking for signed... yes
+checking for inline... inline
+checking for off_t... yes
+checking for size_t... yes
+checking for long long... yes
+checking for long double... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking whether printf() supports POSIX/XSI format strings... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether we are using the GNU C Library 2.1 or newer... no
+checking whether integer division by zero raises SIGFPE... yes
+checking for unsigned long long... yes
+checking for inttypes.h... yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for stdint.h... (cached) yes
+checking for ld used by GCC... /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld
+checking if the linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) is GNU ld... no
+checking for shared library run path origin... done
+checking for ptrdiff_t... yes
+checking argz.h usability... no
+checking argz.h presence... no
+checking for argz.h... no
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking nl_types.h usability... yes
+checking nl_types.h presence... yes
+checking for nl_types.h... yes
+checking malloc.h usability... no
+checking malloc.h presence... no
+checking for malloc.h... no
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for asprintf... yes
+checking for fwprintf... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... no
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for snprintf... yes
+checking for stpcpy... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for wcslen... yes
+checking for __argz_count... no
+checking for __argz_stringify... no
+checking for __argz_next... no
+checking for __fsetlocking... no
+checking whether _snprintf is declared... no
+checking whether _snwprintf is declared... no
+checking whether feof_unlocked is declared... yes
+checking whether fgets_unlocked is declared... no
+checking whether getc_unlocked is declared... yes
+checking for iconv... yes
+checking how to link with libiconv... -L/opt/local/lib -liconv
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking for bison... bison
+checking version of bison... 2.3, ok
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking for GNU gettext in libc... no
+checking for GNU gettext in libintl... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... external libintl
+checking how to link with libintl... -L/opt/local/lib -lintl -liconv -lc 
+checking byteswap.h usability... no
+checking byteswap.h presence... no
+checking for byteswap.h... no
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking wordexp.h usability... yes
+checking wordexp.h presence... yes
+checking for wordexp.h... yes
+checking sys/shm.h usability... yes
+checking sys/shm.h presence... yes
+checking for sys/shm.h... yes
+checking X11/xpm.h usability... yes
+checking X11/xpm.h presence... yes
+checking for X11/xpm.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking for QT_GUI... no
+checking for QT_GUI... no
+checking for moc... no
+checking libspeechd.h usability... no
+checking libspeechd.h presence... no
+checking for libspeechd.h... no
+checking for GPSD... yes
+checking for LIBGPS19... yes
+checking for GYPSY... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating navit/Makefile
+config.status: creating navit/autoload/Makefile
+config.status: creating navit/autoload/osso/Makefile
+config.status: creating navit/binding/Makefile
+config.status: creating navit/binding/python/Makefile
+config.status: creating navit/binding/dbus/Makefile
+config.status: creating navit/binding/win32/Makefile
+config.status: creating navit/map/Makefile
+config.status: creating navit/map/mg/Makefile
+config.status: creating navit/map/textfile/Makefile
+config.status: creating navit/map/csv/Makefile
+config.status: creating navit/map/shapefile/Makefile
+config.status: creating navit/map/filter/Makefile
+config.status: creating navit/map/binfile/Makefile
+config.status: creating navit/map/garmin/Makefile
+config.status: creating navit/maptool/Makefile
+config.status: creating navit/fib-1.1/Makefile
+config.status: creating navit/font/Makefile
+config.status: creating navit/font/freetype/Makefile
+config.status: creating navit/fonts/Makefile
+config.status: creating navit/graphics/Makefile
+config.status: creating navit/graphics/android/Makefile
+config.status: creating navit/graphics/gd/Makefile
+config.status: creating navit/graphics/gtk_drawing_area/Makefile
+config.status: creating navit/graphics/opengl/Makefile
+config.status: creating navit/graphics/null/Makefile
+config.status: creating navit/graphics/sdl/Makefile
+config.status: creating navit/graphics/qt_qpainter/Makefile
+config.status: creating navit/graphics/win32/Makefile
+config.status: creating navit/gui/Makefile
+config.status: creating navit/gui/gtk/Makefile
+config.status: creating navit/gui/internal/Makefile
+config.status: creating navit/gui/win32/Makefile
+config.status: creating navit/gui/qml/Makefile
+config.status: creating navit/gui/qml/skins/Makefile
+config.status: creating navit/gui/qml/skins/navit/Makefile
+config.status: creating navit/osd/Makefile
+config.status: creating navit/osd/core/Makefile
+config.status: creating navit/plugin/Makefile
+config.status: creating navit/plugin/pedestrian/Makefile
+config.status: creating navit/speech/Makefile
+config.status: creating navit/speech/android/Makefile
+config.status: creating navit/speech/cmdline/Makefile
+config.status: creating navit/speech/dbus/Makefile
+config.status: creating navit/speech/espeak/Makefile
+config.status: creating navit/speech/speech_dispatcher/Makefile
+config.status: creating navit/support/Makefile
+config.status: creating navit/support/espeak/Makefile
+config.status: creating navit/support/ezxml/Makefile
+config.status: creating navit/support/glib/Makefile
+config.status: creating navit/support/libc/Makefile
+config.status: creating navit/support/libpng/Makefile
+config.status: creating navit/support/shapefile/Makefile
+config.status: creating navit/support/win32/Makefile
+config.status: creating navit/support/wordexp/Makefile
+config.status: creating navit/support/zlib/Makefile
+config.status: creating navit/vehicle/Makefile
+config.status: creating navit/vehicle/android/Makefile
+config.status: creating navit/vehicle/file/Makefile
+config.status: creating navit/vehicle/gpsd/Makefile
+config.status: creating navit/vehicle/gpsd_dbus/Makefile
+config.status: creating navit/vehicle/gypsy/Makefile
+config.status: creating navit/vehicle/maemo/Makefile
+config.status: creating navit/vehicle/null/Makefile
+config.status: creating navit/vehicle/demo/Makefile
+config.status: creating navit/vehicle/wince/Makefile
+config.status: creating navit/vehicle/iphone/Makefile
+config.status: creating navit/vehicle/webos/Makefile
+config.status: creating navit/xpm/Makefile
+config.status: creating navit/maps/Makefile
+config.status: creating intl/Makefile
+config.status: WARNING:  'intl/Makefile.in' seems to ignore the --datarootdir setting
+config.status: creating po/Makefile
+config.status: creating man/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+
+
+Summary of your installation :
+OpenGL gui  : DISABLED : you are missing (libsdl maybe?) glut quesoglc 
+Maemo/Hildon: DISABLED
+Maemo/OSSO: DISABLED
+Garmin IMG  : DISABLED (you don't have libgarmin)
+Plugins:             yes (default)
+Postgresql:          no ( not executable)
+Samplemap:           yes (default)
+NLS Support:         yes (-L/opt/local/lib -lintl -liconv -lc )
+Routing:             yes (default)
+Font renderers:
+  freetype:          yes (default)
+  FriBidi enabled:   no (FriBidi library not found)
+Graphics types: yes (default)
+  android:  no (default)
+  gtk_drawing_area:  yes (gtk+-2.0 present)
+  null:              yes (default)
+  qt_qpainter:       no (Packages QtGui and/or QtCore missing)
+  win32:             no (default)
+  OpenGL:            no (Headers missing)
+  gd:                no (default)
+  sdl:               no (sdl not available)
+GUI types:
+  gtk:               yes (gtk+-2.0 present)
+  internal:          yes (default)
+  win32:             no (default)
+  qml:               no (default)
+Map types:
+  binfile:           yes (default)
+  filter:	           yes (default)
+  mg:                yes (default)
+  shapefile:         yes (default)
+  textfile:          yes (default)
+  csv:          yes (default)
+Bindings:
+  dbus:              no (default)
+  python:            no (configure parameter)
+OSD types:
+  core:              yes (default)
+Plugins:
+  pedestrian:	   no (default)
+Speech types:
+  android:           no (default)
+  cmdline:           yes (default)
+  dbus:              no (default)
+  espeak:            no (default)
+  speech_dispatcher: no (libspeechd.h missing)
+Vehicle types:
+  android:           no (default)
+  demo:              yes (default)
+  file:              yes (default)
+  gpsd:              yes (default)
+  gpsd_dbus:         no (default)
+  gypsy:             no (package gypsy missing)
+  maemo:             no (default)
+  null:              no (default)
+  wince:             no (default)
+  iphone:            no (default)
+  webos:             no (default)
+Support for autotools will be removed soon from navit, please use cmake instead

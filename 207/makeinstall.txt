@@ -1,0 +1,1279 @@
+Making install in navit
+make[1]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit'
+make  install-recursive
+make[2]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit'
+Making install in binding
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding'
+Making install in python
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/python'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/python'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/binding" || mkdir -p -- "/home/ce/navit.app/lib/navit/binding"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libbinding_python.la' '/home/ce/navit.app/lib/navit/binding/libbinding_python.la'
+/usr/bin/install -c .libs/libbinding_python.so.0.0.0 /home/ce/navit.app/lib/navit/binding/libbinding_python.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/binding && { ln -s -f libbinding_python.so.0.0.0 libbinding_python.so.0 || { rm -f libbinding_python.so.0 && ln -s libbinding_python.so.0.0.0 libbinding_python.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/binding && { ln -s -f libbinding_python.so.0.0.0 libbinding_python.so || { rm -f libbinding_python.so && ln -s libbinding_python.so.0.0.0 libbinding_python.so; }; })
+/usr/bin/install -c .libs/libbinding_python.lai /home/ce/navit.app/lib/navit/binding/libbinding_python.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/binding
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/binding
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/python'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/python'
+Making install in dbus
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/dbus'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/dbus'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/binding" || mkdir -p -- "/home/ce/navit.app/lib/navit/binding"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libbinding_dbus.la' '/home/ce/navit.app/lib/navit/binding/libbinding_dbus.la'
+/usr/bin/install -c .libs/libbinding_dbus.so.0.0.0 /home/ce/navit.app/lib/navit/binding/libbinding_dbus.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/binding && { ln -s -f libbinding_dbus.so.0.0.0 libbinding_dbus.so.0 || { rm -f libbinding_dbus.so.0 && ln -s libbinding_dbus.so.0.0.0 libbinding_dbus.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/binding && { ln -s -f libbinding_dbus.so.0.0.0 libbinding_dbus.so || { rm -f libbinding_dbus.so && ln -s libbinding_dbus.so.0.0.0 libbinding_dbus.so; }; })
+/usr/bin/install -c .libs/libbinding_dbus.lai /home/ce/navit.app/lib/navit/binding/libbinding_dbus.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/binding
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/binding
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/dbus'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding/dbus'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/binding'
+Making install in data
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data'
+Making install in mg
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/mg'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/mg'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/data" || mkdir -p -- "/home/ce/navit.app/lib/navit/data"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libdata_mg.la' '/home/ce/navit.app/lib/navit/data/libdata_mg.la'
+/usr/bin/install -c .libs/libdata_mg.so.0.0.0 /home/ce/navit.app/lib/navit/data/libdata_mg.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_mg.so.0.0.0 libdata_mg.so.0 || { rm -f libdata_mg.so.0 && ln -s libdata_mg.so.0.0.0 libdata_mg.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_mg.so.0.0.0 libdata_mg.so || { rm -f libdata_mg.so && ln -s libdata_mg.so.0.0.0 libdata_mg.so; }; })
+/usr/bin/install -c .libs/libdata_mg.lai /home/ce/navit.app/lib/navit/data/libdata_mg.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/data
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/data
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/mg'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/mg'
+Making install in textfile
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/textfile'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/textfile'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/data" || mkdir -p -- "/home/ce/navit.app/lib/navit/data"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libdata_textfile.la' '/home/ce/navit.app/lib/navit/data/libdata_textfile.la'
+/usr/bin/install -c .libs/libdata_textfile.so.0.0.0 /home/ce/navit.app/lib/navit/data/libdata_textfile.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_textfile.so.0.0.0 libdata_textfile.so.0 || { rm -f libdata_textfile.so.0 && ln -s libdata_textfile.so.0.0.0 libdata_textfile.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_textfile.so.0.0.0 libdata_textfile.so || { rm -f libdata_textfile.so && ln -s libdata_textfile.so.0.0.0 libdata_textfile.so; }; })
+/usr/bin/install -c .libs/libdata_textfile.lai /home/ce/navit.app/lib/navit/data/libdata_textfile.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/data
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/data
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/textfile'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/textfile'
+Making install in poi_geodownload
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload'
+Making install in libmdb
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb'
+Making install in include
+make[6]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb/include'
+make[7]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb/include'
+make[7]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[7]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[7]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb/include'
+make[6]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb/include'
+make[6]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb'
+make[7]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb'
+make[7]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[7]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[7]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb'
+make[6]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb'
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload/libmdb'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload'
+make[6]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload'
+make[6]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/data" || mkdir -p -- "/home/ce/navit.app/lib/navit/data"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libdata_poi_geodownload.la' '/home/ce/navit.app/lib/navit/data/libdata_poi_geodownload.la'
+/usr/bin/install -c .libs/libdata_poi_geodownload.so.0.0.0 /home/ce/navit.app/lib/navit/data/libdata_poi_geodownload.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_poi_geodownload.so.0.0.0 libdata_poi_geodownload.so.0 || { rm -f libdata_poi_geodownload.so.0 && ln -s libdata_poi_geodownload.so.0.0.0 libdata_poi_geodownload.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_poi_geodownload.so.0.0.0 libdata_poi_geodownload.so || { rm -f libdata_poi_geodownload.so && ln -s libdata_poi_geodownload.so.0.0.0 libdata_poi_geodownload.so; }; })
+/usr/bin/install -c .libs/libdata_poi_geodownload.lai /home/ce/navit.app/lib/navit/data/libdata_poi_geodownload.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/data
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/data
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[6]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload'
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/poi_geodownload'
+Making install in binfile
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/binfile'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/binfile'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/data" || mkdir -p -- "/home/ce/navit.app/lib/navit/data"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libdata_binfile.la' '/home/ce/navit.app/lib/navit/data/libdata_binfile.la'
+/usr/bin/install -c .libs/libdata_binfile.so.0.0.0 /home/ce/navit.app/lib/navit/data/libdata_binfile.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_binfile.so.0.0.0 libdata_binfile.so.0 || { rm -f libdata_binfile.so.0 && ln -s libdata_binfile.so.0.0.0 libdata_binfile.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/data && { ln -s -f libdata_binfile.so.0.0.0 libdata_binfile.so || { rm -f libdata_binfile.so && ln -s libdata_binfile.so.0.0.0 libdata_binfile.so; }; })
+/usr/bin/install -c .libs/libdata_binfile.lai /home/ce/navit.app/lib/navit/data/libdata_binfile.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/data
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/data
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/binfile'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data/binfile'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/data'
+Making install in fib-1.1
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/fib-1.1'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/fib-1.1'
+make[4]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[4]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/fib-1.1'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/fib-1.1'
+Making install in gui
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui'
+Making install in internal
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/internal'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/internal'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/gui" || mkdir -p -- "/home/ce/navit.app/lib/navit/gui"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libgui_internal.la' '/home/ce/navit.app/lib/navit/gui/libgui_internal.la'
+/usr/bin/install -c .libs/libgui_internal.so.0.0.0 /home/ce/navit.app/lib/navit/gui/libgui_internal.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/gui && { ln -s -f libgui_internal.so.0.0.0 libgui_internal.so.0 || { rm -f libgui_internal.so.0 && ln -s libgui_internal.so.0.0.0 libgui_internal.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/gui && { ln -s -f libgui_internal.so.0.0.0 libgui_internal.so || { rm -f libgui_internal.so && ln -s libgui_internal.so.0.0.0 libgui_internal.so; }; })
+/usr/bin/install -c .libs/libgui_internal.lai /home/ce/navit.app/lib/navit/gui/libgui_internal.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/gui
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/gui
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/internal'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/internal'
+Making install in gtk
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/gtk'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/gtk'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/gui" || mkdir -p -- "/home/ce/navit.app/lib/navit/gui"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libgui_gtk.la' '/home/ce/navit.app/lib/navit/gui/libgui_gtk.la'
+/usr/bin/install -c .libs/libgui_gtk.so.0.0.0 /home/ce/navit.app/lib/navit/gui/libgui_gtk.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/gui && { ln -s -f libgui_gtk.so.0.0.0 libgui_gtk.so.0 || { rm -f libgui_gtk.so.0 && ln -s libgui_gtk.so.0.0.0 libgui_gtk.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/gui && { ln -s -f libgui_gtk.so.0.0.0 libgui_gtk.so || { rm -f libgui_gtk.so && ln -s libgui_gtk.so.0.0.0 libgui_gtk.so; }; })
+/usr/bin/install -c .libs/libgui_gtk.lai /home/ce/navit.app/lib/navit/gui/libgui_gtk.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/gui
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/gui
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/gtk'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui/gtk'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/gui'
+Making install in graphics
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics'
+Making install in null
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/null'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/null'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/graphics" || mkdir -p -- "/home/ce/navit.app/lib/navit/graphics"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libgraphics_null.la' '/home/ce/navit.app/lib/navit/graphics/libgraphics_null.la'
+/usr/bin/install -c .libs/libgraphics_null.so.0.0.0 /home/ce/navit.app/lib/navit/graphics/libgraphics_null.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/graphics && { ln -s -f libgraphics_null.so.0.0.0 libgraphics_null.so.0 || { rm -f libgraphics_null.so.0 && ln -s libgraphics_null.so.0.0.0 libgraphics_null.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/graphics && { ln -s -f libgraphics_null.so.0.0.0 libgraphics_null.so || { rm -f libgraphics_null.so && ln -s libgraphics_null.so.0.0.0 libgraphics_null.so; }; })
+/usr/bin/install -c .libs/libgraphics_null.lai /home/ce/navit.app/lib/navit/graphics/libgraphics_null.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/graphics
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/graphics
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/null'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/null'
+Making install in gtk_drawing_area
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/gtk_drawing_area'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/gtk_drawing_area'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/graphics" || mkdir -p -- "/home/ce/navit.app/lib/navit/graphics"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libgraphics_gtk_drawing_area.la' '/home/ce/navit.app/lib/navit/graphics/libgraphics_gtk_drawing_area.la'
+/usr/bin/install -c .libs/libgraphics_gtk_drawing_area.so.0.0.0 /home/ce/navit.app/lib/navit/graphics/libgraphics_gtk_drawing_area.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/graphics && { ln -s -f libgraphics_gtk_drawing_area.so.0.0.0 libgraphics_gtk_drawing_area.so.0 || { rm -f libgraphics_gtk_drawing_area.so.0 && ln -s libgraphics_gtk_drawing_area.so.0.0.0 libgraphics_gtk_drawing_area.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/graphics && { ln -s -f libgraphics_gtk_drawing_area.so.0.0.0 libgraphics_gtk_drawing_area.so || { rm -f libgraphics_gtk_drawing_area.so && ln -s libgraphics_gtk_drawing_area.so.0.0.0 libgraphics_gtk_drawing_area.so; }; })
+/usr/bin/install -c .libs/libgraphics_gtk_drawing_area.lai /home/ce/navit.app/lib/navit/graphics/libgraphics_gtk_drawing_area.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/graphics
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/graphics
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/gtk_drawing_area'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/gtk_drawing_area'
+Making install in qt_qpainter
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/qt_qpainter'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/qt_qpainter'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/graphics" || mkdir -p -- "/home/ce/navit.app/lib/navit/graphics"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libgraphics_qt_qpainter.la' '/home/ce/navit.app/lib/navit/graphics/libgraphics_qt_qpainter.la'
+/usr/bin/install -c .libs/libgraphics_qt_qpainter.so.0.0.0 /home/ce/navit.app/lib/navit/graphics/libgraphics_qt_qpainter.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/graphics && { ln -s -f libgraphics_qt_qpainter.so.0.0.0 libgraphics_qt_qpainter.so.0 || { rm -f libgraphics_qt_qpainter.so.0 && ln -s libgraphics_qt_qpainter.so.0.0.0 libgraphics_qt_qpainter.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/graphics && { ln -s -f libgraphics_qt_qpainter.so.0.0.0 libgraphics_qt_qpainter.so || { rm -f libgraphics_qt_qpainter.so && ln -s libgraphics_qt_qpainter.so.0.0.0 libgraphics_qt_qpainter.so; }; })
+/usr/bin/install -c .libs/libgraphics_qt_qpainter.lai /home/ce/navit.app/lib/navit/graphics/libgraphics_qt_qpainter.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/graphics
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/graphics
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/qt_qpainter'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics/qt_qpainter'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/graphics'
+Making install in osd
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd'
+Making install in core
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd/core'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd/core'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/osd" || mkdir -p -- "/home/ce/navit.app/lib/navit/osd"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libosd_core.la' '/home/ce/navit.app/lib/navit/osd/libosd_core.la'
+/usr/bin/install -c .libs/libosd_core.so.0.0.0 /home/ce/navit.app/lib/navit/osd/libosd_core.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/osd && { ln -s -f libosd_core.so.0.0.0 libosd_core.so.0 || { rm -f libosd_core.so.0 && ln -s libosd_core.so.0.0.0 libosd_core.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/osd && { ln -s -f libosd_core.so.0.0.0 libosd_core.so || { rm -f libosd_core.so && ln -s libosd_core.so.0.0.0 libosd_core.so; }; })
+/usr/bin/install -c .libs/libosd_core.lai /home/ce/navit.app/lib/navit/osd/libosd_core.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/osd
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/osd
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd/core'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd/core'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/osd'
+Making install in speech
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech'
+Making install in cmdline
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/cmdline'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/cmdline'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/speech" || mkdir -p -- "/home/ce/navit.app/lib/navit/speech"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libspeech_cmdline.la' '/home/ce/navit.app/lib/navit/speech/libspeech_cmdline.la'
+/usr/bin/install -c .libs/libspeech_cmdline.so.0.0.0 /home/ce/navit.app/lib/navit/speech/libspeech_cmdline.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/speech && { ln -s -f libspeech_cmdline.so.0.0.0 libspeech_cmdline.so.0 || { rm -f libspeech_cmdline.so.0 && ln -s libspeech_cmdline.so.0.0.0 libspeech_cmdline.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/speech && { ln -s -f libspeech_cmdline.so.0.0.0 libspeech_cmdline.so || { rm -f libspeech_cmdline.so && ln -s libspeech_cmdline.so.0.0.0 libspeech_cmdline.so; }; })
+/usr/bin/install -c .libs/libspeech_cmdline.lai /home/ce/navit.app/lib/navit/speech/libspeech_cmdline.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/speech
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/speech
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/cmdline'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/cmdline'
+Making install in speech_dispatcher
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/speech_dispatcher'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/speech_dispatcher'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/speech" || mkdir -p -- "/home/ce/navit.app/lib/navit/speech"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libspeech_speech_dispatcher.la' '/home/ce/navit.app/lib/navit/speech/libspeech_speech_dispatcher.la'
+/usr/bin/install -c .libs/libspeech_speech_dispatcher.so.0.0.0 /home/ce/navit.app/lib/navit/speech/libspeech_speech_dispatcher.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/speech && { ln -s -f libspeech_speech_dispatcher.so.0.0.0 libspeech_speech_dispatcher.so.0 || { rm -f libspeech_speech_dispatcher.so.0 && ln -s libspeech_speech_dispatcher.so.0.0.0 libspeech_speech_dispatcher.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/speech && { ln -s -f libspeech_speech_dispatcher.so.0.0.0 libspeech_speech_dispatcher.so || { rm -f libspeech_speech_dispatcher.so && ln -s libspeech_speech_dispatcher.so.0.0.0 libspeech_speech_dispatcher.so; }; })
+/usr/bin/install -c .libs/libspeech_speech_dispatcher.lai /home/ce/navit.app/lib/navit/speech/libspeech_speech_dispatcher.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/speech
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/speech
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/speech_dispatcher'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech/speech_dispatcher'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/speech'
+Making install in vehicle
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle'
+Making install in demo
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/demo'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/demo'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/vehicle" || mkdir -p -- "/home/ce/navit.app/lib/navit/vehicle"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libvehicle_demo.la' '/home/ce/navit.app/lib/navit/vehicle/libvehicle_demo.la'
+/usr/bin/install -c .libs/libvehicle_demo.so.0.0.0 /home/ce/navit.app/lib/navit/vehicle/libvehicle_demo.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/vehicle && { ln -s -f libvehicle_demo.so.0.0.0 libvehicle_demo.so.0 || { rm -f libvehicle_demo.so.0 && ln -s libvehicle_demo.so.0.0.0 libvehicle_demo.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/vehicle && { ln -s -f libvehicle_demo.so.0.0.0 libvehicle_demo.so || { rm -f libvehicle_demo.so && ln -s libvehicle_demo.so.0.0.0 libvehicle_demo.so; }; })
+/usr/bin/install -c .libs/libvehicle_demo.lai /home/ce/navit.app/lib/navit/vehicle/libvehicle_demo.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/vehicle
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/vehicle
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/demo'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/demo'
+Making install in file
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/file'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/file'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/vehicle" || mkdir -p -- "/home/ce/navit.app/lib/navit/vehicle"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libvehicle_file.la' '/home/ce/navit.app/lib/navit/vehicle/libvehicle_file.la'
+/usr/bin/install -c .libs/libvehicle_file.so.0.0.0 /home/ce/navit.app/lib/navit/vehicle/libvehicle_file.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/vehicle && { ln -s -f libvehicle_file.so.0.0.0 libvehicle_file.so.0 || { rm -f libvehicle_file.so.0 && ln -s libvehicle_file.so.0.0.0 libvehicle_file.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/vehicle && { ln -s -f libvehicle_file.so.0.0.0 libvehicle_file.so || { rm -f libvehicle_file.so && ln -s libvehicle_file.so.0.0.0 libvehicle_file.so; }; })
+/usr/bin/install -c .libs/libvehicle_file.lai /home/ce/navit.app/lib/navit/vehicle/libvehicle_file.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/vehicle
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/vehicle
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/file'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/file'
+Making install in gpsd
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/gpsd'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/gpsd'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/home/ce/navit.app/lib/navit/vehicle" || mkdir -p -- "/home/ce/navit.app/lib/navit/vehicle"
+ /bin/bash ../../../libtool --mode=install /usr/bin/install -c  'libvehicle_gpsd.la' '/home/ce/navit.app/lib/navit/vehicle/libvehicle_gpsd.la'
+/usr/bin/install -c .libs/libvehicle_gpsd.so.0.0.0 /home/ce/navit.app/lib/navit/vehicle/libvehicle_gpsd.so.0.0.0
+(cd /home/ce/navit.app/lib/navit/vehicle && { ln -s -f libvehicle_gpsd.so.0.0.0 libvehicle_gpsd.so.0 || { rm -f libvehicle_gpsd.so.0 && ln -s libvehicle_gpsd.so.0.0.0 libvehicle_gpsd.so.0; }; })
+(cd /home/ce/navit.app/lib/navit/vehicle && { ln -s -f libvehicle_gpsd.so.0.0.0 libvehicle_gpsd.so || { rm -f libvehicle_gpsd.so && ln -s libvehicle_gpsd.so.0.0.0 libvehicle_gpsd.so; }; })
+/usr/bin/install -c .libs/libvehicle_gpsd.lai /home/ce/navit.app/lib/navit/vehicle/libvehicle_gpsd.la
+PATH="$PATH:/sbin" ldconfig -n /home/ce/navit.app/lib/navit/vehicle
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ce/navit.app/lib/navit/vehicle
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/gpsd'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle/gpsd'
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle'
+make[5]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle'
+make[5]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[5]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[5]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle'
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle'
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/vehicle'
+Making install in xpm
+make[3]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/xpm'
+./svg2png "gui_actions_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_96_96.png"
+./svg2png: 14: [[: not found
+make[4]: Betrete Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/xpm'
+make[4]: Für das Ziel »install-exec-am« ist nichts zu tun.
+./svg2png "gui_actions_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_8_8.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_16_16.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_32_32.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_48_48.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_actions_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_active_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_bookmark_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_display_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_home_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_inactive_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_map_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_maps_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_rules_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_settings_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_sound_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_tools_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_fullscreen_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_leave_fullscreen_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_quit_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_stop_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_in_96_96.png"
+./svg2png: 14: [[: not found
+./svg2png "gui_zoom_out_96_96.png"
+./svg2png: 14: [[: not found
+test -z "/home/ce/navit.app/share/navit/xpm" || mkdir -p -- "/home/ce/navit.app/share/navit/xpm"
+ /usr/bin/install -c -m 644 'airport.xpm' '/home/ce/navit.app/share/navit/xpm/airport.xpm'
+ /usr/bin/install -c -m 644 'attraction.xpm' '/home/ce/navit.app/share/navit/xpm/attraction.xpm'
+ /usr/bin/install -c -m 644 'bank.xpm' '/home/ce/navit.app/share/navit/xpm/bank.xpm'
+ /usr/bin/install -c -m 644 'bar.xpm' '/home/ce/navit.app/share/navit/xpm/bar.xpm'
+ /usr/bin/install -c -m 644 'boat_ramp.xpm' '/home/ce/navit.app/share/navit/xpm/boat_ramp.xpm'
+ /usr/bin/install -c -m 644 'bus.xpm' '/home/ce/navit.app/share/navit/xpm/bus.xpm'
+ /usr/bin/install -c -m 644 'cafe.xpm' '/home/ce/navit.app/share/navit/xpm/cafe.xpm'
+ /usr/bin/install -c -m 644 'camping.xpm' '/home/ce/navit.app/share/navit/xpm/camping.xpm'
+ /usr/bin/install -c -m 644 'car_dealer.xpm' '/home/ce/navit.app/share/navit/xpm/car_dealer.xpm'
+ /usr/bin/install -c -m 644 'cemetery.xpm' '/home/ce/navit.app/share/navit/xpm/cemetery.xpm'
+ /usr/bin/install -c -m 644 'church.xpm' '/home/ce/navit.app/share/navit/xpm/church.xpm'
+ /usr/bin/install -c -m 644 'cinema.xpm' '/home/ce/navit.app/share/navit/xpm/cinema.xpm'
+ /usr/bin/install -c -m 644 'cursor.xpm' '/home/ce/navit.app/share/navit/xpm/cursor.xpm'
+ /usr/bin/install -c -m 644 'dumping-station.xpm' '/home/ce/navit.app/share/navit/xpm/dumping-station.xpm'
+ /usr/bin/install -c -m 644 'exit.xpm' '/home/ce/navit.app/share/navit/xpm/exit.xpm'
+ /usr/bin/install -c -m 644 'fastfood.xpm' '/home/ce/navit.app/share/navit/xpm/fastfood.xpm'
+ /usr/bin/install -c -m 644 'firebrigade.xpm' '/home/ce/navit.app/share/navit/xpm/firebrigade.xpm'
+ /usr/bin/install -c -m 644 'fuel.xpm' '/home/ce/navit.app/share/navit/xpm/fuel.xpm'
+ /usr/bin/install -c -m 644 'flag_bk_tr.xpm' '/home/ce/navit.app/share/navit/xpm/flag_bk_tr.xpm'
+ /usr/bin/install -c -m 644 'flag_bk_wh.xpm' '/home/ce/navit.app/share/navit/xpm/flag_bk_wh.xpm'
+ /usr/bin/install -c -m 644 'flag_bl_wh.xpm' '/home/ce/navit.app/share/navit/xpm/flag_bl_wh.xpm'
+ /usr/bin/install -c -m 644 'flag_wh_bk.xpm' '/home/ce/navit.app/share/navit/xpm/flag_wh_bk.xpm'
+ /usr/bin/install -c -m 644 'golf.xpm' '/home/ce/navit.app/share/navit/xpm/golf.xpm'
+ /usr/bin/install -c -m 644 'gc_tradi.xpm' '/home/ce/navit.app/share/navit/xpm/gc_tradi.xpm'
+ /usr/bin/install -c -m 644 'gc_multi.xpm' '/home/ce/navit.app/share/navit/xpm/gc_multi.xpm'
+ /usr/bin/install -c -m 644 'gc_mystery.xpm' '/home/ce/navit.app/share/navit/xpm/gc_mystery.xpm'
+ /usr/bin/install -c -m 644 'gc_event.xpm' '/home/ce/navit.app/share/navit/xpm/gc_event.xpm'
+ /usr/bin/install -c -m 644 'gc_reference.xpm' '/home/ce/navit.app/share/navit/xpm/gc_reference.xpm'
+ /usr/bin/install -c -m 644 'gc_webcam.xpm' '/home/ce/navit.app/share/navit/xpm/gc_webcam.xpm'
+ /usr/bin/install -c -m 644 'gc_question.xpm' '/home/ce/navit.app/share/navit/xpm/gc_question.xpm'
+ /usr/bin/install -c -m 644 'gc_stages.xpm' '/home/ce/navit.app/share/navit/xpm/gc_stages.xpm'
+ /usr/bin/install -c -m 644 'heliport.xpm' '/home/ce/navit.app/share/navit/xpm/heliport.xpm'
+ /usr/bin/install -c -m 644 'highway_exit.xpm' '/home/ce/navit.app/share/navit/xpm/highway_exit.xpm'
+ /usr/bin/install -c -m 644 'hospital.xpm' '/home/ce/navit.app/share/navit/xpm/hospital.xpm'
+ /usr/bin/install -c -m 644 'hotel.xpm' '/home/ce/navit.app/share/navit/xpm/hotel.xpm'
+ /usr/bin/install -c -m 644 'information.xpm' '/home/ce/navit.app/share/navit/xpm/information.xpm'
+ /usr/bin/install -c -m 644 'level_crossing.xpm' '/home/ce/navit.app/share/navit/xpm/level_crossing.xpm'
+ /usr/bin/install -c -m 644 'library.xpm' '/home/ce/navit.app/share/navit/xpm/library.xpm'
+ /usr/bin/install -c -m 644 'mini_roundabout.xpm' '/home/ce/navit.app/share/navit/xpm/mini_roundabout.xpm'
+ /usr/bin/install -c -m 644 'museum.xpm' '/home/ce/navit.app/share/navit/xpm/museum.xpm'
+ /usr/bin/install -c -m 644 'nav_left_1.xpm' '/home/ce/navit.app/share/navit/xpm/nav_left_1.xpm'
+ /usr/bin/install -c -m 644 'nav_left_2.xpm' '/home/ce/navit.app/share/navit/xpm/nav_left_2.xpm'
+ /usr/bin/install -c -m 644 'nav_right_1.xpm' '/home/ce/navit.app/share/navit/xpm/nav_right_1.xpm'
+ /usr/bin/install -c -m 644 'nav_right_2.xpm' '/home/ce/navit.app/share/navit/xpm/nav_right_2.xpm'
+ /usr/bin/install -c -m 644 'nav_straight.xpm' '/home/ce/navit.app/share/navit/xpm/nav_straight.xpm'
+ /usr/bin/install -c -m 644 'nav_straight_32.xpm' '/home/ce/navit.app/share/navit/xpm/nav_straight_32.xpm'
+ /usr/bin/install -c -m 644 'nav_left_1_32.xpm' '/home/ce/navit.app/share/navit/xpm/nav_left_1_32.xpm'
+ /usr/bin/install -c -m 644 'nav_left_2_32.xpm' '/home/ce/navit.app/share/navit/xpm/nav_left_2_32.xpm'
+ /usr/bin/install -c -m 644 'nav_right_1_32.xpm' '/home/ce/navit.app/share/navit/xpm/nav_right_1_32.xpm'
+ /usr/bin/install -c -m 644 'nav_right_2_32.xpm' '/home/ce/navit.app/share/navit/xpm/nav_right_2_32.xpm'
+ /usr/bin/install -c -m 644 'parking.xpm' '/home/ce/navit.app/share/navit/xpm/parking.xpm'
+ /usr/bin/install -c -m 644 'peak.xpm' '/home/ce/navit.app/share/navit/xpm/peak.xpm'
+ /usr/bin/install -c -m 644 'pharmacy.xpm' '/home/ce/navit.app/share/navit/xpm/pharmacy.xpm'
+ /usr/bin/install -c -m 644 'picnic.xpm' '/home/ce/navit.app/share/navit/xpm/picnic.xpm'
+ /usr/bin/install -c -m 644 'police.xpm' '/home/ce/navit.app/share/navit/xpm/police.xpm'
+ /usr/bin/install -c -m 644 'post.xpm' '/home/ce/navit.app/share/navit/xpm/post.xpm'
+ /usr/bin/install -c -m 644 'restaurant.xpm' '/home/ce/navit.app/share/navit/xpm/restaurant.xpm'
+ /usr/bin/install -c -m 644 'restroom.xpm' '/home/ce/navit.app/share/navit/xpm/restroom.xpm'
+ /usr/bin/install -c -m 644 'shopping.xpm' '/home/ce/navit.app/share/navit/xpm/shopping.xpm'
+ /usr/bin/install -c -m 644 'skiing.xpm' '/home/ce/navit.app/share/navit/xpm/skiing.xpm'
+ /usr/bin/install -c -m 644 'sports.xpm' '/home/ce/navit.app/share/navit/xpm/sports.xpm'
+ /usr/bin/install -c -m 644 'swimming.xpm' '/home/ce/navit.app/share/navit/xpm/swimming.xpm'
+ /usr/bin/install -c -m 644 'telephone.xpm' '/home/ce/navit.app/share/navit/xpm/telephone.xpm'
+ /usr/bin/install -c -m 644 'theater.xpm' '/home/ce/navit.app/share/navit/xpm/theater.xpm'
+ /usr/bin/install -c -m 644 'tower.xpm' '/home/ce/navit.app/share/navit/xpm/tower.xpm'
+ /usr/bin/install -c -m 644 'townhall.xpm' '/home/ce/navit.app/share/navit/xpm/townhall.xpm'
+ /usr/bin/install -c -m 644 'traffic_signals.xpm' '/home/ce/navit.app/share/navit/xpm/traffic_signals.xpm'
+ /usr/bin/install -c -m 644 'trailerpark.xpm' '/home/ce/navit.app/share/navit/xpm/trailerpark.xpm'
+ /usr/bin/install -c -m 644 'unknown.xpm' '/home/ce/navit.app/share/navit/xpm/unknown.xpm'
+ /usr/bin/install -c -m 644 'wifi.xpm' '/home/ce/navit.app/share/navit/xpm/wifi.xpm'
+ /usr/bin/install -c -m 644 'gui_actions.svg' '/home/ce/navit.app/share/navit/xpm/gui_actions.svg'
+ /usr/bin/install -c -m 644 'gui_active.svg' '/home/ce/navit.app/share/navit/xpm/gui_active.svg'
+ /usr/bin/install -c -m 644 'gui_bookmark.svg' '/home/ce/navit.app/share/navit/xpm/gui_bookmark.svg'
+ /usr/bin/install -c -m 644 'gui_display.svg' '/home/ce/navit.app/share/navit/xpm/gui_display.svg'
+ /usr/bin/install -c -m 644 'gui_home.svg' '/home/ce/navit.app/share/navit/xpm/gui_home.svg'
+ /usr/bin/install -c -m 644 'gui_inactive.svg' '/home/ce/navit.app/share/navit/xpm/gui_inactive.svg'
+ /usr/bin/install -c -m 644 'gui_map.svg' '/home/ce/navit.app/share/navit/xpm/gui_map.svg'
+ /usr/bin/install -c -m 644 'gui_maps.svg' '/home/ce/navit.app/share/navit/xpm/gui_maps.svg'
+ /usr/bin/install -c -m 644 'gui_rules.svg' '/home/ce/navit.app/share/navit/xpm/gui_rules.svg'
+ /usr/bin/install -c -m 644 'gui_settings.svg' '/home/ce/navit.app/share/navit/xpm/gui_settings.svg'
+ /usr/bin/install -c -m 644 'gui_sound.svg' '/home/ce/navit.app/share/navit/xpm/gui_sound.svg'
+ /usr/bin/install -c -m 644 'gui_tools.svg' '/home/ce/navit.app/share/navit/xpm/gui_tools.svg'
+ /usr/bin/install -c -m 644 'gui_fullscreen.svg' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen.svg'
+ /usr/bin/install -c -m 644 'gui_leave_fullscreen.svg' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen.svg'
+ /usr/bin/install -c -m 644 'gui_quit.svg' '/home/ce/navit.app/share/navit/xpm/gui_quit.svg'
+ /usr/bin/install -c -m 644 'gui_stop.svg' '/home/ce/navit.app/share/navit/xpm/gui_stop.svg'
+ /usr/bin/install -c -m 644 'gui_zoom_in.svg' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in.svg'
+ /usr/bin/install -c -m 644 'gui_zoom_out.svg' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out.svg'
+ /usr/bin/install -c -m 644 'gui_actions.png' '/home/ce/navit.app/share/navit/xpm/gui_actions.png'
+ /usr/bin/install -c -m 644 'gui_active.png' '/home/ce/navit.app/share/navit/xpm/gui_active.png'
+ /usr/bin/install -c -m 644 'gui_bookmark.png' '/home/ce/navit.app/share/navit/xpm/gui_bookmark.png'
+ /usr/bin/install -c -m 644 'gui_display.png' '/home/ce/navit.app/share/navit/xpm/gui_display.png'
+ /usr/bin/install -c -m 644 'gui_home.png' '/home/ce/navit.app/share/navit/xpm/gui_home.png'
+ /usr/bin/install -c -m 644 'gui_inactive.png' '/home/ce/navit.app/share/navit/xpm/gui_inactive.png'
+ /usr/bin/install -c -m 644 'gui_map.png' '/home/ce/navit.app/share/navit/xpm/gui_map.png'
+ /usr/bin/install -c -m 644 'gui_maps.png' '/home/ce/navit.app/share/navit/xpm/gui_maps.png'
+ /usr/bin/install -c -m 644 'gui_rules.png' '/home/ce/navit.app/share/navit/xpm/gui_rules.png'
+ /usr/bin/install -c -m 644 'gui_settings.png' '/home/ce/navit.app/share/navit/xpm/gui_settings.png'
+ /usr/bin/install -c -m 644 'gui_sound.png' '/home/ce/navit.app/share/navit/xpm/gui_sound.png'
+ /usr/bin/install -c -m 644 'gui_tools.png' '/home/ce/navit.app/share/navit/xpm/gui_tools.png'
+ /usr/bin/install -c -m 644 'gui_fullscreen.png' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen.png'
+ /usr/bin/install -c -m 644 'gui_leave_fullscreen.png' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen.png'
+ /usr/bin/install -c -m 644 'gui_quit.png' '/home/ce/navit.app/share/navit/xpm/gui_quit.png'
+ /usr/bin/install -c -m 644 'gui_stop.png' '/home/ce/navit.app/share/navit/xpm/gui_stop.png'
+ /usr/bin/install -c -m 644 'gui_zoom_in.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in.png'
+ /usr/bin/install -c -m 644 'gui_zoom_out.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out.png'
+ /usr/bin/install -c -m 644 './gui_actions_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_actions_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_actions_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_active_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_active_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_active_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_bookmark_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_bookmark_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_bookmark_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_display_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_display_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_display_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_home_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_home_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_home_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_inactive_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_inactive_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_inactive_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_map_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_map_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_map_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_maps_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_maps_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_maps_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_rules_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_rules_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_rules_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_settings_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_settings_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_settings_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_sound_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_sound_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_sound_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_tools_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_tools_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_tools_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_fullscreen_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_fullscreen_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_leave_fullscreen_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_leave_fullscreen_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_quit_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_quit_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_quit_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_stop_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_stop_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_stop_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_in_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_in_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_out_8_8.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out_8_8.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_out_8_8.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_actions_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_actions_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_actions_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_active_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_active_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_active_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_bookmark_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_bookmark_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_bookmark_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_display_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_display_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_display_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_home_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_home_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_home_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_inactive_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_inactive_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_inactive_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_map_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_map_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_map_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_maps_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_maps_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_maps_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_rules_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_rules_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_rules_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_settings_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_settings_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_settings_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_sound_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_sound_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_sound_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_tools_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_tools_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_tools_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_fullscreen_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_fullscreen_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_leave_fullscreen_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_leave_fullscreen_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_quit_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_quit_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_quit_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_stop_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_stop_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_stop_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_in_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_in_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_out_16_16.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out_16_16.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_out_16_16.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_actions_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_actions_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_actions_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_active_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_active_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_active_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_bookmark_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_bookmark_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_bookmark_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_display_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_display_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_display_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_home_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_home_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_home_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_inactive_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_inactive_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_inactive_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_map_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_map_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_map_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_maps_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_maps_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_maps_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_rules_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_rules_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_rules_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_settings_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_settings_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_settings_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_sound_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_sound_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_sound_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_tools_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_tools_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_tools_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_fullscreen_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_fullscreen_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_leave_fullscreen_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_leave_fullscreen_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_quit_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_quit_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_quit_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_stop_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_stop_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_stop_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_in_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_in_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_out_32_32.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out_32_32.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_out_32_32.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_actions_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_actions_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_actions_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_active_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_active_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_active_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_bookmark_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_bookmark_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_bookmark_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_display_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_display_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_display_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_home_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_home_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_home_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_inactive_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_inactive_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_inactive_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_map_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_map_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_map_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_maps_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_maps_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_maps_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_rules_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_rules_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_rules_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_settings_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_settings_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_settings_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_sound_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_sound_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_sound_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_tools_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_tools_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_tools_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_fullscreen_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_fullscreen_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_leave_fullscreen_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_leave_fullscreen_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_quit_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_quit_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_quit_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_stop_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_stop_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_stop_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_in_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_in_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_out_48_48.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out_48_48.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_out_48_48.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_actions_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_actions_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_actions_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_active_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_active_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_active_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_bookmark_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_bookmark_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_bookmark_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_display_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_display_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_display_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_home_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_home_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_home_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_inactive_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_inactive_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_inactive_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_map_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_map_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_map_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_maps_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_maps_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_maps_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_rules_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_rules_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_rules_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_settings_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_settings_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_settings_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_sound_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_sound_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_sound_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_tools_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_tools_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_tools_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_fullscreen_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_fullscreen_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_fullscreen_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_leave_fullscreen_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_leave_fullscreen_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_leave_fullscreen_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_quit_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_quit_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_quit_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_stop_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_stop_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_stop_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_in_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_in_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_in_96_96.png“ nicht möglich: No such file or directory
+ /usr/bin/install -c -m 644 './gui_zoom_out_96_96.png' '/home/ce/navit.app/share/navit/xpm/gui_zoom_out_96_96.png'
+/usr/bin/install: Aufruf von stat für „./gui_zoom_out_96_96.png“ nicht möglich: No such file or directory
+make[4]: *** [install-xpmDATA] Fehler 1
+make[4]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/xpm'
+make[3]: *** [install-am] Fehler 2
+make[3]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit/xpm'
+make[2]: *** [install-recursive] Fehler 1
+make[2]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit'
+make[1]: *** [install] Fehler 2
+make[1]: Verlasse Verzeichnis '/home/ce/Desktop/navit/navit/trunk/navit/navit'
+make: *** [install-recursive] Fehler 1

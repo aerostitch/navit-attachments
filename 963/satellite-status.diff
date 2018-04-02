@@ -1,0 +1,227 @@
+Index: navit/android/src/org/navitproject/navit/NavitVehicle.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitVehicle.java	(revision 5655)
++++ navit/android/src/org/navitproject/navit/NavitVehicle.java	(working copy)
+@@ -19,11 +19,16 @@
+ 
+ package org.navitproject.navit;
+ 
++import java.util.Iterator;
++
+ import android.content.Context;
+ import android.location.Criteria;
++import android.location.GpsSatellite;
++import android.location.GpsStatus;
+ import android.location.Location;
+ import android.location.LocationListener;
+ import android.location.LocationManager;
++import android.location.LocationProvider;
+ import android.os.Bundle;
+ import android.util.Log;
+ 
+@@ -32,14 +37,20 @@
+ 	public static Location lastLocation = null;
+ 
+ 	private static LocationManager sLocationManager = null;
+-	private int vehicle_callbackid;
++	private int vehicle_location_callbackid;
++	private int vehicle_status_callbackid;
+ 	private String preciseProvider;
+ 	private String fastProvider;
+ 
+ 	private static NavitLocationListener preciseLocationListener = null;
+ 	private static NavitLocationListener fastLocationListener = null;
++	
++	private static NavitGpsStatusListener mGpsStatusListener = null;
++	
++	private GpsStatus mGpsStatus = null;
+ 
+-	public native void VehicleCallback(int id, Location location);
++	public native void VehicleLocationCallback(int id, Location location);
++	public native void VehicleStatusCallback(int id, int fixType, int usedSatellites);
+ 
+ 	private class NavitLocationListener implements LocationListener {
+ 		public boolean precise = false;
+@@ -51,14 +62,38 @@
+ 				fastProvider = null;
+ 			}
+ 			
+-			VehicleCallback(vehicle_callbackid, location);
++			VehicleLocationCallback(vehicle_location_callbackid, location);
+ 		}
+ 		public void onProviderDisabled(String provider){}
+ 		public void onProviderEnabled(String provider) {}
+ 		public void onStatusChanged(String provider, int status, Bundle extras) {}
+ 	}
++	
++	private class NavitGpsStatusListener implements GpsStatus.Listener {
++		@Override
++		public void onGpsStatusChanged(int event) {
++			sLocationManager.getGpsStatus(mGpsStatus);
++			
++			/* fixType needs to be 2 if GPS is available */
++			int fixType = 0;
++			if(event == GpsStatus.GPS_EVENT_SATELLITE_STATUS)
++				fixType = 2;
++			
++			/* Get the number of currently used Satellites */
++			Iterator<GpsSatellite> satI = mGpsStatus.getSatellites().iterator();
++			int usedSatellites = 0;
++			while(satI.hasNext()) {
++				GpsSatellite satellite = satI.next();
++				
++				if(satellite.usedInFix())
++					usedSatellites++;
++			}
++			
++			VehicleStatusCallback(vehicle_status_callbackid, fixType, usedSatellites);
++		}		
++	}
+ 
+-	NavitVehicle (Context context, int callbackid) {
++	NavitVehicle (Context context, int locationCallbackid, int statusCallbackid) {
+ 		sLocationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+ 		preciseLocationListener = new NavitLocationListener();
+ 		preciseLocationListener.precise = true;
+@@ -90,9 +125,14 @@
+ 		Log.e("NavitVehicle", "Precise Provider " + preciseProvider);
+ 		fastProvider = sLocationManager.getBestProvider(lowCriteria, false);
+ 		Log.e("NavitVehicle", "Fast Provider " + fastProvider);
+-		vehicle_callbackid=callbackid;
++		vehicle_location_callbackid=locationCallbackid;
++		vehicle_status_callbackid=statusCallbackid;
++		
++		mGpsStatusListener = new NavitGpsStatusListener();
++		mGpsStatus = sLocationManager.getGpsStatus(null);
+ 
+ 		sLocationManager.requestLocationUpdates(preciseProvider, 0, 0, preciseLocationListener);
++		sLocationManager.addGpsStatusListener(mGpsStatusListener);
+ 
+ 		// If the 2 providers are the same, only activate one listener
+ 		if (fastProvider == null || preciseProvider.compareTo(fastProvider) == 0) {
+@@ -106,6 +146,7 @@
+ 		if (sLocationManager != null) {
+ 			if (preciseLocationListener != null) sLocationManager.removeUpdates(preciseLocationListener);
+ 			if (fastLocationListener != null) sLocationManager.removeUpdates(fastLocationListener);
++			if (mGpsStatusListener != null) sLocationManager.removeGpsStatusListener(mGpsStatusListener);
+ 		}
+ 
+ 	}
+Index: navit/android.c
+===================================================================
+--- navit/android.c	(revision 5655)
++++ navit/android.c	(working copy)
+@@ -148,12 +148,18 @@
+ }
+ 
+ JNIEXPORT void JNICALL
+-Java_org_navitproject_navit_NavitVehicle_VehicleCallback( JNIEnv * env, jobject thiz, int id, jobject location)
++Java_org_navitproject_navit_NavitVehicle_VehicleLocationCallback( JNIEnv * env, jobject thiz, int id, jobject location)
+ {
+ 	callback_call_1((struct callback *)id, (void *)location);
+ }
+ 
+ JNIEXPORT void JNICALL
++Java_org_navitproject_navit_NavitVehicle_VehicleStatusCallback( JNIEnv * env, jobject thiz, int id, jint fixType, jint usedSatellites)
++{
++	callback_call_2((struct callback *)id, (int)fixType, (int)usedSatellites);
++}
++
++JNIEXPORT void JNICALL
+ Java_org_navitproject_navit_NavitIdle_IdleCallback( JNIEnv* env, jobject thiz, int id)
+ {
+ 	dbg(1,"enter %p %p\n",thiz, (void *)id);
+Index: navit/vehicle/android/vehicle_android.c
+===================================================================
+--- navit/vehicle/android/vehicle_android.c	(revision 5655)
++++ navit/vehicle/android/vehicle_android.c	(working copy)
+@@ -49,7 +49,8 @@
+ 	int sats_used;
+ 	int have_coords;
+ 	struct attr ** attrs;
+-	struct callback *cb;
++	struct callback *loc_cb;
++	struct callback *status_cb;
+ 	jclass NavitVehicleClass;
+ 	jobject NavitVehicle;
+ 	jclass LocationClass;
+@@ -83,11 +84,9 @@
+ {
+ 	dbg(1,"enter %s\n",attr_to_name(type));
+ 	switch (type) {
+-#if 0
+ 	case attr_position_fix_type:
+ 		attr->u.num = priv->fix_type;
+ 		break;
+-#endif
+ 	case attr_position_height:
+ 		attr->u.numd = &priv->height;
+ 		break;
+@@ -100,15 +99,14 @@
+ 	case attr_position_radius:
+ 		attr->u.numd = &priv->radius;
+ 		break;
+-
+ #if 0
+ 	case attr_position_qual:
+ 		attr->u.num = priv->sats;
+ 		break;
++#endif
+ 	case attr_position_sats_used:
+ 		attr->u.num = priv->sats_used;
+ 		break;
+-#endif
+ 	case attr_position_coord_geo:
+ 		attr->u.coord_geo = &priv->geo;
+ 		if (!priv->have_coords)
+@@ -131,7 +129,7 @@
+ };
+ 
+ static void
+-vehicle_android_callback(struct vehicle_priv *v, jobject location)
++vehicle_android_location_callback(struct vehicle_priv *v, jobject location)
+ {
+ 	time_t tnow;
+ 	struct tm *tm;
+@@ -151,6 +149,15 @@
+ 	callback_list_call_attr_0(v->cbl, attr_position_coord_geo);
+ }
+ 
++static void
++vehicle_android_status_callback(struct vehicle_priv *v, int fixType, int usedSatellites)
++{
++	v->fix_type = fixType;
++	v->sats_used = usedSatellites;
++	
++	callback_list_call_attr_0(v->cbl, attr_position_coord_geo);
++}
++
+ static int
+ vehicle_android_init(struct vehicle_priv *ret)
+ {
+@@ -175,13 +182,13 @@
+ 	if (!android_find_class_global("org/navitproject/navit/NavitVehicle", &ret->NavitVehicleClass))
+                 return 0;
+         dbg(0,"at 3\n");
+-        cid = (*jnienv)->GetMethodID(jnienv, ret->NavitVehicleClass, "<init>", "(Landroid/content/Context;I)V");
++        cid = (*jnienv)->GetMethodID(jnienv, ret->NavitVehicleClass, "<init>", "(Landroid/content/Context;II)V");
+         if (cid == NULL) {
+                 dbg(0,"no method found\n");
+                 return 0; /* exception thrown */
+         }
+         dbg(0,"at 4 android_activity=%p\n",android_activity);
+-        ret->NavitVehicle=(*jnienv)->NewObject(jnienv, ret->NavitVehicleClass, cid, android_activity, (int) ret->cb);
++        ret->NavitVehicle=(*jnienv)->NewObject(jnienv, ret->NavitVehicleClass, cid, android_activity, (int) ret->loc_cb, (int) ret->status_cb);
+         dbg(0,"result=%p\n",ret->NavitVehicle);
+ 	if (!ret->NavitVehicle)
+ 		return 0;
+@@ -209,7 +216,8 @@
+ 	dbg(0, "enter\n");
+ 	ret = g_new0(struct vehicle_priv, 1);
+ 	ret->cbl = cbl;
+-	ret->cb=callback_new_1(callback_cast(vehicle_android_callback), ret);
++	ret->loc_cb=callback_new_1(callback_cast(vehicle_android_location_callback), ret);
++	ret->status_cb=callback_new_1(callback_cast(vehicle_android_status_callback), ret);
+ 	*meth = vehicle_android_methods;
+ 	vehicle_android_init(ret);
+ 	dbg(0, "return\n");

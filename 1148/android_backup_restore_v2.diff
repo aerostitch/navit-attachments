@@ -1,0 +1,652 @@
+Index: navit/android/res/values/strings.xml
+===================================================================
+--- navit/android/res/values/strings.xml	(revision 5549)
++++ navit/android/res/values/strings.xml	(working copy)
+@@ -28,7 +28,8 @@
+ 	<string name="optionsmenu_toggle_poi">Toggle POIs</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Exit Navit</string>
+-
++	<string name="optionsmenu_backup_restore">Backup / Restore</string>
++	
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+ 	<string name="position_popup_drive_here">Route to here</string>
+@@ -59,6 +60,24 @@
+ 	<string name="address_search_set_destination">Setting destination to:</string>
+ 	<string name="address_search_towns">Towns</string>
+ 	<string name="address_search_streets">Streets</string>
++	
++	<!--  Backup Restore -->
++	<string name="choose_an_action">Choose an Action</string>
++	<string name="please_insert_an_sd_card">Please insert an SD Card</string>
++	<string name="backing_up">Backing up...</string>
++	<string name="failed_to_create_backup_directory">Failed to create backup directory</string>
++	<string name="backup_failed">Backup Failed</string>
++	<string name="no_backup_found">No Backup found</string>
++	<string name="failed_to_restore">Failed to restore</string>
++	<string name="backup_successful">Backup Successful</string>
++	<string name="restore_successful_please_restart_navit">Restore Successful\nPlease restart Navit</string>
++	<string name="backup_not_found">Backup not found</string>
++	<string name="restore_failed">Restore failed</string>
++	<string name="select_backup">Select Backup</string>
++	<string-array name="dialog_backup_restore_items">
++		<item >Backup</item>
++		<item >Restore</item>
++	</string-array>
+ 
+ </resources>
+ 
+Index: navit/android/res/values-de/strings.xml
+===================================================================
+--- navit/android/res/values-de/strings.xml	(revision 5549)
++++ navit/android/res/values-de/strings.xml	(working copy)
+@@ -24,6 +24,7 @@
+ 	<string name="optionsmenu_toggle_poi">POI ein/aus</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Navit beenden</string>
++	<string name="optionsmenu_backup_restore">Sichern / Wiederherstellen</string>
+ 
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+@@ -55,5 +56,24 @@
+ 	<string name="address_search_set_destination">Neues Fahrziel:</string>
+ 	<string name="address_search_towns">Städte</string>
+ 	<string name="address_search_streets">Straßen</string>
++	
++	<!--  Backup Restore -->
++	<string name="choose_an_action">Bitte auswählen</string>
++	<string name="please_insert_an_sd_card">Bitte eine SD Karte einlegen</string>
++	<string name="backing_up">Sichern...</string>
++	<string name="failed_to_create_backup_directory">Sicherungsverzeichnis konnte nicht erstellt werden</string>
++	<string name="backup_failed">Sicherung Fehlgeschlagen</string>
++	<string name="no_backup_found">Keine Sicherung gefunden</string>
++	<string name="failed_to_restore">Fehler beim Wiederherstellen</string>
++	<string name="backup_successful">Sicherung erfolgreich</string>
++	<string name="restore_successful_please_restart_navit">Sicherung Erfolgreich\nNavit bitte neustarten</string>
++	<string name="backup_not_found">Backup nicht gefunden</string>
++	<string name="restore_failed">Wiederherstellen fehlgeschlagen</string>
++	<string name="select_backup">Backup auswählen</string>
++	<string-array name="dialog_backup_restore_items">
++		<item >Sichern</item>
++		<item >Wiederherstellen</item>
++	</string-array>
++	
+ </resources>
+ 
+Index: navit/android/res/values-fr/strings.xml
+===================================================================
+--- navit/android/res/values-fr/strings.xml	(revision 5549)
++++ navit/android/res/values-fr/strings.xml	(working copy)
+@@ -24,6 +24,7 @@
+ 	<string name="optionsmenu_toggle_poi">POI on/off</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Quitter Navit</string>
++	<string name="optionsmenu_backup_restore">Backup / Restore</string>
+ 
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+@@ -53,5 +54,24 @@
+ 	<string name="address_search_set_destination">Destination fixée à:</string>
+ 	<string name="address_search_towns">Villes</string>
+ 	<string name="address_search_streets">Rues</string>
++	
++	<!--  Backup Restore -->
++	<string name="choose_an_action">Choose an Action</string>
++	<string name="please_insert_an_sd_card">Please insert an SD Card</string>
++	<string name="backing_up">Backing up...</string>
++	<string name="failed_to_create_backup_directory">Failed to create backup directory</string>
++	<string name="backup_failed">Backup Failed</string>
++	<string name="no_backup_found">No Backup found</string>
++	<string name="failed_to_restore">Failed to restore</string>
++	<string name="backup_successful">Backup Successful</string>
++	<string name="restore_successful_please_restart_navit">Restore Successful\nPlease restart Navit</string>
++	<string name="backup_not_found">Backup not found</string>
++	<string name="restore_failed">Restore failed</string>
++	<string name="select_backup">Select Backup</string>
++	<string-array name="dialog_backup_restore_items">
++		<item >Backup</item>
++		<item >Restore</item>
++	</string-array>
++	
+ </resources>
+ 
+Index: navit/android/res/values-nl/strings.xml
+===================================================================
+--- navit/android/res/values-nl/strings.xml	(revision 5549)
++++ navit/android/res/values-nl/strings.xml	(working copy)
+@@ -24,6 +24,7 @@
+ 	<string name="optionsmenu_toggle_poi">Schakel POIs</string>
+ 	<string name="optionsmenu_address_search">@string/address_search_title</string>
+ 	<string name="optionsmenu_exit_navit">Verlaat Navit</string>
++	<string name="optionsmenu_backup_restore">Backup / Restore</string>
+ 
+ 	<!-- POSITION POP-UP -->
+ 	<string name="position_popup_title">Position</string>
+@@ -53,5 +54,24 @@
+ 	<string name="address_search_set_destination">Bestemming ingesteld:</string>
+ 	<string name="address_search_towns">Steden</string>
+ 	<string name="address_search_streets">Straten</string>
++	
++	<!--  Backup Restore -->
++	<string name="choose_an_action">Choose an Action</string>
++	<string name="please_insert_an_sd_card">Please insert an SD Card</string>
++	<string name="backing_up">Backing up...</string>
++	<string name="failed_to_create_backup_directory">Failed to create backup directory</string>
++	<string name="backup_failed">Backup Failed</string>
++	<string name="no_backup_found">No Backup found</string>
++	<string name="failed_to_restore">Failed to restore</string>
++	<string name="backup_successful">Backup Successful</string>
++	<string name="restore_successful_please_restart_navit">Restore Successful\nPlease restart Navit</string>
++	<string name="backup_not_found">Backup not found</string>
++	<string name="restore_failed">Restore failed</string>
++	<string name="select_backup">Select Backup</string>
++	<string-array name="dialog_backup_restore_items">
++		<item >Backup</item>
++		<item >Restore</item>
++	</string-array>
++	
+ </resources>
+ 
+Index: navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/Navit.java	(revision 5549)
++++ navit/android/src/org/navitproject/navit/Navit.java	(working copy)
+@@ -418,6 +418,11 @@
+ 		menu.add(1, 6, 500, getString(R.string.optionsmenu_address_search)); //TRANS
+ 
+ 		menu.add(1, 99, 900, getString(R.string.optionsmenu_exit_navit)); //TRANS
++		
++		/* Only show the Backup to SD-Card Option if we really have one */
++		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
++		    menu.add(1, 7, 700, getString(R.string.optionsmenu_backup_restore)); //TRANS
++		
+ 		return true;
+ 	}
+ 
+@@ -500,6 +505,10 @@
+ 				Intent search_intent = new Intent(this, NavitAddressSearchActivity.class);
+ 				this.startActivityForResult(search_intent, NavitAddressSearch_id);
+ 				break;
++			case 7 :
++			    /* Backup / Restore */
++			    showDialog(NavitDialogs.DIALOG_BACKUP_RESTORE);
++			    break;
+ 			case 99 :
+ 				// exit
+ 				this.onStop();
+@@ -550,7 +559,13 @@
+ 		}
+ 	}
+ 
+-	protected Dialog onCreateDialog(int id)
++	@Override
++    protected void onPrepareDialog(int id, Dialog dialog) {
++	    dialogs.prepareDialog(id, dialog);
++        super.onPrepareDialog(id, dialog);
++    }
++
++    protected Dialog onCreateDialog(int id)
+ 	{
+ 		return dialogs.createDialog(id);
+ 	}
+Index: navit/android/src/org/navitproject/navit/NavitBackupTask.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitBackupTask.java	(revision 0)
++++ navit/android/src/org/navitproject/navit/NavitBackupTask.java	(working copy)
+@@ -0,0 +1,156 @@
++
++package org.navitproject.navit;
++
++import android.app.Activity;
++import android.app.ProgressDialog;
++import android.content.Context;
++import android.os.AsyncTask;
++import android.os.Environment;
++import android.text.format.Time;
++import android.widget.Toast;
++import java.io.File;
++import java.io.FileInputStream;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.io.ObjectOutputStream;
++
++public class NavitBackupTask extends AsyncTask<Void, Void, String> {
++
++    private Activity mActivity;
++
++    private ProgressDialog mDialog;
++
++    public NavitBackupTask(Activity context) {
++        mActivity = context;
++    }
++
++    @Override
++    protected void onPreExecute() {
++        super.onPreExecute();
++
++        /* Create a Wait Progress Dialog to inform the User that we are working */
++        mDialog = new ProgressDialog(mActivity);
++        mDialog.setIndeterminate(true);
++        mDialog.setMessage(mActivity.getString(R.string.backing_up));
++        mDialog.show();
++    }
++
++    @Override
++    protected String doInBackground(Void... v) {
++        Time now = new Time();
++        now.setToNow();
++
++        /* This is the Directory where all Subdirectories are stored by date */
++        File mainBackupDir = new File(Environment.getExternalStorageDirectory().getPath() + "/navit/backup/");
++
++        /* Create the Main Backup Directory if it doesn't exist */
++        if (!mainBackupDir.isDirectory()) {
++            if (!mainBackupDir.mkdirs())
++                return mActivity.getString(R.string.failed_to_create_backup_directory);
++        }
++
++        /* Create a Timestamp in the format YYYY-MM-DD-Index */
++        String timestamp = now.year + "-" + String.format("%02d", now.month) + "-" + String.format("%02d", now.monthDay);
++        /* Get the next free index */
++        int index = 1;
++        for (String s : mainBackupDir.list()) {
++            if (s.contains(timestamp)) {
++                int newIndex = Integer.parseInt(s.substring(11));
++                if (newIndex >= index)
++                    index = newIndex + 1;
++            }
++        }
++        timestamp += "-" + index;
++
++        /* This is the Directory in which the Files are copied into */
++        File backupDir = new File(Environment.getExternalStorageDirectory().getPath() + "/navit/backup/" + timestamp);
++
++        /* Create the Backup Directory if it doesn't exist */
++        if (!backupDir.isDirectory()) {
++            if (!backupDir.mkdirs())
++                return mActivity.getString(R.string.failed_to_create_backup_directory);
++        }
++
++        ObjectOutputStream preferencesOOs = null;
++        try {
++            /* Backup Files in home */
++            copyFileIfExists(Navit.NAVIT_DATA_DIR + "/home/bookmark.txt", backupDir.getPath() + "/bookmark.txt");
++            copyFileIfExists(Navit.NAVIT_DATA_DIR + "/home/destination.txt", backupDir.getPath() + "/destination.txt");
++            copyFileIfExists(Navit.NAVIT_DATA_DIR + "/home/gui_internal.txt", backupDir.getPath() + "/gui_internal.txt");
++
++            /* Backup Shared Preferences */
++            preferencesOOs = new ObjectOutputStream(new FileOutputStream(backupDir.getPath() + "/preferences.bak"));
++            preferencesOOs.writeObject(mActivity.getSharedPreferences(Navit.NAVIT_PREFS, Context.MODE_PRIVATE).getAll());
++        }
++        catch (IOException e) {
++            e.printStackTrace();
++            return mActivity.getString(R.string.backup_failed);
++        }
++        finally {
++            /* Close Stream to prevent Resource Leaks */
++            try {
++                if (preferencesOOs != null)
++                    preferencesOOs.close();
++            }
++            catch (IOException e) {
++                e.printStackTrace();
++                return mActivity.getString(R.string.backup_failed);
++            }
++        }
++
++        return null;
++    }
++
++    private void copyFileIfExists(String source, String destination) throws IOException {
++        File file = new File(source);
++
++        if (!file.exists())
++            return;
++
++        FileInputStream is = null;
++        FileOutputStream os = null;
++
++        try {
++            is = new FileInputStream(source);
++            os = new FileOutputStream(destination);
++
++            int len;
++            byte buffer[] = new byte[1024];
++
++            while ((len = is.read(buffer)) != -1) {
++                os.write(buffer, 0, len);
++            }
++        }
++        finally {
++            /* Close the FileStreams to prevent Resource leaks */
++            if (is != null)
++                is.close();
++
++            if (os != null)
++                os.close();
++        }
++    }
++
++    @Override
++    protected void onPostExecute(String result) {
++        super.onPostExecute(result);
++
++        /* Dismiss the Wait Progress Dialog */
++        mDialog.dismiss();
++
++        /* If result is non null an Error occured */
++        if (result != null) {
++            Toast.makeText(mActivity, result, Toast.LENGTH_LONG).show();
++            return;
++        }
++
++        Toast.makeText(mActivity, mActivity.getString(R.string.backup_successful), Toast.LENGTH_LONG).show();
++    }
++
++    @Override
++    protected void onCancelled() {
++        super.onCancelled();
++        Toast.makeText(mActivity, mActivity.getString(R.string.backup_failed), Toast.LENGTH_LONG).show();
++        mDialog.dismiss();
++    }
++}
+Index: navit/android/src/org/navitproject/navit/NavitDialogs.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitDialogs.java	(revision 5549)
++++ navit/android/src/org/navitproject/navit/NavitDialogs.java	(working copy)
+@@ -1,19 +1,26 @@
+ package org.navitproject.navit;
+ 
+ 
++import java.io.File;
++import android.app.AlertDialog;
+ import android.app.Dialog;
+ import android.app.ProgressDialog;
+ import android.content.DialogInterface;
++import android.content.DialogInterface.OnClickListener;
+ import android.os.Bundle;
+ import android.os.Handler;
+ import android.os.Message;
+ import android.util.Log;
++import android.widget.ArrayAdapter;
+ import android.widget.Toast;
++import android.os.Environment;
+ 
+ public class NavitDialogs extends Handler{
+ 	// Dialogs
+ 	public static final int           DIALOG_MAPDOWNLOAD               = 1;
+-
++	public static final int           DIALOG_BACKUP_RESTORE            = 2;
++	public static final int           DIALOG_SELECT_BACKUP             = 3;
++	
+ 	// dialog messages
+ 	static final int MSG_MAP_DOWNLOAD_FINISHED   = 0;
+ 	static final int MSG_PROGRESS_BAR          = 1;
+@@ -107,6 +114,8 @@
+ 
+ 	Dialog createDialog(int id)
+ 	{
++	    AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
++	    
+ 		switch (id)
+ 		{
+ 			case DIALOG_MAPDOWNLOAD :
+@@ -131,8 +140,68 @@
+ 						Navit.get_text("Map data (c) OpenStreetMap contributors, CC-BY-SA"),
+ 						Toast.LENGTH_LONG).show(); //TRANS
+ 				return mapdownloader_dialog;
++				
++			case DIALOG_BACKUP_RESTORE :
++			    /* Create a Dialog that Displays Options wether to Backup or Restore */
++			    builder.setTitle(mActivity.getString(R.string.choose_an_action)).
++			        setCancelable(true).
++			        setItems(R.array.dialog_backup_restore_items,
++			                new DialogInterface.OnClickListener() {
++			            
++			            @Override
++			            public void onClick(DialogInterface dialog, int which) {
++			                /* Notify User if no SD Card present */
++			                if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
++			                    Toast.makeText(mActivity,mActivity.getString(R.string.please_insert_an_sd_card), Toast.LENGTH_LONG).show();
++			                
++			                switch (which) {
++			                    case 0:
++			                        /* Backup */
++			                        new NavitBackupTask(mActivity).execute();
++			                        break;
++			                    case 1:
++			                        /* Restore */
++			                        mActivity.showDialog(DIALOG_SELECT_BACKUP);
++			                        break;
++			                }
++			            }});
++			            return builder.create();
++			            
++			case DIALOG_SELECT_BACKUP :
++			    /* Create a Dialog with a list from which the user selects the Backup to be restored */
++			    File mainBackupDir = new File(Environment.getExternalStorageDirectory().getPath() + "/navit/backup/");
++			    
++			    String[] backups = null;
++			    if(mainBackupDir.isDirectory())
++			        backups = mainBackupDir.list();
++
++			    if(backups == null || backups.length == 0) {
++			        /* No Backups were found */
++			        builder.setTitle(mActivity.getText(R.string.no_backup_found));
++			        builder.setNegativeButton(mActivity.getText(android.R.string.cancel), null);
++			        return builder.create();
++			    }
++			    
++			    builder.setTitle(mActivity.getString(R.string.select_backup));
++			    final ArrayAdapter<String> adapter = new ArrayAdapter<String>(mActivity, android.R.layout.simple_spinner_item, backups);			    
++			    builder.setAdapter(adapter, new OnClickListener(){
++
++                    @Override
++                    public void onClick(DialogInterface dialog, int which) {
++                        new NavitRestoreTask(mActivity, adapter.getItem(which)).execute();
++                    }});
++                builder.setNegativeButton(mActivity.getString(android.R.string.cancel), null);
++
++                return builder.create();
+ 		}
+ 		// should never get here!!
+ 		return null;
+ 	}
++
++    public void prepareDialog(int id, Dialog dialog) {
++        
++        /* Remove the Dialog to force Android to rerun onCreateDialog */
++        if(id == DIALOG_SELECT_BACKUP)
++            mActivity.removeDialog(id);
++    }
+ }
+Index: navit/android/src/org/navitproject/navit/NavitRestoreTask.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitRestoreTask.java	(revision 0)
++++ navit/android/src/org/navitproject/navit/NavitRestoreTask.java	(working copy)
+@@ -0,0 +1,184 @@
++
++package org.navitproject.navit;
++
++import android.app.Activity;
++import android.app.NotificationManager;
++import android.app.ProgressDialog;
++import android.content.Context;
++import android.content.SharedPreferences.Editor;
++import android.os.AsyncTask;
++import android.os.Environment;
++import android.widget.Toast;
++
++import java.io.File;
++import java.io.FileInputStream;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.io.ObjectInputStream;
++import java.util.Map;
++import java.util.Map.Entry;
++
++public class NavitRestoreTask extends AsyncTask<Void, Void, String> {
++
++    private Activity mActivity;
++
++    private ProgressDialog mDialog;
++
++    private String mTimestamp;
++
++    public NavitRestoreTask(Activity context, String timestamp) {
++        mActivity = context;
++        mTimestamp = timestamp;
++    }
++
++    @Override
++    protected void onPreExecute() {
++        super.onPreExecute();
++
++        /* Create a Wait Progress Dialog to inform the User that we are working */
++        mDialog = new ProgressDialog(mActivity);
++        mDialog.setIndeterminate(true);
++        mDialog.setMessage(mActivity.getString(R.string.backing_up));
++        mDialog.show();
++    }
++
++    @SuppressWarnings("unchecked")
++    @Override
++    protected String doInBackground(Void... v) {
++
++        /* This is the Directory where all Subdirectories are stored by date */
++        File backupDir = new File(Environment.getExternalStorageDirectory().getPath() + "/navit/backup/" + mTimestamp);
++        
++        /* Check if there is a Backup Directory */
++        if (!backupDir.isDirectory())
++            return mActivity.getString(R.string.backup_not_found);
++
++        ObjectInputStream preferenceOIS = null;
++        try {
++            /* Delete all old Files in Home */
++            removeFileIfExists(Navit.NAVIT_DATA_DIR + "/home/bookmark.txt");
++            removeFileIfExists(Navit.NAVIT_DATA_DIR + "/home/destination.txt");
++            removeFileIfExists(Navit.NAVIT_DATA_DIR + "/home/gui_internal.txt");
++
++            
++            /* Restore Files in home */
++            copyFileIfExists(backupDir.getPath() + "/bookmark.txt", Navit.NAVIT_DATA_DIR + "/home/bookmark.txt");
++            copyFileIfExists(backupDir.getPath() + "/destination.txt", Navit.NAVIT_DATA_DIR + "/home/destination.txt");
++            copyFileIfExists(backupDir.getPath() + "/gui_internal.txt", Navit.NAVIT_DATA_DIR + "/home/gui_internal.txt");
++
++            /* Restore Shared Preferences */
++            preferenceOIS = new ObjectInputStream(new FileInputStream(backupDir.getPath() + "/preferences.bak"));
++            Map<String, ?> entries = (Map<String, ?>) preferenceOIS.readObject();
++
++            Editor prefEditor = mActivity.getSharedPreferences(Navit.NAVIT_PREFS, Context.MODE_PRIVATE).edit();
++
++            /* Remove all old Preferences */
++            prefEditor.clear();
++
++            /* Iterate through all Entries and add them to our Preferences */
++            for (Entry<String, ?> entry : entries.entrySet()) {
++                Object value = entry.getValue();
++                String key = entry.getKey();
++
++                if (value instanceof Boolean)
++                    prefEditor.putBoolean(key, ((Boolean) value).booleanValue());
++                else if (value instanceof Float)
++                    prefEditor.putFloat(key, ((Float) value).floatValue());
++                else if (value instanceof Integer)
++                    prefEditor.putInt(key, ((Integer) value).intValue());
++                else if (value instanceof Long)
++                    prefEditor.putLong(key, ((Long) value).longValue());
++                else if (value instanceof String)
++                    prefEditor.putString(key, (String) value);
++            }
++
++            if (!prefEditor.commit())
++                return mActivity.getString(R.string.failed_to_restore);
++
++        }
++        catch (Exception e) {
++            e.printStackTrace();
++            return mActivity.getString(R.string.failed_to_restore);
++        }
++        finally {
++            try {
++                /* Close Stream to prevent Resource leak */
++                if (preferenceOIS != null)
++                    preferenceOIS.close();
++            }
++            catch (IOException e) {
++
++            }
++        }
++
++        return null;
++    }
++
++    private void removeFileIfExists(String source) {
++        File file = new File(source);
++
++        if (!file.exists())
++            return;
++        
++        file.delete();
++    }
++
++    private void copyFileIfExists(String source, String destination) throws IOException {
++        File file = new File(source);
++
++        if (!file.exists())
++            return;
++
++        FileInputStream is = null;
++        FileOutputStream os = null;
++
++        try {
++            is = new FileInputStream(source);
++            os = new FileOutputStream(destination);
++
++            int len;
++            byte buffer[] = new byte[1024];
++
++            while ((len = is.read(buffer)) != -1) {
++                os.write(buffer, 0, len);
++            }
++
++        }
++        finally {
++            /* Close the FileStreams to prevent Resource leaks */
++            if (is != null)
++                is.close();
++
++            if (os != null)
++                os.close();
++        }
++    }
++
++    @Override
++    protected void onPostExecute(String result) {
++        super.onPostExecute(result);
++
++        /* Dismiss the Wait Progress Dialog */
++        mDialog.dismiss();
++
++        /* If result is non null an Error occured */
++        if (result != null) {
++            Toast.makeText(mActivity, result, Toast.LENGTH_LONG).show();
++            return;
++        }
++
++        /* Navit needs to be restarted. Currently the User has to restart it by himself */
++        Toast.makeText(mActivity, mActivity.getString(R.string.restore_successful_please_restart_navit), Toast.LENGTH_LONG).show();
++        NotificationManager nm = (NotificationManager) mActivity.getSystemService(Context.NOTIFICATION_SERVICE);
++        nm.cancel(R.string.app_name);
++        NavitVehicle.removeListener();
++        mActivity.finish();
++    }
++
++    @Override
++    protected void onCancelled() {
++        super.onCancelled();
++        Toast.makeText(mActivity, mActivity.getString(R.string.restore_failed), Toast.LENGTH_LONG).show();
++        mDialog.dismiss();
++    }    
++}

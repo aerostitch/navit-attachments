@@ -1,0 +1,60 @@
+Navit log started
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\navit\data/bookmark.txt') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_port_reader_thread:GPS Port:[com7:]
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+vehicle_wince:vehicle_wince_parse:no leading $ in '261,35,09,36,257,29,18,31,303,30*79'
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-us and \SDMMC\navit/espeak-data/voices/en/en-us
+vehicle_wince:vehicle_wince_parse:speech_espeak:espeak_new:GPMRC is invalid
+Language full en-us lang en result en-us
+vehicle_wince:vehicle_wince_parse:GPMRC is invalid
+vehicle_wince:vehicle_wince_parse:GPMRC is invalid
+vehicle_wince:vehicle_wince_parse:GPMRC is invalid
+vehicle_wince:vehicle_wince_parse:GPMRC is invalid
+vehicle_wince:vehicle_wince_parse:GPMRC is invalid
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:file_wordexp_new:wordexp('\SDMMC\navit\data/destination.txt') returned 1
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+navit:main_real:Using '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+navit:osd_std_click:calling command 'zoom_in()'
+navit:osd_std_click:calling command 'zoom_in()'
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+graphics_win32:event_win32_main_loop_quit:enter
+navit:debug_dump_mallocs:mallocs 0
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\navit\data/bookmark.txt') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_port_reader_thread:GPS Port:[com7:]
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+vehicle_wince:vehicle_wince_parse:no leading $ in '55,,17,18,105,*74'
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-us and \SDMMC\navit/espeak-data/voices/en/en-us
+speech_espeak:espeak_new:Language full en-us lang en result en-us
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:file_wordexp_new:wordexp('\SDMMC\navit\data/destination.txt') returned 1
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+navit:main_real:Using '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+navit:osd_std_click:calling command 'zoom_in()'
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+navit:osd_std_click:calling command 'zoom_out()'
+navit:osd_std_click:calling command 'zoom_out()'
+navit:osd_std_click:calling command 'zoom_in()'
+navit:osd_std_click:calling command 'zoom_in()'
+navit:osd_std_click:calling command 'zoom_in()'
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+gui_internal:gui_internal_set_refresh_callback:cond=(null)
+graphics_win32:event_win32_main_loop_quit:enter
+navit:debug_dump_mallocs:mallocs 0

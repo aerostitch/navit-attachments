@@ -1,0 +1,25 @@
+Index: configure.in
+===================================================================
+--- configure.in	(revision 1357)
++++ configure.in	(working copy)
+@@ -553,6 +553,15 @@
+  done
+ fi
+ 
++AC_CHECK_HEADER(
++	byteswap.h,
++	AC_DEFINE(
++		[HAVE_BYTESWAP_H],
++		[1],
++		[Define to 1 if you have byteswap.h],
++		)
++		,
++)
+ 
+ AC_SUBST(INTLIBS)
+ AC_SUBST(MOFILES)
+@@ -730,3 +739,4 @@
+ 	echo "" 
+ 	exit 1
+ fi
++

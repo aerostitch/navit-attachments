@@ -1,0 +1,206 @@
+<!ELEMENT config (plugins, debug*, navit)>
+<!ATTLIST config
+	xmlns:xi CDATA #REQUIRED
+	language CDATA #IMPLIED
+>
+<!ELEMENT plugins (plugin*)>
+<!ELEMENT plugin EMPTY>
+<!ATTLIST plugin
+	path CDATA #REQUIRED
+	active CDATA #IMPLIED
+	ondemand CDATA #IMPLIED
+>
+<!ELEMENT debug EMPTY>
+<!ATTLIST debug
+	name CDATA #REQUIRED
+	level CDATA "0"
+>
+<!ELEMENT log EMPTY>
+<!ATTLIST log
+	enabled (yes|no)  #IMPLIED
+	type (textfile_debug|gpx|nmea) #REQUIRED
+	data CDATA #REQUIRED
+	flush_size CDATA #IMPLIED
+	flush_time CDATA #IMPLIED
+	attr_types CDATA #IMPLIED
+>
+<!ELEMENT navit (graphics+, gui+,  log*, osd*, vehicle+, tracking?,vehicleprofile*,  route, navigation, speech,  mapset+, layout+)>
+<!ATTLIST navit
+	center CDATA #REQUIRED
+	zoom CDATA #REQUIRED
+	tracking CDATA #REQUIRED
+	orientation CDATA #REQUIRED
+	recent_dest CDATA #IMPLIED
+	drag_bitmap CDATA #IMPLIED
+>
+<!ELEMENT gui (#PCDATA)>
+<!ATTLIST gui
+	type (gtk|internal|win32) #REQUIRED
+	enabled (yes|no) #REQUIRED
+	menubar CDATA #IMPLIED
+	toolbar CDATA #IMPLIED
+	statusbar CDATA #IMPLIED
+	skin CDATA #IMPLIED
+	fullscreen CDATA #IMPLIED
+>
+<!ELEMENT graphics EMPTY>
+<!ATTLIST graphics
+	type (android|gd|gtk_drawing_area|gtk_gl_ext|null|opengl|qt_painter|sdl|win32) #REQUIRED
+>
+<!ELEMENT vehicle (log*,cursor*)>
+<!ATTLIST vehicle
+	name CDATA #REQUIRED
+	source CDATA #REQUIRED
+	enabled CDATA #IMPLIED
+	active CDATA #IMPLIED
+	follow CDATA #IMPLIED
+	update CDATA #IMPLIED
+	gpsd_query CDATA #IMPLIED
+	profilename CDATA #IMPLIED
+>
+<!ELEMENT vehicleprofile (roadprofile+)>
+<!ATTLIST vehicleprofile
+	name CDATA #REQUIRED
+	flags CDATA #REQUIRED
+	flags_forward_mask CDATA #REQUIRED
+	flags_reverse_mask CDATA #REQUIRED
+	maxspeed_handling CDATA #REQUIRED
+	route_mode CDATA #REQUIRED
+>
+<!ELEMENT coord EMPTY>
+<!ATTLIST coord
+	x CDATA #REQUIRED
+	y CDATA #REQUIRED
+>
+<!ELEMENT cursor (itemgra+)>
+<!ATTLIST cursor
+	w CDATA #REQUIRED
+	h CDATA #REQUIRED
+>
+<!ELEMENT tracking ANY>
+<!ATTLIST tracking
+	cdf_histsize CDATA #IMPLIED
+>
+<!ELEMENT route EMPTY>
+<!ATTLIST route
+	destination_distance CDATA #IMPLIED
+>
+<!ELEMENT roadprofile (announcement*)>
+<!ATTLIST roadprofile
+	item_types CDATA #REQUIRED
+	speed CDATA #REQUIRED
+	route_weight CDATA #REQUIRED
+>
+<!ELEMENT speed EMPTY>
+<!ATTLIST speed
+	type CDATA #REQUIRED
+	value CDATA #REQUIRED
+>
+<!ELEMENT navigation (announce+)>
+<!ELEMENT announce EMPTY>
+<!ATTLIST announce
+	type CDATA #REQUIRED
+	level0 CDATA #IMPLIED
+	level1 CDATA #IMPLIED
+	level2 CDATA #IMPLIED
+	unit CDATA #REQUIRED
+>
+<!ELEMENT announcement EMPTY>
+<!ATTLIST announcement
+	level CDATA #REQUIRED
+	distance_metric CDATA #REQUIRED
+>
+<!ELEMENT speech EMPTY>
+<!ATTLIST speech
+	type CDATA #REQUIRED
+	data CDATA #REQUIRED
+	cps CDATA #IMPLIED
+>
+<!ELEMENT mapset (map*, xi:include*)>
+<!ATTLIST mapset
+	enabled CDATA #IMPLIED
+>
+<!ELEMENT map EMPTY>
+<!ATTLIST map
+	type CDATA #REQUIRED
+	enabled CDATA #IMPLIED
+	active CDATA #IMPLIED
+	data CDATA #REQUIRED
+	debug CDATA #IMPLIED
+>
+<!ELEMENT layout (cursor*, layer*, xi:include*, layer*)>
+<!ATTLIST layout
+	name CDATA #REQUIRED
+	daylayout CDATA #IMPLIED
+	nightlayout CDATA #IMPLIED
+	color CDATA #IMPLIED
+	font CDATA #IMPLIED
+>
+<!ELEMENT layer (itemgra*)>
+<!ATTLIST layer
+	enabled CDATA #IMPLIED
+	name CDATA #IMPLIED
+	details CDATA #IMPLIED
+>
+<!ELEMENT osd EMPTY>
+<!ATTLIST osd
+	enabled (yes|no) #IMPLIED
+	type (compass|navigation_next_turn|button|toggle_announcer|speed_warner|text|gps_status|volume|eta|navigation_distance_to_target|navigation_distance_to_next|navigation) #REQUIRED
+	x CDATA #IMPLIED
+	y CDATA #IMPLIED
+	w CDATA #IMPLIED
+	h CDATA #IMPLIED
+	align CDATA #IMPLIED
+	src CDATA #IMPLIED
+	command CDATA #IMPLIED
+	font_size CDATA #IMPLIED
+	background_color CDATA #IMPLIED
+	label CDATA #IMPLIED
+	icon_src CDATA #IMPLIED
+>
+<!ELEMENT itemgra (polygon | polyline | text | circle | icon | image | arrows)*>
+<!ATTLIST itemgra
+	item_types CDATA #IMPLIED
+	order CDATA #IMPLIED
+	speed_range CDATA #IMPLIED
+>
+<!ELEMENT polygon (coord*)>
+<!ATTLIST polygon
+	color CDATA #REQUIRED
+>
+<!ELEMENT polyline (coord*)>
+<!ATTLIST polyline
+	color CDATA #REQUIRED
+	width CDATA #IMPLIED
+	dash CDATA #IMPLIED
+	offset CDATA #IMPLIED
+>
+<!ELEMENT text EMPTY>
+<!ATTLIST text
+	text_size CDATA #REQUIRED
+	color CDATA #IMPLIED
+>
+<!ELEMENT circle (coord*)>
+<!ATTLIST circle
+	color CDATA #REQUIRED
+	radius CDATA #REQUIRED
+	width CDATA #IMPLIED
+	text_size CDATA #IMPLIED
+>
+<!ELEMENT icon EMPTY>
+<!ATTLIST icon
+	src CDATA #REQUIRED
+	w CDATA #IMPLIED
+	h CDATA #IMPLIED
+>
+<!ELEMENT arrows EMPTY>
+<!ATTLIST arrows
+	color CDATA #REQUIRED
+	width CDATA #IMPLIED
+>
+<!ELEMENT image EMPTY>
+<!ELEMENT xi:include EMPTY>
+<!ATTLIST xi:include
+	href CDATA #IMPLIED
+	xpointer CDATA #IMPLIED
+>

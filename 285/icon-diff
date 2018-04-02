@@ -1,0 +1,93 @@
+Index: gui_fullscreen.svg
+===================================================================
+--- gui_fullscreen.svg	(revision 1985)
++++ gui_fullscreen.svg	(working copy)
+@@ -12,8 +12,8 @@
+    version="1.0"
+    x="0.0000000"
+    y="0.0000000"
+-   width="48.000000"
+-   height="48.000000"
++   width="48"
++   height="48"
+    id="svg11300"
+    sodipodi:version="0.32"
+    inkscape:version="0.44"
+Index: gui_quit.svg
+===================================================================
+--- gui_quit.svg	(revision 1985)
++++ gui_quit.svg	(working copy)
+@@ -1,7 +1,20 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+ <!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+-<svg width="48pt" height="48pt" viewBox="0 0 256 256" overflow="visible" enable-background="new 0 0 256 256" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg548" sodipodi:version="0.32" sodipodi:docname="/home/cschalle/gnome-themes-extras/Nuvola/icons/scalable/stock/stock_quit.svg" sodipodi:docbase="/home/cschalle/gnome-themes-extras/Nuvola/icons/scalable/stock">
++<svg 
++	width="48px"
++	height="48px"
++	viewBox="0 0 256 256"
++	overflow="visible"
++	enable-background="new 0 0 256 256"
++	xml:space="preserve"
++	xmlns="http://www.w3.org/2000/svg"
++	xmlns:xml="http://www.w3.org/XML/1998/namespace"
++	xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
++       	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++       	xmlns:xlink="http://www.w3.org/1999/xlink"
++       	id="svg548" sodipodi:version="0.32"
++       	sodipodi:docname="/home/cschalle/gnome-themes-extras/Nuvola/icons/scalable/stock/stock_quit.svg" sodipodi:docbase="/home/cschalle/gnome-themes-extras/Nuvola/icons/scalable/stock">
+   <defs id="defs600"/>
+   <sodipodi:namedview id="base"/>
+   <g id="Layer_1" stroke="#000000">
+@@ -61,4 +74,4 @@
+     <path fill="#660000" stroke="none" d="M112.307,33c-1.657,0-3,1.246-3,2.783v122.435c0,1.537,1.343,2.782,3,2.782h33    c1.657,0,3-1.245,3-2.782V35.783c0-1.537-1.343-2.783-3-2.783H112.307z" id="path597"/>
+     <path fill="#FFFFFF" stroke="none" d="M145.307,158.218h-33V35.783h33V158.218z" id="path598"/>
+   </g>
+-</svg>
+\ No newline at end of file
++</svg>
+Index: gui_zoom_in.svg
+===================================================================
+--- gui_zoom_in.svg	(revision 1985)
++++ gui_zoom_in.svg	(working copy)
+@@ -17,8 +17,8 @@
+    inkscape:version="0.44"
+    sodipodi:version="0.32"
+    id="svg249"
+-   height="48.000000px"
+-   width="48.000000px"
++   height="48px"
++   width="48px"
+    inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   <defs
+      id="defs3">
+Index: gui_display.svg
+===================================================================
+--- gui_display.svg	(revision 1985)
++++ gui_display.svg	(working copy)
+@@ -9,8 +9,8 @@
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   width="48.000000px"
+-   height="48.000000px"
++   width="48px"
++   height="48px"
+    id="svg3304"
+    sodipodi:version="0.32"
+    inkscape:version="0.44"
+Index: gui_leave_fullscreen.svg
+===================================================================
+--- gui_leave_fullscreen.svg	(revision 1985)
++++ gui_leave_fullscreen.svg	(working copy)
+@@ -12,8 +12,8 @@
+    version="1.0"
+    x="0.0000000"
+    y="0.0000000"
+-   width="48.000000"
+-   height="48.000000"
++   width="48"
++   height="48"
+    id="svg11300"
+    sodipodi:version="0.32"
+    inkscape:version="0.44"

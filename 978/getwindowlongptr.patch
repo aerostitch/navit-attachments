@@ -1,0 +1,55 @@
+commit 597a36d2e0b231f6aafea00d3d446ff76e0137fd
+Author: Rico Schüller <kgbricola@web.de>
+Date:   Tue Dec 13 12:49:04 2011 +0100
+
+    Fix:gui/win32:GWLP_HINSTANCE instead of depricated GWL_HINSTANCE
+
+diff --git a/navit/navit/gui/win32/win32_gui_destination.c b/navit/navit/gui/win32/win32_gui_destination.c
+index a9465c9..79f3171 100644
+--- a/navit/navit/gui/win32/win32_gui_destination.c
++++ b/navit/navit/gui/win32/win32_gui_destination.c
+@@ -352,7 +352,7 @@ HANDLE create_destination_window( struct navit *nav )
+                                     0, 0, 0, 0,  // set size in WM_SIZE message
+                                     this_->hwnd,        // parent window
+                                     NULL,//(HMENU) ID_EDITCHILD,   // edit control ID
+-                                    (HINSTANCE) GetWindowLong(this_->hwnd, GWL_HINSTANCE),
++                                    (HINSTANCE) GetWindowLongPtr(this_->hwnd, GWLP_HINSTANCE),
+                                     NULL);       // pointer not needed
+ 
+     this_->hwndEdit = CreateWindow(WC_EDIT,      // predefined class
+@@ -361,7 +361,7 @@ HANDLE create_destination_window( struct navit *nav )
+                                    0, 0, 0, 0,  // set size in WM_SIZE message
+                                    this_->hwnd,        // parent window
+                                    NULL,//(HMENU) ID_EDITCHILD,   // edit control ID
+-                                   (HINSTANCE) GetWindowLong(this_->hwnd, GWL_HINSTANCE),
++                                   (HINSTANCE) GetWindowLongPtr(this_->hwnd, GWLP_HINSTANCE),
+                                    NULL);       // pointer not needed
+ 
+     this_->hwndList = CreateWindow(WC_LISTVIEW,      // predefined class
+@@ -370,7 +370,7 @@ HANDLE create_destination_window( struct navit *nav )
+                                    0, 0, 0, 0,  // set size in WM_SIZE message
+                                    this_->hwnd,        // parent window
+                                    NULL,//(HMENU) ID_EDITCHILD,   // edit control ID
+-                                   (HINSTANCE) GetWindowLong(this_->hwnd, GWL_HINSTANCE),
++                                   (HINSTANCE) GetWindowLongPtr(this_->hwnd, GWLP_HINSTANCE),
+                                    NULL);       // pointer not needed
+ 
+     this_->hwndButtonPrev = CreateWindow(WC_BUTTON,      // predefined class
+@@ -379,7 +379,7 @@ HANDLE create_destination_window( struct navit *nav )
+                                    0, 0, 0, 0,  // set size in WM_SIZE message
+                                    this_->hwnd,        // parent window
+                                    NULL,//(HMENU) ID_EDITCHILD,   // edit control ID
+-                                   (HINSTANCE) GetWindowLong(this_->hwnd, GWL_HINSTANCE),
++                                   (HINSTANCE) GetWindowLongPtr(this_->hwnd, GWLP_HINSTANCE),
+                                    NULL);       // pointer not needed
+     this_->hwndButtonNext = CreateWindow(WC_BUTTON,      // predefined class
+                                    TEXT(">>"),        // no window title
+@@ -387,7 +387,7 @@ HANDLE create_destination_window( struct navit *nav )
+                                    0, 0, 0, 0,  // set size in WM_SIZE message
+                                    this_->hwnd,        // parent window
+                                    NULL,//(HMENU) ID_EDITCHILD,   // edit control ID
+-                                   (HINSTANCE) GetWindowLong(this_->hwnd, GWL_HINSTANCE),
++                                   (HINSTANCE) GetWindowLongPtr(this_->hwnd, GWLP_HINSTANCE),
+                                    NULL);       // pointer not needed
+ #ifdef LVS_EX_FULLROWSELECT
+     (void)ListView_SetExtendedListViewStyle(this_->hwndList,LVS_EX_FULLROWSELECT);

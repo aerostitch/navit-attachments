@@ -1,0 +1,49 @@
+I/ActivityManager(   50): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(   50): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=864 uid=10041 gids={3003}
+I/dalvikvm(  864): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/WindowManager(   50): Setting rotation to 1, animFlags=0
+I/WindowManager(   50): Config changed: { scale=1.0 imsi=0/0 locale=it touch=3 key=1/1/2 nav=3 orien=2 }
+W/WindowManager(   50): performLayoutAndPlaceSurfacesLocked called while in layout
+W/WindowManager(   50): performLayoutAndPlaceSurfacesLocked called while in layout
+D/StatusBar(   50): updateResources
+I/dalvikvm(  864): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=48)
+D/dalvikvm(  864): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43726f60
+D/dalvikvm(  864): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43726f60
+D/dalvikvm(  864): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x43726f60
+E/Navit   (  864): Country 
+E/Navit   (  864): Language it
+E/Navit   (  864): Res Name it
+E/Navit   (  864): result /data/data/org.navitproject.navit/locale/it/LC_MESSAGES/navit.mo
+E/Navit   (  864): Res ID 2130903058
+E/Navit   (  864): Checking /data
+E/Navit   (  864): Checking /data/data
+E/Navit   (  864): Checking /data/data/org.navitproject.navit
+E/Navit   (  864): Checking /data/data/org.navitproject.navit/locale
+E/Navit   (  864): Checking /data/data/org.navitproject.navit/locale/it
+E/Navit   (  864): Checking /data/data/org.navitproject.navit/locale/it/LC_MESSAGES
+E/Navit   (  864): Res Name navit
+E/Navit   (  864): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   (  864): Res ID 2130903061
+E/Navit   (  864): Checking /data
+E/Navit   (  864): Checking /data/data
+E/Navit   (  864): Checking /data/data/org.navitproject.navit
+E/Navit   (  864): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm(  864): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm(  864): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    (  864): called
+E/navit   (  864): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c8 thiz=0x43772880 activity=0x43772880 lang=it_
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   (  864): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   (  864): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot find library'
+E/navit   (  864): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot find library'
+E/navit   (  864): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot find library'
+E/navit   (  864): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot find library'
+E/navit   (  864): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot find library'
+E/navit   (  864): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot find library'
+I/ActivityManager(   50): Process org.navitproject.navit (pid 864) has died.
+D/Zygote  (   33): Process 864 exited cleanly (1)

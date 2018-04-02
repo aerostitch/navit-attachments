@@ -1,0 +1,13 @@
+*** ../../sdk/navit/navit/attr_def.h	2011-01-15 15:27:29.922573836 +0100
+--- attr_def.h	2011-01-15 13:27:54.055073282 +0100
+***************
+*** 104,109 ****
+--- 104,111 ----
+  ATTR(version)
+  ATTR(autozoom_min)
+  ATTR(maxspeed)
++ ATTR(maxspeed_forward)
++ ATTR(maxspeed_backward)
+  ATTR(cdf_histsize)
+  ATTR(message_maxage)
+  ATTR(message_maxnum)

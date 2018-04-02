@@ -1,0 +1,122 @@
+Index: navit/gui/internal/gui_internal_command.c
+===================================================================
+--- navit/gui/internal/gui_internal_command.c	(revision 5878)
++++ navit/gui/internal/gui_internal_command.c	(working copy)
+@@ -642,7 +642,7 @@
+ 	if (in[1] && ATTR_IS_STRING(in[1]->type)) {
+ 		gui_internal_poi_param_set_filter(param, in[1]->u.str);
+ 		if (in[2] && ATTR_IS_INT(in[2]->type))
+-			param->isAddressFilter=in[2]->u.num;
++			param->AddressFilterType=in[2]->u.num;
+ 	}
+ 	
+ 	transform_from_geo(pro.u.projection,in[0]->u.coord_geo,&c);
+Index: navit/gui/internal/gui_internal_poi.c
+===================================================================
+--- navit/gui/internal/gui_internal_poi.c	(revision 5878)
++++ navit/gui/internal/gui_internal_poi.c	(working copy)
+@@ -301,6 +301,8 @@
+ 	type=item_to_name(item->type);
+ 
+ 	icon=gui_internal_poi_icon(this,item);
++	if(!icon && item->type==type_house_number)
++		icon=image_new_xs(this,"post");
+ 	if(!icon) {
+ 		icon=image_new_xs(this,"gui_inactive");
+ 		text=g_strdup_printf("%s%s%s%s %s", distbuf, dirbuf, routedistbuf, type, name);
+@@ -332,10 +334,12 @@
+  */
+ 
+ char *
+-gui_internal_compose_item_address_string(struct item *item)
++gui_internal_compose_item_address_string(struct item *item, int prependPostal)
+ {
+ 	char *s=g_strdup("");
+ 	struct attr attr;
++	if(prependPostal && item_attr_get(item, attr_postal, &attr)) 
++		s=g_strjoin(" ",s,map_convert_string_tmp(item->map,attr.u.str),NULL);
+ 	if(item_attr_get(item, attr_house_number, &attr)) 
+ 		s=g_strjoin(" ",s,map_convert_string_tmp(item->map,attr.u.str),NULL);
+ 	if(item_attr_get(item, attr_street_name, &attr)) 
+@@ -383,8 +387,8 @@
+ 		char *long_name, *s;
+ 		GList *f;
+ 		int i;
+-		if (param->isAddressFilter) {
+-			s=gui_internal_compose_item_address_string(item);
++		if (param->AddressFilterType>0) {
++			s=gui_internal_compose_item_address_string(item,param->AddressFilterType==2?1:0);
+ 		} else if (item_attr_get(item, attr_label, &attr)) {
+ 			s=g_strdup_printf("%s %s", item_to_name(item->type), map_convert_string_tmp(item->map,attr.u.str));
+ 		} else {
+@@ -455,7 +459,12 @@
+ 	} else {
+ 		param=g_new0(struct poi_param,1);
+ 	}
+-	param->isAddressFilter=strcmp(wm->name,"AddressFilter")==0;
++	if(!strcmp(wm->name,"AddressFilter"))
++		param->AddressFilterType=1;
++	else if(!strcmp(wm->name,"AddressFilterZip"))
++		param->AddressFilterType=2;
++	else
++		param->AddressFilterType=0;
+ 
+ 	gui_internal_poi_param_set_filter(param, w->text);
+ 
+@@ -516,6 +525,11 @@
+ 	wb->name=g_strdup("AddressFilter");
+ 	wb->func = gui_internal_cmd_pois_filter_do;
+ 	wb->data=wk;
++	gui_internal_widget_append(we, wb=gui_internal_image_new(this, image_new_xs(this, "library")));
++	wb->state |= STATE_SENSITIVE;
++	wb->name=g_strdup("AddressFilterZip");
++	wb->func = gui_internal_cmd_pois_filter_do;
++	wb->data=wk;
+ 	
+ 	if (this->keyboard)
+ 		gui_internal_widget_append(w, gui_internal_keyboard(this,keyboard_mode));
+@@ -582,8 +596,8 @@
+ 	items= g_new0( struct item_data, maxitem);
+ 	
+ 	
+-	dbg(2, "Params: sel = %i, selnb = %i, pagenb = %i, dist = %i, filterstr = %s, isAddressFilter= %d\n",
+-		param->sel, param->selnb, param->pagenb, param->dist, param->filterstr, param->isAddressFilter);
++	dbg(2, "Params: sel = %i, selnb = %i, pagenb = %i, dist = %i, filterstr = %s, AddressFilterType= %d\n",
++		param->sel, param->selnb, param->pagenb, param->dist, param->filterstr, param->AddressFilterType);
+ 
+ 	wb=gui_internal_menu(this, isel ? isel->name : _("POIs"));
+ 	w=gui_internal_box_new(this, gravity_top_center|orientation_vertical|flags_expand|flags_fill);
+@@ -612,7 +626,7 @@
+ 					char *label;
+ 					item_attr_rewind(item);
+ 					if (item->type==type_house_number) {
+-						label=gui_internal_compose_item_address_string(item);
++						label=gui_internal_compose_item_address_string(item,1);
+ 					} else if (item_attr_get(item, attr_label, &attr)) {
+ 						label=map_convert_string(item->map,attr.u.str);
+ 						// Buildings which label is equal to addr:housenumber value
+Index: navit/gui/internal/gui_internal_poi.h
+===================================================================
+--- navit/gui/internal/gui_internal_poi.h	(revision 5878)
++++ navit/gui/internal/gui_internal_poi.h	(working copy)
+@@ -25,9 +25,9 @@
+ 		unsigned char dist;
+ 		/**
+  		 * Should filter phrase be compared to postal address of the POI.
+- 		 * =1 - address filter, =0 - name filter
++ 		 * =0 - name filter, =1 - address filter, =2 - address filter, including postal code
+ 		 */		
+-		unsigned char isAddressFilter;
++		unsigned char AddressFilterType;
+ 		/**
+  		 * Filter string, casefold()ed and divided into substrings at the spaces, which are replaced by ASCII 0*.
+ 		 */		
+@@ -51,7 +51,7 @@
+ void gui_internal_poi_param_free(void *p);
+ void gui_internal_poi_param_set_filter(struct poi_param *param, char *text);
+ struct widget *gui_internal_cmd_pois_item(struct gui_priv *this, struct coord *center, struct item *item, struct coord *c, struct route *route, int dist, char *name);
+-char *gui_internal_compose_item_address_string(struct item *item);
++char *gui_internal_compose_item_address_string(struct item *item, int prependPostal);
+ void gui_internal_cmd_pois_filter(struct gui_priv *this, struct widget *wm, void *data);
+ void gui_internal_cmd_pois(struct gui_priv *this, struct widget *wm, void *data);
+ /* end of prototypes */

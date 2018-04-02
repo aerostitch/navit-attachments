@@ -1,0 +1,12 @@
+Index: navit/util.c
+===================================================================
+--- navit/util.c	(revision 2816)
++++ navit/util.c	(working copy)
+@@ -22,6 +22,7 @@
+ #include <stdlib.h>
+ #include <stdarg.h>
+ #include <time.h>
++#include <sys/types.h>
+ #include "util.h"
+ 
+ void

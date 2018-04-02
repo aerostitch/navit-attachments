@@ -1,0 +1,12 @@
+diff -Naur navit.org/navit/vehicle/gpsd/vehicle_gpsd.c navit.gpsd/navit/vehicle/gpsd/vehicle_gpsd.c
+--- navit.org/navit/vehicle/gpsd/vehicle_gpsd.c	2008-07-04 13:41:22.000000000 +0200
++++ navit.gpsd/navit/vehicle/gpsd/vehicle_gpsd.c	2008-07-04 19:25:15.000000000 +0200
+@@ -234,7 +234,7 @@
+ 	case attr_position_direction:
+ 		attr->u.numd = &priv->direction;
+ 		break;
+-	case attr_position_sats:
++	case attr_position_qual:
+ 		attr->u.num = priv->sats;
+ 		break;
+ 	case attr_position_sats_used:

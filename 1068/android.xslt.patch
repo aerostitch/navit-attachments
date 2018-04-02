@@ -1,0 +1,13 @@
+Index: navit/navit/xslt/android.xslt
+===================================================================
+--- navit/navit/xslt/android.xslt	(revision 5223)
++++ navit/navit/xslt/android.xslt	(working copy)
+@@ -56,7 +56,7 @@
+          <xsl:apply-templates/>
+       </xsl:copy>
+    </xsl:template>
+-   <xsl:template match="/config/navit/layout[@name='Car-Android']">
++   <xsl:template match="/config/navit/layout[@name='Car']">
+       <xsl:copy>
+          <xsl:copy-of select="@*"/>
+          <xsl:attribute name="active">1</xsl:attribute>

@@ -1,0 +1,10 @@
+Index: autogen.sh
+===================================================================
+--- autogen.sh	(revision 2189)
++++ autogen.sh	(working copy)
+@@ -8,4 +8,4 @@
+ 	fi
+ done
+ 
+-autoreconf --force --install -I m4
++autoreconf --install -I m4

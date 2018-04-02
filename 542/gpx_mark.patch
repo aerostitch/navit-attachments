@@ -1,0 +1,281 @@
+Index: navit/xpm/Makefile.am
+===================================================================
+--- navit/xpm/Makefile.am	(revision 2935)
++++ navit/xpm/Makefile.am	(working copy)
+@@ -31,6 +31,7 @@
+ xpm_DATA += justice.xpm
+ xpm_DATA += level_crossing.xpm
+ xpm_DATA += library.xpm
++xpm_DATA += mark.xpm
+ xpm_DATA += mini_roundabout.xpm
+ xpm_DATA += memorial.xpm
+ xpm_DATA += military.xpm
+@@ -83,6 +84,7 @@
+ svgs += gui_tools.svg
+ svgs += gui_fullscreen.svg
+ svgs += gui_leave_fullscreen.svg
++svgs += mark.svg
+ svgs += gui_quit.svg gui_stop.svg
+ svgs += gui_town.svg
+ svgs += gui_vehicle.svg
+Index: navit/xpm/mark.svg
+===================================================================
+--- navit/xpm/mark.svg	(revision 0)
++++ navit/xpm/mark.svg	(revision 0)
+@@ -0,0 +1,78 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   width="48"
++   height="48"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.47 r22583"
++   sodipodi:docname="zoom_in.svg"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape"
++   inkscape:export-filename="/home/ce/Desktop/NavitIcons/bench.png"
++   inkscape:export-xdpi="40.180466"
++   inkscape:export-ydpi="40.180466"
++   version="1.0">
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 24 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="48 : 24 : 1"
++       inkscape:persp3d-origin="24 : 16 : 1"
++       id="perspective2872" />
++  </defs>
++  <sodipodi:namedview
++     id="base"
++     pagecolor="#ffffff"
++     bordercolor="#666666"
++     borderopacity="1.0"
++     gridtolerance="10000"
++     guidetolerance="10"
++     objecttolerance="10"
++     inkscape:pageopacity="0.0"
++     inkscape:pageshadow="2"
++     inkscape:zoom="7.919596"
++     inkscape:cx="31.003895"
++     inkscape:cy="14.64192"
++     inkscape:document-units="px"
++     inkscape:current-layer="layer1"
++     showgrid="true"
++     inkscape:window-width="1280"
++     inkscape:window-height="783"
++     inkscape:window-x="-2"
++     inkscape:window-y="0"
++     width="48px"
++     height="48px"
++     showguides="true"
++     inkscape:window-maximized="1" />
++  <metadata
++     id="metadata7">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:title></dc:title>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <g
++     inkscape:label="Layer 1"
++     inkscape:groupmode="layer"
++     id="layer1">
++    <path
++       id="path2178"
++       style="fill:none;stroke:#808080;stroke-width:8.18078709;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.50196078;stroke-dashoffset:0;marker-start:none"
++       d="M 7.8860267,40.190361 C 40.680922,7.3954664 40.680922,7.3954664 40.680922,7.3954664 M 40.477718,40.393566 7.6828235,7.5986708" />
++  </g>
++</svg>
+Index: navit/xpm/mark.xpm
+===================================================================
+--- navit/xpm/mark.xpm	(revision 0)
++++ navit/xpm/mark.xpm	(revision 0)
+@@ -0,0 +1,102 @@
++/* XPM */
++static char * mark_xpm[] = {
++"96 96 3 1",
++" 	c None",
++".	c #808080",
++"+	c #7E7E7E",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                              ...                              ...                              ",
++"                             .....                            .....+                            ",
++"                            .......                          .......                            ",
++"                            ........                        ........                            ",
++"                            .........                      .........                            ",
++"                             .........                    .........                             ",
++"                              .........                  .........                              ",
++"                               .........                .........                               ",
++"                                .........              .........                                ",
++"                                 .........            .........                                 ",
++"                                  .........          .........                                  ",
++"                                   .........        .........                                   ",
++"                                    .........      .........                                    ",
++"                                     .........    .........                                     ",
++"                                      ....................                                      ",
++"                                       ..................                                       ",
++"                                        ................                                        ",
++"                                         ..............                                         ",
++"                                          ............                                          ",
++"                                          ............                                          ",
++"                                          ............                                          ",
++"                                          ............                                          ",
++"                                         ..............                                         ",
++"                                        ................                                        ",
++"                                       ..................                                       ",
++"                                      ....................                                      ",
++"                                     .........    .........                                     ",
++"                                    .........      .........                                    ",
++"                                   .........        .........                                   ",
++"                                  .........          .........                                  ",
++"                                 .........            .........                                 ",
++"                                .........              .........                                ",
++"                               .........                .........                               ",
++"                              .........                  .........                              ",
++"                             .........                    .........                             ",
++"                            .........                      .........                            ",
++"                            ........                        ........                            ",
++"                             ......                          .......                            ",
++"                             .....                            .....                             ",
++"                               ..                              ...                              ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                ",
++"                                                                                                "};
+Index: navit/vehicle.c
+===================================================================
+--- navit/vehicle.c	(revision 2935)
++++ navit/vehicle.c	(working copy)
+@@ -45,6 +45,7 @@
+ 	struct vehicle_priv *priv;
+ 	struct callback_list *cbl;
+ 	struct log *nmea_log, *gpx_log;
++	char *gpx_desc;
+ 	struct attr **attrs;
+ 
+ 	// cursor
+@@ -182,6 +183,10 @@
+ 		if (ret)
+ 			return ret;
+ 	}
++	if (type == attr_log_gpx_desc) {
++		attr->u.str = this_->gpx_desc;
++		return 1;
++	}
+ 	return attr_generic_get_attr(this_->attrs, NULL, type, attr, iter);
+ }
+ 
+@@ -198,6 +203,10 @@
+ 	int ret=1;
+ 	if (this_->meth.set_attr)
+ 		ret=this_->meth.set_attr(this_->priv, attr);
++	if (ret == 1 && attr->type == attr_log_gpx_desc) {
++		g_free(this_->gpx_desc);
++		this_->gpx_desc = attr->u.str;
++	}
+ 	if (ret == 1 && attr->type != attr_navit)
+ 		this_->attrs=attr_generic_set_attr(this_->attrs, attr);
+ 	return ret != 0;
+@@ -446,6 +455,11 @@
+ 			g_free(timep);
+ 		}
+ 	}
++	if (this_->gpx_desc) {
++		logstr=g_strconcat_printf(logstr,"\t<desc>%s</desc>\n",this_->gpx_desc);
++		g_free(this_->gpx_desc);
++		this_->gpx_desc = NULL;
++	}
+ 	if (attr_types_contains_default(attr_types, attr_position_direction,0) && this_->meth.position_attr_get(this_->priv, attr_position_direction, &attr))
+ 		logstr=g_strconcat_printf(logstr,"\t<course>%.1f</course>\n",*attr.u.numd);
+ 	if (attr_types_contains_default(attr_types, attr_position_speed, 0) && this_->meth.position_attr_get(this_->priv, attr_position_speed, &attr))
+Index: navit/xmlconfig.c
+===================================================================
+--- navit/xmlconfig.c	(revision 2935)
++++ navit/xmlconfig.c	(working copy)
+@@ -265,7 +265,7 @@
+ 	{ attr_speech,     NEW(speech_new), GET(speech_get_attr), NULL, NULL, SET(speech_set_attr)},
+ 	{ attr_text,       NEW(text_new)},
+ 	{ attr_tracking,   NEW(tracking_new)},
+-	{ attr_vehicle,    NEW(vehicle_new),  GET(vehicle_get_attr), NULL, NULL, NULL, ADD(vehicle_add_attr) },
++	{ attr_vehicle,    NEW(vehicle_new),  GET(vehicle_get_attr), NULL, NULL, SET(vehicle_set_attr), ADD(vehicle_add_attr) },
+ 	{ attr_vehicleprofile, NEW(vehicleprofile_new),  GET(vehicleprofile_get_attr), NULL, NULL, SET(vehicleprofile_set_attr), ADD(vehicleprofile_add_attr) },
+ };
+ 
+Index: navit/attr_def.h
+===================================================================
+--- navit/attr_def.h	(revision 2935)
++++ navit/attr_def.h	(working copy)
+@@ -279,6 +279,7 @@
+ ATTR(user_name)
+ ATTR(user_pass)
+ ATTR(status_text)
++ATTR(log_gpx_desc)
+ ATTR2(0x0003ffff,type_string_end)
+ ATTR2(0x00040000,type_special_begin)
+ ATTR(order)

@@ -1,0 +1,64 @@
+Index: navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/Navit.java	(revision 5655)
++++ navit/android/src/org/navitproject/navit/Navit.java	(working copy)
+@@ -59,6 +59,7 @@
+ import android.view.Display;
+ import android.view.Menu;
+ import android.view.MenuItem;
++import android.view.WindowManager;
+ import android.view.inputmethod.InputMethodManager;
+ import android.widget.RelativeLayout;
+ import android.widget.TextView;
+@@ -623,6 +624,17 @@
+ 		// code review
+ 		NavitDestroy();
+ 	}
++	
++	public void fullscreen(int fullscreen) {
++		if(fullscreen != 0) {
++			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
++			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
++		}
++		else {
++			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
++			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
++		}
++	}
+ 
+ 	public void disableSuspend()
+ 	{
+Index: navit/graphics/android/graphics_android.c
+===================================================================
+--- navit/graphics/android/graphics_android.c	(revision 5655)
++++ navit/graphics/android/graphics_android.c	(working copy)
+@@ -625,15 +625,16 @@
+ 	return 1;
+ }
+ 
++static jclass NavitClass;
++static jmethodID Navit_disableSuspend, Navit_exit, Navit_fullscreen;
++
+ static int
+ graphics_android_fullscreen(struct window *win, int on)
+ {
++	(*jnienv)->CallVoidMethod(jnienv, android_activity, Navit_fullscreen, on);
+ 	return 1;
+ }
+ 
+-static jclass NavitClass;
+-static jmethodID Navit_disableSuspend, Navit_exit;
+-
+ static void
+ graphics_android_disable_suspend(struct window *win)
+ {
+@@ -881,6 +882,9 @@
+ 	Navit_exit = (*jnienv)->GetMethodID(jnienv, NavitClass, "exit", "()V");
+ 	if (Navit_exit == NULL) 
+ 		return NULL;
++	Navit_fullscreen = (*jnienv)->GetMethodID(jnienv, NavitClass, "fullscreen", "(I)V"); 
++	if (Navit_fullscreen == NULL) 
++		return NULL; 
+ 	dbg(0,"ok\n");
+         *meth=event_android_methods;
+         return NULL;

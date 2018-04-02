@@ -1,0 +1,23 @@
+*** attr_def.h	2010-07-17 13:56:28.000000000 +0200
+--- attr_def.h-mod	2010-07-16 00:04:43.000000000 +0200
+***************
+*** 154,159 ****
+--- 154,161 ----
+  ATTR(static_distance)
+  ATTR(through_traffic_penalty)
+  ATTR(through_traffic_flags)
++ ATTR(speed_exceed_limit_offset)
++ ATTR(speed_exceed_limit_percent)
+  ATTR2(0x00027500,type_rel_abs_begin)
+  /* These attributes are int that can either hold relative		*
+   * or absolute values. A relative value is indicated by 		*
+***************
+*** 207,212 ****
+--- 209,215 ----
+  ATTR(route_active)
+  ATTR(search_active)
+  ATTR(unsuspend)
++ ATTR(announce_on)
+  ATTR2(0x0002ffff,type_int_end)
+  ATTR2(0x00030000,type_string_begin)
+  ATTR(type)

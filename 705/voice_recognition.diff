@@ -1,0 +1,194 @@
+Index: binding/dbus/binding_dbus.c
+===================================================================
+--- binding/dbus/binding_dbus.c	(revision 3941)
++++ binding/dbus/binding_dbus.c	(working copy)
+@@ -947,6 +947,35 @@
+ 
+ /* navit */
+ 
++/** 
++ *  	* @brief Sends recognized voice data 
++ *  	* @param connection The DBusConnection object through which \a message arrived 
++ *  	* @param message The DBusMessage containing the coordinates 
++ *  	* @returns An empty reply if everything went right, otherwise DBUS_HANDLER_RESULT_NOT_YET_HANDLED 
++ *  	*/ 
++ 	
++ 	static DBusHandlerResult 
++ 	request_navit_add_voice_data(DBusConnection *connection, DBusMessage *message) 
++ 	{ 
++ 	struct navit *navit; 
++ 	char *voice_data; 
++ 	DBusMessageIter iter; 
++ 	
++ 	navit=object_get_from_message(message, "navit"); 
++ 	if (! navit) 
++ 	return dbus_error_invalid_object_path(connection, message); 
++ 	
++ 	dbus_message_iter_init(message, &iter); 
++ 	dbus_message_iter_get_basic(&iter, &voice_data); 
++ 	
++ 	navit_add_voice_data(navit, voice_data); 
++ 	
++ 	return empty_reply(connection, message); 
++ 	} 
++
++
++
++
+ static DBusHandlerResult
+ request_navit_draw(DBusConnection *connection, DBusMessage *message)
+ {
+@@ -1568,6 +1597,7 @@
+ 	{".navit",  "set_destination",     "(iii)s",  "(projection,longitude,latitude)comment",  "",   "",      request_navit_set_destination},
+ 	{".navit",  "clear_destination",   "",        "",                                        "",   "",      request_navit_clear_destination},
+ 	{".navit",  "evaluate", 	   "s",	      "command",				 "s",  "",      request_navit_evaluate},
++        {".navit",  "add_voice_data",      "s",       "voice_data",                              "",   "",      request_navit_add_voice_data}, 
+ 	{".map",    "get_attr",            "s",       "attribute",                               "sv",  "attrname,value", request_map_get_attr},
+ 	{".map",    "set_attr",            "sv",      "attribute,value",                         "",   "",      request_map_set_attr},
+ 	{".mapset", "attr_iter",           "",        "",                                        "o",  "attr_iter",  request_mapset_attr_iter},
+Index: graphics.c
+===================================================================
+--- graphics.c	(revision 3941)
++++ graphics.c	(working copy)
+@@ -50,6 +50,8 @@
+ #include "callback.h"
+ #include "file.h"
+ #include "event.h"
++#include "keys.h"
++#include "navit.h"
+ 
+ 
+ //##############################################################################################################
+@@ -2506,3 +2508,82 @@
+ 		curr=g_list_next(curr);
+ 	}
+ }
++
++struct external_key_navit_key {
++	char* key_str;
++	int   navit_key;
++};
++
++static struct external_key_navit_key external_key_navit_key_map[] = 
++	{
++		{"ENTER"   , NAVIT_KEY_RETURN    },
++		{"ESCAPE"  , NAVIT_KEY_BACK      },
++		{"UP"      , NAVIT_KEY_UP        },
++		{"DOWN"    , NAVIT_KEY_DOWN      },
++		{"LEFT"    , NAVIT_KEY_LEFT      },
++		{"RIGHT"   , NAVIT_KEY_RIGHT     },
++		{"ZOOM_OUT" , NAVIT_KEY_ZOOM_OUT  },
++		{"ZOOM_IN", NAVIT_KEY_ZOOM_IN   },
++	};
++
++void 
++graphics_add_voice_data(struct graphics* this_, struct navit* nav, char *voice_data)
++{
++  char*tok = strtok(voice_data," ");
++  do {
++    if(tok) {
++      char keybuf[2];
++      keybuf[0] = 0;
++      keybuf[1] = '\0';
++
++      //check for virtual keys
++      int n = sizeof(external_key_navit_key_map)/sizeof(struct external_key_navit_key);
++      int i;
++      for(i=0;i<n;++i) {
++        if(!strcmp(external_key_navit_key_map[i].key_str,tok)) {
++          keybuf[0] = external_key_navit_key_map[i].navit_key;
++	  break;
++        }
++      }
++
++      if(keybuf[0]) {
++        callback_list_call_attr_1 (this_->cbl, attr_keypress,
++			     (void *) keybuf);
++      }
++      //change sertain attributes
++      else if(!strcmp("NORTHING",tok)) {
++        struct attr orientation_attr;
++	if(navit_get_attr(nav,attr_orientation,&orientation_attr,NULL)) {
++	  int orientation = orientation_attr.u.num;
++	  if(orientation==-1 || orientation==0) {
++	    orientation = -1 - orientation;
++	  }
++	  else {
++	    orientation = 0;
++	  }
++	  orientation_attr.u.num = orientation;
++	  navit_set_attr(nav,&orientation_attr);
++	}
++      }
++      else if(!strcmp("PITCH",tok)) {
++        struct attr pitch_attr;
++	if(navit_get_attr(nav,attr_pitch,&pitch_attr,NULL)) {
++	  int pitch = pitch_attr.u.num;
++	  if(pitch==0) {
++	    pitch = 30;
++	  }
++	  else {
++	    pitch = 0;
++	  }
++	  pitch_attr.u.num = pitch;
++	}
++	else {
++	  pitch_attr.u.num = 0;
++	}
++	navit_set_attr(nav,&pitch_attr);
++      }
++      //attr_osd_configuration
++    }
++  } while((tok=strtok(NULL," ")));
++}
++
+Index: graphics.h
+===================================================================
+--- graphics.h	(revision 3941)
++++ graphics.h	(working copy)
+@@ -136,6 +136,7 @@
+ struct point;
+ struct point_rect;
+ struct transformation;
++struct navit;
+ int graphics_set_attr(struct graphics *gra, struct attr *attr);
+ void graphics_set_rect(struct graphics *gra, struct point_rect *pr);
+ struct graphics *graphics_new(struct attr *parent, struct attr **attrs);
+@@ -190,6 +191,7 @@
+ void graphics_add_selection(struct graphics *gra, struct item *item, enum item_type type, struct displaylist *dl);
+ void graphics_remove_selection(struct graphics *gra, struct item *item, enum item_type type, struct displaylist *dl);
+ void graphics_clear_selection(struct graphics *gra, struct displaylist *dl);
++void graphics_add_voice_data(struct graphics* this_, struct navit* nav, char *voice_data);
+ /* end of prototypes */
+ #ifdef __cplusplus
+ }
+Index: navit.c
+===================================================================
+--- navit.c	(revision 3941)
++++ navit.c	(working copy)
+@@ -2686,4 +2686,13 @@
+ 	g_free(this_);
+ }
+ 
++
++void 
++navit_add_voice_data(struct navit* this_, char *voice_data)
++{
++  graphics_add_voice_data(this_->gra, this_, voice_data);
++}
++
++
++
+ /** @} */
+Index: navit.h
+===================================================================
+--- navit.h	(revision 3941)
++++ navit.h	(working copy)
+@@ -112,6 +112,7 @@
+ int navit_block(struct navit *this_, int block);
+ void navit_destroy(struct navit *this_);
+ void navit_command_add_table(struct navit*this_, struct command_table *commands, int count);
++void navit_add_voice_data(struct navit* this_, char *voice_data);
+ /* end of prototypes */
+ #ifdef __cplusplus
+ }

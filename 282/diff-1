@@ -1,0 +1,420 @@
+Index: gui/internal/gui_internal.c
+===================================================================
+--- gui/internal/gui_internal.c	(revision 1968)
++++ gui/internal/gui_internal.c	(working copy)
+@@ -2624,8 +2624,14 @@
+ static void
+ gui_internal_cmd_fullscreen(struct gui_priv *this, struct widget *wm, void *data)
+ {
++	/* called from UI menu or from OSD button */
++
+ 	this->fullscreen=!this->fullscreen;
+ 	this->win->fullscreen(this->win, this->fullscreen);
++#ifdef HAVE_OSSO
++	/* let navit know what state of fullscreen  mode is */
++	navit_osso_fullscreen(this->nav, this->fullscreen);
++#endif
+ }
+ 
+ static void
+Index: attr.c
+===================================================================
+--- attr.c	(revision 1968)
++++ attr.c	(working copy)
+@@ -42,12 +42,15 @@
+ #undef ATTR2
+ #undef ATTR
+ };
+-
++/**
++ * * Determine if this is a valid name
++ * * @param name The name  to  find
++ * * @returns attr  Attr struct or empty Attr struct if not found
++ * */
+ enum attr_type
+ attr_from_name(const char *name)
+ {
+ 	int i;
+-
+ 	for (i=0 ; i < sizeof(attr_names)/sizeof(struct attr_name) ; i++) {
+ 		if (! strcmp(attr_names[i].name, name))
+ 			return attr_names[i].attr;
+@@ -59,7 +62,6 @@
+ attr_to_name(enum attr_type attr)
+ {
+ 	int i;
+-
+ 	for (i=0 ; i < sizeof(attr_names)/sizeof(struct attr_name) ; i++) {
+ 		if (attr_names[i].attr == attr)
+ 			return attr_names[i].name;
+Index: graphics/gtk_drawing_area/graphics_gtk_drawing_area.c
+===================================================================
+--- graphics/gtk_drawing_area/graphics_gtk_drawing_area.c	(revision 1968)
++++ graphics/gtk_drawing_area/graphics_gtk_drawing_area.c	(working copy)
+@@ -324,7 +324,10 @@
+ 	struct font_freetype_text *t;
+ 
+ 	if (! font)
++	{
++		dbg(0,"no font, returning\n");
+ 		return;
++	}
+ #if 0 /* Temporarily disabled because it destroys text rendering of overlays and in gui internal in some places */
+ 	/* 
+ 	 This needs an improvement, no one checks if the strings are visible
+@@ -735,10 +738,16 @@
+ 		key[1]='\0';
+ 		break;
+ 	case GDK_Book:
++#ifdef USE_HILDON
++	case GDK_F7:
++#endif
+ 		key[0]=NAVIT_KEY_ZOOM_IN;
+ 		key[1]='\0';
+ 		break;
+ 	case GDK_Calendar:
++#ifdef USE_HILDON
++	case GDK_F8:
++#endif
+ 		key[0]=NAVIT_KEY_ZOOM_OUT;
+ 		key[1]='\0';
+ 		break;
+Index: xpm/Makefile.am
+===================================================================
+--- xpm/Makefile.am	(revision 1968)
++++ xpm/Makefile.am	(working copy)
+@@ -214,8 +214,13 @@
+ endif
+ 
+ DESKTOPFILEdir=$(datadir)/applications
++if USE_HILDON
++DESKTOPFILE_DATA = desktop_icons/navit.desktop, desktop_icons/org.navit-project.Navit.service
++else
+ DESKTOPFILE_DATA = desktop_icons/navit.desktop
++endif
+ 
+ ICON128dir=$(datadir)/icons/hicolor/128x128/apps
+ ICON128_DATA = desktop_icons/128x128/navit.png
+ 
+Index: navit.c
+===================================================================
+--- navit.c	(revision 1968)
++++ navit.c	(working copy)
+@@ -29,6 +29,9 @@
+ #include "config.h"
+ #include "debug.h"
+ #include "navit.h"
++#ifdef HAVE_OSSO
++#include "libosso.h"
++#endif
+ #include "callback.h"
+ #include "gui.h"
+ #include "item.h"
+@@ -131,8 +134,15 @@
+ 	int use_mousewheel;
+ 	GHashTable *commands;
+ 	struct callback *resize_callback,*button_callback,*motion_callback;
++#ifdef HAVE_OSSO
++	osso_context_t *osso_context;
++	gboolean fullscreen;	// True=fullscreen
++	int screen_unblank; // 0=never, 1=GPS event, 2=fullscreen
++#endif
+ };
+ 
++struct navit *global_navit;
++
+ struct gui *main_loop_gui;
+ 
+ struct attr_iter {
+@@ -505,7 +515,96 @@
+ 	long scale=transform_get_scale(this_->trans)*factor;
+ 	navit_scale(this_, scale, p);
+ }
++#ifdef HAVE_OSSO 
++/**
++ * Remember state of Fullscreen
++ *
++ * @param navit our context
++ * @param fullscreen indicates whether we have full screen
++ * @returns nothing
++ */
++void
++navit_osso_fullscreen(struct navit *this_, int fullscreen)
++{
++	dbg(2,"setting fullscreen to %s\n", fullscreen == 0 ? "no":"yes");
++	this_->fullscreen = (fullscreen == 1);
++}
+ 
++/**
++ * * Tell osso to unblank the screen
++ * *
++ * * @param navit our context
++ * * @returns nothing
++ **/
++void
++navit_osso_display_on(struct navit *this_)
++{
++	dbg(2,"unblank screen: fs=%d, unblank on: %d\n", this_->fullscreen, this_->screen_unblank);
++	switch (this_->screen_unblank) {
++	case 0:	// never
++		break;
++	case 1:	// GPS event
++	case 2:	// fullscreen
++		if (this_->fullscreen) 
++		{
++			osso_display_state_on(this_->osso_context);
++			osso_display_blanking_pause(this_->osso_context);
++		}
++		break;
++	default:
++		break;
++	}
++}
++/**
++ * * Act on Osso event
++ * * @param state The oss  hardware state
++ * * @returns FALSE
++ * */
++static gboolean
++osso_cb_hw_state_idle(osso_hw_state_t *state)
++{
++    dbg(0,"%s(inact=%d, save=%d, shut=%d, memlow=%d, state=%d)\n",
++            state->system_inactivity_ind,
++            state->save_unsaved_data_ind, state->shutdown_ind,
++            state->memory_low_ind, state->sig_device_mode_ind);
++
++    if(state->shutdown_ind)
++    {
++	/* we  are going  down, down,  down */
++        navit_destroy(global_navit);
++        exit(1);
++    }
++/* figure this out later
++    if(state->save_unsaved_data_ind)
++    {
++    // save all our data, if any
++    }
++
++    if(state->memory_low_ind)
++    {
++    // do something to reduce memory needs
++    }
++*/
++    g_free(state);
++
++    return FALSE;
++}
++#endif
++
++/**
++ * * Handle osso events
++ * * @param state Osso hardware state
++ * * @param  data ptr to private data
++ * * @returns nothing
++ **/
++static void
++osso_cb_hw_state(osso_hw_state_t *state, gpointer data)
++{
++     osso_hw_state_t *state_copy = g_new(osso_hw_state_t, 1);
++     memcpy(state_copy, state, sizeof(osso_hw_state_t));
++     g_idle_add((GSourceFunc)osso_cb_hw_state_idle, state_copy);
++ }
++
+ struct navit *
+ navit_new(struct attr *parent, struct attr **attrs)
+ {
+@@ -535,6 +634,7 @@
+ 
+ 	this_->bookmarks_hash=g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
+ 
++	// set meaningful configuration defaults
+ 	this_->cursor_flag=1;
+ 	this_->orientation=-1;
+ 	this_->tracking_flag=1;
+@@ -544,6 +644,9 @@
+ 	this_->last_moved = 0;
+ 	this_->center_timeout = 10;
+ 	this_->use_mousewheel = 1;
++#ifdef HAVE_OSSO
++	this_->screen_unblank = 2;	// 2=fullscreen
++#endif
+ 	for (;*attrs; attrs++) {
+ 		switch((*attrs)->type) {
+@@ -577,6 +678,15 @@
+ 		case attr_timeout:
+ 			this_->center_timeout = (*attrs)->u.num;
+ 			break;
++			// screen  unblank for Nokia N8x0
++		case attr_screen_unblank:
++			if (!strcmp((*attrs)->u.str,"GPS"))
++				this_->screen_unblank = 1;
++			if (!strcmp((*attrs)->u.str, "fullscreen"))
++				this_->screen_unblank  = 2;
++			/* otherwise leave at never (0) */
++			dbg(1,"screen_unblank set to %d\n",this_->screen_unblank);
++			break;
+ 		default:
+ 			dbg(0, "Unexpected attribute %x\n",(*attrs)->type);
+ 			break;
+@@ -910,8 +1020,6 @@
+ 	callback_list_call_attr_0(this_->attr_cbl, attr_bookmark_map);
+ }
+ 
+-struct navit *global_navit;
+-
+ static void
+ navit_add_bookmarks_from_file(struct navit *this_)
+ {
+@@ -1260,6 +1368,20 @@
+ 	navit_window_items_new(this_);
+ #endif
+ 	callback_list_call_attr_1(this_->attr_cbl, attr_navit, this_);
++
++#ifdef HAVE_OSSO
++      dbg(1,"Installing osso context for org.navit-project.navit\n");
++      this_->osso_context = osso_initialize("org.navit-project.navit", 
++                 VERSION, TRUE, NULL);
++      if(this_->osso_context == NULL) { 
++                dbg(0, "error initiating osso context\n");
++      } 
++      osso_hw_set_event_cb(this_->osso_context, NULL, osso_cb_hw_state, NULL);
++      
++      /* add callback to unblank screen on gps event */
++      navit_add_callback(this_, callback_new_attr_1(callback_cast(navit_osso_display_on), attr_position_coord_geo, this_));
++#endif
++
+ 	this_->ready|=1;
+ 	if (this_->ready == 3)
+ 		navit_draw(this_);
+@@ -1729,7 +1851,6 @@
+ 	int border=16;
+ 	int route_path_set=0;
+ 	int recenter = 1; // indicates if we should recenter the map
+-
+ 	profile(0,NULL);
+ 	if (this_->ready != 3) {
+ 		profile(0,"return 1\n");
+@@ -2028,6 +2150,10 @@
+ void
+ navit_destroy(struct navit *this_)
+ {
++#ifdef HAVE_OSSO
++       dbg(1,"Disconnecting from osso\n");
++       osso_deinitialize(this_->osso_context);
++#endif 
+ 	/* TODO: destroy objects contained in this_ */
+ 	if (this_->vehicle)
+ 		vehicle_destroy(this_->vehicle->vehicle);
+Index: navit.h
+===================================================================
+--- navit.h	(revision 1968)
++++ navit.h	(working copy)
+@@ -58,6 +58,10 @@
+ void navit_ignore_graphics_events(struct navit *this_, int ignore);
+ int navit_handle_button(struct navit *this_, int pressed, int button, struct point *p, struct callback *popup_callback);
+ void navit_handle_motion(struct navit *this_, struct point *p);
++#ifdef HAVE_OSSO
++void navit_osso_display_on(struct navit *this_);
++void navit_osso_fullscreen(struct navit *this_, int fullscreen);
++#endif
+ void navit_zoom_in(struct navit *this_, int factor, struct point *p);
+ void navit_zoom_out(struct navit *this_, int factor, struct point *p);
+ struct navit *navit_new(struct attr *parent, struct attr **attrs);
+Index: xmlconfig.c
+===================================================================
+--- xmlconfig.c	(revision 1968)
++++ xmlconfig.c	(working copy)
+@@ -103,7 +103,6 @@
+ 	int count=0;
+ 	struct attr **ret;
+ 	static int fixme_count;
+-
+ 	while (*attribute_name) {
+ 		count++;
+ 		attribute_name++;
+@@ -113,6 +112,8 @@
+ 	count=0;
+ 	while (*attribute_name) {
+ 		name=*attribute_name;
++		dbg(2,"Attribute Name is %s Value is %s\n",name, *attribute_value);
++		/*  do  fixups if there are any */
+ 		if (fixme) {
+ 			char **attr_fixme=fixme->attr_fixme;
+ 			while (attr_fixme[0]) {
+Index: Makefile.am
+===================================================================
+--- Makefile.am	(revision 1968)
++++ Makefile.am	(working copy)
+@@ -9,7 +9,7 @@
+   SUBDIRS += fonts
+ endif
+ 
+-AM_CPPFLAGS = -I$(top_srcdir)/navit/fib-1.1 @NAVIT_CFLAGS@ @ZLIB_CFLAGS@ -DPREFIX=\"@prefix@\" -DLIBDIR=\"@libdir@\" -DMODULE=navit
++AM_CPPFLAGS = -I$(top_srcdir)/navit/fib-1.1 @NAVIT_CFLAGS@ @OSSO_CFLAGS@ @ZLIB_CFLAGS@ -DPREFIX=\"@prefix@\" -DLIBDIR=\"@libdir@\" -DMODULE=navit
+ BUILT_SOURCES = version.h
+ if BUILD_SAMPLEMAP
+   BUILT_SOURCES += osm2navit$(EXEEXT)
+@@ -35,7 +35,7 @@
+ 	navit_nls.h
+ 
+ navit_SOURCES = start.c
+-navit_LDADD = libnavit.la @NAVIT_LIBS@ @ZLIB_LIBS@ @INTLLIBS@ -Lfib-1.1 -lfib
++navit_LDADD = libnavit.la @NAVIT_LIBS@ @OSSO_LIBS@ @ZLIB_LIBS@ @INTLLIBS@ -Lfib-1.1 -lfib
+ 
+ osm2navit_CPPFLAGS = $(AM_CPPFLAGS) @ZLIB_CFLAGS@ @POSTGRESQL_CFLAGS@
+ osm2navit_SOURCES = osm2navit.c
+Index: attr_def.h
+===================================================================
+--- attr_def.h	(revision 1968)
++++ attr_def.h	(working copy)
+@@ -17,6 +17,14 @@
+  * Boston, MA  02110-1301, USA.
+  */
+ 
++/* NOTE!!!!
++ * when adding attrs, ensure that you do so within the labelled range
++ * according to the data type of your attr value.
++ * e.g. if adding an attr with text value, 
++ * Consider your self warned, otherwise expect attr_new_from_text
++ * to reach end of switch :-)
++ */
++
+ /* prototypes */
+ 
+ /* common */
+@@ -32,6 +40,7 @@
+ ATTR2(0x0001ffff,type_item_end)
+ 
+ ATTR2(0x00020000,type_int_begin)
++/* int values only in this range */
+ ATTR(h)
+ ATTR(id)
+ ATTR(flags)
+@@ -93,7 +102,7 @@
+ ATTR(osd_configuration)
+ ATTR(columns)
+ ATTR2(0x00028000,type_boolean_begin)
+-/* boolean */
++/* boolean values only in this range */
+ ATTR(overwrite)
+ ATTR(active)
+ ATTR(cursor)
+@@ -124,6 +133,7 @@
+ ATTR(night_mode)
+ ATTR2(0x0002ffff,type_int_end)
+ ATTR2(0x00030000,type_string_begin)
++/* string values only in this range */
+ ATTR(type)
+ ATTR(label)
+ ATTR(data)
+@@ -179,8 +189,10 @@
+ ATTR(icon_src)
+ ATTR(position_time_iso8601)
+ ATTR(house_number)
++ATTR(screen_unblank)	/*  for N8x0 */
+ ATTR2(0x0003ffff,type_string_end)
+ ATTR2(0x00040000,type_special_begin)
++/* special values only in this range */
+ ATTR(order)
+ ATTR(item_type)
+ ATTR(item_types)

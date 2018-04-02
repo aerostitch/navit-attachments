@@ -1,0 +1,52 @@
+Index: navit/navit/data.h
+===================================================================
+--- navit.orig/navit/data.h	2009-03-19 23:46:32.000000000 +0100
++++ navit/navit/data.h	2009-03-19 23:46:55.000000000 +0100
+@@ -20,6 +20,8 @@
+ #ifndef NAVIT_DATA_H
+ #define NAVIT_DATA_H
+ 
++#include "config.h"
++
+ static inline unsigned char
+ get_u8(unsigned char **p)
+ {
+@@ -31,7 +33,11 @@
+ 	unsigned short ret;
+ 	ret=*((unsigned short *)*p);
+ 	*p+=sizeof(unsigned short);
++#ifdef WORDS_BIGENDIAN
++	return __bswap_16(ret);
++#else
+ 	return ret;
++#endif
+ }
+ 
+ static inline unsigned short
+@@ -57,7 +63,11 @@
+ 	unsigned long ret;
+ 	ret=*((unsigned int *)*p);
+ 	*p+=sizeof(unsigned int);
++#ifdef WORDS_BIGENDIAN
++	return __bswap_32(ret);
++#else
+ 	return ret;
++#endif
+ }
+ 
+ static inline unsigned int
+Index: navit/configure.in
+===================================================================
+--- navit.orig/configure.in	2009-03-19 23:46:31.000000000 +0100
++++ navit/configure.in	2009-03-19 23:46:55.000000000 +0100
+@@ -85,6 +85,10 @@
+ AC_SUBST(CC_FOR_BUILD)
+ AC_SUBST(CCLD_FOR_BUILD)
+ 
++# Endianness
++# defines WORDS_BIGENDIAN for big-endian systems
++AC_C_BIGENDIAN
++
+ AC_ARG_ENABLE(variant, [  --enable-variant=something          set variant], NAVIT_VARIANT=$enableval)
+ AC_SUBST(NAVIT_VARIANT)
+ 

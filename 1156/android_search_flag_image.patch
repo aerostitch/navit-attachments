@@ -1,0 +1,13 @@
+Index: navit/android/src/org/navitproject/navit/NavitAddressSearchActivity.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitAddressSearchActivity.java	(revision 5552)
++++ navit/android/src/org/navitproject/navit/NavitAddressSearchActivity.java	(working copy)
+@@ -254,7 +254,7 @@
+ 				edit_settings.putString("DefaultCountry", mCountry);
+ 				edit_settings.commit();
+ 
+-				mCountryButton.setImageResource(getDrawableID("country_" + mCountry + "_32_32"));
++				mCountryButton.setImageResource(getDrawableID("country_" + mCountry));
+ 			}
+ 		});
+ 

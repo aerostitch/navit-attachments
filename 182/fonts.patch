@@ -1,0 +1,40 @@
+Index: navit/graphics/sdl/graphics_sdl.c
+===================================================================
+--- navit/graphics/sdl/graphics_sdl.c	(révision 1233)
++++ navit/graphics/sdl/graphics_sdl.c	(copie de travail)
+@@ -206,7 +206,7 @@
+ 
+ /* graphics_font */
+ static char *fontfamilies[]={
+-	"Liberation Mono",
++	"Liberation Sans",
+ 	"Arial",
+ 	"DejaVu Sans",
+ 	"NcrBI4nh",
+@@ -239,11 +239,11 @@
+ //    gf->font = TTF_OpenFont("/usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf", size);
+     if(flags)
+     {
+-        gf->font = TTF_OpenFont("/usr/share/fonts/truetype/LiberationMono-Bold.ttf", size);
++        gf->font = TTF_OpenFont("/usr/share/fonts/truetype/LiberationSans-Bold.ttf", size);
+     }
+     else
+     {
+-        gf->font = TTF_OpenFont("/usr/share/fonts/truetype/LiberationMono-Regular.ttf", size);
++        gf->font = TTF_OpenFont("/usr/share/fonts/truetype/LiberationSans-Regular.ttf", size);
+     }
+ 
+     if(gf->font == NULL)
+Index: navit/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c
+===================================================================
+--- navit/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c	(révision 1233)
++++ navit/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c	(copie de travail)
+@@ -113,7 +113,7 @@
+  * List of font families to use, in order of preference
+  */
+ static char *fontfamilies[]={
+-	"Liberation Mono",
++	"Liberation Sans",
+ 	"Arial",
+ 	"DejaVu Sans",
+ 	"NcrBI4nh",

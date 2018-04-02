@@ -1,0 +1,1810 @@
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/configure.in navit-r4517/configure.in
+--- navit-r4517.xpm2svg2/configure.in	2011-06-12 10:34:25.000000000 +0200
++++ navit-r4517/configure.in	2011-06-12 16:53:37.000000000 +0200
+@@ -1161,6 +1161,7 @@
+ navit/vehicle/webos/Makefile
+ navit/xpm/Makefile
+ navit/xpm/sjjb/Makefile
++navit/xpm/themroc/Makefile
+ navit/maps/Makefile
+ intl/Makefile
+ po/Makefile
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/navit_shipped.xml navit-r4517/navit/navit_shipped.xml
+--- navit-r4517.xpm2svg2/navit/navit_shipped.xml	2011-06-12 10:33:20.000000000 +0200
++++ navit-r4517/navit/navit_shipped.xml	2011-06-12 16:52:50.000000000 +0200
+@@ -1757,6 +1757,39 @@
+ 				<itemgra item_types="poi_church" order="11-">
+ 					<icon src="church.png"/>
+ 				</itemgra>
++				<itemgra item_types="poi_bahai" order="11-">
++					<icon src="bahai.png"/>
++				</itemgra>
++				<itemgra item_types="poi_buddhist" order="11-">
++					<icon src="buddhist.png"/>
++				</itemgra>
++				<itemgra item_types="poi_hindu" order="11-">
++					<icon src="hindu.png"/>
++				</itemgra>
++				<itemgra item_types="poi_islamic" order="11-">
++					<icon src="islamic.png"/>
++				</itemgra>
++				<itemgra item_types="poi_jain" order="11-">
++					<icon src="jain.png"/>
++				</itemgra>
++				<itemgra item_types="poi_jewish" order="11-">
++					<icon src="jewish.png"/>
++				</itemgra>
++				<itemgra item_types="poi_pagan" order="11-">
++					<icon src="pagan.png"/>
++				</itemgra>
++				<itemgra item_types="poi_pastafarian" order="11-">
++					<icon src="pastafarian.png"/>
++				</itemgra>
++				<itemgra item_types="poi_shinto" order="11-">
++					<icon src="shinto.png"/>
++				</itemgra>
++				<itemgra item_types="poi_sikh" order="11-">
++					<icon src="sikh.png"/>
++				</itemgra>
++				<itemgra item_types="poi_taoist" order="11-">
++					<icon src="taoist.png"/>
++				</itemgra>
+ 				<itemgra item_types="poi_cinema" order="12-">
+ 					<icon src="cinema.png"/>
+ 				</itemgra>
+@@ -2105,7 +2138,7 @@
+ 				</itemgra>
+ 			</layer>
+ 			<layer name="POI Labels">
+-				<itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle" order="14-">
++				<itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_bahai,poi_buddhist,poi_hindu,poi_islamic,poi_jain,poi_jewish,poi_pagan,poi_pastafarian,poi_shinto,poi_sikh,poi_taoist,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle" order="14-">
+ 					<circle color="#606060" radius="0" width="0" text_size="10"/>
+ 				</itemgra>
+ 				<itemgra item_types="poi_custom0,poi_custom1,poi_custom2,poi_custom3,poi_custom4,poi_custom5,poi_custom6,poi_custom7,poi_custom8,poi_custom9,poi_customa,poi_customb,poi_customc,poi_customd,poi_custome,poi_customf" order="14-">
+@@ -3118,6 +3151,39 @@
+ 				<itemgra item_types="poi_church" order="11-">
+ 					<icon src="church.png"/>
+ 				</itemgra>
++				<itemgra item_types="poi_bahai" order="11-">
++					<icon src="bahai.png"/>
++				</itemgra>
++				<itemgra item_types="poi_buddhist" order="11-">
++					<icon src="buddhist.png"/>
++				</itemgra>
++				<itemgra item_types="poi_hindu" order="11-">
++					<icon src="hindu.png"/>
++				</itemgra>
++				<itemgra item_types="poi_islamic" order="11-">
++					<icon src="islamic.png"/>
++				</itemgra>
++				<itemgra item_types="poi_jain" order="11-">
++					<icon src="jain.png"/>
++				</itemgra>
++				<itemgra item_types="poi_jewish" order="11-">
++					<icon src="jewish.png"/>
++				</itemgra>
++				<itemgra item_types="poi_pagan" order="11-">
++					<icon src="pagan.png"/>
++				</itemgra>
++				<itemgra item_types="poi_pastafarian" order="11-">
++					<icon src="pastafarian.png"/>
++				</itemgra>
++				<itemgra item_types="poi_shinto" order="11-">
++					<icon src="shinto.png"/>
++				</itemgra>
++				<itemgra item_types="poi_sikh" order="11-">
++					<icon src="sikh.png"/>
++				</itemgra>
++				<itemgra item_types="poi_taoist" order="11-">
++					<icon src="taoist.png"/>
++				</itemgra>
+ 				<itemgra item_types="poi_cinema" order="12-">
+ 					<icon src="cinema.png"/>
+ 				</itemgra>
+@@ -3460,7 +3526,7 @@
+ 				</itemgra>
+ 			</layer>
+ 			<layer name="POI Labels">
+-				<itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle" order="14-">
++				<itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_bahai,poi_buddhist,poi_hindu,poi_islamic,poi_jain,poi_jewish,poi_pagan,poi_pastafarian,poi_shinto,poi_sikh,poi_taoist,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle" order="14-">
+ 					<circle color="#606060" radius="0" width="0" text_size="10"/>
+ 				</itemgra>
+ 			</layer>
+@@ -4278,7 +4344,7 @@
+         </itemgra>
+       </layer>
+       <layer name="POI Labels" active="1">
+-        <itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle"
++        <itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_bahai,poi_buddhist,poi_hindu,poi_islamic,poi_jain,poi_jewish,poi_pagan,poi_pastafarian,poi_shinto,poi_sikh,poi_taoist,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle"
+         order="15-">
+           <circle color="#606060" radius="0" width="0"
+           text_size="10" />
+@@ -4393,6 +4459,39 @@
+         <itemgra item_types="poi_church" order="11-">
+           <icon src="church.png" />
+         </itemgra>
++				<itemgra item_types="poi_bahai" order="11-">
++					<icon src="bahai.png"/>
++				</itemgra>
++				<itemgra item_types="poi_buddhist" order="11-">
++					<icon src="buddhist.png"/>
++				</itemgra>
++				<itemgra item_types="poi_hindu" order="11-">
++					<icon src="hindu.png"/>
++				</itemgra>
++				<itemgra item_types="poi_islamic" order="11-">
++					<icon src="islamic.png"/>
++				</itemgra>
++				<itemgra item_types="poi_jain" order="11-">
++					<icon src="jain.png"/>
++				</itemgra>
++				<itemgra item_types="poi_jewish" order="11-">
++					<icon src="jewish.png"/>
++				</itemgra>
++				<itemgra item_types="poi_pagan" order="11-">
++					<icon src="pagan.png"/>
++				</itemgra>
++				<itemgra item_types="poi_pastafarian" order="11-">
++					<icon src="pastafarian.png"/>
++				</itemgra>
++				<itemgra item_types="poi_shinto" order="11-">
++					<icon src="shinto.png"/>
++				</itemgra>
++				<itemgra item_types="poi_sikh" order="11-">
++					<icon src="sikh.png"/>
++				</itemgra>
++				<itemgra item_types="poi_taoist" order="11-">
++					<icon src="taoist.png"/>
++				</itemgra>
+         <itemgra item_types="poi_cinema" order="12-">
+           <icon src="cinema.png" />
+         </itemgra>
+@@ -4745,7 +4844,7 @@
+         </itemgra>
+       </layer>
+       <layer name="Android-POI-Labels-full" active="0">
+-        <itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle"
++        <itemgra item_types="poi_airport,town_ghost,poi_hotel,poi_car_parking,poi_car_dealer_parts,poi_fuel,poi_shopping,poi_attraction,poi_cafe,poi_bar,highway_exit,poi_camp_rv,poi_museum_history,poi_hospital,poi_dining,poi_fastfood,poi_police,poi_autoservice,poi_bank,poi_bus_station,poi_bus_stop,poi_business_service,poi_car_rent,poi_church,poi_bahai,poi_buddhist,poi_hindu,poi_islamic,poi_jain,poi_jewish,poi_pagan,poi_pastafarian,poi_shinto,poi_sikh,poi_taoist,poi_cinema,poi_concert,poi_drinking_water,poi_emergency,poi_fair,poi_fish,poi_government_building,poi_hotspring,poi_information,poi_justice,poi_landmark,poi_library,poi_mall,poi_manmade_feature,poi_marine,poi_marine_type,poi_mark,poi_oil_field,poi_peak,poi_personal_service,poi_pharmacy,poi_post_office,poi_public_office,poi_rail_halt,poi_rail_station,poi_rail_tram_stop,poi_repair_service,poi_resort,poi_restaurant,poi_restricted_area,poi_sailing,poi_scenic_area,poi_school,poi_service,poi_shop_retail,poi_skiing,poi_social_service,poi_sport,poi_stadium,poi_swimming,poi_theater,poi_townhall,poi_trail,poi_truck_stop,poi_tunnel,poi_worship,poi_wrecker,poi_zoo,poi_biergarten,poi_castle,poi_ruins,poi_memorial,poi_monument,poi_shelter,poi_fountain,poi_viewpoint,vehicle"
+         order="14-">
+           <circle color="#606060" radius="0" width="0"
+           text_size="10" />
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/Icon_rename.sh navit-r4517/navit/xpm/Icon_rename.sh
+--- navit-r4517.xpm2svg2/navit/xpm/Icon_rename.sh	2011-06-12 14:33:29.000000000 +0200
++++ navit-r4517/navit/xpm/Icon_rename.sh	2011-06-12 17:18:06.000000000 +0200
+@@ -19,6 +19,15 @@
+ 
+ # sjjb/money
+ 
++bahai)		 echo sjjb/place_of_worship/bahai3 ;;
++buddhist)	 echo sjjb/place_of_worship/buddhist3 ;;
++#christian)	 echo sjjb/place_of_worship/christian3 ;; 'church' is already there
++hindu)		 echo sjjb/place_of_worship/hindu3 ;;
++islamic)	 echo sjjb/place_of_worship/islamic3 ;;
++jain)		 echo sjjb/place_of_worship/jain3 ;;
++jewish)		 echo sjjb/place_of_worship/jewish3 ;;
++shinto)		 echo sjjb/place_of_worship/shinto3 ;;
++sikh)		 echo sjjb/place_of_worship/sikh3 ;;
+ worship)	 echo sjjb/place_of_worship/unknown ;;
+ 
+ # sjjb/poi
+@@ -46,4 +55,9 @@
+ 
+ dam)		 echo sjjb/water/dam ;;
+ 
++
++pagan)		 echo themroc/pow/pagan ;;
++pastafarian)	 echo themroc/pow/pastafarian ;;
++taoist)		 echo themroc/pow/taoist ;;
++
+ esac
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/Makefile.am navit-r4517/navit/xpm/Makefile.am
+--- navit-r4517.xpm2svg2/navit/xpm/Makefile.am	2011-06-12 15:50:59.000000000 +0200
++++ navit-r4517/navit/xpm/Makefile.am	2011-06-12 16:57:39.000000000 +0200
+@@ -218,6 +218,15 @@
+ 
+ # sjjb/place_of_worship
+ svgs_sjjb += worship.svg
++svgs_sjjb += bahai.svg
++svgs_sjjb += buddhist.svg
++# svgs_sjjb += christian.svg  'church' is already there
++svgs_sjjb += hindu.svg
++svgs_sjjb += islamic.svg
++svgs_sjjb += jain.svg
++svgs_sjjb += jewish.svg
++svgs_sjjb += shinto.svg
++svgs_sjjb += sikh.svg
+ 
+ # sjjb/poi
+ # sjjb/power
+@@ -245,10 +254,15 @@
+ # sjjb/water
+ svgs_sjjb += dam.svg
+ 
+-
+ subdir_svgs += $(svgs_sjjb)
+ 
+ 
++svgs_themroc = pagan.svg
++svgs_themroc += pastafarian.svg
++svgs_themroc += taoist.svg
++subdir_svgs += $(svgs_themroc)
++
++
+ nav_svgs =  nav_left_1_bk.svg nav_left_1_wh.svg nav_left_2_bk.svg nav_left_2_wh.svg nav_left_3_bk.svg nav_left_3_wh.svg
+ nav_svgs += nav_right_1_bk.svg nav_right_1_wh.svg nav_right_2_bk.svg nav_right_2_wh.svg nav_right_3_bk.svg nav_right_3_wh.svg
+ nav_svgs += nav_roundabout_l1_bk.svg nav_roundabout_l1_wh.svg nav_roundabout_l2_bk.svg nav_roundabout_l2_wh.svg
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/navit_svg2png navit-r4517/navit/xpm/navit_svg2png
+--- navit-r4517.xpm2svg2/navit/xpm/navit_svg2png	2011-06-12 16:08:04.000000000 +0200
++++ navit-r4517/navit/xpm/navit_svg2png	2011-06-12 17:17:22.000000000 +0200
+@@ -5,6 +5,11 @@
+ 	. $SRCDIR/$dir2/recolour.sh
+ }
+ 
++regroup_sh()
++{
++	. $SRCDIR/$dir2/regroup.sh
++}
++
+ icon_rename_sh()
+ {
+ 	. $SRCDIR/Icon_rename.sh
+@@ -73,6 +78,7 @@
+ 	dir=`dirname $svg`
+ 	dir2=`dirname $dir`
+ 	group=`basename $dir`
++	[ -f $SRCDIR/$dir2/regroup.sh ] && group=`regroup_sh $group`
+ 	colors=`icon_colors_sh $group`
+ 	[ x$w = x ] && w=22
+ 	[ x$h = x ] && h=22
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/bahai3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/bahai3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/bahai3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/bahai3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,122 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_bahai3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="172.10413"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <path
++     sodipodi:nodetypes="cssscccssssssssssssssssssssssssssssssssccscccssssssssssssssssssssssssssscccscccsc"
++     id="path1873"
++     d="M 211.93658,502.90415 C 211.62064,467.41944 210.72008,437.74441 209.93535,436.95967 C 208.44146,435.46579 144.37645,444.49134 106.13848,451.58271 C 84.17773,455.65541 76.216627,454.51689 76.216627,447.30367 C 76.216627,445.27966 94.355879,421.12254 116.52608,393.62116 L 156.83549,343.6186 L 143.36752,335.6723 C 135.96011,331.30184 129.10233,327.72599 128.12801,327.72599 C 127.15365,327.72599 117.24965,321.8749 106.11914,314.72355 C 94.988602,307.57217 77.514623,296.99986 67.288108,291.22949 C 52.866925,283.09223 48.962908,278.86966 49.890838,272.41255 C 50.86408,265.64018 54.692944,263.545 70.417537,261.18033 C 110.93294,255.08765 172.86817,241.35355 172.86817,238.46195 C 172.86817,236.80159 164.00939,210.0363 153.18198,178.98348 C 133.88137,123.62964 132.11121,111.22655 143.51188,111.22655 C 146.6364,111.22655 171.68631,124.2745 199.17838,140.22202 C 226.67049,156.16951 250.83333,169.21746 252.8736,169.21746 C 254.91392,169.21746 261.5262,155.01809 267.56758,137.66334 C 291.78321,68.100199 299.49089,51.353397 307.88446,50.064915 C 312.31887,49.384208 316.70051,51.123944 317.62144,53.93098 C 319.32297,59.117252 342.18875,122.83827 353.09507,152.78671 C 356.38602,161.82364 360.50716,169.21746 362.25312,169.21746 C 363.99906,169.21746 386.90657,156.47858 413.15867,140.90877 C 467.8955,108.44507 471.29659,106.90623 478.48757,111.35049 C 482.7678,113.99581 479.86579,126.00059 463.38728,173.8163 C 452.16794,206.37145 442.66697,234.59806 442.27398,236.54207 C 441.6009,239.87157 508.60064,254.63111 548.84267,260.01835 C 564.46924,262.11026 567.18597,263.73796 567.06894,270.93845 C 566.95988,277.64765 556.1501,285.7836 514.87711,310.22028 C 486.24724,327.1713 462.82279,342.51553 462.82279,344.3186 C 462.82279,346.12165 480.22008,369.0158 501.48342,395.19457 C 522.74675,421.3733 540.14402,444.73799 540.14402,447.11613 C 540.14402,453.23409 525.13482,452.53767 466.68886,443.70784 C 438.53975,439.45517 413.10639,435.97573 410.17029,435.97573 C 405.83914,435.97573 404.83187,448.3764 404.83187,501.69878 C 404.83187,585.22233 404.77291,585.2434 350.707,521.02908 C 329.22354,495.51307 310.07427,474.63634 308.15303,474.63634 C 306.23179,474.63634 287.69024,495.51307 266.94955,521.02908 C 239.83003,554.39257 226.89015,567.42181 220.87507,567.42181 C 212.6574,567.42181 212.5009,566.29242 211.93658,502.90415 z M 277.49207,443.70784 C 291.13478,426.69718 304.92554,412.79323 308.13822,412.81017 C 311.35088,412.82714 325.28765,426.70696 339.10882,443.65423 L 364.23823,474.46743 L 365.20396,440.72383 C 366.53698,394.14787 367.92598,389.57838 380.74263,389.60456 C 386.54954,389.61637 397.3897,391.18979 404.83187,393.10098 C 425.44692,398.39506 451.22462,400.80922 451.22462,397.44582 C 451.22462,395.79606 440.60987,381.14847 427.63629,364.8957 C 414.66273,348.6429 404.95329,332.98586 406.05989,330.10222 C 407.16643,327.21862 422.21024,316.51048 439.49057,306.30635 C 456.77093,296.10226 471.66637,286.52866 472.59155,285.03165 C 473.51675,283.53467 465.17328,280.94259 454.05055,279.27152 C 442.92776,277.60041 432.95746,275.99074 431.89429,275.69449 C 430.83113,275.3982 421.69756,273.82954 411.59748,272.20855 C 388.9489,268.57362 388.46579,264.79834 404.84498,219.44001 C 411.23117,201.7549 415.69933,186.52838 414.77421,185.60328 C 413.84911,184.67815 398.02215,192.79098 379.60319,203.63178 C 361.18419,214.47258 344.59912,223.34233 342.74748,223.34233 C 337.93121,223.34233 333.47016,213.8733 321.2983,177.81432 C 315.39571,160.32805 309.4772,146.02111 308.146,146.02111 C 306.81483,146.02111 299.75397,162.72237 292.45528,183.13506 C 285.15653,203.54771 277.14846,221.07807 274.65948,222.09139 C 270.4338,223.81178 256.43727,216.95846 216.36136,193.54594 C 207.32445,188.26652 199.93059,185.71341 199.93059,187.87238 C 199.93059,190.03134 205.14979,206.5848 211.52879,224.65788 C 217.9078,242.73094 223.12697,260.18802 223.12697,263.45137 C 223.12697,269.6775 213.90869,272.20012 164.08277,279.60891 C 153.93493,281.11784 144.80346,283.69333 143.79055,285.33227 C 142.77763,286.97116 147.67397,291.52613 154.67127,295.45435 C 193.97119,317.51704 207.658,326.26531 209.27517,330.35586 C 210.26737,332.86542 206.05885,341.56406 199.9229,349.68614 C 193.787,357.80825 182.47416,372.83977 174.7833,383.08951 L 160.79987,401.72544 L 179.39872,399.17937 C 189.62807,397.77899 204.08663,395.05667 211.52879,393.1297 C 218.97096,391.20271 229.84426,389.61637 235.69167,389.60456 L 246.32334,389.58298 L 246.37612,423.41103 C 246.42091,452.11232 248.84502,474.63634 251.88915,474.63634 C 252.32803,474.63634 263.84935,460.71852 277.49207,443.70784 z"
++     style="opacity:0.25;fill:#ffffff" />
++  <path
++     style="opacity:1;fill:#ffffff"
++     d="M 171.93658,462.90415 C 171.62064,427.41944 170.72008,397.74441 169.93535,396.95967 C 168.44146,395.46579 104.37645,404.49134 66.138477,411.58271 C 44.17773,415.65541 36.216627,414.51689 36.216627,407.30367 C 36.216627,405.27966 54.355879,381.12254 76.526078,353.62116 L 116.83549,303.6186 L 103.36752,295.6723 C 95.96011,291.30184 89.10233,287.72599 88.12801,287.72599 C 87.15365,287.72599 77.249654,281.8749 66.119139,274.72355 C 54.988602,267.57217 37.514623,256.99986 27.288108,251.22949 C 12.866925,243.09223 8.962908,238.86966 9.890838,232.41255 C 10.86408,225.64018 14.692944,223.545 30.417537,221.18033 C 70.932938,215.08765 132.86817,201.35355 132.86817,198.46195 C 132.86817,196.80159 124.00939,170.0363 113.18198,138.98348 C 93.88137,83.62964 92.11121,71.226548 103.51188,71.226548 C 106.6364,71.226548 131.68631,84.2745 159.17838,100.22202 C 186.67049,116.16951 210.83333,129.21746 212.8736,129.21746 C 214.91392,129.21746 221.5262,115.01809 227.56758,97.66334 C 251.78321,28.100199 259.49089,11.353397 267.88446,10.064915 C 272.31887,9.384208 276.70051,11.123944 277.62144,13.93098 C 279.32297,19.117252 302.18875,82.83827 313.09507,112.78671 C 316.38602,121.82364 320.50716,129.21746 322.25312,129.21746 C 323.99906,129.21746 346.90657,116.47858 373.15867,100.90877 C 427.8955,68.445073 431.29659,66.906233 438.48757,71.350493 C 442.7678,73.995813 439.86579,86.00059 423.38728,133.8163 C 412.16794,166.37145 402.66697,194.59806 402.27398,196.54207 C 401.6009,199.87157 468.60064,214.63111 508.84267,220.01835 C 524.46924,222.11026 527.18597,223.73796 527.06894,230.93845 C 526.95988,237.64765 516.1501,245.7836 474.87711,270.22028 C 446.24724,287.1713 422.82279,302.51553 422.82279,304.3186 C 422.82279,306.12165 440.22008,329.0158 461.48342,355.19457 C 482.74675,381.3733 500.14402,404.73799 500.14402,407.11613 C 500.14402,413.23409 485.13482,412.53767 426.68886,403.70784 C 398.53975,399.45517 373.10639,395.97573 370.17029,395.97573 C 365.83914,395.97573 364.83187,408.3764 364.83187,461.69878 C 364.83187,545.22233 364.77291,545.2434 310.707,481.02908 C 289.22354,455.51307 270.07427,434.63634 268.15303,434.63634 C 266.23179,434.63634 247.69024,455.51307 226.94955,481.02908 C 199.83003,514.39257 186.89015,527.42181 180.87507,527.42181 C 172.6574,527.42181 172.5009,526.29242 171.93658,462.90415 z M 237.49207,403.70784 C 251.13478,386.69718 264.92554,372.79323 268.13822,372.81017 C 271.35088,372.82714 285.28765,386.70696 299.10882,403.65423 L 324.23823,434.46743 L 325.20396,400.72383 C 326.53698,354.14787 327.92598,349.57838 340.74263,349.60456 C 346.54954,349.61637 357.3897,351.18979 364.83187,353.10098 C 385.44692,358.39506 411.22462,360.80922 411.22462,357.44582 C 411.22462,355.79606 400.60987,341.14847 387.63629,324.8957 C 374.66273,308.6429 364.95329,292.98586 366.05989,290.10222 C 367.16643,287.21862 382.21024,276.51048 399.49057,266.30635 C 416.77093,256.10226 431.66637,246.52866 432.59155,245.03165 C 433.51675,243.53467 425.17328,240.94259 414.05055,239.27152 C 402.92776,237.60041 392.95746,235.99074 391.89429,235.69449 C 390.83113,235.3982 381.69756,233.82954 371.59748,232.20855 C 348.9489,228.57362 348.46579,224.79834 364.84498,179.44001 C 371.23117,161.7549 375.69933,146.52838 374.77421,145.60328 C 373.84911,144.67815 358.02215,152.79098 339.60319,163.63178 C 321.18419,174.47258 304.59912,183.34233 302.74748,183.34233 C 297.93121,183.34233 293.47016,173.8733 281.2983,137.81432 C 275.39571,120.32805 269.4772,106.02111 268.146,106.02111 C 266.81483,106.02111 259.75397,122.72237 252.45528,143.13506 C 245.15653,163.54771 237.14846,181.07807 234.65948,182.09139 C 230.4338,183.81178 216.43727,176.95846 176.36136,153.54594 C 167.32445,148.26652 159.93059,145.71341 159.93059,147.87238 C 159.93059,150.03134 165.14979,166.5848 171.52879,184.65788 C 177.9078,202.73094 183.12697,220.18802 183.12697,223.45137 C 183.12697,229.6775 173.90869,232.20012 124.08277,239.60891 C 113.93493,241.11784 104.80346,243.69333 103.79055,245.33227 C 102.77763,246.97116 107.67397,251.52613 114.67127,255.45435 C 153.97119,277.51704 167.658,286.26531 169.27517,290.35586 C 170.26737,292.86542 166.05885,301.56406 159.9229,309.68614 C 153.787,317.80825 142.47416,332.83977 134.7833,343.08951 L 120.79987,361.72544 L 139.39872,359.17937 C 149.62807,357.77899 164.08663,355.05667 171.52879,353.1297 C 178.97096,351.20271 189.84426,349.61637 195.69167,349.60456 L 206.32334,349.58298 L 206.37612,383.41103 C 206.42091,412.11232 208.84502,434.63634 211.88915,434.63634 C 212.32803,434.63634 223.84935,420.71852 237.49207,403.70784 z"
++     id="path4757"
++     sodipodi:nodetypes="cssscccssssssssssssssssssssssssssssssssccscccssssssssssssssssssssssssssscccscccsc" />
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/buddhist3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/buddhist3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/buddhist3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/buddhist3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,122 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_buddhist3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-37.795207"
++     inkscape:cy="492.50373"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <path
++     sodipodi:nodetypes="cccccsscccsscscssssssscccsccsscscccccscccccccccscccccccsccssssccccccsccssssccccssccccccccc"
++     id="path1873"
++     d="M 280.20349,557.10339 C 275.4337,552.33363 272.92649,544.97509 272.92649,535.74583 L 272.92649,521.66522 L 251.81633,517.51206 C 169.90036,501.39607 97.450677,416.48466 79.870405,328.50075 C 74.50844,328.08683 71.543681,327.87821 65.877415,327.87821 C 48.155947,327.87821 36.424315,316.05296 36.424315,298.19005 C 36.424315,281.9532 46.404667,272.45513 64.618644,271.35819 L 78.267012,270.53622 L 84.708567,245.53938 C 95.45536,203.83597 111.41279,176.40024 143.7188,144.08261 C 176.82962,110.9599 204.54359,94.326009 244.55244,84.413765 C 256.70863,81.402045 257.64208,83.725098 271.32566,80.67256 C 273.13348,61.664076 271.48655,40.464466 300.54856,41.460973 C 323.51919,42.262319 325.71207,56.2882 325.80681,79.561024 C 333.68452,80.332975 336.24173,80.565766 349.87852,83.369852 C 431.8724,100.22995 505.50299,174.202 519.87045,256.92755 C 522.14441,270.02049 523.36498,271.36746 532.02907,270.34525 C 543.46567,268.99596 562.20002,277.9001 565.38442,286.19851 C 573.27185,306.75288 561.70867,324.41429 538.3069,327.55624 C 522.98627,329.61323 522.25963,330.27907 519.83815,344.48051 C 516.04575,366.72197 501.16452,400.78164 484.54908,425.24892 C 455.26472,468.37208 409.61307,500.46055 356.61187,515.17582 L 329.32317,522.75229 L 328.14487,537.19896 C 327.49678,545.14465 324.37773,554.51096 321.21357,558.01301 C 313.11632,566.97501 289.55242,566.45232 280.20349,557.10339 z M 272.92649,417.02134 C 272.92649,392.00669 271.66237,371.54015 270.11728,371.54015 C 268.57222,371.54015 253.47426,385.4462 236.56628,402.44247 C 219.54969,419.54791 209.94072,430.05151 206.36897,435.20723 C 210.77167,438.43078 218.50021,447.11973 237.841,455.07072 C 254.04663,461.73283 267.40333,463.64123 273.51621,464.56308 C 272.5054,456.96179 272.92649,445.56067 272.92649,417.02134 z M 382.19507,446.52535 L 398.03258,436.76152 L 365.57298,404.15084 C 347.7202,386.21497 331.85127,371.54015 330.30865,371.54015 C 328.76604,371.54015 327.50391,392.21135 327.50391,417.47614 L 327.50391,463.41215 L 346.93075,459.85065 C 353.43456,458.55199 369.30349,452.55561 382.19507,446.52535 z M 200.12988,359.71504 L 233.84414,327.87821 L 185.66824,327.87821 L 137.49232,327.87821 L 139.95901,341.02682 C 142.78058,356.06709 160.50561,393.93661 164.05366,392.50494 C 165.35272,391.98073 181.58701,377.22529 200.12988,359.71504 z M 454.23342,368.22999 C 459.92766,355.72266 462.40275,345.38773 463.64563,339.88451 L 465.90535,327.87821 L 417.70184,327.87821 L 369.49834,327.87821 L 402.09307,360.62465 C 420.02017,378.6352 436.03596,393.37113 437.68369,393.37113 C 439.33142,393.37113 448.53921,380.73732 454.23342,368.22999 z M 313.85504,332.2564 C 320.11269,329.02047 330.38397,318.23547 333.41415,310.98326 C 338.24385,299.42416 335.28797,287.19044 326.21651,277.24406 C 311.75004,261.38234 292.95735,261.28732 276.90551,276.41206 C 261.24167,291.17118 265.07665,311.66649 273.97037,322.07426 C 284.17075,334.01111 300.67643,339.07134 313.85504,332.2564 z M 229.26455,269.58642 C 229.26455,268.5441 214.75489,253.2489 197.02085,235.59703 L 164.77718,203.50274 L 157.01607,216.06041 C 148.29704,230.1681 142.70319,245.40888 137.90208,271.57301 C 140.30263,271.91091 144.23475,271.48154 183.78336,271.48154 C 208.79801,271.48154 229.26455,270.62875 229.26455,269.58642 z M 462.92924,261.68287 C 462.34101,256.89671 459.52475,242.24164 453.64119,229.122 C 447.69654,215.86612 438.679,204.16937 437.10172,204.16937 C 434.47098,204.16937 371.16608,266.97558 371.16527,269.58642 C 371.16494,270.62875 392.04081,271.1409 417.55609,270.72455 C 463.51111,269.97469 463.9379,269.88965 462.92924,261.68287 z M 272.92649,182.26908 L 272.92649,134.89934 L 262.92062,137.15907 C 244.68613,137.95699 206.54775,159.03901 207.43358,162.97316 C 207.98968,165.44286 269.49142,229.63884 271.941,229.63884 C 272.48303,229.63884 272.92649,208.32246 272.92649,182.26908 z M 372.62201,147.12845 C 359.03355,140.74987 343.42234,138.62007 338.41939,137.99454 L 329.32317,136.85722 L 328.31247,184.15765 L 327.30173,231.45809 L 362.11499,196.89238 L 396.92823,162.32668 L 372.62201,147.12845 z"
++     style="opacity:0.25;fill:#ffffff" />
++  <path
++     style="opacity:1;fill:#ffffff"
++     d="M 252.20349,529.10339 C 247.4337,524.33363 244.92649,516.97509 244.92649,507.74583 L 244.92649,493.66522 L 223.81633,489.51206 C 141.90036,473.39607 69.450677,388.48466 51.870405,300.50075 C 46.50844,300.08683 43.543681,299.87821 37.877415,299.87821 C 20.155947,299.87821 8.424315,288.05296 8.424315,270.19005 C 8.424315,253.9532 18.404667,244.45513 36.618644,243.35819 L 50.267012,242.53622 L 56.708567,217.53938 C 67.45536,175.83597 83.412788,148.40024 115.7188,116.08261 C 148.82962,82.959901 176.54359,66.326009 216.55244,56.413765 C 228.70863,53.402045 229.64208,55.725098 243.32566,52.67256 C 245.13348,33.664076 243.48655,12.464466 272.54856,13.460973 C 295.51919,14.262319 297.71207,28.2882 297.80681,51.561024 C 305.68452,52.332975 308.24173,52.565766 321.87852,55.369852 C 403.8724,72.229946 477.50299,146.202 491.87045,228.92755 C 494.14441,242.02049 495.36498,243.36746 504.02907,242.34525 C 515.46567,240.99596 534.20002,249.9001 537.38442,258.19851 C 545.27185,278.75288 533.70867,296.41429 510.3069,299.55624 C 494.98627,301.61323 494.25963,302.27907 491.83815,316.48051 C 488.04575,338.72197 473.16452,372.78164 456.54908,397.24892 C 427.26472,440.37208 381.61307,472.46055 328.61187,487.17582 L 301.32317,494.75229 L 300.14487,509.19896 C 299.49678,517.14465 296.37773,526.51096 293.21357,530.01301 C 285.11632,538.97501 261.55242,538.45232 252.20349,529.10339 z M 244.92649,389.02134 C 244.92649,364.00669 243.66237,343.54015 242.11728,343.54015 C 240.57222,343.54015 225.47426,357.4462 208.56628,374.44247 C 191.54969,391.54791 181.94072,402.05151 178.36897,407.20723 C 182.77167,410.43078 190.50021,419.11973 209.841,427.07072 C 226.04663,433.73283 239.40333,435.64123 245.51621,436.56308 C 244.5054,428.96179 244.92649,417.56067 244.92649,389.02134 z M 354.19507,418.52535 L 370.03258,408.76152 L 337.57298,376.15084 C 319.7202,358.21497 303.85127,343.54015 302.30865,343.54015 C 300.76604,343.54015 299.50391,364.21135 299.50391,389.47614 L 299.50391,435.41215 L 318.93075,431.85065 C 325.43456,430.55199 341.30349,424.55561 354.19507,418.52535 z M 172.12988,331.71504 L 205.84414,299.87821 L 157.66824,299.87821 L 109.49232,299.87821 L 111.95901,313.02682 C 114.78058,328.06709 132.50561,365.93661 136.05366,364.50494 C 137.35272,363.98073 153.58701,349.22529 172.12988,331.71504 z M 426.23342,340.22999 C 431.92766,327.72266 434.40275,317.38773 435.64563,311.88451 L 437.90535,299.87821 L 389.70184,299.87821 L 341.49834,299.87821 L 374.09307,332.62465 C 392.02017,350.6352 408.03596,365.37113 409.68369,365.37113 C 411.33142,365.37113 420.53921,352.73732 426.23342,340.22999 z M 285.85504,304.2564 C 292.11269,301.02047 302.38397,290.23547 305.41415,282.98326 C 310.24385,271.42416 307.28797,259.19044 298.21651,249.24406 C 283.75004,233.38234 264.95735,233.28732 248.90551,248.41206 C 233.24167,263.17118 237.07665,283.66649 245.97037,294.07426 C 256.17075,306.01111 272.67643,311.07134 285.85504,304.2564 z M 201.26455,241.58642 C 201.26455,240.5441 186.75489,225.2489 169.02085,207.59703 L 136.77718,175.50274 L 129.01607,188.06041 C 120.29704,202.1681 114.70319,217.40888 109.90208,243.57301 C 112.30263,243.91091 116.23475,243.48154 155.78336,243.48154 C 180.79801,243.48154 201.26455,242.62875 201.26455,241.58642 z M 434.92924,233.68287 C 434.34101,228.89671 431.52475,214.24164 425.64119,201.122 C 419.69654,187.86612 410.679,176.16937 409.10172,176.16937 C 406.47098,176.16937 343.16608,238.97558 343.16527,241.58642 C 343.16494,242.62875 364.04081,243.1409 389.55609,242.72455 C 435.51111,241.97469 435.9379,241.88965 434.92924,233.68287 z M 244.92649,154.26908 L 244.92649,106.89934 L 234.92062,109.15907 C 216.68613,109.95699 178.54775,131.03901 179.43358,134.97316 C 179.98968,137.44286 241.49142,201.63884 243.941,201.63884 C 244.48303,201.63884 244.92649,180.32246 244.92649,154.26908 z M 344.62201,119.12845 C 331.03355,112.74987 315.42234,110.62007 310.41939,109.99454 L 301.32317,108.85722 L 300.31247,156.15765 L 299.30173,203.45809 L 334.11499,168.89238 L 368.92823,134.32668 L 344.62201,119.12845 z"
++     id="path5316"
++     sodipodi:nodetypes="cccccsscccsscscssssssscccsccsscscccccscccccccccscccccccsccssssccccccsccssssccccssccccccccc" />
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/hindu3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/hindu3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/hindu3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/hindu3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,122 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_hindu3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="172.10413"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <path
++     sodipodi:nodetypes="csssssscccsssssssssssssssssssssscccsccsscccssccsssssssssccscccsccc"
++     id="path1873"
++     d="M 221.08703,568.0161 C 190.16635,559.94726 163.43647,543.79443 138.30145,517.98886 C 98.26543,476.88474 76.398263,432.89487 63.449344,367.40976 C 56.063801,330.05967 56.051249,329.1506 62.852621,324.17729 C 76.785317,313.98945 82.292216,317.66085 86.966006,340.25351 C 111.32366,457.99562 187.62788,534.53757 261.85752,515.68991 C 283.99595,510.06873 305.11627,488.81562 311.4697,465.76576 C 319.66186,436.04503 305.22991,384.6863 280.14337,354.28522 L 271.22812,343.48132 L 256.1577,359.01033 C 240.22048,375.43256 220.57971,388.96835 212.6546,388.99126 C 207.88938,389.00505 186.1331,344.99998 186.1331,335.34794 C 186.1331,332.52128 196.4813,325.47753 209.12911,319.69524 C 244.62274,303.46832 259.72029,285.1911 259.72029,258.44916 C 259.72029,241.0458 256.65225,234.97702 244.7397,228.8168 C 229.40087,220.88478 203.8607,222.24135 172.90676,232.63225 C 157.83593,237.6914 144.64299,241.83067 143.58914,241.83067 C 140.8766,241.83067 119.90465,194.37006 119.90465,188.23147 C 119.90465,177.70066 142.64994,170.50335 180.61408,169.02113 C 215.43343,167.66169 218.48986,168.15362 237.57687,178.18951 C 261.56493,190.80237 279.39884,212.64095 287.22114,238.9815 C 293.60104,260.4649 294.51923,288.43148 289.29575,302.17027 C 283.73258,316.80245 290.80792,316.91615 309.69658,302.4981 C 330.33498,286.74448 344.29545,280.57079 366.9694,277.17062 C 383.31841,274.71895 384.12511,274.00562 388.59207,258.05116 C 399.25401,219.9705 427.49428,197.49207 465.34835,196.95533 C 493.60635,196.55465 509.49308,202.36465 525.79831,219.06272 C 547.32327,241.10627 555.03217,267.71654 556.9099,326.45592 C 559.24063,399.36698 549.44861,438.77574 520.93111,471.25543 C 496.34978,499.252 457.68186,509.59953 427.51262,496.25425 C 402.05196,484.99179 395.33583,467.51611 392.4135,404.92527 C 390.53624,364.7175 388.97188,355.15434 383.2349,348.81507 C 374.35786,339.00602 368.90597,339.23231 344.90313,350.40622 L 325.22429,359.56725 L 333.12122,371.52663 C 384.42395,449.221 373.8005,533.82286 309.15074,562.42052 C 288.7908,571.42667 244.85488,574.21839 221.08703,568.0161 z M 486.99678,436.83076 C 513.52202,420.65826 531.08643,375.2 527.23241,332.69732 C 524.7133,304.91596 508.54044,272.16911 491.89564,261.1473 C 469.36133,246.22558 438.40787,251.13754 418.11789,272.85491 L 409.10472,282.50219 L 416.17663,294.36081 C 422.06111,304.22825 423.44469,314.8687 424.4166,357.73048 C 425.78127,417.91216 426.34183,421.46402 436.51661,434.39919 C 446.21533,446.7291 468.96476,447.8249 486.99678,436.83076 z M 303.89242,187.86181 C 294.79692,184.67962 280.45714,177.33005 272.02632,171.52946 C 255.1922,159.94731 222.9267,124.86184 222.9267,118.13865 C 222.9267,115.80708 227.1651,111.12233 232.34535,107.72809 C 241.56518,101.68702 242.07864,101.84097 256.66753,115.02117 C 276.00021,132.48708 293.81735,139.76521 317.36987,139.81759 C 338.47239,139.8645 363.88605,127.63389 376.80034,111.21601 C 380.78099,106.15546 385.27679,102.01504 386.79105,102.01504 C 389.71991,102.01504 428.86515,134.22347 433.64508,140.56621 C 438.25307,146.68079 400.08537,178.54725 378.46491,186.63654 C 355.08286,195.38487 326.72661,195.85078 303.89242,187.86181 z M 305.18631,105.57437 C 295.35733,95.224592 286.85394,85.493725 286.28985,83.950192 C 285.72574,82.406671 293.74169,73.214046 304.10311,63.522172 L 322.94201,45.900583 L 342.53743,65.252613 C 353.31493,75.896224 361.24565,86.452351 360.16123,88.710626 C 359.07684,90.968937 350.2848,99.92111 340.62339,108.6044 L 323.05717,124.39211 L 305.18631,105.57437 z"
++     style="opacity:0.25;fill:#ffffff" />
++  <path
++     style="opacity:1;fill:#ffffff"
++     d="M 181.08703,528.0161 C 150.16635,519.94726 123.43647,503.79443 98.30145,477.98886 C 58.265425,436.88474 36.398263,392.89487 23.449344,327.40976 C 16.063801,290.05967 16.051249,289.1506 22.852621,284.17729 C 36.785317,273.98945 42.292216,277.66085 46.966006,300.25351 C 71.323656,417.99562 147.62788,494.53757 221.85752,475.68991 C 243.99595,470.06873 265.11627,448.81562 271.4697,425.76576 C 279.66186,396.04503 265.22991,344.6863 240.14337,314.28522 L 231.22812,303.48132 L 216.1577,319.01033 C 200.22048,335.43256 180.57971,348.96835 172.6546,348.99126 C 167.88938,349.00505 146.1331,304.99998 146.1331,295.34794 C 146.1331,292.52128 156.4813,285.47753 169.12911,279.69524 C 204.62274,263.46832 219.72029,245.1911 219.72029,218.44916 C 219.72029,201.0458 216.65225,194.97702 204.7397,188.8168 C 189.40087,180.88478 163.8607,182.24135 132.90676,192.63225 C 117.83593,197.6914 104.64299,201.83067 103.58914,201.83067 C 100.8766,201.83067 79.90465,154.37006 79.90465,148.23147 C 79.90465,137.70066 102.64994,130.50335 140.61408,129.02113 C 175.43343,127.66169 178.48986,128.15362 197.57687,138.18951 C 221.56493,150.80237 239.39884,172.64095 247.22114,198.9815 C 253.60104,220.4649 254.51923,248.43148 249.29575,262.17027 C 243.73258,276.80245 250.80792,276.91615 269.69658,262.4981 C 290.33498,246.74448 304.29545,240.57079 326.9694,237.17062 C 343.31841,234.71895 344.12511,234.00562 348.59207,218.05116 C 359.25401,179.9705 387.49428,157.49207 425.34835,156.95533 C 453.60635,156.55465 469.49308,162.36465 485.79831,179.06272 C 507.32327,201.10627 515.03217,227.71654 516.9099,286.45592 C 519.24063,359.36698 509.44861,398.77574 480.93111,431.25543 C 456.34978,459.252 417.68186,469.59953 387.51262,456.25425 C 362.05196,444.99179 355.33583,427.51611 352.4135,364.92527 C 350.53624,324.7175 348.97188,315.15434 343.2349,308.81507 C 334.35786,299.00602 328.90597,299.23231 304.90313,310.40622 L 285.22429,319.56725 L 293.12122,331.52663 C 344.42395,409.221 333.8005,493.82286 269.15074,522.42052 C 248.7908,531.42667 204.85488,534.21839 181.08703,528.0161 z M 446.99678,396.83076 C 473.52202,380.65826 491.08643,335.2 487.23241,292.69732 C 484.7133,264.91596 468.54044,232.16911 451.89564,221.1473 C 429.36133,206.22558 398.40787,211.13754 378.11789,232.85491 L 369.10472,242.50219 L 376.17663,254.36081 C 382.06111,264.22825 383.44469,274.8687 384.4166,317.73048 C 385.78127,377.91216 386.34183,381.46402 396.51661,394.39919 C 406.21533,406.7291 428.96476,407.8249 446.99678,396.83076 z M 263.89242,147.86181 C 254.79692,144.67962 240.45714,137.33005 232.02632,131.52946 C 215.1922,119.94731 182.9267,84.86184 182.9267,78.138655 C 182.9267,75.807079 187.1651,71.122327 192.34535,67.728087 C 201.56518,61.687021 202.07864,61.840968 216.66753,75.02117 C 236.00021,92.48708 253.81735,99.76521 277.36987,99.81759 C 298.47239,99.8645 323.88605,87.63389 336.80034,71.216013 C 340.78099,66.155456 345.27679,62.01504 346.79105,62.01504 C 349.71991,62.01504 388.86515,94.22347 393.64508,100.56621 C 398.25307,106.68079 360.08537,138.54725 338.46491,146.63654 C 315.08286,155.38487 286.72661,155.85078 263.89242,147.86181 z M 265.18631,65.574369 C 255.35733,55.224592 246.85394,45.493725 246.28985,43.950192 C 245.72574,42.406671 253.74169,33.214046 264.10311,23.522172 L 282.94201,5.900583 L 302.53743,25.252613 C 313.31493,35.896224 321.24565,46.452351 320.16123,48.710626 C 319.07684,50.968937 310.2848,59.92111 300.62339,68.604405 L 283.05717,84.39211 L 265.18631,65.574369 z"
++     id="path3603"
++     sodipodi:nodetypes="csssssscccsssssssssssssssssssssscccsccsscccssccsssssssssccscccsccc" />
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/islamic3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/islamic3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/islamic3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/islamic3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,140 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_islamic3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="172.10413"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <g
++     id="g6027"
++     transform="matrix(1.5921213,0,0,1.5921213,-327.88936,-281.19085)"
++     style="opacity:0.25">
++    <path
++       style="fill:#ffffff"
++       d="M 374.94899,524.51727 C 369.27489,523.38906 358.24865,520.22228 350.44625,517.47994 C 310.45856,503.42541 271.84419,463.84573 257.43513,422.14366 C 252.40824,407.59516 249.16556,391.75337 249.35637,370.42133 C 249.54266,349.0742 252.40824,335.37905 257.43513,320.83055 C 271.17229,281.07309 305.91926,243.70022 344.23444,227.47162 C 358.1539,221.57597 389.07478,215.84195 406.94784,215.84195 C 433.58705,215.84195 484.02683,232.68381 494.23876,244.98842 C 499.45945,251.27898 494.60315,251.4922 468.8766,246.10196 C 448.28806,241.78825 441.45835,241.39042 425.53922,243.5776 C 379.70265,249.87521 338.46744,284.41876 321.98771,330.32475 C 314.2136,351.98031 314.18384,390.92458 321.92496,412.44177 C 337.95152,456.98921 378.54825,491.82571 423.3852,499.50596 C 437.3001,501.88947 443.68115,501.5065 466.51645,496.91736 C 481.25661,493.95509 494.27421,492.4531 495.44442,493.57961 C 498.16934,496.20277 485.91174,504.92576 467.93763,513.15461 C 441.39785,525.3049 402.6954,530.03412 374.94899,524.51727 z M 460.09505,422.0141 C 459.31453,420.75119 461.54991,411.268 465.06257,400.94037 C 468.57524,390.61271 471.44925,381.84522 471.44925,381.45706 C 471.44925,381.06893 463.92425,375.38163 454.72704,368.81863 C 445.52982,362.25562 438.00483,355.87664 438.00483,354.64311 C 438.00483,353.4096 447.55578,352.06411 459.22916,351.65312 L 480.45351,350.90593 L 487.14126,331.74009 C 490.81956,321.19885 495.04638,312.16844 496.53428,311.67249 C 498.02214,311.17654 502.34332,320.09058 506.13683,331.48149 L 513.03413,352.19225 L 534.90477,352.19225 C 546.96833,352.19225 556.39085,353.24284 555.91782,354.53518 C 555.44617,355.8238 547.82471,362.18871 538.98123,368.67942 C 530.13776,375.17016 522.90219,381.45958 522.90219,382.65594 C 522.90219,383.85233 525.21757,391.56093 528.04748,399.78623 C 533.00263,414.18865 534.59052,424.22637 531.91368,424.22637 C 531.21016,424.22637 523.55783,419.01676 514.90845,412.64946 C 506.25909,406.28215 498.10256,401.07255 496.78285,401.07255 C 495.46313,401.07255 488.35493,405.48911 480.98682,410.88715 C 463.1733,423.9377 461.7518,424.69478 460.09505,422.0141 z"
++       id="path1873"
++       sodipodi:nodetypes="csssssssssssssssccsssscccscccssssssssc" />
++    <path
++       id="path4510"
++       d="M 496.11458,309.70606 C 490.63018,313.65493 489.57436,321.39399 486.67708,327.17481 C 484.04084,334.39746 481.59497,341.70419 479.02083,348.95606 C 465.14733,350.1382 450.44789,348.316 437.11458,352.64356 C 433.74823,356.61644 440.60881,359.72345 442.86458,362.29981 C 451.36219,369.27005 460.618,375.19673 469.20833,382.08106 C 465.55417,395.40903 458.81481,408.31083 458.05208,422.20606 C 460.34505,428.37227 467.35245,423.31998 470.56077,420.8854 C 479.3246,415.09967 487.51965,407.51527 496.95833,403.20606 C 509.02676,409.65901 519.28251,419.49266 531.33333,426.14356 C 536.71753,426.29806 535.1579,418.70447 534.52083,415.26856 C 532.53246,404.21136 527.00481,393.44468 525.20833,382.67481 C 535.11054,372.48596 548.26291,366.09053 557.70833,355.45606 C 558.31432,350.11901 550.47724,351.4086 547.08333,350.58106 C 536.22339,349.88435 525.33223,350.33434 514.45833,350.20606 C 509.3073,336.92385 506.95581,322.00536 498.52083,310.39356 C 497.86177,309.86421 496.99472,309.45559 496.11458,309.70606 z"
++       style="fill:#ffffff;stroke:none;stroke-width:14.39999962;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
++  </g>
++  <g
++     style="opacity:1"
++     transform="matrix(1.5921213,0,0,1.5921213,-367.88936,-321.19085)"
++     id="g6577">
++    <path
++       sodipodi:nodetypes="csssssssssssssssccsssscccscccssssssssc"
++       id="path6579"
++       d="M 374.94899,524.51727 C 369.27489,523.38906 358.24865,520.22228 350.44625,517.47994 C 310.45856,503.42541 271.84419,463.84573 257.43513,422.14366 C 252.40824,407.59516 249.16556,391.75337 249.35637,370.42133 C 249.54266,349.0742 252.40824,335.37905 257.43513,320.83055 C 271.17229,281.07309 305.91926,243.70022 344.23444,227.47162 C 358.1539,221.57597 389.07478,215.84195 406.94784,215.84195 C 433.58705,215.84195 484.02683,232.68381 494.23876,244.98842 C 499.45945,251.27898 494.60315,251.4922 468.8766,246.10196 C 448.28806,241.78825 441.45835,241.39042 425.53922,243.5776 C 379.70265,249.87521 338.46744,284.41876 321.98771,330.32475 C 314.2136,351.98031 314.18384,390.92458 321.92496,412.44177 C 337.95152,456.98921 378.54825,491.82571 423.3852,499.50596 C 437.3001,501.88947 443.68115,501.5065 466.51645,496.91736 C 481.25661,493.95509 494.27421,492.4531 495.44442,493.57961 C 498.16934,496.20277 485.91174,504.92576 467.93763,513.15461 C 441.39785,525.3049 402.6954,530.03412 374.94899,524.51727 z M 460.09505,422.0141 C 459.31453,420.75119 461.54991,411.268 465.06257,400.94037 C 468.57524,390.61271 471.44925,381.84522 471.44925,381.45706 C 471.44925,381.06893 463.92425,375.38163 454.72704,368.81863 C 445.52982,362.25562 438.00483,355.87664 438.00483,354.64311 C 438.00483,353.4096 447.55578,352.06411 459.22916,351.65312 L 480.45351,350.90593 L 487.14126,331.74009 C 490.81956,321.19885 495.04638,312.16844 496.53428,311.67249 C 498.02214,311.17654 502.34332,320.09058 506.13683,331.48149 L 513.03413,352.19225 L 534.90477,352.19225 C 546.96833,352.19225 556.39085,353.24284 555.91782,354.53518 C 555.44617,355.8238 547.82471,362.18871 538.98123,368.67942 C 530.13776,375.17016 522.90219,381.45958 522.90219,382.65594 C 522.90219,383.85233 525.21757,391.56093 528.04748,399.78623 C 533.00263,414.18865 534.59052,424.22637 531.91368,424.22637 C 531.21016,424.22637 523.55783,419.01676 514.90845,412.64946 C 506.25909,406.28215 498.10256,401.07255 496.78285,401.07255 C 495.46313,401.07255 488.35493,405.48911 480.98682,410.88715 C 463.1733,423.9377 461.7518,424.69478 460.09505,422.0141 z"
++       style="fill:#ffffff" />
++    <path
++       style="fill:#ffffff;stroke:none;stroke-width:14.39999962;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
++       d="M 496.11458,309.70606 C 490.63018,313.65493 489.57436,321.39399 486.67708,327.17481 C 484.04084,334.39746 481.59497,341.70419 479.02083,348.95606 C 465.14733,350.1382 450.44789,348.316 437.11458,352.64356 C 433.74823,356.61644 440.60881,359.72345 442.86458,362.29981 C 451.36219,369.27005 460.618,375.19673 469.20833,382.08106 C 465.55417,395.40903 458.81481,408.31083 458.05208,422.20606 C 460.34505,428.37227 467.35245,423.31998 470.56077,420.8854 C 479.3246,415.09967 487.51965,407.51527 496.95833,403.20606 C 509.02676,409.65901 519.28251,419.49266 531.33333,426.14356 C 536.71753,426.29806 535.1579,418.70447 534.52083,415.26856 C 532.53246,404.21136 527.00481,393.44468 525.20833,382.67481 C 535.11054,372.48596 548.26291,366.09053 557.70833,355.45606 C 558.31432,350.11901 550.47724,351.4086 547.08333,350.58106 C 536.22339,349.88435 525.33223,350.33434 514.45833,350.20606 C 509.3073,336.92385 506.95581,322.00536 498.52083,310.39356 C 497.86177,309.86421 496.99472,309.45559 496.11458,309.70606 z"
++       id="path6581" />
++  </g>
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/jain3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/jain3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/jain3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/jain3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,140 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_jain3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="172.10413"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <g
++     id="g6659"
++     transform="matrix(1.5591179,0,0,1.5591179,42.229719,-235.69855)"
++     style="opacity:0.25">
++    <path
++       style="fill:#ffffff"
++       d="M 142.0916,514.24122 C 136.27122,512.54268 128.11121,509.38869 123.95824,507.23238 C 110.97519,500.49127 90.632431,478.6231 83.821171,464.08558 C 83.821171,464.08558 78.245041,450.69745 77.937891,443.70143 C 76.857441,419.09291 77.209881,409.64263 77.420711,365.76472 C 77.644451,319.20278 78.202921,278.32047 79.158971,274.91758 C 81.280031,267.36807 95.030121,260.23235 104.71693,261.65408 L 111.51991,262.65253 L 111.51991,241.24223 C 111.51991,225.99732 112.5378,218.37869 115.0547,214.78529 C 119.12339,208.97644 133.21558,203.65063 139.89529,205.39743 C 143.24566,206.27357 144.44327,205.37662 144.44327,201.99127 C 144.44327,199.46377 147.24343,194.80072 150.66584,191.62893 C 155.61205,187.04494 159.39624,185.86205 169.11473,185.86205 C 185.00359,185.86205 189.84351,190.85337 191.46788,208.9144 L 192.65249,222.08565 L 202.64581,222.3271 C 208.74011,222.47433 215.16285,224.45077 219.10749,227.39278 C 225.50208,232.16201 225.22357,232.56882 226.23571,262.17608 C 226.82812,279.2467 226.50516,289.71414 227.47104,293.46882 C 239.03916,281.44942 274.37195,288.99896 275.67444,297.95827 C 276.06689,300.65775 273.70092,306.82597 270.41677,311.66545 C 260.27468,326.61065 258.94669,334.96929 257.5153,392.87006 C 257.5153,392.87006 257.92844,417.72252 255.63037,435.52444 C 253.33227,453.32636 248.32296,464.07772 248.32296,464.07772 C 238.81382,483.37933 222.03833,500.69521 204.56708,509.2431 C 188.93255,516.89235 159.29971,519.26302 142.0916,514.24122 z M 194.34919,493.00059 C 212.95277,484.55789 226.78158,469.67672 235.00673,449.24897 C 238.53362,440.48966 239.52993,428.74013 240.78967,381.05057 C 242.0449,333.53206 243.00884,322.1157 246.28999,315.90854 C 248.4781,311.76915 250.26838,307.41836 250.26838,306.24005 C 250.26838,302.27841 238.93291,306.21973 233.40571,312.10316 C 228.67453,317.13926 227.76986,321.02417 226.75289,340.67246 L 225.57585,363.41305 L 218.73235,363.41305 L 211.88886,363.41305 L 212.43444,303.89031 C 213.00195,241.97969 212.38605,237.59876 203.11501,237.59876 C 200.77894,237.59876 197.20464,239.26172 195.17213,241.29425 C 192.03731,244.42907 191.47665,252.81336 191.47665,296.55847 L 191.47665,348.1272 L 184.42164,348.1272 L 177.36664,348.1272 L 177.36664,277.86507 C 177.36664,202.67138 176.93365,199.90504 165.72115,203.46375 C 161.00864,204.95943 160.90496,206.50791 160.90496,275.38394 L 160.90496,345.77553 L 152.67411,345.77553 L 144.44327,345.77553 L 144.44327,285.92483 C 144.44327,232.86847 144.0049,225.8288 140.58176,223.91311 C 138.45792,222.72455 134.89152,222.23032 132.6564,222.81481 C 129.0885,223.74786 128.38732,228.83595 126.9105,264.51082 C 125.98538,286.85912 125.41815,315.07986 125.65005,327.22357 C 126.22097,357.12264 126.57891,355.60382 119.16283,354.75049 L 112.69574,354.00638 L 112.04214,318.82955 C 111.35588,281.89365 110.79145,280.03517 100.23869,279.96481 L 94.836651,279.9288 L 95.535351,364.00097 C 96.224251,446.8922 96.311051,448.21746 101.71594,458.34772 C 120.031,492.67517 161.16185,508.06169 194.34919,493.00059 z"
++       id="path1873"
++       sodipodi:nodetypes="cscssscccssssscccsscsscscsccssssscccccsscccccscccccssssccccccsc" />
++    <path
++       id="path5122"
++       d="M 168.57903,363.87475 C 151.02289,362.71866 133.62626,370.14323 122.39153,383.7185 C 106.50365,401.31187 103.36295,428.21291 111.73528,449.93725 C 117.81329,463.5876 129.81977,474.1734 142.6651,481.34484 C 157.18414,488.46096 174.85499,486.71329 189.45403,481.31225 C 205.13536,474.27318 216.90639,459.67879 223.13952,444.02871 C 228.47481,426.85354 229.84087,406.32818 219.70403,390.531 C 208.15737,374.19347 188.75469,363.35271 168.57903,363.87475 z"
++       style="fill:#ffffff" />
++  </g>
++  <g
++     style="opacity:1"
++     transform="matrix(1.5591179,0,0,1.5591179,2.229719,-275.69855)"
++     id="g6700">
++    <path
++       sodipodi:nodetypes="cscssscccssssscccsscsscscsccssssscccccsscccccscccccssssccccccsc"
++       id="path6702"
++       d="M 142.0916,514.24122 C 136.27122,512.54268 128.11121,509.38869 123.95824,507.23238 C 110.97519,500.49127 90.632431,478.6231 83.821171,464.08558 C 83.821171,464.08558 78.245041,450.69745 77.937891,443.70143 C 76.857441,419.09291 77.209881,409.64263 77.420711,365.76472 C 77.644451,319.20278 78.202921,278.32047 79.158971,274.91758 C 81.280031,267.36807 95.030121,260.23235 104.71693,261.65408 L 111.51991,262.65253 L 111.51991,241.24223 C 111.51991,225.99732 112.5378,218.37869 115.0547,214.78529 C 119.12339,208.97644 133.21558,203.65063 139.89529,205.39743 C 143.24566,206.27357 144.44327,205.37662 144.44327,201.99127 C 144.44327,199.46377 147.24343,194.80072 150.66584,191.62893 C 155.61205,187.04494 159.39624,185.86205 169.11473,185.86205 C 185.00359,185.86205 189.84351,190.85337 191.46788,208.9144 L 192.65249,222.08565 L 202.64581,222.3271 C 208.74011,222.47433 215.16285,224.45077 219.10749,227.39278 C 225.50208,232.16201 225.22357,232.56882 226.23571,262.17608 C 226.82812,279.2467 226.50516,289.71414 227.47104,293.46882 C 239.03916,281.44942 274.37195,288.99896 275.67444,297.95827 C 276.06689,300.65775 273.70092,306.82597 270.41677,311.66545 C 260.27468,326.61065 258.94669,334.96929 257.5153,392.87006 C 257.5153,392.87006 257.92844,417.72252 255.63037,435.52444 C 253.33227,453.32636 248.32296,464.07772 248.32296,464.07772 C 238.81382,483.37933 222.03833,500.69521 204.56708,509.2431 C 188.93255,516.89235 159.29971,519.26302 142.0916,514.24122 z M 194.34919,493.00059 C 212.95277,484.55789 226.78158,469.67672 235.00673,449.24897 C 238.53362,440.48966 239.52993,428.74013 240.78967,381.05057 C 242.0449,333.53206 243.00884,322.1157 246.28999,315.90854 C 248.4781,311.76915 250.26838,307.41836 250.26838,306.24005 C 250.26838,302.27841 238.93291,306.21973 233.40571,312.10316 C 228.67453,317.13926 227.76986,321.02417 226.75289,340.67246 L 225.57585,363.41305 L 218.73235,363.41305 L 211.88886,363.41305 L 212.43444,303.89031 C 213.00195,241.97969 212.38605,237.59876 203.11501,237.59876 C 200.77894,237.59876 197.20464,239.26172 195.17213,241.29425 C 192.03731,244.42907 191.47665,252.81336 191.47665,296.55847 L 191.47665,348.1272 L 184.42164,348.1272 L 177.36664,348.1272 L 177.36664,277.86507 C 177.36664,202.67138 176.93365,199.90504 165.72115,203.46375 C 161.00864,204.95943 160.90496,206.50791 160.90496,275.38394 L 160.90496,345.77553 L 152.67411,345.77553 L 144.44327,345.77553 L 144.44327,285.92483 C 144.44327,232.86847 144.0049,225.8288 140.58176,223.91311 C 138.45792,222.72455 134.89152,222.23032 132.6564,222.81481 C 129.0885,223.74786 128.38732,228.83595 126.9105,264.51082 C 125.98538,286.85912 125.41815,315.07986 125.65005,327.22357 C 126.22097,357.12264 126.57891,355.60382 119.16283,354.75049 L 112.69574,354.00638 L 112.04214,318.82955 C 111.35588,281.89365 110.79145,280.03517 100.23869,279.96481 L 94.836651,279.9288 L 95.535351,364.00097 C 96.224251,446.8922 96.311051,448.21746 101.71594,458.34772 C 120.031,492.67517 161.16185,508.06169 194.34919,493.00059 z"
++       style="fill:#ffffff" />
++    <path
++       style="fill:#ffffff"
++       d="M 168.57903,363.87475 C 151.02289,362.71866 133.62626,370.14323 122.39153,383.7185 C 106.50365,401.31187 103.36295,428.21291 111.73528,449.93725 C 117.81329,463.5876 129.81977,474.1734 142.6651,481.34484 C 157.18414,488.46096 174.85499,486.71329 189.45403,481.31225 C 205.13536,474.27318 216.90639,459.67879 223.13952,444.02871 C 228.47481,426.85354 229.84087,406.32818 219.70403,390.531 C 208.15737,374.19347 188.75469,363.35271 168.57903,363.87475 z"
++       id="path6704" />
++  </g>
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/jewish3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/jewish3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/jewish3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/jewish3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,122 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_jewish3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="172.10413"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <path
++     sodipodi:nodetypes="cccssssscccscccscccscccsccssssccscccccccccccccssccccsccccccccccsccccccsccsssc"
++     id="path3648"
++     d="M 269.17679,505.89453 L 232.68506,442.57991 L 160.88864,442.54701 C 116.14487,442.52656 88.177453,441.0341 86.664503,438.58608 C 85.329252,436.42559 100.11174,407.05803 119.51449,373.32477 C 143.57391,331.49552 153.97416,309.84139 152.21984,305.22979 C 150.80501,301.51078 135.05626,273.24886 117.2225,242.42558 C 99.388807,211.60226 84.797585,184.37751 84.797585,181.92617 C 84.797585,178.69882 105.19824,177.46769 158.74133,177.46392 L 232.68506,177.45874 L 269.07544,114.08358 C 289.09016,79.227243 306.69013,50.708419 308.18651,50.708419 C 312.29049,50.708419 322.53758,66.600628 355.86458,124.65216 L 386.18646,177.4691 L 460.20413,177.4691 C 516.94707,177.4691 534.18259,178.5897 534.0538,182.27066 C 533.96137,184.91149 517.82775,214.6756 498.20127,248.41311 L 462.51679,309.754 L 498.36927,371.86562 C 518.08818,406.02698 534.2218,435.89802 534.2218,438.24568 C 534.2218,441.22852 511.92762,442.5142 460.20413,442.5142 L 386.18646,442.5142 L 355.86458,495.33114 C 322.70115,553.09779 312.27682,569.29208 308.28786,569.24209 C 306.8472,569.22398 289.24722,540.71756 269.17679,505.89453 z M 322.6721,467.97492 C 329.16519,456.62618 334.47773,446.25486 334.47773,444.92751 C 334.47773,443.60018 323.24213,442.5142 309.50972,442.5142 C 295.7773,442.5142 284.54171,443.60018 284.54171,444.92751 C 284.54171,448.05121 307.72422,488.60899 309.50972,488.60899 C 310.25594,488.60899 316.17903,479.32365 322.6721,467.97492 z M 195.38362,377.25881 C 188.43459,364.60778 181.88475,354.25698 180.82839,354.25698 C 179.77205,354.25698 173.22223,364.60778 166.2732,377.25881 L 153.63862,400.26062 L 180.82839,400.26062 L 208.01817,400.26062 L 195.38362,377.25881 z M 376.09783,374.3323 C 384.38653,360.0717 396.049,339.60474 402.01448,328.85015 L 412.86073,309.2963 L 387.97708,265.4698 L 363.09346,221.64329 L 309.68071,221.64329 L 256.26799,221.64329 L 231.99252,263.44633 C 218.641,286.438 207.71703,307.07063 207.71703,309.29655 C 207.71703,313.27678 247.54331,386.07829 254.85253,395.45909 C 257.5127,398.87317 273.39326,400.26062 309.8106,400.26062 L 361.02749,400.26062 L 376.09783,374.3323 z M 452.74619,377.25881 C 445.79716,364.60778 439.24734,354.25698 438.191,354.25698 C 437.13464,354.25698 430.5848,364.60778 423.63576,377.25881 L 411.00125,400.26062 L 438.191,400.26062 L 465.38077,400.26062 L 452.74619,377.25881 z M 195.13062,242.70616 L 207.51222,219.72267 L 180.57543,219.72267 L 153.63862,219.72267 L 166.2732,242.72451 C 173.22223,255.37551 179.77205,265.71805 180.82839,265.70794 C 181.88475,265.69785 188.32073,255.34704 195.13062,242.70616 z M 452.49319,242.70616 L 464.87481,219.72267 L 437.93801,219.72267 L 411.00125,219.72267 L 423.63576,242.72451 C 430.5848,255.37551 437.13464,265.71805 438.191,265.70794 C 439.24734,265.69785 445.6833,255.34704 452.49319,242.70616 z M 334.47773,175.05578 C 334.47773,171.9321 311.2952,131.37432 309.50972,131.37432 C 307.72422,131.37432 284.54171,171.9321 284.54171,175.05578 C 284.54171,176.38311 295.7773,177.4691 309.50972,177.4691 C 323.24213,177.4691 334.47773,176.38311 334.47773,175.05578 z"
++     style="opacity:0.25;fill:#ffffff;fill-opacity:1" />
++  <path
++     style="fill:#ffffff;fill-opacity:1"
++     d="M 230.15739,466.87513 L 193.66566,403.56051 L 121.86924,403.52762 C 77.125476,403.50716 49.158054,402.0147 47.645104,399.56668 C 46.309853,397.40619 61.092344,368.03863 80.495093,334.30537 C 104.55451,292.47612 114.95476,270.82199 113.20044,266.21039 C 111.78562,262.49138 96.03686,234.22946 78.203107,203.40618 C 60.369408,172.58286 45.778186,145.35811 45.778186,142.90677 C 45.778186,139.67942 66.178844,138.44829 119.72193,138.44452 L 193.66566,138.43934 L 230.05604,75.064175 C 250.07076,40.207843 267.67073,11.68902 269.16711,11.68902 C 273.27109,11.68902 283.51819,27.581229 316.84518,85.632758 L 347.16706,138.4497 L 421.18473,138.4497 C 477.92767,138.4497 495.16319,139.5703 495.0344,143.25126 C 494.94197,145.89209 478.80836,175.6562 459.18187,209.39371 L 423.49739,270.7346 L 459.34987,332.84622 C 479.06878,367.00758 495.2024,396.87862 495.2024,399.22628 C 495.2024,402.20912 472.90822,403.4948 421.18473,403.4948 L 347.16706,403.4948 L 316.84518,456.31174 C 283.68175,514.07839 273.25742,530.27268 269.26846,530.22269 C 267.8278,530.20458 250.22782,501.69816 230.15739,466.87513 z M 283.6527,428.95552 C 290.1458,417.60678 295.45834,407.23546 295.45834,405.90811 C 295.45834,404.58078 284.22273,403.4948 270.49032,403.4948 C 256.7579,403.4948 245.52231,404.58078 245.52231,405.90811 C 245.52231,409.03181 268.70482,449.58959 270.49032,449.58959 C 271.23654,449.58959 277.15963,440.30425 283.6527,428.95552 z M 156.36423,338.23941 C 149.41519,325.58839 142.86535,315.23758 141.80899,315.23758 C 140.75265,315.23758 134.20283,325.58839 127.2538,338.23941 L 114.61922,361.24122 L 141.80899,361.24122 L 168.99878,361.24122 L 156.36423,338.23941 z M 337.07843,335.3129 C 345.36713,321.0523 357.0296,300.58534 362.99508,289.83075 L 373.84133,270.2769 L 348.95768,226.4504 L 324.07406,182.62389 L 270.66131,182.62389 L 217.24859,182.62389 L 192.97312,224.42694 C 179.6216,247.4186 168.69763,268.05123 168.69763,270.27715 C 168.69763,274.25738 208.52391,347.05889 215.83314,356.43969 C 218.4933,359.85377 234.37386,361.24122 270.7912,361.24122 L 322.00809,361.24122 L 337.07843,335.3129 z M 413.72679,338.23941 C 406.77776,325.58839 400.22794,315.23758 399.1716,315.23758 C 398.11524,315.23758 391.5654,325.58839 384.61637,338.23941 L 371.98185,361.24122 L 399.1716,361.24122 L 426.36137,361.24122 L 413.72679,338.23941 z M 156.11122,203.68676 L 168.49282,180.70327 L 141.55603,180.70327 L 114.61922,180.70327 L 127.2538,203.70511 C 134.20283,216.35611 140.75265,226.69865 141.80899,226.68854 C 142.86535,226.67845 149.30133,216.32764 156.11122,203.68676 z M 413.47379,203.68676 L 425.85541,180.70327 L 398.91861,180.70327 L 371.98185,180.70327 L 384.61637,203.70511 C 391.5654,216.35611 398.11524,226.69865 399.1716,226.68854 C 400.22794,226.67845 406.6639,216.32764 413.47379,203.68676 z M 295.45834,136.03638 C 295.45834,132.9127 272.2758,92.354922 270.49032,92.354922 C 268.70482,92.354922 245.52231,132.9127 245.52231,136.03638 C 245.52231,137.36371 256.7579,138.4497 270.49032,138.4497 C 284.22273,138.4497 295.45834,137.36371 295.45834,136.03638 z"
++     id="path6812"
++     sodipodi:nodetypes="cccssssscccscccscccscccsccssssccscccccccccccccssccccsccccccccccsccccccsccsssc" />
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/shinto3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/shinto3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/shinto3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/shinto3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,122 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_shinto3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="172.10413"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <path
++     sodipodi:nodetypes="cssscccsssssssssssssssssssssssssssscccscccssssscccsssccccssccccscccccc"
++     id="path1873"
++     d="M 189.8427,540.72862 C 187.27639,535.93343 186.14419,501.63085 186.53951,440.64971 C 187.05306,361.42532 186.29112,346.22325 181.32538,336.62054 C 173.6911,321.8575 173.74126,321.66259 186.30046,317.28446 C 196.4342,313.75177 197.09114,312.37816 197.09114,294.71996 L 197.09114,275.91715 L 162.02144,275.08895 C 142.7331,274.63344 125.83041,273.13682 124.45989,271.76309 C 121.17247,268.4679 119.68359,233.84134 122.62467,229.08251 C 124.03131,226.80659 135.30869,226.03638 151.7639,227.09239 C 174.30078,228.53874 179.96367,227.73178 187.05424,222.06357 C 201.4107,210.58712 196.06309,203.68624 170.81345,201.10543 C 122.28373,196.14509 122.48635,196.21848 119.94711,182.6833 C 118.67463,175.90046 116.05358,170.35085 114.12252,170.35085 C 112.19145,170.35085 104.13474,166.06476 96.218748,160.82622 C 85.005504,153.40561 80.951055,147.82669 77.865205,135.57164 C 75.686744,126.92019 69.193137,113.33807 63.434978,105.38915 C 57.67682,97.440235 53.926636,89.38158 55.101241,87.481017 C 58.352509,82.220385 73.849519,83.350854 86.227154,89.751593 C 99.985334,96.866208 128.65961,105.50543 144.09415,107.18623 C 150.49214,107.88298 174.34079,111.22611 197.09114,114.61543 C 231.21085,119.69855 255.77929,120.4698 337.3699,119.01886 C 391.77289,118.05144 443.56814,115.51911 452.47044,113.39156 C 461.37274,111.26396 478.96539,107.89514 491.5652,105.90524 C 504.16501,103.91533 524.6396,97.530157 537.06425,91.715966 C 567.24556,77.59241 576.45137,85.602186 560.36373,111.9883 C 556.41458,118.46554 553.18341,127.56636 553.18341,132.21232 C 553.18341,140.51561 525.18872,170.35085 517.39772,170.35085 C 515.43174,170.35085 512.47359,175.55943 510.82398,181.9255 C 507.52015,194.6754 500.17246,198.16886 475.40063,198.76745 C 453.38822,199.29936 438.08288,203.06171 438.08288,207.94087 C 438.08288,210.31613 441.80403,215.75543 446.35213,220.02814 C 453.95519,227.17084 456.63564,227.54728 479.62337,224.70086 C 494.98951,222.79818 506.2804,222.92349 508.9197,225.02602 C 513.24802,228.47409 511.59135,262.85614 506.83903,268.20666 C 505.59912,269.60264 488.73466,271.01275 469.36245,271.34021 L 434.14028,271.93552 L 435.21234,290.38338 C 436.21677,307.66689 437.02237,309.06968 447.97699,312.61058 C 466.86339,318.71529 468.46083,322.56041 457.51483,335.56896 L 447.76642,347.1543 L 449.84173,439.53875 C 451.1278,496.78944 450.58639,534.30091 448.41811,538.17539 C 444.10468,545.88304 412.34606,547.02721 406.26023,539.69426 C 403.78312,536.70952 401.44655,499.83587 399.93532,439.88051 C 398.6172,387.58629 395.99032,341.79377 394.09778,338.11938 C 391.81224,333.68194 391.97652,330.11898 394.58697,327.50855 C 396.74851,325.34698 398.51854,312.1673 398.52034,298.22035 L 398.52365,272.86226 L 316.71689,274.03539 C 271.72322,274.6806 234.35076,275.7679 233.66706,276.45164 C 232.98336,277.13534 231.5442,335.68637 230.46898,406.56508 C 229.39377,477.44372 227.05203,538.26791 225.26514,541.72994 C 220.41385,551.12915 195.02479,550.41141 189.8427,540.72862 z M 294.2072,217.11043 L 294.2072,202.72287 L 267.40924,202.72287 C 246.21678,202.72287 239.91467,203.96766 237.28099,208.6738 C 234.78061,213.14172 236.3047,216.69886 243.39682,222.94769 C 250.88511,229.54565 257.12954,231.29424 273.52506,231.38435 L 294.2072,231.49801 L 294.2072,217.11043 z M 387.68528,221.7064 C 391.66448,218.29934 394.92016,212.63422 394.92016,209.11729 C 394.92016,203.5577 391.39809,202.72287 367.94349,202.72287 L 340.96681,202.72287 L 340.96681,215.31201 L 340.96681,227.90111 L 360.70859,227.90111 C 374.19057,227.90111 382.74444,225.93685 387.68528,221.7064 z"
++     style="opacity:0.25;fill:#ffffff" />
++  <path
++     style="fill:#ffffff"
++     d="M 149.8427,500.72862 C 147.27639,495.93343 146.14419,461.63085 146.53951,400.64971 C 147.05306,321.42532 146.29112,306.22325 141.32538,296.62054 C 133.6911,281.8575 133.74126,281.66259 146.30046,277.28446 C 156.4342,273.75177 157.09114,272.37816 157.09114,254.71996 L 157.09114,235.91715 L 122.02144,235.08895 C 102.7331,234.63344 85.83041,233.13682 84.45989,231.76309 C 81.172471,228.4679 79.683594,193.84134 82.62467,189.08251 C 84.03131,186.80659 95.30869,186.03638 111.7639,187.09239 C 134.30078,188.53874 139.96367,187.73178 147.05424,182.06357 C 161.4107,170.58712 156.06309,163.68624 130.81345,161.10543 C 82.28373,156.14509 82.48635,156.21848 79.947113,142.6833 C 78.67463,135.90046 76.053577,130.35085 74.122518,130.35085 C 72.191447,130.35085 64.134745,126.06476 56.218748,120.82622 C 45.005504,113.40561 40.951055,107.82669 37.865205,95.57164 C 35.686744,86.92019 29.193137,73.338073 23.434978,65.389148 C 17.67682,57.440235 13.926636,49.38158 15.101241,47.481017 C 18.352509,42.220385 33.849519,43.350854 46.227154,49.751593 C 59.985334,56.866208 88.65961,65.505433 104.09415,67.186228 C 110.49214,67.882979 134.34079,71.226113 157.09114,74.615428 C 191.21085,79.698555 215.77929,80.469804 297.3699,79.018863 C 351.77289,78.051436 403.56814,75.519113 412.47044,73.391558 C 421.37274,71.263958 438.96539,67.895144 451.5652,65.905238 C 464.16501,63.915332 484.6396,57.530157 497.06425,51.715966 C 527.24556,37.59241 536.45137,45.602186 520.36373,71.988298 C 516.41458,78.465541 513.18341,87.56636 513.18341,92.21232 C 513.18341,100.51561 485.18872,130.35085 477.39772,130.35085 C 475.43174,130.35085 472.47359,135.55943 470.82398,141.9255 C 467.52015,154.6754 460.17246,158.16886 435.40063,158.76745 C 413.38822,159.29936 398.08288,163.06171 398.08288,167.94087 C 398.08288,170.31613 401.80403,175.75543 406.35213,180.02814 C 413.95519,187.17084 416.63564,187.54728 439.62337,184.70086 C 454.98951,182.79818 466.2804,182.92349 468.9197,185.02602 C 473.24802,188.47409 471.59135,222.85614 466.83903,228.20666 C 465.59912,229.60264 448.73466,231.01275 429.36245,231.34021 L 394.14028,231.93552 L 395.21234,250.38338 C 396.21677,267.66689 397.02237,269.06968 407.97699,272.61058 C 426.86339,278.71529 428.46083,282.56041 417.51483,295.56896 L 407.76642,307.1543 L 409.84173,399.53875 C 411.1278,456.78944 410.58639,494.30091 408.41811,498.17539 C 404.10468,505.88304 372.34606,507.02721 366.26023,499.69426 C 363.78312,496.70952 361.44655,459.83587 359.93532,399.88051 C 358.6172,347.58629 355.99032,301.79377 354.09778,298.11938 C 351.81224,293.68194 351.97652,290.11898 354.58697,287.50855 C 356.74851,285.34698 358.51854,272.1673 358.52034,258.22035 L 358.52365,232.86226 L 276.71689,234.03539 C 231.72322,234.6806 194.35076,235.7679 193.66706,236.45164 C 192.98336,237.13534 191.5442,295.68637 190.46898,366.56508 C 189.39377,437.44372 187.05203,498.26791 185.26514,501.72994 C 180.41385,511.12915 155.02479,510.41141 149.8427,500.72862 z M 254.2072,177.11043 L 254.2072,162.72287 L 227.40924,162.72287 C 206.21678,162.72287 199.91467,163.96766 197.28099,168.6738 C 194.78061,173.14172 196.3047,176.69886 203.39682,182.94769 C 210.88511,189.54565 217.12954,191.29424 233.52506,191.38435 L 254.2072,191.49801 L 254.2072,177.11043 z M 347.68528,181.7064 C 351.66448,178.29934 354.92016,172.63422 354.92016,169.11729 C 354.92016,163.5577 351.39809,162.72287 327.94349,162.72287 L 300.96681,162.72287 L 300.96681,175.31201 L 300.96681,187.90111 L 320.70859,187.90111 C 334.19057,187.90111 342.74444,185.93685 347.68528,181.7064 z"
++     id="path6923"
++     sodipodi:nodetypes="cssscccsssssssssssssssssssssssssssscccscccssssscccsssccccssccccscccccc" />
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/sikh3.svg navit-r4517/navit/xpm/sjjb/place_of_worship/sikh3.svg
+--- navit-r4517.xpm2svg2/navit/xpm/sjjb/place_of_worship/sikh3.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/sjjb/place_of_worship/sikh3.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,130 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="580"
++   height="580"
++   id="svg2"
++   sodipodi:version="0.32"
++   inkscape:version="0.46"
++   sodipodi:docname="place_of_worship_sikh3.svg"
++   sodipodi:docbase="s:\Data\FacilityIcons"
++   inkscape:output_extension="org.inkscape.output.svg.inkscape">
++  <metadata
++     id="metadata2975">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <cc:license
++           rdf:resource="http://web.resource.org/cc/PublicDomain" />
++        <dc:language>en</dc:language>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <sodipodi:namedview
++     inkscape:window-height="1003"
++     inkscape:window-width="1400"
++     inkscape:pageshadow="2"
++     inkscape:pageopacity="0.0"
++     guidetolerance="10.0"
++     gridtolerance="10.0"
++     objecttolerance="10.0"
++     borderopacity="1.0"
++     bordercolor="#666666"
++     pagecolor="#ffffff"
++     id="base"
++     inkscape:zoom="0.65172414"
++     inkscape:cx="-57.954519"
++     inkscape:cy="294.85545"
++     inkscape:window-x="0"
++     inkscape:window-y="20"
++     inkscape:current-layer="svg2"
++     showgrid="false" />
++  <defs
++     id="defs4">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective2441" />
++    <inkscape:perspective
++       id="perspective2466"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3333"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3401"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3464"
++       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
++       inkscape:vp_z="744.09448 : 526.18109 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 526.18109 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective3581"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective4312"
++       inkscape:persp3d-origin="225 : 150 : 1"
++       inkscape:vp_z="450 : 225 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 225 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 L 1.704,516.927 C 1.704,557.771 22.599,579.156 63.896,579.156 L 515.92,579.156 C 557.227,579.156 578.149,558.841 578.149,516.927 L 578.149,66.804 C 578.149,24.203 557.227,1.768 514.628,1.768 C 514.624,1.768 66.133,1.625 66.275,1.768 z "
++       style="fill:#111;stroke:#eee;stroke-width:3.40799999"
++       id="path1329" />
++  </g>
++  <path
++     style="fill:#ffffff"
++     d="M 268.40625,34.65625 C 256.96064,52.49931 236.76056,62.949963 225.65625,81.125 C 225.72196,90.964231 225.643,101.87856 220.3125,110.3125 C 210.20014,117.4593 198.61995,123.11754 190.56832,132.79499 C 172.28019,149.96541 155.94867,171.69238 154.25,197.53125 C 151.38287,221.00859 153.72528,245.77372 166.27609,266.18148 C 179.11986,286.91677 195.0254,306.96571 217.28125,318.03125 C 225.66466,324.17239 228.05452,335.70875 224.8125,345.375 C 223.43837,350.06085 225.49125,355.33517 230.97388,355.76266 C 243.19385,360.8492 254.18472,369.77111 261.15625,381.1875 C 264.93985,388.11265 267.22757,398.63538 260.78125,404.65625 C 255.12935,408.76627 249.15217,402.15562 244.04324,400.24482 C 228.2378,389.98228 213.84058,377.97741 199.11249,366.25927 C 168.829,341.22034 135.073,308.1739 123.375,269.8125 C 111.62296,236.43034 108.33319,193.40957 125.0625,160.6875 C 132.60882,144.95818 145.26473,132.94724 156.9375,120.21875 C 159.02722,117.119 154.849,114.94533 152.28125,116.71875 C 137.84815,121.09045 126.15054,131.371 115.29289,141.36336 C 88.500896,168.03083 73.647651,210.87689 76.09375,248.5 C 77.401953,301.31572 106.49221,353.07738 138.17729,394.3815 C 150.58484,411.89337 164.2556,429.69689 169.71875,450.6875 C 168.51555,454.70396 173.12064,456.43108 175.59375,453.4375 C 193.09667,444.3766 203.92113,425.98679 221.84375,417.75 C 229.74576,415.54305 236.70926,420.47859 243.0625,424.28125 C 246.13893,425.48074 253.71213,428.3333 249.75,432.59375 C 241.85701,437.46238 232.53437,439.85416 225.10791,445.62088 C 210.99084,455.02176 198.10326,470.03323 198.09375,487.78125 C 198.80723,497.17578 209.36832,504.61603 218.21875,500.25 C 228.59922,496.56946 234.23777,483.96564 230.40625,473.71875 C 230.65438,463.26797 241.807,458.31431 250.03125,454.59375 C 254.20733,451.73559 262.41936,450.20327 263.84375,456.8125 C 266.93861,467.41576 263.54825,478.55494 262.5,489.09375 C 260.99343,496.80331 255.86277,503.14581 253.21875,510.15625 C 253.15068,519.26498 260.76378,526.25744 267.4375,531.3125 C 274.13259,536.72849 271.70154,527.72686 272.0625,523.34375 C 272.0625,358.59375 272.0625,193.84375 272.0625,29.09375 C 270.84375,30.947917 269.625,32.802083 268.40625,34.65625 z M 231.4375,138.90625 C 240.18668,139.61637 242.37954,150.33089 243.86485,157.34581 C 252.14867,189.652 260.94563,219.32299 253.21323,252.63744 C 249.86608,265.26866 247.49466,274.32417 242,286.1875 C 240.14856,291.07752 235.26937,294.32377 230.0625,292.28125 C 217.53684,286.92976 211.95535,278.52776 202.82681,268.76449 C 184.70533,248.63603 175.14497,221.5665 182.65293,194.81215 C 187.58937,172.25222 199.83164,158.33205 218.67468,146.1102 C 222.93776,143.95914 226.53253,139.32564 231.4375,138.90625 z"
++     id="path7034"
++     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccc" />
++  <path
++     id="path2439"
++     d="M 310.0625,75.75 C 307.63617,79.39952 305.24382,83.111115 301.90625,85.9375 C 291.08198,98.336178 276.4606,107.45431 267.71875,121.625 C 268.30625,127.99796 266.5544,148.69438 260.96875,152.34375 C 252.24773,158.85136 241.77329,163.19676 234.65625,171.625 C 213.62872,191.81762 197.75583,210.75874 196.0625,240.40625 C 193.17635,269.83369 197.2383,291.13768 214.78125,315.59375 C 225.94312,331.40908 239.02844,346.53294 256.4375,355.15625 C 263.60136,358.89291 269.89212,370.19347 267.9375,378.875 C 267.85673,383.0307 265.11422,388.4661 267.40625,392.09375 C 274.065,394.98869 281.07719,397.44043 286.5,402.59375 C 297.59498,410.74673 308.97937,423.44761 306.34375,438.375 C 305.82907,445.03561 298.50039,450.92379 292.21875,446.65625 C 276.9086,440.15267 264.7151,428.20939 251.25,418.65625 C 217.25291,392.04119 184.26522,360.54574 169.75,318.8125 C 157.22458,285.22597 149.93489,246.37235 164.34375,212.21875 C 171.48971,194.57032 184.32501,180.17702 197.75,167.15625 C 198.61306,166.13587 201.07997,163.28286 197.875,164.375 C 186.53774,167.04406 177.09212,175.05187 168,182.03125 C 138.84265,206.74102 122.95652,245.03227 124.03125,283.09375 C 123.37609,335.49095 144.62804,385.80087 175.4375,427.125 C 189.32523,446.70758 204.78722,466.11279 211.65625,489.40625 C 212.02545,490.54861 210.82585,494.64589 213.125,492.5 C 229.79228,484.10582 240.72358,467.91963 256.28125,458.1875 C 263.48308,453.11687 272.77856,455.29136 279.65625,459.84375 C 283.56821,463.39974 290.19024,463.77615 292.78125,468.53125 C 294.21781,475.37789 285.12662,477.02695 280.6875,479.28125 C 262.2254,487.58059 243.75834,502.29546 240.25,523.28125 C 238.40953,532.15862 246.43998,541.93673 255.65625,538.9375 C 265.66679,536.53472 272.42983,524.79087 268.46875,515.125 C 267.56592,503.95999 278.38722,497.1397 287.53125,493.8125 C 292.47985,490.4022 301.50752,487.3598 305,494.25 C 309.396,504.14083 305.79864,515.27209 305.1875,525.59375 C 304.01848,534.29377 299.75206,542.15128 295.28125,549.40625 C 294.425,557.40311 301.55609,563.44849 306.65625,568.53125 C 307.74779,569.26321 308.90031,569.85178 310.0625,570.34375 L 310.0625,75.75 z M 271.15625,172.875 C 280.82605,173.06262 284.0559,184.1151 285.5625,191.90625 C 296.31819,235.31804 304.61877,263.95903 291.40625,307.8125 C 288.34772,317.97151 286.77465,329.90176 279,337.5 C 269.75134,341.95246 260.78755,333.66467 253.96875,328.3125 C 222.75629,302.48309 205.41288,267.52004 218.5625,228 C 226.90937,202.10792 245.3224,187.8893 268.21875,173.46875 C 269.15548,173.09649 270.15232,172.98009 271.15625,172.875 z"
++     style="fill:#ffffff;opacity:0.25" />
++  <path
++     style="fill:#ffffff;opacity:0.25"
++     d="M 309.98006,75.75 C 312.40639,79.39952 314.79874,83.111115 318.13631,85.9375 C 328.96058,98.336178 343.58196,107.45431 352.32381,121.625 C 351.73631,127.99796 353.48816,148.69438 359.07381,152.34375 C 367.79483,158.85136 378.26927,163.19676 385.38631,171.625 C 406.41384,191.81762 422.28673,210.75874 423.98006,240.40625 C 426.86621,269.83369 422.80426,291.13768 405.26131,315.59375 C 394.09944,331.40908 381.01412,346.53294 363.60506,355.15625 C 356.4412,358.89291 350.15044,370.19347 352.10506,378.875 C 352.18583,383.0307 354.92834,388.4661 352.63631,392.09375 C 345.97756,394.98869 338.96537,397.44043 333.54256,402.59375 C 322.44758,410.74673 311.06319,423.44761 313.69881,438.375 C 314.21349,445.03561 321.54217,450.92379 327.82381,446.65625 C 343.13396,440.15267 355.32746,428.20939 368.79256,418.65625 C 402.78965,392.04119 435.77734,360.54574 450.29256,318.8125 C 462.81798,285.22597 470.10767,246.37235 455.69881,212.21875 C 448.55285,194.57032 435.71755,180.17702 422.29256,167.15625 C 421.4295,166.13587 418.96259,163.28286 422.16756,164.375 C 433.50482,167.04406 442.95044,175.05187 452.04256,182.03125 C 481.19991,206.74102 497.08604,245.03227 496.01131,283.09375 C 496.66647,335.49095 475.41452,385.80087 444.60506,427.125 C 430.71733,446.70758 415.25534,466.11279 408.38631,489.40625 C 408.01711,490.54861 409.21671,494.64589 406.91756,492.5 C 390.25028,484.10582 379.31898,467.91963 363.76131,458.1875 C 356.55948,453.11687 347.264,455.29136 340.38631,459.84375 C 336.47435,463.39974 329.85232,463.77615 327.26131,468.53125 C 325.82475,475.37789 334.91594,477.02695 339.35506,479.28125 C 357.81716,487.58059 376.28422,502.29546 379.79256,523.28125 C 381.63303,532.15862 373.60258,541.93673 364.38631,538.9375 C 354.37577,536.53472 347.61273,524.79087 351.57381,515.125 C 352.47664,503.95999 341.65534,497.1397 332.51131,493.8125 C 327.56271,490.4022 318.53504,487.3598 315.04256,494.25 C 310.64656,504.14083 314.24392,515.27209 314.85506,525.59375 C 316.02408,534.29377 320.2905,542.15128 324.76131,549.40625 C 325.61756,557.40311 318.48647,563.44849 313.38631,568.53125 C 312.29477,569.26321 311.14225,569.85178 309.98006,570.34375 L 309.98006,75.75 z M 348.88631,172.875 C 339.21651,173.06262 335.98666,184.1151 334.48006,191.90625 C 323.72437,235.31804 315.42379,263.95903 328.63631,307.8125 C 331.69484,317.97151 333.26791,329.90176 341.04256,337.5 C 350.29122,341.95246 359.25501,333.66467 366.07381,328.3125 C 397.28627,302.48309 414.62968,267.52004 401.48006,228 C 393.13319,202.10792 374.72016,187.8893 351.82381,173.46875 C 350.88708,173.09649 349.89024,172.98009 348.88631,172.875 z"
++     id="path2441" />
++  <path
++     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccc"
++     id="path3778"
++     d="M 273.63337,34.65625 C 285.07898,52.49931 305.27906,62.949963 316.38337,81.125 C 316.31766,90.964231 316.39662,101.87856 321.72712,110.3125 C 331.83948,117.4593 343.41967,123.11754 351.4713,132.79499 C 369.75943,149.96541 386.09095,171.69238 387.78962,197.53125 C 390.65675,221.00859 388.31434,245.77372 375.76353,266.18148 C 362.91976,286.91677 347.01422,306.96571 324.75837,318.03125 C 316.37496,324.17239 313.9851,335.70875 317.22712,345.375 C 318.60125,350.06085 316.54837,355.33517 311.06574,355.76266 C 298.84577,360.8492 287.8549,369.77111 280.88337,381.1875 C 277.09977,388.11265 274.81205,398.63538 281.25837,404.65625 C 286.91027,408.76627 292.88745,402.15562 297.99638,400.24482 C 313.80182,389.98228 328.19904,377.97741 342.92713,366.25927 C 373.21062,341.22034 406.96662,308.1739 418.66462,269.8125 C 430.41666,236.43034 433.70643,193.40957 416.97712,160.6875 C 409.4308,144.95818 396.77489,132.94724 385.10212,120.21875 C 383.0124,117.119 387.19062,114.94533 389.75837,116.71875 C 404.19147,121.09045 415.88908,131.371 426.74673,141.36336 C 453.53873,168.03083 468.39197,210.87689 465.94587,248.5 C 464.63767,301.31572 435.54741,353.07738 403.86233,394.3815 C 391.45478,411.89337 377.78402,429.69689 372.32087,450.6875 C 373.52407,454.70396 368.91898,456.43108 366.44587,453.4375 C 348.94295,444.3766 338.11849,425.98679 320.19587,417.75 C 312.29386,415.54305 305.33036,420.47859 298.97712,424.28125 C 295.90069,425.48074 288.32749,428.3333 292.28962,432.59375 C 300.18261,437.46238 309.50525,439.85416 316.93171,445.62088 C 331.04878,455.02176 343.93636,470.03323 343.94587,487.78125 C 343.23239,497.17578 332.6713,504.61603 323.82087,500.25 C 313.4404,496.56946 307.80185,483.96564 311.63337,473.71875 C 311.38524,463.26797 300.23262,458.31431 292.00837,454.59375 C 287.83229,451.73559 279.62026,450.20327 278.19587,456.8125 C 275.10101,467.41576 278.49137,478.55494 279.53962,489.09375 C 281.04619,496.80331 286.17685,503.14581 288.82087,510.15625 C 288.88894,519.26498 281.27584,526.25744 274.60212,531.3125 C 267.90703,536.72849 270.33808,527.72686 269.97712,523.34375 C 269.97712,358.59375 269.97712,193.84375 269.97712,29.09375 C 271.19587,30.947917 272.41462,32.802083 273.63337,34.65625 z M 310.60212,138.90625 C 301.85294,139.61637 299.66008,150.33089 298.17477,157.34581 C 289.89095,189.652 281.09399,219.32299 288.82639,252.63744 C 292.17354,265.26866 294.54496,274.32417 300.03962,286.1875 C 301.89106,291.07752 306.77025,294.32377 311.97712,292.28125 C 324.50278,286.92976 330.08427,278.52776 339.21281,268.76449 C 357.33429,248.63603 366.89465,221.5665 359.38669,194.81215 C 354.45025,172.25222 342.20798,158.33205 323.36494,146.1102 C 319.10186,143.95914 315.50709,139.32564 310.60212,138.90625 z"
++     style="fill:#ffffff" />
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/LICENSE.txt navit-r4517/navit/xpm/themroc/LICENSE.txt
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/LICENSE.txt	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/LICENSE.txt	2011-06-12 17:19:36.000000000 +0200
+@@ -0,0 +1,11 @@
++pow/pagan.svg
++  modified, from http://wiki.openstreetmap.org/wiki/File:2020_stBN_placeofworship_pagan.svg
++  license http://creativecommons.org/licenses/by-sa/2.0/
++
++pow/pastafarian.svg
++  modified, from http://wiki.openstreetmap.org/wiki/File:2020_stBN_placeofworship_pastafarian.svg
++  license http://creativecommons.org/licenses/by-sa/2.0/
++
++pow/taoist.svg
++  modified, from http://wiki.openstreetmap.org/wiki/File:2020_stBN_placeofworship_taoist.svg
++  license http://creativecommons.org/licenses/by-sa/2.0/
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/Makefile.am navit-r4517/navit/xpm/themroc/Makefile.am
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/Makefile.am	2011-06-12 17:18:47.000000000 +0200
+@@ -0,0 +1 @@
++EXTRA_DIST = recolour.sh regroup.sh pow/*.svg
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/pow/pagan.svg navit-r4517/navit/xpm/themroc/pow/pagan.svg
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/pow/pagan.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/pow/pagan.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,127 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="100%"
++   height="100%"
++   viewBox="0 0 580 580"
++   id="svg2"
++   inkscape:version="0.47 r22583"
++   sodipodi:docname="taoist.svg">
++  <metadata
++     id="metadata5184">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:title></dc:title>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <defs
++     id="defs5182">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective5186" />
++    <inkscape:perspective
++       id="perspective7095"
++       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
++       inkscape:vp_z="1 : 0.5 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 0.5 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective7148"
++       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
++       inkscape:vp_z="1 : 0.5 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 0.5 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <sodipodi:namedview
++     pagecolor="#ffffff"
++     bordercolor="#666666"
++     borderopacity="1"
++     objecttolerance="10"
++     gridtolerance="10"
++     guidetolerance="10"
++     inkscape:pageopacity="0"
++     inkscape:pageshadow="2"
++     inkscape:window-width="1195"
++     inkscape:window-height="984"
++     id="namedview5180"
++     showgrid="false"
++     inkscape:zoom="1.2689655"
++     inkscape:cx="290.33946"
++     inkscape:cy="290"
++     inkscape:window-x="43"
++     inkscape:window-y="46"
++     inkscape:window-maximized="0"
++     inkscape:current-layer="svg2" />
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 l 0,450.123 c 0,40.844 20.895,62.229 62.192,62.229 l 452.024,0 c 41.307,0 62.229,-20.315 62.229,-62.229 l 0,-450.123 c 0,-42.601 -20.922,-65.036 -63.521,-65.036 -0.004,0 -448.495,-0.143 -448.353,0 z"
++       id="path1329"
++       style="fill:#111111;stroke:#eeeeee;stroke-width:3.40799999" />
++  </g>
++  <g
++     id="g7136"
++     transform="translate(5.5163043,3.9402174)">
++    <path
++       transform="matrix(0.99652895,0,0,1.0081164,-2.6260059,8.2338569)"
++       sodipodi:open="true"
++       sodipodi:end="6.2796118"
++       sodipodi:start="0"
++       d="m 540.30727,280.27933 c 0,134.66183 -110.43434,243.82681 -246.66201,243.82681 -136.22766,0 -246.661999,-109.16498 -246.661999,-243.82681 0,-134.66183 110.434339,-243.826815 246.661999,-243.826815 135.88357,0 246.17485,108.634665 246.66043,242.955495"
++       sodipodi:ry="243.82681"
++       sodipodi:rx="246.662"
++       sodipodi:cy="280.27933"
++       sodipodi:cx="293.64526"
++       id="path7055"
++       style="fill:none;stroke:#808080;stroke-width:39.90797424;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
++       sodipodi:type="arc" />
++    <path
++       style="fill:none;stroke:#808080;stroke-width:38.03951645;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
++       d="M 94.584251,233.83538 482.98557,232.7405 168.98224,452.81463 288.23788,88.214254 408.58758,456.09931 94.584251,233.83538 z"
++       id="path5966-6"
++       inkscape:connector-curvature="0" />
++  </g>
++  <g
++     transform="translate(-4.3887963,-6.3043481)"
++     id="g7136-6"
++     style="stroke:#ffffff;stroke-opacity:1">
++    <path
++       transform="matrix(0.99652895,0,0,1.0081164,-2.6260059,8.2338569)"
++       sodipodi:open="true"
++       sodipodi:end="6.2796118"
++       sodipodi:start="0"
++       d="m 540.30727,280.27933 c 0,134.66183 -110.43434,243.82681 -246.66201,243.82681 -136.22766,0 -246.661999,-109.16498 -246.661999,-243.82681 0,-134.66183 110.434339,-243.826815 246.661999,-243.826815 135.88357,0 246.17485,108.634665 246.66043,242.955495"
++       sodipodi:ry="243.82681"
++       sodipodi:rx="246.662"
++       sodipodi:cy="280.27933"
++       sodipodi:cx="293.64526"
++       id="path7055-4"
++       style="fill:none;stroke:#ffffff;stroke-width:39.90797424;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
++       sodipodi:type="arc" />
++    <path
++       style="fill:none;stroke:#ffffff;stroke-width:38.03951645;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
++       d="M 94.584251,233.83538 482.98557,232.7405 168.98224,452.81463 288.23788,88.214254 408.58758,456.09931 94.584251,233.83538 z"
++       id="path5966-6-9"
++       inkscape:connector-curvature="0" />
++  </g>
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/pow/pastafarian.svg navit-r4517/navit/xpm/themroc/pow/pastafarian.svg
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/pow/pastafarian.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/pow/pastafarian.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="100%"
++   height="100%"
++   viewBox="0 0 580 580"
++   id="svg2"
++   inkscape:version="0.47 r22583"
++   sodipodi:docname="sjjb-clean.svg">
++  <metadata
++     id="metadata3409">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:title></dc:title>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <defs
++     id="defs3407">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective3411" />
++    <inkscape:perspective
++       id="perspective3698"
++       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
++       inkscape:vp_z="1 : 0.5 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 0.5 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective5037"
++       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
++       inkscape:vp_z="1 : 0.5 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 0.5 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <sodipodi:namedview
++     pagecolor="#ffffff"
++     bordercolor="#666666"
++     borderopacity="1"
++     objecttolerance="10"
++     gridtolerance="10"
++     guidetolerance="10"
++     inkscape:pageopacity="0"
++     inkscape:pageshadow="2"
++     inkscape:window-width="1054"
++     inkscape:window-height="1007"
++     id="namedview3405"
++     showgrid="false"
++     inkscape:zoom="1.3066842"
++     inkscape:cx="296.9912"
++     inkscape:cy="289.56978"
++     inkscape:window-x="42"
++     inkscape:window-y="46"
++     inkscape:window-maximized="0"
++     inkscape:current-layer="svg2" />
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 l 0,450.123 c 0,40.844 20.895,62.229 62.192,62.229 l 452.024,0 c 41.307,0 62.229,-20.315 62.229,-62.229 l 0,-450.123 c 0,-42.601 -20.922,-65.036 -63.521,-65.036 -0.004,0 -448.495,-0.143 -448.353,0 z"
++       id="path1329"
++       style="fill:#111111;stroke:#eeeeee;stroke-width:3.40799999" />
++  </g>
++  <g
++     id="g2953-9"
++     transform="matrix(29.386511,0,0,29.386511,32.621742,128.47109)"
++     style="fill:#808080;fill-opacity:1">
++    <path
++       id="path2955-2"
++       d="M 6.285,0.015 C 7.148,-0.095 7.654,0.432 7.842,0.773 8.203,1.436 7.951,2.17 7.621,2.529 6.762,3.466 4.999,2.956 4.988,1.511 4.982,0.84 5.316,0.451 5.686,0.214 5.836,0.119 6.031,0.046 6.285,0.015 z M 6.305,1.97 C 7.102,2.285 7.263,0.873 6.425,1.012 5.912,1.097 5.855,1.792 6.305,1.97 z"
++       clip-rule="evenodd"
++       style="fill:#808080;fill-opacity:1;fill-rule:evenodd" />
++    <path
++       id="path2957-0"
++       d="m 11.313,0.015 c 0.741,-0.094 1.314,0.305 1.556,0.758 0.338,0.634 0.144,1.34 -0.199,1.736 C 11.822,3.491 10.035,2.92 10.016,1.512 10.011,1.127 10.179,0.776 10.276,0.634 10.461,0.36 10.832,0.076 11.313,0.015 z m 0.02,1.955 C 11.666,2.1 12.095,1.879 12.031,1.411 11.996,1.142 11.754,0.962 11.453,1.011 10.968,1.092 10.867,1.788 11.333,1.97 z"
++       clip-rule="evenodd"
++       style="fill:#808080;fill-opacity:1;fill-rule:evenodd" />
++    <path
++       id="path2959-6"
++       d="m 16.063,5.063 c -0.424,0.229 -0.725,0.664 -1.078,1.018 -0.355,0.356 -0.75,0.667 -1.137,0.979 0.572,0.261 1.033,0.5 1.176,1.137 0.038,0.167 -0.008,0.402 0.061,0.599 0.109,0.31 0.627,0.329 1.059,0.299 0.182,-0.012 0.365,-0.085 0.518,-0.06 0.422,0.068 0.552,0.744 0.141,0.958 -0.219,0.113 -0.611,0.119 -0.898,0.12 C 14.911,10.116 14.192,9.699 14.069,8.836 14.052,8.716 14.082,8.577 14.049,8.437 13.975,8.119 13.482,7.964 13.091,7.938 12.369,7.89 12.012,8.271 11.515,8.457 c 0.193,0.262 0.424,0.536 0.499,0.978 0.033,0.195 -0.014,0.436 0.06,0.638 0.085,0.232 0.454,0.288 0.818,0.419 0.286,0.104 0.603,0.254 0.798,0.419 0.141,0.119 0.348,0.322 0.359,0.579 0.017,0.367 -0.291,0.595 -0.658,0.499 C 13.189,11.937 13.086,11.701 12.912,11.59 12.718,11.467 12.395,11.407 12.094,11.291 11.601,11.1 11.267,10.847 11.116,10.353 11.033,10.079 11.083,9.677 10.957,9.415 10.604,8.688 9.855,9.034 9.02,9.034 8.811,9.034 8.615,9.019 8.42,8.994 8.227,8.968 8.033,8.912 7.881,8.914 7.51,8.917 7.061,9.24 7.003,9.612 6.957,9.916 6.996,10.14 6.924,10.37 6.776,10.838 6.445,11.085 5.926,11.287 5.684,11.382 5.369,11.436 5.128,11.586 4.914,11.719 4.815,12.105 4.35,12.005 4.204,11.973 4.012,11.825 3.991,11.565 3.953,11.095 4.477,10.801 4.789,10.648 5.094,10.499 5.87,10.341 5.966,10.069 6.048,9.842 5.987,9.594 6.027,9.391 6.107,8.986 6.295,8.741 6.546,8.453 6.032,8.283 5.686,7.897 4.968,7.936 4.58,7.958 4.107,8.094 4.01,8.396 3.93,8.646 3.967,8.888 3.891,9.114 3.673,9.758 3.065,10.107 2.155,10.112 1.721,10.114 1.11,10.07 0.997,9.732 0.879,9.375 1.115,9.076 1.377,9.034 1.529,9.009 1.695,9.081 1.875,9.094 2.305,9.125 2.842,9.097 2.953,8.815 3.056,8.552 2.965,8.269 3.053,8.037 3.248,7.52 3.631,7.286 4.19,7.079 3.809,6.74 3.41,6.438 3.053,6.08 2.701,5.729 2.398,5.319 1.976,5.043 2.141,5.778 2.932,6.283 3.033,7.078 3.144,7.957 2.059,8.334 1.437,7.856 1.153,7.639 0.979,7.185 0.658,7.078 0.57,7.048 0.425,7.075 0.318,7.038 -0.127,6.883 -0.086,6.211 0.318,6.08 0.918,5.886 1.364,6.346 1.695,6.619 1.398,6.14 0.547,5.067 1.177,4.384 1.329,4.219 1.586,4.074 1.835,4.045 2.789,3.932 3.232,4.948 3.73,5.342 4.427,4.791 5.183,4.271 6.025,3.826 6.844,3.392 7.826,3.008 8.998,3.008 c 1.197,0 2.146,0.392 2.994,0.818 0.846,0.425 1.604,0.942 2.274,1.516 0.6,-0.407 0.941,-1.391 1.915,-1.296 0.377,0.036 0.844,0.376 0.898,0.817 0.083,0.671 -0.479,1.283 -0.719,1.716 -0.004,0.016 -0.02,0.02 -0.02,0.04 0.262,-0.231 0.779,-0.732 1.377,-0.539 0.38,0.124 0.451,0.761 0.039,0.938 -0.1,0.043 -0.257,0.027 -0.358,0.06 -0.511,0.161 -0.633,0.974 -1.397,0.997 -0.684,0.021 -1.107,-0.412 -0.979,-1.077 0.153,-0.767 0.83,-1.204 1.041,-1.935 z"
++       clip-rule="evenodd"
++       style="fill:#808080;fill-opacity:1;fill-rule:evenodd"
++       sodipodi:nodetypes="cscssssssssscsssssssssssssssssssssscssssssssscscssssscsscssscsssssssssc" />
++  </g>
++  <g
++     style="fill:#ffffff"
++     transform="matrix(29.386511,0,0,29.386511,15.714124,107.54905)"
++     id="g2953">
++    <path
++       style="fill:#ffffff;fill-rule:evenodd"
++       clip-rule="evenodd"
++       d="M 6.285,0.015 C 7.148,-0.095 7.654,0.432 7.842,0.773 8.203,1.436 7.951,2.17 7.621,2.529 6.762,3.466 4.999,2.956 4.988,1.511 4.982,0.84 5.316,0.451 5.686,0.214 5.836,0.119 6.031,0.046 6.285,0.015 z M 6.305,1.97 C 7.102,2.285 7.263,0.873 6.425,1.012 5.912,1.097 5.855,1.792 6.305,1.97 z"
++       id="path2955" />
++    <path
++       style="fill:#ffffff;fill-rule:evenodd"
++       clip-rule="evenodd"
++       d="m 11.313,0.015 c 0.741,-0.094 1.314,0.305 1.556,0.758 0.338,0.634 0.144,1.34 -0.199,1.736 C 11.822,3.491 10.035,2.92 10.016,1.512 10.011,1.127 10.179,0.776 10.276,0.634 10.461,0.36 10.832,0.076 11.313,0.015 z m 0.02,1.955 C 11.666,2.1 12.095,1.879 12.031,1.411 11.996,1.142 11.754,0.962 11.453,1.011 10.968,1.092 10.867,1.788 11.333,1.97 z"
++       id="path2957" />
++    <path
++       sodipodi:nodetypes="cscssssssssscsssssssssssssssssssssscssssssssscscssssscsscssscsssssssssc"
++       style="fill:#ffffff;fill-rule:evenodd"
++       clip-rule="evenodd"
++       d="m 16.063,5.063 c -0.424,0.229 -0.725,0.664 -1.078,1.018 -0.355,0.356 -0.75,0.667 -1.137,0.979 0.572,0.261 1.033,0.5 1.176,1.137 0.038,0.167 -0.008,0.402 0.061,0.599 0.109,0.31 0.627,0.329 1.059,0.299 0.182,-0.012 0.365,-0.085 0.518,-0.06 0.422,0.068 0.552,0.744 0.141,0.958 -0.219,0.113 -0.611,0.119 -0.898,0.12 C 14.911,10.116 14.192,9.699 14.069,8.836 14.052,8.716 14.082,8.577 14.049,8.437 13.975,8.119 13.482,7.964 13.091,7.938 12.369,7.89 12.012,8.271 11.515,8.457 c 0.193,0.262 0.424,0.536 0.499,0.978 0.033,0.195 -0.014,0.436 0.06,0.638 0.085,0.232 0.454,0.288 0.818,0.419 0.286,0.104 0.603,0.254 0.798,0.419 0.141,0.119 0.348,0.322 0.359,0.579 0.017,0.367 -0.291,0.595 -0.658,0.499 C 13.189,11.937 13.086,11.701 12.912,11.59 12.718,11.467 12.395,11.407 12.094,11.291 11.601,11.1 11.267,10.847 11.116,10.353 11.033,10.079 11.083,9.677 10.957,9.415 10.604,8.688 9.855,9.034 9.02,9.034 8.811,9.034 8.615,9.019 8.42,8.994 8.227,8.968 8.033,8.912 7.881,8.914 7.51,8.917 7.061,9.24 7.003,9.612 6.957,9.916 6.996,10.14 6.924,10.37 6.776,10.838 6.445,11.085 5.926,11.287 5.684,11.382 5.369,11.436 5.128,11.586 4.914,11.719 4.815,12.105 4.35,12.005 4.204,11.973 4.012,11.825 3.991,11.565 3.953,11.095 4.477,10.801 4.789,10.648 5.094,10.499 5.87,10.341 5.966,10.069 6.048,9.842 5.987,9.594 6.027,9.391 6.107,8.986 6.295,8.741 6.546,8.453 6.032,8.283 5.686,7.897 4.968,7.936 4.58,7.958 4.107,8.094 4.01,8.396 3.93,8.646 3.967,8.888 3.891,9.114 3.673,9.758 3.065,10.107 2.155,10.112 1.721,10.114 1.11,10.07 0.997,9.732 0.879,9.375 1.115,9.076 1.377,9.034 1.529,9.009 1.695,9.081 1.875,9.094 2.305,9.125 2.842,9.097 2.953,8.815 3.056,8.552 2.965,8.269 3.053,8.037 3.248,7.52 3.631,7.286 4.19,7.079 3.809,6.74 3.41,6.438 3.053,6.08 2.701,5.729 2.398,5.319 1.976,5.043 2.141,5.778 2.932,6.283 3.033,7.078 3.144,7.957 2.059,8.334 1.437,7.856 1.153,7.639 0.979,7.185 0.658,7.078 0.57,7.048 0.425,7.075 0.318,7.038 -0.127,6.883 -0.086,6.211 0.318,6.08 0.918,5.886 1.364,6.346 1.695,6.619 1.398,6.14 0.547,5.067 1.177,4.384 1.329,4.219 1.586,4.074 1.835,4.045 2.789,3.932 3.232,4.948 3.73,5.342 4.427,4.791 5.183,4.271 6.025,3.826 6.844,3.392 7.826,3.008 8.998,3.008 c 1.197,0 2.146,0.392 2.994,0.818 0.846,0.425 1.604,0.942 2.274,1.516 0.6,-0.407 0.941,-1.391 1.915,-1.296 0.377,0.036 0.844,0.376 0.898,0.817 0.083,0.671 -0.479,1.283 -0.719,1.716 -0.004,0.016 -0.02,0.02 -0.02,0.04 0.262,-0.231 0.779,-0.732 1.377,-0.539 0.38,0.124 0.451,0.761 0.039,0.938 -0.1,0.043 -0.257,0.027 -0.358,0.06 -0.511,0.161 -0.633,0.974 -1.397,0.997 -0.684,0.021 -1.107,-0.412 -0.979,-1.077 0.153,-0.767 0.83,-1.204 1.041,-1.935 z"
++       id="path2959" />
++  </g>
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/pow/taoist.svg navit-r4517/navit/xpm/themroc/pow/taoist.svg
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/pow/taoist.svg	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/pow/taoist.svg	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,192 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<!-- Created with Inkscape (http://www.inkscape.org/) -->
++
++<svg
++   xmlns:dc="http://purl.org/dc/elements/1.1/"
++   xmlns:cc="http://creativecommons.org/ns#"
++   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
++   xmlns:svg="http://www.w3.org/2000/svg"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   version="1.0"
++   width="100%"
++   height="100%"
++   viewBox="0 0 580 580"
++   id="svg2"
++   inkscape:version="0.47 r22583"
++   sodipodi:docname="sjjb-clean.svg">
++  <metadata
++     id="metadata5184">
++    <rdf:RDF>
++      <cc:Work
++         rdf:about="">
++        <dc:format>image/svg+xml</dc:format>
++        <dc:type
++           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
++        <dc:title></dc:title>
++      </cc:Work>
++    </rdf:RDF>
++  </metadata>
++  <defs
++     id="defs5182">
++    <inkscape:perspective
++       sodipodi:type="inkscape:persp3d"
++       inkscape:vp_x="0 : 290 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_z="580 : 290 : 1"
++       inkscape:persp3d-origin="290 : 193.33333 : 1"
++       id="perspective5186" />
++    <inkscape:perspective
++       id="perspective5724"
++       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
++       inkscape:vp_z="1 : 0.5 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 0.5 : 1"
++       sodipodi:type="inkscape:persp3d" />
++    <inkscape:perspective
++       id="perspective5783"
++       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
++       inkscape:vp_z="1 : 0.5 : 1"
++       inkscape:vp_y="0 : 1000 : 0"
++       inkscape:vp_x="0 : 0.5 : 1"
++       sodipodi:type="inkscape:persp3d" />
++  </defs>
++  <sodipodi:namedview
++     pagecolor="#ffffff"
++     bordercolor="#666666"
++     borderopacity="1"
++     objecttolerance="10"
++     gridtolerance="10"
++     guidetolerance="10"
++     inkscape:pageopacity="0"
++     inkscape:pageshadow="2"
++     inkscape:window-width="1195"
++     inkscape:window-height="984"
++     id="namedview5180"
++     showgrid="false"
++     inkscape:zoom="1.2689655"
++     inkscape:cx="292.30957"
++     inkscape:cy="290"
++     inkscape:window-x="43"
++     inkscape:window-y="46"
++     inkscape:window-maximized="0"
++     inkscape:current-layer="svg2" />
++  <g
++     id="g1327">
++    <path
++       d="M 66.275,1.768 C 24.94,1.768 1.704,23.139 1.704,66.804 l 0,450.123 c 0,40.844 20.895,62.229 62.192,62.229 l 452.024,0 c 41.307,0 62.229,-20.315 62.229,-62.229 l 0,-450.123 c 0,-42.601 -20.922,-65.036 -63.521,-65.036 -0.004,0 -448.495,-0.143 -448.353,0 z"
++       id="path1329"
++       style="fill:#111111;stroke:#eeeeee;stroke-width:3.40799999" />
++  </g>
++  <path
++     sodipodi:type="arc"
++     style="fill:#808080;fill-opacity:1;stroke:none"
++     id="path2934"
++     sodipodi:cx="9"
++     sodipodi:cy="11"
++     sodipodi:rx="7"
++     sodipodi:ry="7"
++     d="M 16,11 A 7,7 0 1 1 2,11 7,7 0 1 1 16,11 z"
++     transform="matrix(37.857143,0,0,37.857143,-42.833853,-117.7601)" />
++  <g
++     id="g6335"
++     transform="translate(-2.3641304,1.5760869)">
++    <path
++       sodipodi:end="3.1415927"
++       sodipodi:start="0"
++       sodipodi:type="arc"
++       style="fill:#808080;fill-opacity:1;stroke:none"
++       id="path4234"
++       sodipodi:cx="16"
++       sodipodi:cy="11"
++       sodipodi:rx="6"
++       sodipodi:ry="6"
++       d="m 22,11 c 0,3.313708 -2.686292,6 -6,6 -3.313708,0 -6,-2.686292 -6,-6 0,0 0,0 0,0 l 6,0 z"
++       transform="matrix(0,-37.857143,37.857143,0,-113.81988,895.71428)" />
++    <path
++       sodipodi:type="arc"
++       style="fill:#808080;fill-opacity:1;stroke:none"
++       id="path4240"
++       sodipodi:cx="13"
++       sodipodi:cy="14"
++       sodipodi:rx="3"
++       sodipodi:ry="3"
++       d="m 16,14 c 0,1.656854 -1.343146,3 -3,3 -1.656854,0 -3,-1.343146 -3,-3 0,-1.656854 1.343146,-3 3,-3 1.656854,0 3,1.343146 3,3 z"
++       transform="matrix(37.857143,0,0,37.857143,-189.53417,-126.42858)" />
++    <path
++       transform="matrix(37.857143,0,0,37.857143,-57.018635,-136.67314)"
++       d="m 16,11 c 0,3.865993 -3.134007,7 -7,7 C 5.1340068,18 2,14.865993 2,11 2,7.1340068 5.1340068,4 9,4 c 3.865993,0 7,3.1340068 7,7 z"
++       sodipodi:ry="7"
++       sodipodi:rx="7"
++       sodipodi:cy="11"
++       sodipodi:cx="9"
++       id="path2934-8"
++       style="fill:#ffffff;fill-opacity:1;stroke:none"
++       sodipodi:type="arc" />
++    <path
++       sodipodi:end="3.1415927"
++       sodipodi:start="0"
++       sodipodi:type="arc"
++       style="fill:#111111;fill-opacity:1;stroke:none"
++       id="path4234-9"
++       sodipodi:cx="16"
++       sodipodi:cy="11"
++       sodipodi:rx="6"
++       sodipodi:ry="6"
++       d="m 22,11 c 0,3.313708 -2.686292,6 -6,6 -3.313708,0 -6,-2.686292 -6,-6 0,0 0,0 0,0 l 6,0 z"
++       transform="matrix(0,-37.857143,37.857143,0,-132.73292,885.46972)" />
++    <path
++       transform="matrix(0,37.857143,-37.857143,0,700.12422,-325.95886)"
++       d="m 22,11 c 0,3.313708 -2.686292,6 -6,6 -3.313708,0 -6,-2.686292 -6,-6 0,0 0,0 0,0 l 6,0 z"
++       sodipodi:ry="6"
++       sodipodi:rx="6"
++       sodipodi:cy="11"
++       sodipodi:cx="16"
++       id="path4238"
++       style="fill:#ffffff;fill-opacity:1;stroke:none"
++       sodipodi:type="arc"
++       sodipodi:start="0"
++       sodipodi:end="3.1415927" />
++    <path
++       transform="matrix(37.857143,0,0,37.857143,-208.44721,-363.816)"
++       d="m 16,14 c 0,1.656854 -1.343146,3 -3,3 -1.656854,0 -3,-1.343146 -3,-3 0,-1.656854 1.343146,-3 3,-3 1.656854,0 3,1.343146 3,3 z"
++       sodipodi:ry="3"
++       sodipodi:rx="3"
++       sodipodi:cy="14"
++       sodipodi:cx="13"
++       id="path4232"
++       style="fill:#ffffff;fill-opacity:1;stroke:none"
++       sodipodi:type="arc" />
++    <path
++       sodipodi:type="arc"
++       style="fill:#111111;fill-opacity:1;stroke:none"
++       id="path4240-2"
++       sodipodi:cx="13"
++       sodipodi:cy="14"
++       sodipodi:rx="3"
++       sodipodi:ry="3"
++       d="m 16,14 c 0,1.656854 -1.343146,3 -3,3 -1.656854,0 -3,-1.343146 -3,-3 0,-1.656854 1.343146,-3 3,-3 1.656854,0 3,1.343146 3,3 z"
++       transform="matrix(37.857143,0,0,37.857143,-208.44721,-136.67314)" />
++    <path
++       sodipodi:type="arc"
++       style="fill:#111111;fill-opacity:1;stroke:none"
++       id="path4236"
++       sodipodi:cx="9.5"
++       sodipodi:cy="7.5"
++       sodipodi:rx="1.5"
++       sodipodi:ry="1.5"
++       d="M 11,7.5 C 11,8.3284271 10.328427,9 9.5,9 8.6715729,9 8,8.3284271 8,7.5 8,6.6715729 8.6715729,6 9.5,6 10.328427,6 11,6.6715729 11,7.5 z"
++       transform="matrix(25.238096,0,0,25.238096,43.933725,-23.101709)" />
++    <path
++       transform="matrix(25.238096,0,0,25.238096,43.933725,204.04114)"
++       d="M 11,7.5 C 11,8.3284271 10.328427,9 9.5,9 8.6715729,9 8,8.3284271 8,7.5 8,6.6715729 8.6715729,6 9.5,6 10.328427,6 11,6.6715729 11,7.5 z"
++       sodipodi:ry="1.5"
++       sodipodi:rx="1.5"
++       sodipodi:cy="7.5"
++       sodipodi:cx="9.5"
++       id="path4242"
++       style="fill:#ffffff;fill-opacity:1;stroke:none"
++       sodipodi:type="arc" />
++  </g>
++</svg>
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/recolour.sh navit-r4517/navit/xpm/themroc/recolour.sh
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/recolour.sh	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/recolour.sh	2011-06-12 16:52:50.000000000 +0200
+@@ -0,0 +1,8 @@
++#!/bin/sh
++
++# $1 filename
++# $2 background
++# $3 shadow
++# $4 foreground
++
++sed "s/:#111111;/:${2};/g" < $1 | sed "s/:#808080;/:${3};/g" | sed "s/:#ffffff;/:${4};/g"
+diff -Nru3 -x .svn -x .deps -x .libs -x '*~' -x '*.orig' -x '*.log' -x '*.mo' -x '*.po' -x '*.a' -x '*.o' -x '*.lo' -x '*.la' -x Makefile -x Makefile.in -x autom4te.cache -x config.status -x configure -x '*.png' -x '*.moc' navit-r4517.xpm2svg2/navit/xpm/themroc/regroup.sh navit-r4517/navit/xpm/themroc/regroup.sh
+--- navit-r4517.xpm2svg2/navit/xpm/themroc/regroup.sh	1970-01-01 01:00:00.000000000 +0100
++++ navit-r4517/navit/xpm/themroc/regroup.sh	2011-06-12 17:19:08.000000000 +0200
+@@ -0,0 +1,9 @@
++#!/bin/sh
++
++case $1 in
++
++pow)	 echo place_of_worship ;;
++
++*)	 echo $1 ;;
++
++esac

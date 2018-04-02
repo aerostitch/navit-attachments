@@ -1,0 +1,15 @@
+Index: navit/binding/dbus/CMakeLists.txt
+===================================================================
+--- navit/binding/dbus/CMakeLists.txt	(revision 5006)
++++ navit/binding/dbus/CMakeLists.txt	(working copy)
+@@ -1,2 +1,9 @@
+ module_add_library(binding_dbus binding_dbus.c) 
++set(bindir ${CMAKE_INSTALL_PREFIX}/${BIN_DIR})
++
++configure_file (
++ "${CMAKE_CURRENT_SOURCE_DIR}/org.navit_project.navit.service.in"
++ "${CMAKE_CURRENT_BINARY_DIR}/org.navit_project.navit.service"
++)
++
+ install(FILES org.navit_project.navit.service DESTINATION ${CMAKE_INSTALL_PREFIX}/share/dbus-1/services/)
+\ No newline at end of file

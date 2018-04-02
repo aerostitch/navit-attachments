@@ -1,0 +1,13 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -571,7 +565,7 @@
+     if ( win_priv && !win_priv->hBackLight )
+     {
+         win_priv->hBackLight = SetPowerRequirement(TEXT("BKL1:"), 0, 0x01, NULL, 0);
+-        event_win32_add_timeout(29000, 1, callback_new(SystemIdleTimerReset, 0, NULL));
++        event_win32_add_timeout(9000, 1, callback_new(SystemIdleTimerReset, 0, NULL));
+     }
+ 
+     SystemIdleTimerReset();

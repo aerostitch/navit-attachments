@@ -1,0 +1,110 @@
+Navit log started
+binding_win32:module_binding_win32_init:enter
+navit:main_real:Loading navit.xml
+navit:convert_to_attrs:failed to create attribute 'autozoom_secs' with value '120'
+navit:file_wordexp_new:wordexp('D:\nochInstall\Navit_2\data/bookmark.txt') returned 1
+binding_win32:win32_main_navit:enter
+binding_win32:win32_main_navit:enter2
+navit:vehicle_new:invalid source 'gpsd://localhost': unknown type 'gpsd'
+navit:profile_option_new:return 031B6340
+navit:profile_option_new:return 031B90C0
+navit:profile_option_new:return 031B91D8
+speech_espeak:espeak_new:path_home set to D:\nochInstall\Navit/espeak-data
+speech_espeak:espeak_new:Testing D:\nochInstall\Navit/espeak-data/voices/de-de and D:\nochInstall\Navit/espeak-data/voices/de/de-de
+speech_espeak:espeak_new:Language full de-de lang de result de
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+graphics_win32:create_memory_dc:resize memDC to: 792 547 
+navit:file_wordexp_new:wordexp('D:\nochInstall\Navit_2\data/destination.txt') returned 1
+navit:main_real:Using config file 'navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+navit:navit_destroy:enter 0313A768
+binding_win32:win32_main_navit:enter
+graphics_win32:event_win32_main_loop_quit:enter
+navit:debug_dump_mallocs:mallocs 0

@@ -1,0 +1,64 @@
+#!/bin/sh
+# postinst script for navit
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# summary of how this script can be called:
+#        * <postinst> `configure' <most-recently-configured-version>
+#        * <old-postinst> `abort-upgrade' <new version>
+#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#          <new-version>
+#        * <postinst> `abort-remove'
+#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#          <failed-install-package> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+
+case "$1" in
+    configure)
+    # The clock might be wrong and we know that we need to update the icon
+    # cache so we just force it.
+
+    gtk-update-icon-cache -f /usr/share/icons/hicolor
+    # Now that the icon cache is uptodate, we move the .desktop file into
+    # place.  Doing this only now prevents the Task navigator from
+    # reconstructing the menu before the icon is available.  This trick is
+    # not really necessary when using maemo-select-menu-location (as we do
+    # below), since maemo-select-menu-location will trigger the
+    # reconstructing of the Taks navigator menu as well.
+
+    if [ -f /usr/share/applications/navit.desktop ]
+    then
+    	mv /usr/share/applications/navit.desktop /usr/share/applications/hildon/navit.desktop
+    fi
+    if [ -f /usr/share/applications/org.navit-project.Navit.service ]
+    then
+    	mv /usr/share/applications/org.navit-project.Navit.service /usr/share/dbus-1/services/org.navit-project.Navit.service
+    fi
+
+    # Now we are ready to let the user move the entry around, but only if
+    # this is a new install
+
+    oldversion="$2"
+    if [ -z "$oldversion" ]; then
+    	if [ -e /usr/bin/maemo-select-menu-location ]; then
+	 maemo-select-menu-location navit.desktop
+ 	fi
+    fi
+
+
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+exit 0

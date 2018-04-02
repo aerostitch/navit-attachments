@@ -1,0 +1,132 @@
+Index: navit.c
+===================================================================
+--- navit.c	(revision 3659)
++++ navit.c	(working copy)
+@@ -715,6 +715,119 @@
+ 	}
+ }
+ 
++static void
++navit_cmd_sys_cmd(struct navit *this, char *function, struct attr **in, struct attr ***out, int *valid)
++{
++    navit_float x, y;
++    char *cx, *cy;
++    FILE * fp;
++    int n, nparms, number_parms, no_default_parms, validpos;
++    const char ** user_parms;
++    struct attr valid_attr, geo_attr;
++
++    
++    validpos = 1;
++    no_default_parms = 0;
++
++/* Adapted from navit_layout_switch() function */
++
++    if (vehicle_get_attr(this->vehicle->vehicle, attr_position_coord_geo,&geo_attr,NULL)!=1) {
++        //No position - no sun
++        validpos = 0;
++    }
++
++/* Why this is not checked first?, so don't need to get a invalid position before?
++   Anyway, if the position is valid, this order allows to get the position closest to
++   the place where the button was pressed.
++   This is important at high speeds */
++    if (vehicle_get_attr(this->vehicle->vehicle, attr_position_valid, &valid_attr,NULL) && valid_attr.u.num==attr_position_valid_invalid) {
++        //No valid fix yet
++        validpos = 0;        
++    }
++
++    if(validpos == 1)
++        {
++            x = geo_attr.u.coord_geo->lng;
++            y = geo_attr.u.coord_geo->lat;
++        }
++    else
++        {
++            x = 0;
++            y = 0;
++        }
++
++    nparms=0;
++
++    if(in)
++        {
++            while(in[nparms])
++                {
++                    if (in && in[nparms] && ATTR_IS_STRING(in[nparms]->type) && in[nparms]->u.str)
++                        {
++                            if(strstr(in[nparms]->u.str,"NO_DEFAULT_PARMS"))
++                                {
++                                    no_default_parms=1;
++                                    break;
++                                }
++                        }
++                    else
++                        {
++                            fprintf(stderr, "Incorrect parameter %i in a call to a %s() function.\nPlease, ensure that each parameter is enclosed by double quotes.\n", nparms + 1, function);
++                            return;
++                        }
++                    nparms++;
++                }
++            if(!no_default_parms)
++                {
++                    /* Currently latitude, longitude and NULL */
++                    number_parms = nparms + 3;
++                }
++            else
++                number_parms = nparms + 1;
++            
++            user_parms = malloc((number_parms) * sizeof(const char **));
++            if (!user_parms)
++                return;
++            
++            for (n=0; n<nparms; n++)
++                {
++                    user_parms[n] = (const char *) in[n]->u.str;
++                }
++            if (!no_default_parms)
++                {
++                    cx=malloc(250);
++                    cy = malloc(250);
++                    
++                    sprintf(cx, "%f", x);
++                    sprintf(cy, "%f", y);
++
++                    user_parms[nparms] = (const char *) cx;
++                    user_parms[nparms + 1] = (const char *) cy;
++                    user_parms[nparms + 2] = NULL;
++                }
++            else
++                user_parms[nparms] = NULL;
++            
++            
++/* Check the existence of the file, FIXME Should check too the exec permissions */
++            fp = fopen(user_parms[0], "r");
++            if (fp == NULL)
++                {
++                    fprintf(stderr, "Warning: File '%s' not found\n", user_parms[0]);
++                    return;
++                }
++            else
++                {
++                    fclose(fp);
++                    if (fork() == 0)
++                        {
++                            execv(user_parms[0], (char *const) user_parms);
++                        }
++                }            
++        }
++}
++
++
+ static struct command_table commands[] = {
+ 	{"zoom_in",command_cast(navit_cmd_zoom_in)},
+ 	{"zoom_out",command_cast(navit_cmd_zoom_out)},
+@@ -724,6 +837,7 @@
+ 	{"set_destination",command_cast(navit_cmd_set_destination)},
+ 	{"announcer_toggle",command_cast(navit_cmd_announcer_toggle)},
+ 	{"fmt_coordinates",command_cast(navit_cmd_fmt_coordinates)},
++	{"sys_cmd", command_cast(navit_cmd_sys_cmd)},
+ };
+ 	
+ 

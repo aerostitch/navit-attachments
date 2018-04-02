@@ -1,0 +1,13 @@
+Index: item.h
+===================================================================
+--- item.h	(revision 5889)
++++ item.h	(working copy)
+@@ -35,7 +35,7 @@
+ };
+ 
+ #define route_item_first type_street_0
+-#define route_item_last type_path
++#define route_item_last type_street_parking_lane
+ extern int default_flags[];
+ 
+ #include "attr.h"

@@ -1,0 +1,172 @@
+
+I/ActivityManager(  869): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(  869): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1496 uid=10027 gids={3003}
+I/ActivityManager(  869): Exiting empty application process com.android.settings (android.os.BinderProxy@47b9ca0)
+I/Process (  869): Sending signal. PID: 1124 SIG: 9
+D/ActivityManager(  869): Received spurious death notification for thread android.os.BinderProxy@47b9ca0
+D/dalvikvm(  854): GC freed 265 objects / 10000 bytes in 775ms
+D/dalvikvm(  854): GC freed 42 objects / 1800 bytes in 178ms
+D/dalvikvm( 1496): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4779db8
+D/dalvikvm(  854): GC freed 2 objects / 56 bytes in 177ms
+D/dalvikvm( 1496): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4779db8
+D/dalvikvm( 1496): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x4779db8
+E/Navit   ( 1496): Country US
+E/Navit   ( 1496): Language en
+E/Navit   ( 1496): Res Name en
+E/Navit   ( 1496): result /data/data/org.navitproject.navit/locale/en/LC_MESSAGES/navit.mo
+E/Navit   ( 1496): Res ID 0
+E/Navit   ( 1496): Failed to extract language resource en
+E/Navit   ( 1496): Res Name navit
+E/Navit   ( 1496): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1496): Res ID 2130903061
+E/Navit   ( 1496): Checking /data
+E/Navit   ( 1496): Checking /data/data
+E/Navit   ( 1496): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1496): Checking /data/data/org.navitproject.navit/share
+E/Navit   ( 1496): Creating dir
+E/Navit   ( 1496): Extracting resource
+D/dalvikvm( 1496): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1496): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    ( 1496): called
+E/navit   ( 1496): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c0 thiz=0x47c67e0 activity=0x47c67e0 lang=en_US
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   ( 1496): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   ( 1496): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot find library'
+E/navit   ( 1496): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot find library'
+E/navit   ( 1496): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot find library'
+E/navit   ( 1496): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot find library'
+E/navit   ( 1496): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot find library'
+E/navit   ( 1496): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot find library'
+I/ActivityManager(  869): Process org.navitproject.navit (pid 1496) has died.
+D/Zygote  (  854): Process 1496 exited cleanly (1)
+I/ActivityManager(  869): Low Memory: No more background processes.
+D/dalvikvm( 1134): GC freed 88 objects / 20400 bytes in 1347ms
+D/dalvikvm( 1085): GC freed 994 objects / 50032 bytes in 1523ms
+D/dalvikvm( 1220): GC freed 639 objects / 33176 bytes in 1516ms
+D/dalvikvm( 1487): GC freed 276 objects / 27584 bytes in 1567ms
+D/dalvikvm( 1073): GC freed 256 objects / 28680 bytes in 1552ms
+D/dalvikvm( 1237): GC freed 1283 objects / 74232 bytes in 1617ms
+D/dalvikvm( 1045): GC freed 4 objects / 112 bytes in 1579ms
+D/dalvikvm( 1028): GC freed 381 objects / 19568 bytes in 1616ms
+D/dalvikvm( 1000): GC freed 7 objects / 216 bytes in 1167ms
+D/dalvikvm( 1061): GC freed 46 objects / 1864 bytes in 1351ms
+D/dalvikvm(  869): GC freed 12448 objects / 614888 bytes in 1799ms
+D/dalvikvm( 1018): GC freed 848 objects / 51208 bytes in 1418ms
+D/dalvikvm(  921): GC freed 4993 objects / 188592 bytes in 1529ms
+D/dalvikvm(  970): GC freed 1659 objects / 69832 bytes in 1327ms
+D/dalvikvm(  955): GC freed 482 objects / 21520 bytes in 169ms
+W/InputManagerService(  869): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@47d5158
+D/dalvikvm(  955): GC freed 146 objects / 5856 bytes in 138ms
+I/WiFiOnOff( 1134): android.net.wifi.WIFI_STATE_CHANGED
+I/WiFiOnOff( 1134): System WifiChanged
+I/WiFiOnOff( 1134): WIFI_STATE_DISABLING
+I/WiFiOnOff( 1134): show ButtonSettings
+V/WifiMonitor(  869): Event [CTRL-EVENT-TERMINATING - signal 15 received]
+V/WifiStateTracker(  869): Connection to supplicant lost
+D/Smack   (  970): [XMPPConn] close connection, notifyClosed=false
+W/Smack/Packet(  970): notify conn break (IOEx), close connection
+E/vold    (  852): Unable to lookup media '/class/mmc_host/mmc1/mmc1:0001'
+E/vold    (  852): Error processing uevent msg (No such file or directory)
+W/WifiHW  (  869): wifi.module_name: /sys/bus/platform/drivers/s3c2440-sdi/s3c2440-sdi
+W/WifiHW  (  869): wifi.module_name: /sys/bus/platform/drivers/s3c2440-sdi/s3c2440-sdi
+W/WifiHW  (  869): wifi_load_driver module_name = /sys/bus/platform/drivers/s3c2440-sdi/s3c2440-sdi
+I/WiFiOnOff( 1134): android.net.wifi.WIFI_STATE_CHANGED
+I/WiFiOnOff( 1134): System WifiChanged
+I/WiFiOnOff( 1134): WIFI_STATE_ENABLING
+I/WiFiOnOff( 1134): show ButtonSettings
+I/WiFiOnOff( 1134): android.net.wifi.WIFI_STATE_CHANGED
+I/WiFiOnOff( 1134): System WifiChanged
+I/WiFiOnOff( 1134): WIFI_STATE_ENABLING
+I/WiFiOnOff( 1134): show ButtonSettings
+W/WifiHW  (  869): wifi.module_name: /sys/bus/platform/drivers/s3c2440-sdi/s3c2440-sdi
+E/WifiHW  (  869): Unable to open connection to supplicant on "eth0": No such file or directory
+I/WiFiOnOff( 1134): android.net.wifi.WIFI_STATE_CHANGED
+I/WiFiOnOff( 1134): System WifiChanged
+I/WiFiOnOff( 1134): WIFI_STATE_ENABLED
+I/WiFiOnOff( 1134): show ButtonSettings
+W/ActivityManager(  869): finishReceiver called but no pending broadcasts
+E/WifiHW  (  869): Supplicant not running, cannot connect
+D/dalvikvm( 1134): GC freed 368 objects / 27408 bytes in 97ms
+V/WifiStateTracker(  869): Connection to supplicant established, state=SCANNING
+V/WifiMonitor(  869): Event [Trying to associate with 00:22:b0:73:15:9b (SSID='CMIL' freq=2437 MHz)]
+V/WifiMonitor(  869): Event [CTRL-EVENT-STATE-CHANGE id=-1 state=3]
+V/WifiStateTracker(  869): Changing supplicant state: SCANNING ==> ASSOCIATING
+V/WifiMonitor(  869): Event [CTRL-EVENT-STATE-CHANGE id=0 state=4]
+V/WifiMonitor(  869): Event [Associated with 00:22:b0:73:15:9b]
+V/WifiMonitor(  869): Event [CTRL-EVENT-STATE-CHANGE id=0 state=7]
+V/WifiStateTracker(  869): Changing supplicant state: ASSOCIATING ==> ASSOCIATED
+V/WifiStateTracker(  869): Changing supplicant state: ASSOCIATED ==> COMPLETED
+V/WifiMonitor(  869): Event [CTRL-EVENT-CONNECTED - Connection to 00:22:b0:73:15:9b completed (auth) [id=0 id_str=]]
+V/WifiStateTracker(  869): New network state is CONNECTED
+D/WifiStateTracker(  869): DhcpHandler: DHCP request started
+V/WifiStateTracker(  869): DhcpHandler: DHCP request succeeded
+V/WifiStateTracker(  869): IP configuration: ipaddr 192.168.2.135 gateway 192.168.2.1 netmask 255.255.255.0 dns1 192.168.2.1 dns2 0.0.0.0 DHCP server 192.168.2.1 lease 3600 seconds
+E/NetworkStateTracker(  869): Can't set tcp buffer sizes:java.io.FileNotFoundException: /sys/kernel/ipv4/tcp_rmem_min
+D/WifiWatchdogService(  869): (android.server.ServerThread) CMIL (00:22:b0:73:15:9b) does not require the watchdog
+I/ActivityManager(  869): Stopping service: com.android.providers.downloads/.DownloadService
+I/ActivityManager(  869): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(  869): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1608 uid=10027 gids={3003}
+D/dalvikvm( 1608): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4613db8
+D/dalvikvm( 1608): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4613db8
+D/dalvikvm( 1608): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x4613db8
+E/Navit   ( 1608): Country US
+E/Navit   ( 1608): Language en
+E/Navit   ( 1608): Res Name en
+E/Navit   ( 1608): result /data/data/org.navitproject.navit/locale/en/LC_MESSAGES/navit.mo
+E/Navit   ( 1608): Res ID 0
+E/Navit   ( 1608): Failed to extract language resource en
+E/Navit   ( 1608): Res Name navit
+E/Navit   ( 1608): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1608): Res ID 2130903061
+E/Navit   ( 1608): Checking /data
+E/Navit   ( 1608): Checking /data/data
+E/Navit   ( 1608): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1608): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 1608): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 1608): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    ( 1608): called
+E/navit   ( 1608): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c0 thiz=0x46607e0 activity=0x46607e0 lang=en_US
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   ( 1608): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   ( 1608): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot find library'
+E/navit   ( 1608): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot find library'
+E/navit   ( 1608): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot find library'
+E/navit   ( 1608): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot find library'
+E/navit   ( 1608): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot find library'
+E/navit   ( 1608): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot find library'
+I/ActivityManager(  869): Process org.navitproject.navit (pid 1608) has died.
+D/Zygote  (  854): Process 1608 exited cleanly (1)
+I/ActivityManager(  869): Low Memory: No more background processes.
+D/dalvikvm( 1045): GC freed 5 objects / 192 bytes in 1205ms
+D/dalvikvm( 1134): GC freed 15 objects / 392 bytes in 1266ms
+D/dalvikvm( 1085): GC freed 89 objects / 3712 bytes in 1271ms
+D/dalvikvm( 1061): GC freed 7 objects / 248 bytes in 1271ms
+D/dalvikvm( 1073): GC freed 140 objects / 6528 bytes in 1257ms
+D/dalvikvm( 1487): GC freed 6 objects / 216 bytes in 1281ms
+D/dalvikvm( 1000): GC freed 9 objects / 320 bytes in 1385ms
+D/dalvikvm( 1018): GC freed 47 objects / 1448 bytes in 1411ms
+D/dalvikvm( 1220): GC freed 17 objects / 544 bytes in 1378ms
+D/dalvikvm(  921): GC freed 671 objects / 25776 bytes in 1463ms
+D/dalvikvm( 1237): GC freed 5 objects / 184 bytes in 1404ms
+D/dalvikvm(  970): GC freed 487 objects / 34352 bytes in 1449ms
+D/dalvikvm(  869): GC freed 11946 objects / 555784 bytes in 1462ms
+D/dalvikvm( 1028): GC freed 365 objects / 20088 bytes in 233ms
+D/dalvikvm(  955): GC freed 492 objects / 22144 bytes in 268ms
+W/InputManagerService(  869): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4871268
+D/dalvikvm( 1028): GC freed 342 objects / 16192 bytes in 104ms
+D/InetAddress(  970): mtalk.google.com: 209.85.137.188 (family 2, proto 6)
+D/dalvikvm(  970): GC freed 7672 objects / 507640 bytes in 134ms
+D/dalvikvm(  970): GC freed 7234 objects / 522472 bytes in 130ms
+D/dalvikvm(  970): GC freed 9504 objects / 514008 bytes in 136ms
+D/GTalkService(  970): [RosterMgr] roster not modified
+D/GTalkService(  970): [OtrMgr] OTR not modified

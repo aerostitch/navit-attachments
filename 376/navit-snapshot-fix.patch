@@ -1,0 +1,22 @@
+diff -Naur navit-snapshot-0.1.1+svn2316.old/navit/map/mg/mg.h navit-snapshot-0.1.1+svn2316/navit/map/mg/mg.h
+--- navit-snapshot-0.1.1+svn2316.old/navit/map/mg/mg.h	2009-06-12 14:25:42.000000000 +0200
++++ navit-snapshot-0.1.1+svn2316/navit/map/mg/mg.h	2009-06-15 13:47:32.000000000 +0200
+@@ -346,3 +346,6 @@
+ void tree_search_free(struct tree_search *ts);
+ int tree_search_next(struct tree_search *ts, unsigned char **p, int dir);
+ int tree_search_next_lin(struct tree_search *ts, unsigned char **p);
++struct item * housenumber_search_get_item(struct map_rect_priv *mr);
++struct map_rect_priv * map_rect_new_mg(struct map_priv *map, struct map_selection *sel);
++struct item *map_rect_get_item_byid_mg(struct map_rect_priv *mr, int id_hi, int id_lo);
+diff -Naur navit-snapshot-0.1.1+svn2316.old/navit/map/mg/street.c navit-snapshot-0.1.1+svn2316/navit/map/mg/street.c
+--- navit-snapshot-0.1.1+svn2316.old/navit/map/mg/street.c	2009-06-12 14:25:42.000000000 +0200
++++ navit-snapshot-0.1.1+svn2316/navit/map/mg/street.c	2009-06-15 13:29:11.000000000 +0200
+@@ -1360,7 +1360,7 @@
+ 		if (len) 
+ 			*percentage=delta*100/len;
+ 		else
+-			percentage=50;
++			*percentage=50;
+ 	}
+ 	return 1;
+ }

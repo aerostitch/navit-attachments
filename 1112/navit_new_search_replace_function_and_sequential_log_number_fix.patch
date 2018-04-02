@@ -1,0 +1,225 @@
+Index: navit/log.c
+===================================================================
+--- navit/log.c	(revisão 5496)
++++ navit/log.c	(cópia de trabalho)
+@@ -36,6 +36,7 @@
+ #include "event.h"
+ #include "callback.h"
+ #include "debug.h"
++#include "util.h"
+ #include "log.h"
+ 
+ struct log_data {
+@@ -71,10 +72,21 @@
+ {
+ 	time_t t;
+ 	struct tm *tm;
++	char *new_fmt_str;
+ 
+ 	t=time(NULL);
+ 	tm=localtime(&t);
+-	strftime(buffer, 4096, fmt, tm);
++	// Exchange all '%i' by '%%i' in the passed format string, if found.
++	new_fmt_str=g_strdup_replace_util(fmt, "%i", "%%i", -1);
++	// Since strftime does not define the '%i' format string option,
++	// and so could behave differently across c library implementation,
++	// it needs to be passed as '%%i' instead, because '%%' is defined,
++	// so strftime will format it back to '%i' again on the buffer.
++	strftime(buffer, 4096, new_fmt_str, tm);
++	// Free the memory space used by the modified format string.
++	dbg(0,"strftime_localtime: fmt=%s; new_fmt_str=%s; buffer=%s\n",
++		fmt, new_fmt_str, buffer);
++	g_free(new_fmt_str);
+ }
+ 
+ static void
+@@ -86,18 +98,19 @@
+ 	strftime_localtime(buffer, 4096, this_->filename);
+ 	this_->filename_ex1=g_strdup(buffer);
+ 	if ((pos=strstr(this_->filename_ex1,"%i"))) {
+-#ifdef HAVE_API_ANDROID
+-		pos[1]='d';
+-#endif
+ 		i=0;
+ 		do {
+ 			g_free(this_->filename_ex2);
+-			this_->filename_ex2=g_strdup_printf(this_->filename_ex1,i++);
++			// Convert the sequential integer to string representation,
++			// reusing the local char buffer to store the result.
++			g_snprintf(buffer, 4096, "%d", i++);
++			// Replace all occurrences of '%i' formatting option in filename,
++			// each by the sequential integer in string representation stored in the buffer.
++			this_->filename_ex2=g_strdup_replace_util(this_->filename_ex1,"%i", buffer, -1);
++			dbg(0,"expand_filenames: filename_ex1=%s; filename_ex2=%s\n",
++				this_->filename_ex1, this_->filename_ex2);
+ 		} while (file_exists(this_->filename_ex2));
+-#ifdef HAVE_API_ANDROID
+-		pos[1]='i';
+-#endif
+-	} else 
++	} else
+ 		this_->filename_ex2=g_strdup(this_->filename_ex1);
+ }
+ 
+@@ -124,7 +137,7 @@
+ 		this_->f=fopen(this_->filename_ex2, "w");
+ 	if (! this_->f)
+ 		return;
+-	if (!this_->overwrite) 
++	if (!this_->overwrite)
+ 		fseek(this_->f, 0, SEEK_END);
+ 	this_->empty = !ftell(this_->f);
+ 	log_set_last_flush(this_);
+@@ -135,7 +148,7 @@
+ {
+ 	if (! this_->f)
+ 		return;
+-	if (this_->trailer.len) 
++	if (this_->trailer.len)
+ 		fwrite(this_->trailer.data, 1, this_->trailer.len, this_->f);
+ 	fflush(this_->f);
+ 	fclose(this_->f);
+@@ -154,7 +167,7 @@
+ 	if (! this_->f)
+ 		return;
+ 	if (this_->empty) {
+-		if (this_->header.len) 
++		if (this_->header.len)
+ 			fwrite(this_->header.data, 1, this_->header.len, this_->f);
+ 		if (this_->header.len || this_->data.len)
+ 			this_->empty=0;
+@@ -170,7 +183,7 @@
+ 		pos=ftell(this_->f);
+ 		if (pos > 0) {
+ 			fwrite(this_->trailer.data, 1, this_->trailer.len, this_->f);
+-			fseek(this_->f, pos, SEEK_SET);	
++			fseek(this_->f, pos, SEEK_SET);
+ 		}
+ 	}
+ 	if (flags & log_flag_keep_pointer)
+Index: navit/navit_shipped.xml
+===================================================================
+--- navit/navit_shipped.xml	(revisão 5496)
++++ navit/navit_shipped.xml	(cópia de trabalho)
+@@ -170,7 +170,7 @@
+ 				source="serial:COM4 baud=4800 parity=N data=8 stop=1" > -->
+ 
+ 			<!-- Navit can write a tracklog in several formats (gpx, nmea or textfile): -->
+-			<log enabled="no" type="gpx" attr_types="position_time_iso8601,position_direction,position_speed,profilename,position_radius" data="track_%Y%m%d-%%i.gpx" flush_size="1000" flush_time="30"/>
++			<log enabled="no" type="gpx" attr_types="position_time_iso8601,position_direction,position_speed,profilename,position_radius" data="track_%Y%m%d-%i.gpx" flush_size="1000" flush_time="30"/>
+ 		</vehicle>
+ 
+ 		<!-- For SDL, you should add follow="1" to have the view centered on your position -->
+Index: navit/util.c
+===================================================================
+--- navit/util.c	(revisão 5496)
++++ navit/util.c	(cópia de trabalho)
+@@ -103,6 +103,96 @@
+ 	return ret;
+ }
+ 
++/**
++ *  Implements a very basic utility function to replace a given substring match
++ *          by another of arbitrary length on the input string.
++ *
++ * 	It's implemented in simple and straightforward way by allocating
++ *  exact memory amount for the result just once, and aggregating the
++ *  strings in it.
++ *  Warning: This function accepts c-style, null terminated strings only.
++ *  It relies mainly on strlen and strstr standard c library functions,
++ *  it also uses glib string utility and memory management functions,
++ *  so any limitation to those functions should apply.
++ *  It also assumes that a char/gchar type will always be equals to a byte,
++ *  and that arithmetic operation on pointers to char type will increment or
++ *  decrement in byte sized quantities.
++ *
++ *  @param in input_s input string.
++ *  @param in search_s substring to match and to be replaced in the
++ *         input string. If NULL, a copy of input string
++ *         is returned. If it is empty and input string length is
++ *         greater than zero, a copy of input string
++ *         is returned.
++ *  @param in replace_s replacement string. If NULL, a copy of input string
++ *         is returned. If input and search strings are both empty,
++ *         a copy of replace string is returned.
++ *  @param in n_subst number up to substitutions to be made from the
++ *         start of the input string, -1 to replace all. If 0, a copy
++ *         of input string is returned.
++ *  @return new string with replaced occurrences of search by replace
++ *         string, use gfree() to free after use.
++ */
++gchar *
++g_strdup_replace_util(const gchar *input_s, const gchar *search_s,
++                                const gchar *replace_s, gint n_subst) {
++	gchar *ret;
++	gint match_count = 0;
++	const gchar *scan_ptr = input_s, *match_ptr;
++	glong input_len, unchanged_len, match_len, replace_len, result_len = 0;
++	gsize alloc_size;
++	// Validate the inputs in order to prevent unexpected behaviour
++	if (!input_s || !search_s || !replace_s || !n_subst)
++		return g_strdup(input_s);
++	// Handle special cases first.
++	if ('\0' == *search_s) {
++		if ('\0' == *input_s)
++			return g_strdup(replace_s);
++		else
++			return g_strdup(input_s);
++	}
++	// Get the matching string pattern length.
++	match_len = strlen(search_s);
++	// Count the number of substitutions to be made on the input string.
++	while (((match_count < n_subst) || (-1 >= n_subst)) &&
++			(match_ptr = strstr(scan_ptr, search_s))) {
++		// Advance the string scanning pointer to the position
++		// just after the end of matched string segment.
++		scan_ptr = match_ptr + match_len;
++		// Count the number of matches done.
++		++match_count;
++	}
++	// Get the input string length.
++	input_len = (gsize) (scan_ptr - input_s) + strlen(scan_ptr);
++	// Get the replacement string length.
++	replace_len = strlen(replace_s);
++	// Allocate memory space for result including the terminating null byte.
++	alloc_size = input_len - match_count * match_len + match_count * replace_len + 1;
++	//printf("mc=%d, ml=%ld, il=%ld, rl=%ld, alloc=%d, ", match_count, match_len, input_len, replace_len, alloc_size);
++	ret = g_new(gchar, alloc_size);
++	// Scan the input string again and compose the resulting string.
++	for (scan_ptr = input_s; match_count &&
++			(match_ptr = strstr(scan_ptr, search_s));
++					scan_ptr = match_ptr + match_len) {
++		// Get the length of partial string that is left unchanged.
++		unchanged_len = (gsize) (match_ptr - scan_ptr);
++		// Copy and append an unchanged string chunk.
++		g_memmove(ret + result_len, scan_ptr, unchanged_len);
++		// Update the resulting string length after appending the unchanged string segment.
++		result_len += unchanged_len;
++		// Copy and append a replacement instance.
++		g_memmove(ret + result_len, replace_s, replace_len);
++		// Update the resulting string length after appending the replacement string.
++		result_len += replace_len;
++		// Decrement to update the remaining replacement left.
++		--match_count;
++	}
++	// Copy the remaining chunk including the null byte to complete the resulting string.
++	g_memmove(ret + result_len, scan_ptr, input_len - (scan_ptr - input_s) + 1);
++	// Finally, return the resulting new string.
++	return ret;
++}
++
+ #ifndef HAVE_GLIB
+ int g_utf8_strlen_force_link(gchar *buffer, int max);
+ int
+Index: navit/util.h
+===================================================================
+--- navit/util.h	(revisão 5496)
++++ navit/util.h	(cópia de trabalho)
+@@ -28,6 +28,7 @@
+ GList * g_hash_to_list(GHashTable *h);
+ GList * g_hash_to_list_keys(GHashTable *h);
+ gchar * g_strconcat_printf(gchar *buffer, gchar *fmt, ...);
++gchar * g_strdup_replace_util(const gchar *input_s, const gchar *search_s, const gchar *replace_s, gint n_subst);
+ #if defined(_WIN32) || defined(__CEGCC__) || defined (__APPLE__) || defined(HAVE_API_ANDROID)
+ #if defined(_UNICODE)
+ wchar_t* newSysString(const char *toconvert);

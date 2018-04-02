@@ -1,0 +1,561 @@
+git: 'svn' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	fsck
+	show
+-- Found Subversion: /usr/bin/svn (found version "1.7.5") 
+-- SVN-version 6014
+[  0%] Built target version
+[  0%] Built target fib
+[  3%] Built target navit_core
+[  3%] Built target navit
+[  3%] Built target navit_config_xml
+[  3%] Built target support_shapefile
+[  3%] Built target gui_gtk
+[  3%] Built target vehicle_gpsd
+[  3%] Built target binding_dbus
+[  3%] Built target speech_dbus
+[  3%] Built target speech_cmdline
+[  3%] Built target vehicle_gpsd_dbus
+[  3%] Built target speech_speech_dispatcher
+[  3%] Built target gentypes
+[  3%] Built target map_garmin
+[  3%] Built target graphics_null
+[  3%] Built target osd_core
+[  3%] Built target vehicle_demo
+[  3%] Built target vehicle_file
+[  3%] Built target vehicle_pipe
+[  3%] Built target vehicle_serial
+[  4%] Built target vehicle_socket
+[  5%] Built target gui_internal
+[  5%] Built target map_binfile
+[  5%] Built target map_filter
+[  5%] Built target map_mg
+[  5%] Built target map_shapefile
+[  6%] Built target map_textfile
+[  6%] Built target map_csv
+[  7%] Built target maptool_core
+[  7%] Built target maptool
+[ 92%] Built target images
+[ 92%] Generating osm_bbox_11.3,47.9,11.7,48.2.osm.bz2
+Downloading http://www.navit-project.org/maps/osm_bbox_11.3,47.9,11.7,48.2.osm.bz2
+-- [download 0% complete]
+-- [download 1% complete]
+-- [download 2% complete]
+-- [download 3% complete]
+-- [download 4% complete]
+-- [download 5% complete]
+-- [download 6% complete]
+-- [download 7% complete]
+-- [download 8% complete]
+-- [download 9% complete]
+-- [download 10% complete]
+-- [download 11% complete]
+-- [download 12% complete]
+-- [download 13% complete]
+-- [download 14% complete]
+-- [download 15% complete]
+-- [download 16% complete]
+-- [download 17% complete]
+-- [download 18% complete]
+-- [download 19% complete]
+-- [download 20% complete]
+-- [download 21% complete]
+-- [download 22% complete]
+-- [download 23% complete]
+-- [download 24% complete]
+-- [download 25% complete]
+-- [download 26% complete]
+-- [download 27% complete]
+-- [download 28% complete]
+-- [download 29% complete]
+-- [download 30% complete]
+-- [download 31% complete]
+-- [download 32% complete]
+-- [download 33% complete]
+-- [download 34% complete]
+-- [download 35% complete]
+-- [download 36% complete]
+-- [download 37% complete]
+-- [download 38% complete]
+-- [download 39% complete]
+-- [download 40% complete]
+-- [download 41% complete]
+-- [download 42% complete]
+-- [download 43% complete]
+-- [download 44% complete]
+-- [download 45% complete]
+-- [download 46% complete]
+-- [download 47% complete]
+-- [download 48% complete]
+-- [download 49% complete]
+-- [download 50% complete]
+-- [download 51% complete]
+-- [download 52% complete]
+-- [download 53% complete]
+-- [download 54% complete]
+-- [download 55% complete]
+-- [download 56% complete]
+-- [download 57% complete]
+-- [download 58% complete]
+-- [download 59% complete]
+-- [download 60% complete]
+-- [download 61% complete]
+-- [download 62% complete]
+-- [download 63% complete]
+-- [download 64% complete]
+-- [download 65% complete]
+-- [download 66% complete]
+-- [download 67% complete]
+-- [download 68% complete]
+-- [download 69% complete]
+-- [download 70% complete]
+-- [download 71% complete]
+-- [download 72% complete]
+-- [download 73% complete]
+-- [download 74% complete]
+-- [download 75% complete]
+-- [download 76% complete]
+-- [download 77% complete]
+-- [download 78% complete]
+-- [download 79% complete]
+-- [download 80% complete]
+-- [download 81% complete]
+-- [download 82% complete]
+-- [download 83% complete]
+-- [download 84% complete]
+-- [download 85% complete]
+-- [download 86% complete]
+-- [download 87% complete]
+-- [download 88% complete]
+-- [download 89% complete]
+-- [download 90% complete]
+-- [download 91% complete]
+-- [download 92% complete]
+-- [download 93% complete]
+-- [download 94% complete]
+-- [download 95% complete]
+-- [download 96% complete]
+-- [download 97% complete]
+-- [download 98% complete]
+-- [download 99% complete]
+-- [download 100% complete]
+[ 92%] Generating osm_bbox_11.3,47.9,11.7,48.2.bin
+PROGRESS: Phase 1: reading input data 0:00 0 MB
+PROGRESS1: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles 0:00 0 MB
+PROGRESS1: Processed 107167 nodes (3037 out) 21759 ways 35 relations 0 tiles 0:07 0 MB
+flush_nodes 1
+PROGRESS: Phase 2: counting references and resolving ways 0:07 0 MB
+1 slices
+slice 0 of 0
+PROGRESS: Phase 3: converting ways to pois 0:07 0 MB
+OSM Warning:http://www.openstreetmap.org/browse/way/8107050 Broken polygon, less than 3 points defined
+OSM Warning:http://www.openstreetmap.org/browse/way/9218275 Broken polygon, less than 3 points defined
+PROGRESS: Phase 4: splitting at intersections 0:07 0 MB
+PROGRESS4: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles 0:07 0 MB
+PROGRESS4: Processed 0 nodes (0 out) 48738 ways 0 relations 0 tiles 0:28 0 MB
+PROGRESS: Phase 5: generating coastlines 0:28 0 MB
+tile_collector_finish
+tile_collector_finish foreach done
+tile_collector_finish destroy done
+Level=14
+*****
+*
+*
+*
+Level=13
+*****
+*
+*
+*
+Level=12
+*****
+*
+*
+*
+Level=11
+*****
+*
+*
+*
+Level=10
+*****
+*
+*
+*
+Level=9
+*****
+*
+*
+*
+Level=8
+*****
+*
+*
+*
+Level=7
+*****
+*
+*
+*
+Level=6
+*****
+*
+*
+*
+Level=5
+*****
+*
+*
+*
+Level=4
+*****
+*
+*
+*
+Level=3
+*****
+*
+*
+*
+Level=2
+*****
+*
+*
+*
+Level=1
+*****
+*
+*
+*
+tile_collector_finish done
+PROGRESS: Phase 6: assigning towns to countries 0:28 0 MB
+PROGRESS: Phase 7: sorting countries 0:28 0 MB
+PROGRESS: Phase 8: generating turn restrictions 0:28 0 MB
+PROGRESS: Phase 9: processing associated street relations 0:28 0 MB
+PROGRESS: Phase 10: processing house number interpolations 0:28 0 MB
+PROGRESS: Phase 11: generating tiles 0:31 0 MB
+PROGRESS11: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles 0:31 0 MB
+PROGRESS: sorting 397 tiles
+PROGRESS: sorting 397 tiles done
+PROGRESS: merged 345 tiles
+PROGRESS: sorting 122 tiles
+PROGRESS: sorting 122 tiles done
+PROGRESS: merged 20 tiles
+PROGRESS: sorting 119 tiles
+PROGRESS: sorting 119 tiles done
+PROGRESS: merged 9 tiles
+PROGRESS: sorting 115 tiles
+PROGRESS: sorting 115 tiles done
+PROGRESS: merged 3 tiles
+PROGRESS: sorting 115 tiles
+PROGRESS: sorting 115 tiles done
+PROGRESS: merged 1 tiles
+PROGRESS: sorting 115 tiles
+PROGRESS: sorting 115 tiles done
+PROGRESS: merged 1 tiles
+PROGRESS: sorting 115 tiles
+PROGRESS: sorting 115 tiles done
+PROGRESS: merged 0 tiles
+PROGRESS11: Processed 3594 nodes (0 out) 48738 ways 0 relations 1495 tiles 0:31 0 MB
+PROGRESS: Phase 12: assembling map 0:31 0 MB
+Maximum slice size 1073741824
+Slice 0 is of size 6370904
+PROGRESS12: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles 0:31 0 MB
+PROGRESS12: Processed 3594 nodes (0 out) 48738 ways 0 relations 0 tiles 0:32 0 MB
+Adding country_276_p_1.tmp as adbdads0
+Adding country_276_p_0.tmp as adbdads1
+PROGRESS12: Processed 3594 nodes (0 out) 48738 ways 0 relations 115 tiles 0:37 0 MB
+PROGRESS: Phase 13: done 0:37 0 MB
+[ 92%] Generating osm_bbox_11.3,47.9,11.7,48.2.xml
+
+[ 92%] Built target sample_map
+Scanning dependencies of target locales
+[ 92%] Generating strings_xml.c
+[ 92%] Generating navit_shipped.c
+[ 92%] Generating navit.pot
+[ 92%] Generating fo.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 92%] Generating fo.mo
+/home/pi/navit-build/po/fo.po: 435 translated messages, 276 untranslated messages.
+[ 92%] Generating nl.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 92%] Generating nl.mo
+/home/pi/navit-build/po/nl.po: 678 translated messages, 33 untranslated messages.
+[ 92%] Generating pt_BR.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 92%] Generating pt_BR.mo
+/home/pi/navit-build/po/pt_BR.po: 677 translated messages, 34 untranslated messages.
+[ 92%] Generating ar.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 92%] Generating ar.mo
+/home/pi/navit-build/po/ar.po: 625 translated messages, 86 untranslated messages.
+[ 92%] Generating id.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 93%] Generating id.mo
+/home/pi/navit-build/po/id.po: 356 translated messages, 355 untranslated messages.
+[ 93%] Generating sk.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 93%] Generating sk.mo
+/home/pi/navit-build/po/sk.po: 676 translated messages, 35 untranslated messages.
+[ 93%] Generating es.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 93%] Generating es.mo
+/home/pi/navit-build/po/es.po: 676 translated messages, 35 untranslated messages.
+[ 93%] Generating en_GB.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 93%] Generating en_GB.mo
+/home/pi/navit-build/po/en_GB.po: 710 translated messages, 1 untranslated message.
+[ 93%] Generating ca.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 93%] Generating ca.mo
+/home/pi/navit-build/po/ca.po: 443 translated messages, 268 untranslated messages.
+[ 93%] Generating eo.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 93%] Generating eo.mo
+/home/pi/navit-build/po/eo.po: 419 translated messages, 292 untranslated messages.
+[ 94%] Generating cs.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating cs.mo
+/home/pi/navit-build/po/cs.po: 676 translated messages, 35 untranslated messages.
+[ 94%] Generating kn.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating kn.mo
+/home/pi/navit-build/po/kn.po: 2 translated messages, 709 untranslated messages.
+[ 94%] Generating ast.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating ast.mo
+/home/pi/navit-build/po/ast.po: 436 translated messages, 275 untranslated messages.
+[ 94%] Generating el.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating el.mo
+/home/pi/navit-build/po/el.po: 436 translated messages, 275 untranslated messages.
+[ 94%] Generating nn.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating nn.mo
+/home/pi/navit-build/po/nn.po: 357 translated messages, 354 untranslated messages.
+[ 94%] Generating af.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating af.mo
+/home/pi/navit-build/po/af.po: 435 translated messages, 276 untranslated messages.
+[ 94%] Generating sc.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating sc.mo
+/home/pi/navit-build/po/sc.po: 228 translated messages, 483 untranslated messages.
+[ 94%] Generating ku.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating ku.mo
+/home/pi/navit-build/po/ku.po: 11 translated messages, 700 untranslated messages.
+[ 94%] Generating pms.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating pms.mo
+/home/pi/navit-build/po/pms.po: 18 translated messages, 693 untranslated messages.
+[ 94%] Generating sr.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating sr.mo
+/home/pi/navit-build/po/sr.po: 436 translated messages, 275 untranslated messages.
+[ 94%] Generating de.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating de.mo
+/home/pi/navit-build/po/de.po: 677 translated messages, 34 untranslated messages.
+[ 94%] Generating de_CH.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating de_CH.mo
+/home/pi/navit-build/po/de_CH.po: 0 translated messages, 711 untranslated messages.
+[ 94%] Generating fa.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 94%] Generating fa.mo
+/home/pi/navit-build/po/fa.po: 100 translated messages, 611 untranslated messages.
+[ 94%] Generating sl.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating sl.mo
+/home/pi/navit-build/po/sl.po: 388 translated messages, 323 untranslated messages.
+[ 95%] Generating da.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating da.mo
+/home/pi/navit-build/po/da.po: 436 translated messages, 275 untranslated messages.
+[ 95%] Generating kk.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating kk.mo
+/home/pi/navit-build/po/kk.po: 0 translated messages, 711 untranslated messages.
+[ 95%] Generating ro.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating ro.mo
+/home/pi/navit-build/po/ro.po: 436 translated messages, 275 untranslated messages.
+[ 95%] Generating eu.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating eu.mo
+/home/pi/navit-build/po/eu.po: 437 translated messages, 274 untranslated messages.
+[ 95%] Generating uk.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating uk.mo
+/home/pi/navit-build/po/uk.po: 436 translated messages, 275 untranslated messages.
+[ 95%] Generating sw.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 95%] Generating sw.mo
+/home/pi/navit-build/po/sw.po: 184 translated messages, 527 untranslated messages.
+[ 96%] Generating hi.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating hi.mo
+/home/pi/navit-build/po/hi.po: 33 translated messages, 678 untranslated messages.
+[ 96%] Generating jv.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating jv.mo
+/home/pi/navit-build/po/jv.po: 129 translated messages, 582 untranslated messages.
+[ 96%] Generating th.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating th.mo
+/home/pi/navit-build/po/th.po: 325 translated messages, 386 untranslated messages.
+[ 96%] Generating vi.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating vi.mo
+/home/pi/navit-build/po/vi.po: 436 translated messages, 275 untranslated messages.
+[ 96%] Generating lv.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating lv.mo
+/home/pi/navit-build/po/lv.po: 621 translated messages, 90 untranslated messages.
+[ 96%] Generating pt.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating pt.mo
+/home/pi/navit-build/po/pt.po: 675 translated messages, 36 untranslated messages.
+[ 96%] Generating cy.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating cy.mo
+/home/pi/navit-build/po/cy.po: 9 translated messages, 702 untranslated messages.
+[ 96%] Generating mk.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating mk.mo
+/home/pi/navit-build/po/mk.po: 447 translated messages, 264 untranslated messages.
+[ 96%] Generating et.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating et.mo
+/home/pi/navit-build/po/et.po: 676 translated messages, 35 untranslated messages.
+[ 96%] Generating hr.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating hr.mo
+/home/pi/navit-build/po/hr.po: 430 translated messages, 281 untranslated messages.
+[ 96%] Generating bs.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating bs.mo
+/home/pi/navit-build/po/bs.po: 24 translated messages, 687 untranslated messages.
+[ 96%] Generating fi.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating fi.mo
+/home/pi/navit-build/po/fi.po: 436 translated messages, 275 untranslated messages.
+[ 96%] Generating it.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 96%] Generating it.mo
+/home/pi/navit-build/po/it.po: 671 translated messages, 40 untranslated messages.
+[ 96%] Generating bg.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 97%] Generating bg.mo
+/home/pi/navit-build/po/bg.po: 407 translated messages, 304 untranslated messages.
+[ 97%] Generating gl.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 97%] Generating gl.mo
+/home/pi/navit-build/po/gl.po: 377 translated messages, 334 untranslated messages.
+[ 97%] Generating pl.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 97%] Generating pl.mo
+/home/pi/navit-build/po/pl.po: 636 translated messages, 75 untranslated messages.
+[ 97%] Generating sv.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 97%] Generating sv.mo
+/home/pi/navit-build/po/sv.po: 436 translated messages, 275 untranslated messages.
+[ 97%] Generating lt.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 97%] Generating lt.mo
+/home/pi/navit-build/po/lt.po: 430 translated messages, 281 untranslated messages.
+[ 97%] Generating be.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 97%] Generating be.mo
+/home/pi/navit-build/po/be.po: 338 translated messages, 373 untranslated messages.
+[ 98%] Generating tr.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating tr.mo
+/home/pi/navit-build/po/tr.po: 434 translated messages, 277 untranslated messages.
+[ 98%] Generating nb.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating nb.mo
+/home/pi/navit-build/po/nb.po: 430 translated messages, 281 untranslated messages.
+[ 98%] Generating en_AU.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating en_AU.mo
+/home/pi/navit-build/po/en_AU.po: 438 translated messages, 273 untranslated messages.
+[ 98%] Generating nds.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating nds.mo
+/home/pi/navit-build/po/nds.po: 426 translated messages, 285 untranslated messages.
+[ 98%] Generating lb.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating lb.mo
+/home/pi/navit-build/po/lb.po: 37 translated messages, 674 untranslated messages.
+[ 98%] Generating hu.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating hu.mo
+/home/pi/navit-build/po/hu.po: 597 translated messages, 114 untranslated messages.
+[ 98%] Generating ur.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating ur.mo
+/home/pi/navit-build/po/ur.po: 438 translated messages, 273 untranslated messages.
+[ 98%] Generating ta.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating ta.mo
+/home/pi/navit-build/po/ta.po: 27 translated messages, 684 untranslated messages.
+[ 98%] Generating zh_CN.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating zh_CN.mo
+/home/pi/navit-build/po/zh_CN.po: 436 translated messages, 275 untranslated messages.
+[ 98%] Generating he.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating he.mo
+/home/pi/navit-build/po/he.po: 447 translated messages, 264 untranslated messages.
+[ 98%] Generating mr.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating mr.mo
+/home/pi/navit-build/po/mr.po: 17 translated messages, 694 untranslated messages.
+[ 98%] Generating ckb.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating ckb.mo
+/home/pi/navit-build/po/ckb.po: 1 translated message, 710 untranslated messages.
+[ 98%] Generating si.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 98%] Generating si.mo
+/home/pi/navit-build/po/si.po: 418 translated messages, 293 untranslated messages.
+[ 98%] Generating ja.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 99%] Generating ja.mo
+/home/pi/navit-build/po/ja.po: 275 translated messages, 436 untranslated messages.
+[ 99%] Generating fr.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 99%] Generating fr.mo
+/home/pi/navit-build/po/fr.po: 678 translated messages, 33 untranslated messages.
+[ 99%] Generating fy.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 99%] Generating fy.mo
+/home/pi/navit-build/po/fy.po: 6 translated messages, 705 untranslated messages.
+[ 99%] Generating zh_HK.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 99%] Generating zh_HK.mo
+/home/pi/navit-build/po/zh_HK.po: 406 translated messages, 305 untranslated messages.
+[ 99%] Generating te.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 99%] Generating te.mo
+/home/pi/navit-build/po/te.po: 148 translated messages, 563 untranslated messages.
+[ 99%] Generating en_CA.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[ 99%] Generating en_CA.mo
+/home/pi/navit-build/po/en_CA.po: 418 translated messages, 293 untranslated messages.
+[100%] Generating ru.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[100%] Generating ru.mo
+/home/pi/navit-build/po/ru.po: 705 translated messages, 6 untranslated messages.
+[100%] Generating fil.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[100%] Generating fil.mo
+/home/pi/navit-build/po/fil.po: 23 translated messages, 688 untranslated messages.
+[100%] Generating fr_CH.po
+Read 1 old + 1 reference, merged 711, fuzzied 0, missing 1, obsolete 1.
+[100%] Generating fr_CH.mo
+/home/pi/navit-build/po/fr_CH.po: 420 translated messages, 291 untranslated messages.
+[100%] Built target locales

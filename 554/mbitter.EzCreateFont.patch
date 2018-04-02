@@ -1,0 +1,29 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -97,14 +101,7 @@
+ 
+     SaveDC (hdc) ;
+ 
+-#ifndef HAVE_API_WIN32_CE
+-    SetGraphicsMode (hdc, GM_ADVANCED) ;
+-    ModifyWorldTransform (hdc, NULL, MWT_IDENTITY) ;
+-#endif
+     SetViewportOrgEx (hdc, 0, 0, NULL) ;
+-#ifndef HAVE_API_WIN32_CE
+-    SetWindowOrgEx   (hdc, 0, 0, NULL) ;
+-#endif
+ 
+     if (fLogRes)
+     {
+@@ -123,9 +120,6 @@
+     pt.x = (int) (iDeciPtWidth  * cxDpi / 72) ;
+     pt.y = (int) (iDeciPtHeight * cyDpi / 72) ;
+ 
+-#ifndef HAVE_API_WIN32_CE
+-    DPtoLP (hdc, &pt, 1) ;
+-#endif
+     lf.lfHeight         = - (int) (fabs (pt.y) / 10.0 + 0.5) ;
+     lf.lfWidth          = 0 ;
+     lf.lfEscapement     = 0 ;

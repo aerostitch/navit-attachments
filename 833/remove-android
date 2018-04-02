@@ -1,0 +1,15 @@
+Description: Fix compilation error caused by android sources removal
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/833
+--- navit-0.5.0~svn4418+dfsg.1.orig/navit/search.c
++++ navit-0.5.0~svn4418+dfsg.1/navit/search.c
+@@ -31,7 +31,9 @@
+ #include "search.h"
+ #include "country.h"
+ 
++#if HAVE_API_ANDROID
+ #include "android.h"
++#endif
+ #include "layout.h"
+ 
+ struct search_list_level {

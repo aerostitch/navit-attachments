@@ -1,0 +1,14 @@
+Index: osm2navit.c
+===================================================================
+--- osm2navit.c	(revision 2366)
++++ osm2navit.c	(working copy)
+@@ -1931,7 +1931,9 @@
+ 		exit(1);
+ 	}
+ 	sig_alrm(0);
++#ifndef _WIN32
+ 	alarm(0);
++#endif
+ 	return 1;
+ }
+ #endif

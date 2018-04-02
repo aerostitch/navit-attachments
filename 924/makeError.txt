@@ -1,0 +1,86 @@
+/usr/bin/cmake -H/home/ffl/local/src/navit -B/home/ffl/local/src/navit/build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/ffl/local/src/navit/build/CMakeFiles /home/ffl/local/src/navit/build/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory `/home/ffl/local/src/navit/build'
+make -f navit/CMakeFiles/version.dir/build.make navit/CMakeFiles/version.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit /home/ffl/local/src/navit/build/navit/CMakeFiles/version.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/CMakeFiles/version.dir/build.make navit/CMakeFiles/version.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build/navit && /usr/bin/cmake -D SRC=/home/ffl/local/src/navit/navit/version.h.in -D DST=/home/ffl/local/src/navit/build/navit/version.h -D NAME=SVN_VERSION -P /home/ffl/local/src/navit/cmake/version.cmake
+fatal: Not a git repository (or any parent up to mount parent )
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Already at toplevel, but .git not found
+ at /usr/libexec/git-core/git-svn line 277
+-- Found Subversion: /usr/bin/svn (found version "1.6.17")
+-- SVN-version 4728
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles 
+[  0%] Built target version
+make -f navit/fib-1.1/CMakeFiles/fib.dir/build.make navit/fib-1.1/CMakeFiles/fib.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit/fib-1.1 /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit/fib-1.1 /home/ffl/local/src/navit/build/navit/fib-1.1/CMakeFiles/fib.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/fib-1.1/CMakeFiles/fib.dir/build.make navit/fib-1.1/CMakeFiles/fib.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+make[2]: Nothing to be done for `navit/fib-1.1/CMakeFiles/fib.dir/build'.
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles 
+[  0%] Built target fib
+make -f navit/CMakeFiles/navit_core.dir/build.make navit/CMakeFiles/navit_core.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit /home/ffl/local/src/navit/build/navit/CMakeFiles/navit_core.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/CMakeFiles/navit_core.dir/build.make navit/CMakeFiles/navit_core.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+make[2]: Nothing to be done for `navit/CMakeFiles/navit_core.dir/build'.
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles  93 94 95 96 97 98
+[  6%] Built target navit_core
+make -f navit/CMakeFiles/navit.dir/build.make navit/CMakeFiles/navit.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit /home/ffl/local/src/navit/build/navit/CMakeFiles/navit.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/CMakeFiles/navit.dir/build.make navit/CMakeFiles/navit.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+make[2]: Nothing to be done for `navit/CMakeFiles/navit.dir/build'.
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles 
+[  6%] Built target navit
+make -f navit/CMakeFiles/navit_config_xml.dir/build.make navit/CMakeFiles/navit_config_xml.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit /home/ffl/local/src/navit/build/navit/CMakeFiles/navit_config_xml.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/CMakeFiles/navit_config_xml.dir/build.make navit/CMakeFiles/navit_config_xml.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+make[2]: Nothing to be done for `navit/CMakeFiles/navit_config_xml.dir/build'.
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles 
+[  6%] Built target navit_config_xml
+make -f navit/support/shapefile/CMakeFiles/support_shapefile.dir/build.make navit/support/shapefile/CMakeFiles/support_shapefile.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit/support/shapefile /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit/support/shapefile /home/ffl/local/src/navit/build/navit/support/shapefile/CMakeFiles/support_shapefile.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/support/shapefile/CMakeFiles/support_shapefile.dir/build.make navit/support/shapefile/CMakeFiles/support_shapefile.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+make[2]: Nothing to be done for `navit/support/shapefile/CMakeFiles/support_shapefile.dir/build'.
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles  99
+[  7%] Built target support_shapefile
+make -f navit/font/freetype/CMakeFiles/font_freetype.dir/build.make navit/font/freetype/CMakeFiles/font_freetype.dir/depend
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+cd /home/ffl/local/src/navit/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/ffl/local/src/navit /home/ffl/local/src/navit/navit/font/freetype /home/ffl/local/src/navit/build /home/ffl/local/src/navit/build/navit/font/freetype /home/ffl/local/src/navit/build/navit/font/freetype/CMakeFiles/font_freetype.dir/DependInfo.cmake --color=
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make -f navit/font/freetype/CMakeFiles/font_freetype.dir/build.make navit/font/freetype/CMakeFiles/font_freetype.dir/build
+make[2]: Entering directory `/home/ffl/local/src/navit/build'
+/usr/bin/cmake -E cmake_progress_report /home/ffl/local/src/navit/build/CMakeFiles 
+[  7%] Building C object navit/font/freetype/CMakeFiles/font_freetype.dir/font_freetype.c.o
+cd /home/ffl/local/src/navit/build/navit/font/freetype && /usr/bin/gcc  -Dfont_freetype_EXPORTS -DQT_DECLARATIVE_LIB -DQT_SVG_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -DMODULE=font_freetype -DUSE_FRIBIDI=1 -DFRIBIDIOLD=1 -DQT_NO_DEBUG -O2 -g -fPIC -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/qt4 -I/usr/include/qt4/QtDeclarative -I/usr/include/qt4/QtSvg -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtXml -I/usr/include/qt4/QtCore -I/usr/include/gtk-2.0 -I/usr/lib64/glib-2.0/include -I/usr/lib64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/home/ffl/local/src/navit/build -I/home/ffl/local/src/navit -I/home/ffl/local/src/navit/navit -I/home/ffl/local/src/navit/build/navit -I/home/ffl/local/src/navit/navit/support -I/home/ffl/local/src/navit/navit/font/freetype -I/home/ffl/local/src/navit/navit/graphics/gtk_drawing_area -I/home/ffl/local/src/navit/navit/graphics/sdl -I/home/ffl/local/src/navit/navit/graphics/qt_qpainter -I/home/ffl/local/src/navit/navit/gui/qml -I/home/ffl/local/src/navit/navit/gui/gtk -I/home/ffl/local/src/navit/navit/vehicle/gpsd -I/home/ffl/local/src/navit/navit/binding/dbus -I/home/ffl/local/src/navit/navit/speech/dbus -I/home/ffl/local/src/navit/navit/speech/cmdline -I/home/ffl/local/src/navit/navit/vehicle/gpsd_dbus -I/home/ffl/local/src/navit/navit/graphics/null -I/home/ffl/local/src/navit/navit/osd/core -I/home/ffl/local/src/navit/navit/vehicle/demo -I/home/ffl/local/src/navit/navit/vehicle/file -I/home/ffl/local/src/navit/navit/gui/internal -I/home/ffl/local/src/navit/navit/map/binfile -I/home/ffl/local/src/navit/navit/map/filter -I/home/ffl/local/src/navit/navit/map/mg -I/home/ffl/local/src/navit/navit/map/shapefile -I/home/ffl/local/src/navit/navit/map/textfile -I/home/ffl/local/src/navit/navit/map/csv -I/home/ffl/local/src/navit/navit/fib-1.1   -fPIC -Wall  ;-I/usr/include/fribidi -o CMakeFiles/font_freetype.dir/font_freetype.c.o   -c /home/ffl/local/src/navit/navit/font/freetype/font_freetype.c
+gcc: no input files
+/bin/sh: -I/usr/include/fribidi: No such file or directory
+make[2]: *** [navit/font/freetype/CMakeFiles/font_freetype.dir/font_freetype.c.o] Error 127
+make[2]: Leaving directory `/home/ffl/local/src/navit/build'
+make[1]: *** [navit/font/freetype/CMakeFiles/font_freetype.dir/all] Error 2
+make[1]: Leaving directory `/home/ffl/local/src/navit/build'
+make: *** [all] Error 2

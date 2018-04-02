@@ -1,0 +1,293 @@
+Index: src/graphics.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/graphics.c,v
+retrieving revision 1.42
+diff -u -r1.42 graphics.c
+--- src/graphics.c	24 Apr 2008 08:35:39 -0000	1.42
++++ src/graphics.c	26 May 2008 01:14:53 -0000
+@@ -36,6 +36,7 @@
+ {
+ 	struct graphics_priv *priv;
+ 	struct graphics_methods meth;
++	char *default_font;
+ 	struct graphics_font *font[16];
+ 	struct graphics_gc *gc[3];
+ 	struct attr **attrs;
+@@ -165,11 +166,27 @@
+ 	struct graphics_font *this_;
+ 
+ 	this_=g_new0(struct graphics_font,1);
+-	this_->priv=gra->meth.font_new(gra->priv, &this_->meth, size, flags);
++	this_->priv=gra->meth.font_new(gra->priv, &this_->meth, gra->default_font, size, flags);
+ 	return this_;
+ }
+ 
+ //##############################################################################################################
++//# Description: Free all loaded fonts. 
++//# Comment: Used when switching layouts. 
++//# Authors: Sarah Nordstrom (05/2008)
++//##############################################################################################################
++void graphics_font_destroy_all(struct graphics *gra)
++{
++	int i;
++
++	for(i = 0 ; i < sizeof(gra->font) / sizeof(gra->font[0]); i++) {
++		if(!gra->font[i]) continue;
++		gra->font[i]->meth.font_destroy(gra->font[i]->priv);
++		gra->font[i] = NULL;
++	}
++}
++
++//##############################################################################################################
+ //# Description: 
+ //# Comment: 
+ //# Authors: Martin Schaller (04/2008)
+@@ -767,6 +784,7 @@
+ 	// FIXME find a better place to set the background color
+ 	graphics_gc_set_background(gra->gc[0], l->color);
+ 	graphics_gc_set_foreground(gra->gc[0], l->color);
++	gra->default_font = g_strdup(l->font);
+ 	gra->meth.background_gc(gra->priv, gra->gc[0]->priv);
+ 	gra->meth.draw_mode(gra->priv, draw_mode_begin);
+ 	gra->meth.draw_rectangle(gra->priv, gra->gc[0]->priv, &p, 32767, 32767);
+Index: src/graphics.h
+===================================================================
+RCS file: /cvsroot/navit/navit/src/graphics.h,v
+retrieving revision 1.19
+diff -u -r1.19 graphics.h
+--- src/graphics.h	24 Apr 2008 08:35:39 -0000	1.19
++++ src/graphics.h	26 May 2008 01:14:53 -0000
+@@ -37,7 +37,7 @@
+ 	void (*draw_image)(struct graphics_priv *gr, struct graphics_gc_priv *fg, struct point *p, struct graphics_image_priv *img);
+ 	void (*draw_image_warp)(struct graphics_priv *gr, struct graphics_gc_priv *fg, struct point *p, int count, char *data);
+ 	void (*draw_restore)(struct graphics_priv *gr, struct point *p, int w, int h);
+-	struct graphics_font_priv *(*font_new)(struct graphics_priv *gr, struct graphics_font_methods *meth, int size, int flags);
++	struct graphics_font_priv *(*font_new)(struct graphics_priv *gr, struct graphics_font_methods *meth, char *font, int size, int flags);
+ 	struct graphics_gc_priv *(*gc_new)(struct graphics_priv *gr, struct graphics_gc_methods *meth);
+ 	void (*background_gc)(struct graphics_priv *gr, struct graphics_gc_priv *gc);
+ 	struct graphics_priv *(*overlay_new)(struct graphics_priv *gr, struct graphics_methods *meth, struct point *p, int w, int h);
+@@ -110,6 +110,7 @@
+ void graphics_register_button_callback(struct graphics *this_, void (*callback)(void *data, int pressed, int button, struct point *p), void *data);
+ void graphics_register_motion_callback(struct graphics *this_, void (*callback)(void *data, struct point *p), void *data);
+ struct graphics_font *graphics_font_new(struct graphics *gra, int size, int flags);
++void graphics_font_destroy_all(struct graphics *gra);
+ struct graphics_gc *graphics_gc_new(struct graphics *gra);
+ void graphics_gc_destroy(struct graphics_gc *gc);
+ void graphics_gc_set_foreground(struct graphics_gc *gc, struct color *c);
+Index: src/layout.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/layout.c,v
+retrieving revision 1.6
+diff -u -r1.6 layout.c
+--- src/layout.c	24 Mar 2008 17:36:50 -0000	1.6
++++ src/layout.c	26 May 2008 01:14:53 -0000
+@@ -2,12 +2,13 @@
+ #include <string.h>
+ #include "layout.h"
+ 
+-struct layout * layout_new(const char *name, struct color *color)
++struct layout * layout_new(const char *name, const char *font, struct color *color)
+ {
+ 	struct layout *l;
+ 
+ 	l = g_new0(struct layout, 1);
+ 	l->name = g_strdup(name);
++	l->font = g_strdup(font);
+ 	l->color = g_new0(struct color,1);
+ 	*(l->color) = *color;
+ 	return l;
+Index: src/layout.h
+===================================================================
+RCS file: /cvsroot/navit/navit/src/layout.h,v
+retrieving revision 1.7
+diff -u -r1.7 layout.h
+--- src/layout.h	24 Mar 2008 17:36:50 -0000	1.7
++++ src/layout.h	26 May 2008 01:14:53 -0000
+@@ -43,7 +43,7 @@
+ 
+ struct layer { char *name; int details; GList *itemtypes; };
+ 
+-struct layout { char *name; struct color *color; GList *layers; };
++struct layout { char *name; char *font; struct color *color; GList *layers; };
+ 
+ /* prototypes */
+ enum item_type;
+@@ -51,7 +51,7 @@
+ struct itemtype;
+ struct layer;
+ struct layout;
+-struct layout *layout_new(const char *name, struct color *color);
++struct layout *layout_new(const char *name, const char *font, struct color *color);
+ struct layer *layer_new(const char *name, int details);
+ void layout_add_layer(struct layout *layout, struct layer *layer);
+ struct itemtype *itemtype_new(int order_min, int order_max);
+Index: src/navit.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/navit.c,v
+retrieving revision 1.95
+diff -u -r1.95 navit.c
+--- src/navit.c	4 May 2008 16:52:42 -0000	1.95
++++ src/navit.c	26 May 2008 01:14:54 -0000
+@@ -1160,6 +1160,7 @@
+ 	case attr_layout:
+ 		if(this_->layout_current!=attr->u.layout) {
+ 			this_->layout_current=attr->u.layout;
++			graphics_font_destroy_all(this_->gra);
+ 			navit_draw(this_);
+ 			attr_updated=1;
+ 		}
+Index: src/navit.dtd
+===================================================================
+RCS file: /cvsroot/navit/navit/src/navit.dtd,v
+retrieving revision 1.4
+diff -u -r1.4 navit.dtd
+--- src/navit.dtd	10 Feb 2008 21:00:48 -0000	1.4
++++ src/navit.dtd	26 May 2008 01:14:54 -0000
+@@ -54,6 +54,7 @@
+ <!ATTLIST map debug CDATA #IMPLIED>
+ <!ELEMENT layout (layer*)>
+ <!ATTLIST layout name CDATA #REQUIRED>
++<!ATTLIST layout font CDATA #IMPLIED>
+ <!ATTLIST layout color CDATA #IMPLIED>
+ <!ELEMENT layer (item+)>
+ <!ATTLIST layer name CDATA #REQUIRED>
+Index: src/navit.xml
+===================================================================
+RCS file: /cvsroot/navit/navit/src/navit.xml,v
+retrieving revision 1.65
+diff -u -r1.65 navit.xml
+--- src/navit.xml	7 May 2008 22:39:25 -0000	1.65
++++ src/navit.xml	26 May 2008 01:14:56 -0000
+@@ -79,7 +79,7 @@
+ 		<map type="garmin" enabled="yes" data="/path/to/img" debug="4"/>
+ 	</mapset>
+ 
+-	<layout name="Car" color= "#ffefb7">
++	<layout name="Car" color= "#ffefb7" font="Bitstream Vera Sans">
+ 		<layer name="polygons">
+ 			<item type="image" order="0-">
+ 				<image />
+Index: src/xmlconfig.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/xmlconfig.c,v
+retrieving revision 1.37
+diff -u -r1.37 xmlconfig.c
+--- src/xmlconfig.c	4 May 2008 16:53:05 -0000	1.37
++++ src/xmlconfig.c	26 May 2008 01:14:57 -0000
+@@ -457,12 +457,13 @@
+ xmlconfig_layout(struct xmlstate *state)
+ {
+ 	const char *name=find_attribute(state, "name", 1);
++	const char *font=find_attribute(state, "font", 0);
+ 	struct color color = {0xffff, 0xefef, 0xb7b7, 0xffff};
+ 
+ 	if (! name)
+ 		return 0;
+ 	find_color(state, 0, &color);
+-	state->element_attr.u.data = layout_new(name, &color);
++	state->element_attr.u.data = layout_new(name, font, &color);
+ 	if (! state->element_attr.u.data)
+ 		return 0;
+ 	navit_add_layout(state->parent->element_attr.u.data, state->element_attr.u.data);
+Index: src/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c,v
+retrieving revision 1.43
+diff -u -r1.43 graphics_gtk_drawing_area.c
+--- src/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c	19 Apr 2008 20:06:17 -0000	1.43
++++ src/graphics/gtk_drawing_area/graphics_gtk_drawing_area.c	26 May 2008 01:14:58 -0000
+@@ -69,7 +69,7 @@
+ /**
+  * List of font families to use, in order of preference
+  */
+-static char *fontfamilies[]={
++static char *default_fontfamilies[]={
+ 	"Liberation Mono",
+ 	"Arial",
+ 	"DejaVu Sans",
+@@ -94,7 +94,7 @@
+  * First search for each of the font families and require and exact match on family
+  * If no font found, let fontconfig pick the best match
+  */
+-static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, int size, int flags)
++static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, char *fontfamily, int size, int flags)
+ {
+ 	struct graphics_font_priv *font=g_new(struct graphics_font_priv, 1);
+ 
+@@ -102,13 +102,27 @@
+ 	int exact, found;
+ 	char **family;
+ 
++	// if fontfamily specified, look for that one before falling back to
++	// looking at the default_fontfamilies list.
++	
+ 	if (!gr->library_init) {
+ 		FT_Init_FreeType( &gr->library );
+ 		gr->library_init=1;
+ 	}
+ 	found=0;
+ 	for (exact=1;!found && exact>=0;exact--) {
+-		family=fontfamilies;
++		if(fontfamily) {
++			/* prepend the font passed so we look for it first */
++			family = malloc(sizeof(default_fontfamilies)+sizeof(fontfamily));
++			if(!family) {
++				printf("%s:Out of memory\n", __FUNCTION__);
++				return NULL;
++			}
++			memcpy(family, &fontfamily, sizeof(fontfamily));
++			memcpy(family+1, default_fontfamilies, sizeof(default_fontfamilies));
++		} else {
++			family=default_fontfamilies;
++		}
+ 		while (*family && !found) {
+ 			dbg(1, "Looking for font family %s. exact=%d\n", *family, exact);
+ 			FcPattern *required = FcPatternBuild(NULL, FC_FAMILY, FcTypeString, *family, NULL);
+Index: src/graphics/null/graphics_null.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/graphics/null/graphics_null.c,v
+retrieving revision 1.6
+diff -u -r1.6 graphics_null.c
+--- src/graphics/null/graphics_null.c	4 Mar 2008 06:28:12 -0000	1.6
++++ src/graphics/null/graphics_null.c	26 May 2008 01:15:00 -0000
+@@ -36,7 +36,7 @@
+ 	font_destroy
+ };
+ 
+-static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, int size)
++static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, char *fontfamily, int size)
+ {
+ 	*meth=font_methods;
+ 	return &graphics_font_priv;
+Index: src/graphics/opengl/graphics_opengl.c
+===================================================================
+RCS file: /cvsroot/navit/navit/src/graphics/opengl/graphics_opengl.c,v
+retrieving revision 1.16
+diff -u -r1.16 graphics_opengl.c
+--- src/graphics/opengl/graphics_opengl.c	4 Mar 2008 06:11:22 -0000	1.16
++++ src/graphics/opengl/graphics_opengl.c	26 May 2008 01:15:00 -0000
+@@ -80,7 +80,7 @@
+ 	font_destroy
+ };
+ 
+-static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, int size)
++static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, char *fontfamily, int size)
+ {
+ #if 0
+ 	char **filename=fontlist;
+Index: src/graphics/qt_qpainter/graphics_qt_qpainter.cpp
+===================================================================
+RCS file: /cvsroot/navit/navit/src/graphics/qt_qpainter/graphics_qt_qpainter.cpp,v
+retrieving revision 1.6
+diff -u -r1.6 graphics_qt_qpainter.cpp
+--- src/graphics/qt_qpainter/graphics_qt_qpainter.cpp	17 Apr 2008 21:46:21 -0000	1.6
++++ src/graphics/qt_qpainter/graphics_qt_qpainter.cpp	26 May 2008 01:15:00 -0000
+@@ -289,7 +289,7 @@
+ //# Comment: 
+ //# Authors: Martin Schaller (04/2008)
+ //##############################################################################################################
+-static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, int size, int flags)
++static struct graphics_font_priv *font_new(struct graphics_priv *gr, struct graphics_font_methods *meth, char *fontfamily, int size, int flags)
+ {
+ 	*meth=font_methods;
+ 	return &graphics_font_priv;

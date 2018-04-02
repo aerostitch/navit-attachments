@@ -1,0 +1,21 @@
+##### Part 1 #####
+
+ldd *
+	linux-vdso.so.1 =>  (0x00007fffc18c0000)
+	libfreetype.so.6 => /usr/lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007f6f40a78000)
+	libfontconfig.so.1 => /usr/lib/x86_64-linux-gnu/libfontconfig.so.1 (0x00007f6f40838000)
+	libfribidi.so.0 => /usr/lib/x86_64-linux-gnu/libfribidi.so.0 (0x00007f6f40620000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f6f40258000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f6f40038000)
+	libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f6f3fe08000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f6f3fbe8000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f6f40f50000)
+
+
+
+##### Part 2 #####
+
+ldd *
+	linux-vdso.so.1 =>  (0x00007fffeeb58000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fd4acf88000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fd4ad580000)

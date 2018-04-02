@@ -1,0 +1,327 @@
+*** ../../sdk/navit/navit/route.c	2011-01-15 15:27:29.922573836 +0100
+--- route.c	2011-01-15 13:41:50.252573498 +0100
+***************
+*** 129,134 ****
+--- 129,136 ----
+  
+  #define RSD_OFFSET(x) *((int *)route_segment_data_field_pos((x), attr_offset))
+  #define RSD_MAXSPEED(x) *((int *)route_segment_data_field_pos((x), attr_maxspeed))
++ #define RSD_MAXSPEED_FORWARD(x) *((int *)route_segment_data_field_pos((x), attr_maxspeed_forward))
++ #define RSD_MAXSPEED_BACKWARD(x) *((int *)route_segment_data_field_pos((x), attr_maxspeed_backward))
+  #define RSD_SIZE_WEIGHT(x) *((struct size_weight_limit *)route_segment_data_field_pos((x), attr_vehicle_width))
+  #define RSD_DANGEROUS_GOODS(x) *((int *)route_segment_data_field_pos((x), attr_vehicle_dangerous_goods))
+  
+***************
+*** 139,144 ****
+--- 141,148 ----
+  	int flags;
+  	int len;
+  	int maxspeed;
++ 	int maxspeed_forward;
++ 	int maxspeed_backward;
+  	struct size_weight_limit size_weight;
+  	int dangerous_goods;
+  };
+***************
+*** 1235,1247 ****
+  	ptr = ((unsigned char*)seg) + sizeof(struct route_segment_data);
+  
+  	if (seg->flags & AF_SPEED_LIMIT) {
+! 		if (type == attr_maxspeed) 
+  			return (void*)ptr;
+  		ptr += sizeof(int);
+  	}
+  	if (seg->flags & AF_SEGMENTED) {
+! 		if (type == attr_offset) 
+  			return (void*)ptr;
+  		ptr += sizeof(int);
+  	}
+  	if (seg->flags & AF_SIZE_OR_WEIGHT_LIMIT) {
+--- 1239,1261 ----
+  	ptr = ((unsigned char*)seg) + sizeof(struct route_segment_data);
+  
+  	if (seg->flags & AF_SPEED_LIMIT) {
+! 		if (type == attr_maxspeed)
+  			return (void*)ptr;
++ 
++ 		ptr += sizeof(int);
++ 		if (type == attr_maxspeed_forward)
++ 			return (void*)ptr;
++ 
++ 		ptr += sizeof(int);
++ 		if (type == attr_maxspeed_backward)
++ 			return (void*)ptr;
++ 
+  		ptr += sizeof(int);
+  	}
+  	if (seg->flags & AF_SEGMENTED) {
+! 		if (type == attr_offset)
+  			return (void*)ptr;
++ 
+  		ptr += sizeof(int);
+  	}
+  	if (seg->flags & AF_SIZE_OR_WEIGHT_LIMIT) {
+***************
+*** 1268,1274 ****
+  {
+  	int ret=sizeof(struct route_segment_data);
+  	if (flags & AF_SPEED_LIMIT)
+! 		ret+=sizeof(int);
+  	if (flags & AF_SEGMENTED)
+  		ret+=sizeof(int);
+  	if (flags & AF_SIZE_OR_WEIGHT_LIMIT)
+--- 1282,1288 ----
+  {
+  	int ret=sizeof(struct route_segment_data);
+  	if (flags & AF_SPEED_LIMIT)
+! 		ret+=sizeof(int)*3; // maxspeed, maxspeed_foward, maxspeed_backward
+  	if (flags & AF_SEGMENTED)
+  		ret+=sizeof(int);
+  	if (flags & AF_SIZE_OR_WEIGHT_LIMIT)
+***************
+*** 1311,1317 ****
+   * @param item The item that is represented by this segment
+   * @param flags Flags for this segment
+   * @param offset If the item passed in "item" is segmented (i.e. divided into several segments), this indicates the position of this segment within the item
+!  * @param maxspeed The maximum speed allowed on this segment in km/h. -1 if not known.
+   */
+  static void
+  route_graph_add_segment(struct route_graph *this, struct route_graph_point *start,
+--- 1325,1333 ----
+   * @param item The item that is represented by this segment
+   * @param flags Flags for this segment
+   * @param offset If the item passed in "item" is segmented (i.e. divided into several segments), this indicates the position of this segment within the item
+!  * @param maxspeed          The maximum speed allowed on this segment in km/h. -1 if not known.
+!  * @param maxspeed_forward  The maximum speed allowed on this segment in km/h. -1 if not known.
+!  * @param maxspeed_backward The maximum speed allowed on this segment in km/h. -1 if not known.
+   */
+  static void
+  route_graph_add_segment(struct route_graph *this, struct route_graph_point *start,
+***************
+*** 1337,1344 ****
+  	s->data.item=*data->item;
+  	s->data.flags=data->flags;
+  
+! 	if (data->flags & AF_SPEED_LIMIT) 
+  		RSD_MAXSPEED(&s->data)=data->maxspeed;
+  	if (data->flags & AF_SEGMENTED) 
+  		RSD_OFFSET(&s->data)=data->offset;
+  	if (data->flags & AF_SIZE_OR_WEIGHT_LIMIT) 
+--- 1353,1363 ----
+  	s->data.item=*data->item;
+  	s->data.flags=data->flags;
+  
+! 	if (data->flags & AF_SPEED_LIMIT) {
+  		RSD_MAXSPEED(&s->data)=data->maxspeed;
++ 		RSD_MAXSPEED_FORWARD(&s->data)=data->maxspeed_forward;
++ 		RSD_MAXSPEED_BACKWARD(&s->data)=data->maxspeed_backward;
++     }
+  	if (data->flags & AF_SEGMENTED) 
+  		RSD_OFFSET(&s->data)=data->offset;
+  	if (data->flags & AF_SIZE_OR_WEIGHT_LIMIT) 
+***************
+*** 1796,1801 ****
+--- 1815,1822 ----
+  	data.flags=0;
+  	data.offset=1;
+  	data.maxspeed = INT_MAX;
++ 	data.maxspeed_forward = INT_MAX;
++ 	data.maxspeed_backward = INT_MAX;
+  
+  	if (item_coord_get(item, &l, 1)) {
+  		s_pnt=route_graph_add_point(this,&l);
+***************
+*** 1809,1814 ****
+--- 1830,1843 ----
+  			data.flags |= AF_SPEED_LIMIT;
+  			data.maxspeed=maxspeed_attr.u.num;
+  		}
++ 		if (item_attr_get(item, attr_maxspeed_forward, &maxspeed_attr)) {
++ 			data.flags |= AF_SPEED_LIMIT;
++ 			data.maxspeed_forward=maxspeed_attr.u.num;
++ 		}
++ 		if (item_attr_get(item, attr_maxspeed_backward, &maxspeed_attr)) {
++ 			data.flags |= AF_SPEED_LIMIT;
++ 			data.maxspeed_backward=maxspeed_attr.u.num;
++ 		}
+  		if (item_attr_get(item, attr_delay, &delay_attr))
+  			data.len=delay_attr.u.num;
+  		route_graph_add_segment(this, s_pnt, e_pnt, &data);
+***************
+*** 1879,1884 ****
+--- 1908,1915 ----
+  	data.flags=0;
+  	data.offset=1;
+  	data.maxspeed=-1;
++ 	data.maxspeed_forward=-1;
++ 	data.maxspeed_backward=-1;
+  	data.item=item;
+  	int segmented = 0;
+  	struct roadprofile *roadp;
+***************
+*** 1904,1909 ****
+--- 1935,1944 ----
+  		if (data.flags & AF_SPEED_LIMIT) {
+  			if (item_attr_get(item, attr_maxspeed, &attr)) 
+  				data.maxspeed = attr.u.num;
++ 			if (item_attr_get(item, attr_maxspeed_forward, &attr)) 
++ 				data.maxspeed_forward = attr.u.num;
++ 			if (item_attr_get(item, attr_maxspeed_backward, &attr)) 
++ 				data.maxspeed_backward = attr.u.num;
+  		}
+  		if (data.flags & AF_DANGEROUS_GOODS) {
+  			if (item_attr_get(item, attr_vehicle_dangerous_goods, &attr)) 
+***************
+*** 2357,2366 ****
+  	data.flags=s->data.flags|flags;
+  	data.offset=1;
+  	data.maxspeed=-1;
+  	data.item=&s->data.item;
+  	data.len=s->data.len+1;
+! 	if (s->data.flags & AF_SPEED_LIMIT)
+  		data.maxspeed=RSD_MAXSPEED(&s->data);
+  	if (s->data.flags & AF_SEGMENTED) 
+  		data.offset=RSD_OFFSET(&s->data);
+  	dbg(1,"cloning segment from %p (0x%x,0x%x) to %p (0x%x,0x%x)\n",start,start->c.x,start->c.y, end, end->c.x, end->c.y);
+--- 2392,2406 ----
+  	data.flags=s->data.flags|flags;
+  	data.offset=1;
+  	data.maxspeed=-1;
++ 	data.maxspeed_forward=-1;
++ 	data.maxspeed_backward=-1;
+  	data.item=&s->data.item;
+  	data.len=s->data.len+1;
+! 	if (s->data.flags & AF_SPEED_LIMIT) {
+  		data.maxspeed=RSD_MAXSPEED(&s->data);
++ 		data.maxspeed_forward=RSD_MAXSPEED_FORWARD(&s->data);
++ 		data.maxspeed_backward=RSD_MAXSPEED_BACKWARD(&s->data);
++     }
+  	if (s->data.flags & AF_SEGMENTED) 
+  		data.offset=RSD_OFFSET(&s->data);
+  	dbg(1,"cloning segment from %p (0x%x,0x%x) to %p (0x%x,0x%x)\n",start,start->c.x,start->c.y, end, end->c.x, end->c.y);
+***************
+*** 2627,2638 ****
+  	}
+  
+  	ret->maxspeed = -1;
+  	if (ret->flags & AF_SPEED_LIMIT) {
+! 		if (item_attr_get(item, attr_maxspeed, &maxspeed_attr)) {
+! 			ret->maxspeed = maxspeed_attr.u.num;
+! 		}
+! 	}
+  
+  	return ret;
+  }
+  
+--- 2667,2685 ----
+  	}
+  
+  	ret->maxspeed = -1;
++     ret->maxspeed_forward = -1;
++     ret->maxspeed_backward = -1;
++ 
+  	if (ret->flags & AF_SPEED_LIMIT) {
+! 		if (item_attr_get(item, attr_maxspeed, &maxspeed_attr))
+!             ret->maxspeed = maxspeed_attr.u.num;
+! 
+! 		if (item_attr_get(item, attr_maxspeed_forward, &maxspeed_attr))
+!             ret->maxspeed_forward = maxspeed_attr.u.num;
+  
++ 		if (item_attr_get(item, attr_maxspeed_backward, &maxspeed_attr))
++             ret->maxspeed_backward = maxspeed_attr.u.num;
++ 	}
+  	return ret;
+  }
+  
+***************
+*** 2854,2860 ****
+  			}
+  			return 0;
+  		case attr_maxspeed:
+! 			mr->attr_next = attr_street_item;
+  			if (seg && seg->data->flags && AF_SPEED_LIMIT) {
+  				attr->u.num=RSD_MAXSPEED(seg->data);
+  
+--- 2901,2907 ----
+  			}
+  			return 0;
+  		case attr_maxspeed:
+! 			mr->attr_next = attr_maxspeed_forward;
+  			if (seg && seg->data->flags && AF_SPEED_LIMIT) {
+  				attr->u.num=RSD_MAXSPEED(seg->data);
+  
+***************
+*** 2862,2867 ****
+--- 2909,2932 ----
+  				return 0;
+  			}
+  			return 1;
++ 		case attr_maxspeed_forward:
++ 			mr->attr_next = attr_maxspeed_backward;
++ 			if (seg && seg->data->flags && AF_SPEED_LIMIT) {
++ 				attr->u.num=RSD_MAXSPEED_FORWARD(seg->data);
++ 
++ 			} else {
++ 				return 0;
++ 			}
++ 			return 1;
++ 		case attr_maxspeed_backward:
++ 			mr->attr_next = attr_street_item;
++ 			if (seg && seg->data->flags && AF_SPEED_LIMIT) {
++ 				attr->u.num=RSD_MAXSPEED_BACKWARD(seg->data);
++ 
++ 			} else {
++ 				return 0;
++ 			}
++ 			return 1;
+  		case attr_street_item:
+  			mr->attr_next=attr_direction;
+  			if (seg && seg->data->item.map)
+***************
+*** 2977,2983 ****
+  		}
+  		return 0;
+  	case attr_maxspeed:
+! 		mr->attr_next = attr_label;
+  		if (mr->item.type != type_rg_segment) 
+  			return 0;
+  		if (seg && (seg->data.flags & AF_SPEED_LIMIT)) {
+--- 3042,3048 ----
+  		}
+  		return 0;
+  	case attr_maxspeed:
+! 		mr->attr_next = attr_maxspeed_forward;
+  		if (mr->item.type != type_rg_segment) 
+  			return 0;
+  		if (seg && (seg->data.flags & AF_SPEED_LIMIT)) {
+***************
+*** 2987,2992 ****
+--- 3052,3079 ----
+  		} else {
+  			return 0;
+  		}
++ 	case attr_maxspeed_forward:
++ 		mr->attr_next = attr_maxspeed_backward;
++ 		if (mr->item.type != type_rg_segment) 
++ 			return 0;
++ 		if (seg && (seg->data.flags & AF_SPEED_LIMIT)) {
++ 			attr->type = attr_maxspeed_forward;
++ 			attr->u.num=RSD_MAXSPEED_FORWARD(&seg->data);
++ 			return 1;
++ 		} else {
++ 			return 0;
++ 		}
++ 	case attr_maxspeed_backward:
++ 		mr->attr_next = attr_label;
++ 		if (mr->item.type != type_rg_segment) 
++ 			return 0;
++ 		if (seg && (seg->data.flags & AF_SPEED_LIMIT)) {
++ 			attr->type = attr_maxspeed_backward;
++ 			attr->u.num=RSD_MAXSPEED_BACKWARD(&seg->data);
++ 			return 1;
++ 		} else {
++ 			return 0;
++ 		}
+  	case attr_label:
+  		mr->attr_next=attr_street_item;
+  		if (mr->item.type != type_rg_point) 

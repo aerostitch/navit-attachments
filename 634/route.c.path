@@ -1,0 +1,13 @@
+Index: navit/route.c
+===================================================================
+--- navit/route.c	(revision 3510)
++++ navit/route.c	(working copy)
+@@ -693,7 +693,7 @@
+ 	route_set_attr(this, &route_status);
+ 	prev_dst=route_previous_destination(this);
+ 	this->path2=route_path_new(this->graph, oldpath, prev_dst, this->current_dst, this->vehicleprofile);
+-	if (oldpath) {
++	if (oldpath && this->path2) {
+ 		if (!item_is_equal(oldpath->path_last->data->item,this->path2->path_last->data->item)) {
+ 			this->path2->next=oldpath;
+ 		} else {

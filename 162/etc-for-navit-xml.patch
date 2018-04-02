@@ -1,0 +1,12 @@
+=== modified file 'navit/main.c'
+--- navit/main.c	2008-06-05 21:56:14 +0000
++++ navit/main.c	2008-06-26 10:14:50 +0000
+@@ -257,6 +257,7 @@
+ 		list = g_list_append(list,g_strdup("navit.xml"));
+ 		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_SHAREDIR"), "/navit.xml.local" , NULL));
+ 		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_SHAREDIR"), "/navit.xml" , NULL));
++		list = g_list_append(list,g_strdup("/etc/navit/navit.xml"));
+ 	}
+ 	li = list;
+ 	do {
+

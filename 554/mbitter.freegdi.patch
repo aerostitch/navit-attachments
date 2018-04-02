@@ -1,0 +1,20 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -994,6 +991,7 @@
+ 
+     SelectObject(gr->hMemDC, hOldFont);
+     DeleteObject (font->hfont) ;
++    font->hfont = NULL;
+ 
+     SetBkMode( gr->hMemDC, prevBkMode );
+ 
+@@ -1005,6 +1003,7 @@
+     if ( font->hfont )
+     {
+         DeleteObject(font->hfont);
++        font->hfont = NULL;
+     }
+     g_free(font);
+ }

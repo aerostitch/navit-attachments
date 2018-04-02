@@ -1,0 +1,527 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 4858)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -299,6 +299,7 @@
+ 	int pitch;
+ 	int flags_town,flags_street,flags_house_number;
+ 	int radius;
++	int mouse_button_clicked_on_map;
+ /* html */
+ 	char *html_text;
+ 	int html_depth;
+@@ -461,6 +462,7 @@
+ static void gui_internal_html_load_href(struct gui_priv *this, char *href, int replace);
+ static void gui_internal_destroy(struct gui_priv *this);
+ 
++
+ /*
+  * * Display image scaled to specific size
+  * * searches for scaleable and pre-scaled image
+@@ -2373,7 +2375,32 @@
+ 	return r;
+ };
+ 
++/**
++ * @brief Set POIs filter data in poi_param structure.
++ * @param param poi_param structure with unset filter data.
++ * @param text filter text.
++ */
++static void
++gui_internal_poi_param_set_filter(struct poi_param *param, char *text) 
++{
++	char *s1, *s2;
++	
++	param->filterstr=removecase(text);
++	s1=param->filterstr;
++	do {
++		s2=g_utf8_strchr(s1,-1,' ');
++		if(s2)
++			*s2++=0;
++		param->filter=g_list_append(param->filter,s1);
++		if(s2) {
++			while(*s2==' ')
++				s2++;
++		}
++		s1=s2;
++	} while(s2 && *s2);
++}
+ 
++
+ static void gui_internal_cmd_pois(struct gui_priv *this, struct widget *wm, void *data);
+ static void gui_internal_cmd_pois_filter(struct gui_priv *this, struct widget *wm, void *data);
+ 
+@@ -2449,24 +2476,6 @@
+ 	return wl;
+ }
+ 
+-static gint
+-gui_internal_cmd_pois_sort_num(gconstpointer a, gconstpointer b, gpointer user_data)
+-{
+-	const struct widget *wa=a;
+-	const struct widget *wb=b;
+-	struct widget *wac=wa->children->data;
+-	struct widget *wbc=wb->children->data;
+-#if 0
+-	int ia,ib;
+-	ia=atoi(wac->text);
+-	ib=atoi(wbc->text);
+-
+-	return ia-ib;
+-#else
+-	return wac->datai-wbc->datai;
+-#endif
+-}
+-
+ /**
+  * @brief Get string representation of item address suitable for doing search and for display in POI list.
+  *
+@@ -2573,8 +2582,9 @@
+ 	free(w);
+ }
+ 
++
+ /**
+- * @brief apply POIs text filter.
++ * @brief Event to apply POIs text filter.
+  *
+  * @param this The graphics context.
+  * @param wm called widget.
+@@ -2585,7 +2595,6 @@
+ {
+ 	struct widget *w=data;
+ 	struct poi_param *param;
+-	char *s1, *s2;
+ 	
+ 	if(!w->text)
+ 		return;
+@@ -2596,21 +2605,10 @@
+ 	} else {
+ 		param=g_new0(struct poi_param,1);
+ 	}
+-	param->filterstr=removecase(w->text);
+ 	param->isAddressFilter=strcmp(wm->name,"AddressFilter")==0;
+-	s1=param->filterstr;
+-	do {
+-		s2=g_utf8_strchr(s1,-1,' ');
+-		if(s2)
+-			*s2++=0;
+-		param->filter=g_list_append(param->filter,s1);
+-		if(s2) {
+-			while(*s2==' ')
+-				s2++;
+-		}
+-		s1=s2;
+-	} while(s2 && *s2);
+ 
++	gui_internal_poi_param_set_filter(param, w->text);
++
+ 	gui_internal_cmd_pois(this,w,param);
+ 	gui_internal_poi_param_free(param);
+ }
+@@ -3012,6 +3010,13 @@
+ 	item = map_rect_get_item_byid(mr, wm->item.id_hi, wm->item.id_lo);
+ 	dbg(0,"item=%p\n", item);
+ 	if (item) {
++		text=g_strdup_printf("%s:%s", _("Item type"), item_to_name(item->type));
++		gui_internal_widget_append(w,
++		wb=gui_internal_button_new(this, text,
++			NULL, gravity_left_center|orientation_horizontal|flags_fill));
++		wb->name=g_strdup(text);
++		wb->item=wm->item;
++		g_free(text);
+ 		while(item_attr_get(item, attr_any, &attr)) {
+ 			text=g_strdup_printf("%s:%s", attr_to_name(attr.type), attr_to_text(&attr, wm->item.map, 1));
+ 			gui_internal_widget_append(w,
+@@ -3061,22 +3066,26 @@
+ 	}
+ }
+ 
+-// meaning of the bits in "flags":
+-// 1: "Streets"
+-// 2: "House numbers"
+-// 4: "View in Browser", "View Attributes"
+-// 8: "Set as dest."
+-// 16: "Set as pos."
+-// 32: "Add as bookm."
+-// 64: "POIs"
+-// 128: "View on Map"
+-// 256: POIs around this point
+-// 512: "Cut/Copy... bookmark"
+-// TODO define constants for these values
++/* meaning of the bits in "flags":
++ * 1: "Streets"
++ * 2: "House numbers"
++ * 4: "View in Browser", "View Attributes"
++ * 8: "Set as dest."
++ * 16: "Set as pos."
++ * 32: "Add as bookm."
++ * 64: "POIs"
++ * 128: "View on Map"
++ * 256: POIs around this point
++ * 512: "Cut/Copy... bookmark"
++ * 1024: "Visible items around this point"
++ * 2048: "Jump to attributes of top item within this->radius of this point"
++ * TODO define constants for these values
++ */
+ static void
+ gui_internal_cmd_position_do(struct gui_priv *this, struct pcoord *pc_in, struct coord_geo *g_in, struct widget *wm, char *name, int flags)
+ {
+-	struct widget *wb,*w,*wc,*wbc;
++	struct widget *wb,*w,*wc,*wbc,*pois_widget=NULL;
++	struct widget *wclosest=NULL;
+ 	struct coord_geo g;
+ 	struct pcoord pc;
+ 	struct coord c;
+@@ -3177,6 +3186,7 @@
+ 				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
+ 				gui_internal_cmd_pois, NULL));
+ 		wbc->c=pc;
++		pois_widget=wbc;
+ 	}
+ #endif /* _MSC_VER */
+ #if 0
+@@ -3276,8 +3286,70 @@
+ 				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
+ 				gui_internal_cmd_delete_bookmark, NULL));
+ 		wbc->text=g_strdup(wm->text);
++	} else if (flags & 1024 || flags & 2048) {
++		struct displaylist_handle *dlh;
++		struct displaylist *display;
++		struct attr attr;
++		struct point p;
++		struct transformation *trans;
++		
++		char *text, *label;
++		struct map_selection *sel;
++		GList *l, *ll;
++		
++
++		c.x=pc.x;
++		c.y=pc.y;
++
++		trans=navit_get_trans(this->nav);
++		transform(trans,pc.pro,&c,&p,1,0,0,0);
++		display=navit_get_displaylist(this->nav);
++		dlh=graphics_displaylist_open(display);
++		sel=displaylist_get_selection(display);
++		l=displaylist_get_clicked_list(display, &p, this->radius);
++		for(ll=l;ll;ll=g_list_next(ll)) {
++			struct displayitem *di;
++			struct item *item;
++			struct map_rect *mr;
++			struct item *itemo;
++
++			di=(struct displayitem*)ll->data;
++			item=graphics_displayitem_get_item(di);
++			
++			mr=map_rect_new(item->map, sel);
++			itemo=map_rect_get_item_byid(mr, item->id_hi, item->id_lo);
++				
++			if (item_attr_get(itemo, attr_label, &attr)) {
++				label=map_convert_string(itemo->map, attr.u.str);
++				text=g_strdup_printf("%s %s", item_to_name(item->type), label);
++				map_convert_free(label);
++			} else
++				text=g_strdup_printf("%s", item_to_name(item->type));
++			gui_internal_widget_append(w,
++				wc=gui_internal_button_new_with_callback(this, text,
++				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_position, (void *)2));
++			wc->c=pc;
++			wc->name=g_strdup(text);
++			wc->item=*itemo;
++			g_free(text);
++			map_rect_destroy(mr);
++			if(!wclosest)
++				wclosest=wc;
++
++		}
++		g_list_free(l);
++		map_selection_destroy(sel);
++	       	graphics_displaylist_close(dlh);
++	       	if(wclosest) {
++	       		g_free(wb->name);
++	       		wb->name=g_strdup(wclosest->text);
++	       	}
+ 	}
+ 	gui_internal_menu_render(this);
++
++	if((flags & 2048) && wclosest) 
++			gui_internal_cmd_view_attributes(this,wclosest,wclosest->data);
+ }
+ 
+ 
+@@ -3361,6 +3433,39 @@
+ 	gui_internal_cmd_position_do(this, NULL, in[0]->u.coord_geo, NULL, name, flags);
+ }
+ 
++static void
++gui_internal_cmd2_pois(struct gui_priv *this, char *function, struct attr **in, struct attr ***out, int *valid)
++{
++	struct widget *w;
++	struct poi_param *param;
++	struct attr pro;
++	struct coord c;
++
++	dbg(1,"enter\n");
++	if (!in || !in[0])
++		return;
++	if (!ATTR_IS_COORD_GEO(in[0]->type))
++		return;
++	if (!navit_get_attr(this->nav, attr_projection, &pro, NULL))
++		return;
++	w=g_new0(struct widget,1);
++	param=g_new0(struct poi_param,1);
++	if (in[1] && ATTR_IS_STRING(in[1]->type)) {
++		gui_internal_poi_param_set_filter(param, in[1]->u.str);
++		if (in[2] && ATTR_IS_INT(in[2]->type))
++			param->isAddressFilter=in[2]->u.num;
++	}
++	
++	transform_from_geo(pro.u.projection,in[0]->u.coord_geo,&c);
++	w->c.x=c.x;
++	w->c.y=c.y;
++	w->c.pro=pro.u.projection;
++	gui_internal_cmd_pois(this, w, param);
++	g_free(w);
++	gui_internal_poi_param_free(param);
++}
++
++
+ /**
+   * The "Bookmarks" section of the OSD
+   * 
+@@ -5653,6 +5758,9 @@
+ 	case attr_pitch:
+ 		attr->u.num=this->pitch;
+ 		break;
++	case attr_button:
++		attr->u.num=this->mouse_button_clicked_on_map;
++		break;
+ 	default:
+ 		return 0;
+ 	}
+@@ -5716,13 +5824,14 @@
+ 			map_rect_destroy(mr);
+ 		}
+ 	}
+-       	graphics_displaylist_close(dlh);
+-       	if (attr_list && navit_get_attr(this->nav, attr_callback_list, &cb, NULL))
++	graphics_displaylist_close(dlh);
++	if (attr_list && navit_get_attr(this->nav, attr_callback_list, &cb, NULL))
+ 		callback_list_call_attr_4(cb.u.callback_list, attr_command, "dbus_send_signal", attr_list, NULL, &valid);
+ 	attr_list_free(attr_list);
+ }
+ 
+ 
++
+ //##############################################################################################################
+ //# Description: Function to handle mouse clicks and scroll wheel movement
+ //# Comment:
+@@ -5748,7 +5857,9 @@
+ 		if (button != 1)
+ 			return;
+ 		if (this->menu_on_map_click) {
++			this->mouse_button_clicked_on_map=1;
+ 			gui_internal_cmd_menu(this, p, 0, NULL);
++			this->mouse_button_clicked_on_map=0;
+ 			return;
+ 		}
+ 		if (this->signal_on_map_click) {
+@@ -7264,6 +7375,7 @@
+ 	{"log",command_cast(gui_internal_cmd_log)},
+ 	{"menu",command_cast(gui_internal_cmd_menu2)},
+ 	{"position",command_cast(gui_internal_cmd2_position)},
++	{"pois",command_cast(gui_internal_cmd2_pois)},
+ 	{"route_description",command_cast(gui_internal_cmd2_route_description)},
+ 	{"route_height_profile",command_cast(gui_internal_cmd2_route_height_profile)},
+ 	{"set",command_cast(gui_internal_cmd2_set)},
+Index: navit/graphics.c
+===================================================================
+--- navit/graphics.c	(revision 4858)
++++ navit/graphics.c	(working copy)
+@@ -74,6 +74,10 @@
+ 	int font_size;
+ 	GList *selection;
+ 	int disabled;
++	/*
++	 * Counter for z_order of displayitems;
++	*/
++	int current_z_order;
+ };
+ 
+ struct display_context
+@@ -838,6 +842,7 @@
+ }
+ #endif
+ 
++
+ /**
+  * FIXME
+  * @param <>
+@@ -848,6 +853,7 @@
+ 	struct displayitem *next;
+ 	struct item item;
+ 	char *label;
++	int z_order;
+ 	int count;
+ 	struct coord c[0];
+ };
+@@ -898,6 +904,7 @@
+ 	di=(struct displayitem *)p;
+ 	p+=sizeof(*di)+count*sizeof(*c);
+ 	di->item=*item;
++	di->z_order=0;
+ 	if (label && label_count) {
+ 		di->label=p;
+ 		for (i = 0 ; i < label_count ; i++) {
+@@ -1717,6 +1724,8 @@
+ 	while (di) {
+ 	int i,count=di->count,mindist=dc->mindist;
+ 
++	di->z_order=++(gra->current_z_order);
++	
+ 	if (! gc) {
+ 		gc=graphics_gc_new(gra);
+ 		graphics_gc_set_foreground(gc, &e->color);
+@@ -1877,6 +1886,7 @@
+ 	di->item.id_hi=0;
+ 	di->item.id_lo=0;
+ 	di->item.map=NULL;
++	di->z_order=0;
+ 	di->label=label;
+ 	dc.gra=gra;
+ 	dc.gc=NULL;
+@@ -1930,8 +1940,6 @@
+ }
+ 
+ 
+-
+-
+ /**
+  * FIXME
+  * @param <>
+@@ -1943,6 +1951,7 @@
+ 	GList *lays;
+ 	struct layer *lay;
+ 
++	gra->current_z_order=0;
+ 	lays=l->layers;
+ 	while (lays) {
+ 		lay=lays->data;
+@@ -1992,7 +2001,53 @@
+ }
+ 
+ 
++/**
++ * @brief Returns selection structure based on displaylist transform, projection and order.
++ * Use this function to get map selection if you are going to fetch complete item data from the map based on displayitem reference.
++ * @param displaylist 
++ * @returns Pointer to selection structure
++ */
++struct map_selection *displaylist_get_selection(struct displaylist *displaylist)
++{
++	return transform_get_selection(displaylist->dc.trans, displaylist->dc.pro, displaylist->order);	
++}
+ 
++/**
++ * @brief Compare displayitems based on their zorder values. 
++ * Use with g_list_insert_sorted to sort less shaded items to be before more shaded ones in the result list.
++ */
++static int displaylist_cmp_zorder(const struct displayitem *a, const struct displayitem *b)
++{
++	if(a->z_order>b->z_order)
++		return -1;
++	if(a->z_order<b->z_order)
++		return 1;
++	return 0;
++}
++
++/**
++ * @brief Returns list of displayitems clicked at given coordinates. The deeper item is in current layout, the deeper it will be in the list.
++ * @param displaylist 
++ * @param p clicked point
++ * @param radius radius of clicked area 
++ * @returns GList of displayitems
++ */
++GList *displaylist_get_clicked_list(struct displaylist *displaylist, struct point *p, int radius)
++{
++	GList *l=NULL;
++	struct displayitem *di;
++	struct displaylist_handle *dlh=graphics_displaylist_open(displaylist);
++
++	while ((di=graphics_displaylist_next(dlh))) {
++		if (di->z_order>0 && graphics_displayitem_within_dist(displaylist, di, p,radius))
++			l=g_list_insert_sorted(l,(gpointer) di, (GCompareFunc) displaylist_cmp_zorder);
++	}
++
++	return l;
++}
++
++
++
+ static void
+ do_draw(struct displaylist *displaylist, int cancel, int flags)
+ {
+@@ -2024,7 +2079,7 @@
+ 			if (route_selection)
+ 				displaylist->sel=route_selection;
+ 			else
+-				displaylist->sel=transform_get_selection(displaylist->dc.trans, displaylist->dc.pro, displaylist->order);
++				displaylist->sel=displaylist_get_selection(displaylist);
+ 			displaylist->mr=map_rect_new(displaylist->m, displaylist->sel);
+ 		}
+ 		if (displaylist->mr) {
+@@ -2276,9 +2331,10 @@
+ }
+ 
+ /**
+- * FIXME
+- * @param <>
+- * @returns <>
++ * Get the map item which given displayitem is based on.
++ * NOTE: returned structure doesn't contain any attributes or coordinates. type, map, idhi and idlow seem to be the only useable members.
++ * @param di pointer to displayitem structure
++ * @returns Pointer to struct item
+  * @author Martin Schaller (04/2008)
+ */
+ struct item * graphics_displayitem_get_item(struct displayitem *di)
+@@ -2286,6 +2342,19 @@
+ 	return &di->item;
+ }
+ 
++/**
++ * Get the number of this item as it was last displayed on the screen, dependent of current layout. Items with lower numbers  
++ * are shaded by items with higher ones when they overlap. Zero means item was not displayed at all. If the item is displayed twice, its topmost 
++ * occurence is used.
++ * @param di pointer to displayitem structure
++ * @returns z-order of current item. 
++*/
++int graphics_displayitem_get_z_order(struct displayitem *di)
++{
++	return di->z_order;
++}
++
++
+ int
+ graphics_displayitem_get_coord_count(struct displayitem *di)
+ {
+Index: navit/graphics.h
+===================================================================
+--- navit/graphics.h	(revision 4858)
++++ navit/graphics.h	(working copy)
+@@ -184,10 +184,13 @@
+ struct displayitem *graphics_displaylist_next(struct displaylist_handle *dlh);
+ void graphics_displaylist_close(struct displaylist_handle *dlh);
+ struct displaylist *graphics_displaylist_new(void);
++struct map_selection *displaylist_get_selection(struct displaylist *displaylist);
++GList *displaylist_get_clicked_list(struct displaylist *displaylist, struct point *p, int radius);
+ struct item *graphics_displayitem_get_item(struct displayitem *di);
+ int graphics_displayitem_get_coord_count(struct displayitem *di);
+ char *graphics_displayitem_get_label(struct displayitem *di);
+ int graphics_displayitem_get_displayed(struct displayitem *di);
++int graphics_displayitem_get_z_order(struct displayitem *di);
+ int graphics_displayitem_within_dist(struct displaylist *displaylist, struct displayitem *di, struct point *p, int dist);
+ void graphics_add_selection(struct graphics *gra, struct item *item, enum item_type type, struct displaylist *dl);
+ void graphics_remove_selection(struct graphics *gra, struct item *item, enum item_type type, struct displaylist *dl);

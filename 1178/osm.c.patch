@@ -1,0 +1,57 @@
+--- osm.c.20131020a	2013-10-20 13:31:20.000000000 +0200
++++ osm.c	2013-10-21 10:59:46.000000000 +0200
+@@ -57,8 +57,10 @@
+ 
+ char debug_attr_buffer[BUFFER_SIZE];
+ 
+-int flags[4];
+-int flagsa[4];
++int flags[4];   // collect individual tags related to a single flag, e.x. 'bicycle=' -> AF_BIKE, ...
++int flagsa[4];  // collect 'access=' tags 
++int flagsv[4];  // collect 'vehicle=' tags (subset of 'access' group)
++int flagsmv[4]; // collect 'motor_vehicle=' tags (subset of 'vehicle' group)
+ 
+ int flags_attr_value;
+ 
+@@ -1039,11 +1041,11 @@
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"vehicle")) {
+-		flags[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_BIKE;
++		flagsv[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED|AF_BIKE;
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"motor_vehicle")) {
+-		flags[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED;
++		flagsmv[access_value(v)] |= AF_DANGEROUS_GOODS|AF_EMERGENCY_VEHICLES|AF_TRANSPORT_TRUCK|AF_DELIVERY_TRUCK|AF_PUBLIC_BUS|AF_TAXI|AF_HIGH_OCCUPANCY_CAR|AF_CAR|AF_MOTORCYCLE|AF_MOPED;
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"bicycle")) {
+@@ -1482,6 +1484,8 @@
+ 	flags_attr_value = 0;
+ 	memset(flags, 0, sizeof(flags));
+ 	memset(flagsa, 0, sizeof(flagsa));
++	memset(flagsv, 0, sizeof(flagsv));
++	memset(flagsmv, 0, sizeof(flagsmv));
+ 	debug_attr_buffer[0]='\0';
+ 	osmid_attr_value=id;
+ 	if (wayid < wayid_last && !way_hash) {
+@@ -1715,7 +1719,17 @@
+ 		nodes_ref_item_bin(item_bin);
+ 		def_flags=item_get_default_flags(types[i]);
+ 		if (def_flags) {
+-			flags_attr_value=((*def_flags & ~flagsa[2]) | flags[0] | flags[1] | flagsa[1]) & ~flags[2];
++                        /*
++                         * Evaluation of collected tags:
++                         * Tags of a subset dominate enclosing groups.
++                         * e.x. 'bicycle=...' overrules 'vehicle=...'
++                         *      'motor_vehicle=...' overrules 'vehicle=...'
++                         *      'vehicle=...' overrules 'access=...'
++                         * Permission dominates restriction if a tag is used twice.
++                         * e.x. 'motor_vehicle=permissive' and 'motor_vehicle=agricultural'
++                         *      -> results in permission
++                         */
++			flags_attr_value=(((*def_flags & ~flagsa[2] | flagsa[1]) & ~flagsv[2] | flagsv[1] ) & ~flagsmv[2] | flagsmv[1] ) & ~flags[2] | flags[1] | flags[0];
+ 			if (flags_attr_value != *def_flags)
+ 				add_flags=1;
+ 		}

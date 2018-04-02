@@ -1,0 +1,316 @@
+Index: navit/navit_shipped.xml
+===================================================================
+--- navit/navit_shipped.xml	(revision 4791)
++++ navit/navit_shipped.xml	(working copy)
+@@ -54,6 +54,8 @@
+ 				</a>
+ 			<a name='Actions'><text>Actions</text>
+ 				<img src='gui_bookmark' onclick='bookmarks()'><text>Bookmarks</text></img>
++				<img src='gui_bookmark' onclick='formerdests()'><text>Former
++Destinations</text></img>
+ 				<img cond='click_coord_geo' src='gui_map' onclick='position(click_coord_geo,_("Map Point"),8|16|32|64|256)'><script>write(click_coord_geo)</script></img>
+ 				<img cond='position_coord_geo' src='gui_vehicle' onclick='position(position_coord_geo,_("Vehicle Position"),8|32|64|128|256)'><script>write(position_coord_geo)</script></img>
+ 				<img src='gui_town' onclick='town()'><text>Town</text></img>
+Index: navit/map/textfile/textfile.c
+===================================================================
+--- navit/map/textfile/textfile.c	(revision 4791)
++++ navit/map/textfile/textfile.c	(working copy)
+@@ -20,6 +20,7 @@
+ #include <glib.h>
+ #include <stdlib.h>
+ #include <stdio.h>
++#include <errno.h>
+ #include <string.h>
+ #include <math.h>
+ #include "config.h"
+@@ -49,6 +50,7 @@
+ 		mr->lastlen=strlen(mr->line)+1;
+ 		if (strlen(mr->line) >= SIZE-1) 
+ 			printf("line too long\n");
++	        dbg(1,"read textfile line: %s\n", mr->line);
+ 	}
+ }
+ 
+@@ -205,7 +207,7 @@
+ 		mr->f=fopen(map->filename, "r");
+ 	}
+ 	if(!mr->f) {
+-		printf("map_rect_new_textfile unable to open textfile %s\n",map->filename);
++		printf("map_rect_new_textfile unable to open textfile %s. Error: %s\n",map->filename, strerror(errno));
+ 	}
+ 	get_line(mr);
+ 	return mr;
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 4791)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -3061,6 +3061,18 @@
+ 	}
+ }
+ 
++// meaning of the bits in "flags":
++// 1: "Streets"
++// 2: "House numbers"
++// 4: "View in Browser", "View Attributes"
++// 8: "Set as dest."
++// 16: "Set as pos."
++// 32: "Add as bookm."
++// 64: "POIs"
++// 128: "View on Map"
++// 256: POIs around this point
++// 512: "Cut/Copy... bookmark"
++// TODO define constants for these values
+ static void
+ gui_internal_cmd_position_do(struct gui_priv *this, struct pcoord *pc_in, struct coord_geo *g_in, struct widget *wm, char *name, int flags)
+ {
+@@ -3277,6 +3289,7 @@
+ 	     5 Street
+  		 6 House number
+  		 7 Bookmark
++		 8 Former destination
+ */
+ 
+ static void
+@@ -3311,6 +3324,9 @@
+ 	case 7:
+ 		flags=8|16|64|128|512;
+ 		break;
++	case 8:
++		flags=8|16|64|128;
++		break;
+ 	default:
+ 		return;
+ 	}
+@@ -3475,7 +3491,57 @@
+ 	gui_internal_cmd_bookmarks(this, NULL, str);
+ }
+ 
++
+ static void
++gui_internal_cmd_formerdests(struct gui_priv *this, char *function, struct attr **in, struct attr ***out, int *valid)
++{
++	struct widget *wb,*w,*wbm;
++	gui_internal_prune_menu_count(this, 1, 0);
++	wb=gui_internal_menu(this, _("Former Destinations"));
++	wb->background=this->background;
++
++	w=gui_internal_box_new(this,
++			gravity_top_center|orientation_vertical|flags_expand|flags_fill);
++	w->spy=this->spacing*2;
++	gui_internal_widget_append(wb, w);
++
++	struct map* formerdests=read_former_destinations_from_file();
++	struct map_rect *mr_formerdests=map_rect_new(formerdests, NULL);
++	struct item* item;
++	struct attr attr;
++	char* label_full;
++	enum projection projection = map_projection(formerdests);
++	int formerdests_available=0;
++	while ((item=map_rect_get_item(mr_formerdests))) {
++	        formerdests_available=1;
++		if (!item_attr_get(item, attr_label, &attr)) continue;
++		label_full=attr.u.str;
++		wbm=gui_internal_button_new_with_callback(this, label_full,
++				image_new_xs(this, "gui_active"),
++				gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_position, NULL);
++		gui_internal_widget_append(w, wbm);
++		struct coord c;
++		if (item_coord_get(item, &c, 1)) {
++			wbm->c.x=c.x;
++			wbm->c.y=c.y;
++			wbm->c.pro=projection;
++			wbm->name=g_strdup_printf(_("Destination %s"),label_full);
++			wbm->text=g_strdup(label_full);
++			wbm->data=(void*)8; //Mark us as a former destination 
++			wbm->prefix=g_strdup(label_full);
++		}
++	}
++	if (!formerdests_available){
++        	wbm=gui_internal_text_new(this, _("- No former destinations available -"), 
++		    gravity_left_center|orientation_horizontal|flags_fill);
++		gui_internal_widget_append(w, wbm);
++	}
++	gui_internal_menu_render(this);
++	map_rect_destroy(mr_formerdests);
++}
++
++static void
+ gui_internal_keynav_highlight_next(struct gui_priv *this, int dx, int dy);
+ 
+ static void gui_internal_keypress_do(struct gui_priv *this, char *key)
+@@ -7060,6 +7126,7 @@
+ 	{"back",command_cast(gui_internal_cmd2_back)},
+ 	{"back_to_map",command_cast(gui_internal_cmd2_back_to_map)},
+ 	{"bookmarks",command_cast(gui_internal_cmd2_bookmarks)},
++	{"formerdests",command_cast(gui_internal_cmd_formerdests)},
+ 	{"get_data",command_cast(gui_internal_get_data)},
+ 	{"locale",command_cast(gui_internal_cmd2_locale)},
+ 	{"log",command_cast(gui_internal_cmd_log)},
+@@ -7075,6 +7142,7 @@
+ 	{"quit",command_cast(gui_internal_cmd2_quit)},
+ 	{"write",command_cast(gui_internal_cmd_write)},
+ 	{"about",command_cast(gui_internal_cmd2_about)},
++
+ };
+ 
+ 
+Index: navit/navit.c
+===================================================================
+--- navit/navit.c	(revision 4791)
++++ navit/navit.c	(working copy)
+@@ -1553,40 +1553,40 @@
+ 	return active;
+ }
+ 
+-static void
+-navit_add_former_destinations_from_file(struct navit *this_)
+-{
+-	char *destination_file = bookmarks_get_destination_file(FALSE);
+-	struct attr *attrs[4];
+-	struct map_rect *mr;
+-	struct item *item;
+-	int i,valid=0,count=0;
+-	struct coord c[16];
+-	struct pcoord pc[16];
+-	struct attr parent;
++struct map* read_former_destinations_from_file(){
+ 	struct attr type;
+-	struct attr data;
+-	struct attr flags;
+-
+-	parent.type=attr_navit;
+-	parent.u.navit=this_;
+-
+ 	type.type=attr_type;
+ 	type.u.str="textfile";
+ 
++	struct attr data;
+ 	data.type=attr_data;
++	char *destination_file = bookmarks_get_destination_file(FALSE);
+ 	data.u.str=destination_file;
+ 
++	struct attr flags;
+ 	flags.type=attr_flags;
+ 	flags.u.num=1;
+ 
++	struct attr *attrs[4];
+ 	attrs[0]=&type; attrs[1]=&data; attrs[2]=&flags; attrs[3]=NULL;
+ 
+-	this_->former_destination=map_new(&parent, attrs);
++	struct map* m=map_new(NULL, attrs);
+ 	g_free(destination_file);
++	return m;
++}
++
++static void
++navit_add_former_destinations_from_file(struct navit *this_)
++{
++	struct item *item;
++	int i,valid=0,count=0;
++	struct coord c[16];
++	struct pcoord pc[16];
++
++	this_->former_destination=read_former_destinations_from_file();
+ 	if (!this_->route || !navit_former_destinations_active(this_))
+ 		return;	
+-	mr=map_rect_new(this_->former_destination, NULL);
++	struct map_rect *mr=map_rect_new(this_->former_destination, NULL);
+ 	while ((item=map_rect_get_item(mr))) {
+ 		if ((item->type == type_former_destination || item->type == type_former_itinerary || item->type == type_former_itinerary_part) && (count=item_coord_get(item, c, 16))) 
+ 			valid=1;
+Index: navit/navit.h
+===================================================================
+--- navit/navit.h	(revision 4791)
++++ navit/navit.h	(working copy)
+@@ -79,6 +79,7 @@
+ void navit_set_destination(struct navit *this_, struct pcoord *c, const char *description, int async);
+ void navit_set_destinations(struct navit *this_, struct pcoord *c, int count, const char *description, int async);
+ int navit_check_route(struct navit *this_);
++struct map* read_former_destinations_from_file();
+ void navit_textfile_debug_log(struct navit *this_, const char *fmt, ...);
+ void navit_textfile_debug_log_at(struct navit *this_, struct pcoord *pc, const char *fmt, ...);
+ int navit_speech_estimate(struct navit *this_, char *str);
+Index: po/es.po.in
+===================================================================
+--- po/es.po.in	(revision 4791)
++++ po/es.po.in	(working copy)
+@@ -1310,6 +1310,16 @@
+ msgid "Former Destinations"
+ msgstr "Destinos anteriores"
+ 
++msgid ""
++"Former\n"
++"Destinations"
++msgstr ""
++"Destinos\n"
++"anteriores"
++
++msgid "- No former destinations available -"
++msgstr "- No hay destinos anteriores -"
++
+ msgid "Bookmarks"
+ msgstr "Favoritos"
+ 
+Index: po/de.po.in
+===================================================================
+--- po/de.po.in	(revision 4791)
++++ po/de.po.in	(working copy)
+@@ -1345,6 +1345,14 @@
+ msgid "Former Destinations"
+ msgstr "Vorherige Ziele"
+ 
++msgid "Former\n"
++"Destinations"
++msgstr "Vorherige\n"
++"Ziele"
++
++msgid "- No former destinations available -"
++msgstr "- Keine vorherigen Ziele -"
++
+ msgid "Bookmarks"
+ msgstr "Lesezeichen"
+ 
+Index: po/fr.po.in
+===================================================================
+--- po/fr.po.in	(revision 4791)
++++ po/fr.po.in	(working copy)
+@@ -1346,6 +1346,17 @@
+ msgid "Former Destinations"
+ msgstr "Destinations précédentes"
+ 
++msgid ""
++"Former\n"
++"Destinations"
++
++msgstr ""
++"Destinations\n"
++"précédentes"
++
++msgid "- No former destinations available -"
++msgstr "- Pas de destinations précedentes -"
++
+ msgid "Bookmarks"
+ msgstr "Favoris"
+ 
+Index: po/nl.po.in
+===================================================================
+--- po/nl.po.in	(revision 4791)
++++ po/nl.po.in	(working copy)
+@@ -1314,6 +1314,16 @@
+ msgid "Former Destinations"
+ msgstr "Vorige bestemmingen"
+ 
++msgid ""
++"Former\n"
++"Destinations"
++msgstr ""
++"Vorige\n"
++"bestemmingen"
++
++msgid "- No former destinations available -"
++msgstr "- Geen vorige bestemmingen -"
++
+ msgid "Bookmarks"
+ msgstr "Favorieten"
+ 

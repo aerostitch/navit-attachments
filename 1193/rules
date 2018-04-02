@@ -1,0 +1,96 @@
+#!/usr/bin/make -f
+
+# This is to let dpkg-buildflags do its job with CFLAGS
+CMAKEFLAGS = -DCMAKE_BUILD_TYPE=debian -DCMAKE_C_FLAGS_DEBIAN=""
+
+# Cross building
+ifneq ($(DEB_HOST_MULTIARCH),$(DEB_BUILD_MULTIARCH))
+export CC=$(DEB_HOST_MULTIARCH)-gcc
+export CXX=$(DEB_HOST_MULTIARCH)-g++
+export CMAKE_TOOLCHAIN_FILE=/etc/dpkg-cross/cmake/CMakeCross.txt
+CMAKEFLAGS += -DCMAKE_LIBRARY_PATH="/usr/$(DEB_HOST_MULTIARCH)/lib" -DCMAKE_REQUIRED_INCLUDES="/usr/$(DEB_HOST_MULTIARCH)/include;/usr/$(DEB_HOST_MULTIARCH)/include/$(DEB_HOST_MULTIARCH)" \
+	-DCMAKE_C_FLAGS_DEBIAN="$(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS) -I/usr/$(DEB_HOST_MULTIARCH)/include -I/usr/$(DEB_HOST_MULTIARCH)/include/$(DEB_HOST_MULTIARCH)" \
+	-DCMAKE_CXX_FLAGS_DEBIAN="$(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS) -I/usr/$(DEB_HOST_MULTIARCH)/include -I/usr/$(DEB_HOST_MULTIARCH)/include/$(DEB_HOST_MULTIARCH) -I/usr/$(DEB_HOST_MULTIARCH)/include/qt4"
+CMAKEFLAGS += -DQT_QTCORE_LIBRARY="/usr/$(DEB_HOST_MULTIARCH)/lib/libQtCore.so"
+CMAKEFLAGS += -DQT_QTCORE_LIBRARY_RELEASE="/usr/$(DEB_HOST_MULTIARCH)/lib/libQtCore.so"
+else
+export CC=gcc
+export CXX=g++
+CMAKEFLAGS += -DCMAKE_C_FLAGS_DEBIAN="$(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)" \
+	-DCMAKE_CXX_FLAGS_DEBIAN="$(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)"
+endif
+CMAKEFLAGS += -DCMAKE_MODULE_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)"
+CMAKEFLAGS += -DCMAKE_SHARED_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)"
+CMAKEFLAGS += -DCMAKE_EXE_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)"
+
+# Native compiler (for navit/map/garmin/gentypes.c)
+CMAKEFLAGS += -DNATIVE_CC=gcc
+
+# Fonts
+CMAKEFLAGS += -Dfont/freetype=TRUE
+
+# svg2png is required to display country flags
+CMAKEFLAGS += -Dsvg2png_scaling=0,8,16,32,48,96 -Dsvg2png_scaling_flag=8,16,32,48,96 -Dsvg2png_scaling_nav=8,16,32,48,96
+
+# Force svg2png conversion using rsvg-convert since it is the most reliable
+# ATM
+CMAKEFLAGS += -DIMAGE_CONVERTER_SVGZ=rsvg-convert
+
+# Enable GUIs we want
+CMAKEFLAGS += -Dgui/gtk=TRUE -Dgui/internal=TRUE -Dgui/qml=FALSE
+
+# Bindings
+CMAKEFLAGS += -Dbinding/dbus=TRUE
+# Pyrhon binding not available through cmake
+#CMAKEFLAGS += -Dbinding/python=FALSE
+
+# Wanted graphic backends
+CMAKEFLAGS += -Dgraphics/gtk_drawing_area=TRUE -Dgraphics/qt_qpainter=TRUE -Dgraphics/null=TRUE
+
+# Unwanted graphic backends (yet)
+# opengl and sdl backends aren't mature enough
+# gd backend segfaults
+CMAKEFLAGS += -Dgraphics/android=FALSE -Dgraphics/gd=FALSE -Dgraphics/sdl=FALSE -Dgraphics/opengl=FALSE
+
+# don't build the samplemap - we don't want to download
+# stuff while building...
+CMAKEFLAGS += -DSAMPLE_MAP=FALSE
+
+# Maps
+CMAKEFLAGS += -Dmap/garmin=TRUE -Dmap/mg=TRUE -Dmap/binfile=TRUE -Dmap/csv=TRUE -Dmap/shapefile=TRUE
+
+# Vehicles
+CMAKEFLAGS += -Dvehicle/null=TRUE -Dvehicle/demo=TRUE -Dvehicle/gpsd=TRUE
+# disable gypsy support as there's no gypsy in Debian
+CMAKEFLAGS += -Dvehicle/gypsy=FALSE
+
+# Enable plugin pedestrian
+CMAKEFLAGS += -Dplugin/pedestrian=TRUE
+
+# Enable support/shapefile
+CMAKEFLAGS += -Dsupport/shapefile=TRUE
+
+# Avoid floating point calculation for armel
+ifeq ($(DEB_HOST_ARCH), armel)
+  CMAKEFLAGS += -DAVOID_FLOAT=TRUE
+endif
+
+# Prevent installing into lib64 when arch is 64 bits
+CMAKEFLAGS += -DLIBDIR=lib
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CMAKEFLAGS)
+
+override_dh_auto_install:
+	dh_auto_install
+	# Generate icon for Debian menu
+	mkdir -p $(CURDIR)/debian/tmp/usr/share/pixmaps
+	convert $(CURDIR)/navit/xpm/desktop_icons/128x128/navit.png -resize 32x32 $(CURDIR)/debian/tmp/usr/share/pixmaps/navit.xpm
+
+	# Default navit configuration file moved into /etc
+	mkdir -p $(CURDIR)/debian/tmp/etc/navit
+	mv $(CURDIR)/debian/tmp/usr/share/navit/navit.xml \
+	   $(CURDIR)/debian/tmp/etc/navit/

@@ -1,0 +1,102 @@
+Index: navit/navit.c
+===================================================================
+--- navit/navit.c	(revision 3559)
++++ navit/navit.c	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2009 Navit Team
++ * Copyright (C) 2005-2010 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -571,7 +571,7 @@
+ 	if (abs(new_scale - scale) < 2) { 
+ 		return; // Smoothing
+ 	}
+-	
++
+ 	if (new_scale >= this_->autozoom_min) {
+ 		navit_scale(this_, (long)new_scale, &pc, 0);
+ 	} else {
+@@ -588,15 +588,36 @@
+  * @param factor The zoom factor, usually 2
+  * @param p The invariant point (if set to NULL, default to center)
+  * @returns nothing
+- */
++ *
++ *	This function works both for the case where autozooming is inactive and when
++ *	it is active.  If autozooming is not active, the scale (zoom) is simply
++ *	adjusted by the passed factor.  If autozooming is active, the autozoom time
++ *	window (this_->autozoom_secs) is adjusted by the factor and the screen is
++ *	forced to redraw by a call to navit_cmd_set_center_cursor().  The result of
++ *	changing this_->autozoom_secs is to change the how much of the map is shown
++ *	at a given speed.
++*/
+ void
+ navit_zoom_in(struct navit *this_, int factor, struct point *p)
+ {
+-	long scale=transform_get_scale(this_->trans)/factor;
+-	if (scale < 1)
+-		scale=1;
+-	navit_scale(this_, scale, p, 1);
+-}
++	long scale;	
++	if (! this_->autozoom_active)		/* if not autozooming */
++	{
++		/* ... simply adjust the scale  */
++		scale=transform_get_scale(this_->trans)/factor;
++		if (scale < 1)
++			scale=1;
++		navit_scale(this_, scale, p, 1);
++	}
++	else
++	{
++		/* ... adjust the autozoom "size" (autozoom_secs) */
++		this_->autozoom_secs /= factor;
++		if (this_->autozoom_secs < this_->autozoom_min)
++			this_->autozoom_secs = this_->autozoom_min;
++		navit_cmd_set_center_cursor(this_); /* force redraw autozoom */
++	}
++} /* end: navit_zoom_in */
+ 
+ /**
+  * Change the current zoom level
+@@ -605,13 +626,33 @@
+  * @param factor The zoom factor, usually 2
+  * @param p The invariant point (if set to NULL, default to center)
+  * @returns nothing
+- */
++ *
++ *	This function works both for the case where autozooming is inactive and when
++ *	it is active.  If autozooming is not active, the scale (zoom) is simply
++ *	adjusted by the passed factor.  If autozooming is active, the autozoom time
++ *	window (this_->autozoom_secs) is adjusted by the factor and the screen is
++ *	forced to redraw by a call to navit_cmd_set_center_cursor().  The result of
++ *	changing this_->autozoom_secs is to change the how much of the map is shown
++ *	at a given speed.
++ *
++ *
++*/
+ void
+ navit_zoom_out(struct navit *this_, int factor, struct point *p)
+ {
+-	long scale=transform_get_scale(this_->trans)*factor;
+-	navit_scale(this_, scale, p, 1);
+-}
++	if (! this_->autozoom_active)		/* if not autozooming */
++	{
++		/* ... simply adjust the scale  */
++		long scale=transform_get_scale(this_->trans)*factor;
++		navit_scale(this_, scale, p, 1);
++	}
++	else
++	{
++		/* ... adjust the autozoom "size" (autozoom_secs) */
++		this_->autozoom_secs *= factor;
++		navit_cmd_set_center_cursor(this_); /* force redraw autozoom */
++	}
++} /* end: navit_zoom_out(..) */
+ 
+ static int
+ navit_cmd_zoom_in(struct navit *this_)

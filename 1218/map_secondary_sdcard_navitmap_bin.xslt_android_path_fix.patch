@@ -1,0 +1,13 @@
+--- navit/xslt/map_secondary_sdcard_navitmap_bin.xslt	2014-05-03 11:26:51.525317435 +0200
++++ navit/xslt/map_secondary_sdcard_navitmap_bin.xslt.new	2014-06-24 11:59:39.833399498 +0200
+@@ -1,8 +1,8 @@
+ <?xml version="1.0"?>
+ <xsl:transform version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude">
+ 	<xsl:template match="/config/navit/mapset/xi:include">
+-		<map type="binfile" enabled="yes" data="/sdcard/navit/navitmap.bin" />
++		<map type="binfile" enabled="yes" data="/mnt/extSdCardx/navit/navitmap.bin" />
+ 		<xsl:text>&#x0A;                        </xsl:text>
+-		<map type="binfile" enabled="yes" data="/sdcard/navit/navitmap_002.bin" />
++		<map type="binfile" enabled="yes" data="/mnt/extSdCard/navit/navitmap_002.bin" />
+ 	</xsl:template>
+ </xsl:transform>

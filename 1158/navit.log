@@ -1,0 +1,1378 @@
+Navit log started
+binding_win32:module_binding_win32_init:enter
+navit:main_real:Loading \SDMMC\navit/navit.xml
+binding_win32:win32_main_navit:enter
+binding_win32:win32_main_navit:enter2
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 100 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 105 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 60 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000402 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x40000000 rev 0x40000000 flags 0x40000000 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type path avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 20 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 22 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 22 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 2 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 17 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type track_ground avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 22 weight 7 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x80000000 rev 0x80000000 flags 0x80000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x20000000 rev 0x20000000 flags 0x20000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 2 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l 2134 w 274 h 411 wg 36287 awg 15422 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x200102 rev 0x200101 flags 0x200100 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 55 weight 55 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 30 weight 30 max 0
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in ',00.0,,M,,M,,0000*45'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 217 intervals delay.
+navit:tracking_update:failed to get position data 1 1 1 0
+vehicle_wince:vehicle_wince_parse:no *XX in '$GPGSV,3,3,11,325'
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3800 intervals gone.
+Navit log started
+binding_win32:module_binding_win32_init:enter
+navit:main_real:Loading \SDMMC\navit/navit.xml
+binding_win32:win32_main_navit:enter
+binding_win32:win32_main_navit:enter2
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 100 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 105 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 60 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000402 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x40000000 rev 0x40000000 flags 0x40000000 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type path avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 20 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 22 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 22 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 2 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 17 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type track_ground avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 22 weight 7 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x80000000 rev 0x80000000 flags 0x80000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x20000000 rev 0x20000000 flags 0x20000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 2 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l 2134 w 274 h 411 wg 36287 awg 15422 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x200102 rev 0x200101 flags 0x200100 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 55 weight 55 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 30 weight 30 max 0
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in '6.6,,M,,M,,0000*47'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 216 intervals delay.
+vehicle_wince:vehicle_wince_parse:no leading $ in ',,,,,,,,12.2,07.5,09.6*12'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 9 intervals delay.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1400 intervals gone.
+Navit log started
+binding_win32:module_binding_win32_init:enter
+navit:main_real:Loading \SDMMC\navit/navit.xml
+binding_win32:win32_main_navit:enter
+binding_win32:win32_main_navit:enter2
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 100 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 105 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 60 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000402 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x40000000 rev 0x40000000 flags 0x40000000 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type path avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 20 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 22 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 22 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 2 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 17 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type track_ground avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 22 weight 7 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x80000000 rev 0x80000000 flags 0x80000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x20000000 rev 0x20000000 flags 0x20000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 2 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l 2134 w 274 h 411 wg 36287 awg 15422 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x200102 rev 0x200101 flags 0x200100 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 55 weight 55 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 30 weight 30 max 0
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in '14,24,29,31,,,,,,,03.1,01.2,02.9*13'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 235 intervals delay.
+vehicle_wince:vehicle_wince_parse:wrong checksum in '$GPGSV,3,1,10,29,48,191,35,12,43,2,10,02,28,076,13,24,14,136,22,04,15,039,14,25,84,000,*71'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 10 intervals delay.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+Navit log started
+binding_win32:module_binding_win32_init:enter
+navit:main_real:Loading \SDMMC\navit/navit.xml
+binding_win32:win32_main_navit:enter
+binding_win32:win32_main_navit:enter2
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 100 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 105 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 60 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000402 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x4000002 rev 0x4000001 flags 0x4000000 max 0 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 65 weight 65 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 120 weight 120 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 40 weight 40 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x40000000 rev 0x40000000 flags 0x40000000 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type path avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 20 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 22 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 22 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 22 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 2 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 20 weight 7 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 17 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 22 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type track_ground avg 12 weight 12 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 20 weight 15 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 22 weight 7 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x80000000 rev 0x80000000 flags 0x80000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l -1 w -1 h -1 wg -1 awg -1 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x20000000 rev 0x20000000 flags 0x20000000 max 1 stsp 3 stdst 10 dg 0
+navit:vehicleprofile_debug_roadprofile:type path avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_pedestrian avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type bridleway avg 10 weight 10 max 0
+navit:vehicleprofile_debug_roadprofile:type cycleway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type footway avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type steps avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 2 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 4 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 2 max 0
+navit:vehicleprofile_update:enter
+navit:vehicleprofile_update:result l 2134 w 274 h 411 wg 36287 awg 15422 pen 9000
+navit:vehicleprofile_update:m 0 fwd 0x200102 rev 0x200101 flags 0x200100 max 1 stsp 5 stdst 25 dg 0
+navit:vehicleprofile_debug_roadprofile:type street_2_city avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type roundabout avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type living_street avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_city avg 30 weight 30 max 0
+navit:vehicleprofile_debug_roadprofile:type ferry avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_city avg 40 weight 40 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_city avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_land avg 50 weight 50 max 0
+navit:vehicleprofile_debug_roadprofile:type street_2_land avg 55 weight 55 max 0
+navit:vehicleprofile_debug_roadprofile:type street_3_land avg 60 weight 60 max 0
+navit:vehicleprofile_debug_roadprofile:type street_parking_lane avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_paved avg 20 weight 20 max 0
+navit:vehicleprofile_debug_roadprofile:type street_4_land avg 70 weight 70 max 0
+navit:vehicleprofile_debug_roadprofile:type track_gravelled avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_n_lanes avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_0 avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type street_service avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type track_unpaved avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type highway_land avg 80 weight 80 max 0
+navit:vehicleprofile_debug_roadprofile:type street_1_city avg 5 weight 5 max 0
+navit:vehicleprofile_debug_roadprofile:type ramp avg 30 weight 30 max 0
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_bahai' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_buddhist' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_hindu' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_islamic' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jain' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_jewish' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pagan' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_pastafarian' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_shinto' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_sikh' ignored.
+navit:attr_new_from_text:Unknown item type 'poi_taoist' ignored.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in '0,A,5147.8031,N,00128.3325,W,000.0,332.1,130813,,,A*7A'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 255 intervals delay.
+vehicle_wince:vehicle_wince_parse:wrong checksum in '$GPGGA,103845.000,5126,151,*79'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 9 intervals delay.
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 1800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 2800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 3800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 4000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 4200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 4400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 4600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 4800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 5000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 5200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 5400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 5600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 5800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 6000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 6200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 6400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 6600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 6800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 7000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 7200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 7400 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 7600 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 7800 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 8000 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 8200 intervals gone.
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 8400 intervals gone.

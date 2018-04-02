@@ -1,0 +1,26 @@
+<osd enabled="yes" type="compass" x="5" y="5" font_size="250" w="60" h="62" background_color="#48852faf"/>
+<osd enabled="yes" type="gps_status" x="70" y="5" w="50" h="40" background_color="#48852faf"/>
+<osd enabled="yes" type="text" label="${vehicle.position_sats_signal}/${vehicle.position_qual}" x="70"
+   y="45" font_size="300" w="50" h="22" align="0" background_color="#48852faf"/>
+<osd enabled="yes" type="text" label="${vehicle.position_speed[mph]}" x="5" y="72" font_size="400" w="115"
+   h="35" align="4" background_color="#48852faf"/>
+<osd enabled="yes" type="text" label="ETA: ${navigation.item.destination_time[arrival]}" x="5" y="-220"
+   font_size="400" w="170" h="30" align="4" background_color="#1a6ad780"/>
+<osd enabled="yes" type="text" label="Left to Go" x="5" y="-185" font_size="400" w="170" h="30" align="4"
+background_color="#1a6ad780"/>
+<osd enabled="yes" type="text" label="${navigation.item.destination_length[miles]}" x="5" y="-150" 
+   font_size="400" w="170" h="30" align="4" background_color="#1a6ad780"/>
+<osd enabled="yes" type="text" label="${navigation.item.destination_time[remaining]}" x="5" y="-115" 
+   font_size="400" w="170" h="30" align="4" background_color="#1a6ad780"/>
+<osd enabled="yes" type="text" label="In ${navigation.item[1].length[miles]} " x="5" y="-40" 
+   font_size="500" w="235" h="35" align="4" background_color="#000000c8"/>
+<osd enabled="yes" type="navigation_next_turn" x="245" y="-45" font_size="500" w="60" h="40"
+   background_color="#000000c8"/>
+<osd enabled="yes" type="text" label="onto ${navigation.item[1].street_name}" x="310" y="-40"
+   font_size="500" w="485" h="35" align="4" background_color="#000000c8"/>
+<osd enabled="yes" type="text" label="${navigation.item.street_name}" x="150" y="5"  font_size="500"
+   w="500" h="35" align="0" background_color="#ff71004b"/> 
+<osd enabled="yes" type="button" x="-60" y="0" command="zoom_in()" src="gui_zoom_in.png"/>
+<osd enabled="yes" type="toggle_announcer" x="-65" y="95" w="60" h="60" background_color="#1a6ad700"/>
+<osd enabled="yes" type="button" x="-60" y="200" command="gui.fullscreen()" src="gui_fullscreen.png"/>
+<osd enabled="yes" type="button" x="-60" y="-105" command="zoom_out()" src="gui_zoom_out.png"/> 

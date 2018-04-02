@@ -1,0 +1,141 @@
+Index: graphics/win32/graphics_win32.c
+===================================================================
+--- graphics/win32/graphics_win32.c	(revision 4536)
++++ graphics/win32/graphics_win32.c	(working copy)
+@@ -245,7 +245,7 @@
+     hdc = GetDC( gr->wnd_handle );
+     // Creates memory DC
+     gr->hMemDC = CreateCompatibleDC(hdc);
+-    dbg(0, "resize memDC to: %d %d \n", gr->width, gr->height );
++    dbg(1, "resize memDC to: %d %d \n", gr->width, gr->height );
+ 
+ 
+ #ifndef  FAST_TRANSPARENCY
+@@ -381,7 +381,7 @@
+             gra_priv->width = LOWORD( lParam );
+             gra_priv->height  = HIWORD( lParam );
+             create_memory_dc(gra_priv);
+-            dbg(0, "resize gfx to: %d %d \n", gra_priv->width, gra_priv->height );
++            dbg(1, "resize gfx to: %d %d \n", gra_priv->width, gra_priv->height );
+             callback_list_call_attr_2(gra_priv->cbl, attr_resize, (void *)gra_priv->width, (void *)gra_priv->height);
+         }
+         break;
+@@ -601,7 +601,7 @@
+     if ( win_priv && !win_priv->hBackLight )
+     {
+         win_priv->hBackLight = SetPowerRequirement(TEXT("BKL1:"), 0, 0x01, NULL, 0);
+-        event_win32_add_timeout(29000, 1, callback_new(SystemIdleTimerReset, 0, NULL));
++        event_win32_add_timeout(9000, 1, callback_new(SystemIdleTimerReset, 0, NULL));
+     }
+ 
+     SystemIdleTimerReset();
+@@ -1005,13 +1005,16 @@
+         angle += 360;
+ 
+     SetTextAlign (gr->hMemDC, TA_BASELINE) ;
+-    SetViewportOrgEx (gr->hMemDC, p->x, p->y, NULL) ;
+     font->lf.lfEscapement = font->lf.lfOrientation = ( angle * 10 ) ;
+     DeleteObject (font->hfont) ;
+ 
+     font->hfont = CreateFontIndirect (&font->lf);
+     hOldFont = SelectObject(gr->hMemDC, font->hfont );
+ 
++    TEXTMETRIC tm; 
++    GetTextMetrics(gr->hMemDC, &tm); 
++    SetViewportOrgEx (gr->hMemDC, p->x, p->y - tm.tmDescent , NULL) ; 
++
+     {
+         wchar_t utf16[1024];
+         const UTF8 *utf8 = (UTF8 *)text;
+@@ -1029,6 +1032,7 @@
+ 
+     SelectObject(gr->hMemDC, hOldFont);
+     DeleteObject (font->hfont) ;
++    font->hfont = NULL;
+ 
+     SetBkMode( gr->hMemDC, prevBkMode );
+ 
+@@ -1040,6 +1044,7 @@
+     if ( font->hfont )
+     {
+         DeleteObject(font->hfont);
++        font->hfont = NULL;
+     }
+     g_free(font);
+ }
+@@ -1438,6 +1443,40 @@
+ 
+     dbg(2, "Get bbox for %s\n", text);
+ 
++    if ( NULL == font->hfont )
++    {
++#ifdef WIN_USE_SYSFONT
++        font->hfont = (HFONT) GetStockObject (SYSTEM_FONT);
++        GetObject (font->hfont, sizeof (LOGFONT), &font->lf);
++#else
++        font->hfont = EzCreateFont (gr->hMemDC, TEXT ("Arial"), font->size/2, 0, 0, TRUE);
++        GetObject ( font->hfont, sizeof (LOGFONT), &font->lf) ;
++#endif
++    }
++
++    HFONT hOldFont = SelectObject(gr->hMemDC, font->hfont );
++
++    {
++        wchar_t utf16[1024];
++        const UTF8 *utf8 = (UTF8 *)text;
++        UTF16 *utf16p = (UTF16 *) utf16;
++        if (ConvertUTF8toUTF16(&utf8, utf8+strlen(text),
++                               &utf16p, utf16p+sizeof(utf16),
++                               lenientConversion) == conversionOK)
++        {
++            SIZE size;
++            if (GetTextExtentPointW(gr->hMemDC, utf16, (wchar_t*) utf16p - utf16, &size)) {
++                yMax = size.cy;
++                xMax = size.cx;
++            }
++        }
++    }
++
++    SelectObject(gr->hMemDC, hOldFont);
++
++    DeleteObject(font->hfont);
++    font->hfont = NULL;
++    
+     ret[0].x = xMin;
+     ret[0].y = -yMin;
+     ret[1].x = xMin;
+@@ -1545,7 +1584,7 @@
+ {
+     MSG msg;
+ 
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+     while (GetMessage(&msg, 0, 0, 0))
+     {
+         TranslateMessage(&msg);       /*  Keyboard input.      */
+@@ -1561,7 +1600,7 @@
+     HWND hwndSip;
+ #endif
+ 
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+ 
+ #ifdef HAVE_API_WIN32_CE
+     hwndTaskbar = FindWindow(L"HHTaskBar", NULL);
+@@ -1577,14 +1616,14 @@
+ static struct event_watch *
+             event_win32_add_watch(void *h, enum event_watch_cond cond, struct callback *cb)
+ {
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+     return NULL;
+ }
+ 
+ static void
+ event_win32_remove_watch(struct event_watch *ev)
+ {
+-    dbg(0,"enter\n");
++    dbg(1,"enter\n");
+ }
+ 
+ static GList *timers;

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE config SYSTEM "navit.dtd">
+<!-- For configuration options used in this file, please read
+     http://wiki.navit-project.org/index.php/Configuring_NavIt 
+     Do not edit /usr/share/navit/navit.xml : changes would be lost
+     on upgrade. Rather copy it to ~/.navit/. Please read wiki -->
+<config xmlns:xi="http://www.w3.org/2001/XInclude">
+    <plugins>
+        <plugin path="$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}lib*.so" ondemand="yes"/>
+		<plugin path="$NAVIT_LIBDIR/autoload/${NAVIT_LIBPREFIX}lib*.so" active="no"/>
+        <plugin path="$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}libbinding_dbus.so" active="no"/>
+        <plugin path="$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}libgraphics_null.so" active="no"/>
+    </plugins>
+	<!-- Recommended for MacOS by wiki: ~
+	<plugins>		
+		<plugin path="/opt/local/lib/navit/binding/libbinding_python.dylib"/>
+		<plugin path="/opt/local/lib/navit/data/libdata_binfile.dylib"/>
+		<plugin path="/opt/local/lib/navit/data/libdata_mg.dylib"/>
+		<plugin path="/opt/local/lib/navit/data/libdata_poi_geodownload.dylib"/>
+		<plugin path="/opt/local/lib/navit/data/libdata_textfile.dylib"/>
+		<plugin path="/opt/local/lib/navit/graphics/libgraphics_gtk_drawing_area.dylib" />
+		<plugin path="/opt/local/lib/navit/graphics/libgraphics_null.dylib" active="no"/>
+		<plugin path="/opt/local/lib/navit/gui/libgui_gtk.dylib" />
+		<plugin path="/opt/local/lib/navit/osd/libosd_core.dylib" />
+		<plugin path="/opt/local/lib/navit/speech/libspeech_cmdline.dylib" />
+		<plugin path="/opt/local/lib/navit/vehicle/libvehicle_demo.dylib" />
+		<plugin path="/opt/local/lib/navit/vehicle/libvehicle_file.dylib" />
+	 </plugins>
+	-->
+    <debug name="navit:do_draw" level="0"/>
+    <!-- This is here so one can copy&paste the contents of popup menus --> 
+    <debug name="navit:popup_printf_cb" level="0"/>
+    <!-- segv: 1 - show backtrace with gdb and exit, 2 - stay in gdb -->
+    <debug name="segv" level="1"/>
+    <!-- timestamps 0/1 - prefix log messages with a timestamp -->
+    <debug name="timestamps" level="0"/>
+    <!-- This line defines which location on the map navit will show after startup.
+         It makes sense to set it to your home coordinates.
+         Center coordinates format:
+         [D][D]DMM.ss[S][S]... N/S [D][D]DMM.ss[S][S]... E/W 
+         [-][D]D.d[d]... [-][D][D]D.d[d]... 
+         [-]0xX [-]0xX -->
+
+    <navit imperial="1" center="3408 N 7834 W" zoom="256" tracking="0" cursor="1" orientation="-1" recent_dest="10">
+		<gui type="internal" />
+		<graphics type="gtk_drawing_area" />
+		
+		<!--
+		<gui type="internal" />
+		<graphics type="sdl" />
+
+		<gui type="gtk" />
+		<graphics type="gtk_drawing_area" />
+
+		<gui type="internal" />
+		<graphics type="qt_qpainter" />
+
+		<gui type="cegui" tilt="400" view_mode="3D" skin="Mineque" />
+		<graphics type="opengl" />
+		-->
+
+		<!-- for a debug log -->
+        <log enabled="no" type="textfile_debug" data="debug_%Y%m%d-%i.txt" flush_size="1000" flush_time="30"/>
+
+        <!-- osd items allow to position display and control items directly on top of the map: -->
+        <osd enabled="yes" type="compass"/>
+        <osd enabled="yes" type="eta"/> 
+        <osd enabled="yes" type="navigation_distance_to_target"/> 
+        <osd enabled="yes" type="navigation"/> 
+        <osd enabled="yes" type="navigation_distance_to_next"/> 
+        <osd enabled="yes" type="navigation_next_turn"/> 
+
+        <!-- Commands include gui_internal_menu, gui_internal_fullscreen, zoom_in and zoom_out.
+             Usage of negative values change the button origins. x="0" y="0" specifies the top left, x="-0" y="-0" the bottom right corner.
+             It's always the top left corner of the icon, so you need to consider the icon's size when you enter the values. -->
+        <osd enabled="yes" type="button" x="0" y="0" command="gui.fullscreen()" src="toggle_fullscreen.xpm"/> 
+        <osd enabled="yes" type="button" x="-96" y="0" command="gui.menu()" src="menu.xpm"/>
+        <osd enabled="yes" type="button" x="-96" y="-96" command="zoom_in()" src="zoom_in.xpm"/>
+        <osd enabled="yes" type="button" x="0" y="-96" command="zoom_out()" src="zoom_out.xpm"/> 
+
+		<osd enabled="yes" type="text" label="${navigation.item.destination_length[miles]}" x="5" y="-150" 
+			   font_size="400" w="170" h="30" align="4" background_color="#1a6ad780"/>
+
+
+		<xi:include href="$NAVIT_SHAREDIR/vehicles/*.xml"/>
+
+		<!-- For the cumulative displacement filter to be enabled, set cdf_histsize="x" here, with x being an integer somewhere around 4 -->
+        <tracking cdf_histsize="0"/>
+
+        <route destination_distance="50"/>
+
+        <navigation>
+            <announce type="street_0,street_1_city" level0="25" level1="100" level2="200" unit="m"/>
+            <announce type="street_2_city,street_3_city,street_4_city,ramp" level0="50" level1="200" level2="500" unit="m"/>
+            <announce type="highway_city,street_1_land,street_2_land,street_3_land,street_4_land" level0="100" level1="400" level2="1000" unit="m"/>
+            <announce type="street_n_lanes,highway_land" level0="300" level1="1000" level2="2000" unit="m"/>
+        </navigation>
+
+        <!-- Navit provides speech output in text format.
+             If you have a speech synthesizer like festival lite installed, you can get turn by turn directions out of navit. Please set the "cps"-value to how many characters your tts engine approximately speaks per second.
+             The default is text output to the shell -->
+        <speech type="cmdline" data="echo 'Fix the speech tag in navit.xml to let navit say:' '%s'" cps="15"/>
+        <!-- <speech type="cmdline" data="flite -t '%s'"/> -->
+
+        <mapset enabled="yes">
+            <xi:include href="$NAVIT_SHAREDIR/maps/*.xml"/>
+        </mapset>
+
+		<xi:include href="$NAVIT_SHAREDIR/layouts/*.xml"/>
+    </navit>
+</config>

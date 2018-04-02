@@ -1,0 +1,45 @@
+Index: graphics.c
+===================================================================
+--- graphics.c	(revision 4147)
++++ graphics.c	(working copy)
+@@ -1091,7 +1091,7 @@
+ draw_circle(struct point *pnt, int diameter, int scale, int start, int len, struct point *res, int *pos, int dir)
+ {
+ 	struct circle *c;
+-
++//printf("DEBUG 1  %d\n",*pos);
+ #if 0
+ 	dbg(0,"diameter=%d start=%d len=%d pos=%d dir=%d\n", diameter, start, len, *pos, dir);
+ #endif
+@@ -1119,9 +1119,12 @@
+ 			while (i < count && c[i].fowler <= start)
+ 				i+=step;
+ 			while (i < count && c[i].fowler < end) {
+-				res[*pos].x=pnt->x+((c[i].x*diameter+128)>>8);
+-				res[*pos].y=pnt->y+((c[i].y*diameter+128)>>8);
+-				(*pos)+=dir;
++				if (1< *pos) {
++					//printf("DEBUG 3  %d\n",*pos);
++					res[*pos].x=pnt->x+((c[i].x*diameter+128)>>8);
++					res[*pos].y=pnt->y+((c[i].y*diameter+128)>>8);
++					(*pos)+=dir;
++				}
+ 				i+=step;
+ 			}
+ 			end-=1024;
+@@ -1137,9 +1140,12 @@
+ 			while (i >= 0 && c[i].fowler >= start)
+ 				i-=step;
+ 			while (i >= 0 && c[i].fowler > end) {
+-				res[*pos].x=pnt->x+((c[i].x*diameter+128)>>8);
+-				res[*pos].y=pnt->y+((c[i].y*diameter+128)>>8);
+-				(*pos)+=dir;
++				if (1< *pos) {
++					//printf("DEBUG 2  %d\n",*pos);
++					res[*pos].x=pnt->x+((c[i].x*diameter+128)>>8);
++					res[*pos].y=pnt->y+((c[i].y*diameter+128)>>8);
++					(*pos)+=dir;
++				}
+ 				i-=step;
+ 			}
+ 			start+=1024;

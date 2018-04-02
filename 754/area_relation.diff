@@ -1,0 +1,575 @@
+Index: osm.c
+===================================================================
+--- osm.c	(revision 4854)
++++ osm.c	(working copy)
+@@ -710,6 +710,7 @@
+ 	"w	waterway=canal		water_canal\n"
+ 	"w	waterway=drain		water_drain\n"
+ 	"w	waterway=river		water_river\n"
++	"w	water=river		water_river\n"
+ 	"w	waterway=riverbank	poly_water\n"
+ 	"w	waterway=stream		water_stream\n"
+ 	"w	barrier=ditch	ditch\n"
+@@ -943,6 +944,24 @@
+ 	char buffer[BUFFER_SIZE*2+2];
+ 	if (in_relation) {
+ 		relation_add_tag(k,v);
++
++		//for relation areas we don't set flags
++		strcpy(buffer,"*=*");
++		if ((idx=(int)(long)g_hash_table_lookup(attr_hash, buffer)))
++			attr_present[idx]=1;
++
++		sprintf(buffer,"%s=*", k);
++		if ((idx=(int)(long)g_hash_table_lookup(attr_hash, buffer)))
++			attr_present[idx]=2;
++
++		sprintf(buffer,"*=%s", v);
++		if ((idx=(int)(long)g_hash_table_lookup(attr_hash, buffer)))
++			attr_present[idx]=2;
++
++		sprintf(buffer,"%s=%s", k, v);
++		if ((idx=(int)(long)g_hash_table_lookup(attr_hash, buffer)))
++			attr_present[idx]=4;
++
+ 		return;
+ 	}
+ 	if (! strcmp(k,"ele"))
+@@ -1483,9 +1502,69 @@
+ }
+ 
+ 
++static int
++attr_longest_match(struct attr_mapping **mapping, int mapping_count, enum item_type *types, int types_count)
++{
++	int i,j,longest=0,ret=0,sum,val;
++	struct attr_mapping *curr;
++	for (i = 0 ; i < mapping_count ; i++) {
++		sum=0;
++		curr=mapping[i];
++		for (j = 0 ; j < curr->attr_present_idx_count ; j++) {
++			val=attr_present[curr->attr_present_idx[j]];
++			if (val)
++				sum+=val;
++			else {
++				sum=-1;
++				break;
++			}
++		}
++		if (sum > longest) {
++			longest=sum;
++			ret=0;
++		}
++		if (sum > 0 && sum == longest && ret < types_count)
++			types[ret++]=curr->type;
++	}
++	return ret;
++}
++
++static void
++attr_longest_match_clear(void)
++{
++	memset(attr_present, 0, sizeof(*attr_present)*attr_present_count);
++}
++
+ void
+ osm_end_relation(struct maptool_osm *osm)
+ {
++	int count,itcount=0;
++	enum item_type types[10];
++	types[0] = type_none;
++
++	count=attr_longest_match(attr_mapping_way, attr_mapping_way_count, types, sizeof(types)/sizeof(enum item_type));
++	if(count>0) {
++		int ii;
++
++		struct attr attr;
++		attr.type = attr_item_types;
++		attr.u.item_types = NULL;
++
++		for(ii=0;ii<count;ii++) {
++			if(item_type_is_area(types[ii])) {
++				boundary = 1;
++				attr.u.item_types = g_realloc(attr.u.item_types, (itcount+2)*sizeof(enum item_type));
++				attr.u.item_types[itcount] = types[ii];
++				attr.u.item_types[itcount+1] = type_none;
++				++itcount;
++			}
++		}
++		if(itcount>0) {
++			item_bin_add_attr(item_bin, &attr);
++		}
++	}
++	attr_longest_match_clear();
++
+ 	in_relation=0;
+ 	if ((!strcmp(relation_type, "multipolygon") || !strcmp(relation_type, "boundary")) && boundary) {
+ #if 0
+@@ -1554,40 +1633,6 @@
+ 	}
+ }
+ 
+-
+-static int
+-attr_longest_match(struct attr_mapping **mapping, int mapping_count, enum item_type *types, int types_count)
+-{
+-	int i,j,longest=0,ret=0,sum,val;
+-	struct attr_mapping *curr;
+-	for (i = 0 ; i < mapping_count ; i++) {
+-		sum=0;
+-		curr=mapping[i];
+-		for (j = 0 ; j < curr->attr_present_idx_count ; j++) {
+-			val=attr_present[curr->attr_present_idx[j]];
+-			if (val)
+-				sum+=val;
+-			else {
+-				sum=-1;
+-				break;
+-			}
+-		}
+-		if (sum > longest) {
+-			longest=sum;
+-			ret=0;
+-		}
+-		if (sum > 0 && sum == longest && ret < types_count)
+-			types[ret++]=curr->type;
+-	}
+-	return ret;
+-}
+-
+-static void
+-attr_longest_match_clear(void)
+-{
+-	memset(attr_present, 0, sizeof(*attr_present)*attr_present_count);
+-}
+-
+ void
+ osm_end_way(struct maptool_osm *osm)
+ {
+@@ -2563,6 +2608,7 @@
+ 	processed_nodes=processed_nodes_out=processed_ways=processed_relations=processed_tiles=0;
+ 	sig_alrm(0);
+ 	while ((ib=read_item(in))) {
++		int self_intersect;
+ #if 0
+ 		fprintf(stderr,"type 0x%x len %d clen %d\n", ib->type, ib->len, ib->clen);
+ #endif
+@@ -2578,7 +2624,8 @@
+ 				if (ni) {
+ 					c[i]=ni->c;
+ 					if (ni->ref_way > 1 && i != 0 && i != ccount-1 && i != last && item_get_default_flags(ib->type)) {
+-						write_item_part(out, out_index, out_graph, ib, last, i, &last_id);
++						if(!(0 != self_intersect_test(ib) && item_type_is_area(ib->type)))
++							write_item_part(out, out_index, out_graph, ib, last, i, &last_id);
+ 						last=i;
+ 					}
+ 				} else if (final) {
+@@ -2593,10 +2640,16 @@
+ 				}
+ 			}
+ 		}
++		self_intersect = self_intersect_test(ib);
++		if(self_intersect!=0 && (ib->type == type_water_line || item_type_is_area(ib->type)) ) {
++			osm_warning("way", item_bin_get_wayid(ib), 0, "Self intersecting area\n");
++		}
+ 		if (ccount) {
+-			write_item_part(out, out_index, out_graph, ib, last, ccount-1, &last_id);
++			if(!(0 != self_intersect && item_type_is_area(ib->type)))
++				write_item_part(out, out_index, out_graph, ib, last, ccount-1, &last_id);
+ 			if (final && ib->type == type_water_line && out_coastline) {
+-				write_item_part(out_coastline, NULL, NULL, ib, last, ccount-1, NULL);
++				if(0 == self_intersect)
++					write_item_part(out_coastline, NULL, NULL, ib, last, ccount-1, NULL);
+ 			}
+ 		}
+ 	}
+Index: itembin_buffer.c
+===================================================================
+--- itembin_buffer.c	(revision 4854)
++++ itembin_buffer.c	(working copy)
+@@ -22,8 +22,10 @@
+ #include "debug.h"
+ 
+ 
+-static char buffer[800000];
++static char buffer[8000000];
+ struct item_bin *item_bin=(struct item_bin *)(void *)buffer;
++static char buffer_relation_area[8000000];
++struct item_bin *item_bin_relation_area=(struct item_bin *)(void *)buffer_relation_area;
+ static struct node_item *node_item=(struct node_item *)(void *)buffer;
+ 
+ struct node_item *
+Index: maptool.h
+===================================================================
+--- maptool.h	(revision 4854)
++++ maptool.h	(working copy)
+@@ -121,6 +121,7 @@
+ struct boundary {
+ 	struct item_bin *ib;
+ 	struct country_table *country;
++	enum item_type* area_item_types;
+ 	char *iso2;
+ 	GList *segments,*sorted_segments;
+ 	GList *children;
+@@ -187,8 +188,10 @@
+ GList *geom_poly_segments_sort(GList *in, enum geom_poly_segment_type type);
+ struct geom_poly_segment *item_bin_to_poly_segment(struct item_bin *ib, int type);
+ int geom_poly_segments_point_inside(GList *in, struct coord *c);
++GList* geom_poly_segments_group(GList *in, GList *out);
+ void clip_line(struct item_bin *ib, struct rect *r, struct tile_parameter *param, struct item_bin_sink *out);
+ void clip_polygon(struct item_bin *ib, struct rect *r, struct tile_parameter *param, struct item_bin_sink *out);
++int self_intersect_test(struct item_bin*ib);
+ 
+ /* itembin.c */
+ 
+@@ -240,6 +243,7 @@
+ extern struct buffer node_buffer;
+ extern int processed_nodes, processed_nodes_out, processed_ways, processed_relations, processed_tiles;
+ extern struct item_bin *item_bin;
++extern struct item_bin *item_bin_relation_area;
+ extern int bytes_read;
+ extern int overlap;
+ extern int unknown_country;
+Index: geom.c
+===================================================================
+--- geom.c	(revision 4854)
++++ geom.c	(working copy)
+@@ -357,6 +357,127 @@
+ 	return ret;
+ }
+ 
++/* 
++ * create groups of segments by merging segments with common endpoint
++ */
++GList* geom_poly_segments_group(GList *in, GList *out)
++{
++	out = g_list_copy(in);
++	//TODO check that there is no memleak
++
++	int changed;
++	do {
++		changed = 0;
++		GList*l1 = out;
++		while(l1) {
++			struct geom_poly_segment *l1_ = l1->data;
++			if(l1_->type!=geom_poly_segment_type_way_outer) {
++				GList*l1_d = l1;
++				l1 = g_list_next(l1);
++				if(!l1) {
++					break;
++				}
++				l1_ = l1->data;
++				out = g_list_remove(out, l1_d);
++				continue;
++			}
++			GList*l2 = l1;
++			while(l2) {
++				struct geom_poly_segment *l2_ = l2->data;
++				if(l2_->type!=geom_poly_segment_type_way_outer) {
++					GList*l2_d = l2;
++					l2 = g_list_next(l2);
++					if(!l2) {
++						break;
++					}
++					l2_ = l2->data;
++					out = g_list_remove(out, l2_d);
++					continue;
++				}
++				if( l1!=l2 && l1_ && l2_ && l1_->first && l2_->last &&
++					(coord_equal(l1_->first, l2_->first) || /* have_common_endpoints(l1,l2)*/ 
++						coord_equal(l1_->first, l2_->last) || 
++						coord_equal(l1_->last, l2_->first) || 
++						coord_equal(l1_->last, l2_->last))		&& 
++					!coord_equal(l1_->first,l1_->last) && !coord_equal(l2_->first,l2_->last) /*do not group closed polys*/ ) {
++					int reverse_1 = 0;
++					int reverse_2 = 0;
++					int order_12 = 1;
++					//merge coords of (l1,l2) (append coords to the front or rear, perhaps reversed)
++						//l1.front==l2.front 
++							//l2 reversed ... l1 inorder
++						if (coord_equal(l1_->first,l2_->first)) {
++							reverse_1 = 0;
++							reverse_2 = 1;
++							order_12  = 0;
++						}
++						//l1.rear==l2.front
++							//l1 inorder ... l2 inorder
++						else if (coord_equal(l1_->last,l2_->first)) {
++							reverse_1 = 0;
++							reverse_2 = 0;
++							order_12  = 1;
++						}
++						//l1.front==l2.rear
++							//l2 inorder ... l1 inorder
++						else if (coord_equal(l1_->first,l2_->last)) {
++							reverse_1 = 0;
++							reverse_2 = 0;
++							order_12  = 0;
++						}
++								//l1.rear==l2.rear
++							//l1 inorder ... l2 reversed
++						else if (coord_equal(l1_->last,l2_->last)) {
++							reverse_1 = 0;
++							reverse_2 = 1;
++							order_12  = 1;
++						}
++					//reverse l1 or l2 if necessary
++					int size_1 = (l1_->last-l1_->first)+1;
++					int size_2 = (l2_->last-l2_->first)+1;
++					if (reverse_1) {
++						int ii;
++						for (ii=0;ii<size_1/2;++ii) {
++							struct coord tmp = l1_->first[ii];
++							l1_->first[ii] = l1_->first[size_1-ii-1];
++							l1_->first[size_1-ii-1] = tmp;
++						}
++					}
++					if (reverse_2) {
++						int ii;
++						for (ii=0;ii<size_2/2;++ii) {
++							struct coord tmp = l2_->first[ii];
++							l2_->first[ii] = l2_->first[size_2-ii-1];
++							l2_->first[size_2-ii-1] = tmp;
++						}
++					}
++					//append l1 to l2 or l2 to l1 appropriately (with the common point added only once)
++					if(order_12 && size_2>1) {
++						l1_->first = g_realloc(l1_->first,sizeof(struct coord)*(size_1+size_2)-1);
++						memcpy(l1_->first+size_1,l2_->first,(size_2-1)*sizeof(struct coord));
++						l1_->last += size_2-1;
++					} else if( !order_12 && size_1>1) {
++						l2_->first = g_realloc(l2_->first,sizeof(struct coord)*(size_1+size_2-1));
++						memcpy(l2_->first+size_2,l1_->first,(size_1-1)*sizeof(struct coord));
++						l2_->last = size_1-1;
++					}
++					//remove l1 or l2 appropriately
++					if (order_12) {
++						out = g_list_remove(out, l2);
++					} else {
++						out = g_list_remove(out, l1);
++					}
++					changed=1;
++				}
++				l2 = g_list_next(l2);
++			}
++			l1 = g_list_next(l1);
++		}
++	} while(changed);
++return out;
++}
++
++
+ int
+ geom_poly_segments_point_inside(GList *in, struct coord *c)
+ {
+@@ -620,3 +741,83 @@
+ 		item_bin_write_clipped(ib_in, param, out);
+ 	}
+ }
++
++
++
++
++static int coord_dot_prod (struct coord* c1, struct coord* c2)
++{
++	return c1->x*c2->x + c1->y*c2->y;
++}
++
++
++static void coord_sub (struct coord* c1, struct coord* c2, struct coord* cout)
++{
++	cout->x = c1->x - c2->x;
++	cout->y = c1->y - c2->y;
++}
++
++int self_intersect_test(struct item_bin*ib)
++{
++	int vertices_count = ib->clen/2;
++	if(vertices_count<4) {
++		return 0;
++	}
++	struct coord*vertices = (struct coord*)(ib+1);
++	int i;
++	for (i = 0; i < vertices_count; ++i) {
++                if (i < vertices_count - 1) {
++		    int h;
++                    for (h = i + 1; h < vertices_count; ++h)
++                    {
++                        // Do two vertices lie on top of one another?
++                        if ( i!=0 && h-i!=1 && h-i!=-1 && vertices[i].x == vertices[h].x && vertices[i].y == vertices[h].y ) {
++                            return 1;
++                        }
++                    }
++                }
++
++                int j = (i + 1) % vertices_count;
++                struct coord iToj;
++		coord_sub(&vertices[j], &vertices[i], &iToj);
++                struct coord iTojNormal;
++		iTojNormal.x =  iToj.y;
++		iTojNormal.y = -iToj.x;
++                // i is the first vertex and j is the second
++                int startK = (j + 1) % vertices_count;
++                int endK = (i - 1 + vertices_count) % vertices_count;
++                endK += startK < endK ? 0 : startK + 1;
++                int k = startK;
++                struct coord iTok; 
++		coord_sub(&vertices[k], &vertices[i], &iTok);
++                int onLeftSide = coord_dot_prod(&iTok, &iTojNormal) >= 0;
++                struct coord prevK = vertices[k];
++                ++k;
++                for (; k <= endK; ++k)
++                {
++                    int modK = k % vertices_count;
++		    coord_sub(&vertices[modK], &vertices[i], &iTok);
++                    if (onLeftSide != coord_dot_prod(&iTok, &iTojNormal) >= 0)
++                    {
++                        struct coord prevKtoK, idiff, jdiff;
++			coord_sub(&vertices[modK], &prevK, &prevKtoK);
++                        struct coord prevKtoKNormal;
++			prevKtoKNormal.x = prevKtoK.y;
++			prevKtoKNormal.y = -prevKtoK.x;
++			coord_sub(&vertices[i],&prevK,&idiff);
++			coord_sub(&vertices[j],&prevK,&jdiff);
++                        if ((coord_dot_prod(&idiff, &prevKtoKNormal) >= 0) != (coord_dot_prod(&jdiff, &prevKtoKNormal) >= 0))
++                        {
++                            if(i!=j-1 && i!=j+1) {
++                               return 1;
++			    }
++                        }
++                    }
++                    onLeftSide = coord_dot_prod(&iTok, &iTojNormal) > 0;
++                    prevK = vertices[modK];
++                }
++            }
++            return 0;
++}
++
++
+Index: boundaries.c
+===================================================================
+--- boundaries.c	(revision 4854)
++++ boundaries.c	(working copy)
+@@ -70,6 +70,16 @@
+ 	while ((ib=read_item(boundaries))) {
+ 		char *member=NULL;
+ 		struct boundary *boundary=g_new0(struct boundary, 1);
++		boundary->area_item_types = NULL; 
++		enum item_type* p_item_type;
++		if(p_item_type = item_bin_get_attr(ib,attr_item_types,NULL)) {
++			int i=0;
++			do {
++				boundary->area_item_types = g_realloc(boundary->area_item_types, (i+1)*sizeof(enum item_type));
++				boundary->area_item_types[i] = *p_item_type;
++				i++;
++			} while(*p_item_type++!=type_none); 
++		}
+ 		char *admin_level=osm_tag_value(ib, "admin_level");
+ 		char *iso=osm_tag_value(ib, "ISO3166-1");
+ 		/* disable spain for now since it creates a too large index */
+@@ -202,12 +212,18 @@
+ 	while (l) {
+ 		struct boundary *boundary=l->data;
+ 		int first=1;
+-		FILE *f=NULL,*fu=NULL;
++		FILE *f=NULL,*fu=NULL,*ways_split=NULL;
+ 		if (boundary->country) {
+ 			char *name=g_strdup_printf("country_%s_poly",boundary->iso2);
+ 			f=tempfile("",name,1);
+ 			g_free(name);
+ 		}
++		int to_write = 0;
++		if (boundary->area_item_types) {
++			ways_split=tempfile("","ways_split",2);
++			struct item_bin *ib=item_bin_relation_area;
++			item_bin_init(ib, boundary->area_item_types[0]);
++		}
+ 		boundary->sorted_segments=geom_poly_segments_sort(boundary->segments, geom_poly_segment_type_way_right_side);
+ 		sl=boundary->sorted_segments;
+ 		while (sl) {
+@@ -228,6 +244,11 @@
+ 				item_bin_add_coord(ib, gs->first, gs->last-gs->first+1);
+ 				item_bin_write(ib, f);
+ 			}
++			if (ways_split && gs->type==geom_poly_segment_type_way_outer) {
++				struct item_bin *ib=item_bin_relation_area;
++				item_bin_add_coord(ib, gs->first, gs->last-gs->first+1);
++				to_write = 1;
++			}
+ 			if (boundary->country) {
+ 				if (!coord_is_equal(*gs->first,*gs->last)) {
+ 					if (!fu) {
+@@ -246,16 +267,72 @@
+ 			}
+ 			sl=g_list_next(sl);
+ 		}	
++
++
++		if (ways_split && to_write ) {
++			struct item_bin *ib=item_bin_relation_area;
++			if(0 == self_intersect_test(ib)) {
++				int i=0;
++				do {
++					ib->type= boundary->area_item_types[i++];
++					item_bin_write(ib, ways_split);
++				} while(boundary->area_item_types[i]!=type_none);
++			} else {
++				//TODO is segments are disjunct polygons, group outer segments and write items for them
++				GList*grouped_segments =
++					geom_poly_segments_group(boundary->sorted_segments, grouped_segments);
++				GList *l = grouped_segments;
++				int self_intersected_grouped = 0;
++				while (l) {
++					struct geom_poly_segment *gs=l->data;
++					//create item_bin-s for the current segment
++					int i=0;
++					struct item_bin *ib=item_bin_relation_area;
++					//TODO if segment type is outer
++					item_bin_init(ib,boundary->area_item_types[0]);
++					item_bin_add_coord(ib, gs->first, gs->last-gs->first+1);
++					if( 0!=self_intersect_test(ib)) {
++						self_intersected_grouped = 1;
++					} else {
++						do {
++							ib->type= boundary->area_item_types[i++];
++							item_bin_write(ib, ways_split);
++						} while(boundary->area_item_types[i]!=type_none);
++					}
++					l=g_list_next(l);
++				}
++
++				//TODO if there is also self intersecting poly in the disjuct set
++				if(self_intersected_grouped) {
++					osm_warning("relation",item_bin_get_relationid(boundary->ib),0,"Self intersecting relation area\n");
++				}
++#if 0
++				struct coord*crd = (struct coord*)(ib+1);
++				int ii;
++				for(ii=0;ii<ib->clen/2;++ii) {
++					printf("CRD:%d %d\n",crd->x,crd->y);
++					crd++;
++				}
++#endif
++			}
++			item_bin_init(ib, type_poly_water);
++#if 0
++			printf("CRD:\n");
++#endif
++		}
++
+ 		ret=process_boundaries_insert(ret, boundary);
+ 		l=g_list_next(l);
+ 		if (f) 
+ 			fclose(f);
++		if (ways_split) 
++			fclose(ways_split);
+ 		if (fu) {
+ 			if (boundary->country)
+ 				osm_warning("relation",item_bin_get_relationid(boundary->ib),0,"Broken country polygon '%s'\n",boundary->iso2);
+ 			fclose(fu);
+ 		}
+-		
++	g_free(boundary->area_item_types);
+ 	}
+ #if 0
+ 	printf("hierarchy\n");

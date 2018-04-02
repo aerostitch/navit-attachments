@@ -1,0 +1,87 @@
+Index: file.c
+===================================================================
+--- file.c	(revision 5532)
++++ file.c	(working copy)
+@@ -51,6 +51,19 @@
+ #include <netdb.h>
+ #endif
+ 
++#ifdef HAVE_WINSOCK
++#include <winsock2.h>
++#include <ws2tcpip.h>
++int inet_aton(const char *cp, struct in_addr *inp);
++
++int inet_aton(const char *cp, struct in_addr *inp)
++{
++	unsigned long addr = inet_addr(cp);
++	inp->S_un.S_addr = addr;
++	return addr!=-1;
++}
++#endif
++
+ extern char *version;
+ 
+ #ifdef HAVE_LIBCRYPTO
+@@ -95,7 +108,7 @@
+ #pragma pack(pop)
+ #endif
+ 
+-#ifdef HAVE_SOCKET
++#if defined(HAVE_SOCKET) || defined(HAVE_WINSOCK)
+ static int
+ file_socket_connect(char *host, char *service)
+ {
+@@ -103,6 +116,11 @@
+ 	struct addrinfo *result, *rp;
+ 	int fd=-1,s;
+ 
++#ifdef _WIN32
++	WSADATA wsi;
++	WSAStartup(0x0202,&wsi);
++#endif
++
+ 	memset(&hints, 0, sizeof(struct addrinfo));
+ 	hints.ai_family = AF_UNSPEC;
+ 	hints.ai_socktype = SOCK_STREAM;
+@@ -130,7 +148,11 @@
+ file_http_request(struct file *file, char *method, char *host, char *path, char *header, int persistent)
+ {
+ 	char *request=g_strdup_printf("%s %s HTTP/1.0\r\nUser-Agent: navit %s\r\nHost: %s\r\n%s%s%s\r\n",method,path,version,host,persistent?"Connection: Keep-Alive\r\n":"",header?header:"",header?"\r\n":"");
++#ifdef _WIN32
++	send(file->fd, request, strlen(request), 0);
++#else
+ 	write(file->fd, request, strlen(request));
++#endif
+ 	dbg(1,"%s\n",request);
+ 	file->requests++;
+ }
+@@ -202,7 +224,7 @@
+ int
+ file_request(struct file *f, struct attr **options)
+ {
+-#ifdef HAVE_SOCKET
++#if defined(HAVE_SOCKET) || defined(HAVE_WINSOCK)
+ 	return file_request_do(f, options, 0);
+ #else
+ 	return 0;
+@@ -225,7 +247,7 @@
+ 	int open_flags=O_LARGEFILE|O_BINARY;
+ 
+ 	if (options && (attr=attr_search(options, NULL, attr_url))) {
+-#ifdef HAVE_SOCKET
++#if defined(HAVE_SOCKET) || defined(HAVE_WINSOCK)
+ 		file_request_do(file, options, 1);
+ #endif
+ 	} else {
+@@ -436,7 +458,11 @@
+ 		if (toread >= 4096 && !eof) {
+ 			if (!file->requests && toread > size)
+ 				toread=size;
++#ifdef _WIN32
++			rd=recv(file->fd, file->buffer+file->buffer_len, toread, 0);
++#else
+ 			rd=read(file->fd, file->buffer+file->buffer_len, toread);
++#endif
+ 			if (rd > 0) {
+ 				file->buffer_len+=rd;
+ 			} else

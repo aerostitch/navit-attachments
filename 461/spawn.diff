@@ -1,0 +1,104 @@
+Index: navit.c
+===================================================================
+--- navit.c	(revision 4319)
++++ navit.c	(working copy)
+@@ -66,6 +66,10 @@
+ #include "vehicleprofile.h"
+ #include "sunriset.h"
+ #include "bookmarks.h"
++#ifdef HAVE_API_WIN32_BASE
++#include <windows.h>
++#include "util.h"
++#endif
+ 
+ /**
+  * @defgroup navit the navit core instance. navit is the object containing nearly everything: A set of maps, one or more vehicle, a graphics object for rendering the map, a gui object for displaying the user interface, a route object, a navigation object and so on. Be warned that it is theoretically possible to have more than one navit object
+@@ -941,6 +945,80 @@
+ 	}
+ }
+ 
++/**
++ * Call external program
++ *
++ * @param navit The navit instance
++ * @param function unused (needed to match command function signiture)
++ * @param in input attributes in[0] - name of executable, in[1..] - parameters
++ * @param out output attribute unused
++ * @param valid unused 
++ * @returns nothing
++ */
++static void
++navit_cmd_spawn(struct navit *this, char *function, struct attr **in, struct attr ***out, int *valid)
++{
++	int i,j, nparms, nvalid;
++	const char ** spawn_params=NULL;
++
++	nparms=0;
++	nvalid=0;
++	if(in) {
++		while(in[nparms]) {
++			if (ATTR_IS_STRING(in[nparms]->type) && in[nparms]->u.str) 
++				nvalid++;
++			nparms++;
++		}
++	}
++	
++	if(nvalid>0) {
++		spawn_params=g_new(char*,nvalid+1);
++		for(i=0,j=0;in[i];i++) {
++			if((ATTR_IS_STRING(in[i]->type) && in[i]->u.str))
++				spawn_params[j++]=in[i]->u.str;
++		}
++		spawn_params[j]=NULL;
++#ifdef USE_EXEC
++		if(fork()==0) {
++			execvp(spawn_params[0], spawn_params);
++			/*Shouldn't reach here*/
++			exit(1);
++		}
++		g_free(spawn_params);
++		return;
++#else
++#ifdef HAVE_API_WIN32_BASE
++	{
++		char *cmdline;
++		PROCESS_INFORMATION pr;
++		LPCWSTR cmd,args;
++		cmdline=g_strjoinv(" ",spawn_params+1);
++		cmd = newSysString(spawn_params[0]);
++		args=newSysString(cmdline);
++		CreateProcess(cmd, args, NULL, NULL, 0, 0, NULL, NULL, NULL, &pr);
++		dbg(0, "CreateProcess(%s,%s)\n",spawn_params[0],cmdline);
++		g_free(cmdline);
++		g_free(cmd);
++		g_free(args);
++		g_free(spawn_params);
++		return;
++	}
++#else
++	{
++		char *cmdline;
++		cmdline=g_strjoinv(" ",spawn_params);
++		system(cmdline);
++		g_free(cmdline);
++		g_free(spawn_params);
++		return;
++	}
++#endif
++#endif
++	g_free(spawn_params);
++	}
++}
++
++
+ static struct command_table commands[] = {
+ 	{"zoom_in",command_cast(navit_cmd_zoom_in)},
+ 	{"zoom_out",command_cast(navit_cmd_zoom_out)},
+@@ -956,6 +1034,7 @@
+ 	{"pop_int",command_cast(navit_cmd_pop_int)},
+ 	{"int_stack_size",command_cast(navit_cmd_int_stack_size)},
+ 	{"toggle_layer",command_cast(navit_cmd_toggle_layer)},
++	{"spawn",command_cast(navit_cmd_spawn)},
+ };
+ 	
+ void 

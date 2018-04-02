@@ -1,0 +1,1 @@
+10-19 09:43:29.959: INFO/vold(550): Evaluating dev '/devices/platform/goldfish_mmc.0/mmc_host/mmc0/mmc0:e118/block/mmcblk0' for mountable filesystems for '/sdcard'

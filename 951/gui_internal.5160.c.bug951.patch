@@ -1,0 +1,232 @@
+--- gui_internal.5160.c.orig	2012-06-26 08:27:33.590384854 +0200
++++ gui_internal.c	2012-06-26 08:27:33.602384906 +0200
+@@ -4820,7 +4820,18 @@
+ 		struct table_data *td=(struct table_data*)(md->search_list->data);
+ 		td->button_box_hide=mode<1024;
+ 	}
+-	
++
++	if (mode == 1023) { /* special case for coordinates input screen (enter_coord) */
++		KEY("0"); KEY("1"); KEY("2"); KEY("3"); KEY("4"); SPACER(); KEY("N"); KEY("S");
++		KEY("5"); KEY("6"); KEY("7"); KEY("8"); KEY("9"); SPACER(); KEY("E"); KEY("W");
++		KEY("°"); KEY("."); KEY("'"); 
++		gui_internal_keyboard_key(this, wkbd, space," ",max_w,max_h);
++		SPACER();
++		SPACER();
++		SPACER();
++		gui_internal_keyboard_key(this, wkbd, backspace,"\b",max_w,max_h);
++	}	
++
+ 	if (mode >= 1024) {
+ 		char *text=NULL;
+ 		int font=0;
+@@ -6489,7 +6500,201 @@
+ 	attr_list_free(attr_list);
+ }
+ 
++//##############################################################################################################
++//# Description:
++//# Comment:
++//# Authors: Martin Bruns (05/2012)
++//##############################################################################################################
++static void
++gui_internal_cmd_enter_coord_do(struct gui_priv *this, struct widget *widget)
++{
++	struct widget *wb;
++	char *lat, *lng;
++	char *degree_lat, *degree_lng;
++	char *minute_lat, *minute_lng;
++	char *second_lat, *second_lng;
++	char widgettext[30];
++	double latitude, longitude; 
++	double deg_lat, deg_lng;
++	double min_lat, min_lng;
++	double sec_lat, sec_lng;
++	char *minus_lat = g_alloca(2);
++	char *minus_lng = g_alloca(2);
++	strcpy(minus_lat, "");
++	strcpy(minus_lng, "");
++	dbg(3,"text entered:%s\n", widget->text);
++        gui_internal_enter(this, 1);
++        gui_internal_enter_setup(this);
++        wb=gui_internal_menu(this, _("Map Point"));
++
++	/* possible entry can be identical to coord_format output but only space between lat and lng is allowed */
++	lat=strtok(widget->text," ");
++	lng=strtok(NULL,"");
++
++	/* tokenize lat */
++	if (strstr(lat, "S") || strstr(lat, "s")) strcpy(minus_lat, "-"); 
++	dbg(3,"lat: %s minus_lat: %s\n", lat, minus_lat);
++	degree_lat=strtok(lat,"°");
++	dbg(3,"lat: %s minus_lat: %s\n", lat, minus_lat);
++	if (strstr(degree_lat, "N") || strstr(degree_lat, "S") || strstr(degree_lat, "n") || strstr(degree_lat, "s")) { /* DEGREES_DECIMAL */
++		dbg(3,"degree N/S found\n");
++		deg_lat = strtold(degree_lat, NULL);
++		latitude = deg_lat;
++	} else { /* DEGREES_MINUTES */
++		minute_lat = strtok(NULL,"'"); 
++		minute_lat = minute_lat++; /* jump over the degree sign */
++		if (strstr(minute_lat, "N") || strstr(minute_lat, "S") || strstr(minute_lat, "n") || strstr(minute_lat, "s") ) {
++			dbg(3,"minute N/S found\n");
++			/* degree_lat and minute_lat needs to be computed to latitude */
++			deg_lat = strtold(degree_lat, NULL);
++			min_lat = strtold(minute_lat, NULL);
++			dbg(3,"DEGREES_MINUTES deg_lat: %lf\n",deg_lat);
++			dbg(3,"DEGREES_MINUTES min_lat: %ls\n",min_lat); 
++			latitude = (min_lat/60) + deg_lat;
++		} else { /* DEGREES_MINUTES_SECONDS */
++			second_lat=strtok(NULL,"");  
++			/* degree_lat, minute_lat and second_lat needs to be computed to latitude */
++			deg_lat = strtold(degree_lat, NULL);
++			min_lat = strtold(minute_lat, NULL);
++			sec_lat = strtold(second_lat, NULL);
++			sec_lat = sec_lat++;
++			dbg(3,"DEGREES_MINUTES_SECONDS deg_lat: %lf\n",deg_lat);
++			dbg(3,"DEGREES_MINUTES_SECONDS min_lat: %lf\n",min_lat); 
++			dbg(3,"DEGREES_MINUTES_SECONDS sec_lat: %lf\n",sec_lat); 
++			latitude =(((sec_lat/60) + min_lat)/60 + deg_lat);
++		}
++	}
++	dbg(3,"latitude: %lf\n",latitude); 
++	
++	/* tokenize lng*/
++	if (strstr(lng, "W") || strstr(lng, "w")) strcpy(minus_lng, "-"); 
++	dbg(3,"lng: %s minus_lng: %s\n", lng, minus_lng);
++	degree_lng=strtok(lng,"°");	/* how to divert if no °? */
++	if (strstr(degree_lng, "W") || strstr(degree_lng, "E") || strstr(degree_lng, "w") || strstr(degree_lng, "e")) { /* DEGREES_DECIMAL */
++		dbg(3,"degree W/E found\n");
++		deg_lng = strtold(degree_lng, NULL);
++		longitude = deg_lng;
++	} else { /* DEGREES_MINUTES */
++		minute_lng = strtok(NULL,"'"); 
++		minute_lng = minute_lng++; /* jump over the degree sign */
++		if (strstr(minute_lng, "W") || strstr(minute_lng, "E") || strstr(minute_lng, "w") || strstr(minute_lng, "E") ) {
++			dbg(3,"minute W/E found\n");
++			/* degree_lng and minute_lng needs to be computed to longitude */
++			deg_lng = strtold(degree_lng, NULL);
++			min_lng = strtold(minute_lng, NULL);
++			dbg(3,"DEGREES_MINUTES deg_lng: %lf\n",deg_lng);
++			dbg(3,"DEGREES_MINUTES min_lng: %ls\n",min_lng); 
++			longitude = (min_lng/60) + deg_lat;
++		} else { /* DEGREES_MINUTES_SECONDS */
++			second_lng=strtok(NULL,"");  
++			/* degree_lng, minute_lng and second_lng needs to be computed to longitude */
++			deg_lng = strtold(degree_lng, NULL);
++			min_lng = strtold(minute_lng, NULL);
++			sec_lng = strtold(second_lng, NULL);
++			sec_lng = sec_lng++;
++			dbg(3,"DEGREES_MINUTES_SECONDS deg_lng: %lf\n",deg_lng);
++			dbg(3,"DEGREES_MINUTES_SECONDS min_lng: %lf\n",min_lng); 
++			dbg(3,"DEGREES_MINUTES_SECONDS sec_lng: %lf\n",sec_lng); 
++			longitude =(((sec_lng/60) + min_lng)/60 + deg_lng);
++		}
++	}
++	dbg(3,"longitude: %lf\n",longitude); 
++	dbg(3,"widgettext: '%s%lf %s%lf'\n", minus_lng, longitude, minus_lat, latitude);	
++	sprintf(widgettext, "%s%lf %s%lf", minus_lng, longitude, minus_lat, latitude);	
++	dbg(3,"widgettext: %s\n", widgettext);
++	pcoord_parse(widgettext, projection_mg, &wb->c );
++
++	wb->data=(void*)8;
++	gui_internal_prune_menu(this, NULL);
++        gui_internal_menu(this, _("Enter Coordinates"));
++        gui_internal_menu_render(this);
++	gui_internal_cmd_position(this, wb, NULL);
++	gui_internal_leave(this);
++	gui_internal_check_exit(this);
++}
++
++//##############################################################################################################
++//# Description:
++//# Comment:
++//# Authors: Martin Bruns (05/2012)
++//##############################################################################################################
++static void
++gui_internal_cmd_enter_coord_clicked(struct gui_priv *this, struct widget *widget, void *data)
++{
++	dbg(0,"entered\n");
++        gui_internal_cmd_enter_coord_do(this, widget->data);
++}
++
++//##############################################################################################################
++//# Description:
++//# Comment:
++//# Authors: Martin Bruns (05/2012)
++//##############################################################################################################
++static void
++gui_internal_cmd_enter_coord_changed(struct gui_priv *this, struct widget *wm, void *data)
++{
++        int len;
++        if (wm->text) {
++                len=strlen(wm->text);
++                if (len && (wm->text[len-1] == '\n' || wm->text[len-1] == '\r')) {
++                        wm->text[len-1]='\0';
++                        gui_internal_cmd_enter_coord_do(this, wm);
++                }
++        }
++}
++
++//##############################################################################################################
++//# Description:
++//# Comment:
++//# Authors: Martin Bruns (05/2012)
++//##############################################################################################################
++static void
++gui_internal_cmd_enter_coord(struct gui_priv *this, char *function, struct attr **in, struct attr ***out, int *valid)
++{
++        struct widget *w, *wb, *wk, *we, *wnext, *row;
++        gui_internal_enter(this, 1);
++        gui_internal_enter_setup(this);
++        wb=gui_internal_menu(this, _("Enter Coordinates"));
++        w=gui_internal_box_new(this, gravity_left_top|orientation_vertical|flags_expand|flags_fill);
++        gui_internal_widget_append(wb, w);
++
++        we=gui_internal_box_new(this, gravity_left_center|orientation_horizontal|flags_fill);
++        gui_internal_widget_append(w, we);
++        gui_internal_widget_append(we, wk=gui_internal_label_new(this, _("Longitude Latitude")));
++        wk->state |= STATE_EDIT|STATE_EDITABLE|STATE_CLEAR;
++        wk->background=this->background;
++        wk->flags |= flags_expand|flags_fill;
++        wk->func = gui_internal_cmd_enter_coord_changed;
++        gui_internal_widget_append(we, wnext=gui_internal_image_new(this, image_new_xs(this, "gui_active")));
++        wnext->state |= STATE_SENSITIVE;
++        wnext->func = gui_internal_cmd_enter_coord_clicked; 
++        wnext->data=wk;
++	row=gui_internal_text_new(this, " ", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, " ", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, "Enter Coordinates like sample ones below", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, " ", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, "52.5219N 19.4127E", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, " ", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, "52°31.3167N 19°24.7667E", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, " ", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, "52°31'19N 19°24'46E", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
++	row=gui_internal_text_new(this, " ", gravity_top_center|flags_fill|orientation_vertical);
++	gui_internal_widget_append(w,row);
+ 
++	if (this->keyboard)
++                gui_internal_widget_append(w, gui_internal_keyboard(this,1023));
++        gui_internal_menu_render(this);
++	gui_internal_leave(this);
++}
+ 
+ //##############################################################################################################
+ //# Description: Function to handle mouse clicks and scroll wheel movement
+@@ -8088,6 +8293,7 @@
+ 	{"setting_rules",command_cast(gui_internal_cmd2_setting_rules)},
+ 	{"setting_vehicle",command_cast(gui_internal_cmd2_setting_vehicle)},
+ 	{"town",command_cast(gui_internal_cmd2_town)},
++	{"enter_coord",command_cast(gui_internal_cmd_enter_coord)},
+ 	{"quit",command_cast(gui_internal_cmd2_quit)},
+ 	{"write",command_cast(gui_internal_cmd_write)},
+ 	{"about",command_cast(gui_internal_cmd2_about)},

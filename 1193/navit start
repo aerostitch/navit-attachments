@@ -1,0 +1,21 @@
+:~$ navit
+navit:main_real:Loading /etc/navit/navit.xml
+navit:plugin_load:can't load '/usr/lib/navit/font/libfont_freetype.so', Error '/usr/lib/navit/font/libfont_freetype.so: undefined symbol: FTC_ImageCache_New'
+GNU gdb (GDB) 7.6.1-ubuntu
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /usr/bin/navit...(no debugging symbols found)...done.
+Attaching to program: /usr/bin/navit, process 3599
+Could not attach to process.  If your uid matches the uid of the target
+process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try
+again as the root user.  For more details, see /etc/sysctl.d/10-ptrace.conf
+ptrace: Die Operation ist nicht erlaubt.
+/home/jff/3599: Datei oder Verzeichnis nicht gefunden.
+No stack.
+The program is not being run.

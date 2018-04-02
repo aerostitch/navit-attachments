@@ -1,0 +1,203 @@
+Index: navit/navit/attr_def.h
+===================================================================
+--- navit/navit/attr_def.h	(revision 5982)
++++ navit/navit/attr_def.h	(working copy)
+@@ -121,7 +121,7 @@
+ ATTR_UNUSED
+ ATTR(route_status)
+ ATTR(route_weight)
+-ATTR_UNUSED
++ATTR(roundabout_weight)
+ ATTR(route_mode)
+ ATTR(maxspeed_handling)
+ ATTR(flags_forward_mask)
+Index: navit/navit/maptool/osm.c
+===================================================================
+--- navit/navit/maptool/osm.c	(revision 5982)
++++ navit/navit/maptool/osm.c	(working copy)
+@@ -606,21 +606,21 @@
+ 	"w	highway=trunk_link			ramp\n"
+ 	"w	highway=primary				street_4_land\n"
+ 	"w	highway=primary,name=*,rural=1		street_4_land\n"
+-	"w	highway=primary,name=*			street_4_city\n"
++	"w	highway=primary,name=*			street_4_land\n"
+ 	"w	highway=primary,rural=0			street_4_city\n"
+-	"w	highway=primary_link			ramp\n"
++	"w	highway=primary_link			street_4_land\n"
+ 	"w	highway=secondary			street_3_land\n"
+ 	"w	highway=secondary,name=*,rural=1	street_3_land\n"
+-	"w	highway=secondary,name=*		street_3_city\n"
++	"w	highway=secondary,name=*		street_3_land\n"
+ 	"w	highway=secondary,rural=0		street_3_city\n"
+ 	"w	highway=secondary,area=1		poly_street_3\n"
+-	"w	highway=secondary_link			ramp\n"
++	"w	highway=secondary_link			street_3_land\n"
+ 	"w	highway=tertiary			street_2_land\n"
+ 	"w	highway=tertiary,name=*,rural=1		street_2_land\n"
+-	"w	highway=tertiary,name=*			street_2_city\n"
++	"w	highway=tertiary,name=*			street_2_land\n"
+ 	"w	highway=tertiary,rural=0		street_2_city\n"
+ 	"w	highway=tertiary,area=1			poly_street_2\n"
+-	"w	highway=tertiary_link			ramp\n"
++	"w	highway=tertiary_link			street_2_land\n"
+ 	"w	highway=residential			street_1_city\n"
+ 	"w	highway=residential,area=1		poly_street_1\n"
+ 	"w	highway=unclassified			street_1_city\n"
+Index: navit/navit/roadprofile.c
+===================================================================
+--- navit/navit/roadprofile.c	(revision 5975)
++++ navit/navit/roadprofile.c	(working copy)
+@@ -36,6 +36,9 @@
+ 	case attr_route_weight:
+ 		this->route_weight=attr->u.num;
+ 		break;
++	case attr_roundabout_weight:
++			this->roundabout_weight=attr->u.num;
++			break;
+ 	default:
+ 		break;
+ 	}
+Index: navit/navit/roadprofile.h
+===================================================================
+--- navit/navit/roadprofile.h	(revision 5975)
++++ navit/navit/roadprofile.h	(working copy)
+@@ -25,6 +25,7 @@
+ 	NAVIT_OBJECT
+         int speed;
+         int route_weight;
++        int roundabout_weight;
+ 	int maxspeed;
+ };
+ 
+Index: navit/navit/route.c
+===================================================================
+--- navit/navit/route.c	(revision 5977)
++++ navit/navit/route.c	(working copy)
+@@ -1916,7 +1916,10 @@
+  * @brief Returns the estimated speed on a segment
+  *
+  * This function returns the estimated speed to be driven on a segment, 0=not passable
++ * Uses route_weight and roundabout_weight from the roadprofile in navit.xml to
++ * modify the speed or OSM maxspeed
+  *
++ *
+  * @param profile The routing preferences
+  * @param over The segment which is passed
+  * @param dist A traffic distortion if applicable
+@@ -1927,23 +1930,43 @@
+ {
+ 	struct roadprofile *roadprofile=vehicleprofile_get_roadprofile(profile, over->item.type);
+ 	int speed,maxspeed;
+-	if (!roadprofile || !roadprofile->route_weight)
+-		return 0;
+-	/* maxspeed_handling: 0=always, 1 only if maxspeed restricts the speed, 2 never */
+-	speed=roadprofile->route_weight;
+-	if (profile->maxspeed_handling != 2) {
+-		if (over->flags & AF_SPEED_LIMIT) {
++	int route_averaging = 100;
++	if (!roadprofile || !roadprofile->speed)
++			return 0;
++	/* maxspeed_handling: 0=always, 1 only if maxspeed restricts the speed,
++	 *  2 never
++	 *  */
++
++
++	if (roadprofile->route_weight)
++		route_averaging =roadprofile->route_weight;
++
++	if ((over->flags & AF_ROUNDABOUT) && roadprofile->roundabout_weight)
++		route_averaging = (route_averaging * roadprofile->roundabout_weight)/100;
++
++	speed=(roadprofile->speed * route_averaging)/100 ;
++	if (profile->maxspeed_handling != 2)
++	{
++		if (over->flags & AF_SPEED_LIMIT)
++		{
+ 			maxspeed=RSD_MAXSPEED(over);
+-			if (!profile->maxspeed_handling)
+-				speed=maxspeed;
+-		} else
++			if (!profile->maxspeed_handling) /*always handle maxspeed*/
++				maxspeed=(maxspeed * route_averaging)/100 ;
++		}
++		else
+ 			maxspeed=INT_MAX;
++
+ 		if (dist && maxspeed > dist->maxspeed)
+ 			maxspeed=dist->maxspeed;
+-		if (maxspeed != INT_MAX && (profile->maxspeed_handling != 1 || maxspeed < speed))
++
++		/*below handling 0=always or 1=restricting */
++		if (maxspeed != INT_MAX && (profile->maxspeed_handling == 0 || maxspeed < speed))
+ 			speed=maxspeed;
+ 	}
+-	if (over->flags & AF_DANGEROUS_GOODS) {
++	else /* handling=2, don't use maxspeed*/
++		speed=(roadprofile->speed * route_averaging)/100 ;
++	if (over->flags & AF_DANGEROUS_GOODS)
++	{
+ 		if (profile->dangerous_goods & RSD_DANGEROUS_GOODS(over))
+ 			return 0;
+ 	}
+@@ -2049,7 +2072,10 @@
+ 		route_get_traffic_distortion(over, &dist) && dir != 2 && dir != -2) {
+ 			distp=&dist;
+ 	}
++	if (profile->mode != 3)/*not new shortest*/
+ 	ret=route_time_seg(profile, &over->data, distp);
++	else ret = over->data.len; /*new shortest mode*/
++
+ 	if (ret == INT_MAX)
+ 		return ret;
+ 	if (!route_through_traffic_allowed(profile, over) && from && route_through_traffic_allowed(profile, from->seg)) 
+@@ -2550,6 +2576,7 @@
+ 
+ 	if (profile->mode == 2 || (profile->mode == 0 && pos->lenextra + dst->lenextra > transform_distance(map_projection(pos->street->item.map), &pos->c, &dst->c)))
+ 		return route_path_new_offroad(this, pos, dst);
++	if (profile->mode != 3) /*not shortest on-road*/{
+ 	while ((s=route_graph_get_segment(this, pos->street, s))) {
+ 		val=route_value_seg(profile, NULL, s, 2);
+ 		if (val != INT_MAX && s->end->value != INT_MAX) {
+@@ -2580,6 +2607,42 @@
+ 			}
+ 		}
+ 	}
++	}
++	else /*experimental shortest route*/
++	{
++		dbg(lvl_debug,"experimental shortest route calc\n")
++		while ((s=route_graph_get_segment(this, pos->street, s))) {
++			val = s->data.len;
++				if (val != INT_MAX && s->end->value != INT_MAX) {
++					val=val*(100-pos->percent)/100;
++					dbg(lvl_debug,"val1 %d\n",val);
++
++					dbg(lvl_debug,"val1 %d\n",val);
++					val1_new=s->end->value+val;
++					dbg(lvl_debug,"val1 +%d=%d\n",s->end->value,val1_new);
++					if (val1_new < val1) {
++						val1=val1_new;
++						s1=s;
++					}
++				}
++				dbg(0,"val=%i\n",val);
++				val = s->data.len;
++				if (val != INT_MAX && s->start->value != INT_MAX) {
++					val=val*pos->percent/100;
++					dbg(lvl_debug,"val2 %d\n",val);
++
++					dbg(lvl_debug,"val2 %d\n",val);
++					val2_new=s->start->value+val;
++					dbg(lvl_debug,"val2 +%d=%d\n",s->start->value,val2_new);
++					if (val2_new < val2) {
++						val2=val2_new;
++						s2=s;
++					}
++				}
++			}
++	}
++
++
+ 	if (val1 == INT_MAX && val2 == INT_MAX) {
+ 		dbg(lvl_error,"no route found, pos blocked\n");
+ 		return NULL;

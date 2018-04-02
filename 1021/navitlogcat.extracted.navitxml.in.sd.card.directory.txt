@@ -1,0 +1,127 @@
+I/ActivityManager(  948): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+D/dalvikvm(  948): GC_FOR_MALLOC freed 20216 objects / 1205920 bytes in 387ms
+I/ActivityManager(  948): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1330 uid=10038 gids={3003, 1015}
+D/dalvikvm( 1330): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43b145b0
+D/dalvikvm( 1330): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43b145b0
+D/dalvikvm( 1330): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x43b145b0, skipping init
+E/Navit   ( 1330): **1**A android.intent.action.MAIN
+E/Navit   ( 1330): **1**D null
+E/NavitTextTranslations( 1330): initializing translated text ...
+E/NavitTextTranslations( 1330): trying: exit navit
+E/NavitTextTranslations( 1330): trying: zoom in
+E/NavitTextTranslations( 1330): trying: zoom out
+E/NavitTextTranslations( 1330): trying: address search
+E/NavitTextTranslations( 1330): trying: Mapdownload
+E/NavitTextTranslations( 1330): trying: downloading
+E/NavitTextTranslations( 1330): trying: ETA
+E/NavitTextTranslations( 1330): trying: Error downloading map!
+E/NavitTextTranslations( 1330): trying: ready
+E/NavitTextTranslations( 1330): trying: Ok
+E/NavitTextTranslations( 1330): trying: No address found
+E/NavitTextTranslations( 1330): trying: Enter: City and Street
+E/NavitTextTranslations( 1330): trying: No search string entered
+E/NavitTextTranslations( 1330): trying: setting destination to
+E/NavitTextTranslations( 1330): trying: getting search results
+E/NavitTextTranslations( 1330): trying: searching ...
+E/NavitTextTranslations( 1330): trying: No Results found!
+E/NavitTextTranslations( 1330): trying: Map data (c) OpenStreetMap contributors, CC-BY-SA
+E/NavitTextTranslations( 1330): trying: partial match
+E/NavitTextTranslations( 1330): trying: Search
+E/NavitTextTranslations( 1330): trying: drive here
+E/NavitTextTranslations( 1330): trying: loading search results
+E/NavitTextTranslations( 1330): trying: towns
+E/NavitTextTranslations( 1330): ... ready
+E/Navit   ( 1330): lang=de
+E/Navit   ( 1330): Country1 DE
+E/Navit   ( 1330): Country2 DE
+E/Navit   ( 1330): Language de
+E/Navit   ( 1330): Navit -> pixels x=480 pixels y=640
+E/Navit   ( 1330): Navit -> dpi=200
+E/Navit   ( 1330): Navit -> density=1.25
+E/Navit   ( 1330): Navit -> scaledDensity=1.25
+E/Navit   ( 1330): Res Name de
+E/Navit   ( 1330): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 1330): Res ID 2130903047
+E/Navit   ( 1330): Checking /data
+E/Navit   ( 1330): Checking /data/data
+E/Navit   ( 1330): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1330): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 1330): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 1330): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 1330): Res Name navithdpi
+E/Navit   ( 1330): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1330): Res ID 2130903072
+E/Navit   ( 1330): Checking /data
+E/Navit   ( 1330): Checking /data/data
+E/Navit   ( 1330): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1330): Checking /data/data/org.navitproject.navit/share
+E/Navit   ( 1330): android.os.Build.VERSION.SDK_INT=8
+E/test    ( 1330): called
+E/navit   ( 1330): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xba50 thiz=0x43b58e18 activity=0x43b58e18 lang=de_DE version=8
+E/navit   ( 1330): navit:Java_org_navitproject_navit_Navit_NavitMain:*****displaydensity=hdpi
+I/DEBUG   (  899): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (  899): Build fingerprint: 'neo/fr/fr/:2.2.1/OPENMASTER/eng.ran.20110825.013956:eng/test-keys'
+I/DEBUG   (  899): pid: 1330, tid: 1330  >>> org.navitproject.navit <<<
+I/DEBUG   (  899): signal 4 (SIGILL), fault addr 8095575c
+I/DEBUG   (  899):  r0 0000014f  r1 00000001  r2 001223f8  r3 001223e8
+I/DEBUG   (  899):  r4 00000028  r5 00000004  r6 00000010  r7 00000028
+I/DEBUG   (  899):  r8 00000000  r9 00125800  10 00000000  fp 001257e0
+I/DEBUG   (  899):  ip 8096fa48  sp be840778  lr 80955800  pc 8095575c  cpsr 20000010
+I/DEBUG   (  899):          #00  pc 0005575c  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  899):          #01  lr 80955800  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  899): 
+I/DEBUG   (  899): code around pc:
+I/DEBUG   (  899): 8095573c e08f2002 eaffffec 0001a170 00000310 
+I/DEBUG   (  899): 8095574c 00017ce0 00017cd8 00010198 e2500001 
+I/DEBUG   (  899): 8095575c 116f0f10 1220001f 13a03001 12800001 
+I/DEBUG   (  899): 8095576c 11a00013 e59f3010 03a00002 e79f3003 
+I/DEBUG   (  899): 8095577c e1500003 31a00003 e12fff1e 0001d6d8 
+I/DEBUG   (  899): 
+I/DEBUG   (  899): code around lr:
+I/DEBUG   (  899): 809557e0 e35c0000 e5831004 05933008 05823000 
+I/DEBUG   (  899): 809557f0 e8bd8ff8 e2840002 e1a00180 ebffffd5 
+I/DEBUG   (  899): 80955800 e1a08000 ebfef0ef e3a03000 e1a01008 
+I/DEBUG   (  899): 80955810 e5803000 e1a00008 ebfef213 e1a07000 
+I/DEBUG   (  899): 80955820 ebfef0e8 e3570000 e590a000 0a00003d 
+I/DEBUG   (  899): 
+I/DEBUG   (  899): stack:
+I/DEBUG   (  899):     be840738  00000000  
+I/DEBUG   (  899):     be84073c  0000143c  
+I/DEBUG   (  899):     be840740  001257d8  [heap]
+I/DEBUG   (  899):     be840744  00000800  
+I/DEBUG   (  899):     be840748  00000000  
+I/DEBUG   (  899):     be84074c  afd11f34  /system/lib/libc.so
+I/DEBUG   (  899):     be840750  00000000  
+I/DEBUG   (  899):     be840754  afd11d8c  /system/lib/libc.so
+I/DEBUG   (  899):     be840758  43b657c8  /dev/ashmem/mspace/dalvik-heap/2 (deleted)
+I/DEBUG   (  899):     be84075c  afd0d5e4  /system/lib/libc.so
+I/DEBUG   (  899):     be840760  00000000  
+I/DEBUG   (  899):     be840764  afd11f34  /system/lib/libc.so
+I/DEBUG   (  899):     be840768  00000000  
+I/DEBUG   (  899):     be84076c  afd11d8c  /system/lib/libc.so
+I/DEBUG   (  899):     be840770  e3a07077  
+I/DEBUG   (  899):     be840774  ef900077  
+I/DEBUG   (  899): #00 be840778  00000000  
+I/DEBUG   (  899):     be84077c  00000024  
+I/DEBUG   (  899):     be840780  00000004  
+I/DEBUG   (  899):     be840784  00000020  
+I/DEBUG   (  899):     be840788  00000028  
+I/DEBUG   (  899):     be84078c  001257d8  [heap]
+I/DEBUG   (  899):     be840790  00125800  [heap]
+I/DEBUG   (  899):     be840794  00000000  
+I/DEBUG   (  899):     be840798  001257e0  [heap]
+I/DEBUG   (  899):     be84079c  809565e4  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  899):     be8407a0  001223e8  [heap]
+I/DEBUG   (  899):     be8407a4  80972e58  /data/data/org.navitproject.navit/lib/libnavit.so
+I/DEBUG   (  899):     be8407a8  0011f638  [heap]
+I/DEBUG   (  899):     be8407ac  001417b0  [heap]
+I/DEBUG   (  899):     be8407b0  00000028  
+I/DEBUG   (  899):     be8407b4  00000028  
+I/DEBUG   (  899):     be8407b8  0000028c  
+I/DEBUG   (  899):     be8407bc  80958d50  /data/data/org.navitproject.navit/lib/libnavit.so
+D/Zygote  (  900): Process 1330 terminated by signal (4)
+I/ActivityManager(  948): Process org.navitproject.navit (pid 1330) has died.
+I/BootReceiver(  948): Copying /data/tombstones/tombstone_06 to DropBox (SYSTEM_TOMBSTONE)
+I/UsageStats(  948): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+D/dalvikvm(  948): GC_FOR_MALLOC freed 8345 objects / 541480 bytes in 224ms
+W/InputManagerService(  948): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@43df2a78

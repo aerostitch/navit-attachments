@@ -1,0 +1,13 @@
+﻿Index: navit/android/src/org/navitproject/navit/NavitMapDownloader.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitMapDownloader.java	(revision 4273)
++++ navit/android/src/org/navitproject/navit/NavitMapDownloader.java	(working copy)
+@@ -780,7 +780,7 @@
+ 							+ (int) (already_read / 1024f / 1024f) + "Mb / "
+ 							+ (int) (map_values.est_size_bytes / 1024f / 1024f) + "Mb" + "\n" + " "
+ 							+ kbytes_per_second + "kb/s" + " ETA: " + eta_string + "\n" +
+-							"Map data CC-BY-SA by OpenStreetMap"); //TRANS
++							"Map data (c) OpenStreetMap contributors, CC-BY-SA"); //TRANS
+ 					msg.setData(b);
+ 					handler.sendMessage(msg);
+ 					//					try

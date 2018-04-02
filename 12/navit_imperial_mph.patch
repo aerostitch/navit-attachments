@@ -1,0 +1,306 @@
+Index: navit/navit/osd/core/osd_core.c
+===================================================================
+--- navit/navit/osd/core/osd_core.c	(revision 2397)
++++ navit/navit/osd/core/osd_core.c	(working copy)
+@@ -97,20 +97,29 @@
+ }
+ 
+ static char *
+-format_distance(double distance, char *sep)
++format_distance(double distance, char *sep, int imperial)
+ {
+-	if (distance >= 100000)
+-		return g_strdup_printf("%.0f%skm", distance / 1000, sep);
+-	else if (distance >= 10000)
+-		return g_strdup_printf("%.1f%skm", distance / 1000, sep);
+-	else if (distance >= 300)
+-		return g_strdup_printf("%.0f%sm", round(distance / 25) * 25, sep);
+-	else if (distance >= 50)
+-		return g_strdup_printf("%.0f%sm", round(distance / 10) * 10, sep);
+-	else if (distance >= 10)
+-		return g_strdup_printf("%.0f%sm", distance, sep);
+-	else
+-		return g_strdup_printf("%.1f%sm", distance, sep);
++	if (!strcmp(sep,"US")){
++		distance *= FEET_PER_METER;
++		if(distance <= 1500){
++			return g_strdup_printf("%.0f%sft", round(distance / 10) * 10 );
++		} else {
++			return g_strdup_printf("%.1f%smi", distance / FEET_PER_MILE );
++		}
++	} else {
++		if (distance >= 100000)
++			return g_strdup_printf("%.0f%skm", distance / 1000, sep);
++		else if (distance >= 10000)
++			return g_strdup_printf("%.1f%skm", distance / 1000, sep);
++		else if (distance >= 300)
++			return g_strdup_printf("%.0f%sm", round(distance / 25) * 25, sep);
++		else if (distance >= 50)
++			return g_strdup_printf("%.0f%sm", round(distance / 10) * 10, sep);
++		else if (distance >= 10)
++			return g_strdup_printf("%.0f%sm", distance, sep);
++		else
++			return g_strdup_printf("%.1f%sm", distance, sep);
++	}
+ }
+ 
+ static char * 
+@@ -123,8 +132,12 @@
+ }
+ 
+ static char * 
+-format_speed(double speed, char *sep)
++format_speed(double speed, char *sep, int imperial)
+ {
++	if (imperial){
++		speed *= 1000 * FEET_PER_METER;
++		return g_strdup_printf("%.0f%smph", speed / FEET_PER_MILE, sep);
++	}
+ 	return g_strdup_printf("%.0f%skm/h", speed, sep);
+ }
+ 
+@@ -145,7 +158,7 @@
+ 		 struct vehicle *v)
+ {
+ 	struct point p,bbox[4];
+-	struct attr attr_dir, destination_attr, position_attr;
++	struct attr attr_dir, destination_attr, position_attr, imperial_attr;
+ 	double dir, vdir = 0;
+ 	char *buffer;
+ 	struct coord c1, c2;
+@@ -171,7 +184,7 @@
+ 			dir = atan2(c2.x - c1.x, c2.y - c1.y) * 180.0 / M_PI;
+ 			dir -= vdir;
+ 			handle(this->osd_item.gr, this->green, &p, this->osd_item.w/3, dir);
+-			buffer=format_distance(transform_distance(pro, &c1, &c2),"");
++			buffer=format_distance(transform_distance(pro, &c1, &c2),"",navit_get_attr(nav, attr_imperial, &imperial_attr, NULL));
+ 			graphics_get_text_bbox(this->osd_item.gr, this->osd_item.font, buffer, 0x10000, 0, bbox, 0);
+ 			p.x=(this->osd_item.w-bbox[2].x)/2;
+ 			p.y = this->osd_item.h-this->osd_item.h/10;
+@@ -656,7 +669,10 @@
+ 
+ 	switch (attr->type) {
+ 	case attr_position_speed:
+-		return format_speed(*attr->u.numd,"");
++		if(!strcmp(format,"miles")){
++			return format_speed(*attr->u.numd,"",1);
++		}
++		return format_speed(*attr->u.numd,"",0);
+ 	case attr_position_height:
+ 	case attr_position_direction:
+ 		return format_float_0(*attr->u.numd);
+@@ -692,9 +708,12 @@
+ 		if (!format)
+ 			break;
+ 		if (!strcmp(format,"named"))
+-			return format_distance(attr->u.num,"");
++			return format_distance(attr->u.num,"",0);
++		if(!strcmp(format,"miles")){
++			return format_distance(attr->u.num,"",1);
++		}
+ 		if (!strcmp(format,"value") || !strcmp(format,"unit")) {
+-			char *ret,*tmp=format_distance(attr->u.num," ");
++			char *ret,*tmp=format_distance(attr->u.num," ",0);
+ 			char *pos=strchr(tmp,' ');
+ 			if (! pos)
+ 				return tmp;
+@@ -823,10 +842,12 @@
+ 					item=tracking_get_current_item(tracking);
+ 					if (item && !strcmp(key,"route_speed")) {
+ 						double routespeed = -1;
++						struct attr imperial_attr;
++						int imperial = navit_get_attr(navit, attr_imperial, &imperial_attr, NULL);
+ 						int *flags=tracking_get_current_flags(tracking);
+ 						if (flags && (*flags & AF_SPEED_LIMIT) && tracking_get_attr(tracking, attr_maxspeed, &maxspeed_attr, NULL)) {
+ 							routespeed = maxspeed_attr.u.num;
+-							value = format_speed(routespeed, "");
++							value = format_speed(routespeed,"",imperial);
+ 						} 
+ 
+ 						if (routespeed == -1) {
+@@ -836,7 +857,7 @@
+ 								rprof=vehicleprofile_get_roadprofile(prof, item->type);
+ 							if (rprof) {
+ 								routespeed=rprof->speed;
+-								value=format_speed(routespeed,"");
++								value=format_speed(routespeed,"",imperial);
+ 							}
+ 						}
+ 					}
+Index: navit/navit/attr_def.h
+===================================================================
+--- navit/navit/attr_def.h	(revision 2397)
++++ navit/navit/attr_def.h	(working copy)
+@@ -106,6 +106,7 @@
+ ATTR(message_maxage)
+ ATTR(message_maxnum)
+ ATTR(pitch)
++ATTR(imperial)
+ ATTR(roll)
+ ATTR(yaw)
+ ATTR(route_status)
+Index: navit/navit/navigation.c
+===================================================================
+--- navit/navit/navigation.c	(revision 2397)
++++ navit/navit/navigation.c	(working copy)
+@@ -307,33 +307,65 @@
+ }
+ 
+ static char *
+-get_distance(int dist, enum attr_type type, int is_length)
++get_distance(struct navigation *nav, int dist, enum attr_type type, int is_length)
+ {
+-	if (type == attr_navigation_long) {
+-		if (is_length)
+-			return g_strdup_printf(_("%d m"), dist);
++	int dist_ft, dist_mi;
++	struct attr attr;
++
++	navit_get_attr(nav->navit, attr_imperial, &attr, NULL);
++	if (attr.u.num == 1)  {
++
++		dist_ft = dist * FEET_PER_METER;
++		dist_mi = dist_ft / FEET_PER_MILE;
++		if (dist_ft < 1000) {
++			if (is_length)
++				return g_strdup_printf(_("%d feet"), dist_ft);
++			else
++				return g_strdup_printf(_("in %d feet"), dist_ft);
++		}
++		if (dist_ft < 5000) {
++			int rem=(dist_ft/528)%10;
++			if (rem) {
++				if (is_length)
++					return g_strdup_printf(_("%d.%d miles"), dist_mi, rem);
++				else
++					return g_strdup_printf(_("in %d.%d miles"), dist_mi, rem);
++			}
++		}
++		if (is_length) 
++			return g_strdup_printf(ngettext("one mile","%d miles", dist_mi), dist_mi);
+ 		else
+-			return g_strdup_printf(_("in %d m"), dist);
+-	}
+-	if (dist < 1000) {
+-		if (is_length)
+-			return g_strdup_printf(_("%d meters"), dist);
+-		else
+-			return g_strdup_printf(_("in %d meters"), dist);
+-	}
+-	if (dist < 5000) {
+-		int rem=(dist/100)%10;
+-		if (rem) {
++			return g_strdup_printf(ngettext("in one mile","in %d miles", dist_mi), dist_mi);
++
++
++	} else {
++
++		if (type == attr_navigation_long) {
+ 			if (is_length)
+-				return g_strdup_printf(_("%d.%d kilometer"), dist/1000, rem);
++				return g_strdup_printf(_("%d m"), dist);
+ 			else
+-				return g_strdup_printf(_("in %d.%d kilometers"), dist/1000, rem);
++				return g_strdup_printf(_("in %d m"), dist);
+ 		}
++		if (dist < 1000) {
++			if (is_length)
++				return g_strdup_printf(_("%d meters"), dist);
++			else
++				return g_strdup_printf(_("in %d meters"), dist);
++		}
++		if (dist < 5000) {
++			int rem=(dist/100)%10;
++			if (rem) {
++				if (is_length)
++					return g_strdup_printf(_("%d.%d kilometer"), dist/1000, rem);
++				else
++					return g_strdup_printf(_("in %d.%d kilometers"), dist/1000, rem);
++			}
++		}
++		if (is_length) 
++			return g_strdup_printf(ngettext("one kilometer","%d kilometers", dist/1000), dist/1000);
++		else
++			return g_strdup_printf(ngettext("in one kilometer","in %d kilometers", dist/1000), dist/1000);
+ 	}
+-	if (is_length) 
+-		return g_strdup_printf(ngettext("one kilometer","%d kilometers", dist/1000), dist/1000);
+-	else
+-		return g_strdup_printf(ngettext("in one kilometer","in %d kilometers", dist/1000), dist/1000);
+ }
+ 
+ 
+@@ -1412,7 +1444,7 @@
+ 		case 2:
+ 			return g_strdup(_("Enter the roundabout soon"));
+ 		case 1:
+-			d = get_distance(distance, type, 1);
++			d = get_distance(nav, distance, type, 1);
+ 			/* TRANSLATORS: %s is the distance to the roundabout */
+ 			ret = g_strdup_printf(_("In %s, enter the roundabout"), d);
+ 			g_free(d);
+@@ -1441,7 +1473,7 @@
+ 
+ 	switch(level) {
+ 	case 3:
+-		d=get_distance(distance, type, 1);
++		d=get_distance(nav, distance, type, 1);
+ 		ret=g_strdup_printf(_("Follow the road for the next %s"), d);
+ 		g_free(d);
+ 		return ret;
+@@ -1449,7 +1481,7 @@
+ 		d=g_strdup(_("soon"));
+ 		break;
+ 	case 1:
+-		d=get_distance(distance, type, 0);
++		d=get_distance(nav, distance, type, 0);
+ 		break;
+ 	case 0:
+ 		skip_roads = count_possible_turns(nav->first,cmd->itm,cmd->delta);
+Index: navit/navit/navigation.h
+===================================================================
+--- navit/navit/navigation.h	(revision 2397)
++++ navit/navit/navigation.h	(working copy)
+@@ -20,6 +20,9 @@
+ #ifndef NAVIT_NAVIGATION_H
+ #define NAVIT_NAVIGATION_H
+ 
++#define FEET_PER_METER 3.2808399;
++#define FEET_PER_MILE  5280
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+Index: navit/navit/navit.c
+===================================================================
+--- navit/navit/navit.c	(revision 2397)
++++ navit/navit/navit.c	(working copy)
+@@ -138,6 +138,7 @@
+ 	struct vehicleprofile *vehicleprofile;
+ 	GList *vehicleprofiles;
+ 	int pitch;
++	int imperial;
+ };
+ 
+ struct gui *main_loop_gui;
+@@ -1600,6 +1601,10 @@
+ 		if (!init && attr_updated && this_->ready == 3)
+ 			navit_draw(this_);
+ 		break;
++	case attr_imperial:
++		attr_updated=(this_->imperial != attr->u.num);
++		this_->imperial=attr->u.num;
++		break;
+ 	case attr_projection:
+ 		if(this_->trans && transform_get_projection(this_->trans) != attr->u.projection) {
+ 			navit_projection_set(this_, attr->u.projection);
+@@ -1735,6 +1740,9 @@
+ 		attr->u.gui=this_->gui;
+ 		ret=(attr->u.gui != NULL);
+ 		break;
++	case attr_imperial:
++		attr->u.num=this_->imperial;
++		break;
+ 	case attr_layout:
+ 		if (iter) {
+ 			if (iter->u.list) {

@@ -1,0 +1,507 @@
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.
+
+// It sais nothing about a wrong gps device, only the mapset should be wrong.
+// keep in mind that it didn't say anything about a wrong mapset untill I configured the gps device...
+
+Navit log started
+navit:file_wordexp_new:wordexp('\SDMMC\MobileNavigator\data/bookmark.txt') returned 1
+map_textfile:map_rect_new_textfile:error opening textfile \SDMMC\MobileNavigator\data/bookmark.txt: unknown
+binding_win32:win32_main_navit:enterbinding_win32:win32_main_navit:enter2vehicle_wince:vehicle_wince_new:on_eof=0
+navit:vehicle_ref:refcount 2
+navit:vehicle_unref:refcount 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+navit:file_wordexp_new:wordexp('track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:initDevice:Init Device
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+navit:navit_init:FATAL: No mapset available. Please add a (valid) mapset to your configuration.

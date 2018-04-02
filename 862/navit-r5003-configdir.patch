@@ -1,0 +1,62 @@
+--- navit-r5003-orig/navit/start_real.c	2012-03-31 11:03:41.000000000 +0200
++++ navit-r5003/navit/start_real.c	2012-03-31 11:31:47.000000000 +0200
+@@ -155,22 +155,29 @@
+ 		if (optind < argc) config_file = argv[optind];
+ 	}
+ 
+-    // if config file is explicitely given only look for it, otherwise try std paths
+-	if (config_file) list = g_list_append(list,g_strdup(config_file));
+-    else {
+-		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_USER_DATADIR"), "/navit.xml" , NULL));
+-		list = g_list_append(list,g_strdup("navit.xml.local"));
+-		list = g_list_append(list,g_strdup("navit.xml"));
++	// if config file is explicitely given only look for it, otherwise try std paths
++	char * cfg_dir = getenv("NAVIT_CONFIGDIR") ? getenv("NAVIT_CONFIGDIR") : ".";
++	if (config_file)
++		list = g_list_append(list,
++			g_path_is_absolute(config_file)
++				? g_strdup(config_file)
++				: g_strjoin("/", cfg_dir, config_file)
++		);
++	else {
++		list = g_list_append(list, g_strjoin(NULL, getenv("NAVIT_USER_DATADIR"), "/navit.xml", NULL));
++		list = g_list_append(list, g_strjoin("/", cfg_dir, "navit.xml.local"));
++		list = g_list_append(list, g_strjoin("/", cfg_dir, "navit.xml"));
+ #ifdef HAVE_API_ANDROID
++		// shouldn't this android sdcard stuff come before NAVIT_USER_DATADIR?
+ 		// new preferred location (the new one should have priority over the legacy!)
+-		list = g_list_append(list,g_strdup("/sdcard/navit/navit.xml"));
++		list = g_list_append(list, g_strdup("/sdcard/navit/navit.xml"));
+ 		// legacy location, still supported
+-		list = g_list_append(list,g_strdup("/sdcard/navit.xml"));
++		list = g_list_append(list, g_strdup("/sdcard/navit.xml"));
+ #endif
+-		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_SHAREDIR"), "/navit.xml.local" , NULL));
+-		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_SHAREDIR"), "/navit.xml" , NULL));
++		list = g_list_append(list, g_strjoin(NULL, getenv("NAVIT_SHAREDIR"), "/navit.xml.local" , NULL));
++		list = g_list_append(list, g_strjoin(NULL, getenv("NAVIT_SHAREDIR"), "/navit.xml" , NULL));
+ #ifndef _WIN32
+-		list = g_list_append(list,g_strdup("/etc/navit/navit.xml"));
++		list = g_list_append(list, g_strdup("/etc/navit/navit.xml"));
+ #endif
+ 	}
+ 	li = list;
+@@ -183,12 +190,14 @@
+         // Try the next config file possibility from the list
+ 		config_file = li->data;
+ 		dbg(0,"trying %s\n",config_file);
+-		if (file_exists(config_file))
+-		{
++		if (file_exists(config_file)) {
++			gchar *dir = g_dirname(config_file);
++			setenv("NAVIT_CONFIGDIR", dir, 1);
++			dbg(0, "NAVIT_CONFIGDIR = '%s'\n", getenv("NAVIT_CONFIGDIR"));
++			g_free(dir);
+ 			break;
+ 		}
+-		else
+-			g_free(config_file);
++		g_free(config_file);
+ 		li = g_list_next(li);
+ 	}
+ 

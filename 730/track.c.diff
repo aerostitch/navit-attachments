@@ -1,0 +1,77 @@
+*** ../../sdk/navit/navit/track.c	2011-01-15 15:27:29.912572374 +0100
+--- track.c	2011-01-15 13:11:49.162572353 +0100
+***************
+*** 97,102 ****
+--- 97,103 ----
+  	int time;
+  	double direction;
+  	double speed;
++     int maxspeed;
+  	int coord_geo_valid;
+  	struct coord_geo coord_geo;
+  	enum projection pro;
+***************
+*** 360,365 ****
+--- 361,369 ----
+  			return 0;
+  		attr->u.item=&_this->curr_line->street->item;
+  		return 1;
++     case attr_maxspeed:
++         attr->u.num = _this->maxspeed;
++         return 1;
+  	default:
+  		if (! _this->curr_line || ! _this->curr_line->street)
+  			return 0;
+***************
+*** 708,713 ****
+--- 712,718 ----
+  	min=INT_MAX/2;
+  	while (t) {
+  		struct street_data *sd=t->street;
++         // find the closest street to the current location
+  		for (i = 0; i < sd->count-1 ; i++) {
+  			value=tracking_value(tr,t,i,&lpnt,min,-1);
+  			if (value < min) {
+***************
+*** 727,738 ****
+  				tr->curr_out.x=lpnt.x;
+  				tr->curr_out.y=lpnt.y;
+  				tr->coord_geo_valid=0;
+! 				if (angle_delta < 70)
+! 					tr->street_direction=1;
+! 				else if (angle_delta > 110)
+! 					tr->street_direction=-1;
+! 				else
+  					tr->street_direction=0;
+  				min=value;
+  			}
+  		}
+--- 732,759 ----
+  				tr->curr_out.x=lpnt.x;
+  				tr->curr_out.y=lpnt.y;
+  				tr->coord_geo_valid=0;
+! 
+!                 //  Direction of vehicle on street
+! 				if (angle_delta < 70) {
+! 					tr->street_direction=1; 
+! 
+!                     if (sd->maxspeed_forward > -1)
+!                         tr->maxspeed=sd->maxspeed_forward;
+!                     else
+!                         tr->maxspeed=sd->maxspeed;
+!                 } else if (angle_delta > 110) {
+! 					tr->street_direction=-1;// backward
+! 
+!                     if (sd->maxspeed_backward > -1)
+!                         tr->maxspeed=sd->maxspeed_backward;
+!                     else
+!                         tr->maxspeed=sd->maxspeed;
+!                 } else {
+  					tr->street_direction=0;
++ 
++                     tr->maxspeed=sd->maxspeed;
++                 }
++ 
+  				min=value;
+  			}
+  		}

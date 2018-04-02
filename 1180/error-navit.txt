@@ -1,0 +1,20 @@
+
+
+
+/build/buildd/navit-svn-5655-5/navit/support/glib/gatomic.c: In function '_g_atomic_thread_init':
+/build/buildd/navit-svn-5655-5/navit/support/glib/gatomic.c:913:3: warning: implicit declaration of function 'g_mutex_new_navit' [-Wimplicit-function-declaration]
+/build/buildd/navit-svn-5655-5/navit/support/glib/gatomic.c:913:18: warning: assignment makes pointer from integer without a cast [enabled by default]
+Function `g_mutex_new_navit' implicitly converted to pointer at /build/buildd/navit-svn-5655-5/navit/support/glib/gatomic.c:913
+
+
+/build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c: In function '_g_slice_thread_init_nomessage':
+/build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:394:3: warning: implicit declaration of function 'g_private_new_navit' [-Wimplicit-function-declaration]
+/build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:394:25: warning: assignment makes pointer from integer without a cast [enabled by default]
+Function `g_private_new_navit' implicitly converted to pointer at /build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:394
+
+
+Function `g_private_new_navit' implicitly converted to pointer at /build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:394
+/build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:395:3: warning: implicit declaration of function 'g_mutex_new_navit' [-Wimplicit-function-declaration]
+/build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:395:29: warning: assignment makes pointer from integer without a cast [enabled by default]
+Function `g_mutex_new_navit' implicitly converted to pointer at /build/buildd/navit-svn-5655-5/navit/support/glib/gslice.c:395
+

@@ -1,0 +1,44 @@
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+I/ActivityManager(   78): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=365 uid=10098 gids={3003, 1015}
+I/dalvikvm(  365): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm(  365): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=48)
+D/dalvikvm(  365): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43227398
+I/dalvikvm(  365): Unable to dlopen(/data/data/org.navitproject.navit/lib/libnavit.so): Cannot load library: link_image[1638]:    50 could not load needed library 'libintl.so.3' for 'libnavit.so' (load_library[984]: Library 'libintl.so.3' not found)
+W/dalvikvm(  365): Exception Ljava/lang/UnsatisfiedLinkError; thrown during Lorg/navitproject/navit/Navit;.<clinit>
+W/dalvikvm(  365): Class init failed in newInstance call (Lorg/navitproject/navit/Navit;)
+D/AndroidRuntime(  365): Shutting down VM
+W/dalvikvm(  365): threadid=3: thread exiting with uncaught exception (group=0x4001da28)
+E/AndroidRuntime(  365): Uncaught handler: thread main exiting due to uncaught exception
+E/AndroidRuntime(  365): java.lang.ExceptionInInitializerError
+E/AndroidRuntime(  365):        at java.lang.Class.newInstanceImpl(Native Method)
+E/AndroidRuntime(  365):        at java.lang.Class.newInstance(Class.java:1472)
+E/AndroidRuntime(  365):        at android.app.Instrumentation.newActivity(Instrumentation.java:1097)
+E/AndroidRuntime(  365):        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2316)
+E/AndroidRuntime(  365):        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2417)
+E/AndroidRuntime(  365):        at android.app.ActivityThread.access$2100(ActivityThread.java:116)
+E/AndroidRuntime(  365):        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1794)
+E/AndroidRuntime(  365):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime(  365):        at android.os.Looper.loop(Looper.java:123)
+E/AndroidRuntime(  365):        at android.app.ActivityThread.main(ActivityThread.java:4203)
+E/AndroidRuntime(  365):        at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(  365):        at java.lang.reflect.Method.invoke(Method.java:521)
+E/AndroidRuntime(  365):        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:791)
+E/AndroidRuntime(  365):        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:549)
+E/AndroidRuntime(  365):        at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime(  365): Caused by: java.lang.UnsatisfiedLinkError: Library navit not found
+E/AndroidRuntime(  365):        at java.lang.Runtime.loadLibrary(Runtime.java:489)
+E/AndroidRuntime(  365):        at java.lang.System.loadLibrary(System.java:557)
+E/AndroidRuntime(  365):        at org.navitproject.navit.Navit.<clinit>(Navit.java:220)
+E/AndroidRuntime(  365):        ... 15 more
+I/Process (   78): Sending signal. PID: 365 SIG: 3
+I/dalvikvm(  365): threadid=7: reacting to signal 3
+I/dalvikvm(  365): Wrote stack trace to '/data/anr/traces.txt'
+I/Process (  365): Sending signal. PID: 365 SIG: 9
+I/ActivityManager(   78): Process org.navitproject.navit (pid 365) has died.
+W/UsageStats(   78): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+W/InputManagerService(   78): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@43162ae0
+D/dalvikvm(  165): GC freed 4339 objects / 295640 bytes in 218ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [37899,13953]
+D/dalvikvm(  314): GC freed 416 objects / 16608 bytes in 102ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [37899,13955]
+D/dalvikvm(  123): GC freed 8262 objects / 493368 bytes in 219ms

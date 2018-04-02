@@ -1,0 +1,96 @@
+Index: navit/mapset.c
+===================================================================
+--- navit/mapset.c	(revision 1418)
++++ navit/mapset.c	(working copy)
+@@ -63,11 +63,13 @@
+ struct mapset_handle *
+ mapset_open(struct mapset *ms)
+ {
+-	struct mapset_handle *ret;
++	struct mapset_handle *ret=NULL;
++	if(ms)
++        {
++	  ret=g_new(struct mapset_handle, 1);
++	  ret->l=ms->maps;
++	}
+ 
+-	ret=g_new(struct mapset_handle, 1);
+-	ret->l=ms->maps;
+-
+ 	return ret;
+ }
+ 
+@@ -77,7 +79,7 @@
+ 	struct attr active_attr;
+ 
+ 	for (;;) {
+-		if (!msh->l)
++		if (!msh || !msh->l)
+ 			return NULL;
+ 		ret=msh->l->data;
+ 		msh->l=g_list_next(msh->l);
+@@ -110,12 +112,19 @@
+ 	struct mapset_search *this;
+ 	dbg(1,"enter(%p,%p,%p,%d)\n", ms, item, search_attr, partial);
+ 	this=g_new0(struct mapset_search,1);
+-	this->map=ms->maps;
+-	this->item=item;
+-	this->search_attr=search_attr;
+-	this->partial=partial;
+-	this->ms=map_search_new(this->map->data, item, search_attr, partial);
+-	return this;
++	if(this != NULL && ms!=NULL )
++        {
++	  this->map=ms->maps;
++	  this->item=item;
++	  this->search_attr=search_attr;
++	  this->partial=partial;
++	  this->ms=map_search_new(this->map->data, item, search_attr, partial);
++	  return this;
++	}
++	else
++	{
++	  return NULL;
++	}
+ }
+ 
+ struct item *
+@@ -124,7 +133,7 @@
+ 	struct item *ret=NULL;
+ 	struct attr active_attr;
+ 
+-	while (!this->ms || !(ret=map_search_get_item(this->ms))) {
++	while ((this) && (!this->ms || !(ret=map_search_get_item(this->ms))) ) {
+ 		if (this->search_attr->type >= attr_country_all && this->search_attr->type <= attr_country_name)
+ 			break;
+ 		for (;;) {
+Index: navit/route.c
+===================================================================
+--- navit/route.c	(revision 1418)
++++ navit/route.c	(working copy)
+@@ -410,8 +410,10 @@
+ 		route_info_free(this->dst);
+ 	this->dst=NULL;
+ 	if (dst)
+-		this->dst=route_find_nearest_street(this->ms, dst);
+-	route_info_distances(this->dst, dst->pro);
++	  this->dst=route_find_nearest_street(this->ms, dst);
++	if(this->dst)
++	  route_info_distances(this->dst, dst->pro);     
++	
+ 	profile(1,"find_nearest_street");
+ 	route_graph_destroy(this->graph);
+ 	this->graph=NULL;
+Index: navit/navit.c
+===================================================================
+--- navit/navit.c	(revision 1418)
++++ navit/navit.c	(working copy)
+@@ -153,7 +153,7 @@
+ 	} else {
+ 		g_warning("No mapsets enabled! Is it on purpose? Navit can't draw a map. Please check your navit.xml\n");
+ 	}
+-	exit(-1);
++	return NULL;
+ }
+ 
+ struct tracking *

@@ -1,0 +1,13 @@
+Index: route.c
+===================================================================
+--- route.c	(revision 4886)
++++ route.c	(working copy)
+@@ -956,7 +956,7 @@
+ 	r.rl=c[0];
+ 	for (i = 1 ; i < count ; i++)
+ 		coord_rect_extend(&r, &c[i]);
+-	sel=route_rect(4, &r.lu, &r.rl, 25, 0);
++	sel=route_rect(6, &r.lu, &r.rl, 25, 0);
+ 	ret=sel;
+ 	for (i = 0 ; i < count ; i++) {
+ 		sel->next=route_rect(8, &c[i], &c[i], 0, 40000);

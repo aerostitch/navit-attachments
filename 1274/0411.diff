@@ -1,0 +1,193 @@
+Index: navit/navit/navigation.c
+===================================================================
+--- navit/navit/navigation.c	(revision 5922)
++++ navit/navit/navigation.c	(working copy)
+@@ -48,17 +48,30 @@
+ 
+ 
+ struct suffix {
++	enum gender {unknown, male, female, neutral};
+ 	char *fullname;
+ 	char *abbrev;
+ 	int sex;
+ } suffixes[]= {
+-	{"weg",NULL,1},
+-	{"platz","pl.",1},
+-	{"ring",NULL,1},
+-	{"allee",NULL,2},
+-	{"gasse",NULL,2},
+-	{"straße","str.",2},
+-	{"strasse",NULL,2},
++	{"weg",NULL,male},
++	{"platz","pl.",male},
++	{"ring",NULL,male},
++	{"allee",NULL,female},
++	{"gasse",NULL,female},
++	{"straße","str.",female},
++
++	/* some for the dutch lang. */
++	{"straat",NULL,neutral},
++	{"weg",NULL,neutral},
++	{"baan",NULL,neutral},
++	{"laan",NULL,neutral},
++	{"wegel",NULL,neutral},
++
++	/* some for the french lang. */
++	{"boulevard",NULL,male},
++	{"avenue",NULL,female},
++	{"chemin",NULL,neutral},
++	{"rue",NULL,female},
+ };
+ 
+ struct navigation {
+@@ -323,7 +336,7 @@
+ 	switch (n) {
+ 	case 0:
+ 		/* TRANSLATORS: the following counts refer to streets */
+-		return _("zeroth"); // Not sure if this exists, neither if it will ever be needed
++		return _("zeroth"); /* Not sure if this exists, neither if it will ever be needed */
+ 	case 1:
+ 		return _("first");
+ 	case 2:
+@@ -347,7 +360,7 @@
+ 	switch (n) {
+ 	case 0:
+ 		/* TRANSLATORS: the following counts refer to roundabout exits */
+-		return _("zeroth exit"); // Not sure if this exists, neither if it will ever be needed
++		return _("zeroth exit"); /* Not sure if this exists, neither if it will ever be needed */
+ 	case 1:
+ 		return _("first exit");
+ 	case 2:
+@@ -514,7 +527,7 @@
+ calculate_angle(struct navigation_way *w)
+ {
+ 	struct coord cbuf[2];
+-	struct item *ritem; // the "real" item
++	struct item *ritem; /* the "real" item */
+ 	struct coord c;
+ 	struct map_rect *mr;
+ 	struct attr attr;
+@@ -645,7 +658,7 @@
+ navigation_itm_ways_update(struct navigation_itm *itm, struct map *graph_map) 
+ {
+ 	struct map_selection coord_sel;
+-	struct map_rect *g_rect; // Contains a map rectangle from the route graph's map
++	struct map_rect *g_rect; /* Contains a map rectangle from the route graph's map */
+ 	struct item *i,*sitem;
+ 	struct attr sitem_attr,direction_attr;
+ 	struct navigation_way *w,*l;
+@@ -652,16 +665,16 @@
+ 
+ 	navigation_itm_ways_clear(itm);
+ 
+-	// These values cause the code in route.c to get us only the route graph point and connected segments
++	/* These values cause the code in route.c to get us only the route graph point and connected segments */
+ 	coord_sel.next = NULL;
+ 	coord_sel.u.c_rect.lu = itm->start;
+ 	coord_sel.u.c_rect.rl = itm->start;
+-	// the selection's order is ignored
++	/* the selection's order is ignored */
+ 	
+ 	g_rect = map_rect_new(graph_map, &coord_sel);
+ 	
+ 	i = map_rect_get_item(g_rect);
+-	if (!i || i->type != type_rg_point) { // probably offroad? 
++	if (!i || i->type != type_rg_point) { /* probably offroad? */
+ 		map_rect_destroy(g_rect);
+ 		return ;
+ 	}
+@@ -778,20 +791,20 @@
+ check_roundabout(struct navigation_itm *itm, struct map *graph_map)
+ {
+ 	struct map_selection coord_sel;
+-	struct map_rect *g_rect; // Contains a map rectangle from the route graph's map
++	struct map_rect *g_rect; /* Contains a map rectangle from the route graph's map */
+ 	struct item *i,*sitem;
+ 	struct attr sitem_attr,flags_attr;
+ 
+-	// These values cause the code in route.c to get us only the route graph point and connected segments
++	/* These values cause the code in route.c to get us only the route graph point and connected segments */
+ 	coord_sel.next = NULL;
+ 	coord_sel.u.c_rect.lu = itm->start;
+ 	coord_sel.u.c_rect.rl = itm->start;
+-	// the selection's order is ignored
++	/* the selection's order is ignored */
+ 	
+ 	g_rect = map_rect_new(graph_map, &coord_sel);
+ 	
+ 	i = map_rect_get_item(g_rect);
+-	if (!i || i->type != type_rg_point) { // probably offroad? 
++	if (!i || i->type != type_rg_point) { /* probably offroad? */
+ 		map_rect_destroy(g_rect);
+ 		return 0;
+ 	}
+@@ -952,7 +965,7 @@
+ 		curr = curr->next;
+ 	}
+ 
+-	if (!curr) { // from does not lead to to?
++	if (!curr) { /* from does not lead to to? */
+ 		return -1;
+ 	}
+ 
+@@ -1271,7 +1284,7 @@
+ 			struct navigation_way *cur_itm = &(new->way);
+ 			while (cur_itm) {
+ 				if (maneuver_category(cur_itm->item.type) == cat) {
+-					// TODO: decide if a maneuver_category difference of 1 is still similar
++					/* TODO: decide if a maneuver_category difference of 1 is still similar */
+ 					num_similar++;
+ 				}
+ 				cur_itm = cur_itm->next;
+@@ -1552,7 +1565,8 @@
+ 		if(next->way.item.type == type_ramp)
+ 			return NULL;
+ 		if(itm->way.item.type == type_highway_city || itm->way.item.type == type_highway_land )
+-			return g_strdup_printf("%s%s",prefix,_("exit"));	/* %FIXME Can this even be reached? */			 
++			return g_strdup_printf("%s%s",prefix,_("exit"));	/* %FIXME Can this even be reached?
++			Answer : no, and so Navit can not differentiate between a ramp and an exit*/
+ 		else
+ 			return g_strdup_printf("%s%s",prefix,_("into the ramp"));
+ 		
+@@ -1560,7 +1574,7 @@
+ 	if (!n1 && !n2)
+ 		return NULL;
+ 	if (n1) {
+-		sex=-1;
++		sex=unknown;
+ 		name1=NULL;
+ 		for (i = 0 ; i < sizeof(suffixes)/sizeof(suffixes[0]) ; i++) {
+ 			if (contains_suffix(n1,suffixes[i].fullname)) {
+@@ -1582,19 +1596,19 @@
+ 			sep="";
+ 		}
+ 		switch (sex) {
+-		case -1:
++		case unknown:
+ 			/* TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name */
+ 			ret=g_strdup_printf(_("%sinto the street %s%s%s"),prefix,n1, sep, name2);
+ 			break;
+-		case 1:
++		case male:
+ 			/* TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Male form. The stuff after | doesn't have to be included */
+ 			ret=g_strdup_printf(_("%sinto the %s%s%s|male form"),prefix,name1, sep, name2);
+ 			break;
+-		case 2:
++		case female:
+ 			/* TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Female form. The stuff after | doesn't have to be included */
+ 			ret=g_strdup_printf(_("%sinto the %s%s%s|female form"),prefix,name1, sep, name2);
+ 			break;
+-		case 3:
++		case neutral:
+ 			/* TRANSLATORS: Arguments: 1: Prefix (Space if required) 2: Street Name 3: Separator (Space if required), 4: Systematic Street Name. Neutral form. The stuff after | doesn't have to be included */
+ 			ret=g_strdup_printf(_("%sinto the %s%s%s|neutral form"),prefix,name1, sep, name2);
+ 			break;
+@@ -1636,7 +1650,7 @@
+ 	struct navigation_way *w;
+ 	
+ 	if (connect) {
+-		level = -2; // level = -2 means "connect to another maneuver via 'then ...'"
++		level = -2; /* level = -2 means "connect to another maneuver via 'then ...'" */
+ 	} else {
+ 		level=1;
+ 	}

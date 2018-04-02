@@ -1,0 +1,29 @@
+Description: Properly quit Navit when the quit command is selected under
+ gui/gtk. Fixes upstream #850.
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/850
+Last-Update: 2011-05-22
+Index: navit/navit/gui/gtk/gui_gtk_action.c
+===================================================================
+--- navit.orig/navit/gui/gtk/gui_gtk_action.c	2011-05-17 00:32:26.000000000 +0200
++++ navit/navit/gui/gtk/gui_gtk_action.c	2011-05-17 00:32:44.000000000 +0200
+@@ -189,6 +189,7 @@
+ quit_action (GtkWidget *w, struct gui_priv *gui, void *dummy)
+ {
+ 	navit_destroy(gui->nav);
++	event_main_loop_quit();
+ }
+ 
+ static GtkActionEntry entries[] =
+Index: navit/navit/gui/gtk/gui_gtk_window.c
+===================================================================
+--- navit.orig/navit/gui/gtk/gui_gtk_window.c	2011-05-17 00:47:47.000000000 +0200
++++ navit/navit/gui/gtk/gui_gtk_window.c	2011-05-17 00:48:29.000000000 +0200
+@@ -296,6 +296,7 @@
+ {
+ 	/* FIXME remove attr_navit callback */
+ 	navit_destroy(nav);
++	event_main_loop_quit();
+ 
+ 	return TRUE;
+ }

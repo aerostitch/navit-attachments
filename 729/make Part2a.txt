@@ -1,0 +1,634 @@
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_bk_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_wh_8_8.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_bk_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_wh_16_16.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_bk_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_wh_32_32.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_bk_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_wh_48_48.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_1_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_2_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_left_3_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_1_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_2_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_right_3_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l1_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l2_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l3_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l4_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l5_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l6_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l7_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_l8_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r1_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r2_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r3_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r4_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r5_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r6_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r7_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_roundabout_r8_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_straight_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_left_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_turnaround_right_wh_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_bk_96_96.png"
+SRCDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm BUILDDIR=/home/jff/Entwicklung/linux/navit/navit/navit/xpm ./navit_svg2png "/usr/bin/ksvgtopng" "nav_destination_wh_96_96.png"
+make[4]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit/xpm'
+Making all in maptool
+make[4]: Betrete Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit/maptool'
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT boundaries.lo -MD -MP -MF .deps/boundaries.Tpo -c -o boundaries.lo boundaries.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT boundaries.lo -MD -MP -MF .deps/boundaries.Tpo -c boundaries.c  -fPIC -DPIC -o .libs/boundaries.o
+boundaries.c: In function ‘find_matches’:
+boundaries.c:90: warning: implicit declaration of function ‘geom_poly_segments_point_inside’
+boundaries.c: In function ‘test’:
+boundaries.c:104: warning: suggest parentheses around assignment used as truth value
+boundaries.c: In function ‘boundary_bbox_compare’:
+boundaries.c:134: warning: passing argument 1 of ‘bbox_area’ discards qualifiers from pointer target type
+maptool.h:208: note: expected ‘struct rect *’ but argument is of type ‘const struct rect *’
+boundaries.c:135: warning: passing argument 1 of ‘bbox_area’ discards qualifiers from pointer target type
+maptool.h:208: note: expected ‘struct rect *’ but argument is of type ‘const struct rect *’
+boundaries.c: In function ‘process_boundaries’:
+boundaries.c:151: warning: suggest parentheses around assignment used as truth value
+mv -f .deps/boundaries.Tpo .deps/boundaries.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT buffer.lo -MD -MP -MF .deps/buffer.Tpo -c -o buffer.lo buffer.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT buffer.lo -MD -MP -MF .deps/buffer.Tpo -c buffer.c  -fPIC -DPIC -o .libs/buffer.o
+buffer.c: In function ‘load_buffer’:
+buffer.c:40: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result
+mv -f .deps/buffer.Tpo .deps/buffer.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT ch.lo -MD -MP -MF .deps/ch.Tpo -c -o ch.lo ch.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT ch.lo -MD -MP -MF .deps/ch.Tpo -c ch.c  -fPIC -DPIC -o .libs/ch.o
+ch.c: In function ‘add_node_to_hash’:
+ch.c:136: warning: cast to pointer from integer of different size
+ch.c: In function ‘ch_generate_ddsg’:
+ch.c:190: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result
+ch.c: In function ‘ch_generate_sgr’:
+ch.c:217: warning: ignoring return value of ‘system’, declared with attribute warn_unused_result
+ch.c:220: warning: ignoring return value of ‘system’, declared with attribute warn_unused_result
+ch.c: At top level:
+ch.c:395: warning: ‘ch_remove_tempfiles’ defined but not used
+mv -f .deps/ch.Tpo .deps/ch.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT coastline.lo -MD -MP -MF .deps/coastline.Tpo -c -o coastline.lo coastline.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT coastline.lo -MD -MP -MF .deps/coastline.Tpo -c coastline.c  -fPIC -DPIC -o .libs/coastline.o
+coastline.c: In function ‘tile_collector_process_tile’:
+coastline.c:305: warning: cast to pointer from integer of different size
+coastline.c: In function ‘tile_collector_add_siblings’:
+coastline.c:360: warning: cast from pointer to integer of different size
+coastline.c: In function ‘tile_sibling_edges’:
+coastline.c:401: warning: cast from pointer to integer of different size
+coastline.c: In function ‘tile_collector_add_siblings2’:
+coastline.c:444: warning: cast from pointer to integer of different size
+coastline.c:476: warning: cast from pointer to integer of different size
+coastline.c:477: warning: cast from pointer to integer of different size
+coastline.c:477: warning: cast to pointer from integer of different size
+coastline.c: At top level:
+coastline.c:408: warning: ‘ocean_tile2’ defined but not used
+mv -f .deps/coastline.Tpo .deps/coastline.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT geom.lo -MD -MP -MF .deps/geom.Tpo -c -o geom.lo geom.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT geom.lo -MD -MP -MF .deps/geom.Tpo -c geom.c  -fPIC -DPIC -o .libs/geom.o
+geom.c:191: warning: no previous prototype for ‘geom_poly_segments_point_inside’
+mv -f .deps/geom.Tpo .deps/geom.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT itembin.lo -MD -MP -MF .deps/itembin.Tpo -c -o itembin.lo itembin.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT itembin.lo -MD -MP -MF .deps/itembin.Tpo -c itembin.c  -fPIC -DPIC -o .libs/itembin.o
+itembin.c: In function ‘item_bin_write_match’:
+itembin.c:417: warning: implicit declaration of function ‘linguistics_search’
+mv -f .deps/itembin.Tpo .deps/itembin.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT itembin_buffer.lo -MD -MP -MF .deps/itembin_buffer.Tpo -c -o itembin_buffer.lo itembin_buffer.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT itembin_buffer.lo -MD -MP -MF .deps/itembin_buffer.Tpo -c itembin_buffer.c  -fPIC -DPIC -o .libs/itembin_buffer.o
+mv -f .deps/itembin_buffer.Tpo .deps/itembin_buffer.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT misc.lo -MD -MP -MF .deps/misc.Tpo -c -o misc.lo misc.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT misc.lo -MD -MP -MF .deps/misc.Tpo -c misc.c  -fPIC -DPIC -o .libs/misc.o
+In file included from misc.c:36:
+../../navit/file.h:63: warning: ‘struct attr’ declared inside parameter list
+../../navit/file.h:63: warning: its scope is only this definition or declaration, which is probably not what you want
+../../navit/file.h:65: warning: ‘struct attr’ declared inside parameter list
+In file included from misc.c:36:
+../../navit/file.h:84: warning: ‘struct attr’ declared inside parameter list
+mv -f .deps/misc.Tpo .deps/misc.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm.lo -MD -MP -MF .deps/osm.Tpo -c -o osm.lo osm.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm.lo -MD -MP -MF .deps/osm.Tpo -c osm.c  -fPIC -DPIC -o .libs/osm.o
+osm.c:1892: warning: ‘process_countries’ defined but not used
+mv -f .deps/osm.Tpo .deps/osm.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_psql.lo -MD -MP -MF .deps/osm_psql.Tpo -c -o osm_psql.lo osm_psql.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_psql.lo -MD -MP -MF .deps/osm_psql.Tpo -c osm_psql.c  -fPIC -DPIC -o .libs/osm_psql.o
+mv -f .deps/osm_psql.Tpo .deps/osm_psql.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_protobuf.lo -MD -MP -MF .deps/osm_protobuf.Tpo -c -o osm_protobuf.lo osm_protobuf.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_protobuf.lo -MD -MP -MF .deps/osm_protobuf.Tpo -c osm_protobuf.c  -fPIC -DPIC -o .libs/osm_protobuf.o
+mv -f .deps/osm_protobuf.Tpo .deps/osm_protobuf.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_protobufdb.lo -MD -MP -MF .deps/osm_protobufdb.Tpo -c -o osm_protobufdb.lo osm_protobufdb.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_protobufdb.lo -MD -MP -MF .deps/osm_protobufdb.Tpo -c osm_protobufdb.c  -fPIC -DPIC -o .libs/osm_protobufdb.o
+osm_protobufdb.c: In function ‘osm_protobufdb_string’:
+osm_protobufdb.c:406: warning: cast from pointer to integer of different size
+osm_protobufdb.c: In function ‘osm_protobufdb_parse_info’:
+osm_protobufdb.c:569: warning: implicit declaration of function ‘osm_xml_decode_entities’
+osm_protobufdb.c: In function ‘osm_protobufdb_end_node’:
+osm_protobufdb.c:619: warning: unused variable ‘offseti’
+osm_protobufdb.c:619: warning: unused variable ‘i’
+osm_protobufdb.c:618: warning: unused variable ‘offset’
+osm_protobufdb.c:618: warning: unused variable ‘n’
+osm_protobufdb.c: At top level:
+osm_protobufdb.c:785: warning: no previous prototype for ‘osm_protobufdb_load’
+osm_protobufdb.c:163: warning: ‘osm_protobufdb_start_densenode’ defined but not used
+osm_protobufdb.c:184: warning: ‘osm_protobufdb_write_primitive_group’ defined but not used
+osm_protobufdb.c:201: warning: ‘osm_protobufdb_insert_densenode’ defined but not used
+osm_protobufdb.c:232: warning: ‘osm_protobufdb_modify_densenode’ defined but not used
+mv -f .deps/osm_protobufdb.Tpo .deps/osm_protobufdb.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_xml.lo -MD -MP -MF .deps/osm_xml.Tpo -c -o osm_xml.lo osm_xml.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osm_xml.lo -MD -MP -MF .deps/osm_xml.Tpo -c osm_xml.c  -fPIC -DPIC -o .libs/osm_xml.o
+osm_xml.c:50: warning: no previous prototype for ‘osm_xml_decode_entities’
+mv -f .deps/osm_xml.Tpo .deps/osm_xml.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT sourcesink.lo -MD -MP -MF .deps/sourcesink.Tpo -c -o sourcesink.lo sourcesink.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT sourcesink.lo -MD -MP -MF .deps/sourcesink.Tpo -c sourcesink.c  -fPIC -DPIC -o .libs/sourcesink.o
+mv -f .deps/sourcesink.Tpo .deps/sourcesink.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT tempfile.lo -MD -MP -MF .deps/tempfile.Tpo -c -o tempfile.lo tempfile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT tempfile.lo -MD -MP -MF .deps/tempfile.Tpo -c tempfile.c  -fPIC -DPIC -o .libs/tempfile.o
+mv -f .deps/tempfile.Tpo .deps/tempfile.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT tile.lo -MD -MP -MF .deps/tile.Tpo -c -o tile.lo tile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT tile.lo -MD -MP -MF .deps/tile.Tpo -c tile.c  -fPIC -DPIC -o .libs/tile.o
+In file included from tile.c:36:
+../../navit/file.h:63: warning: ‘struct attr’ declared inside parameter list
+../../navit/file.h:63: warning: its scope is only this definition or declaration, which is probably not what you want
+../../navit/file.h:65: warning: ‘struct attr’ declared inside parameter list
+In file included from tile.c:36:
+../../navit/file.h:84: warning: ‘struct attr’ declared inside parameter list
+tile.c: In function ‘write_aux_tiles’:
+tile.c:380: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result
+mv -f .deps/tile.Tpo .deps/tile.Plo
+/bin/bash ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT zip.lo -MD -MP -MF .deps/zip.Tpo -c -o zip.lo zip.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT zip.lo -MD -MP -MF .deps/zip.Tpo -c zip.c  -fPIC -DPIC -o .libs/zip.o
+zip.c: In function ‘zip_write_index’:
+zip.c:252: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result
+mv -f .deps/zip.Tpo .deps/zip.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT fileformat.pb-c.lo -MD -MP -MF .deps/fileformat.pb-c.Tpo -c -o fileformat.pb-c.lo `test -f 'generated-code/fileformat.pb-c.c' || echo './'`generated-code/fileformat.pb-c.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT fileformat.pb-c.lo -MD -MP -MF .deps/fileformat.pb-c.Tpo -c generated-code/fileformat.pb-c.c  -fPIC -DPIC -o .libs/fileformat.pb-c.o
+mv -f .deps/fileformat.pb-c.Tpo .deps/fileformat.pb-c.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osmformat.pb-c.lo -MD -MP -MF .deps/osmformat.pb-c.Tpo -c -o osmformat.pb-c.lo `test -f 'generated-code/osmformat.pb-c.c' || echo './'`generated-code/osmformat.pb-c.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT osmformat.pb-c.lo -MD -MP -MF .deps/osmformat.pb-c.Tpo -c generated-code/osmformat.pb-c.c  -fPIC -DPIC -o .libs/osmformat.pb-c.o
+mv -f .deps/osmformat.pb-c.Tpo .deps/osmformat.pb-c.Plo
+/bin/bash ../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT protobuf-c.lo -MD -MP -MF .deps/protobuf-c.Tpo -c -o protobuf-c.lo `test -f 'google/protobuf-c/protobuf-c.c' || echo './'`google/protobuf-c/protobuf-c.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I../../navit -DMODULE=maptool -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT protobuf-c.lo -MD -MP -MF .deps/protobuf-c.Tpo -c google/protobuf-c/protobuf-c.c  -fPIC -DPIC -o .libs/protobuf-c.o
+google/protobuf-c/protobuf-c.c: In function ‘copy_to_little_endian_32’:
+google/protobuf-c/protobuf-c.c:826: warning: passing argument 2 of ‘fixed32_pack’ from incompatible pointer type
+google/protobuf-c/protobuf-c.c:595: note: expected ‘uint8_t *’ but argument is of type ‘uint32_t *’
+google/protobuf-c/protobuf-c.c: In function ‘copy_to_little_endian_64’:
+google/protobuf-c/protobuf-c.c:838: warning: passing argument 2 of ‘fixed64_pack’ from incompatible pointer type
+google/protobuf-c/protobuf-c.c:614: note: expected ‘uint8_t *’ but argument is of type ‘uint64_t *’
+google/protobuf-c/protobuf-c.c: In function ‘pack_buffer_packed_payload’:
+google/protobuf-c/protobuf-c.c:1306: warning: label ‘no_packing_needed’ defined but not used
+google/protobuf-c/protobuf-c.c: In function ‘parse_packed_repeated_member’:
+google/protobuf-c/protobuf-c.c:1967: warning: label ‘no_unpacking_needed’ defined but not used
+google/protobuf-c/protobuf-c.c: At top level:
+google/protobuf-c/protobuf-c.c:2013: warning: no previous prototype for ‘protobuf_c_message_init_generic’
+google/protobuf-c/protobuf-c.c: In function ‘protobuf_c_message_unpack’:
+google/protobuf-c/protobuf-c.c:2139: warning: ‘tmp.length_prefix_len’ may be used uninitialized in this function
+mv -f .deps/protobuf-c.Tpo .deps/protobuf-c.Plo
+/bin/bash ../../libtool --tag=CC   --mode=link gcc  -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math   -o libmaptool.la  boundaries.lo buffer.lo ch.lo coastline.lo geom.lo itembin.lo itembin_buffer.lo misc.lo osm.lo osm_psql.lo osm_protobuf.lo osm_protobufdb.lo osm_xml.lo sourcesink.lo tempfile.lo tile.lo zip.lo fileformat.pb-c.lo osmformat.pb-c.lo protobuf-c.lo  -lm
+libtool: link: ar cru .libs/libmaptool.a .libs/boundaries.o .libs/buffer.o .libs/ch.o .libs/coastline.o .libs/geom.o .libs/itembin.o .libs/itembin_buffer.o .libs/misc.o .libs/osm.o .libs/osm_psql.o .libs/osm_protobuf.o .libs/osm_protobufdb.o .libs/osm_xml.o .libs/sourcesink.o .libs/tempfile.o .libs/tile.o .libs/zip.o .libs/fileformat.pb-c.o .libs/osmformat.pb-c.o .libs/protobuf-c.o 
+libtool: link: ranlib .libs/libmaptool.a
+libtool: link: ( cd ".libs" && rm -f "libmaptool.la" && ln -s "../libmaptool.la" "libmaptool.la" )
+gcc -DHAVE_CONFIG_H -I. -I../..  -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -pthread -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I../../navit   -DMODULE=maptool   -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -MT maptool.o -MD -MP -MF .deps/maptool.Tpo -c -o maptool.o maptool.c
+In file included from maptool.c:36:
+../../navit/file.h:63: warning: ‘struct attr’ declared inside parameter list
+../../navit/file.h:63: warning: its scope is only this definition or declaration, which is probably not what you want
+../../navit/file.h:65: warning: ‘struct attr’ declared inside parameter list
+In file included from maptool.c:36:
+../../navit/file.h:84: warning: ‘struct attr’ declared inside parameter list
+maptool.c: In function ‘main’:
+maptool.c:350: warning: implicit declaration of function ‘osm_protobufdb_load’
+mv -f .deps/maptool.Tpo .deps/maptool.Po
+/bin/bash ../../libtool --tag=CC   --mode=link gcc  -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math   -o maptool maptool.o libmaptool.la ../libnavit.la  -pthread -lgthread-2.0 -lrt -lglib-2.0   -Wl,--export-dynamic -pthread -lgmodule-2.0 -lrt -lglib-2.0     -lz     -lm
+libtool: link: gcc -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -o maptool maptool.o -pthread -Wl,--export-dynamic -pthread  ./.libs/libmaptool.a ../.libs/libnavit.a -L/home/jff/Entwicklung/linux/navit/navit/navit/fib-1.1 /usr/lib/libgthread-2.0.so /usr/lib/libgmodule-2.0.so -lrt /usr/lib/libglib-2.0.so -lz -lm -pthread
+make[4]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit/maptool'
+Making all in maps
+make[4]: Betrete Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit/maps'
+echo "Downloading osm sample map"
+Downloading osm sample map
+wget -O osm_bbox_11.3,47.9,11.7,48.2.osm.bz2.tmp http://www.navit-project.org/maps/osm_bbox_11.3,47.9,11.7,48.2.osm.bz2
+--2011-01-08 11:35:12--  http://www.navit-project.org/maps/osm_bbox_11.3,47.9,11.7,48.2.osm.bz2
+Auflösen des Hostnamen »www.navit-project.org«.... 78.46.210.87
+Verbindungsaufbau zu www.navit-project.org|78.46.210.87|:80... verbunden.
+HTTP Anforderung gesendet, warte auf Antwort... 200 OK
+Länge: 2050373 (2,0M) [application/x-bzip]
+In »»osm_bbox_11.3,47.9,11.7,48.2.osm.bz2.tmp«« speichern.
+
+     0K .......... .......... .......... .......... ..........  2%  846K 2s
+    50K .......... .......... .......... .......... ..........  4% 1,75M 2s
+   100K .......... .......... .......... .......... ..........  7% 1,81M 1s
+   150K .......... .......... .......... .......... ..........  9% 1,76M 1s
+   200K .......... .......... .......... .......... .......... 12%  698K 1s
+   250K .......... .......... .......... .......... .......... 14% 10,3M 1s
+   300K .......... .......... .......... .......... .......... 17% 1,57M 1s
+   350K .......... .......... .......... .......... .......... 19% 1,68M 1s
+   400K .......... .......... .......... .......... .......... 22% 1,67M 1s
+   450K .......... .......... .......... .......... .......... 24% 1,81M 1s
+   500K .......... .......... .......... .......... .......... 27% 1,75M 1s
+   550K .......... .......... .......... .......... .......... 29% 1,84M 1s
+   600K .......... .......... .......... .......... .......... 32% 1,75M 1s
+   650K .......... .......... .......... .......... .......... 34% 1,81M 1s
+   700K .......... .......... .......... .......... .......... 37% 1,77M 1s
+   750K .......... .......... .......... .......... .......... 39% 1,77M 1s
+   800K .......... .......... .......... .......... .......... 42% 1,80M 1s
+   850K .......... .......... .......... .......... .......... 44% 1,77M 1s
+   900K .......... .......... .......... .......... .......... 47% 1,82M 1s
+   950K .......... .......... .......... .......... .......... 49% 1,75M 1s
+  1000K .......... .......... .......... .......... .......... 52% 1,84M 1s
+  1050K .......... .......... .......... .......... .......... 54% 1,75M 1s
+  1100K .......... .......... .......... .......... .......... 57% 1,78M 1s
+  1150K .......... .......... .......... .......... .......... 59% 1,81M 0s
+  1200K .......... .......... .......... .......... .......... 62% 1,74M 0s
+  1250K .......... .......... .......... .......... .......... 64% 1,83M 0s
+  1300K .......... .......... .......... .......... .......... 67% 1,76M 0s
+  1350K .......... .......... .......... .......... .......... 69% 1,82M 0s
+  1400K .......... .......... .......... .......... .......... 72% 1,77M 0s
+  1450K .......... .......... .......... .......... .......... 74% 1,80M 0s
+  1500K .......... .......... .......... .......... .......... 77% 1,77M 0s
+  1550K .......... .......... .......... .......... .......... 79% 1,80M 0s
+  1600K .......... .......... .......... .......... .......... 82% 1,77M 0s
+  1650K .......... .......... .......... .......... .......... 84% 1,76M 0s
+  1700K .......... .......... .......... .......... .......... 87% 1,82M 0s
+  1750K .......... .......... .......... .......... .......... 89% 1,69M 0s
+  1800K .......... .......... .......... .......... .......... 92% 1,91M 0s
+  1850K .......... .......... .......... .......... .......... 94% 1,74M 0s
+  1900K .......... .......... .......... .......... .......... 97% 1,82M 0s
+  1950K .......... .......... .......... .......... .......... 99% 1,77M 0s
+  2000K ..                                                    100% 3,10M=1,2s
+
+2011-01-08 11:35:13 (1,69 MB/s) - »»osm_bbox_11.3,47.9,11.7,48.2.osm.bz2.tmp«« gespeichert [2050373/2050373]
+
+mv osm_bbox_11.3,47.9,11.7,48.2.osm.bz2.tmp osm_bbox_11.3,47.9,11.7,48.2.osm.bz2
+echo "Converting osm map"
+Converting osm map
+bzcat osm_bbox_11.3,47.9,11.7,48.2.osm.bz2 | ../../navit/maptool/maptool --attr-debug-level=5 osm_bbox_11.3,47.9,11.7,48.2.bin.tmp
+PROGRESS: Phase 1: collecting data
+PROGRESS1: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles
+PROGRESS1: Processed 107167 nodes (3037 out) 21759 ways 35 relations 0 tiles
+PROGRESS: Phase 2: finding intersections
+PROGRESS2: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles
+PROGRESS2: Processed 0 nodes (0 out) 48325 ways 0 relations 0 tiles
+coastline=0x123d8a0
+new:out=0x123cdd0
+tile_collector_finish
+tile_collector_finish foreach done
+tile_collector_finish destroy done
+Level=14
+*****
+*
+*
+*
+Level=13
+*****
+*
+*
+*
+Level=12
+*****
+*
+*
+*
+Level=11
+*****
+*
+*
+*
+Level=10
+*****
+*
+*
+*
+Level=9
+*****
+*
+*
+*
+Level=8
+*****
+*
+*
+*
+Level=7
+*****
+*
+*
+*
+Level=6
+*****
+*
+*
+*
+Level=5
+*****
+*
+*
+*
+Level=4
+*****
+*
+*
+*
+Level=3
+*****
+*
+*
+*
+Level=2
+*****
+*
+*
+*
+Level=1
+*****
+*
+*
+*
+tile_collector_finish done
+PROGRESS: Phase 3: sorting countries, generating turn restrictions
+PROGRESS: Phase 4: generating tiles 
+PROGRESS3: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles
+PROGRESS: sorting 397 tiles
+PROGRESS: sorting 397 tiles done
+PROGRESS: merged 346 tiles
+PROGRESS: sorting 120 tiles
+PROGRESS: sorting 120 tiles done
+PROGRESS: merged 24 tiles
+PROGRESS: sorting 115 tiles
+PROGRESS: sorting 115 tiles done
+PROGRESS: merged 17 tiles
+PROGRESS: sorting 111 tiles
+PROGRESS: sorting 111 tiles done
+PROGRESS: merged 9 tiles
+PROGRESS: sorting 111 tiles
+PROGRESS: sorting 111 tiles done
+PROGRESS: merged 7 tiles
+PROGRESS: sorting 111 tiles
+PROGRESS: sorting 111 tiles done
+PROGRESS: merged 7 tiles
+PROGRESS: sorting 111 tiles
+PROGRESS: sorting 111 tiles done
+PROGRESS: merged 5 tiles
+PROGRESS: sorting 111 tiles
+PROGRESS: sorting 111 tiles done
+PROGRESS: merged 6 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 6 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 6 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 5 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 5 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 4 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 3 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 2 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 1 tiles
+PROGRESS: sorting 110 tiles
+PROGRESS: sorting 110 tiles done
+PROGRESS: merged 0 tiles
+PROGRESS3: Processed 3050 nodes (0 out) 48325 ways 0 relations 2574 tiles
+PROGRESS: Phase 5: assembling map 
+Slice 0
+Maximum slice size 1073741824
+Slice 0 is of size 6294112
+PROGRESS4: Processed 0 nodes (0 out) 0 ways 0 relations 0 tiles
+PROGRESS4: Processed 3050 nodes (0 out) 48325 ways 0 relations 0 tiles
+exists adbdads0 vs adbdads0
+PROGRESS4: Processed 3050 nodes (0 out) 48325 ways 0 relations 110 tiles
+mv osm_bbox_11.3,47.9,11.7,48.2.bin.tmp osm_bbox_11.3,47.9,11.7,48.2.bin
+echo '<map type="binfile" enabled="yes" data="$NAVIT_SHAREDIR/maps/osm_bbox_11.3,47.9,11.7,48.2.bin"/>' >osm_bbox_11.3,47.9,11.7,48.2.xml
+make[4]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit/maps'
+make[3]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit'
+make[2]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit/navit'
+make[2]: Betrete Verzeichnis '/home/jff/Entwicklung/linux/navit/navit'
+make[2]: Für das Ziel »all-am« ist nichts zu tun.
+make[2]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit'
+make[1]: Verlasse Verzeichnis '/home/jff/Entwicklung/linux/navit/navit'

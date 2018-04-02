@@ -1,0 +1,35 @@
+Index: navit/country.c
+===================================================================
+--- navit/country.c	(revision 2187)
++++ navit/country.c	(working copy)
+@@ -282,6 +282,7 @@
+   {710,	"ZA",	"ZA", "ZAF", /* 710 */ _n("South Africa") },
+   {894,	"Z",	"ZM", "ZMB", /* 894 */ _n("Zambia")},
+   {716,	"ZW",	"ZW", "ZWE", /* 716 */ _n("Zimbabwe")},
++  {999, "*",    "*",  "*",             _n("* Unknown, add is_in tags to those cities")},
+ };
+ 
+ 
+Index: navit/osm2navit.c
+===================================================================
+--- navit/osm2navit.c	(revision 2187)
++++ navit/osm2navit.c	(working copy)
+@@ -400,7 +401,8 @@
+ 	{752,"Sweden,Sverige,Konungariket Sverige,SE"},
+ 	{756,"Schweiz"}, 
+ 	{826,"United Kingdom,UK"},
+-	{840,"USA"} 
++	{840,"USA"},
++	{999,"Unknown"},
+ };
+ 
+ static GHashTable *country_table_hash;
+@@ -1374,6 +1376,8 @@
+ 	write_attr(out, &debug_attr, debug_attr_buffer);
+ 	if (item_is_town(item) && town_name_attr.len) {
+ 		char *tok,*buf=is_in_buffer;
++		if (!buf[0])
++			strcpy(is_in_buffer, "Unknown");
+ 		while ((tok=strtok(buf, ","))) {
+ 			while (*tok==' ')
+ 				tok++;

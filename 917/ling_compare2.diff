@@ -1,0 +1,455 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 4800)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -73,6 +73,7 @@
+ #include "debug.h"
+ #include "fib.h"
+ #include "types.h"
++#include "linguistics.h"
+ 
+ 
+ extern char *version;
+@@ -2284,7 +2285,8 @@
+ removecase(char *s) 
+ {
+ 	char *r;
+-	r=g_utf8_casefold(s,-1);
++	//r=g_utf8_casefold(s,-1);
++	r=linguistics_casefold(s);
+ 	return r;
+ }
+ 
+@@ -2534,8 +2536,12 @@
+                 item_attr_rewind(item);
+                 
+ 		for(s=long_name,f=param->filter;f && s;f=g_list_next(f)) {
+-			s=strstr(s,f->data);
+-			if(!s) 
++			match=0;
++			while(s && *s && !match) {
++				match=!linguistics_compare(s,f->data,1);
++				s=g_utf8_find_next_char(s,NULL);
++			}
++			if(!s || !*s) 
+ 				break;
+ 			s=g_utf8_strchr(s,-1,' ');
+ 		}
+Index: navit/linguistics.c
+===================================================================
+--- navit/linguistics.c	(revision 4800)
++++ navit/linguistics.c	(working copy)
+@@ -228,8 +228,195 @@
+ {"ð","d","dh"},
+ {"ŋ","n","ng"},
+ {"þ","t","th"},
++
++/* Cyrillic capital */
++{"Ё","Е"},
++{"Й","И"},
++{"І","I"},
++{"Ї","I"},
++{"Ў","У"},
++{"Є","Е","Э"},
++{"Ґ","Г"},
++{"Ѓ","Г"},
++{"Ђ","Д"},
++{"Ќ","К"},
++{"Љ","Л","ЛЬ"},
++{"Њ","Н","НЬ"},
++{"Џ","Ц"},
++
++/* Cyrillic small */
++{"ё","е"},
++{"й","и"},
++{"і","i"},
++{"ї","i"},
++{"ў","у"},
++{"є","е","Э"},
++{"ґ","г"},
++{"ѓ","г"},
++{"ђ","д"},
++{"ќ","к"},
++{"љ","л","ль"},
++{"њ","н","нь"},
++{"џ","ц"},
++
+ };
++static GHashTable *special_hash;
+ 
++static const char *upperlower[]={
++/*Latin diacritics*/
++"ÄËÏÖÜŸŐŰÁĆÉÍĹŃÓŔŚÚÝŹĄĘĮŲĊĖĠİĿŻĐĦŁŦÅŮČĎĚĽŇŘŠŤŽØĀĒĪŌŪĂĔĞĬŎŬÂĈÊĜĤÎĴÔŜÛŴŶÇĢĶĻŅŖŞŢÃĨÑÕŨÀÈÌÒÙÆĲŒÐŊÞ",
++"äëïöüÿőűáćéíĺńóŕśúýźąęįųċėġıŀżđħłŧåůčďěľňřšťžøāēīōūăĕğĭŏŭâĉêĝĥîĵôŝûŵŷçģķļņŗşţãĩõñũàèìòùæĳœðŋþ",
++/*Cyrillic*/
++"АБВГҐЃДЂЕЄЁЖЗИЙКЌЛЉМНЊОПРСТУФХЦЏЧШЩЪЫЬЭЮЯІЇЎ",
++"абвгґѓдђеєёжзийкќлљмнњопрстуфхцџчшщъыьэюяіїў",
++
++NULL
++};
++
++static GHashTable *casefold_hash;
++
++
++struct special_pos {
++	char **variants;
++	int n;
++	char *s1, *s2;
++};
++
++
++
++static char** 
++linguistics_get_special(char *str, char *end)
++{
++	char buf[10];
++	int len;
++	if(!end)
++		end=g_utf8_find_next_char(str,NULL);
++	len=end-str+1;
++	g_strlcpy(buf,str,len>10?10:len);
++	return g_hash_table_lookup(special_hash,buf);
++}
++
++
++/*
++ *  Get an utf-8 string, return the same prepared for case insensetive search. Result shoud be g_free()d after use.
++ */
++char*
++linguistics_casefold(char *in)
++{
++	int len=strlen(in);
++	char *src=in;
++	char *ret=g_new(char,len+1);
++	char *dest=ret;
++	char buf[10];
++	while(*src && dest-ret<len){
++		if(*src>='A' && *src<='Z') {
++			*dest++=*src++ - 'A' + 'a';
++		} else if (!(*src&128)) {
++			*dest++=*src++;
++		} else {
++			int charlen;
++			char *tmp, *folded;
++			tmp=g_utf8_find_next_char(src,NULL);
++			charlen=tmp-src+1;
++			g_strlcpy(buf,src,charlen>10?10:charlen);
++			folded=g_hash_table_lookup(casefold_hash,buf);
++			if(folded) {
++				while(*folded && dest-ret<len)
++					*dest++=*folded++;
++				src=tmp;
++			} else {
++				while(src<tmp && dest-ret<len)
++					*dest++=*src++;
++			}
++		}
++	}
++	*dest=0;
++	if(*src)
++		dbg(0,"Casefolded string for '%s' needs extra space, result is trucated to '%s'.\n",in,ret);
++	return ret;
++}
++
++/**
++ * @brief Compare two strings using special characters expansion.
++ *
++ * @param in str first string to compare, special characters are expanded.
++ * @param in match second string to compare, special characters are not expanded.
++ * @param in partial if = 1 then str string may be shorter than match string, in which case the rest from str isn't analysed.
++ * @return  =0 strings matched, =1 not matched. Note this function return value is not fully compatible with strcmp().
++ */
++
++int
++linguistics_compare(char *str, char *match, int partial)
++{
++	char *s1=str, *s2=match;
++	char **sp;
++	int ret=0;
++	int got_match;
++	GList *l=NULL;
++	while (*s1 && *s2) {
++		int j;
++		struct special_pos *spp;
++		for(j=0;s1[j] && s1[j]==s2[j];j++);
++		if(!s2[j] && (partial || !s1[j])) {
++			//MATCH!
++			ret=0;
++			break;
++		}
++		char *utf_boundary=s1, *tmp;
++		while(*(tmp=g_utf8_find_next_char(utf_boundary, NULL))) {
++			if(tmp>s1+j)
++				break;
++			utf_boundary=tmp;
++		}
++		sp=linguistics_get_special(utf_boundary,tmp);
++		if(sp){
++			spp=g_new(struct special_pos,1);
++			spp->variants=sp;
++			spp->n=1;
++			spp->s1=utf_boundary;
++			spp->s2=s2+(utf_boundary-s1);
++			l=g_list_prepend(l,spp);
++		} 
++
++		got_match=0;
++		while(l && !got_match) {
++			spp=l->data;
++			s1=spp->s1;
++			s2=spp->s2;
++			while(spp->n<3 && !got_match) {
++				char *s=spp->variants[(spp->n)++];
++				int len;
++				if(!s)
++					break;
++				len=strlen(s);
++				if(!strncmp(s,s2,len)) {
++					s2+=len;
++					s1+=strlen(spp->variants[0]);
++					got_match=1;
++					break;
++				}
++			}
++			if(spp->n>=3 || !spp->variants[spp->n]){
++				g_free(spp);
++				l=g_list_delete_link(l,l);
++			}
++		}
++		if(!got_match) {
++			// NO MATCH
++			// FIXME: If we're going to use this function to sort a string list alphabetically we should use 
++			// utf-aware comparison here.
++			ret=1;
++			break;
++		}
++	}
++	while(l) {
++		g_free(l->data);
++		l=g_list_delete_link(l,l);
++	}
++	return ret;
++}
++
++
+ char *
+ linguistics_expand_special(char *str, int mode)
+ {
+@@ -299,7 +486,35 @@
+ 	return 1;
+ }
+ 
++static char 
++*linguistics_dup_utf8_char(const char *s)
++{
++	char *ret, *next;
++	next=g_utf8_find_next_char(s,NULL);
++	ret=g_new(char, next-s+1);
++	g_strlcpy(ret,s,next-s+1);
++	return ret;
++}
++
+ void
+ linguistics_init(void)
+ {
++	int i;
++	special_hash=g_hash_table_new(g_str_hash, g_str_equal);
++	casefold_hash=g_hash_table_new(g_str_hash, g_str_equal);
++	for (i = 0 ; i < sizeof(special)/sizeof(special[0]); i++)
++		g_hash_table_insert(special_hash,(gpointer)special[i][0],special[i]);
++
++	for (i = 0 ; upperlower[i]; i+=2) {
++		int j,k;
++		for(j=0,k=0;upperlower[i][j] && upperlower[i+1][k];) {
++			char *s1=linguistics_dup_utf8_char(upperlower[i]+j);
++			char *s2=linguistics_dup_utf8_char(upperlower[i+1]+k);
++			g_hash_table_insert(casefold_hash,s1,s2);
++			j+=strlen(s1);
++			k+=strlen(s2);
++		}
++	}
++		
+ }
++
+Index: navit/linguistics.h
+===================================================================
+--- navit/linguistics.h	(revision 4800)
++++ navit/linguistics.h	(working copy)
+@@ -4,6 +4,8 @@
+ char *linguistics_expand_special(char *str, int mode);
+ char *linguistics_next_word(char *str);
+ void linguistics_init(void);
++char *linguistics_casefold(char *in);
++int linguistics_compare(char *str, char *match, int partial);
+ #ifdef __cplusplus
+ }
+ #endif
+Index: navit/map/binfile/binfile.c
+===================================================================
+--- navit/map/binfile/binfile.c	(revision 4800)
++++ navit/map/binfile/binfile.c	(working copy)
+@@ -130,6 +130,7 @@
+ 	int partial;
+ 	int mode;
+ 	GHashTable *search_results;
++	char *str;
+ };
+ 
+ 
+@@ -1901,6 +1902,7 @@
+ 	struct map_rect_priv *map_rec;
+ 	struct map_search_priv *msp=g_new0(struct map_search_priv, 1);
+ 	struct item *town;
++	int willsearch=0;
+ 	
+ 	msp->search = search;
+ 	msp->partial = partial;
+@@ -1918,7 +1920,7 @@
+ 				break;
+ 			map_rec->country_id = item->id_lo;
+ 			msp->mr = map_rec;
+-			return msp;
++			willsearch=1;
+ 			break;
+ 		case attr_town_postal:
+ 			break;
+@@ -1947,7 +1949,8 @@
+ 				map_rect_destroy_binfile(map_rec);
+ 				if (!msp->mr)
+ 					break;
+-				return msp;
++				willsearch=1;
++				break;
+ 			}
+ 			map_rect_destroy_binfile(map_rec);
+ 			break;
+@@ -1974,21 +1977,27 @@
+ 			{
+ 				break;
+ 			}
+-			return msp;
++			willsearch=1;
++			break;
+ 		default:
+ 			break;
+ 	}
+-	g_free(msp);
+-	return NULL;
++	if(!willsearch) {
++		g_free(msp);
++		msp=NULL;
++	} else {
++		msp->str=linguistics_casefold(search->u.str);
++	}
++	return msp;
+ }
+ 
+ static int
+ ascii_cmp(char *name, char *match, int partial)
+ {
+-	if (partial)
+-		return g_ascii_strncasecmp(name, match, strlen(match));
+-	else
+-		return g_ascii_strcasecmp(name, match);
++	char *s=linguistics_casefold(name);
++	int ret=linguistics_compare(s,match,partial);
++	g_free(s);
++	return ret;
+ }
+ 
+ struct duplicate
+@@ -2056,13 +2065,13 @@
+ 			case attr_town_or_district_name:
+ 				if (map_search->mr->tile_depth > 1 && item_is_town(*it) && !item_is_district(*it) && map_search->search->type != attr_district_name) {
+ 					if (binfile_attr_get(it->priv_data, attr_town_name_match, &at) || binfile_attr_get(it->priv_data, attr_town_name, &at)) {
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
++						if (!ascii_cmp(at.u.str, map_search->str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
+ 							return it;
+ 					}
+ 				}
+ 				if (map_search->mr->tile_depth > 1 && item_is_district(*it) && map_search->search->type != attr_town_name) {
+ 					if (binfile_attr_get(it->priv_data, attr_district_name_match, &at) || binfile_attr_get(it->priv_data, attr_district_name, &at)) {
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
++						if (!ascii_cmp(at.u.str, map_search->str, map_search->partial) && !duplicate(map_search, it, attr_town_name)) 
+ 							return it;
+ 					}
+ 				}
+@@ -2070,7 +2079,7 @@
+ 			case attr_street_name:
+ 				if (map_search->mode == 1) {
+ 					if (binfile_attr_get(it->priv_data, attr_street_name_match, &at) || binfile_attr_get(it->priv_data, attr_street_name, &at)) {
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial) && !duplicate(map_search, it, attr_street_name)) {
++						if (!ascii_cmp(at.u.str, map_search->str, map_search->partial) && !duplicate(map_search, it, attr_street_name)) {
+ 							return it;
+ 						}
+ 					}
+@@ -2079,20 +2088,14 @@
+ 				if (item_is_street(*it)) {
+ 					struct attr at;
+ 					if (map_selection_contains_item_rect(map_search->mr->sel, it) && binfile_attr_get(it->priv_data, attr_label, &at)) {
+-						int i,match=0;
++						int match=0;
+ 						char *str=g_strdup(at.u.str);
+ 						char *word=str;
+ 						do {
+-							for (i = 0 ; i < 3 ; i++) {
+-								char *name=linguistics_expand_special(word,i);
+-								if (name && !ascii_cmp(name, map_search->search->u.str, map_search->partial))
+-									match=1;
+-								g_free(name);
+-								if (match)
+-									break;
++							if (!ascii_cmp(word, map_search->str, map_search->partial)) {
++								match=1;
++								break;
+ 							}
+-							if (match)
+-								break;
+ 							word=linguistics_next_word(word);
+ 						} while (word);
+ 						g_free(str);
+@@ -2114,7 +2117,7 @@
+ 					if (binfile_attr_get(it->priv_data, attr_house_number, &at))
+ 					{
+ 						// match housenumber to our string
+-						if (!ascii_cmp(at.u.str, map_search->search->u.str, map_search->partial))
++						if (!ascii_cmp(at.u.str, map_search->str, map_search->partial))
+ 						{
+ 							//binfile_attr_get(it->priv_data, attr_street_name, &at);
+ 							//dbg(0,"hnnn B1 street_name=%s",at.u.str);
+@@ -2150,6 +2153,8 @@
+ 		map_rect_destroy_binfile(ms->mr_item);
+ 	if (ms->mr)
+ 		map_rect_destroy_binfile(ms->mr);
++	if (ms->str)
++		g_free(ms->str);
+ 	g_free(ms);
+ }
+ 
+Index: navit/country.c
+===================================================================
+--- navit/country.c	(revision 4800)
++++ navit/country.c	(working copy)
+@@ -373,16 +373,17 @@
+ match(struct country_search *this_, enum attr_type type, const char *name)
+ {
+ 	int ret;
++	char *s1, *s2;
+ 	if (!name)
+ 		return 0;
+ 	if (this_->search.type != type && this_->search.type != attr_country_all)
+ 		return 0;
+-	if (this_->partial)
+-		ret=(g_strncasecmp(this_->search.u.str, name, this_->len) == 0);
+-	else
+-		ret=(g_strcasecmp(this_->search.u.str, name) == 0);
++	s1=linguistics_casefold(this_->search.u.str);
++	s2=linguistics_casefold(name);
++	ret=linguistics_compare(s2,s1,this_->partial)==0;
++	g_free(s1);
++	g_free(s2);
+ 	return ret;
+-
+ }
+ 
+ 

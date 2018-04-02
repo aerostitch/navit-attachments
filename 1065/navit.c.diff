@@ -1,0 +1,224 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/navit.c	2012-09-04 20:04:37.399424012 +0200
++++ navit.c	2012-09-23 13:24:24.151341000 +0200
+@@ -68,6 +68,7 @@
+ #include "sunriset.h"
+ #include "bookmarks.h"
+ #include "xmlconfig.h"
++#include "roadprofile.h"
+ #ifdef HAVE_API_WIN32_BASE
+ #include <windows.h>
+ #include "util.h"
+@@ -136,6 +137,10 @@
+ 	int autozoom_secs;
+ 	int autozoom_min;
+ 	int autozoom_active;
++/* ********************** Rainer *************************/
++	int dynamic_zoom_min;
++	int dynamic_zoom_active;
++/* ********************** Rainer *************************/
+ 	struct event_timeout *button_timeout, *motion_timeout;
+ 	struct callback *motion_timeout_callback;
+ 	int ignore_button;
+@@ -632,11 +637,10 @@
+ 	int distance,w,h;
+ 	double new_scale;
+ 	long scale;
+-
++	
+ 	if (! this_->autozoom_active) {
+ 		return;
+ 	}
+-
+ 	distance = speed * this_->autozoom_secs;
+ 
+ 	transform_get_size(this_->trans, &w, &h);
+@@ -667,6 +671,131 @@
+ 	}
+ }
+ 
++
++/***************************** Rainer ***************************/
++/**
++ * @brief Dynamically adjusts zoom level
++ *
++ * This function automatically adjusts the current
++ * zoom level according to the current street attribute.
++ *
++ * @param this_ The navit struct
++ * @param center The "immovable" point - i.e. the vehicles position if we're centering on the vehicle
++ */
++static void
++navit_dynamic_zoom(struct navit *this_, struct coord *center)
++{
++	struct street_data *sd = NULL;
++	struct tracking *tr = NULL;
++	struct point pc;
++	int w,h,i;
++	double new_scale, target_scale, new_target_scale, temp_scale;
++	long scale;
++	const int zoom_factor = 2;
++	int dist_to_next_maneuver;	
++	int zoom_steps, zoom_dist, start_zoom_dist;
++
++	struct roadprofile *roadp;
++	enum item_type target_street_type;
++	struct attr maneuver_scale;
++	if (! this_->dynamic_zoom_active) {
++		return;
++	}
++
++	//maneuver_scale = this_->vehicleprofile.manuever_scale;
++	vehicleprofile_get_attr(this_->vehicleprofile,attr_manuever_scale, &maneuver_scale, NULL);
++
++	transform_get_size(this_->trans, &w, &h);
++	transform(this_->trans, transform_get_projection(this_->trans), center, &pc, 1, 0, 0, NULL);
++	scale = transform_get_scale(this_->trans);
++
++	tr = this_->tracking;
++	sd = tracking_get_street_data(tr);
++
++	//get roadprofile
++	roadp = vehicleprofile_get_roadprofile(this_->vehicleprofile, sd->item.type);
++	if (!roadp) {
++		// No road profile availabe 
++		target_scale = 32;
++	} else {
++		//apply zoom factor for this street
++		target_scale=roadp->zoom_scale;
++	}        
++
++/*
++ * hier muss die Navigationsabhängig rein: wenn die Entfernung zun nächsten Manöver < Schwelle, 
++ * dann Zoomfactor langsan erniedrigen (also ranzoomen) wenn Ziel Zoomfaktor kleiner als aktueller Zoomfaktor
++ * else: Zoomfaktor nicht verändern, da man sonst herauszoomen würde
++ */
++
++	if (this_->navigation)
++	{
++		//call function of natvigation.c
++		dist_to_next_maneuver = get_dist_to_next_maneuver(this_->navigation);
++		start_zoom_dist = get_distance_of_first_announcement (this_->navigation);
++		//target_street_type = get_target_street_type(this_->navigation);	
++
++		if ((dist_to_next_maneuver == -1) || (start_zoom_dist == -1) || (target_street_type == -1))
++		{
++			target_scale = target_scale;
++		} else {
++			new_target_scale = maneuver_scale.u.num;
++        
++			// check if zoom in 
++			if ((dist_to_next_maneuver < start_zoom_dist))		
++			{		
++				//how many zoom do I need (zoom in by factor 2)
++				zoom_steps = 0;				
++				temp_scale = new_target_scale;
++				while (temp_scale < target_scale)
++				{
++					zoom_steps++;
++					temp_scale = temp_scale * zoom_factor;
++				}
++				if (zoom_steps > 0) 
++				{
++					//teile strecke durch zoomfactor und zoome an diesen Punkten 
++					//distance for next zoom
++					zoom_dist = start_zoom_dist / zoom_steps; 
++					new_target_scale = target_scale;
++					for(i=zoom_steps;i>0;i--) 
++					{
++						if ( dist_to_next_maneuver < i * zoom_dist)
++						{	
++							new_target_scale = new_target_scale / zoom_factor;
++						}
++					}
++					target_scale = new_target_scale;
++				} else {
++					target_scale = new_target_scale;
++				}		
++			}
++		}
++	}	
++
++
++	if (abs(target_scale - scale) < 2) { 
++		return; // Smoothing
++	}
++
++	if (target_scale > scale)  { 
++		new_scale = MIN(scale * zoom_factor, target_scale); // Smooth transition for zoom out
++	} else {
++		new_scale = target_scale;
++	}
++
++	
++	if (new_scale >= this_->dynamic_zoom_min) {
++		navit_scale(this_, (long)new_scale, &pc, 0);
++	} else {
++		if (scale != this_->dynamic_zoom_min) {
++			navit_scale(this_, this_->dynamic_zoom_min, &pc, 0);
++		}
++	}
++}
++/***************************** Rainer ***************************/
++
++
+ /**
+  * Change the current zoom level, zooming closer to the ground
+  *
+@@ -1406,6 +1535,10 @@
+ 	this_->autozoom_secs = 10;
+ 	this_->autozoom_min = 7;
+ 	this_->autozoom_active = 0;
++/* ********************** Rainer *************************/
++	this_->dynamic_zoom_min = 7;
++	this_->dynamic_zoom_active = 0;
++/* ********************** Rainer *************************/
+ 	this_->zoom_min = 1;
+ 	this_->zoom_max = 2097152;
+ 	this_->follow_cursor = 1;
+@@ -2315,6 +2448,9 @@
+ 	navit_set_center_coord_screen(this_, &nv->coord, &pn, 0);
+ 	if (autozoom)
+ 		navit_autozoom(this_, &nv->coord, nv->speed, 0);
++/* ********************** Rainer *************************/
++		navit_dynamic_zoom(this_, &nv->coord);
++/* ********************** Rainer *************************/
+ }
+ 
+ static void
+@@ -2365,6 +2501,12 @@
+ 		attr_updated=(this_->autozoom_active != attr->u.num);
+ 		this_->autozoom_active = attr->u.num;
+ 		break;
++/* ********************** Rainer *************************/
++	case attr_dynamic_zoom_active:
++		attr_updated=(this_->dynamic_zoom_active != attr->u.num);
++		this_->dynamic_zoom_active = attr->u.num;
++		break;
++/* ********************** Rainer *************************/
+ 	case attr_center:
+ 		transform_from_geo(transform_get_projection(this_->trans), attr->u.coord_geo, &co);
+ 		dbg(1,"0x%x,0x%x\n",co.x,co.y);
+@@ -2730,6 +2872,11 @@
+ 	case attr_autozoom_active:
+ 		attr->u.num=this_->autozoom_active;
+ 		break;
++/* ********************** Rainer *************************/
++	case attr_dynamic_zoom_active:
++		attr->u.num=this_->dynamic_zoom_active;
++		break;
++/* ********************** Rainer *************************/
+ 	case attr_follow_cursor:
+ 		attr->u.num=this_->follow_cursor;
+ 		break;
+@@ -2823,6 +2970,11 @@
+ 	case attr_autozoom_min:
+ 		this_->autozoom_min = attr->u.num;
+ 		break;
++/* ********************** Rainer *************************
++	case attr_dynamic_zoom_min:
++		this_->dynamic_zoom_min = attr->u.num;
++		break;
++* ********************** Rainer *************************/
+ 	default:
+ 		return 0;
+ 	}

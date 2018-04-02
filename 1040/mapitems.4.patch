@@ -1,0 +1,873 @@
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/bookmarks.c
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/bookmarks.c	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/bookmarks.c	(working copy)
+@@ -643,7 +643,7 @@
+ struct former_destination{
+ 	enum item_type type;
+ 	char* description;
+-	struct coord c;
++	GList* c;
+ };
+ 
+ static void free_former_destination(struct former_destination* former_destination){
+@@ -648,6 +648,8 @@
+ 
+ static void free_former_destination(struct former_destination* former_destination){
+ 	g_free(former_destination->description);
++	g_list_foreach(former_destination->c, (GFunc)g_free, NULL);
++	g_list_free(former_destination->c);
+ 	g_free(former_destination);
+ }
+ 
+@@ -657,6 +659,8 @@
+ 	struct item *item;
+ 	struct attr attr;
+ 	struct former_destination *dest;
++	struct coord c;
++	int more;
+ 	GList* list = NULL;
+ 	if (map && (mr=map_rect_new(map, NULL))) {
+ 		while ((item=map_rect_get_item(mr))) {
+@@ -661,11 +665,16 @@
+ 	if (map && (mr=map_rect_new(map, NULL))) {
+ 		while ((item=map_rect_get_item(mr))) {
+ 			if (item->type != type_former_destination) continue;
+-			dest = g_new(struct former_destination, 1);
++			dest = g_new0(struct former_destination, 1);
+ 			dest->type=item->type;
+ 			item_attr_get(item, attr_label, &attr);
+ 			dest->description = g_strdup(attr.u.str);
+-			item_coord_get(item, &(dest->c), 1);
++			more = item_coord_get(item, &c, 1);
++			while (more) {
++				dest->c = g_list_append(dest->c, g_new(struct coord, 1));
++				*(struct coord *)g_list_last(dest->c)->data = c;
++				more = item_coord_get(item, &c, 1);
++			}
+ 			list = g_list_prepend(list, dest);
+ 		}
+ 		map_rect_destroy(mr);
+@@ -678,7 +687,7 @@
+ {
+ 	if ((dest1->type == dest2->type) &&
+ 	    (!strcmp(dest1->description, dest2->description)) &&
+-	    (coord_equal(&(dest1->c), &(dest2->c)))){
++	    (coord_equal((struct coord *)g_list_last(dest1->c)->data, (struct coord *)g_list_last(dest2->c)->data))){
+ 		return TRUE;
+ 	}
+ 	return FALSE;
+@@ -709,6 +718,8 @@
+ {
+ 	FILE *f;
+ 	GList* currdest = NULL;
++	GList* c_list = NULL;
++	struct coord *c;
+ 	struct former_destination *dest;
+ 	const char* prostr = projection_to_name(proj);
+ 	f=fopen(former_destination_file, "w");
+@@ -719,11 +730,15 @@
+ 				fprintf(f,"type=%s label=\"%s\"\n", item_to_name(dest->type), dest->description);
+ 			else
+ 				fprintf(f,"type=%s\n", item_to_name(dest->type));
+-			fprintf(f,"%s%s%s0x%x %s0x%x\n",
+-			prostr, *prostr ? ":" : "",
+-			dest->c.x >= 0 ? "":"-", dest->c.x >= 0 ? dest->c.x : -dest->c.x,
+-			dest->c.y >= 0 ? "":"-", dest->c.y >= 0 ? dest->c.y : -dest->c.y);
+-			
++			c_list = dest->c;
++			do {
++				c = (struct coord *)c_list->data;
++				fprintf(f,"%s%s%s0x%x %s0x%x\n",
++					prostr, *prostr ? ":" : "",
++					c->x >= 0 ? "":"-", c->x >= 0 ? c->x : -c->x,
++					c->y >= 0 ? "":"-", c->y >= 0 ? c->y : -c->y);
++				c_list = g_list_next(c_list);
++			} while (c_list);
+ 		}
+ 		fclose(f);
+ 	} else {
+@@ -735,8 +750,8 @@
+  * @param limit Limits the number of entries in the "backlog". Set to 0 for "infinite"
+  */
+ void
+-bookmarks_append_coord(struct map *former_destination_map, char *former_destination_file, 
+-		struct pcoord *c, enum item_type type, const char *description, int limit)
++bookmarks_append_destinations(struct map *former_destination_map, char *former_destination_file,
++		struct pcoord *c, int count, enum item_type type, const char *description, int limit)
+ {
+ 	struct former_destination *new_dest;
+ 	GList* former_destinations = NULL;
+@@ -741,15 +756,21 @@
+ 	struct former_destination *new_dest;
+ 	GList* former_destinations = NULL;
+ 	GList* former_destinations_shortened = NULL;
++	struct coord* c_dup;
+ 	int no_of_former_destinations;
++	int i;
+ 
+ 	former_destinations = read_former_destination_map_as_list(former_destination_map);
+ 
+- 	new_dest = g_new(struct former_destination, 1);
++ 	new_dest = g_new0(struct former_destination, 1);
+  	new_dest->type = type;
+  	new_dest->description = g_strdup(description?description:_("Map Point"));
+- 	new_dest->c.x = c->x;
+- 	new_dest->c.y = c->y;
++	for (i=0; i<count; i++) {
++		c_dup = g_new(struct coord, 1);
++ 		c_dup->x = c[i].x;
++	 	c_dup->y = c[i].y;
++		new_dest->c = g_list_append(new_dest->c, c_dup);
++	}
+ 	former_destinations = remove_destination_from_list(new_dest, former_destinations);
+  	former_destinations = g_list_append(former_destinations, new_dest);
+ 
+@@ -764,3 +785,23 @@
+ 	g_list_free(former_destinations);
+ }
+ 
++/**
++ * @param limit Limits the number of entries in the "backlog". Set to 0 for "infinite"
++ */
++void
++bookmarks_replace_destinations(struct map *former_destination_map, char *former_destination_file,
++		struct pcoord *c, int count, enum item_type type, const char *description, int limit)
++{
++	GList* former_destinations = NULL;
++	struct former_destination *dest;
++
++	/* First, remove the last former_destination */
++	former_destinations = read_former_destination_map_as_list(former_destination_map);
++	dest = g_list_last(former_destinations)->data;
++	former_destinations = g_list_remove(former_destinations, dest);
++	free_former_destination(dest);
++	write_former_destinations(former_destinations, former_destination_file, map_projection(former_destination_map));
++
++	/* Then, append the new one */
++	bookmarks_append_destinations(former_destination_map, former_destination_file, c, count, type, description, limit);
++}
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/bookmarks.h
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/bookmarks.h	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/bookmarks.h	(working copy)
+@@ -54,7 +54,8 @@
+ void bookmarks_set_center_from_file(struct bookmarks *this_, char *file);
+ char* bookmarks_get_center_file(gboolean create);
+ void bookmarks_write_center_to_file(struct bookmarks *this_, char *file);
+-void bookmarks_append_coord(struct map *former_destination_map, char *file, struct pcoord *c, enum item_type type, const char *description, int limit);
++void bookmarks_append_destinations(struct map *former_destination_map, char *file, struct pcoord *c, int count, enum item_type type, const char *description, int limit);
++void bookmarks_replace_destinations(struct map *former_destination_map, char *file, struct pcoord *c, int count, enum item_type type, const char *description, int limit);
+ /* end of prototypes */
+ 
+ #ifdef __cplusplus
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/gui/internal/gui_internal.c
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/gui/internal/gui_internal.c	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/gui/internal/gui_internal.c	(working copy)
+@@ -2421,7 +2421,7 @@
+ 		bookmarks_item_rewind(mattr.u.bookmarks);
+ 		i=0;
+ 		while ((item=bookmarks_get_item(mattr.u.bookmarks))) {
+-			if (!item_attr_get(item, attr_label, &attr)) 
++			if (!item_attr_get(item, attr_label, &attr))
+ 				continue;
+ 			if (item->type == type_bookmark) {
+ 				if (item_coord_get(item, &c, 1)) {
+@@ -3605,6 +3605,25 @@
+ 	navit_draw(this->nav);
+ }
+ 
++static void
++gui_internal_cmd_delete_waypoint(struct gui_priv *this, struct widget *wm, void *data)
++{
++	char *wp = "waypoint";
++	int wp_displaynum;
++	wp_displaynum = atoi(data+strlen(wp));
++	navit_remove_nth_waypoint(this->nav, wp_displaynum-1);
++	gui_internal_prune_menu(this, NULL);
++}
++
++static void
++gui_internal_cmd_insert_waypoint(struct gui_priv *this, struct widget *wm, void *data)
++{
++	char *wp = "waypoint";
++	int wp_displaynum;
++	wp_displaynum = atoi(data+strlen(wp));
++	navit_set_next_waypoint_pos(this->nav, wp_displaynum - 1);
++	gui_internal_prune_menu(this, NULL);
++}
+ 
+ /* meaning of the bits in "flags":
+  * 1: "Streets"
+@@ -3861,7 +3880,23 @@
+ 				gui_internal_cmd_delete_bookmark, NULL));
+ 		wbc->text=g_strdup(wm->text);
+ 	}
+-	
++
++	if (strstr(name, "waypoint")){
++		gui_internal_widget_append(wtable,row=gui_internal_widget_table_row_new(this,gravity_left|orientation_horizontal|flags_fill));
++		gui_internal_widget_append(row,
++			wbc=gui_internal_button_new_with_callback(this, _("Delete waypoint"),
++				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_delete_waypoint, NULL));
++		wbc->data=name;
++
++		gui_internal_widget_append(wtable,row=gui_internal_widget_table_row_new(this,gravity_left|orientation_horizontal|flags_fill));
++		gui_internal_widget_append(row,
++			wbc=gui_internal_button_new_with_callback(this, _("Add waypoint before"),
++				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_insert_waypoint, NULL));
++		wbc->data=name;
++	}
++
+ 	gui_internal_menu_render(this);
+ 
+ 	if((flags & 1024) && wclosest) 
+@@ -5373,7 +5408,14 @@
+ 				type.u.str="";
+ 			if (!map_get_attr(attr.u.map, attr_data, &data, NULL))
+ 				data.u.str="";
+-			label=g_strdup_printf("%s:%s", type.u.str, data.u.str);
++			if (strlen(data.u.str) > 0) {
++				label=g_strdup_printf("%s:%s", type.u.str, data.u.str);
++			} else {
++				struct attr name;
++				if (!map_get_attr(attr.u.map, attr_name, &name, NULL))
++					name.u.str="";
++				label=g_strdup_printf("%s:%s", type.u.str, name.u.str);
++			}
+ 		}
+ 		if (map_get_attr(attr.u.map, attr_url, &url, NULL)) {
+ 			if (!map_get_attr(attr.u.map, attr_active, &active, NULL))
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/map/textfile/textfile.c
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/map/textfile/textfile.c	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/map/textfile/textfile.c	(working copy)
+@@ -98,9 +98,11 @@
+ 	dbg(1,"textfile_coord_get %d\n",count);
+ 	while (count--) {
+ 		if (mr->f && !feof(mr->f) && (!mr->item.id_hi || !mr->eoc) && parse_line(mr, mr->item.id_hi)) {
+-			*c=mr->c;
+-			dbg(1,"c=0x%x,0x%x\n", c->x, c->y);
+-			c++;
++			if (c){
++				*c=mr->c;
++				dbg(1,"c=0x%x,0x%x\n", c->x, c->y);
++				c++;
++			}
+ 			ret++;		
+ 			get_line(mr);
+ 			if (mr->item.id_hi)
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/navit.c
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/navit.c	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/navit.c	(working copy)
+@@ -130,6 +130,8 @@
+ 	struct callback *nav_speech_cb, *roadbook_callback, *popup_callback, *route_cb, *progress_cb;
+ 	struct datawindow *roadbook_window;
+ 	struct map *former_destination;
++	struct map *waypoints;
++	int next_waypoint_pos; /* 0-based position for next insert waypoint, -1 for append waypoint */
+ 	struct point pressed, last, current;
+ 	int button_pressed,moved,popped,zoomed;
+ 	int center_timeout;
+@@ -1200,7 +1202,7 @@
+ 
+ 
+ static void
+-navit_cmd_route_remove_next_waypoint(struct navit *this, char *function, struct attr **in, struct attr ***out, int *valid)
++navit_cmd_route_ignore_next_waypoint(struct navit *this, char *function, struct attr **in, struct attr ***out, int *valid)
+ {
+ 	navit_remove_waypoint(this);
+ }
+@@ -1352,7 +1354,7 @@
+ 	{"set_center",command_cast(navit_cmd_set_center)},
+ 	{"set_center_cursor",command_cast(navit_cmd_set_center_cursor)},
+ 	{"set_destination",command_cast(navit_cmd_set_destination)},
+-	{"route_remove_next_waypoint",command_cast(navit_cmd_route_remove_next_waypoint)},
++	{"route_ignore_next_waypoint",command_cast(navit_cmd_route_ignore_next_waypoint)},
+ 	{"route_remove_last_waypoint",command_cast(navit_cmd_route_remove_last_waypoint)},
+ 	{"set_position",command_cast(navit_cmd_set_position)},
+ 	{"announcer_toggle",command_cast(navit_cmd_announcer_toggle)},
+@@ -1400,6 +1402,7 @@
+ 	this_->tracking_flag=1;
+ 	this_->recentdest_count=10;
+ 	this_->osd_configuration=-1;
++	this_->next_waypoint_pos=-1;
+ 
+ 	this_->center_timeout = 10;
+ 	this_->use_mousewheel = 1;
+@@ -1530,6 +1533,206 @@
+ }
+ 
+ /**
++ * @brief Init the "waypoints" map if not set and update the map items to the current route.
++ * @param this_ The navit instance
++ */
++void
++navit_init_waypoint_map(struct navit *this_)
++{
++	struct mapset *ms;
++	ms = navit_get_mapset(this_);
++
++	if (!ms)
++		return;
++
++	this_->waypoints = mapset_get_map_by_name(ms, "Waypoints");
++	if (!this_->waypoints) {
++		struct attr *attrs[10], attrmap;
++		enum attr_type types[] = { attr_position_longitude,
++				attr_position_latitude, attr_label, attr_none };
++		int i;
++
++		attrs[0] = g_new0(struct attr,1);
++		attrs[0]->type = attr_type;
++		attrs[0]->u.str = "csv";
++
++		attrs[1] = g_new0(struct attr,1);
++		attrs[1]->type = attr_name;
++		attrs[1]->u.str = "Waypoints";
++
++		attrs[2] = g_new0(struct attr,1);
++		attrs[2]->type = attr_charset;
++		attrs[2]->u.str = "utf-8";
++
++		attrs[3] = g_new0(struct attr,1);
++		attrs[3]->type = attr_item_type;
++		attrs[3]->u.num = type_waypoint;
++
++		attrs[4] = g_new0(struct attr,1);
++		attrs[4]->type = attr_attr_types;
++		attrs[4]->u.attr_types = types;
++		attrs[5] = NULL;
++
++		attrmap.type = attr_map;
++		this_->waypoints = attrmap.u.map = map_new(NULL, attrs);
++		if (this_->waypoints)
++			mapset_add_attr(ms, &attrmap);
++
++		for (i = 0; attrs[i]; i++)
++			g_free(attrs[i]);
++
++	}
++	struct map_rect *mr;
++	mr = map_rect_new(this_->waypoints, NULL);
++
++	if (!mr)
++		return;
++
++	/* Clean the map */
++	struct item *item;
++	while ((item = map_rect_get_item(mr)) != NULL) {
++		item_type_set(item, type_none);
++	}
++
++	/* add all waypoints to map */
++	int i, dest_count;
++	struct pcoord *pc;
++	struct coord c;
++	dest_count = route_get_destination_count(this_->route);
++	pc = g_alloca(dest_count*sizeof(struct pcoord));
++	route_get_destinations(this_->route, pc, dest_count);
++	for (i = 0; i < dest_count; i++) {
++		struct item* it = map_rect_create_item(mr, type_waypoint);
++		if (it) {
++			struct attr a;
++			c.x = pc[i].x;
++			c.y = pc[i].y;
++			item_coord_set(it, &c, 1, change_mode_modify);
++			a.type = attr_label;
++			a.u.str = g_strdup_printf("%d", i + 1);
++			item_attr_set(it, &a, change_mode_modify);
++		}
++	}
++	map_rect_destroy(mr);
++}
++
++/**
++ * @brief Delete all items from the map  "waypoints".
++ * @param this_ The navit instance
++ */
++void
++navit_clean_waypoint_map(struct navit *this_)
++{
++	if (this_->waypoints) {
++		struct map_rect *mr;
++		mr = map_rect_new(this_->waypoints, NULL);
++
++		/* Clean the map */
++		struct item *item;
++		while ((item = map_rect_get_item(mr)) != NULL) {
++			item_type_set(item, type_none);
++		}
++		map_rect_destroy(mr);
++	}
++}
++
++/**
++ * @brief Inserts a waypoint item with a number to the map "waypoints".
++ *
++ * If pos is negative the waypoint map item is appended to the end of the route.
++ * @param this_ The navit instance
++ * @param pc Coordinates of the new waypoint
++ * @param pos 0-based position to insert the waypoint at
++ */
++void
++navit_insert_waypoint_item(struct navit *this_, struct pcoord *pc, int pos)
++{
++	if (!this_->waypoints) {
++		navit_init_waypoint_map(this_);
++	} else if (pc) {
++		struct map_rect *mr;
++		mr = map_rect_new(this_->waypoints, NULL);
++		struct item* item = map_rect_create_item(mr, type_waypoint);
++		if (item) {
++			struct coord c;
++			struct attr a;
++			c.x = pc->x;
++			c.y = pc->y;
++			item_coord_set(item, &c, 1, change_mode_modify);
++			a.type = attr_label;
++			int display_num;
++			display_num = (pos == -1 ? route_get_destination_count(this_->route) : pos + 1);
++			a.u.str = g_strdup_printf("%d", display_num);
++			item_attr_set(item, &a, change_mode_modify);
++			if (pos > -1) {
++				/* update numbers */
++				while ((item = map_rect_get_item(mr)) != NULL) {
++					item_attr_get(item, attr_label, &a);
++					display_num = atoi(a.u.str);
++					if (display_num > pos) {
++						a.u.str = g_strdup_printf("%d", display_num + 1);
++						item_attr_set(item, &a, change_mode_modify);
++					}
++				}
++			}
++		}
++		map_rect_destroy(mr);
++	}
++}
++
++/**
++ * @brief Removes the nth waypoint item from the map "waypoint".
++ *
++ * If pos is negative the waypoint map item is appended to the end of the route.
++ * @param this_ The navit instance
++ * @param n 0-based waypoint number to remove from map
++ */
++void
++navit_remove_nth_waypoint_item(struct navit *this_, int n)
++{
++	if (this_->waypoints) {
++		struct map_rect *mr;
++		mr = map_rect_new(this_->waypoints, NULL);
++
++		if (mr) {
++			struct item *item;
++			struct coord *c;
++			struct pcoord *pc;
++			struct attr a;
++			int display_num;
++			pc = g_alloca((n + 1)*sizeof(struct pcoord));
++			c = g_alloca(sizeof(struct coord));
++			route_get_destinations(this_->route, pc, n + 1);
++			c->x = pc[n].x;
++			c->y = pc[n].y;
++			while ((item = map_rect_get_item(mr)) != NULL) {
++				a.type = attr_label;
++				item_attr_get(item, attr_label,&a);
++				display_num = atoi(a.u.str);
++				if (display_num == n + 1) {
++					item_type_set(item, type_none);
++				} else if (display_num > n) {
++					a.u.str = g_strdup_printf("%d", display_num - 1);
++					item_attr_set(item, &a, change_mode_modify);
++				}
++			}
++			map_rect_destroy(mr);
++		}
++	}
++}
++
++/**
++ * @brief Set position for next insert waypoint.
++ *
++ * @param this_ The navit instance
++ * @param n 0-based waypoint position for next insert, -1 for append waypoint.
++ */
++void
++navit_set_next_waypoint_pos(struct navit *this_, int pos){
++	this_->next_waypoint_pos = pos;
++}
++
++/**
+  * Start or add a given set of coordinates for route computing
+  *
+  * @param navit The navit instance
+@@ -1541,18 +1744,7 @@
+ navit_set_destination(struct navit *this_, struct pcoord *c, const char *description, int async)
+ {
+ 	char *destination_file;
+-	destination_file = bookmarks_get_destination_file(TRUE);
+-	if (c) {
+-		this_->destination=*c;
+-		this_->destination_valid=1;
+ 
+-		dbg(1, "c=(%i,%i)\n", c->x,c->y);
+-		bookmarks_append_coord(this_->former_destination, destination_file, c, type_former_destination, description, this_->recentdest_count);
+-	} else {
+-		this_->destination_valid=0;
+-		navit_mark_navigation_stopped(destination_file);
+-	}
+-	g_free(destination_file);
+ 	callback_list_call_attr_0(this_->attr_cbl, attr_destination);
+ 	if (this_->route) {
+ 		struct attr attr;
+@@ -1557,10 +1749,16 @@
+ 	if (this_->route) {
+ 		struct attr attr;
+ 		navit_get_attr(this_, attr_waypoints_flag, &attr, NULL);
+-		if (this_->waypoints_flag==0 || route_get_destination_count(this_->route)==0){
++		if ((!c) || (this_->waypoints_flag == 0)) {
+ 			route_set_destination(this_->route, c, async);
+-		}else{
+-			route_append_destination(this_->route, c, async);
++			if (this_->waypoints){
++				navit_clean_waypoint_map(this_);
++				this_->waypoints=NULL;
++			}
++		} else {
++			route_insert_waypoint(this_->route, c, this_->next_waypoint_pos, async);
++			navit_insert_waypoint_item(this_, c, this_->next_waypoint_pos);
++			this_->next_waypoint_pos = -1;
+ 		}
+ 
+ 		if (this_->ready == 3)
+@@ -1566,8 +1764,29 @@
+ 		if (this_->ready == 3)
+ 			navit_draw(this_);
+ 	}
++	destination_file = bookmarks_get_destination_file(TRUE);
++	if (c) {
++		struct pcoord *pc;
++		int count;
++		count = route_get_destination_count(this_->route);
++		pc = g_alloca(count*sizeof(struct pcoord));
++		route_get_destinations(this_->route, pc, count);
++		if (this_->waypoints_flag) {
++			bookmarks_replace_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, description, this_->recentdest_count);
++		} else {
++			bookmarks_append_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, description, this_->recentdest_count);
++		}
++		this_->destination=pc[count-1];
++		this_->destination_valid=1;
++	} else {
++		this_->destination_valid=0;
++		navit_mark_navigation_stopped(destination_file);
++		navit_clean_waypoint_map(this_);
++	}
++	g_free(destination_file);
+ }
+ 
++
+ /**
+  * Start the route computing to a given set of coordinates including waypoints
+  *
+@@ -1585,7 +1804,7 @@
+ 		this_->destination_valid=1;
+ 
+ 		destination_file = bookmarks_get_destination_file(TRUE);
+-		bookmarks_append_coord(this_->former_destination, destination_file, c, type_former_itinerary, description, this_->recentdest_count);
++		bookmarks_append_destinations(this_->former_destination, destination_file, c, count, type_former_itinerary, description, this_->recentdest_count);
+ 		g_free(destination_file);
+ 	} else
+ 		this_->destination_valid=0;
+@@ -1592,6 +1811,7 @@
+ 	callback_list_call_attr_0(this_->attr_cbl, attr_destination);
+ 	if (this_->route) {
+ 		route_set_destinations(this_->route, c, count, async);
++		navit_init_waypoint_map(this_);
+ 
+ 		if (this_->ready == 3)
+ 			navit_draw(this_);
+@@ -1626,8 +1846,13 @@
+ void
+ navit_remove_nth_waypoint(struct navit *this_, int n)
+ {
++	struct pcoord *pc;
++	int count;
++	char *destination_file;
++
+ 	if(!this_->route)
+ 		return;
++	navit_remove_nth_waypoint_item(this_, n);
+ 	if (route_get_destination_count(this_->route)>1){
+ 		route_remove_nth_waypoint(this_->route, n);
+ 	}else{
+@@ -1633,6 +1858,15 @@
+ 	}else{
+ 		navit_set_destination(this_, NULL, NULL, 0);
+ 	}
++
++	count=navit_get_destination_count(this_);
++	if (count) {
++		pc=g_alloca(count*sizeof(struct pcoord));
++		navit_get_destinations(this_, pc, count);
++		destination_file = bookmarks_get_destination_file(TRUE);
++		bookmarks_replace_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, NULL, this_->recentdest_count);
++		g_free(destination_file);
++	}
+ }
+ 
+ void
+@@ -1710,8 +1944,8 @@
+ {
+ 	struct item *item;
+ 	int i,valid=0,count=0;
+-	struct coord c[16];
+-	struct pcoord pc[16];
++	struct coord *c;
++	struct pcoord *pc;
+ 	struct map_rect *mr;
+ 
+ 	this_->former_destination=read_former_destinations_from_file();
+@@ -1718,8 +1952,13 @@
+ 	if (!this_->route || !navit_former_destinations_active(this_) || !this_->vehicle)
+ 		return;	
+ 	mr=map_rect_new(this_->former_destination, NULL);
++	while ((item=map_rect_get_item(mr)))
++		if ((i = item_coord_get(item, NULL, INT_MAX)) > count) count = i;
++	c=g_alloca((count)*sizeof(struct coord));
++	pc=g_alloca((count)*sizeof(struct pcoord));
++	mr=map_rect_new(this_->former_destination, NULL);
+ 	while ((item=map_rect_get_item(mr))) {
+-		if ((item->type == type_former_destination || item->type == type_former_itinerary || item->type == type_former_itinerary_part) && (count=item_coord_get(item, c, 16))) 
++		if ((item->type == type_former_destination || item->type == type_former_itinerary || item->type == type_former_itinerary_part) && (count=item_coord_get(item, c, INT_MAX)))
+ 			valid=1;
+ 	}
+ 	map_rect_destroy(mr);
+@@ -1731,8 +1970,10 @@
+ 		}
+ 		if (count == 1)
+ 			route_set_destination(this_->route, &pc[0], 1);
+-		else
++		else {
+ 			route_set_destinations(this_->route, pc, count, 1);
++			navit_init_waypoint_map(this_);
++		}
+ 		this_->destination=pc[count-1];
+ 		this_->destination_valid=1;
+ 	}
+@@ -2984,11 +3225,11 @@
+ 	if (this_->route) {
+ 		switch(route_destination_reached(this_->route)) {
+ 		case 1:
+-			description=route_get_destination_description(this_->route, 0);
+ 			route_remove_waypoint(this_->route);
+ 			count=route_get_destinations(this_->route, pc, 16);
++			description=route_get_destination_description(this_->route, count-1);
+ 			destination_file = bookmarks_get_destination_file(TRUE);
+-			bookmarks_append_coord(this_->former_destination, destination_file, pc, type_former_itinerary_part, description, this_->recentdest_count);
++			bookmarks_replace_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, description, this_->recentdest_count);
+ 			g_free(description);
+ 			break;	
+ 		case 2:
+@@ -2995,7 +3236,7 @@
+ 			description=route_get_destination_description(this_->route, 0);
+ 			count=route_get_destinations(this_->route, pc, 1);
+ 			destination_file = bookmarks_get_destination_file(TRUE);
+-			bookmarks_append_coord(this_->former_destination, destination_file, pc, type_former_itinerary_part, description, this_->recentdest_count);
++			bookmarks_replace_destinations(this_->former_destination, destination_file, pc, 1, type_former_destination, description, this_->recentdest_count);
+ 			g_free(description);
+ 			navit_set_destination(this_, NULL, NULL, 0);
+ 			break;
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/navit.h
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/navit.h	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/navit.h	(working copy)
+@@ -84,6 +84,7 @@
+ char* navit_get_destination_description(struct navit *this_, int n);
+ void navit_remove_nth_waypoint(struct navit *this_, int n);
+ void navit_remove_waypoint(struct navit *this_);
++void navit_set_next_waypoint_pos(struct navit *this_, int n);
+ char* navit_get_coord_description(struct navit *this_, struct pcoord *c);
+ int navit_check_route(struct navit *this_);
+ struct map* read_former_destinations_from_file(void);
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/navit_shipped.xml
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/navit_shipped.xml	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/navit_shipped.xml	(working copy)
+@@ -87,10 +87,8 @@
+ 			<a name='Route'><text>Route</text>
+ 				<img src='gui_actions' onclick='route_description()'><text>Description</text></img>
+ 				<img src='gui_actions' onclick='route_height_profile()'><text>Height Profile</text></img>
+-				<img cond='navit.route.route_status&amp;1' src='gui_stop' onclick='navit.route_remove_last_waypoint()'><text>Drop last 
+-Waypoint</text></img>
+-				<img cond='navit.route.route_status&amp;1' src='gui_stop' onclick='navit.route_remove_next_waypoint()'><text>Drop next 
+-Waypoint</text></img>
++				<img cond='navit.route.route_status&amp;1' src='gui_stop' onclick='navit.route_remove_last_waypoint()'><text>Drop last Waypoint</text></img>
++				<img cond='navit.route.route_status&amp;1' src='gui_stop' onclick='navit.route_ignore_next_waypoint()'><text>Ignore next Waypoint</text></img>
+ 			</a>
+ 			<a name='Map Point'><text>Map Point</text>
+ 				<script>position(click_coord_geo,_("Map Point"),8|16|32|64|256)</script>
+@@ -1785,6 +1783,46 @@
+ 					<icon src="gui_sound_32_32.png"/>
+ 					<circle color="#FF089C" radius="10" text_size="7"/>
+ 				</itemgra>
++
++				<itemgra item_types="waypoint" order="2">
++					<circle color="#000000" radius="4" width="2" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="3-5">
++					<circle color="#000000" radius="8" width="2" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="6">
++					<circle color="#000000" radius="10" width="2" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="7-8">
++					<circle color="#000000" radius="16" width="2" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="9-10">
++					<circle color="#000000" radius="20" width="4" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="11">
++					<circle color="#000000" radius="28" width="4" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="12">
++					<circle color="#000000" radius="32" width="4" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="13">
++					<circle color="#000000" radius="52" width="4" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="14">
++					<circle color="#000000" radius="64" width="4" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="15">
++					<circle color="#000000" radius="68" width="6" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="16">
++					<circle color="#000000" radius="132" width="8" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="17">
++					<circle color="#000000" radius="268" width="8" text_size="24"/>
++				</itemgra>
++				<itemgra item_types="waypoint" order="18">
++					<circle color="#000000" radius="530" width="8" text_size="24"/>
++				</itemgra>
+ 			</layer>
+ 			<layer name="Unknown" enabled="no">
+ 				<!-- This entry shows all unknow point elements as blue circles -->
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/route.c
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/route.c	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/route.c	(working copy)
+@@ -1141,31 +1141,42 @@
+ }
+ 
+ /**
+- * @brief Append a given set of coordinates for route computing
++ * @brief Inserts a waypoint to the route.
++ *
++ * This inserts a waypoint to the current route, targetting the street
++ * nearest to the coordinates passed, and updates the route.
++ * If pos is negative or larger than the number of elements in the list
++ * the waypoint is appended to the end of the route.
+  *
+- * @param this The route instance
+- * @param c The coordinate to start routing to
+- * @param async 1 for async
+- * @return nothing
++ * @param this The route to set the destination for
++ * @param dst Coordinates of the new waypoint
++ * @param pos Position to insert the waypoint at
++ * @param async: If set, do routing asynchronously
+  */
+ void
+-route_append_destination(struct route *this, struct pcoord *dst, int async)
++route_insert_waypoint(struct route *this, struct pcoord *dst, int pos, int async)
+ {
+-	if (dst){
+-		struct route_info *dsti;
+-		dsti=route_find_nearest_street(this->vehicleprofile, this->ms, &dst[0]);
+-		if(dsti) {
+-			route_info_distances(dsti, dst->pro);
+-			this->destinations=g_list_append(this->destinations, dsti);
+-		}
+-		/* The graph has to be destroyed and set to NULL, otherwise route_path_update() doesn't work */
+-		route_graph_destroy(this->graph);
+-		this->graph=NULL;
+-		this->current_dst=route_get_dst(this);
+-		route_path_update(this, 1, async);
+-	}else{
+-		route_set_destinations(this, NULL, 0, async);
++	struct attr route_status;
++	struct route_info *dsti;
++	route_status.type=attr_route_status;
++
++	profile(0,NULL);
++	dsti=route_find_nearest_street(this->vehicleprofile, this->ms, dst);
++	if(dsti) {
++		route_info_distances(dsti, dst->pro);
++		this->destinations=g_list_insert(this->destinations, dsti, pos);
+ 	}
++	route_status.u.num=route_status_destination_set;
++	callback_list_call_attr_1(this->cbl2, attr_destination, this);
++	route_set_attr(this, &route_status);
++	profile(1,"find_nearest_street");
++
++	/* The graph has to be destroyed and set to NULL, otherwise route_path_update() doesn't work */
++	route_graph_destroy(this->graph);
++	this->graph=NULL;
++	this->current_dst=route_get_dst(this);
++	route_path_update(this, 1, async);
++	profile(0,"end");
+ }
+ 
+ /**
+@@ -1191,18 +1202,19 @@
+ void
+ route_remove_waypoint(struct route *this)
+ {
+-	struct route_path *path=this->path2;
+-	struct route_info *ri=this->destinations->data;
+-	this->destinations=g_list_remove(this->destinations,ri);
+-	route_info_free(ri);
+-	this->path2=this->path2->next;
+-	route_path_destroy(path,0);
+-	if (!this->destinations)
+-		return;
+-	route_graph_reset(this->graph);
+-	this->current_dst=this->destinations->data;
+-	route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb);
+-	
++	if (this->path2) {
++		struct route_path *path = this->path2;
++		struct route_info *ri = this->destinations->data;
++		this->destinations = g_list_remove(this->destinations, ri);
++		route_info_free(ri);
++		this->path2 = this->path2->next;
++		route_path_destroy(path, 0);
++		if (!this->destinations)
++			return;
++		route_graph_reset(this->graph);
++		this->current_dst = this->destinations->data;
++		route_graph_flood(this->graph, this->current_dst, this->vehicleprofile,	this->route_graph_flood_done_cb);
++	}
+ }
+ 
+ /**
+Index: /home/navit/_navit_develop/work/navit_repo/navit/navit/route.h
+===================================================================
+--- /home/navit/_navit_develop/work/navit_repo/navit/navit/route.h	(revision 5109)
++++ /home/navit/_navit_develop/work/navit_repo/navit/navit/route.h	(working copy)
+@@ -97,7 +97,7 @@
+ int route_get_destinations(struct route *this_, struct pcoord *pc, int count);
+ int route_get_destination_count(struct route *this_);
+ void route_set_destination(struct route *this_, struct pcoord *dst, int async);
+-void route_append_destination(struct route *this_, struct pcoord *dst, int async);
++void route_insert_waypoint(struct route *this_, struct pcoord *dst, int pos, int async);
+ void route_remove_nth_waypoint(struct route *this_, int n);
+ void route_remove_waypoint(struct route *this_);
+ char* route_get_destination_description(struct route *this_, int n);

@@ -1,0 +1,665 @@
+Index: navit/navit/route.h
+===================================================================
+--- navit.orig/navit/route.h	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/route.h	2012-05-19 14:49:06.000000000 +0200
+@@ -97,6 +97,7 @@
+ int route_get_destinations(struct route *this_, struct pcoord *pc, int count);
+ int route_get_destination_count(struct route *this_);
+ void route_set_destination(struct route *this_, struct pcoord *dst, int async);
++void route_append_destination(struct route *this_, struct pcoord *dst, int pos, int async);
+ void route_remove_nth_waypoint(struct route *this_, int n);
+ void route_remove_waypoint(struct route *this_);
+ char* route_get_destination_description(struct route *this_, int n);
+Index: navit/navit/gui/internal/gui_internal.c
+===================================================================
+--- navit.orig/navit/gui/internal/gui_internal.c	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/gui/internal/gui_internal.c	2012-05-19 14:49:07.000000000 +0200
+@@ -2445,7 +2445,7 @@
+ 		bookmarks_item_rewind(mattr.u.bookmarks);
+ 		i=0;
+ 		while ((item=bookmarks_get_item(mattr.u.bookmarks))) {
+-			if (!item_attr_get(item, attr_label, &attr)) 
++			if (!item_attr_get(item, attr_label, &attr))
+ 				continue;
+ 			if (item->type == type_bookmark) {
+ 				if (item_coord_get(item, &c, 1)) {
+@@ -3631,6 +3631,25 @@
+ 	navit_draw(this->nav);
+ }
+ 
++static void
++gui_internal_cmd_delete_waypoint(struct gui_priv *this, struct widget *wm, void *data)
++{
++	char *wp = "waypoint";
++	int wp_displaynum;
++	wp_displaynum = atoi(strndup(data+strlen(wp), strlen(data)-strlen(wp)));
++	navit_remove_nth_waypoint(this->nav, wp_displaynum-1);
++	gui_internal_prune_menu(this, NULL);
++}
++
++static void
++gui_internal_cmd_insert_waypoint(struct gui_priv *this, struct widget *wm, void *data)
++{
++	char *wp = "waypoint";
++	int wp_displaynum;
++	wp_displaynum = atoi(strndup(data+strlen(wp), strlen(data) - strlen(wp)));
++	navit_set_next_waypoint_pos(this->nav, wp_displaynum - 1);
++	gui_internal_prune_menu(this, NULL);
++}
+ 
+ /* meaning of the bits in "flags":
+  * 1: "Streets"
+@@ -3882,7 +3901,23 @@
+ 				gui_internal_cmd_delete_bookmark, NULL));
+ 		wbc->text=g_strdup(wm->text);
+ 	}
+-	
++
++	if (strstr(name, "waypoint")){
++		gui_internal_widget_append(wtable,row=gui_internal_widget_table_row_new(this,gravity_left|orientation_horizontal|flags_fill));
++		gui_internal_widget_append(row,
++			wbc=gui_internal_button_new_with_callback(this, _("Delete waypoint"),
++				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_delete_waypoint, NULL));
++		wbc->data=name;
++
++		gui_internal_widget_append(wtable,row=gui_internal_widget_table_row_new(this,gravity_left|orientation_horizontal|flags_fill));
++		gui_internal_widget_append(row,
++			wbc=gui_internal_button_new_with_callback(this, _("Add waypoint before"),
++				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_insert_waypoint, NULL));
++		wbc->data=name;
++	}
++
+ 	gui_internal_menu_render(this);
+ 
+ 	if((flags & 1024) && wclosest) 
+@@ -5394,7 +5429,14 @@
+ 				type.u.str="";
+ 			if (!map_get_attr(attr.u.map, attr_data, &data, NULL))
+ 				data.u.str="";
+-			label=g_strdup_printf("%s:%s", type.u.str, data.u.str);
++			if (strlen(data.u.str) > 0) {
++				label=g_strdup_printf("%s:%s", type.u.str, data.u.str);
++			} else {
++				struct attr name;
++				if (!map_get_attr(attr.u.map, attr_name, &name, NULL))
++					name.u.str="";
++				label=g_strdup_printf("%s:%s", type.u.str, name.u.str);
++			}
+ 		}
+ 		if (map_get_attr(attr.u.map, attr_url, &url, NULL)) {
+ 			if (!map_get_attr(attr.u.map, attr_active, &active, NULL))
+Index: navit/navit/navit.c
+===================================================================
+--- navit.orig/navit/navit.c	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/navit.c	2012-05-19 14:49:07.000000000 +0200
+@@ -130,6 +130,8 @@
+ 	struct callback *nav_speech_cb, *roadbook_callback, *popup_callback, *route_cb, *progress_cb;
+ 	struct datawindow *roadbook_window;
+ 	struct map *former_destination;
++	struct map *waypoints;
++	int next_waypoint_pos;
+ 	struct point pressed, last, current;
+ 	int button_pressed,moved,popped,zoomed;
+ 	int center_timeout;
+@@ -1400,6 +1402,7 @@
+ 	this_->tracking_flag=1;
+ 	this_->recentdest_count=10;
+ 	this_->osd_configuration=-1;
++	this_->next_waypoint_pos=-1;
+ 
+ 	this_->center_timeout = 10;
+ 	this_->use_mousewheel = 1;
+@@ -1529,6 +1532,181 @@
+ 	}
+ }
+ 
++void
++navit_init_waypoint_map(struct navit *this_)
++{
++	struct mapset *ms;
++	ms = navit_get_mapset(this_);
++
++	if (!ms)
++		return;
++
++	this_->waypoints = mapset_get_map_by_name(ms, "Waypoints");
++	if (!this_->waypoints) {
++		struct attr *attrs[10], attrmap;
++		enum attr_type types[] = { attr_position_longitude,
++				attr_position_latitude, attr_label, attr_none };
++		int i;
++
++		attrs[0] = g_new0(struct attr,1);
++		attrs[0]->type = attr_type;
++		attrs[0]->u.str = "csv";
++
++		attrs[1] = g_new0(struct attr,1);
++		attrs[1]->type = attr_name;
++		attrs[1]->u.str = "Waypoints";
++
++		attrs[2] = g_new0(struct attr,1);
++		attrs[2]->type = attr_charset;
++		attrs[2]->u.str = "utf-8";
++
++		attrs[3] = g_new0(struct attr,1);
++		attrs[3]->type = attr_item_type;
++		attrs[3]->u.num = type_waypoint;
++
++		attrs[4] = g_new0(struct attr,1);
++		attrs[4]->type = attr_attr_types;
++		attrs[4]->u.attr_types = types;
++		attrs[5] = NULL;
++
++		attrmap.type = attr_map;
++		this_->waypoints = attrmap.u.map = map_new(NULL, attrs);
++		if (this_->waypoints)
++			mapset_add_attr(ms, &attrmap);
++
++		for (i = 0; attrs[i]; i++)
++			g_free(attrs[i]);
++
++	}
++	struct map_rect *mr;
++	mr = map_rect_new(this_->waypoints, NULL);
++
++	if (!mr)
++		return;
++
++	/* Clean the map */
++	struct item *item;
++	while ((item = map_rect_get_item(mr)) != NULL) {
++		item_type_set(item, type_none);
++	}
++
++	/* add all waypoints to map */
++	int i, dest_count;
++	struct pcoord *pc;
++	struct coord c;
++	dest_count = route_get_destination_count(this_->route);
++	pc = g_alloca(dest_count*sizeof(struct pcoord));
++	route_get_destinations(this_->route, pc, dest_count);
++	for (i = 0; i < dest_count; i++) {
++		struct item* it = map_rect_create_item(mr, type_waypoint);
++		if (it) {
++			struct attr a;
++			c.x = pc[i].x;
++			c.y = pc[i].y;
++			item_coord_set(it, &c, 1, change_mode_modify);
++			a.type = attr_label;
++			a.u.str = g_strdup_printf("%d", i + 1);
++			item_attr_set(it, &a, change_mode_modify);
++		}
++	}
++	map_rect_destroy(mr);
++}
++
++void
++navit_clean_waypoint_map(struct navit *this_)
++{
++	if (this_->waypoints) {
++		struct map_rect *mr;
++		mr = map_rect_new(this_->waypoints, NULL);
++
++		/* Clean the map */
++		struct item *item;
++		while ((item = map_rect_get_item(mr)) != NULL) {
++			item_type_set(item, type_none);
++		}
++		map_rect_destroy(mr);
++	}
++}
++
++void
++navit_append_map_waypoint_item(struct navit *this_, struct pcoord *pc, int pos)
++{
++	if (!this_->waypoints) {
++		navit_init_waypoint_map(this_);
++	} else {
++		if (pc) {
++			struct map_rect *mr;
++			mr = map_rect_new(this_->waypoints, NULL);
++			struct item* item = map_rect_create_item(mr, type_waypoint);
++			if (item) {
++				struct coord c;
++				struct attr a;
++				c.x = pc->x;
++				c.y = pc->y;
++				item_coord_set(item, &c, 1, change_mode_modify);
++				a.type = attr_label;
++				int display_num;
++				display_num	= (this_->next_waypoint_pos == -1 ? route_get_destination_count(this_->route) : this_->next_waypoint_pos + 1);
++				a.u.str = g_strdup_printf("%d", display_num);
++				item_attr_set(item, &a, change_mode_modify);
++				if (this_->next_waypoint_pos > -1) {
++					/* update numbers */
++					while ((item = map_rect_get_item(mr)) != NULL) {
++						item_attr_get(item, attr_label, &a);
++						display_num = atoi(a.u.str);
++						if (display_num > pos) {
++							g_free(a.u.str);
++							a.u.str = g_strdup_printf("%d", display_num + 1);
++							item_attr_set(item, &a, change_mode_modify);
++						}
++					}
++				}
++			}
++			map_rect_destroy(mr);
++		}
++	}
++}
++
++void
++navit_remove_nth_map_waypoint_item(struct navit *this_, int n)
++{
++	if (this_->waypoints) {
++		struct map_rect *mr;
++		mr = map_rect_new(this_->waypoints, NULL);
++
++		if (mr) {
++			struct item *item;
++			struct coord *c;
++			struct pcoord *pc;
++			struct attr a;
++			int wp_num;
++			pc = g_alloca((n + 1)*sizeof(struct pcoord));
++			c = g_alloca(sizeof(struct coord));
++			route_get_destinations(this_->route, pc, n + 1);
++			c->x = pc[n].x;
++			c->y = pc[n].y;
++			while ((item = map_rect_get_item(mr)) != NULL) {
++				a.type = attr_label;
++				item_attr_get(item, attr_label,&a);
++				wp_num = atoi(a.u.str);
++				if (wp_num == n + 1) {
++					item_type_set(item, type_none);
++				} else if (wp_num > n) {
++					g_free(a.u.str);
++					a.u.str = g_strdup_printf("%d", wp_num - 1);
++					item_attr_set(item, &a, change_mode_modify);
++				}
++			}
++			map_rect_destroy(mr);
++		}
++	}
++}
++
++void
++navit_set_next_waypoint_pos(struct navit *this_, int n){
++	this_->next_waypoint_pos = n;
++}
++
+ /**
+  * Start or add a given set of coordinates for route computing
+  *
+@@ -1541,26 +1719,49 @@
+ navit_set_destination(struct navit *this_, struct pcoord *c, const char *description, int async)
+ {
+ 	char *destination_file;
++	struct pcoord pc[16];
++	int count, i;
+ 	destination_file = bookmarks_get_destination_file(TRUE);
+ 	if (c) {
++		dbg(1, "c=(%i,%i)\n", c->x,c->y);
++		if (this_->destination_valid && this_->waypoints_flag) {
++			count=route_get_destinations(this_->route, pc, 16);
++			if (this_->next_waypoint_pos < 0) {
++				if (count < 16) {
++					pc[count++] = *c;
++				}
++			} else {
++				if (count >= 16) count = 15;
++				i = count;
++				count++;
++				while (i > this_->next_waypoint_pos) {
++					pc[i] = pc[i-1];
++					i--;
++				}
++				pc[i] = *c;
++			}
++			bookmarks_replace_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, description, this_->recentdest_count);
++		} else {
++			bookmarks_append_destinations(this_->former_destination, destination_file, c, 1, type_former_destination, description, this_->recentdest_count);
++		}
+ 		this_->destination=*c;
+ 		this_->destination_valid=1;
+-
+-		dbg(1, "c=(%i,%i)\n", c->x,c->y);
+-		bookmarks_append_coord(this_->former_destination, destination_file, c, type_former_destination, description, this_->recentdest_count);
+ 	} else {
+ 		this_->destination_valid=0;
+ 		navit_mark_navigation_stopped(destination_file);
++		navit_clean_waypoint_map(this_);
+ 	}
+ 	g_free(destination_file);
+ 	callback_list_call_attr_0(this_->attr_cbl, attr_destination);
+ 	if (this_->route) {
+ 		struct attr attr;
+ 		navit_get_attr(this_, attr_waypoints_flag, &attr, NULL);
+-		if (this_->waypoints_flag==0 || route_get_destination_count(this_->route)==0){
++		if (this_->waypoints_flag == 0) {
+ 			route_set_destination(this_->route, c, async);
+-		}else{
+-			route_append_destination(this_->route, c, async);
++		} else {
++			route_append_destination(this_->route, c, this_->next_waypoint_pos, async);
++			navit_append_map_waypoint_item(this_, c, this_->next_waypoint_pos);
++			this_->next_waypoint_pos = -1;
+ 		}
+ 
+ 		if (this_->ready == 3)
+@@ -1568,6 +1769,7 @@
+ 	}
+ }
+ 
++
+ /**
+  * Start the route computing to a given set of coordinates including waypoints
+  *
+@@ -1585,13 +1787,14 @@
+ 		this_->destination_valid=1;
+ 
+ 		destination_file = bookmarks_get_destination_file(TRUE);
+-		bookmarks_append_coord(this_->former_destination, destination_file, c, type_former_itinerary, description, this_->recentdest_count);
++		bookmarks_append_destinations(this_->former_destination, destination_file, c, count, type_former_itinerary, description, this_->recentdest_count);
+ 		g_free(destination_file);
+ 	} else
+ 		this_->destination_valid=0;
+ 	callback_list_call_attr_0(this_->attr_cbl, attr_destination);
+ 	if (this_->route) {
+ 		route_set_destinations(this_->route, c, count, async);
++		navit_init_waypoint_map(this_);
+ 
+ 		if (this_->ready == 3)
+ 			navit_draw(this_);
+@@ -1628,11 +1831,22 @@
+ {
+ 	if(!this_->route)
+ 		return;
++	navit_remove_nth_map_waypoint_item(this_, n);
+ 	if (route_get_destination_count(this_->route)>1){
+ 		route_remove_nth_waypoint(this_->route, n);
+ 	}else{
+ 		navit_set_destination(this_, NULL, NULL, 0);
+ 	}
++
++	struct pcoord *pc;
++	int count;
++	char *destination_file;
++	count=navit_get_destination_count(this_);
++	pc=g_alloca(count*sizeof(struct pcoord));
++	navit_get_destinations(this_, pc, count);
++	destination_file = bookmarks_get_destination_file(TRUE);
++	//doesnt work for insert waypoint before other waypoint
++	bookmarks_replace_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, NULL, this_->recentdest_count);
+ }
+ 
+ void
+@@ -1731,8 +1945,10 @@
+ 		}
+ 		if (count == 1)
+ 			route_set_destination(this_->route, &pc[0], 1);
+-		else
++		else {
+ 			route_set_destinations(this_->route, pc, count, 1);
++			navit_init_waypoint_map(this_);
++		}
+ 		this_->destination=pc[count-1];
+ 		this_->destination_valid=1;
+ 	}
+@@ -2980,18 +3196,18 @@
+ 	if (this_->route) {
+ 		switch(route_destination_reached(this_->route)) {
+ 		case 1:
+-			description=route_get_destination_description(this_->route, 0);
+ 			route_remove_waypoint(this_->route);
+ 			count=route_get_destinations(this_->route, pc, 16);
++			description=route_get_destination_description(this_->route, count-1);
+ 			destination_file = bookmarks_get_destination_file(TRUE);
+-			bookmarks_append_coord(this_->former_destination, destination_file, pc, type_former_itinerary_part, description, this_->recentdest_count);
++			bookmarks_replace_destinations(this_->former_destination, destination_file, pc, count, type_former_destination, description, this_->recentdest_count);
+ 			g_free(description);
+ 			break;	
+ 		case 2:
+ 			description=route_get_destination_description(this_->route, 0);
+ 			count=route_get_destinations(this_->route, pc, 1);
+ 			destination_file = bookmarks_get_destination_file(TRUE);
+-			bookmarks_append_coord(this_->former_destination, destination_file, pc, type_former_itinerary_part, description, this_->recentdest_count);
++			bookmarks_replace_destinations(this_->former_destination, destination_file, pc, 1, type_former_destination, description, this_->recentdest_count);
+ 			g_free(description);
+ 			navit_set_destination(this_, NULL, NULL, 0);
+ 			break;
+Index: navit/navit/navit.h
+===================================================================
+--- navit.orig/navit/navit.h	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/navit.h	2012-05-19 14:49:07.000000000 +0200
+@@ -84,6 +84,7 @@
+ char* navit_get_destination_description(struct navit *this_, int n);
+ void navit_remove_nth_waypoint(struct navit *this_, int n);
+ void navit_remove_waypoint(struct navit *this_);
++void navit_set_next_waypoint_pos(struct navit *this_, int n);
+ char* navit_get_coord_description(struct navit *this_, struct pcoord *c);
+ int navit_check_route(struct navit *this_);
+ struct map* read_former_destinations_from_file(void);
+Index: navit/navit/navit_shipped.xml
+===================================================================
+--- navit.orig/navit/navit_shipped.xml	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/navit_shipped.xml	2012-05-19 14:49:07.000000000 +0200
+@@ -1781,6 +1781,9 @@
+ 					<icon src="gui_sound_32_32.png"/>
+ 					<circle color="#FF089C" radius="10" text_size="7"/>
+ 				</itemgra>
++				<itemgra item_types="waypoint">
++					<circle color="#000000" radius="24" width="2" text_size="12"/>
++				</itemgra>
+ 			</layer>
+ 			<layer name="Unknown" enabled="no">
+ 				<!-- This entry shows all unknow point elements as blue circles -->
+Index: navit/navit/route.c
+===================================================================
+--- navit.orig/navit/route.c	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/route.c	2012-05-19 14:49:07.000000000 +0200
+@@ -1149,14 +1149,14 @@
+  * @return nothing
+  */
+ void
+-route_append_destination(struct route *this, struct pcoord *dst, int async)
++route_append_destination(struct route *this, struct pcoord *dst, int pos, int async)
+ {
+ 	if (dst){
+ 		struct route_info *dsti;
+ 		dsti=route_find_nearest_street(this->vehicleprofile, this->ms, &dst[0]);
+ 		if(dsti) {
+ 			route_info_distances(dsti, dst->pro);
+-			this->destinations=g_list_append(this->destinations, dsti);
++			this->destinations=g_list_insert(this->destinations, dsti, pos);
+ 		}
+ 		/* The graph has to be destroyed and set to NULL, otherwise route_path_update() doesn't work */
+ 		route_graph_destroy(this->graph);
+@@ -1191,18 +1191,19 @@
+ void
+ route_remove_waypoint(struct route *this)
+ {
+-	struct route_path *path=this->path2;
+-	struct route_info *ri=this->destinations->data;
+-	this->destinations=g_list_remove(this->destinations,ri);
+-	route_info_free(ri);
+-	this->path2=this->path2->next;
+-	route_path_destroy(path,0);
+-	if (!this->destinations)
+-		return;
+-	route_graph_reset(this->graph);
+-	this->current_dst=this->destinations->data;
+-	route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb);
+-	
++	if (this->path2) {
++		struct route_path *path = this->path2;
++		struct route_info *ri = this->destinations->data;
++		this->destinations = g_list_remove(this->destinations, ri);
++		route_info_free(ri);
++		this->path2 = this->path2->next;
++		route_path_destroy(path, 0);
++		if (!this->destinations)
++			return;
++		route_graph_reset(this->graph);
++		this->current_dst = this->destinations->data;
++		route_graph_flood(this->graph, this->current_dst, this->vehicleprofile,	this->route_graph_flood_done_cb);
++	}
+ }
+ 
+ /**
+Index: navit/navit/bookmarks.c
+===================================================================
+--- navit.orig/navit/bookmarks.c	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/bookmarks.c	2012-05-19 14:49:07.000000000 +0200
+@@ -643,11 +643,13 @@
+ struct former_destination{
+ 	enum item_type type;
+ 	char* description;
+-	struct coord c;
++	GList* c;
+ };
+ 
+ static void free_former_destination(struct former_destination* former_destination){
+ 	g_free(former_destination->description);
++	g_list_foreach(former_destination->c, (GFunc)g_free, NULL);
++	g_list_free(former_destination->c);
+ 	g_free(former_destination);
+ }
+ 
+@@ -657,15 +659,22 @@
+ 	struct item *item;
+ 	struct attr attr;
+ 	struct former_destination *dest;
++	struct coord c;
++	int more;
+ 	GList* list = NULL;
+ 	if (map && (mr=map_rect_new(map, NULL))) {
+ 		while ((item=map_rect_get_item(mr))) {
+ 			if (item->type != type_former_destination) continue;
+-			dest = g_new(struct former_destination, 1);
++			dest = g_new0(struct former_destination, 1);
+ 			dest->type=item->type;
+ 			item_attr_get(item, attr_label, &attr);
+ 			dest->description = g_strdup(attr.u.str);
+-			item_coord_get(item, &(dest->c), 1);
++			more = item_coord_get(item, &c, 1);
++			while (more) {
++				dest->c = g_list_append(dest->c, g_new(struct coord, 1));
++				*(struct coord *)g_list_last(dest->c)->data = c;
++				more = item_coord_get(item, &c, 1);
++			}
+ 			list = g_list_prepend(list, dest);
+ 		}
+ 		map_rect_destroy(mr);
+@@ -678,7 +687,7 @@
+ {
+ 	if ((dest1->type == dest2->type) &&
+ 	    (!strcmp(dest1->description, dest2->description)) &&
+-	    (coord_equal(&(dest1->c), &(dest2->c)))){
++	    (coord_equal((struct coord *)g_list_last(dest1->c)->data, (struct coord *)g_list_last(dest2->c)->data))){
+ 		return TRUE;
+ 	}
+ 	return FALSE;
+@@ -709,6 +718,8 @@
+ {
+ 	FILE *f;
+ 	GList* currdest = NULL;
++	GList* c_list = NULL;
++	struct coord *c;
+ 	struct former_destination *dest;
+ 	const char* prostr = projection_to_name(proj);
+ 	f=fopen(former_destination_file, "w");
+@@ -719,11 +730,15 @@
+ 				fprintf(f,"type=%s label=\"%s\"\n", item_to_name(dest->type), dest->description);
+ 			else
+ 				fprintf(f,"type=%s\n", item_to_name(dest->type));
+-			fprintf(f,"%s%s%s0x%x %s0x%x\n",
+-			prostr, *prostr ? ":" : "",
+-			dest->c.x >= 0 ? "":"-", dest->c.x >= 0 ? dest->c.x : -dest->c.x,
+-			dest->c.y >= 0 ? "":"-", dest->c.y >= 0 ? dest->c.y : -dest->c.y);
+-			
++			c_list = dest->c;
++			do {
++				c = (struct coord *)c_list->data;
++				fprintf(f,"%s%s%s0x%x %s0x%x\n",
++					prostr, *prostr ? ":" : "",
++					c->x >= 0 ? "":"-", c->x >= 0 ? c->x : -c->x,
++					c->y >= 0 ? "":"-", c->y >= 0 ? c->y : -c->y);
++				c_list = g_list_next(c_list);
++			} while (c_list);
+ 		}
+ 		fclose(f);
+ 	} else {
+@@ -735,21 +750,27 @@
+  * @param limit Limits the number of entries in the "backlog". Set to 0 for "infinite"
+  */
+ void
+-bookmarks_append_coord(struct map *former_destination_map, char *former_destination_file, 
+-		struct pcoord *c, enum item_type type, const char *description, int limit)
++bookmarks_append_destinations(struct map *former_destination_map, char *former_destination_file,
++		struct pcoord *c, int count, enum item_type type, const char *description, int limit)
+ {
+ 	struct former_destination *new_dest;
+ 	GList* former_destinations = NULL;
+ 	GList* former_destinations_shortened = NULL;
++	struct coord* c_dup;
+ 	int no_of_former_destinations;
++	int i;
+ 
+ 	former_destinations = read_former_destination_map_as_list(former_destination_map);
+ 
+- 	new_dest = g_new(struct former_destination, 1);
++ 	new_dest = g_new0(struct former_destination, 1);
+  	new_dest->type = type;
+  	new_dest->description = g_strdup(description?description:_("Map Point"));
+- 	new_dest->c.x = c->x;
+- 	new_dest->c.y = c->y;
++	for (i=0; i<count; i++) {
++		c_dup = g_new(struct coord, 1);
++ 		c_dup->x = c[i].x;
++	 	c_dup->y = c[i].y;
++		new_dest->c = g_list_append(new_dest->c, c_dup);
++	}
+ 	former_destinations = remove_destination_from_list(new_dest, former_destinations);
+  	former_destinations = g_list_append(former_destinations, new_dest);
+ 
+@@ -764,3 +785,23 @@
+ 	g_list_free(former_destinations);
+ }
+ 
++/**
++ * @param limit Limits the number of entries in the "backlog". Set to 0 for "infinite"
++ */
++void
++bookmarks_replace_destinations(struct map *former_destination_map, char *former_destination_file,
++		struct pcoord *c, int count, enum item_type type, const char *description, int limit)
++{
++	GList* former_destinations = NULL;
++	struct former_destination *dest;
++
++	/* First, remove the last former_destination */
++	former_destinations = read_former_destination_map_as_list(former_destination_map);
++	dest = g_list_last(former_destinations)->data;
++	former_destinations = g_list_remove(former_destinations, dest);
++	free_former_destination(dest);
++	write_former_destinations(former_destinations, former_destination_file, map_projection(former_destination_map));
++
++	/* Then, append the new one */
++	bookmarks_append_destinations(former_destination_map, former_destination_file, c, count, type, description, limit);
++}
+Index: navit/navit/bookmarks.h
+===================================================================
+--- navit.orig/navit/bookmarks.h	2012-05-19 11:24:49.000000000 +0200
++++ navit/navit/bookmarks.h	2012-05-19 14:49:07.000000000 +0200
+@@ -54,7 +54,8 @@
+ void bookmarks_set_center_from_file(struct bookmarks *this_, char *file);
+ char* bookmarks_get_center_file(gboolean create);
+ void bookmarks_write_center_to_file(struct bookmarks *this_, char *file);
+-void bookmarks_append_coord(struct map *former_destination_map, char *file, struct pcoord *c, enum item_type type, const char *description, int limit);
++void bookmarks_append_destinations(struct map *former_destination_map, char *file, struct pcoord *c, int count, enum item_type type, const char *description, int limit);
++void bookmarks_replace_destinations(struct map *former_destination_map, char *file, struct pcoord *c, int count, enum item_type type, const char *description, int limit);
+ /* end of prototypes */
+ 
+ #ifdef __cplusplus

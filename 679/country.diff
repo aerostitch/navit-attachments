@@ -1,0 +1,11 @@
+--- gui_internal.c	2010-10-22 23:31:05.000000000 +0400
++++ gui_internal.c	2010-10-23 23:00:31.000000000 +0400
+@@ -3573,7 +3573,7 @@
+ 	slc=search_list_select(this->sl, attr_country_all, widget->selection_id, 1);
+ 	if (slc) {
+ 		g_free(this->country_iso2);
+-		this->country_iso2=((struct search_list_country *)slc)->iso2;
++		this->country_iso2=g_strdup(((struct search_list_country *)slc)->iso2);
+ 	}
+ 	gui_internal_search(this,widget->name,"Town",0);
+ }

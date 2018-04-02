@@ -1,0 +1,142 @@
+Index: navigation.c
+===================================================================
+--- navigation.c	(Revision 5339)
++++ navigation.c	(Arbeitskopie)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2008 Navit Team
++ * Copyright (C) 2005-2013 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -1344,7 +1344,7 @@
+ 		} else {
+ 			entry_angle=angle_opposite(angle);
+ 		}
+-		dbg(0,"entry %d exit %d\n", entry_angle, exit_angle);
++		dbg(1,"entry %d exit %d\n", entry_angle, exit_angle);
+ 		ret->roundabout_delta=angle_delta(entry_angle, exit_angle);
+ 		ret->length=len+roundabout_extra_length;
+ 	}
+@@ -1509,7 +1509,10 @@
+ 	char *d,*ret=NULL;
+ 	int delta=cmd->delta;
+ 	int level;
+-	int strength_needed;
++	int more_ways_for_strength = 0; // Counts the number of ways of the current node that turn
++					// to the same direction as the route way.
++	int turn_no_of_route_way = 0;   // The number of the route way of all ways that turn to the same direction.
++					// Count direction from abs(0 degree) up to abs(180 degree)
+ 	int skip_roads;
+ 	int count_roundabout;
+ 	struct navigation_itm *cur;
+@@ -1521,21 +1524,30 @@
+ 		level=1;
+ 	}
+ 
++	// Strengthening criterion: If there are more ways in the same direction, in which the vehicle can turn,
++	// the announcement shall be more precise. I.e. the strengthening is dependent on which of the possible ways
++	// the route turn shall be. So, with the selection of one of the possible ways a certain turn angle pattern
++	// becomes active.
++	// Second criterion: the turn angle of the route way defines the strengthening of the announcement according
++	// to the pattern.
+ 	w = itm->next->way.next;
+-	strength_needed = 0;
+-	if (angle_delta(itm->next->way.angle2,itm->angle_end) < 0) {
++	if (angle_delta(itm->next->way.angle2,itm->angle_end) < 0) { // next turns or bends left
+ 		while (w) {
+-			if (angle_delta(w->angle2,itm->angle_end) < 0) {
+-				strength_needed = 1;
+-				break;
++			if (angle_delta(w->angle2,itm->angle_end) < -20) {
++				more_ways_for_strength++;	// there is an additional way that also turns left.
++								// Note: the route turn is not contained
++								// 'Left' means more than 20 degree, less is straight on
++				if (angle_delta(w->angle2,itm->angle_end) < delta)
++					turn_no_of_route_way++; // this way is on the right side of the route way
+ 			}
+ 			w = w->next;
+ 		}
+-	} else {
++	} else {  // next turns or bends right. Same investigation, but mirrored.
+ 		while (w) {
+-			if (angle_delta(w->angle2,itm->angle_end) > 0) {
+-				strength_needed = 1;
+-				break;
++			if (angle_delta(w->angle2,itm->angle_end) > 20) {
++				more_ways_for_strength++;
++				if (angle_delta(w->angle2,itm->angle_end) > delta)
++					turn_no_of_route_way++; // this way is on the right side of the route way
+ 			}
+ 			w = w->next;
+ 		}
+@@ -1547,23 +1559,55 @@
+ 		delta=-delta;
+ 	}
+ 
+-	if (strength_needed) {
+-		if (delta < 45) {
++	// Investigate the strengthening of announcement.
++	switch (more_ways_for_strength) {
++	case 0:
++		// no additional way to turn
++		if (delta >= 140) {
+ 			/* TRANSLATORS: Don't forget the ending space */
+-			strength=_("easily ");
+-		} else if (delta < 105) {
+-			strength="";
+-		} else if (delta < 165) {
++			strength=_("strongly ");
++		}
++		break;
++	case 1:
++		// one additional turn in the same direction
++		if (turn_no_of_route_way == 0) {
++			// the route is less strong to turn
++			if (delta < 45) {
++				/* TRANSLATORS: Don't forget the ending space */
++				strength=_("easily ");
++			}
++		} else if (delta >= 110) {
++			// the route is the stronger turn and has more than 110 degree
+ 			/* TRANSLATORS: Don't forget the ending space */
+ 			strength=_("strongly ");
+-		} else if (delta < 180) {
+-			/* TRANSLATORS: Don't forget the ending space */
+-			strength=_("really strongly ");
+-		} else {
+-			dbg(1,"delta=%d\n", delta);
+-			/* TRANSLATORS: Don't forget the ending space */
+-			strength=_("unknown ");
+ 		}
++		break;
++	default:
++		// there are 2 or more additional possibilities to turn to the same direction.
++		if (turn_no_of_route_way == 0) {
++			if (delta < 70) {
++				/* TRANSLATORS: Don't forget the ending space */
++				strength=_("easily ");
++			}
++		}
++		else if (turn_no_of_route_way == 1) {
++			if (delta >= 110) {
++				/* TRANSLATORS: Don't forget the ending space */
++				strength=_("strongly ");
++			}
++		}
++		else if (turn_no_of_route_way > 1) {
++			// if the route is the strongest of all possible turns here
++			if (delta >= 150) {
++				/* TRANSLATORS: Don't forget the ending space */
++				strength=_("really strongly ");
++			}
++			else if (delta >= 90) {
++				/* TRANSLATORS: Don't forget the ending space */
++				strength=_("strongly ");
++			}
++		}
++		break;
+ 	}
+ 	if (type != attr_navigation_long_exact) 
+ 		distance=round_distance(distance);

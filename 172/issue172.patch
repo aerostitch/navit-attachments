@@ -1,0 +1,13 @@
+Index: navit/navigation.c
+===================================================================
+--- navit/navigation.c	(révision 1233)
++++ navit/navigation.c	(copie de travail)
+@@ -575,7 +575,7 @@
+ 		g_free(d);
+ 		return ret;
+ 	case 2:
+-		d=g_strdup(_("soon"));
++		d=get_distance(distance, type, 0);
+ 		break;
+ 	case 1:
+ 		d=get_distance(distance, type, 0);

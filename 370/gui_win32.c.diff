@@ -1,0 +1,12 @@
+Index: gui_win32.c
+===================================================================
+--- gui_win32.c	(revision 2260)
++++ gui_win32.c	(working copy)
+@@ -14,6 +14,7 @@
+ #include <commctrl.h>
+ #include "debug.h"
+ #include "navit_nls.h"
++#include "navit.h"
+ #ifdef __CEGCC__
+ #include <sipapi.h>
+ #include <aygshell.h>

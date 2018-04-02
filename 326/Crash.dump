@@ -1,0 +1,128 @@
+Running from source directory
+navit:navit_set_attr_do:0x13a00a,0x5d6adf
+gui_internal:gui_internal_new:register
+navit:navit_init:no graphics
+navit:main:Using 'navit.xml'
+navit:main:No instance has been created, exiting
+root@Midway:~/Desktop/trunk/navit/navit# ./navit 
+Running from source directory
+navit:navit_set_attr_do:0x13a00a,0x5d6adf
+gui_internal:gui_internal_new:register
+GNU gdb 6.8-debian
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu"...
+Attaching to program: /home/tobias/Desktop/trunk/navit/navit/navit, process 1366
+Reading symbols from /usr/lib/libgthread-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgthread-2.0.so.0
+Reading symbols from /lib/librt.so.1...done.
+Loaded symbols for /lib/librt.so.1
+Reading symbols from /usr/lib/libgmodule-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgmodule-2.0.so.0
+Reading symbols from /usr/lib/libglib-2.0.so.0...done.
+Loaded symbols for /usr/lib/libglib-2.0.so.0
+Reading symbols from /usr/lib/libz.so.1...done.
+Loaded symbols for /usr/lib/libz.so.1
+Reading symbols from /lib/libm.so.6...done.
+Loaded symbols for /lib/libm.so.6
+Reading symbols from /lib/libpthread.so.0...done.
+[Thread debugging using libthread_db enabled]
+[New Thread 0x7f36b34e56e0 (LWP 1366)]
+Loaded symbols for /lib/libpthread.so.0
+Reading symbols from /lib/libc.so.6...done.
+Loaded symbols for /lib/libc.so.6
+Reading symbols from /lib/ld-linux-x86-64.so.2...done.
+Loaded symbols for /lib64/ld-linux-x86-64.so.2
+Reading symbols from /lib/libdl.so.2...done.
+Loaded symbols for /lib/libdl.so.2
+Reading symbols from /lib/libpcre.so.3...done.
+Loaded symbols for /lib/libpcre.so.3
+Reading symbols from /home/tobias/Desktop/trunk/navit/navit/gui/internal/.libs/libgui_internal.so...done.
+Loaded symbols for /home/tobias/Desktop/trunk/navit/navit/gui/internal/.libs/libgui_internal.so
+Reading symbols from /usr/lib/libgtk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgtk-x11-2.0.so.0
+Reading symbols from /usr/lib/libgdk-x11-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgdk-x11-2.0.so.0
+Reading symbols from /usr/lib/libatk-1.0.so.0...done.
+Loaded symbols for /usr/lib/libatk-1.0.so.0
+Reading symbols from /usr/lib/libpangoft2-1.0.so.0...done.
+Loaded symbols for /usr/lib/libpangoft2-1.0.so.0
+Reading symbols from /usr/lib/libgdk_pixbuf-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgdk_pixbuf-2.0.so.0
+Reading symbols from /usr/lib/libpangocairo-1.0.so.0...done.
+Loaded symbols for /usr/lib/libpangocairo-1.0.so.0
+Reading symbols from /usr/lib/libgio-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgio-2.0.so.0
+Reading symbols from /usr/lib/libcairo.so.2...done.
+Loaded symbols for /usr/lib/libcairo.so.2
+Reading symbols from /usr/lib/libpixman-1.so.0...done.
+Loaded symbols for /usr/lib/libpixman-1.so.0
+Reading symbols from /usr/lib/libpng12.so.0...done.
+Loaded symbols for /usr/lib/libpng12.so.0
+Reading symbols from /usr/lib/libxcb-render-util.so.0...done.
+Loaded symbols for /usr/lib/libxcb-render-util.so.0
+Reading symbols from /usr/lib/libxcb-render.so.0...done.
+Loaded symbols for /usr/lib/libxcb-render.so.0
+Reading symbols from /usr/lib/libxcb.so.1...done.
+Loaded symbols for /usr/lib/libxcb.so.1
+Reading symbols from /usr/lib/libXrender.so.1...done.
+Loaded symbols for /usr/lib/libXrender.so.1
+Reading symbols from /usr/lib/libX11.so.6...done.
+Loaded symbols for /usr/lib/libX11.so.6
+Reading symbols from /usr/lib/libpango-1.0.so.0...done.
+Loaded symbols for /usr/lib/libpango-1.0.so.0
+Reading symbols from /usr/lib/libfreetype.so.6...done.
+Loaded symbols for /usr/lib/libfreetype.so.6
+Reading symbols from /usr/lib/libfontconfig.so.1...done.
+Loaded symbols for /usr/lib/libfontconfig.so.1
+Reading symbols from /usr/lib/libgobject-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgobject-2.0.so.0
+Reading symbols from /usr/lib/libXcomposite.so.1...done.
+Loaded symbols for /usr/lib/libXcomposite.so.1
+Reading symbols from /usr/lib/libXdamage.so.1...done.
+Loaded symbols for /usr/lib/libXdamage.so.1
+Reading symbols from /usr/lib/libXfixes.so.3...done.
+Loaded symbols for /usr/lib/libXfixes.so.3
+Reading symbols from /usr/lib/libXext.so.6...done.
+Loaded symbols for /usr/lib/libXext.so.6
+Reading symbols from /usr/lib/libXinerama.so.1...done.
+Loaded symbols for /usr/lib/libXinerama.so.1
+Reading symbols from /usr/lib/libXi.so.6...done.
+Loaded symbols for /usr/lib/libXi.so.6
+Reading symbols from /usr/lib/libXrandr.so.2...done.
+Loaded symbols for /usr/lib/libXrandr.so.2
+Reading symbols from /usr/lib/libXcursor.so.1...done.
+Loaded symbols for /usr/lib/libXcursor.so.1
+Reading symbols from /lib/libselinux.so.1...done.
+Loaded symbols for /lib/libselinux.so.1
+Reading symbols from /usr/lib/libXau.so.6...done.
+Loaded symbols for /usr/lib/libXau.so.6
+Reading symbols from /usr/lib/libXdmcp.so.6...done.
+Loaded symbols for /usr/lib/libXdmcp.so.6
+Reading symbols from /usr/lib/libxcb-xlib.so.0...done.
+Loaded symbols for /usr/lib/libxcb-xlib.so.0
+Reading symbols from /usr/lib/libexpat.so.1...done.
+Loaded symbols for /usr/lib/libexpat.so.1
+Reading symbols from /home/tobias/Desktop/trunk/navit/navit/osd/core/.libs/libosd_core.so...done.
+Loaded symbols for /home/tobias/Desktop/trunk/navit/navit/osd/core/.libs/libosd_core.so
+Reading symbols from /home/tobias/Desktop/trunk/navit/navit/vehicle/demo/.libs/libvehicle_demo.so...done.
+Loaded symbols for /home/tobias/Desktop/trunk/navit/navit/vehicle/demo/.libs/libvehicle_demo.so
+0x00007f36b208cfd5 in waitpid () from /lib/libc.so.6
+#0  0x00007f36b208cfd5 in waitpid () from /lib/libc.so.6
+#1  0x00007f36b20254a1 in ?? () from /lib/libc.so.6
+#2  0x000000000040c4a9 in sigsegv (sig=<value optimized out>) at debug.c:62
+#3  <signal handler called>
+#4  0x0000000000000000 in ?? ()
+#5  0x00007f36acc38eb2 in vehicle_demo_new (meth=0xfa70d8, cbl=0xfa7060, attrs=0xfa6f90) at vehicle_demo.c:192
+#6  0x000000000042fdf6 in vehicle_new (parent=<value optimized out>, attrs=0xfa6f90) at vehicle.c:164
+#7  0x000000000041dfbe in xi_start_element (context=<value optimized out>, element_name=0xfa6db0 "vehicle", attribute_names=<value optimized out>, 
+    attribute_values=<value optimized out>, user_data=0x7fffbb505b60, error=0x7fffbb505a80) at xmlconfig.c:491
+#8  0x00007f36b2a50bbc in g_markup_parse_context_parse () from /usr/lib/libglib-2.0.so.0
+#9  0x000000000041ced4 in parse_file (document=0x7fffbb505b60, error=0x7fffbb505be0) at xmlconfig.c:865
+#10 0x000000000041d099 in config_load (filename=0xf99ce0 "navit.xml", error=0x7fffbb505be0) at xmlconfig.c:934
+#11 0x000000000040bae2 in main (argc=<value optimized out>, argv=<value optimized out>) at start.c:169
+Detaching from program: /home/tobias/Desktop/trunk/navit/navit/navit, process 1366
+

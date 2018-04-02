@@ -1,0 +1,80 @@
+*** glibc detected *** ./navit: double free or corruption (!prev): 0x0000000001e2f860 ***
+======= Backtrace: =========
+/lib/libc.so.6(+0x774b6)[0x7effee84c4b6]
+/lib/libc.so.6(cfree+0x73)[0x7effee852c83]
+./navit(vehicle_destroy+0x24)[0x410ec4]
+./navit(navit_destroy+0x39)[0x4227d9]
+/home/jff/Entwicklung/linux/navit/navit/navit/gui/gtk/.libs/libgui_gtk.so(+0xb70c)[0x7effe6f8070c]
+/usr/lib/libgtk-x11-2.0.so.0(+0x13a9d8)[0x7effed6aa9d8]
+/usr/lib/libgobject-2.0.so.0(g_closure_invoke+0x15e)[0x7effeb920a6e]
+/usr/lib/libgobject-2.0.so.0(+0x24de7)[0x7effeb936de7]
+/usr/lib/libgobject-2.0.so.0(g_signal_emit_valist+0x62b)[0x7effeb9380eb]
+/usr/lib/libgobject-2.0.so.0(g_signal_emit+0x83)[0x7effeb938863]
+/usr/lib/libgtk-x11-2.0.so.0(+0x2536df)[0x7effed7c36df]
+/usr/lib/libgtk-x11-2.0.so.0(gtk_main_do_event+0x4b3)[0x7effed6a4113]
+/usr/lib/libgdk-x11-2.0.so.0(+0x5c74c)[0x7effed31d74c]
+/lib/libglib-2.0.so.0(g_main_context_dispatch+0x1f2)[0x7effef250342]
+/lib/libglib-2.0.so.0(+0x442a8)[0x7effef2542a8]
+/lib/libglib-2.0.so.0(g_main_loop_run+0x195)[0x7effef2547b5]
+./navit(main_real+0x20e)[0x40cf7e]
+/lib/libc.so.6(__libc_start_main+0xfe)[0x7effee7f3d8e]
+./navit[0x40cc69]
+======= Memory map: ========
+00400000-00455000 r-xp 00000000 08:08 494132                             /home/jff/Entwicklung/linux/navit/navit/navit/navit
+00655000-00658000 r--p 00055000 08:08 494132                             /home/jff/Entwicklung/linux/navit/navit/navit/navit
+00658000-0065f000 rw-p 00058000 08:08 494132                             /home/jff/Entwicklung/linux/navit/navit/navit/navit
+01bf9000-02307000 rw-p 00000000 00:00 0                                  [heap]
+7effc4000000-7effc4021000 rw-p 00000000 00:00 0 
+7effc4021000-7effc8000000 ---p 00000000 00:00 0 
+7effcbcaf000-7effcbcd2000 r--p 00000000 08:07 2114974                    /usr/share/fonts/truetype/ttf-liberation/LiberationSans-Regular.ttf
+7effcbcd2000-7effcbcd3000 ---p 00000000 00:00 0 
+7effcbcd3000-7effcc4d3000 rw-p 00000000 00:00 0 
+7effcc4d3000-7effd04d4000 rw-s 00000000 00:10 376840                     /dev/shm/pulse-shm-3715140271
+7effd04d4000-7effd0787000 r-xp 00000000 08:07 1796069                    /usr/lib/libvorbisenc.so.2.0.7
+7effd0787000-7effd0986000 ---p 002b3000 08:07 1796069                    /usr/lib/libvorbisenc.so.2.0.7
+7effd0986000-7effd09a2000 r--p 002b2000 08:07 1796069                    /usr/lib/libvorbisenc.so.2.0.7
+7effd09a2000-7effd09a3000 rw-p 002ce000 08:07 1796069                    /usr/lib/libvorbisenc.so.2.0.7
+7effd09a3000-7effd09eb000 r-xp 00000000 08:07 1796467                    /usr/lib/libFLAC.so.8.2.0
+7effd09eb000-7effd0beb000 ---p 00048000 08:07 1796467                    /usr/lib/libFLAC.so.8.2.0
+7effd0beb000-7effd0bec000 r--p 00048000 08:07 1796467                    /usr/lib/libFLAC.so.8.2.0
+7effd0bec000-7effd0bed000 rw-p 00049000 08:07 1796467                    /usr/lib/libFLAC.so.8.2.0
+7effd0bed000-7effd0c4b000 r-xp 00000000 08:07 1795803                    /usr/lib/libsndfile.so.1.0.21
+7effd0c4b000-7effd0e4b000 ---p 0005e000 08:07 1795803                    /usr/lib/libsndfile.so.1.0.21
+7effd0e4b000-7effd0e4d000 r--p 0005e000 08:07 1795803                    /usr/lib/libsndfile.so.1.0.21
+7effd0e4d000-7effd0e4e000 rw-p 00060000 08:07 1795803                    /usr/lib/libsndfile.so.1.0.21
+7effd0e4e000-7effd0e52000 rw-p 00000000 00:00 0 
+7effd0e52000-7effd0e5b000 r-xp 00000000 08:07 581792                     /lib/libwrap.so.0.7.6
+7effd0e5b000-7effd105a000 ---p 00009000 08:07 581792                     /lib/libwrap.so.0.7.6
+7effd105a000-7effd105b000 r--p 00008000 08:07 581792                     /lib/libwrap.so.0.7.6
+7effd105b000-7effd105c000 rw-p 00009000 08:07 581792                     /lib/libwrap.so.0.7.6
+7effd105c000-7effd105d000 rw-p 00000000 00:00 0 
+7effd105d000-7effd1061000 r-xp 00000000 08:07 581735                     /lib/libuuid.so.1.3.0
+7effd1061000-7effd1260000 ---p 00004000 08:07 581735                     /lib/libuuid.so.1.3.0
+7effd1260000-7effd1261000 r--p 00003000 08:07 581735                     /lib/libuuid.so.1.3.0
+7effd1261000-7effd1262000 rw-p 00004000 08:07 581735                     /lib/libuuid.so.1.3.0
+7effd1262000-7effd12ac000 r-xp 00000000 08:07 1794503                    /usr/lib/libpulsecommon-0.9.21.so
+7effd12ac000-7effd14ac000 ---p 0004a000 08:07 1794503                    /usr/lib/libpulsecommon-0.9.21.so
+7effd14ac000-7effd14ad000 r--p 0004a000 08:07 1794503                    /usr/lib/libpulsecommon-0.9.21.so
+7effd14ad000-7effd14ae000 rw-p 0004b000 08:07 1794503                    /usr/lib/libpulsecommon-0.9.21.so
+7effd14ae000-7effd14b1000 r-xp 00000000 08:07 1797582                    /usr/lib/libxcb-atom.so.1.0.0
+7effd14b1000-7effd16b1000 ---p 00003000 08:07 1797582                    /usr/lib/libxcb-atom.so.1.0.0
+7effd16b1000-7effd16b2000 r--p 00003000 08:07 1797582                    /usr/lib/libxcb-atom.so.1.0.0
+7effd16b2000-7effd16b3000 rw-p 00004000 08:07 1797582                    /usr/lib/libxcb-atom.so.1.0.0
+7effd16b3000-7effd16b8000 r-xp 00000000 08:07 1794229                    /usr/lib/libXtst.so.6.1.0
+7effd16b8000-7effd18b8000 ---p 00005000 08:07 1794229                    /usr/lib/libXtst.so.6.1.0
+7effd18b8000-7effd18b9000 r--p 00005000 08:07 1794229                    /usr/lib/libXtst.so.6.1.0
+7effd18b9000-7effd18ba000 rw-p 00006000 08:07 1794229                    /usr/lib/libXtst.so.6.1.0
+7effd18ba000-7effd18c2000 r-xp 00000000 08:07 1795885                    /usr/lib/libSM.so.6.0.1
+7effd18c2000-7effd1ac1000 ---p 00008000 08:07 1795885                    /usr/lib/libSM.so.6.0.1
+7effd1ac1000-7effd1ac2000 r--p 00007000 08:07 1795885                    /usr/lib/libSM.so.6.0.1
+7effd1ac2000-7effd1ac3000 rw-p 00008000 08:07 1795885                    /usr/lib/libSM.so.6.0.1
+7effd1ac3000-7effd1ada000 r-xp 00000000 08:07 1795883                    /usr/lib/libICE.so.6.3.0
+7effd1ada000-7effd1cd9000 ---p 00017000 08:07 1795883                    /usr/lib/libICE.so.6.3.0
+7effd1cd9000-7effd1cda000 r--p 00016000 08:07 1795883                    /usr/lib/libICE.so.6.3.0
+7effd1cda000-7effd1cdb000 rw-p 00017000 08:07 1795883                    /usr/lib/libICE.so.6.3.0
+7effd1cdb000-7effd1cde000 rw-p 00000000 00:00 0 
+7effd1cde000-7effd1cdf000 r-xp 00000000 08:07 1796314                    /usr/lib/libX11-xcb.so.1.0.0
+7effd1cdf000-7effd1ede000 ---p 00001000 08:07 1796314                    /usr/lib/libX11-xcb.so.1.0.0
+7effd1ede000-7effd1edf000 r--p 00000000 08:07 1796314                    /usr/lib/libX11-xcb.so.1.0.0
+7effd1edf000-7effd1ee0000 rw-p 00001000 08:07 1796314                    /usr/lib/libX11-xcb.so.1.0.0
+7effd1ee0000-7effd1f1f000 r-xp 00000000 08:07 1795802                    /usr/lib/libpulse.so.0.12.2Abgebrochen

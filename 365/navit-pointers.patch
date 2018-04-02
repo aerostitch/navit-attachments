@@ -1,0 +1,38 @@
+--- navit/osm2navit.c	2009-02-01 18:58:47.690338891 +0100
++++ navit/osm2navit.c	2009-02-01 19:29:20.762064650 +0100
+@@ -1517,7 +1519,7 @@
+ static void
+ phase1_map(struct map *map, FILE *out_ways, FILE *out_nodes)
+ {
+-	struct map_rect *mr=map_rect_new(map, NULL);
++	struct map_rect *mr=(struct map_rect *)map_rect_new(map, NULL);
+ 	struct item *item;
+ 	int count,max=16384;
+ 	struct coord ca[max];
+@@ -1525,7 +1527,7 @@
+ 	struct attr attr;
+ 	FILE *file;
+ 
+-	while ((item = map_rect_get_item(mr))) {
++	while ((item = (struct item *)map_rect_get_item(mr))) {
+ 		count=item_coord_get(item, ca, item->type < type_line ? 1: max);
+ 		item_buffer_set_type(buffer, item->type);
+ 		item_buffer_add_coord(buffer, ca, count);
+@@ -2652,7 +2654,7 @@
+ 	struct attr **attrs;
+ 
+ 	if (! plugins)
+-		plugins=plugins_new();
++		plugins=(struct plugins *)plugins_new();
+ 	attrs=(struct attr*[]){&(struct attr){attr_path,{path}},NULL};
+ 	plugin_new(&(struct attr){attr_plugins,.u.plugins=plugins}, attrs);	
+ }
+@@ -2748,7 +2750,7 @@
+ 				&(struct attr){attr_data,{optarg}},
+ 				NULL};
+ 			add_plugin("$NAVIT_LIBDIR/*/${NAVIT_LIBPREFIX}libdata_textfile.so");
+-			map_handle=map_new(NULL, attrs);
++			map_handle=(struct map *)map_new(NULL, attrs);
+ 			break;	
+ 		case 'n':
+ 			fprintf(stderr,"I will IGNORE unknown types\n");

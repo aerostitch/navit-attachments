@@ -1,0 +1,619 @@
+Index: navit/android/src/org/navitproject/navit/NavitGraphics.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitGraphics.java	(revision 5653)
++++ navit/android/src/org/navitproject/navit/NavitGraphics.java	(working copy)
+@@ -137,9 +137,10 @@
+ 			
+ 			menu.setHeaderTitle("Position...");
+ 			menu.add(1, 1, NONE, Navit._("Route to here")).setOnMenuItemClickListener(this);
+-//			menu.add(1, 2, NONE, Navit._("Add to contacts")).setOnMenuItemClickListener(this);
++			menu.add(1, 2, NONE, Navit._("Cancel")).setOnMenuItemClickListener(this);
+ 		}
+ 
++		@Override
+ 		public boolean onMenuItemClick(MenuItem item) {
+ 			switch(item.getItemId()) {
+ 			case 1:
+@@ -147,8 +148,6 @@
+ 				   , (int)mPressedPosition.x, (int)mPressedPosition.y);
+ 				msg.sendToTarget();
+ 				break;
+-			case 2:
+-				break;
+ 			}
+ 			return false;
+ 		}
+Index: po/af.po.in
+===================================================================
+--- po/af.po.in	(revision 5653)
++++ po/af.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ar.po.in
+===================================================================
+--- po/ar.po.in	(revision 5653)
++++ po/ar.po.in	(working copy)
+@@ -2494,3 +2494,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ast.po.in
+===================================================================
+--- po/ast.po.in	(revision 5653)
++++ po/ast.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/bg.po.in
+===================================================================
+--- po/bg.po.in	(revision 5653)
++++ po/bg.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ca.po.in
+===================================================================
+--- po/ca.po.in	(revision 5653)
++++ po/ca.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/cs.po.in
+===================================================================
+--- po/cs.po.in	(revision 5653)
++++ po/cs.po.in	(working copy)
+@@ -2518,3 +2518,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "kamión"
++
++msgid "Cancel"
++msgstr ""
+Index: po/da.po.in
+===================================================================
+--- po/da.po.in	(revision 5653)
++++ po/da.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/de.po.in
+===================================================================
+--- po/de.po.in	(revision 5653)
++++ po/de.po.in	(working copy)
+@@ -2519,3 +2519,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "LKW"
++
++msgid "Cancel"
++msgstr "Abbrechen"
+Index: po/de_CH.po.in
+===================================================================
+--- po/de_CH.po.in	(revision 5653)
++++ po/de_CH.po.in	(working copy)
+@@ -2483,3 +2483,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/el.po.in
+===================================================================
+--- po/el.po.in	(revision 5653)
++++ po/el.po.in	(working copy)
+@@ -2485,3 +2485,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/en_AU.po.in
+===================================================================
+--- po/en_AU.po.in	(revision 5653)
++++ po/en_AU.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr "Cancel"
+Index: po/en_GB.po.in
+===================================================================
+--- po/en_GB.po.in	(revision 5653)
++++ po/en_GB.po.in	(working copy)
+@@ -2483,3 +2483,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr "Cancel"
+Index: po/eo.po.in
+===================================================================
+--- po/eo.po.in	(revision 5653)
++++ po/eo.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/es.po.in
+===================================================================
+--- po/es.po.in	(revision 5653)
++++ po/es.po.in	(working copy)
+@@ -2494,3 +2494,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "Camión"
++
++msgid "Cancel"
++msgstr ""
+Index: po/et.po.in
+===================================================================
+--- po/et.po.in	(revision 5653)
++++ po/et.po.in	(working copy)
+@@ -2483,3 +2483,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/eu.po.in
+===================================================================
+--- po/eu.po.in	(revision 5653)
++++ po/eu.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/fi.po.in
+===================================================================
+--- po/fi.po.in	(revision 5653)
++++ po/fi.po.in	(working copy)
+@@ -2492,3 +2492,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/fo.po.in
+===================================================================
+--- po/fo.po.in	(revision 5653)
++++ po/fo.po.in	(working copy)
+@@ -2484,3 +2484,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/fr.po.in
+===================================================================
+--- po/fr.po.in	(revision 5653)
++++ po/fr.po.in	(working copy)
+@@ -2515,3 +2515,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "Camion"
++
++msgid "Cancel"
++msgstr ""
+Index: po/fr_CH.po.in
+===================================================================
+--- po/fr_CH.po.in	(revision 5653)
++++ po/fr_CH.po.in	(working copy)
+@@ -2494,3 +2494,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/gl.po.in
+===================================================================
+--- po/gl.po.in	(revision 5653)
++++ po/gl.po.in	(working copy)
+@@ -2486,3 +2486,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/he.po.in
+===================================================================
+--- po/he.po.in	(revision 5653)
++++ po/he.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/hr.po.in
+===================================================================
+--- po/hr.po.in	(revision 5653)
++++ po/hr.po.in	(working copy)
+@@ -2490,3 +2490,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/hu.po.in
+===================================================================
+--- po/hu.po.in	(revision 5653)
++++ po/hu.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/id.po.in
+===================================================================
+--- po/id.po.in	(revision 5653)
++++ po/id.po.in	(working copy)
+@@ -2486,3 +2486,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/it.po.in
+===================================================================
+--- po/it.po.in	(revision 5653)
++++ po/it.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ja.po.in
+===================================================================
+--- po/ja.po.in	(revision 5653)
++++ po/ja.po.in	(working copy)
+@@ -2484,3 +2484,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/jv.po.in
+===================================================================
+--- po/jv.po.in	(revision 5653)
++++ po/jv.po.in	(working copy)
+@@ -2483,3 +2483,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/kk.po.in
+===================================================================
+--- po/kk.po.in	(revision 5653)
++++ po/kk.po.in	(working copy)
+@@ -2483,3 +2483,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/lt.po.in
+===================================================================
+--- po/lt.po.in	(revision 5653)
++++ po/lt.po.in	(working copy)
+@@ -2490,3 +2490,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/lv.po.in
+===================================================================
+--- po/lv.po.in	(revision 5653)
++++ po/lv.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/mk.po.in
+===================================================================
+--- po/mk.po.in	(revision 5653)
++++ po/mk.po.in	(working copy)
+@@ -2487,3 +2487,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/nb.po.in
+===================================================================
+--- po/nb.po.in	(revision 5653)
++++ po/nb.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/nds.po.in
+===================================================================
+--- po/nds.po.in	(revision 5653)
++++ po/nds.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/nl.po.in
+===================================================================
+--- po/nl.po.in	(revision 5653)
++++ po/nl.po.in	(working copy)
+@@ -2503,3 +2503,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/nn.po.in
+===================================================================
+--- po/nn.po.in	(revision 5653)
++++ po/nn.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/pl.po.in
+===================================================================
+--- po/pl.po.in	(revision 5653)
++++ po/pl.po.in	(working copy)
+@@ -2510,3 +2510,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "Ciężarówka"
++
++msgid "Cancel"
++msgstr ""
+Index: po/pt.po.in
+===================================================================
+--- po/pt.po.in	(revision 5653)
++++ po/pt.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/pt_BR.po.in
+===================================================================
+--- po/pt_BR.po.in	(revision 5653)
++++ po/pt_BR.po.in	(working copy)
+@@ -2489,3 +2489,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "Caminhão"
++
++msgid "Cancel"
++msgstr ""
+Index: po/ro.po.in
+===================================================================
+--- po/ro.po.in	(revision 5653)
++++ po/ro.po.in	(working copy)
+@@ -2490,3 +2490,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ru.po.in
+===================================================================
+--- po/ru.po.in	(revision 5653)
++++ po/ru.po.in	(working copy)
+@@ -2503,3 +2503,6 @@
+ #. 
+ msgid "Truck"
+ msgstr "Грузовик"
++
++msgid "Cancel"
++msgstr ""
+Index: po/sk.po.in
+===================================================================
+--- po/sk.po.in	(revision 5653)
++++ po/sk.po.in	(working copy)
+@@ -2489,3 +2489,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/sl.po.in
+===================================================================
+--- po/sl.po.in	(revision 5653)
++++ po/sl.po.in	(working copy)
+@@ -2489,3 +2489,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/sr.po.in
+===================================================================
+--- po/sr.po.in	(revision 5653)
++++ po/sr.po.in	(working copy)
+@@ -2489,3 +2489,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/sv.po.in
+===================================================================
+--- po/sv.po.in	(revision 5653)
++++ po/sv.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ta.po.in
+===================================================================
+--- po/ta.po.in	(revision 5653)
++++ po/ta.po.in	(working copy)
+@@ -2483,3 +2483,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/te.po.in
+===================================================================
+--- po/te.po.in	(revision 5653)
++++ po/te.po.in	(working copy)
+@@ -2484,3 +2484,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/th.po.in
+===================================================================
+--- po/th.po.in	(revision 5653)
++++ po/th.po.in	(working copy)
+@@ -2482,3 +2482,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/tr.po.in
+===================================================================
+--- po/tr.po.in	(revision 5653)
++++ po/tr.po.in	(working copy)
+@@ -2493,3 +2493,6 @@
+ 
+ #~ msgid "%d.%d kilometer"
+ #~ msgstr "%d.%d kilometre"
++
++msgid "Cancel"
++msgstr ""
+Index: po/uk.po.in
+===================================================================
+--- po/uk.po.in	(revision 5653)
++++ po/uk.po.in	(working copy)
+@@ -2490,3 +2490,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/ur.po.in
+===================================================================
+--- po/ur.po.in	(revision 5653)
++++ po/ur.po.in	(working copy)
+@@ -2488,3 +2488,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/vi.po.in
+===================================================================
+--- po/vi.po.in	(revision 5653)
++++ po/vi.po.in	(working copy)
+@@ -2481,3 +2481,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/zh_CN.po.in
+===================================================================
+--- po/zh_CN.po.in	(revision 5653)
++++ po/zh_CN.po.in	(working copy)
+@@ -2481,3 +2481,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""
+Index: po/zh_HK.po.in
+===================================================================
+--- po/zh_HK.po.in	(revision 5653)
++++ po/zh_HK.po.in	(working copy)
+@@ -2486,3 +2486,6 @@
+ #. 
+ msgid "Truck"
+ msgstr ""
++
++msgid "Cancel"
++msgstr ""

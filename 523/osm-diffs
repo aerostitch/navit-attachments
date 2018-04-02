@@ -1,0 +1,241 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revision 3290)
++++ navit/maptool/osm.c	(working copy)
+@@ -37,6 +37,7 @@
+ long int osmid_attr_value;
+ 
+ char is_in_buffer[BUFFER_SIZE];
++char *default_country = "Unknown";
+ 
+ char attr_strings_buffer[BUFFER_SIZE*16];
+ int attr_strings_buffer_len;
+@@ -82,14 +83,30 @@
+ #define REF(c) ((c).y)
+ #define SET_REF(c,ref) do { (c).x = 1 << 30; (c).y = ref ; } while(0)
+ 
++struct state_table {
++	char *standard;
++	char *names;
++} australian_states[] = {
++	{ "NSW", "New South Wales,NSW" },
++	{ "Vic", "Victoria,Vic" },
++	{ "Qld", "Queensland,Qld" },
++	{ "Tas", "Tasmania,Tas" },
++	{ "SA", "South Australia,SA" },
++	{ "NT", "Northern Territory,NT" },
++	{ "WA", "Western Australia,WA" },
++	{ 0,0},
++};
++
+ struct country_table {
+ 	int countryid;
+ 	char *names;
++	struct state_table *states;
++	GHashTable *states_hash;
+ 	FILE *file;
+ 	int size;
+ 	struct rect r;
+ } country_table[] = {
+-	{ 36,"Australia,AUS"},
++	{ 36,"Australia,AUS", australian_states},
+ 	{ 40,"Austria,Österreich,AUT"},
+ 	{ 56,"Belgium"},
+ 	{ 70,"Bosnia and Herzegovina,Bosna i Hercegovina,Босна и Херцеговина"},
+@@ -546,6 +563,28 @@
+ 		}
+ 	}
+ }
++static int
++populate_state_table(struct country_table *country)
++{
++	int	i;
++	char	*names;
++	char	*tok;
++
++	if (country->states && !country->states_hash)
++	{
++		country->states_hash = g_hash_table_new(g_str_hash,g_str_equal);
++		for (i = 0; country->states[i].standard; ++i)
++		{
++			names = g_strdup(country->states[i].names);
++			while ((tok = strtok(names, ",")) != 0)
++			{
++				names = 0;
++				g_hash_table_insert(country->states_hash, tok, (gpointer) (country->states->standard));
++			}
++		}
++	}
++	return country->states != 0;
++}
+ static void
+ osm_warning(char *type, long long id, int cont, char *fmt, ...)
+ {
+@@ -840,6 +879,19 @@
+ 		strcpy(is_in_buffer, "USA");
+ 		level=5;
+ 	}
++	else if (! strcmp(k, "source")) {
++		if (! strcmp(v, "nswgnb"))
++			strcpy(is_in_buffer, "NSW,Australia");
++	}
++	else if (! strcmp(k, "place")) {
++		if (! strcmp(v, "suburb") ||
++		    ! strcmp(v, "village") ||
++		    ! strcmp(v, "city") ||
++		    ! strcmp(v, "community") ||
++		    ! strcmp(v, "hamlet") ||
++		    ! strcmp(v, "town"))
++			level = 5;
++	}
+ 	if (! strcmp(k,"lanes")) {
+ 		level=5;
+ 	}
+@@ -1408,6 +1460,7 @@
+ 	enum item_type types[10];
+ 	struct country_table *result=NULL, *lookup;
+ 	struct item_bin *item_bin;
++	char	is_in_copy[BUFFER_SIZE];
+ 
+ 	if (!out || ! node_is_tagged || ! nodeid)
+ 		return;
+@@ -1425,7 +1478,7 @@
+ 		if (item_is_town(*item_bin) && attr_strings[attr_string_population]) 
+ 			item_bin_set_type_by_population(item_bin, atoi(attr_strings[attr_string_population]));
+ 		item_bin_add_coord(item_bin, &ni->c, 1);
+-		item_bin_add_attr_string(item_bin, item_is_town(*item_bin) ? attr_town_name : attr_label, attr_strings[attr_string_label]);
++		item_bin_add_attr_string(item_bin, item_is_town(*item_bin) ? (item_is_district(*item_bin) ? attr_district_name : attr_town_name) : attr_label, attr_strings[attr_string_label]);
+ 		item_bin_add_attr_string(item_bin, attr_house_number, attr_strings[attr_string_house_number]);
+ 		item_bin_add_attr_string(item_bin, attr_street_name, attr_strings[attr_string_street_name]);
+ 		item_bin_add_attr_string(item_bin, attr_phone, attr_strings[attr_string_phone]);
+@@ -1442,23 +1495,50 @@
+ 			item_bin_add_attr_string(item_bin, item_is_town(*item_bin) ? attr_town_postal : attr_postal, postal);
+ 		}
+ 		item_bin_write(item_bin,out);
++		strcpy(is_in_copy, is_in_buffer);
+ 		if (item_is_town(*item_bin) && attr_strings[attr_string_label]) {
+-			char *tok,*buf=is_in_buffer;
++			char *tok,*buf=is_in_copy;
++			char *state = 0;
+ 			if (!buf[0])
+-				strcpy(is_in_buffer, "Unknown");
++				strcpy(is_in_copy, default_country);
+ 			while ((tok=strtok(buf, ","))) {
+ 				while (*tok==' ')
+ 					tok++;
+ 				lookup=g_hash_table_lookup(country_table_hash,tok);
+ 				if (lookup) {
+ 					if (result && result->countryid != lookup->countryid) {
+-						osm_warning("node",nodeid,0,"conflict for %s %s country %d vs %d\n", attr_strings[attr_string_label], debug_attr_buffer, lookup->countryid, result->countryid);
+-						conflict=1;
+ 					} else
+ 						result=lookup;
+ 				}
+ 				buf=NULL;
+ 			}
++			if (result && !conflict && populate_state_table(result))
++			{
++				buf = is_in_copy;
++				strcpy(is_in_copy, is_in_buffer);
++
++				while ((tok = strtok(buf, ",")) != 0)
++				{
++					char *this_state;
++					
++					while (*tok == ' ')
++						++tok;
++					this_state = (char *) g_hash_table_lookup(result->states_hash, tok);
++					if (this_state)
++					{
++						if (state && strcmp(state, this_state))
++						{
++							osm_warning("node",nodeid,0,"conflict for %s %s state %s vs %s\n", attr_strings[attr_string_label], debug_attr_buffer, this_state, state);
++							conflict=1;
++						}
++						else
++						{
++							state = this_state;
++						}
++					}
++					buf = 0;
++				}
++			}
+ 			if (result && !conflict) {
+ 				if (!result->file) {
+ 					char *name=g_strdup_printf("country_%d.bin.unsorted", result->countryid);
+@@ -1466,11 +1546,33 @@
+ 					g_free(name);
+ 				}
+ 				if (result->file) {
++					char *full_name;
++					char *name = attr_strings[attr_string_label];
++
++					if (state)
++					{
++						full_name = g_strdup_printf("%s, %s", name, state);
++						name = full_name;
++					}
++					else
++					{
++						full_name = 0;
++					}
+ 					item_bin=init_item(item_bin->type);
+ 					item_bin_add_coord(item_bin, &ni->c, 1);
+-					item_bin_add_attr_string(item_bin, attr_town_postal, postal);
+-					item_bin_add_attr_string(item_bin, attr_town_name, attr_strings[attr_string_label]);
+-					item_bin_write_match(item_bin, attr_town_name, attr_town_name_match, result->file);
++					if (item_is_district(*item_bin))
++					{
++						item_bin_add_attr_string(item_bin, attr_town_postal, postal);
++						item_bin_add_attr_string(item_bin, attr_district_name, attr_strings[attr_string_label]);
++						item_bin_add_attr_string(item_bin, attr_town_name, name);
++						item_bin_write_match(item_bin, attr_district_name, attr_district_name_match, result->file);
++					}
++					else
++					{
++						item_bin_add_attr_string(item_bin, attr_town_postal, postal);
++						item_bin_add_attr_string(item_bin, attr_town_name, name);
++						item_bin_write_match(item_bin, attr_town_name, attr_town_name_match, result->file);
++					}
+ 				}
+ 			
+ 			}
+Index: navit/maptool/maptool.c
+===================================================================
+--- navit/maptool/maptool.c	(revision 3290)
++++ navit/maptool/maptool.c	(working copy)
+@@ -50,6 +50,7 @@
+ GHashTable *dedupe_ways_hash;
+ int phase;
+ int slices;
++extern char *default_country;
+ struct buffer node_buffer = {
+ 	64*1024*1024,
+ };
+@@ -114,6 +115,7 @@
+ 	fprintf(f,"-W (--ways-only)         : process only ways\n");
+ 	fprintf(f,"-a (--attr-debug-level)  : control which data is included in the debug attribute\n");
+ 	fprintf(f,"-c (--dump-coordinates)  : dump coordinates after phase 1\n");
++	fprintf(f,"-C (--country)           : set default country\n");
+ #ifdef HAVE_POSTGRESQL
+ 	fprintf(f,"-d (--db)                : get osm data out of a postgresql database with osm simple scheme and given connect string\n");
+ #endif
+@@ -185,6 +187,7 @@
+ 			{"dedupe-ways", 0, 0, 'w'},
+ 			{"dump", 0, 0, 'D'},
+ 			{"dump-coordinates", 0, 0, 'c'},
++			{"country", 1, 0, 'C'},
+ 			{"end", 1, 0, 'e'},
+ 			{"help", 0, 0, 'h'},
+ 			{"keep-tmpfiles", 0, 0, 'k'},
+@@ -230,6 +233,10 @@
+ 		case 'c':
+ 			dump_coordinates=1;
+ 			break;
++
++		case 'C':
++			default_country = g_strdup(optarg);
++			break;
+ #ifdef HAVE_POSTGRESQL
+ 		case 'd':
+ 			dbstr=optarg;

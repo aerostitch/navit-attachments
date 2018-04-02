@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+  <bounds minlat='54.108129999999996' minlon='88.16628999999999' maxlat='54.126259999999995' maxlon='88.21920999999999' origin='pbftoosm' />
+  <node id='910731283' timestamp='2010-09-13T14:59:13Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1096347' lon='88.1845093' />
+  <node id='910731522' timestamp='2010-09-13T14:59:20Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1115467' lon='88.1740379' />
+  <node id='910731609' action='delete' timestamp='2010-09-13T14:59:23Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1214072' lon='88.2008171' />
+  <node id='910731729' timestamp='2010-09-13T14:59:26Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1184896' lon='88.1951523' />
+  <node id='910732196' timestamp='2010-09-13T14:59:40Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1111442' lon='88.1908607' />
+  <node id='910732429' timestamp='2010-09-13T14:59:46Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.120703' lon='88.2037354' />
+  <node id='910732698' timestamp='2010-09-13T14:59:52Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1211054' lon='88.1917191' />
+  <node id='910733124' timestamp='2010-09-13T15:00:03Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1240229' lon='88.203907' />
+  <node id='910733357' timestamp='2010-09-13T15:00:10Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1144649' lon='88.1985855' />
+  <node id='910733579' timestamp='2010-09-13T15:00:15Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1143643' lon='88.1764412' />
+  <node id='910734390' timestamp='2010-09-13T15:00:32Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1164773' lon='88.1807327' />
+  <node id='910734847' action='delete' timestamp='2010-09-13T15:00:41Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1248277' lon='88.2162666' />
+  <node id='910734934' timestamp='2010-09-13T15:00:43Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1217091' lon='88.192749' />
+  <node id='910735416' timestamp='2010-09-13T15:00:54Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1172822' lon='88.1728363' />
+  <node id='910735424' action='delete' timestamp='2010-09-13T15:00:54Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1237211' lon='88.214035' />
+  <node id='910735459' timestamp='2010-09-13T15:00:55Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1147667' lon='88.1767845' />
+  <node id='910735710' timestamp='2010-09-13T15:01:00Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1223127' lon='88.2133484' />
+  <node id='910735955' timestamp='2010-09-13T15:01:06Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1136599' lon='88.1748962' />
+  <node id='910736460' timestamp='2010-09-13T15:01:17Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1156723' lon='88.1779861' />
+  <node id='910736696' timestamp='2010-09-13T15:01:23Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1248277' lon='88.2066536' />
+  <node id='910736871' timestamp='2010-09-13T15:01:28Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1146661' lon='88.182106' />
+  <node id='910737302' timestamp='2010-09-13T15:01:39Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1200993' lon='88.193779' />
+  <node id='910737509' timestamp='2010-09-13T15:01:44Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1232181' lon='88.2179832' />
+  <node id='910738037' action='delete' timestamp='2010-09-13T15:01:57Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1235199' lon='88.2061386' />
+  <node id='910738353' timestamp='2010-09-13T15:02:05Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1229163' lon='88.203392' />
+  <node id='910738490' timestamp='2010-09-13T15:02:10Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1221115' lon='88.1978989' />
+  <node id='910738953' timestamp='2010-09-13T15:02:26Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1215078' lon='88.2119751' />
+  <node id='910739129' timestamp='2010-09-13T15:02:33Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1232181' lon='88.1918907' />
+  <node id='910739179' action='delete' timestamp='2010-09-13T15:02:35Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1156723' lon='88.1965256' />
+  <node id='910739249' action='delete' timestamp='2010-09-13T15:02:38Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1243247' lon='88.2102585' />
+  <node id='910739266' timestamp='2010-09-13T15:02:39Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1118486' lon='88.1827927' />
+  <node id='910739860' timestamp='2010-09-13T15:02:51Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1092322' lon='88.1786728' />
+  <node id='910740194' action='delete' timestamp='2010-09-13T15:02:57Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1223127' lon='88.1978989' />
+  <node id='910740238' timestamp='2010-09-13T15:02:59Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1191939' lon='88.1757545' />
+  <node id='910740510' timestamp='2010-09-13T15:03:06Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1235199' lon='88.2051086' />
+  <node id='910741038' timestamp='2010-09-13T15:03:26Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.113358' lon='88.1839943' />
+  <node id='910741238' action='delete' timestamp='2010-09-13T15:03:34Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1206024' lon='88.2042503' />
+  <node id='910741367' timestamp='2010-09-13T15:03:39Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1118486' lon='88.1766129' />
+  <node id='910741608' action='delete' timestamp='2010-09-13T15:03:47Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1203006' lon='88.2020187' />
+  <node id='910741786' timestamp='2010-09-13T15:03:53Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1184896' lon='88.1893158' />
+  <node id='910741929' timestamp='2010-09-13T15:03:59Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1217091' lon='88.1690598' />
+  <node id='910742118' timestamp='2010-09-13T15:04:04Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1259342' lon='88.2047653' />
+  <node id='910742509' timestamp='2010-09-13T15:04:17Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1190932' lon='88.1858826' />
+  <node id='910742684' timestamp='2010-09-13T15:04:24Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1129555' lon='88.192234' />
+  <node id='910742838' timestamp='2010-09-13T15:04:32Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1247271' lon='88.2157516' />
+  <node id='910743120' action='delete' timestamp='2010-09-13T15:04:43Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1237211' lon='88.1958389' />
+  <node id='910743172' timestamp='2010-09-13T15:04:45Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1179865' lon='88.1785011' />
+  <node id='910743372' timestamp='2010-09-13T15:04:53Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1196969' lon='88.1906891' />
+  <node id='910744116' timestamp='2010-09-13T15:05:24Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1250289' lon='88.1991005' />
+  <node id='910744219' action='delete' timestamp='2010-09-13T15:05:28Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1246265' lon='88.2073402' />
+  <node id='910744450' timestamp='2010-09-13T15:05:38Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1192945' lon='88.1800461' />
+  <node id='910744850' timestamp='2010-09-13T15:05:55Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1232181' lon='88.1960106' />
+  <node id='910745007' timestamp='2010-09-13T15:06:02Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1179865' lon='88.2021904' />
+  <node id='910745041' action='delete' timestamp='2010-09-13T15:06:04Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1241235' lon='88.2092285' />
+  <node id='910745113' timestamp='2010-09-13T15:06:08Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1205018' lon='88.1745529' />
+  <node id='910745226' action='delete' timestamp='2010-09-13T15:06:12Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1259342' lon='88.2040787' />
+  <node id='910745398' timestamp='2010-09-13T15:06:22Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1235199' lon='88.1985855' />
+  <node id='910745441' timestamp='2010-09-13T15:06:25Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1110436' lon='88.1875992' />
+  <node id='910745486' timestamp='2010-09-13T15:06:27Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1095341' lon='88.1822777' />
+  <node id='910745569' timestamp='2010-09-13T15:06:33Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1234193' lon='88.1946373' />
+  <node id='910745737' timestamp='2010-09-13T15:06:45Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1143643' lon='88.1939507' />
+  <node id='910745838' timestamp='2010-09-13T15:06:52Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1128549' lon='88.1900024' />
+  <node id='910746625' action='delete' timestamp='2010-09-13T15:07:17Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.120703' lon='88.2112885' />
+  <node id='910746747' timestamp='2010-09-13T15:07:20Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1142636' lon='88.1711197' />
+  <node id='910747137' timestamp='2010-09-13T15:07:33Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1135593' lon='88.1956673' />
+  <node id='910747693' action='delete' timestamp='2010-09-13T15:07:48Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1243247' lon='88.2020187' />
+  <node id='910747864' timestamp='2010-09-13T15:07:54Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1137605' lon='88.1785011' />
+  <node id='910748600' timestamp='2010-09-13T15:08:23Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1191939' lon='88.1664848' />
+  <node id='910748886' timestamp='2010-09-13T15:08:34Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1243247' lon='88.1958389' />
+  <node id='910749166' timestamp='2010-09-13T15:08:44Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1102385' lon='88.1800461' />
+  <node id='910749952' timestamp='2010-09-13T15:09:11Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1132574' lon='88.181076' />
+  <node id='910750357' timestamp='2010-09-13T15:09:24Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1202' lon='88.1695747' />
+  <node id='910751206' timestamp='2010-09-13T15:09:40Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.116276' lon='88.1951523' />
+  <node id='910751614' timestamp='2010-09-13T15:09:48Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.114163' lon='88.1781578' />
+  <node id='910751915' timestamp='2010-09-13T15:09:55Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1245259' lon='88.2020187' />
+  <node id='910752548' timestamp='2010-09-13T15:10:11Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1158736' lon='88.1982422' />
+  <node id='910752943' timestamp='2010-09-13T15:10:19Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1209042' lon='88.1992722' />
+  <node id='910753244' timestamp='2010-09-13T15:10:27Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1120499' lon='88.192749' />
+  <node id='910753806' action='delete' timestamp='2010-09-13T15:10:41Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1233187' lon='88.1913757' />
+  <node id='910753886' timestamp='2010-09-13T15:10:44Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1223127' lon='88.1910324' />
+  <node id='910754272' timestamp='2010-09-13T15:10:51Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1135593' lon='88.1771278' />
+  <node id='910754805' timestamp='2010-09-13T15:10:58Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1255319' lon='88.1975555' />
+  <node id='910756475' timestamp='2010-09-13T15:11:28Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1243247' lon='88.2130051' />
+  <node id='910757148' timestamp='2010-09-13T15:11:51Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323' lat='54.1228157' lon='88.2118034' />
+  <way id='77370614' timestamp='2010-09-13T15:12:16Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323'>
+    <nd ref='910745441' />
+  </way>
+  <way id='77371087' timestamp='2010-09-13T15:12:52Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323'>
+    <nd ref='910748886' />
+    <nd ref='910754805' />
+    <nd ref='910744116' />
+    <nd ref='910745398' />
+    <nd ref='910744850' />
+    <nd ref='910738490' />
+    <nd ref='910742118' />
+    <nd ref='910736696' />
+    <nd ref='910740510' />
+    <nd ref='910756475' />
+    <nd ref='910757148' />
+    <nd ref='910735710' />
+    <nd ref='910742838' />
+    <nd ref='910737509' />
+    <nd ref='910738953' />
+    <nd ref='910738353' />
+    <nd ref='910733124' />
+    <nd ref='910751915' />
+    <nd ref='910752943' />
+    <nd ref='910732698' />
+    <nd ref='910743372' />
+    <nd ref='910742509' />
+    <nd ref='910741786' />
+    <nd ref='910737302' />
+    <nd ref='910731729' />
+    <nd ref='910732429' />
+    <nd ref='910745007' />
+    <nd ref='910733357' />
+    <nd ref='910752548' />
+    <nd ref='910751206' />
+    <nd ref='910745737' />
+    <nd ref='910747137' />
+    <nd ref='910742684' />
+    <nd ref='910753244' />
+    <nd ref='910745838' />
+    <nd ref='910732196' />
+    <nd ref='910731283' />
+    <nd ref='910745486' />
+    <nd ref='910749166' />
+    <nd ref='910739860' />
+    <nd ref='910741367' />
+    <nd ref='910731522' />
+    <nd ref='910735955' />
+    <nd ref='910754272' />
+    <nd ref='910733579' />
+    <nd ref='910746747' />
+    <nd ref='910748600' />
+    <nd ref='910750357' />
+    <nd ref='910741929' />
+    <nd ref='910745113' />
+    <nd ref='910740238' />
+    <nd ref='910735416' />
+    <nd ref='910734390' />
+    <nd ref='910743172' />
+    <nd ref='910744450' />
+    <nd ref='910753886' />
+    <nd ref='910734934' />
+    <nd ref='910739129' />
+    <nd ref='910745569' />
+    <nd ref='910748886' />
+  </way>
+  <way id='77372399' timestamp='2010-09-13T15:15:39Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323'>
+    <nd ref='910747864' />
+    <nd ref='910739266' />
+    <nd ref='910741038' />
+    <nd ref='910736871' />
+    <nd ref='910749952' />
+    <nd ref='910736460' />
+    <nd ref='910735459' />
+    <nd ref='910751614' />
+    <nd ref='910747864' />
+  </way>
+  <relation id='1175564' timestamp='2010-09-13T15:17:00Z' uid='137279' user='Aleksey Ovchinnikov' visible='true' version='1' changeset='5770323'>
+    <member type='way' ref='77372399' role='inner' />
+    <member type='way' ref='77371087' role='outer' />
+    <tag k='natural' v='wood' />
+    <tag k='type' v='multipolygon' />
+  </relation>
+</osm>

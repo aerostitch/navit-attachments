@@ -1,0 +1,40 @@
+Index: navit/vehicle.c
+===================================================================
+--- navit/vehicle.c	(Revision 2075)
++++ navit/vehicle.c	(Arbeitskopie)
+@@ -54,6 +54,7 @@
+ {
+ 	struct attr pos_attr;
+ 	struct attr time_attr;
++	struct attr fix_attr;
+ 	char buffer[256];
+ 	char tbuf[256];
+ 	char *timep;
+@@ -62,6 +63,10 @@
+ 		return;
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_coord_geo, &pos_attr))
+ 		return;
++	if (!this_->meth.position_attr_get(this_->priv, attr_position_fix_type, &fix_attr))
++		return;
++	if (fix_attr.u.num != 2 && fix_attr.u.num != 3)
++		return;
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_time_iso8601, &time_attr)) {
+ #ifdef HAVE_GLIB
+ 		GTimeVal time; 
+@@ -93,11 +98,16 @@
+ vehicle_log_textfile(struct vehicle *this_, struct log *log)
+ {
+ 	struct attr pos_attr;
++	struct attr fix_attr;
+ 	char buffer[256];
+ 	if (!this_->meth.position_attr_get)
+ 		return;
+ 	if (!this_->meth.position_attr_get(this_->priv, attr_position_coord_geo, &pos_attr))
+ 		return;
++	if (!this_->meth.position_attr_get(this_->priv, attr_position_fix_type, &fix_attr))
++		return;
++	if (fix_attr.u.num != 2 && fix_attr.u.num != 3)
++		return;
+ 	sprintf(buffer,"%f %f type=trackpoint\n", pos_attr.u.coord_geo->lng, pos_attr.u.coord_geo->lat);
+ 	log_write(log, buffer, strlen(buffer));
+ }

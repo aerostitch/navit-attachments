@@ -1,0 +1,294 @@
+Index: Makefile.am
+===================================================================
+--- Makefile.am	(revision 3471)
++++ Makefile.am	(working copy)
+@@ -1,6 +1,6 @@
+ include $(top_srcdir)/Makefile.inc
+ AM_CPPFLAGS = @NAVIT_CFLAGS@ -I$(top_srcdir)/navit
+-modulevehicle_LTLIBRARIES = libvehicle_file.la libvehicle_pipe.la libvehicle_socket.la
++modulevehicle_LTLIBRARIES = libvehicle_file.la libvehicle_pipe.la libvehicle_socket.la libvehicle_serial.la
+ libvehicle_file_la_CFLAGS=-DMODULE=vehicle_file
+ libvehicle_file_la_SOURCES = vehicle_file.c
+ libvehicle_file_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
+@@ -10,3 +10,6 @@
+ libvehicle_socket_la_CFLAGS=-DMODULE=vehicle_socket
+ libvehicle_socket_la_SOURCES = vehicle_socket.c
+ libvehicle_socket_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
++libvehicle_serial_la_CFLAGS=-DMODULE=vehicle_serial
++libvehicle_serial_la_SOURCES = vehicle_serial.c
++libvehicle_serial_la_LDFLAGS = -module -avoid-version @NAVIT_MODULE_LDFLAGS@
+Index: vehicle_file.c
+===================================================================
+--- vehicle_file.c	(revision 3471)
++++ vehicle_file.c	(working copy)
+@@ -44,6 +44,9 @@
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
+ #endif
++#ifdef HAVE_WINSOCK
++#include <winsock.h>
++#endif
+ 
+ static void vehicle_file_disable_watch(struct vehicle_priv *priv);
+ static void vehicle_file_enable_watch(struct vehicle_priv *priv);
+@@ -53,7 +56,7 @@
+ 
+ 
+ enum file_type {
+-	file_type_pipe = 1, file_type_device, file_type_file, file_type_socket
++	file_type_pipe = 1, file_type_device, file_type_file, file_type_socket, file_type_serial
+ };
+ 
+ static int buffer_size = 1024;
+@@ -96,11 +99,10 @@
+ 	int no_data_count;
+ 	struct event_timeout * timeout;
+ 	struct callback *timeout_callback;
+-#else
++#endif
+ 	enum file_type file_type;
+ 	FILE *file;
+ 	struct event_watch *watch;
+-#endif
+ 	speed_t baudrate;
+ 	struct attr ** attrs;
+ 	char fixiso8601[128];
+@@ -205,34 +207,13 @@
+ static int
+ vehicle_file_open(struct vehicle_priv *priv)
+ {
+-#ifdef _WIN32
+-    dbg(1, "enter, priv->source='%s'\n", priv->source);
+-
+-    if ( priv->source )
+-    {
+-        char* raw_setting_str = g_strdup( priv->source );
+-
+-        char* strport = strchr(raw_setting_str, ':' );
+-        char* strsettings = strchr(raw_setting_str, ' ' );
+-
+-        if ( strport && strsettings )
+-        {
+-            strport++;
+-            *strsettings = '\0';
+-            strsettings++;
+-
+-            priv->fd=serial_io_init( strport, strsettings );
+-        }
+-        g_free( raw_setting_str );
+-
+-        // Add the callback
+-        dbg(2, "Add the callback ...\n", priv->source);
+-   		priv->timeout_callback=callback_new_1(callback_cast(vehicle_win32_serial_track), priv);
+-    }
+-#else
+ 	char *name;
+ 	struct stat st;
++#ifndef _WIN32
+ 	struct termios tio;
++#else
++	#define O_NDELAY 0
++#endif
+ 
+ 	name = priv->source + 5;
+ 	if (!strncmp(priv->source, "file:", 5)) {
+@@ -242,7 +223,9 @@
+ 		stat(name, &st);
+ 		if (S_ISREG(st.st_mode)) {
+ 			priv->file_type = file_type_file;
+-		} else {
++		}
++#ifndef _WIN32
++		else {
+ 			tcgetattr(priv->fd, &tio);
+ 			cfmakeraw(&tio);
+ 			cfsetispeed(&tio, priv->baudrate);
+@@ -258,8 +241,13 @@
+ 			return 0;
+ 		priv->fd = fileno(priv->file);
+ 		priv->file_type = file_type_pipe;
+-#ifdef HAVE_SOCKET
++#endif //!_WIN32
++#if defined(HAVE_SOCKET) || defined(HAVE_WINSOCK) 
+ 	} else if (!strncmp(priv->source,"socket:", 7)) {
++		#ifdef _WIN32
++		WSADATA wsi;
++		WSAStartup(0x00020002,&wsi);
++		#endif
+ 		char *p,*s=g_strdup(priv->source+7);
+ 		struct sockaddr_in sin;
+ 		p=strchr(s,':');
+@@ -285,9 +273,31 @@
+ 			}
+ 		}
+ 		priv->file_type = file_type_socket;
+-#endif
+-	}
+-#endif
++#endif //HAVE_SOCKET
++	} else if (!strncmp(priv->source,"serial:",7)) {
++#ifdef _WIN32
++		char* raw_setting_str = g_strdup( priv->source );
++
++		char* strport = strchr(raw_setting_str, ':' );
++		char* strsettings = strchr(raw_setting_str, ' ' );
++
++		if ( strport && strsettings )
++		{
++		    strport++;
++		    *strsettings = '\0';
++		    strsettings++;
++
++		    priv->fd=serial_io_init( strport, strsettings );
++		}
++		g_free( raw_setting_str );
++		priv->file_type = file_type_serial;
++		// Add the callback
++		dbg(2, "Add the callback ...\n", priv->source);
++			priv->timeout_callback=callback_new_1(callback_cast(vehicle_win32_serial_track), priv);
++#else
++		//TODO - add linux serial
++#endif //!_WIN32
++    }
+     return(priv->fd != -1);
+ }
+ 
+@@ -310,13 +320,13 @@
+ 		priv->timeout_callback=NULL;	// dangling pointer! prevent double freeing.
+     }
+ 	serial_io_shutdown( priv->fd );
+-#else
++#else //!_WIN32
+ 	if (priv->file)
+ 		pclose(priv->file);
+ 	else if (priv->fd >= 0)
+ 		close(priv->fd);
+ 	priv->file = NULL;
+-#endif
++#endif //!_WIN32
+ 	priv->fd = -1;
+ }
+ 
+@@ -457,14 +467,12 @@
+ 		g_free(priv->nmea_data);
+ 		priv->nmea_data=priv->nmea_data_buf;
+ 		priv->nmea_data_buf=NULL;
+-#ifndef _WIN32
+ 		if (priv->file_type == file_type_file) {
+ 			if (priv->watch) {
+ 				vehicle_file_disable_watch(priv);
+ 				event_add_timeout(priv->time, 0, priv->cbt);
+ 			}
+ 		}
+-#endif
+ 	}
+ 	if (!strncmp(buffer, "$GPVTG", 6)) {
+ 		/* 0      1      2 34 5    6 7   8
+@@ -583,14 +591,13 @@
+ *****************************************************************************
+ * @param      priv : pointer on the private data of the plugin
+ *****************************************************************************
+-* @remarks Not used on WIN32 operating system
++* @remarks 
+ *****************************************************************************
+ **/
+ static void
+ vehicle_file_io(struct vehicle_priv *priv)
+ {
+ 	dbg(1, "vehicle_file_io : enter\n");
+-#ifndef _WIN32
+ 	int size, rc = 0;
+ 	char *str, *tok;
+ 
+@@ -635,7 +642,6 @@
+ 	}
+ 	if (rc)
+ 		callback_list_call_attr_0(priv->cbl, attr_position_coord_geo);
+-#endif
+ }
+ 
+ //***************************************************************************
+@@ -652,14 +658,18 @@
+ 	dbg(1, "enter\n");
+ #ifdef _WIN32
+ 	// add an event : don't use glib timers and g_timeout_add
++    if (priv->file_type == file_type_serial)
++    {
+ 	if (priv->timeout_callback != NULL)
+-        priv->timeout = event_add_timeout(500, 1, priv->timeout_callback);
++            priv->timeout = event_add_timeout(500, 1, priv->timeout_callback);
++        else
++            dbg(1, "error : watch not enabled : priv->timeout_callback is null\n"); }
+     else
+-        dbg(1, "error : watch not enabled : priv->timeout_callback is null\n");
+-#else
++#endif
++    {
+ 	if (! priv->watch)
+ 		priv->watch = event_add_watch((void *)priv->fd, event_watch_cond_read, priv->cb);
+-#endif
++    }
+ }
+ 
+ //***************************************************************************
+@@ -675,15 +685,20 @@
+ {
+ 	dbg(1, "vehicle_file_disable_watch : enter\n");
+ #ifdef _WIN32
++    if(priv->file_type == file_type_serial)
++    {
+     if (priv->timeout) {
+ 		event_remove_timeout(priv->timeout);
+ 		priv->timeout=NULL;		// dangling pointer! prevent double freeing.
++        }
+     }
+-#else
++    else
++#endif //!_WIN32
++    {
+ 	if (priv->watch)
+ 		event_remove_watch(priv->watch);
+ 	priv->watch = NULL;
+-#endif
++    }
+ }
+ 
+ //***************************************************************************
+@@ -969,4 +984,5 @@
+ 	plugin_register_vehicle_type("file", vehicle_file_new_file);
+ 	plugin_register_vehicle_type("pipe", vehicle_file_new_file);
+ 	plugin_register_vehicle_type("socket", vehicle_file_new_file);
++	plugin_register_vehicle_type("serial", vehicle_file_new_file);
+ }
+Index: vehicle_serial.c
+===================================================================
+--- vehicle_serial.c	(revision 0)
++++ vehicle_serial.c	(revision 0)
+@@ -0,0 +1,27 @@
++/**
++ * Navit, a modular navigation system.
++ * Copyright (C) 2005-2010 Navit Team
++ *
++ * This program is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU General Public License
++ * version 2 as published by the Free Software Foundation.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the
++ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
++ * Boston, MA  02110-1301, USA.
++ */
++
++#include "config.h"
++#include "plugin.h"
++
++void
++plugin_init(void)
++{
++	plugin_get_vehicle_type("file");
++}

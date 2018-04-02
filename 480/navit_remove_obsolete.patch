@@ -1,0 +1,55 @@
+diff -ur ../navit-r2614/navit/navit.c ./navit/navit.c
+--- ../navit-r2614/navit/navit.c	2009-09-28 20:18:31.000000000 +0200
++++ ./navit/navit.c	2009-09-29 10:01:02.000000000 +0200
+@@ -50,7 +50,6 @@
+ #include "speech.h"
+ #include "track.h"
+ #include "vehicle.h"
+-#include "color.h"
+ #include "layout.h"
+ #include "log.h"
+ #include "attr.h"
+@@ -78,9 +77,6 @@
+ 	int dir;
+ 	int speed;
+ 	struct coord last; /*< Position of the last update of this vehicle */
+-	struct color c;
+-	struct color *c2;
+-	struct cursor *cursor;
+ 	struct vehicle *vehicle;
+ 	struct attr callback;
+ 	int animate_cursor;
+@@ -2166,7 +2162,7 @@
+ navit_add_vehicle(struct navit *this_, struct vehicle *v)
+ {
+ 	struct navit_vehicle *nv=g_new0(struct navit_vehicle, 1);
+-	struct attr follow,color,active, color2, animate;
++	struct attr follow, active, animate;
+ 	nv->vehicle=v;
+ 	nv->follow=0;
+ 	nv->last.x = 0;
+@@ -2174,12 +2170,6 @@
+ 	nv->animate_cursor=0;
+ 	if ((vehicle_get_attr(v, attr_follow, &follow, NULL)))
+ 		nv->follow=nv->follow=follow.u.num;
+-	if ((vehicle_get_attr(v, attr_color, &color, NULL)))
+-		nv->c=*(color.u.color);
+-	if ((vehicle_get_attr(v, attr_color2, &color2, NULL)))
+-		nv->c2=color2.u.color;
+-	else
+-		nv->c2=NULL;
+ 	nv->follow_curr=nv->follow;
+ 	this_->vehicles=g_list_append(this_->vehicles, nv);
+ 	if ((vehicle_get_attr(v, attr_active, &active, NULL)) && active.u.num)
+diff -ur ../navit-r2614/navit/navit_shipped.xml ./navit/navit_shipped.xml
+--- ../navit-r2614/navit/navit_shipped.xml	2009-09-28 20:18:31.000000000 +0200
++++ ./navit/navit_shipped.xml	2009-09-29 10:37:28.000000000 +0200
+@@ -57,7 +57,7 @@
+         <osd enabled="no" type="button" x="-96" y="-96" command="zoom_in()" src="zoom_in.xpm"/>
+         <osd enabled="no" type="button" x="0" y="-96" command="zoom_out()" src="zoom_out.xpm"/> 
+ 
+-        <vehicle name="Local GPS" profilename="car" enabled="yes" active="1" source="gpsd://localhost" gpsd_query="w+xj" color="#0000ff">
++        <vehicle name="Local GPS" profilename="car" enabled="yes" active="1" source="gpsd://localhost" gpsd_query="w+xj">
+             <!-- Navit can write a tracklog in several formats (gpx, nmea or textfile): -->
+             <!-- <log type="gpx" attr_types="position_time_iso8601,position_direction,position_speed,profilename,position_radius" data="track_%Y%m%d-%i.gpx" flush_size="1000" flush_time="30"/> -->
+             <cursor w="26" h="26">

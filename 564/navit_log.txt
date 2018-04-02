@@ -1,0 +1,459 @@
+03-18 14:38:36.202 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.202 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.202 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.202 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.225 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.280 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.280 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.280 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.280 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.280 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.280 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.296 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.296 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.296 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.303 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.303 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.303 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.358 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.382 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.382 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.382 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.436 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.436 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.436 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.436 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.436 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.436 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:36.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:36.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:36.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:36.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:36.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:36.460 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:37.593 E/navit   ( 1888): gui_internal:gui_internal_cmd_position_do:x=0x127765 y=0x5e02fc
+03-18 14:38:39.389 E/navit   ( 1888): gui_internal:gui_internal_search_street_in_town:id 2
+03-18 14:38:39.389 E/navit   ( 1888): navit:search_list_select:found
+03-18 14:38:39.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/gui_select_house_number_32_32.png
+03-18 14:38:39.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/gui_select_house_number.svgz
+03-18 14:38:39.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/gui_select_house_number.svg
+03-18 14:38:39.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/gui_select_house_number.png
+03-18 14:38:39.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/gui_select_house_number.xpm
+03-18 14:38:39.397 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load gui_select_house_number with 32,32
+03-18 14:38:41.859 E/navit   ( 1888): gui_internal:gui_internal_search_changed:Street now 'R'
+03-18 14:38:41.859 E/navit   ( 1888): gui_internal:gui_internal_search_changed:process
+03-18 14:38:42.007 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.007 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.007 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.014 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.014 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.014 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.053 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.053 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.053 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.053 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.053 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.061 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.124 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.124 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.124 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.124 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.124 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.124 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.147 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.147 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.147 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.147 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.147 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.147 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.210 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.233 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.233 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.233 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.233 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.288 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.288 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.288 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.288 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.288 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.288 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.311 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.374 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.374 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.397 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.397 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.460 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.460 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.491 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.491 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.491 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.491 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.491 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.491 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.577 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.577 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.585 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.585 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.585 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.585 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.616 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.616 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.616 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.616 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.616 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.616 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.764 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.788 E/navit   ( 1888): gui_internal:gui_internal_search_changed:Street now 'Re'
+03-18 14:38:42.788 E/navit   ( 1888): gui_internal:gui_internal_search_changed:process
+03-18 14:38:42.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.811 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.811 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.811 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.811 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.897 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.897 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.897 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.897 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.897 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.897 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.921 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.921 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.921 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.921 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.921 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.921 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.975 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.975 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.975 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.975 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.975 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.975 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:42.999 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:42.999 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:42.999 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:42.999 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:42.999 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:42.999 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.053 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.061 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.093 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.093 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.093 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.093 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.093 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.093 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.155 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.155 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.155 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.155 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.155 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.155 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.210 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.210 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.311 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.311 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.335 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.335 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.335 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.335 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.335 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.335 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.405 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.405 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.405 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.405 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.405 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.405 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.468 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.538 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.538 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.538 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.538 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.538 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.538 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.593 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.593 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.593 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.593 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.593 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.593 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.702 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.710 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.710 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.710 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.710 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.710 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.757 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.764 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.764 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.835 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.835 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.835 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.835 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.835 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.835 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.866 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.866 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.866 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.866 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.866 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.866 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.936 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.936 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.936 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.936 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.936 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.936 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:43.960 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:43.960 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:43.960 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:43.960 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:43.968 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:43.968 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.022 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.022 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.022 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.030 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.030 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.030 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.061 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.069 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.069 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.124 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.132 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.132 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.132 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.132 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.132 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.163 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.163 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.163 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.163 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.163 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.163 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.225 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.233 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.233 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.233 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.249 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.257 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.257 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.257 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.257 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.257 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.327 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.327 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.327 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.327 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.327 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.327 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.358 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.358 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.444 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.444 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.444 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.444 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.444 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.444 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.468 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.468 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.561 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.569 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.569 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.569 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.569 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.569 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.632 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.632 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.632 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.632 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.632 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.632 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.749 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.749 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.749 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.757 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.757 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.757 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:44.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:44.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:44.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:44.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:44.803 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:44.803 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:45.225 E/navit   ( 1888): gui_internal:gui_internal_search_changed:Street now 'Rei'
+03-18 14:38:45.225 E/navit   ( 1888): gui_internal:gui_internal_search_changed:process
+03-18 14:38:45.249 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:45.249 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:45.249 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:45.249 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:45.249 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:45.249 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:45.350 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE_32_32.png
+03-18 14:38:45.350 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svgz
+03-18 14:38:45.350 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.svg
+03-18 14:38:45.350 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.png
+03-18 14:38:45.350 E/navit   ( 1888): graphics_android:image_new:Failed to open res/drawable/country_DE.xpm
+03-18 14:38:45.350 E/navit   ( 1888): gui_internal:image_new_scaled:failed to load country_DE with 32,32
+03-18 14:38:45.499 I/ActivityManager( 1159): Process org.navitproject.navit (pid 1888) has died.
+03-18 14:38:45.507 I/WindowManager( 1159): WIN DEATH: Window{45198b10 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+03-18 14:38:45.530 W/UsageStats( 1159): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+03-18 14:39:39.140 I/ActivityManager( 1159): Starting activity: Intent { act=android.intent.action.MAIN flg=0x10100000 cmp=org.navitproject.navit/.Navit }
+03-18 14:39:39.194 I/ActivityManager( 1159): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1944 uid=10081 gids={1006, 3003, 1015}
+03-18 14:39:39.444 D/dalvikvm( 1944): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44e580a8
+03-18 14:39:39.452 D/dalvikvm( 1944): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x44e580a8
+03-18 14:39:39.452 D/dalvikvm( 1944): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x44e580a8
+03-18 14:39:39.460 E/Navit   ( 1944): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+03-18 14:39:39.460 E/Navit   ( 1944): Checking /data/data/org.navitproject.navit
+03-18 14:39:39.460 E/Navit   ( 1944): Checking /data/data/org.navitproject.navit/locale
+03-18 14:39:39.460 E/Navit   ( 1944): Checking /data/data/org.navitproject.navit/locale/de
+03-18 14:39:39.460 E/Navit   ( 1944): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+03-18 14:39:39.468 E/Navit   ( 1944): Res Name navit
+03-18 14:39:39.468 E/Navit   ( 1944): result /data/data/org.navitproject.navit/share/navit.xml
+03-18 14:39:39.468 E/Navit   ( 1944): Checking /data/data/org.navitproject.navit
+03-18 14:39:39.468 E/Navit   ( 1944): Checking /data/data/org.navitproject.navit/share
+03-18 14:39:39.530 E/navit   ( 1944): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xab10 thiz=0x44ea4f80 activity=0x44ea4f80 lang=de_DE
+03-18 14:39:39.593 E/navit   ( 1944): graphics_android:plugin_init:enter
+03-18 14:39:39.593 E/navit   ( 1944): vehicle_android:plugin_init:enter
+03-18 14:39:39.600 E/navit   ( 1944): graphics_android:event_android_new:enter
+03-18 14:39:39.600 E/navit   ( 1944): graphics_android:event_android_new:ok
+03-18 14:39:39.600 E/navit   ( 1944): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+03-18 14:39:39.600 E/navit   ( 1944): graphics_android:graphics_android_init:at 3
+03-18 14:39:39.600 E/navit   ( 1944): graphics_android:graphics_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:39.616 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44eab918
+03-18 14:39:39.616 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44eaf0d8
+03-18 14:39:39.616 E/navit   ( 1944): graphics_android:graphics_android_new:returning 0x337da8
+03-18 14:39:39.616 E/navit   ( 1944): vehicle_android:vehicle_android_new_android:enter
+03-18 14:39:39.616 E/navit   ( 1944): vehicle_android:vehicle_android_init:at 3
+03-18 14:39:39.616 E/navit   ( 1944): vehicle_android:vehicle_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:39.639 E/navit   ( 1944): vehicle_android:vehicle_android_init:result=0x44eaf400
+03-18 14:39:39.639 E/navit   ( 1944): vehicle_android:vehicle_android_new_android:return
+03-18 14:39:39.647 E/navit   ( 1944): speech_android:speech_android_init:at 3
+03-18 14:39:39.647 E/navit   ( 1944): speech_android:speech_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:40.030 E/navit   ( 1944): speech_android:speech_android_init:result=0x44eb5278
+03-18 14:39:40.030 E/navit   ( 1944): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+03-18 14:39:40.475 E/navit   ( 1944): navit:main_real:Using '/data/data/org.navitproject.navit/share/navit.xml'
+03-18 14:39:40.475 E/navit   ( 1944): graphics_android:event_android_main_loop_run:enter
+03-18 14:39:40.475 E/navit   ( 1944): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 3
+03-18 14:39:40.475 E/navit   ( 1944): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 2
+03-18 14:39:40.475 E/navit   ( 1944): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 1
+03-18 14:39:40.561 E/navit   ( 1944): navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x338b88 320 519
+03-18 14:39:40.561 E/navit   ( 1944): graphics_android:resize_callback:w=320 h=519 ok
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 3
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44ea5660
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e9a818
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:overlay_new:returning 0x4131e8
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 3
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e5be20
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e9a6f8
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:overlay_new:returning 0x414d00
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 3
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e58c30
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e9a5d0
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:overlay_new:returning 0x415180
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 3
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e580e0
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e9a3b0
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:overlay_new:returning 0x419670
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 2 jnienv=0xab10
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 3
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:at 4 android_activity=0x44ea4f80
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e56ff8
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:graphics_android_init:result=0x44e9a290
+03-18 14:39:40.577 E/navit   ( 1944): graphics_android:overlay_new:returning 0x419b50
+03-18 14:39:44.093 I/ActivityManager( 1159): Displayed activity org.navitproject.navit/.Navit: 4904 ms (total 4904 ms)
+03-18 14:39:47.124 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_in()'
+03-18 14:39:53.624 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_out()'
+03-18 14:39:55.374 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_out()'
+03-18 14:39:56.858 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_out()'
+03-18 14:39:58.389 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_out()'
+03-18 14:40:05.460 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_out()'
+03-18 14:40:07.149 E/navit   ( 1944): navit:osd_std_click:calling command 'zoom_out()'
+03-18 14:40:23.132 E/navit   ( 1944): gui_internal:gui_internal_cmd_set_destination:c=1:0x13b610,0x5d9f89
+03-18 14:40:24.413 I/ActivityManager( 1159): Process org.navitproject.navit (pid 1944) has died.
+03-18 14:40:24.421 I/WindowManager( 1159): WIN DEATH: Window{4505d280 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+03-18 14:40:24.436 W/UsageStats( 1159): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit

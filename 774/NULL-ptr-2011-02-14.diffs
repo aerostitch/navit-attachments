@@ -1,0 +1,108 @@
+Index: navit/xmlconfig.c
+===================================================================
+--- navit/xmlconfig.c	(revision 4155)
++++ navit/xmlconfig.c	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2009 Navit Team
++ * Copyright (C) 2005-2009, 2011 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -717,15 +717,22 @@
+ 		we_files=file_wordexp_get_array(we);
+ 		count=file_wordexp_get_count(we);
+ 		dbg(1,"%d results\n", count);
+-		if (file_exists(we_files[0])) {
+-			for (i = 0 ; i < count ; i++) {
+-				dbg(1,"result[%d]='%s'\n", i, we_files[i]);
+-				doc_new.href=we_files[i];
+-				parse_file(&doc_new, error);
++		if (NULL != we_files)			/* NULL pointer check */
++		{
++			if (file_exists(we_files[0])) {
++				for (i = 0 ; i < count ; i++) {
++					dbg(1,"result[%d]='%s'\n", i, we_files[i]);
++					doc_new.href=we_files[i];
++					parse_file(&doc_new, error);
++				}
++			} else {
++				dbg(0,"Unable to include %s\n",we_files[0]);
+ 			}
+-		} else {
+-			dbg(0,"Unable to include %s\n",we_files[0]);
+ 		}
++		else
++		{
++			dbg(0, "Got NULL pointer when processing %s\n", href);
++		}
+ 		file_wordexp_destroy(we);
+ 
+ 	}
+Index: navit/map/textfile/textfile.c
+===================================================================
+--- navit/map/textfile/textfile.c	(revision 4155)
++++ navit/map/textfile/textfile.c	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2008 Navit Team
++ * Copyright (C) 2005-2008, 2011 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -35,6 +35,8 @@
+ 
+ #include "textfile.h"
+ 
++const char UNKNOWN_FILENAME[] = "<UNKNOWN_FILENAME>"; /* used below */
++
+ static int map_id;
+ 
+ static void
+@@ -361,7 +363,10 @@
+ 
+ 	m=g_new0(struct map_priv, 1);
+ 	m->id=++map_id;
+-	m->filename=g_strdup(wexp_data[0]);
++	if (NULL != wexp_data)				/* make sure not NULL pointer */
++		m->filename=g_strdup(wexp_data[0]);
++	else
++		m->filename=g_strdup(UNKNOWN_FILENAME);
+ 	m->is_pipe=is_pipe;
+ 	if (flags) 
+ 		m->flags=flags->u.num;
+Index: navit/map/binfile/binfile.c
+===================================================================
+--- navit/map/binfile/binfile.c	(revision 4155)
++++ navit/map/binfile/binfile.c	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2008 Navit Team
++ * Copyright (C) 2005-2008, 2011 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -39,6 +39,8 @@
+ #include "callback.h"
+ #include "types.h"
+ 
++static const char UNKNOWN_FILENAME[] = "<UNKNOWN_FILENAME>";
++
+ static int map_id;
+ 
+ struct tile {
+@@ -2416,7 +2418,10 @@
+ 	m=g_new0(struct map_priv, 1);
+ 	m->cbl=cbl;
+ 	m->id=++map_id;
+-	m->filename=g_strdup(wexp_data[0]);
++	if (NULL != wexp_data)				/* NULL pointer check */
++		m->filename=g_strdup(wexp_data[0]);
++	else
++		m->filename = g_strdup(UNKNOWN_FILENAME);
+ 	file_wordexp_destroy(wexp);
+ 	check_version=attr_search(attrs, NULL, attr_check_version);
+ 	if (check_version) 

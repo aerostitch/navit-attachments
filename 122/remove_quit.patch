@@ -1,0 +1,12 @@
+Index: gui_gtk_action.c
+===================================================================
+--- gui_gtk_action.c	(révision 1639)
++++ gui_gtk_action.c	(copie de travail)
+@@ -401,7 +401,6 @@
+ 				<toolitem name=\"Destination\" action=\"DestinationAction\"/>\
+ 				<!-- <toolitem name=\"Info\" action=\"InfoAction\"/> -->\
+ 				<toolitem name=\"Roadbook\" action=\"RoadbookAction\"/>\
+-				<toolitem name=\"Quit\" action=\"QuitAction\"/>\
+ 				<separator/>\
+ 			</placeholder>\
+ 		</toolbar>\

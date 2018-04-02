@@ -1,0 +1,12 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revision 5214)
++++ navit/maptool/osm.c	(working copy)
+@@ -496,6 +496,7 @@
+ 	"?	shop=photo		poi_shop_photo\n"
+ 	"?	shop=shoes		poi_shop_shoes\n"
+ 	"?	shop=supermarket	poi_shopping\n"
++	"?	shop=mall		poi_mall\n"
+ 	"?	sport=10pin		poi_bowling\n"
+ 	"?	sport=baseball		poi_baseball\n"
+ 	"?	sport=basketball	poi_basketball\n"

@@ -1,0 +1,49 @@
+# navit
+navit:navit_set_attr_do:0xc12b56,0x2695ca
+navit:vehicle_new:invalid type 'gpsd'
+gui_gtk:gui_gtk_toggle_init:Unable to locate CursorAction
+gui_gtk:gui_gtk_vehicles_update:enter
+map_rect_new_textfile unable to open textfile /root/.navit/bookmark.txt
+navit:main:Using 'navit.xml'
+xkbd: No such file or directory
+gui_gtk:destination_address:warning: no default country found
+navit:popup_printf_cb:Point 0xc1c116 0x26e33a
+navit:popup_printf_cb:Screen coord : 467 155
+navit:popup_printf_cb:2219.9001N 11411.6855E
+navit:popup_printf_cb:22.331669 114.194760
+navit:popup_printf_cb:Set as position
+navit:popup_printf_cb:Set as destination
+navit:popup_printf_cb:Add as bookmark
+navit:popup_printf_cb:street_4_city 'Prince Edward Road West; Tung Chau St'
+navit:popup_printf_cb:Item
+navit:popup_printf_cb:type: 0x8000000b
+navit:popup_printf_cb:id: 0x15099 0x1cc6
+navit:popup_printf_cb:street_name: Prince Edward Road West; Tung Chau St
+navit:popup_printf_cb:osm_wayid: 28088042
+navit:popup_printf_cb:flags: 1
+navit:popup_printf_cb:label: Prince Edward Road West; Tung Chau St
+navit:popup_printf_cb:Map
+no route found
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:popup_printf_cb:Point 0xc1b969 0x26c9a1
+navit:popup_printf_cb:Screen coord : 403 556
+navit:popup_printf_cb:2216.6287N 11410.6250E
+navit:popup_printf_cb:22.277146 114.177089
+navit:popup_printf_cb:Set as position
+navit:popup_printf_cb:Set as destination
+navit:popup_printf_cb:Add as bookmark
+no route found
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+navit:displayitem_draw:failed to load icon 'stadium.xpm'
+
+

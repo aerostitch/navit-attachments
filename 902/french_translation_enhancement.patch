@@ -1,0 +1,52 @@
+Index: po/fr.po.in
+===================================================================
+--- po/fr.po.in	(revision 4643)
++++ po/fr.po.in	(working copy)
+@@ -49,25 +49,25 @@
+ msgstr "sixième"
+ 
+ msgid "zeroth exit"
+-msgstr "la zéroième sortie"
++msgstr "zéroième sortie"
+ 
+ msgid "first exit"
+-msgstr "la première sortie"
++msgstr "première sortie"
+ 
+ msgid "second exit"
+-msgstr "la deuxième sortie"
++msgstr "deuxième sortie"
+ 
+ msgid "third exit"
+-msgstr "la troisième sortie"
++msgstr "troisième sortie"
+ 
+ msgid "fourth exit"
+-msgstr "la quatrième sortie"
++msgstr "quatrième sortie"
+ 
+ msgid "fifth exit"
+-msgstr "la cinquième sortie"
++msgstr "cinquième sortie"
+ 
+ msgid "sixth exit"
+-msgstr "la sixième sortie"
++msgstr "sixième sortie"
+ 
+ #, c-format
+ msgid "%d m"
+@@ -1552,6 +1552,14 @@
+ msgid "Main menu"
+ msgstr "Menu principal"
+ 
++#. warning told
++msgid "Look out! Camera!"
++msgstr "Attention! Radar!"
++
++#. warning told
++msgid "Please decrease your speed"
++msgstr "Veuillez ralentir"
++
+ msgid ""
+ "Show\n"
+ "Map"

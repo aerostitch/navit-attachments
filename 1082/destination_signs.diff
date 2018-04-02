@@ -1,0 +1,489 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(Revision 5268)
++++ navit/maptool/osm.c	(Arbeitskopie)
+@@ -96,6 +96,7 @@
+ 	attr_string_url,
+ 	attr_string_street_name,
+ 	attr_string_street_name_systematic,
++        attr_string_street_destination_sign,
+ 	attr_string_house_number,
+ 	attr_string_label,
+ 	attr_string_postal,
+@@ -1129,6 +1130,14 @@
+ 			attr_strings_save(attr_string_street_name_systematic, v);
+ 		level=5;
+ 	}
++	if (! strcmp(k,"destination")) {
++		// the destination, which is named on a signpost
++		if (in_way)
++		{
++			attr_strings_save(attr_string_street_destination_sign, v);
++			level=5;
++		}
++	}
+ 	if (! strcmp(k,"openGeoDB:is_in")) { 
+ 		if (!is_in_buffer[0]) 
+ 			strcpy(is_in_buffer, v); 
+@@ -1668,6 +1677,7 @@
+ 		}
+ 		item_bin_add_attr_string(item_bin, def_flags ? attr_street_name : attr_label, attr_strings[attr_string_label]);
+ 		item_bin_add_attr_string(item_bin, attr_street_name_systematic, attr_strings[attr_string_street_name_systematic]);
++		item_bin_add_attr_string(item_bin, attr_street_destination_sign, attr_strings[attr_string_street_destination_sign]);
+ 		item_bin_add_attr_longlong(item_bin, attr_osm_wayid, osmid_attr_value);
+ 		if (debug_attr_buffer[0])
+ 			item_bin_add_attr_string(item_bin, attr_debug, debug_attr_buffer);
+Index: navit/attr_def.h
+===================================================================
+--- navit/attr_def.h	(Revision 5268)
++++ navit/attr_def.h	(Arbeitskopie)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2009 Navit Team
++ * Copyright (C) 2005-2012 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Library General Public License
+@@ -174,14 +174,15 @@
+ ATTR(street_count)
+ ATTR(min_dist)
+ ATTR(max_dist)
++ATTR(vocabulary_name_destinations)
+ ATTR2(0x00027500,type_rel_abs_begin)
+ /* These attributes are int that can either hold relative		*
+  * or absolute values. A relative value is indicated by 		*
+- * adding 0x60000000.																				*
+- *																													*
++ * adding 0x60000000.							*
++ *									*
+  * The range of valid absolute values is -0x40000000 to			*
+- * 0x40000000, the range of relative values is from					*
+- * -0x20000000 to 0x20000000.																*/
++ * 0x40000000, the range of relative values is from			*
++ * -0x20000000 to 0x20000000.						*/
+ ATTR(h)
+ ATTR(w)
+ ATTR(x)
+@@ -357,6 +358,7 @@
+ ATTR(state_file)
+ ATTR(on_map_click)
+ ATTR(route_depth)
++ATTR(street_destination_sign)
+ ATTR2(0x0003ffff,type_string_end)
+ ATTR2(0x00040000,type_special_begin)
+ ATTR(order)
+Index: navit/navigation.c
+===================================================================
+--- navit/navigation.c	(Revision 5268)
++++ navit/navigation.c	(Arbeitskopie)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2008 Navit Team
++ * Copyright (C) 2005-2012 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -241,7 +241,18 @@
+ 	return i;
+ }
+ 
++/**
++ * @brief Holds any destinations that are labeled on the road signs of the specific node.
++ *
++ *	  It is not the final destination we are navigating to, but only the names of the cities
++ *	  on the road signs that point to the direction of the calculated route. Used for precise announcements.
++ */
++struct destination_sign {
++	struct destination_sign *next;
++	char *destination_name;
++};
+ 
++
+ /**
+  * @brief Holds a way that one could possibly drive from a navigation item
+  */
+@@ -253,6 +264,7 @@
+ 	struct item item;		/**< The item of the way */
+ 	char *name1;
+ 	char *name2;
++	struct destination_sign *sign;  /**< The destination that is labeled on the traffic sign, mostly used for motorways */
+ };
+ 
+ struct navigation_itm {
+@@ -474,7 +486,36 @@
+ 	}
+ }
+ 
++/**
++ * @brief This fills the linked list of destination sign strings
++ * based on the tag that is a semicolon separated string.
++ */
++static void
++fill_destination_sign_list(struct navigation_way *dest_way, char* dest_string)
++{
++	struct destination_sign *new_sign = NULL;
++	struct destination_sign *next_remember = NULL;
+ 
++	char *pos1 = dest_string;
++	char *pos2;
++
++	// fill the list from behind
++	while (pos1) {
++		new_sign = g_new(struct destination_sign, 1);
++		new_sign->next = next_remember; // fill the next from behind. The last is NULL already.
++		next_remember = new_sign;
++		// find the last sign
++		if ((pos2 = strrchr(pos1, ';')) != NULL) {
++			new_sign->destination_name = g_strdup(pos2+1);  // last name, the one behind the last ';'
++			*pos2 = '\0'; // terminate the string for the previous name
++		} else {
++			new_sign->destination_name = g_strdup(pos1);
++			pos1 = NULL;
++		}
++	}
++	dest_way->sign = next_remember; // we finally got the first destination sign entry
++}
++
+ /**
+  * @brief This calculates the angle with which an item starts or ends
+  *
+@@ -495,6 +536,7 @@
+ 	struct coord c;
+ 	struct map_rect *mr;
+ 	struct attr attr;
++	char*  temp_str = NULL;
+ 
+ 	w->angle2=361;
+ 	mr = map_rect_new(w->item.map, NULL);
+@@ -524,7 +566,15 @@
+ 		w->name2=map_convert_string(ritem->map,attr.u.str);
+ 	else
+ 		w->name2=NULL;
+-		
++
++	if (item_attr_get(ritem, attr_street_destination_sign, &attr)) {
++		temp_str = map_convert_string(ritem->map,attr.u.str);
++		fill_destination_sign_list(w, temp_str);
++		g_free(temp_str);
++	}
++	else
++		w->sign=NULL;
++
+ 	if (w->dir < 0) {
+ 		if (item_coord_get(ritem, cbuf, 2) != 2) {
+ 			dbg(1,"Using calculate_angle() with a less-than-two-coords-item?\n");
+@@ -587,7 +637,32 @@
+ 	return time;
+ }
+ 
++
++
+ /**
++ * @brief Clears the destination sign strings that are linked with the way
++ *
++ * @param way The way that shall be cleared from the destination signs
++ */
++static void
++itm_way_destination_sign_clear(struct navigation_way *way)
++{
++	struct destination_sign *d, *dn;
++
++	// free the destination sign strings linked with the way
++	d = way->sign;
++	while (d) {
++		dn = d->next;
++		g_free(d->destination_name);
++		g_free(d);
++		d = dn;
++	}
++	way->sign = NULL;
++}
++
++
++
++/**
+  * @brief Clears the ways one can drive from itm
+  *
+  * @param itm The item that should have its ways cleared
+@@ -595,15 +670,19 @@
+ static void
+ navigation_itm_ways_clear(struct navigation_itm *itm)
+ {
+-	struct navigation_way *c,*n;
++	struct navigation_way *c, *cn;
+ 
+ 	c = itm->way.next;
+ 	while (c) {
+-		n = c->next;
++		// free the destination sign string of the way
++		itm_way_destination_sign_clear(c);
++
++		// free the names of the way and the way itself
++		cn = c->next;
+ 		map_convert_free(c->name1);
+ 		map_convert_free(c->name2);
+ 		g_free(c);
+-		c = n;
++		c = cn;
+ 	}
+ 
+ 	itm->way.next = NULL;
+@@ -711,6 +790,10 @@
+ 		}
+ 		map_convert_free(itm->way.name1);
+ 		map_convert_free(itm->way.name2);
++
++		// free the destination sign strings of the way
++		itm_way_destination_sign_clear(&(itm->way));
++
+ 		navigation_itm_ways_clear(itm);
+ 		g_free(itm);
+ 	}
+@@ -812,6 +895,7 @@
+ 	struct map_rect *mr;
+ 	struct attr attr;
+ 	struct coord c[5];
++	char *temp_str = NULL;
+ 
+ 	if (ritem) {
+ 		ret->streetname_told=0;
+@@ -839,6 +923,15 @@
+ 			ret->way.name1=map_convert_string(sitem->map,attr.u.str);
+ 		if (item_attr_get(sitem, attr_street_name_systematic, &attr))
+ 			ret->way.name2=map_convert_string(sitem->map,attr.u.str);
++
++		if (item_attr_get(sitem, attr_street_destination_sign, &attr)) {
++			temp_str = map_convert_string(ritem->map,attr.u.str);
++			fill_destination_sign_list(&(ret->way), temp_str);
++			g_free(temp_str);
++		}
++		else
++			ret->way.sign=NULL;
++
+ 		navigation_itm_update(ret, ritem);
+ 
+ 		while (item_coord_get(ritem, &c[i], 1)) {
+@@ -1500,6 +1593,90 @@
+ 	return ret;
+ }
+ 
++
++/** @brief Selects the destination-names for the next announcement from the
++ *         destination-names that are registered in the following command items.
++ *
++ *         The aim of this function is to find the destination-name entry that has the most hits in the following
++ *         command items so that the destination name has a relevance over several announcements. If there is no 'winner'
++ *         the entry is selected that is at top of the destination sign.
++ */
++static char* 
++select_announced_destinations(struct navigation_command *current_command)
++{
++	struct destination_sign *current_destination_sign = NULL;  // the list pointer of the destination_names of the current command.
++	struct destination_sign *search_destination_sign = NULL;   // the list pointer of the destination_names of the respective search_command.
++
++	struct navigation_command *search_command = NULL;   // loop through every navigation command up to the end.
++
++	// limits the number of entries of a destination sign as well as the number of command items to investigate
++	#define MAX_LOOPS 10
++
++	int destination_sign_count[MAX_LOOPS] = {0,0,0,0,0,0,0,0,0,0};	// countains the hits of identical destination signs over all
++									// investigated command items - a 'high score' of destination names
++	int destination_sign_index = 0, search_command_counter = 0;
++	int i, max_hits, max_hit_index;
++
++	// search over every following command for seeking identical destination_names
++	if (current_command->itm->way.sign) {
++
++		// can we investigate over the following commands?
++		if (current_command->next) {
++			// loop over every destination sign of the current command, as far as there are not more than 10 entries.
++			destination_sign_index = 0; // Do only the first MAX_LOOPS destination_signs
++			current_destination_sign = current_command->itm->way.sign;
++			while (current_destination_sign && (destination_sign_index < MAX_LOOPS)) {
++				// initialize the search command
++				search_command = current_command->next;
++				search_command_counter = 0; // Do only the first MAX_LOOPS commands.
++				while (search_command && (search_command_counter < MAX_LOOPS)) {
++					if (search_command->itm) {
++						// has the search command any destination_signs?
++						if (search_command->itm->way.sign) {
++							search_destination_sign = search_command->itm->way.sign;
++							while (search_destination_sign) {
++								// Search this name in the destination list of the current command.
++								if (0 == strcmp(current_destination_sign->destination_name,
++										search_destination_sign->destination_name)) {
++									// enter the destination_name in the investigation list
++									destination_sign_count[destination_sign_index]++;
++									search_destination_sign = NULL; // break condition
++								} else {
++									search_destination_sign = search_destination_sign->next;
++								}
++							} // <- search over destination names of the looped search command.
++						}
++					}
++					search_command_counter++;
++					search_command = search_command->next;
++				} // <- while (search_command)
++
++				destination_sign_index++;
++				current_destination_sign = current_destination_sign->next;
++			} // <- while (current_destination_sign)
++
++			// search for the best candidate
++			max_hits = 0;
++			max_hit_index = 0;
++			for (i = 0; i < destination_sign_index; i++) {
++				if (destination_sign_count[i] > max_hits) {
++					max_hits = destination_sign_count[i];
++					max_hit_index = i;
++				}
++			}
++			// jump to the corresponding destination_name
++			current_destination_sign =  current_command->itm->way.sign;
++			for (i = 0; i < max_hit_index; i++) {
++				current_destination_sign = current_destination_sign->next;
++			}
++		} // <- are there any commands to investigate?
++	} // <- is there any destination_name?
++
++	// return the best candidate, if there is any.
++	return g_strdup(current_destination_sign ? current_destination_sign->destination_name:NULL);
++}
++
++
+ static char *
+ show_maneuver(struct navigation *nav, struct navigation_itm *itm, struct navigation_command *cmd, enum attr_type type, int connect)
+ {
+@@ -1645,16 +1822,21 @@
+ 	default:
+ 		d=g_strdup(_("error"));
+ 	}
++
++	// Investigate if a street name can be told and finally concatenate the announcement
+ 	if (cmd->itm->next) {
+ 		int tellstreetname = 0;
+ 		char *destination = NULL;
+- 
++		char *destination_sign = NULL;
++		char *announce_destination = NULL;
++		struct attr attr;
++
+ 		if(type == attr_navigation_speech) { // In voice mode
+ 			// In Voice Mode only tell the street name in level 1 or in level 0 if level 1
+ 			// was skipped
+ 
+ 			if (level == 1) { // we are close to the intersection
+-				cmd->itm->streetname_told = 1; // remeber to be checked when we turn
++				cmd->itm->streetname_told = 1; // remember to be checked when we turn
+ 				tellstreetname = 1; // Ok so we tell the name of the street 
+ 			}
+ 
+@@ -1664,22 +1846,34 @@
+ 				else
+ 					cmd->itm->streetname_told = 0;  // reset just in case we come to the same street again
+ 			}
+-
+ 		}
+ 		else
+-		     tellstreetname = 1;
++			tellstreetname = 1;
+ 
+-		if(nav->tell_street_name && tellstreetname)
++		if(nav->tell_street_name && tellstreetname) {
+ 			destination=navigation_item_destination(nav, cmd->itm, itm, " ");
++			// check the vocabulary_name_destinations-entry in navit.xml. Must be >0 or non existent
++			if (nav->speech && (!speech_get_attr(nav->speech, attr_vocabulary_name_destinations, &attr, NULL) ||
++					    (attr.u.num != 0))) {
++				announce_destination = select_announced_destinations(cmd);
+ 
++				if (announce_destination) {
++					destination_sign = g_strdup_printf(_("to %s"),announce_destination);
++				}
++                        }
++		}
++
+ 		if (level != -2) {
+-			/* TRANSLATORS: The first argument is strength, the second direction, the third distance and the fourth destination Example: 'Turn 'slightly' 'left' in '100 m' 'onto baker street' */
+-			ret=g_strdup_printf(_("Turn %1$s%2$s %3$s%4$s"), strength, dir, d, destination ? destination:"");
++			/* TRANSLATORS: The first argument is strength, the second direction, the third distance,
++			 * fourth and fifth destination. Example: 'Turn 'slightly' 'left' in '100 m' 'into baker street' 'to London' */
++			ret=g_strdup_printf(_("Turn %1$s%2$s %3$s%4$s%5$s"), strength, dir, d, destination ? destination:"", destination_sign ? destination_sign:"");
+ 		} else {
+-			/* TRANSLATORS: First argument is strength, second direction, third how many roads to skip, fourth destination */
+-			ret=g_strdup_printf(_("then turn %1$s%2$s %3$s%4$s"), strength, dir, d, destination ? destination:"");
++			/* TRANSLATORS: First argument is strength, second direction, third how many roads to skip, fourth and fifth destination */
++			ret=g_strdup_printf(_("then turn %1$s%2$s %3$s%4$s%5$s"), strength, dir, d, destination ? destination:"", destination_sign ? destination_sign:"");
+ 		}
+ 		g_free(destination);
++		g_free(destination_sign);
++		g_free(announce_destination);
+ 	} else {
+ 		if (!connect) {
+ 			ret=g_strdup_printf(_("You have reached your destination %s"), d);
+@@ -2088,10 +2282,20 @@
+ 		return 0;
+ 	case attr_street_name_systematic:
+ 		attr->u.str=itm->way.name2;
++		this_->attr_next=attr_street_destination_sign;
++		if (attr->u.str)
++			return 1;
++		return 0;
++
++	case attr_street_destination_sign:
++		if (itm->way.sign)
++		attr->u.str=itm->way.sign->destination_name;
++		else attr->u.str=NULL;
+ 		this_->attr_next=attr_debug;
+ 		if (attr->u.str)
+ 			return 1;
+ 		return 0;
++
+ 	case attr_debug:
+ 		switch(this_->debug_idx) {
+ 		case 0:
+Index: po/de.po.in
+===================================================================
+--- po/de.po.in	(Revision 5268)
++++ po/de.po.in	(Arbeitskopie)
+@@ -1,5 +1,5 @@
+ # German translations for navit
+-# Copyright (C) 2007,2008 The Navit Team
++# Copyright (C) 2007,2008-2012 The Navit Team
+ # This file is distributed under the same license as the navit package.
+ # Martin Schaller <martin-s@sourceforge.net>, 2007.
+ #
+@@ -174,6 +174,10 @@
+ msgid "left"
+ msgstr "links"
+ 
++#, TRANSLATORS: to, like 'in direction to'
++msgid "to %s"
++msgstr " Richtung %s"
++
+ #. TRANSLATORS: Don't forget the ending space
+ msgid "easily "
+ msgstr "leicht "
+@@ -237,15 +241,15 @@
+ msgstr "Fehler"
+ 
+ # c-format
+-#. TRANSLATORS: The first argument is strength, the second direction, the third distance and the fourth destination Example: 'Turn 'slightly' 'left' in '100 m' 'onto baker street'
++#. TRANSLATORS: The first argument is strength, the second direction, the third distance, the fourth destination, the fifth destination sign Example: 'Turn 'slightly' 'left' in '100 m' 'into baker street' 'to London'
+ #, c-format
+-msgid "Turn %1$s%2$s %3$s%4$s"
+-msgstr "%3$s %1$s%2$s abbiegen%4$s"
++msgid "Turn %1$s%2$s %3$s%4$s%5$s"
++msgstr "%3$s %1$s%2$s abbiegen%4$s%5$s"
+ 
+-#. TRANSLATORS: First argument is strength, second direction, third how many roads to skip, fourth destination
++#. TRANSLATORS: First argument is strength, second direction, third how many roads to skip, fourth destination street, fifth destination sign
+ #, c-format
+-msgid "then turn %1$s%2$s %3$s%4$s"
+-msgstr "dann %3$s %1$s%2$s abbiegen%4$s"
++msgid "then turn %1$s%2$s %3$s%4$s%5$s"
++msgstr "dann %3$s %1$s%2$s abbiegen%4$s%5$s"
+ 
+ #, c-format
+ msgid "You have reached your destination %s"

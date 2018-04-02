@@ -1,0 +1,67 @@
+Fetching external item into 'navit/navit/navit/script/osm/Utils'
+A    navit/navit/navit/script/osm/Utils/Debug.pm
+A    navit/navit/navit/script/osm/Utils/LWP
+A    navit/navit/navit/script/osm/Utils/LWP/Utils.pm
+A    navit/navit/navit/script/osm/Utils/Math.pm
+A    navit/navit/navit/script/osm/Utils/File.pm
+Checked out external at revision 13994.
+
+Checked out revision 2084.
+[root@surfplank2 src]# cd navit/
+[root@surfplank2 navit]# ls
+CVSROOT  navit
+[root@surfplank2 navit]# cd navit/
+[root@surfplank2 navit]# ls
+AUTHORS     ChangeLog     COPYING    GPL-2  LGPL-2       Makefile.inc  navit  po
+autogen.sh  configure.in  COPYRIGHT  intl   Makefile.am  man           NEWS   README
+[root@surfplank2 navit]# ./autogen.sh 
+cvs [init aborted]: Cannot initialize repository under existing CVSROOT: `/usr/src/navit'
+cvs [checkout aborted]: /usr/src/navit/navit/tmpcvs31011/CVSROOT: No such file or directory
+find: `archive': No such file or directory
+find: `archive': No such file or directory
+find: `archive': No such file or directory
+autopoint: *** infrastructure files for version 0.14.1 not found; this is autopoint from GNU gettext-tools 0.17
+autopoint: *** Stop.
+autoreconf: autopoint failed with exit status: 1
+[root@surfplank2 navit]# cd ..
+[root@surfplank2 navit]# navit/autogen.sh 
+autoreconf: `configure.ac' or `configure.in' is required
+[root@surfplank2 navit]# cd ..
+[root@surfplank2 src]# ./aut
+[root@surfplank2 src]# cd navit/
+[root@surfplank2 navit]# cd navit/
+[root@surfplank2 navit]# ls
+AUTHORS     ChangeLog     COPYING    GPL-2  LGPL-2       Makefile.inc  navit  po
+autogen.sh  configure.in  COPYRIGHT  intl   Makefile.am  man           NEWS   README
+[root@surfplank2 navit]# ./autogen.sh 
+cvs [init aborted]: Cannot initialize repository under existing CVSROOT: `/usr/src/navit'
+cvs [checkout aborted]: /usr/src/navit/navit/tmpcvs31184/CVSROOT: No such file or directory
+find: `archive': No such file or directory
+find: `archive': No such file or directory
+find: `archive': No such file or directory
+autopoint: *** infrastructure files for version 0.14.1 not found; this is autopoint from GNU gettext-tools 0.17
+autopoint: *** Stop.
+autoreconf: autopoint failed with exit status: 1
+[root@surfplank2 navit]# vi autogen.sh 
+[root@surfplank2 navit]# autoreconf --force --install -I m4
+cvs [init aborted]: Cannot initialize repository under existing CVSROOT: `/usr/src/navit'
+cvs [checkout aborted]: /usr/src/navit/navit/tmpcvs31251/CVSROOT: No such file or directory
+find: `archive': No such file or directory
+find: `archive': No such file or directory
+find: `archive': No such file or directory
+autopoint: *** infrastructure files for version 0.14.1 not found; this is autopoint from GNU gettext-tools 0.17
+autopoint: *** Stop.
+autoreconf: autopoint failed with exit status: 1
+[root@surfplank2 navit]# rpm -e cvs
+error: Failed dependencies:
+	cvs is needed by (installed) gettext-devel-0.17-8.fc10.x86_64
+[root@surfplank2 navit]# rpm -e cvs gettext-devel
+error: Failed dependencies:
+	gettext-devel is needed by (installed) intltool-0.40.5-1.fc10.x86_64
+[root@surfplank2 navit]# rpm -e cvs gettext-devel intltool
+warning: /etc/xinetd.d/cvs saved as /etc/xinetd.d/cvs.rpmsave
+[root@surfplank2 navit]# ./autogen.sh 
+autopoint: *** cvs program not found
+autopoint: *** Stop.
+autoreconf: autopoint failed with exit status: 1
+[root@surfplank2 navit]# 

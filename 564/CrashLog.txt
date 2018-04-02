@@ -1,0 +1,92 @@
+05-01 14:58:21.608: INFO/jdwp(1010): received file descriptor 10 from ADB
+05-01 14:58:21.656: DEBUG/ddm-heap(1010): Got feature list request
+05-01 14:58:21.776: INFO/WindowManager(597): Setting rotation to 1, animFlags=0
+05-01 14:58:21.776: DEBUG/SurfaceFlinger(597): Checking mode 320x480, 60-60Hz
+05-01 14:58:21.780: INFO/SurfaceFlinger(597): SetVideoMode 0 480x320 Format:4 Orientation: 1 DPI 167.01x165.88, fps:60.00 density:1.00
+05-01 14:58:21.792: INFO/WindowManager(597): Config changed: { scale=1.0 imsi=0/0 loc=en_US touch=3 keys=1/1/2 nav=1 orien=2 layout=18}
+05-01 14:58:21.820: WARN/WindowManager(597): performLayoutAndPlaceSurfacesLocked called while in layout
+05-01 14:58:21.836: WARN/WindowManager(597): performLayoutAndPlaceSurfacesLocked called while in layout
+05-01 14:58:22.352: DEBUG/dalvikvm(1010): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43909e68
+05-01 14:58:22.364: DEBUG/dalvikvm(1010): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43909e68
+05-01 14:58:22.368: DEBUG/dalvikvm(1010): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x43909e68
+05-01 14:58:22.388: ERROR/Navit(1010): Country US
+05-01 14:58:22.392: ERROR/Navit(1010): Language en
+05-01 14:58:22.392: ERROR/Navit(1010): Res Name en
+05-01 14:58:22.396: ERROR/Navit(1010): result /data/data/org.navitproject.navit/locale/en/LC_MESSAGES/navit.mo
+05-01 14:58:22.396: ERROR/Navit(1010): Res ID 0
+05-01 14:58:22.396: ERROR/Navit(1010): Failed to extract language resource en
+05-01 14:58:22.396: ERROR/Navit(1010): Res Name navit
+05-01 14:58:22.396: ERROR/Navit(1010): result /data/data/org.navitproject.navit/share/navit.xml
+05-01 14:58:22.400: ERROR/Navit(1010): Res ID 2130903064
+05-01 14:58:22.400: ERROR/Navit(1010): Checking /data
+05-01 14:58:22.404: ERROR/Navit(1010): Checking /data/data
+05-01 14:58:22.404: ERROR/Navit(1010): Checking /data/data/org.navitproject.navit
+05-01 14:58:22.404: ERROR/Navit(1010): Checking /data/data/org.navitproject.navit/share
+05-01 14:58:22.572: DEBUG/StatusBar(597): updateResources
+05-01 14:58:22.660: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+05-01 14:58:22.664: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libexif.so' for 'NavitMain' (wrong CL)
+05-01 14:58:22.664: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libFFTEm.so' for 'NavitMain' (wrong CL)
+05-01 14:58:22.664: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+05-01 14:58:22.668: ERROR/test(1010): called
+05-01 14:58:23.040: ERROR/NavitGraphics(1010): FocusChange true
+05-01 14:58:23.080: DEBUG/LocationManager(1010): Constructor: service = android.location.ILocationManager$Stub$Proxy@43964838
+05-01 14:58:23.084: DEBUG/LocationManager(1010): getAllProviders
+05-01 14:58:23.084: ERROR/NavitVehicle(1010): Providers [network, gps]
+05-01 14:58:23.104: ERROR/NavitVehicle(1010): Provider gps
+05-01 14:58:23.112: WARN/GpsLocationProvider(597): Duplicate add listener for uid 10021
+05-01 14:58:23.112: DEBUG/GpsLocationProvider(597): setMinTime 0
+05-01 14:58:23.112: DEBUG/GpsLocationProvider(597): startNavigating
+05-01 14:58:23.116: DEBUG/GpsLocationProvider(597): Acquiring wakelock
+05-01 14:58:23.412: DEBUG/dalvikvm(1010): GC freed 3409 objects / 226816 bytes in 124ms
+05-01 14:58:23.480: VERBOSE/TtsService(845): TtsService.onCreate()
+05-01 14:58:23.488: ERROR/TTS is loading(845): /data/data/com.google.tts/lib/libttspico_4.so
+05-01 14:58:23.492: DEBUG/AudioTrack(845): set() TRACK = type(3) hz(22050) fmt(1) chans(1) frames(4096) notifFrames(0)
+05-01 14:58:23.492: DEBUG/AudioTrack(845): set() HW = hz(44100) frames(1024) latency(0ms)
+05-01 14:58:23.512: VERBOSE/SynthProxy(845): AudioTrack started
+05-01 14:58:23.516: ERROR/NavitSpeech(1010): In Demnaechst der Strasse folgen
+05-01 14:58:23.544: VERBOSE/TtsService(845): TtsService.setLanguage(eng, USA, )
+05-01 14:58:23.556: ERROR/SVOX Pico Engine(845): Failed to load textana resource for en-US [-40]
+05-01 14:58:23.564: INFO/SynthProxy(845): setting speech rate to 100
+05-01 14:58:24.084: ERROR/TtsService(845): onCreate completed.
+05-01 14:58:24.120: DEBUG/GpsLocationProvider(597): TTFF: 996
+05-01 14:58:26.388: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libwebcore.so' for 'NavitActivity' (wrong CL)
+05-01 14:58:26.388: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libexif.so' for 'NavitActivity' (wrong CL)
+05-01 14:58:26.392: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libFFTEm.so' for 'NavitActivity' (wrong CL)
+05-01 14:58:26.392: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitActivity' (wrong CL)
+05-01 14:58:26.392: ERROR/Navit(1010): OnStart
+05-01 14:58:26.392: ERROR/Navit(1010): OnResume
+05-01 14:58:26.424: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libwebcore.so' for 'VehicleCallback' (wrong CL)
+05-01 14:58:26.424: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libexif.so' for 'VehicleCallback' (wrong CL)
+05-01 14:58:26.428: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libFFTEm.so' for 'VehicleCallback' (wrong CL)
+05-01 14:58:26.428: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libmedia_jni.so' for 'VehicleCallback' (wrong CL)
+05-01 14:58:26.592: DEBUG/dalvikvm(1010): GC freed 1185 objects / 68704 bytes in 116ms
+05-01 14:58:26.604: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libwebcore.so' for 'SizeChangedCallback' (wrong CL)
+05-01 14:58:26.604: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libexif.so' for 'SizeChangedCallback' (wrong CL)
+05-01 14:58:26.608: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libFFTEm.so' for 'SizeChangedCallback' (wrong CL)
+05-01 14:58:26.608: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libmedia_jni.so' for 'SizeChangedCallback' (wrong CL)
+05-01 14:58:26.784: WARN/WindowManager(597): App freeze timeout expired.
+05-01 14:58:26.784: WARN/WindowManager(597): Force clearing freeze: AppWindowToken{43b099b8 token=HistoryRecord{43b71538 org.navitproject.navit/.Navit}}
+05-01 14:58:27.180: WARN/IInputConnectionWrapper(680): showStatusIcon on inactive InputConnection
+05-01 14:58:27.780: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libwebcore.so' for 'TimeoutCallback' (wrong CL)
+05-01 14:58:27.780: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libexif.so' for 'TimeoutCallback' (wrong CL)
+05-01 14:58:27.784: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libFFTEm.so' for 'TimeoutCallback' (wrong CL)
+05-01 14:58:27.784: DEBUG/dalvikvm(1010): +++ not scanning '/system/lib/libmedia_jni.so' for 'TimeoutCallback' (wrong CL)
+05-01 14:58:29.172: DEBUG/dalvikvm(597): GC freed 2915 objects / 145048 bytes in 384ms
+05-01 14:58:30.340: DEBUG/Zygote(529): Process 1010 exited cleanly (1)
+05-01 14:58:30.348: WARN/GpsLocationProvider(597): Unneeded remove listener for uid 1000
+05-01 14:58:30.352: INFO/WindowManager(597): WIN DEATH: Window{43afca10 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+05-01 14:58:30.376: VERBOSE/TtsService(845): onDestroy() completed
+05-01 14:58:30.392: DEBUG/GpsLocationProvider(597): stopNavigating
+05-01 14:58:30.408: INFO/WindowManager(597): Setting rotation to 0, animFlags=0
+05-01 14:58:30.412: DEBUG/SurfaceFlinger(597): Checking mode 320x480, 60-60Hz
+05-01 14:58:30.412: INFO/SurfaceFlinger(597): SetVideoMode 0 320x480 Format:4 Orientation: 0 DPI 165.88x167.01, fps:60.00 density:1.00
+05-01 14:58:30.416: INFO/WindowManager(597): Config changed: { scale=1.0 imsi=0/0 loc=en_US touch=3 keys=1/1/2 nav=1 orien=1 layout=18}
+05-01 14:58:30.452: INFO/WindowManager(597): Config changed: { scale=1.0 imsi=0/0 loc=en_US touch=3 keys=1/1/2 nav=1 orien=1 layout=18}
+05-01 14:58:30.536: WARN/UsageStats(597): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+05-01 14:58:30.580: INFO/WindowManager(597): Config changed: { scale=1.0 imsi=0/0 loc=en_US touch=3 keys=1/1/2 nav=1 orien=1 layout=18}
+05-01 14:58:30.616: DEBUG/StatusBar(597): updateResources
+05-01 14:58:30.672: WARN/InputManagerService(597): Got RemoteException sending setActive(false) notification to pid 1010 uid 10021
+05-01 14:58:31.156: DEBUG/GpsLocationProvider(597): Releasing wakelock
+05-01 14:58:33.088: DEBUG/dalvikvm(597): GC freed 1401 objects / 66040 bytes in 248ms
+
+ 	  	 

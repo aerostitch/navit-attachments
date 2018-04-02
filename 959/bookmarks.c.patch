@@ -1,0 +1,17 @@
+Index: bookmarks.c
+===================================================================
+--- bookmarks.c	(revision 4844)
++++ bookmarks.c	(working copy)
+@@ -684,7 +684,11 @@
+ 		bookmarks_shrink(file, offsets[offset_pos]);
+ 	}
+ 	f=fopen(file, "a");
+-	if (f) {
++	if (f == NULL) {	
++       		dbg(0, "Failed to open destination.txt for writing\n");
++		return 0;
++	}	
++	else if (f != NULL) {
+ 		if (c) {
+ 			int i;
+ 			if (description) 

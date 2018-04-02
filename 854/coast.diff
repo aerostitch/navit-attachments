@@ -1,0 +1,12 @@
+Index: navit/navit/maptool/misc.c
+===================================================================
+--- navit/navit/maptool/misc.c	(revision 6011)
++++ navit/navit/maptool/misc.c	(working copy)
+@@ -181,6 +181,7 @@
+ 		case type_district_label_2e6:
+ 		case type_district_label_1e6:
+ 		case type_district_label_5e5:
++		case type_poly_water_tiled:
+ 			max=6;
+ 			break;
+ 		case type_town_label_2e5:

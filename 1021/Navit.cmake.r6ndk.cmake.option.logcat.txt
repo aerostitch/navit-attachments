@@ -1,0 +1,334 @@
+D/PackageManager(  956): Scanning package org.navitproject.navit
+I/PackageManager(  956): New shared user org.navitproject.navit: id=10037
+D/PackageManager(  956): Shared UserID org.navitproject.navit (uid=10037): packages=[]
+I/PackageManager(  956): /data/app/org.navitproject.navit-1.apk changed; unpacking
+D/PackageManager(  956): Caching shared lib lib/armeabi/libspeech_cmdline.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libmap_filter.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libvehicle_serial.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libmap_textfile.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libplugin_pedestrian.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libgui_internal.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libnavit.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libmap_csv.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libosd_core.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libmap_shapefile.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libvehicle_file.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libmap_binfile.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libgraphics_android.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libmap_mg.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libgraphics_null.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libvehicle_android.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libspeech_android.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libvehicle_pipe.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libvehicle_socket.so
+D/PackageManager(  956): Caching shared lib lib/armeabi/libvehicle_demo.so
+D/installd(  911): DexInv: --- BEGIN '/data/app/org.navitproject.navit-1.apk' ---
+D/dalvikvm( 1239): DexOpt: load 68ms, verify 456ms, opt 7ms
+D/installd(  911): DexInv: --- END '/data/app/org.navitproject.navit-1.apk' (success) ---
+D/PackageManager(  956):   Activities: org.navitproject.navit.Navit org.navitproject.navit.NavitAddressSearchActivity org.navitproject.navit.NavitDownloadSelectMapActivity org.navitproject.navit.NavitAddressResultListActivity
+I/ActivityManager(  956): Force stopping package org.navitproject.navit uid=10037
+I/installd(  911): move /data/dalvik-cache/data@app@org.navitproject.navit-1.apk@classes.dex -> /data/dalvik-cache/data@app@org.navitproject.navit-1.apk@classes.dex
+D/PackageManager(  956): New package installed in /data/app/org.navitproject.navit-1.apk
+D/dalvikvm(  956): GC_EXPLICIT freed 22014 objects / 1156704 bytes in 235ms
+D/AndroidRuntime( 1225): Shutting down VM
+D/jdwp    ( 1225): adbd disconnected
+I/ActivityManager(  956): Start proc com.android.voicedialer for broadcast com.android.voicedialer/.VoiceDialerReceiver: pid=1241 uid=10021 gids={3002}
+D/VoiceDialerReceiver( 1241): onReceive Intent { act=android.intent.action.PACKAGE_ADDED dat=package:org.navitproject.navit flg=0x10000000 cmp=com.android.voicedialer/.VoiceDialerReceiver (has extras) }
+V/RecognizerEngine( 1241): deleteCachedGrammarFiles /data/data/com.android.voicedialer/files/openentries.txt
+W/RecognitionManagerService(  956): no available voice recognition services found
+I/ActivityManager(  956): Start proc com.svox.pico for broadcast com.svox.pico/.VoiceDataInstallerReceiver: pid=1249 uid=10031 gids={}
+I/ActivityThread( 1249): Publishing provider com.svox.pico.providers.SettingsProvider: com.svox.pico.providers.SettingsProvider
+D/dalvikvm( 1033): GC_EXTERNAL_ALLOC freed 7160 objects / 365720 bytes in 103ms
+D/dalvikvm( 1175): GC_EXPLICIT freed 1818 objects / 116368 bytes in 92ms
+I/ActivityManager(  956): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+I/ActivityManager(  956): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1255 uid=10037 gids={1006, 3003, 1015}
+D/dalvikvm( 1255): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43b145b0
+D/dalvikvm( 1255): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x43b145b0
+D/dalvikvm( 1255): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x43b145b0, skipping init
+E/Navit   ( 1255): **1**A android.intent.action.MAIN
+E/Navit   ( 1255): **1**D null
+E/NavitTextTranslations( 1255): initializing translated text ...
+E/NavitTextTranslations( 1255): trying: exit navit
+E/NavitTextTranslations( 1255): trying: zoom in
+E/NavitTextTranslations( 1255): trying: zoom out
+E/NavitTextTranslations( 1255): trying: address search
+E/NavitTextTranslations( 1255): trying: Mapdownload
+E/NavitTextTranslations( 1255): trying: downloading
+E/NavitTextTranslations( 1255): trying: ETA
+E/NavitTextTranslations( 1255): trying: Error downloading map!
+E/NavitTextTranslations( 1255): trying: ready
+E/NavitTextTranslations( 1255): trying: Ok
+E/NavitTextTranslations( 1255): trying: No address found
+E/NavitTextTranslations( 1255): trying: Enter: City and Street
+E/NavitTextTranslations( 1255): trying: No search string entered
+E/NavitTextTranslations( 1255): trying: setting destination to
+E/NavitTextTranslations( 1255): trying: getting search results
+E/NavitTextTranslations( 1255): trying: searching ...
+E/NavitTextTranslations( 1255): trying: No Results found!
+E/NavitTextTranslations( 1255): trying: Map data (c) OpenStreetMap contributors, CC-BY-SA
+E/NavitTextTranslations( 1255): trying: partial match
+E/NavitTextTranslations( 1255): trying: Search
+E/NavitTextTranslations( 1255): trying: drive here
+E/NavitTextTranslations( 1255): trying: loading search results
+E/NavitTextTranslations( 1255): trying: towns
+E/NavitTextTranslations( 1255): ... ready
+E/Navit   ( 1255): lang=de
+E/Navit   ( 1255): Country1 DE
+E/Navit   ( 1255): Country2 DE
+E/Navit   ( 1255): Language de
+E/Navit   ( 1255): Navit -> pixels x=480 pixels y=640
+E/Navit   ( 1255): Navit -> dpi=200
+E/Navit   ( 1255): Navit -> density=1.25
+E/Navit   ( 1255): Navit -> scaledDensity=1.25
+E/Navit   ( 1255): Res Name de
+E/Navit   ( 1255): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 1255): Res ID 2130903047
+E/Navit   ( 1255): Checking /data
+E/Navit   ( 1255): Checking /data/data
+E/Navit   ( 1255): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1255): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 1255): Creating dir
+E/Navit   ( 1255): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 1255): Creating dir
+E/Navit   ( 1255): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 1255): Creating dir
+E/Navit   ( 1255): Extracting resource
+E/Navit   ( 1255): Res Name navithdpi
+E/Navit   ( 1255): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1255): Res ID 2130903072
+E/Navit   ( 1255): Checking /data
+E/Navit   ( 1255): Checking /data/data
+E/Navit   ( 1255): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1255): Checking /data/data/org.navitproject.navit/share
+E/Navit   ( 1255): Extracting resource
+E/Navit   ( 1255): android.os.Build.VERSION.SDK_INT=8
+E/test    ( 1255): called
+E/navit   ( 1255): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xba50 thiz=0x43b58e18 activity=0x43b58e18 lang=de_DE version=8
+E/navit   ( 1255): navit:Java_org_navitproject_navit_Navit_NavitMain:*****displaydensity=hdpi
+E/navit   ( 1255): navit:main_real:trying /data/data/org.navitproject.navit/home/navit.xml
+E/navit   ( 1255): navit:main_real:trying navit.xml.local
+E/navit   ( 1255): navit:main_real:trying navit.xml
+E/navit   ( 1255): navit:main_real:trying /sdcard/navit/navit.xml
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libgraphics_android.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libgraphics_android.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libgraphics_android.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libgraphics_android.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libgraphics_android.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libgraphics_android.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libvehicle_android.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libvehicle_android.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libvehicle_android.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libvehicle_android.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libvehicle_android.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libvehicle_android.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libspeech_android.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libspeech_android.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libspeech_android.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libspeech_android.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libspeech_android.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libspeech_android.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libgui_internal.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libgui_internal.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libgui_internal.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libgui_internal.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libgui_internal.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libgui_internal.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libmap_textfile.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libmap_textfile.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libmap_textfile.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libmap_textfile.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libmap_textfile.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libmap_textfile.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libmap_binfile.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libmap_binfile.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libmap_binfile.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libmap_binfile.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libmap_binfile.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libmap_binfile.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/lib/libosd_core.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/lib/libosd_core.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/lib/libosd_core.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libosd_core.so in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libosd_core.so in /data/data/org.navitproject.navit/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/lib/libosd_core.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navitfp1/lib/libauto*.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navitfp1/lib/libauto*.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navitfp1/lib/libauto*.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libauto*.so in /data/data/org.navitproject.navitfp1
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libauto*.so in /data/data/org.navitproject.navitfp1/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:in dir /data/data/org.navitproject.navitfp1/lib search for libauto*.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navitfp2/lib/libauto*.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navitfp2/lib/libauto*.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navitfp2/lib/libauto*.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libauto*.so in /data/data/org.navitproject.navitfp2
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libauto*.so in /data/data/org.navitproject.navitfp2/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:in dir /data/data/org.navitproject.navitfp2/lib search for libauto*.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navitfp3/lib/libauto*.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navitfp3/lib/libauto*.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navitfp3/lib/libauto*.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libauto*.so in /data/data/org.navitproject.navitfp3
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libauto*.so in /data/data/org.navitproject.navitfp3/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:in dir /data/data/org.navitproject.navitfp3/lib search for libauto*.so
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navitfp4/lib/libauto*.so in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navitfp4/lib/libauto*.so in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navitfp4/lib/libauto*.so in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for lib/libauto*.so in /data/data/org.navitproject.navitfp4
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for libauto*.so in /data/data/org.navitproject.navitfp4/lib
+E/navit   ( 1255): support_wordexp:glob_recursive:in dir /data/data/org.navitproject.navitfp4/lib search for libauto*.so
+E/navit   ( 1255): graphics_android:plugin_init:enter
+E/navit   ( 1255): vehicle_android:plugin_init:enter
+E/navit   ( 1255): navit:navit_get_user_data_directory:creating dir /data/data/org.navitproject.navit/home
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/home/bookmark.txt in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/home/bookmark.txt in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/home/bookmark.txt in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for home/bookmark.txt in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for bookmark.txt in /data/data/org.navitproject.navit/home
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/home/bookmark.txt
+E/navit   ( 1255): navit:navit_ref:refcount 2
+E/navit   ( 1255): graphics_android:event_android_new:enter
+E/navit   ( 1255): graphics_android:event_android_new:ok
+E/navit   ( 1255): graphics_android:graphics_android_init:at 2 jnienv=0xba50
+E/navit   ( 1255): graphics_android:graphics_android_init:at 3
+E/navit   ( 1255): graphics_android:graphics_android_init:at 4 android_activity=0x43b58e18
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b69178
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b72ba0
+E/navit   ( 1255): graphics_android:graphics_android_new:returning 0x3d2358
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for %s_wh_64_64.png in 
+E/navit   ( 1255): support_wordexp:glob_recursive:found %s_wh_64_64.png
+E/navit   ( 1255): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 1255): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 1255): vehicle_android:vehicle_android_init:at 4 android_activity=0x43b58e18
+E/NavitVehicle( 1255): Providers [network, passive, gps]
+E/NavitVehicle( 1255): Precise Provider gps
+E/NavitVehicle( 1255): Fast Provider network
+E/navit   ( 1255): vehicle_android:vehicle_android_init:result=0x43b72ec0
+E/navit   ( 1255): vehicle_android:vehicle_android_new_android:return
+E/navit   ( 1255): navit:vehicle_ref:refcount 2
+E/navit   ( 1255): navit:vehicle_unref:refcount 1
+E/navit   ( 1255): navit:tracking_ref:refcount 2
+E/navit   ( 1255): navit:tracking_unref:refcount 1
+E/navit   ( 1255): speech_android:speech_android_init:at 3
+E/navit   ( 1255): speech_android:speech_android_init:at 4 android_activity=0x43b58e18
+E/NavitSpeech2( 1255): Create
+I/ActivityManager(  956): Starting activity: Intent { act=android.speech.tts.engine.CHECK_TTS_DATA cmp=com.svox.pico/.CheckVoiceData }
+E/navit   ( 1255): speech_android:speech_android_init:result=0x43b7b1b8
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for sdcard/navitmap.bin in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for navitmap.bin in /sdcard
+E/navit   ( 1255): support_wordexp:glob_recursive:found /sdcard/navitmap.bin
+E/navit   ( 1255): map_binfile:map_binfile_open:Failed to load '/sdcard/navitmap.bin'
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for sdcard/navit/navitmap.bin in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for navit/navitmap.bin in /sdcard
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for navitmap.bin in /sdcard/navit
+E/navit   ( 1255): support_wordexp:glob_recursive:found /sdcard/navit/navitmap.bin
+I/ActivityManager(  956): Process com.android.providers.calendar (pid 1143) has died.
+W/ActivityManager(  956): Activity pause timeout for HistoryRecord{43d93b20 org.navitproject.navit/.Navit}
+E/navit   ( 1255): navit:tracking_ref:refcount 2
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/data/org.navitproject.navit/home/destination.txt in /
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for data/org.navitproject.navit/home/destination.txt in /data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for org.navitproject.navit/home/destination.txt in /data/data
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for home/destination.txt in /data/data/org.navitproject.navit
+E/navit   ( 1255): support_wordexp:glob_recursive:searching for destination.txt in /data/data/org.navitproject.navit/home
+E/navit   ( 1255): support_wordexp:glob_recursive:found /data/data/org.navitproject.navit/home/destination.txt
+E/navit   ( 1255): navit:navit_unref:refcount 1
+E/navit   ( 1255): navit:main_real:Using '/sdcard/navit/navit.xml'
+E/navit   ( 1255): graphics_android:event_android_main_loop_run:enter
+D/dalvikvm( 1255): GC_FOR_MALLOC freed 3295 objects / 190984 bytes in 98ms
+E/Navit   ( 1255): x=Österreich
+E/Navit   ( 1255): OnResume
+E/Navit   ( 1255): timestamp for navigate_to expired! not using data
+D/PhoneWindow( 1255): couldn't save which view has focus because the focused view org.navitproject.navit.NavitGraphics$NavitView@43b69af0 has no id.
+E/NavitSpeech2( 1255): onActivityResult 1 1
+E/Navit   ( 1255): OnResume
+E/Navit   ( 1255): timestamp for navigate_to expired! not using data
+I/ActivityManager(  956): Start proc android.tts for service android.tts/.TtsService: pid=1261 uid=10025 gids={3003, 1015}
+E/Navit   ( 1255): NavitGraphics -> onSizeChanged pixels x=480 pixels y=609
+E/Navit   ( 1255): NavitGraphics -> onSizeChanged density=1.25
+E/Navit   ( 1255): NavitGraphics -> onSizeChanged scaledDensity=1.25
+V/TtsService( 1261): TtsService.onCreate()
+D/dalvikvm( 1255): GC_EXTERNAL_ALLOC freed 565 objects / 54888 bytes in 305ms
+V/TtsService( 1261): About to load /system/lib/libttspico.so, applyFilter=true
+E/navit   ( 1255): navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x3d2cb8 480 609
+E/navit   ( 1255): graphics_android:resize_callback:w=480 h=609 ok
+E/navit   ( 1255): graphics_android:graphics_android_init:at 2 jnienv=0xba50
+E/navit   ( 1255): graphics_android:graphics_android_init:at 3
+E/navit   ( 1255): graphics_android:graphics_android_init:at 4 android_activity=0x43b58e18
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b62008
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b5cc38
+E/navit   ( 1255): graphics_android:overlay_new:returning 0x1329c0
+E/NavitGraphics( 1255): overlay_disable: 0Parent: true
+E/navit   ( 1255): navit:osd_set_std_graphic:accesskey (null)
+E/navit   ( 1255): graphics_android:graphics_android_init:at 2 jnienv=0xba50
+E/navit   ( 1255): graphics_android:graphics_android_init:at 3
+E/navit   ( 1255): graphics_android:graphics_android_init:at 4 android_activity=0x43b58e18
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b5c0f8
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b55440
+E/navit   ( 1255): graphics_android:overlay_new:returning 0xdf708
+E/NavitGraphics( 1255): overlay_disable: 0Parent: true
+E/navit   ( 1255): navit:osd_set_std_graphic:accesskey (null)
+E/navit   ( 1255): graphics_android:graphics_android_init:at 2 jnienv=0xba50
+E/navit   ( 1255): graphics_android:graphics_android_init:at 3
+E/navit   ( 1255): graphics_android:graphics_android_init:at 4 android_activity=0x43b58e18
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b7a7c0
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b550e8
+E/navit   ( 1255): graphics_android:overlay_new:returning 0xa5470
+E/NavitGraphics( 1255): overlay_disable: 0Parent: true
+E/navit   ( 1255): navit:osd_set_std_graphic:accesskey (null)
+E/navit   ( 1255): graphics_android:graphics_android_init:at 2 jnienv=0xba50
+E/navit   ( 1255): graphics_android:graphics_android_init:at 3
+E/navit   ( 1255): graphics_android:graphics_android_init:at 4 android_activity=0x43b58e18
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b65528
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b54b68
+E/navit   ( 1255): graphics_android:overlay_new:returning 0x122d08
+E/NavitGraphics( 1255): overlay_disable: 0Parent: true
+E/navit   ( 1255): navit:osd_set_std_graphic:accesskey (null)
+V/TtsService( 1261): TtsService.setLanguage(deu, DEU, )
+I/ActivityManager(  956): Displayed activity org.navitproject.navit/.Navit: 8619 ms (total 8619 ms)
+W/ActivityManager(  956): Launch timeout has expired, giving up wake lock!
+I/SVOX Pico Engine( 1261): loaded de-DE successfully
+I/SynthProxy( 1261): setting speech rate to 100
+E/navit   ( 1255): graphics_android:graphics_android_init:at 2 jnienv=0xba50
+E/navit   ( 1255): graphics_android:graphics_android_init:at 3
+E/navit   ( 1255): graphics_android:graphics_android_init:at 4 android_activity=0x43b58e18
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b5cf40
+E/navit   ( 1255): graphics_android:graphics_android_init:result=0x43b4ccb0
+E/navit   ( 1255): graphics_android:overlay_new:returning 0x139b08
+E/NavitSpeech2( 1255): Status 0
+I/ActivityManager(  956): Process com.android.email (pid 1155) has died.
+E/Navit   ( 1255): Ok, user saw the infobox
+D/dalvikvm( 1033): GC_EXPLICIT freed 345 objects / 16248 bytes in 99ms
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): ACTION_UP
+E/NavitGraphics( 1255): overlay_disable: 1Parent: false
+E/navit   ( 1255): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+D/dalvikvm( 1255): GREF has increased to 201
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): ACTION_UP
+E/NavitGraphics( 1255): overlay_disable: 0Parent: false
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): ACTION_UP
+E/NavitGraphics( 1255): overlay_disable: 1Parent: false
+E/navit   ( 1255): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): ACTION_UP
+E/navit   ( 1255): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+E/NavitGraphics( 1255): ACTION_UP
+E/navit   ( 1255): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+E/NavitGraphics( 1255): Start drag mode
+E/NavitGraphics( 1255): ACTION_UP
+E/navit   ( 1255): navit:navit_unref:refcount 0
+E/navit   ( 1255): navit:navit_destroy:enter
+E/navit   ( 1255): navit:vehicle_unref:refcount 0
+E/navit   ( 1255): vehicle_android:vehicle_android_destroy:enter
+E/navit   ( 1255): navit:tracking_unref:refcount 1
+E/navit   ( 1255): navit:tracking_unref:refcount 0
+E/navit   ( 1255): graphics_android:event_android_main_loop_quit:enter
+W/InputManagerService(  956): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@43ec2430 (uid=10037 pid=1255)
+E/Navit   ( 1255): OnDestroy
+E/navit   ( 1255): navit:Java_org_navitproject_navit_Navit_NavitDestroy:shutdown navit
+I/ActivityManager(  956): Process org.navitproject.navit (pid 1255) has died.
+I/WindowManager(  956): WIN DEATH: Window{43dd8b10 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+V/TtsService( 1261): onDestroy() completed
+W/ActivityManager(  956): Activity destroy timeout for HistoryRecord{43d93b20 org.navitproject.navit/.Navit}

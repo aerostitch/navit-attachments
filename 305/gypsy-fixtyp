@@ -1,0 +1,40 @@
+Index: navit-0.1.1.~svn2032/navit/vehicle/gypsy/vehicle_gypsy.c
+===================================================================
+--- navit-0.1.1.~svn2032.orig/navit/vehicle/gypsy/vehicle_gypsy.c	2009-02-22 19:45:35.000000000 +0100
++++ navit-0.1.1.~svn2032/navit/vehicle/gypsy/vehicle_gypsy.c	2009-02-22 19:46:16.000000000 +0100
+@@ -47,7 +47,7 @@
+ 	double speed;
+ 	double direction;
+ 	double height;
+-	int status;
++	int fix_type;
+ 	int sats;
+ 	int sats_used;
+ 	guint retry_timer;
+@@ -65,11 +65,12 @@
+ {
+ 	struct vehicle_priv *priv = vehicle_last;
+ 
+-	if (fixstatus==GYPSY_DEVICE_FIX_STATUS_3D || 
+-			fixstatus==GYPSY_DEVICE_FIX_STATUS_2D)
+-		priv->status=1; // from gpsd: 1=fix ; 2=DGPS fix
++	if (fixstatus==GYPSY_DEVICE_FIX_STATUS_3D)
++		priv->fix_type = 3;
++	else if (fixstatus==GYPSY_DEVICE_FIX_STATUS_2D)
++		priv->fix_type = 1;
+ 	else
+-		priv->status=0;
++		priv->fix_type = 0;
+ 
+ 	callback_list_call_0(priv->cbl);
+ }
+@@ -253,6 +254,9 @@
+ {
+ 	struct attr * active=NULL;
+ 	switch (type) {
++	case attr_position_fix_type:
++		attr->u.num = priv->fix_type;
++		break;
+ 	case attr_position_height:
+ 		attr->u.numd = &priv->height;
+ 		break;

@@ -1,0 +1,12 @@
+--- /home/maier/navit_linux/svn-5214/src/navit/roadprofile.h	2012-09-04 20:04:37.387424011 +0200
++++ roadprofile.h	2012-08-23 22:28:59.227690000 +0200
+@@ -26,6 +26,9 @@
+         int speed;
+         int route_weight;
+ 	int maxspeed;
++/***************************** Rainer ***************************/
++	int zoom_scale;
++/***************************** Rainer ***************************/
+ };
+ 
+ struct roadprofile * roadprofile_new(struct attr *parent, struct attr **attrs);

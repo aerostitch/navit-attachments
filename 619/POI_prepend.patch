@@ -1,0 +1,13 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 3510)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -2320,7 +2320,7 @@
+ 				    item_coord_get_pro(item, &c, 1, pro) &&
+ 				    coord_rect_contains(&sel->u.c_rect, &c) &&
+ 				    (idist=transform_distance(pro, &center, &c)) < dist) {
+-					gui_internal_widget_append(w2, wi=gui_internal_cmd_pois_item(this, &center, item, &c, idist));
++					gui_internal_widget_prepend(w2, wi=gui_internal_cmd_pois_item(this, &center, item, &c, idist));
+ 					wi->func=gui_internal_cmd_position;
+ 					wi->data=(void *)2;
+ 					wi->item=*item;

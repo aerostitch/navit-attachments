@@ -1,0 +1,18 @@
+Index: navit/speech/android/speech_android.c
+===================================================================
+--- navit/speech/android/speech_android.c	(révision 5202)
++++ navit/speech/android/speech_android.c	(copie de travail)
+@@ -40,6 +40,13 @@
+ 	jstring string;
+ 	int i;
+ 
++	// replace hyphen with space to avoid Android to pronounce it
++	for (i = 0 ; i < strlen(str) ; i++) {
++		if (str[i] == 0x2d) {
++			str[i]=' ';
++		}
++	}
++
+ 	if (this->flags & 2) {
+ 		for (i = 0 ; i < strlen(str) ; i++) {
+ 			if (str[i] == 0xc3 && str[i+1] == 0x84) {

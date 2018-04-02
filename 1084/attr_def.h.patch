@@ -1,0 +1,27 @@
+--- attr_def.h	2012-10-01 13:07:35.600688805 +0200
++++ /home/mike/Scrivania/attr_def.h	2012-11-28 17:38:27.957218277 +0100
+@@ -256,8 +256,8 @@
+ ATTR(debug)
+ ATTR(address)
+ ATTR(phone)
+-ATTR(entry_fee)
+-ATTR(open_hours)
++ATTR(fee)
++ATTR(opening_hours)
+ ATTR(skin)
+ ATTR(fullscreen_removeme)
+ ATTR(view_mode)
+@@ -305,6 +305,11 @@
+ ATTR(fax)
+ ATTR(email)
+ ATTR(url)
++ATTR(capacity)
++ATTR(lpg)
++ATTR(operated_by)
++ATTR(cuisine)
++ATTR(stars)
+ ATTR(profilename)
+ ATTR(projectionname)
+ ATTR(town_or_district_name)
+ 
+

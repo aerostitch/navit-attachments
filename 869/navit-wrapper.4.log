@@ -1,0 +1,21 @@
+*** Before killing ttn
+  329 root      11724 S   /bin/ttn 
+  336 root      11724 S   /bin/ttn 
+  337 root      11724 S < /bin/ttn 
+  346 root        436 S   grep ttn 
+-- end ps-list --
+*** After killing ttn
+  351 root        436 S   grep ttn 
+-- end ps-list --
+-- start watchdog every 10 sec --
+ 21:30:10 up 42 min, load average: 0.15, 0.03, 0.01
+ 21:30:20 up 42 min, load average: 0.62, 0.14, 0.04
+ 21:30:31 up 42 min, load average: 0.83, 0.20, 0.06
+ 21:30:42 up 42 min, load average: 1.16, 0.29, 0.09
+ 21:30:58 up 43 min, load average: 1.77, 0.47, 0.15
+ 21:31:10 up 43 min, load average: 1.88, 0.54, 0.18
+ 21:31:21 up 43 min, load average: 2.63, 0.77, 0.26
+ 21:31:31 up 43 min, load average: 2.92, 0.89, 0.31
+ 21:31:41 up 43 min, load average: 3.00, 0.98, 0.34
+ 21:31:52 up 44 min, load average: 2.99, 1.04, 0.37
+ 21:32:03 up 44 min, load average: 3.14, 1.14, 0.41

@@ -1,0 +1,11 @@
+Index: navit/xpm/desktop_icons/navit.desktop
+===================================================================
+--- navit/xpm/desktop_icons/navit.desktop	(Revision 1519)
++++ navit/xpm/desktop_icons/navit.desktop	(Arbeitskopie)
+@@ -1,6 +1,5 @@
+ [Desktop Entry]
+ Version=1.0
+-Encoding=UTF-8
+ Name=Navit
+ Name[de]=Navit
+ Name[fr]=Navit

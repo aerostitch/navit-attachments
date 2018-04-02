@@ -1,0 +1,13 @@
+Index: navit/navit/maptool/osm.c
+===================================================================
+--- navit/navit/maptool/osm.c	(revision 3390)
++++ navit/navit/maptool/osm.c	(working copy)
+@@ -808,7 +808,7 @@
+ 		attr_strings_save(attr_string_fax, v);
+ 		level=5;
+ 	}
+-	if (! strcmp(k,"postal")) {
++	if (! strcmp(k,"postal_code")) {
+ 		attr_strings_save(attr_string_postal, v);
+ 		level=5;
+ 	}

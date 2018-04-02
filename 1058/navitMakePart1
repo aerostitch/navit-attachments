@@ -1,0 +1,1014 @@
+jacob-brandenburgs-macbook:navit jbranden$ make
+make  all-recursive
+Making all in intl
+make[2]: Nothing to be done for `all'.
+Making all in po
+sed -e 's/|//g' -e 's/^/|/' -e 's/$/|/' -e 's/\(_("[^"]*")\)/| \1; |/g' -e 's/|[^|]*|//g' <../navit/navit_shipped.xml >../navit/navit_shipped.c
+sed -e "s/vehicleprofile/atkaction/" -e "s/name=/description=/" -e 's/<!\[CDATA\[//' -e 's/\]\]//' <../navit/navit_shipped.xml >../navit/navit_shipped.glade
+/opt/local/bin/xgettext --no-location --default-domain=navit \
+	--add-comments --keyword=_ --keyword=_n ../navit/main.c ../navit/navigation.c ../navit/navit.c ../navit/popup.c ../navit/country.c ../navit/gui/gtk/destination.c ../navit/gui/gtk/gui_gtk_action.c ../navit/gui/gtk/gui_gtk_statusbar.c ../navit/gui/internal/gui_internal.c ../navit/osd/core/osd_core.c ../navit/navit_shipped.c ../navit/navit_shipped.glade
+if cmp -s navit.po navit.pot; then \
+	    rm -f navit.po; \
+	else \
+	    mv -f navit.po navit.pot; \
+	fi
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/af.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/af.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename af.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=af.mo af.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp af.mo ../locale/$dir/LC_MESSAGES/navit.mo
+af.po: 409 translated messages, 67 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ar.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ar.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename ar.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ar.mo ar.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ar.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ar.po: 416 translated messages, 60 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ast.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ast.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename ast.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ast.mo ast.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ast.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ast.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/bg.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/bg.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename bg.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=bg.mo bg.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp bg.mo ../locale/$dir/LC_MESSAGES/navit.mo
+bg.po: 376 translated messages, 100 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ca.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ca.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 8.
+dir=`basename ca.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ca.mo ca.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ca.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ca.po: 288 translated messages, 188 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/cs.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/cs.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename cs.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=cs.mo cs.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp cs.mo ../locale/$dir/LC_MESSAGES/navit.mo
+cs.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/da.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/da.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename da.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=da.mo da.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp da.mo ../locale/$dir/LC_MESSAGES/navit.mo
+da.po: 413 translated messages, 63 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/de.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/de.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename de.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=de.mo de.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp de.mo ../locale/$dir/LC_MESSAGES/navit.mo
+de.po: 473 translated messages, 3 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/de_CH.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/de_CH.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename de_CH.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=de_CH.mo de_CH.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp de_CH.mo ../locale/$dir/LC_MESSAGES/navit.mo
+de_CH.po: 0 translated messages, 476 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/el.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/el.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename el.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=el.mo el.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp el.mo ../locale/$dir/LC_MESSAGES/navit.mo
+el.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/en_AU.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/en_AU.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename en_AU.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=en_AU.mo en_AU.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp en_AU.mo ../locale/$dir/LC_MESSAGES/navit.mo
+en_AU.po: 439 translated messages, 37 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/en_GB.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/en_GB.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename en_GB.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=en_GB.mo en_GB.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp en_GB.mo ../locale/$dir/LC_MESSAGES/navit.mo
+en_GB.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/eo.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/eo.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename eo.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=eo.mo eo.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp eo.mo ../locale/$dir/LC_MESSAGES/navit.mo
+eo.po: 28 translated messages, 448 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/es.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/es.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename es.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=es.mo es.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp es.mo ../locale/$dir/LC_MESSAGES/navit.mo
+es.po: 463 translated messages, 13 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/et.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/et.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename et.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=et.mo et.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp et.mo ../locale/$dir/LC_MESSAGES/navit.mo
+et.po: 338 translated messages, 138 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/eu.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/eu.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename eu.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=eu.mo eu.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp eu.mo ../locale/$dir/LC_MESSAGES/navit.mo
+eu.po: 438 translated messages, 38 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/fi.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/fi.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename fi.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=fi.mo fi.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp fi.mo ../locale/$dir/LC_MESSAGES/navit.mo
+fi.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/fo.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/fo.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename fo.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=fo.mo fo.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp fo.mo ../locale/$dir/LC_MESSAGES/navit.mo
+fo.po: 414 translated messages, 62 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/fr.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/fr.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename fr.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=fr.mo fr.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp fr.mo ../locale/$dir/LC_MESSAGES/navit.mo
+fr.po: 472 translated messages, 4 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/fr_CH.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/fr_CH.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 11.
+dir=`basename fr_CH.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=fr_CH.mo fr_CH.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp fr_CH.mo ../locale/$dir/LC_MESSAGES/navit.mo
+fr_CH.po: 421 translated messages, 55 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/gl.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/gl.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename gl.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=gl.mo gl.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp gl.mo ../locale/$dir/LC_MESSAGES/navit.mo
+gl.po: 48 translated messages, 428 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/he.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/he.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename he.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=he.mo he.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp he.mo ../locale/$dir/LC_MESSAGES/navit.mo
+he.po: 409 translated messages, 67 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/hr.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/hr.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 8.
+dir=`basename hr.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=hr.mo hr.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp hr.mo ../locale/$dir/LC_MESSAGES/navit.mo
+hr.po: 304 translated messages, 172 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/hu.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/hu.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename hu.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=hu.mo hu.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp hu.mo ../locale/$dir/LC_MESSAGES/navit.mo
+hu.po: 418 translated messages, 58 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/id.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/id.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 8.
+dir=`basename id.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=id.mo id.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp id.mo ../locale/$dir/LC_MESSAGES/navit.mo
+id.po: 356 translated messages, 120 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/it.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/it.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename it.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=it.mo it.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp it.mo ../locale/$dir/LC_MESSAGES/navit.mo
+it.po: 427 translated messages, 49 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ja.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ja.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 8.
+dir=`basename ja.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ja.mo ja.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ja.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ja.po: 275 translated messages, 201 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/jv.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/jv.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename jv.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=jv.mo jv.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp jv.mo ../locale/$dir/LC_MESSAGES/navit.mo
+jv.po: 129 translated messages, 347 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/kk.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/kk.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename kk.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=kk.mo kk.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp kk.mo ../locale/$dir/LC_MESSAGES/navit.mo
+kk.po: 0 translated messages, 476 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/lt.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/lt.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename lt.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=lt.mo lt.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp lt.mo ../locale/$dir/LC_MESSAGES/navit.mo
+lt.po: 404 translated messages, 72 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/lv.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/lv.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 8.
+dir=`basename lv.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=lv.mo lv.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp lv.mo ../locale/$dir/LC_MESSAGES/navit.mo
+lv.po: 21 translated messages, 455 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/mk.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/mk.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename mk.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=mk.mo mk.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp mk.mo ../locale/$dir/LC_MESSAGES/navit.mo
+mk.po: 421 translated messages, 55 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/nb.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/nb.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename nb.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=nb.mo nb.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp nb.mo ../locale/$dir/LC_MESSAGES/navit.mo
+nb.po: 424 translated messages, 52 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/nds.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/nds.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename nds.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=nds.mo nds.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp nds.mo ../locale/$dir/LC_MESSAGES/navit.mo
+nds.po: 408 translated messages, 68 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/nl.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/nl.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename nl.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=nl.mo nl.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp nl.mo ../locale/$dir/LC_MESSAGES/navit.mo
+nl.po: 425 translated messages, 51 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/nn.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/nn.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename nn.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=nn.mo nn.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp nn.mo ../locale/$dir/LC_MESSAGES/navit.mo
+nn.po: 358 translated messages, 118 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/pl.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/pl.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename pl.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=pl.mo pl.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp pl.mo ../locale/$dir/LC_MESSAGES/navit.mo
+pl.po: 428 translated messages, 48 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/pt.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/pt.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename pt.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=pt.mo pt.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp pt.mo ../locale/$dir/LC_MESSAGES/navit.mo
+pt.po: 409 translated messages, 67 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/pt_BR.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/pt_BR.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename pt_BR.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=pt_BR.mo pt_BR.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp pt_BR.mo ../locale/$dir/LC_MESSAGES/navit.mo
+pt_BR.po: 461 translated messages, 15 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ro.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ro.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename ro.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ro.mo ro.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ro.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ro.po: 427 translated messages, 49 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ru.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ru.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 12.
+dir=`basename ru.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ru.mo ru.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ru.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ru.po: 440 translated messages, 36 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/sk.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/sk.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename sk.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=sk.mo sk.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp sk.mo ../locale/$dir/LC_MESSAGES/navit.mo
+sk.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/sl.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/sl.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename sl.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=sl.mo sl.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp sl.mo ../locale/$dir/LC_MESSAGES/navit.mo
+sl.po: 373 translated messages, 103 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/sr.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/sr.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename sr.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=sr.mo sr.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp sr.mo ../locale/$dir/LC_MESSAGES/navit.mo
+sr.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/sv.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/sv.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename sv.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=sv.mo sv.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp sv.mo ../locale/$dir/LC_MESSAGES/navit.mo
+sv.po: 409 translated messages, 67 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ta.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ta.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename ta.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ta.mo ta.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ta.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ta.po: 20 translated messages, 456 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/te.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/te.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 7.
+dir=`basename te.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=te.mo te.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp te.mo ../locale/$dir/LC_MESSAGES/navit.mo
+te.po: 148 translated messages, 328 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/th.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/th.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename th.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=th.mo th.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp th.mo ../locale/$dir/LC_MESSAGES/navit.mo
+th.po: 326 translated messages, 150 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/tr.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/tr.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename tr.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=tr.mo tr.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp tr.mo ../locale/$dir/LC_MESSAGES/navit.mo
+tr.po: 421 translated messages, 55 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/uk.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/uk.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename uk.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=uk.mo uk.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp uk.mo ../locale/$dir/LC_MESSAGES/navit.mo
+uk.po: 429 translated messages, 47 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/ur.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/ur.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 9.
+dir=`basename ur.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=ur.mo ur.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp ur.mo ../locale/$dir/LC_MESSAGES/navit.mo
+ur.po: 439 translated messages, 37 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/vi.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/vi.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename vi.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=vi.mo vi.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp vi.mo ../locale/$dir/LC_MESSAGES/navit.mo
+vi.po: 409 translated messages, 67 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/zh_CN.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/zh_CN.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 10.
+dir=`basename zh_CN.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=zh_CN.mo zh_CN.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp zh_CN.mo ../locale/$dir/LC_MESSAGES/navit.mo
+zh_CN.po: 426 translated messages, 50 untranslated messages.
+sed 's/^"Project-Id-Version:.*/"Project-Id-Version: navit 0.5.0\\n"/' < ../po/zh_HK.po.in | /opt/local/bin/msgmerge --no-fuzzy-matching --verbose -o ../po/zh_HK.po - navit.pot
+................................................
+Read 1 old + 1 reference, merged 474, fuzzied 0, missing 3, obsolete 8.
+dir=`basename zh_HK.mo .mo` ;\
+	/opt/local/bin/msgfmt --check --verbose --statistics --output-file=zh_HK.mo zh_HK.po && \
+	mkdir -p ../locale/$dir/LC_MESSAGES && \
+	cp zh_HK.mo ../locale/$dir/LC_MESSAGES/navit.mo
+zh_HK.po: 197 translated messages, 279 untranslated messages.
+Making all in man
+make[2]: Nothing to be done for `all'.
+Making all in navit
+echo "#include \"config.h\"" >version.h.tmp
+echo "#define SVN_VERSION \"$(LANG=C svnversion .. 2>/dev/null)\"" >>version.h.tmp
+echo "#define NAVIT_VARIANT \"\"" >>version.h.tmp
+if ! diff version.h.tmp version.h >/dev/null 2>/dev/null; \
+	then \
+		mv -f version.h.tmp version.h; \
+	fi
+cp ../config.h navit_config.h.tmp
+if ! diff navit_config.h.tmp navit_config.h >/dev/null 2>/dev/null; \
+	then \
+		mv -f navit_config.h.tmp navit_config.h; \
+	fi
+make  all-recursive
+Making all in fib-1.1
+/bin/sh ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..   -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../intl/ -MT fib.lo -MD -MP -MF .deps/fib.Tpo -c -o fib.lo fib.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../.. -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../intl/ -MT fib.lo -MD -MP -MF .deps/fib.Tpo -c fib.c  -fno-common -DPIC -o .libs/fib.o
+mv -f .deps/fib.Tpo .deps/fib.Plo
+/bin/sh ../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../intl/   -o libfib.la  fib.lo  -lm
+libtool: link: ar cru .libs/libfib.a .libs/fib.o 
+libtool: link: ranlib .libs/libfib.a
+libtool: link: ( cd ".libs" && rm -f "libfib.la" && ln -s "../libfib.la" "libfib.la" )
+Making all in support
+Making all in shapefile
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=support_shapefile -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT dbfopen.lo -MD -MP -MF .deps/dbfopen.Tpo -c -o dbfopen.lo dbfopen.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=support_shapefile -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT dbfopen.lo -MD -MP -MF .deps/dbfopen.Tpo -c dbfopen.c  -fno-common -DPIC -o .libs/dbfopen.o
+mv -f .deps/dbfopen.Tpo .deps/dbfopen.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=support_shapefile -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT shpopen.lo -MD -MP -MF .deps/shpopen.Tpo -c -o shpopen.lo shpopen.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=support_shapefile -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT shpopen.lo -MD -MP -MF .deps/shpopen.Tpo -c shpopen.c  -fno-common -DPIC -o .libs/shpopen.o
+mv -f .deps/shpopen.Tpo .deps/shpopen.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=support_shapefile -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT shptree.lo -MD -MP -MF .deps/shptree.Tpo -c -o shptree.lo shptree.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=support_shapefile -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT shptree.lo -MD -MP -MF .deps/shptree.Tpo -c shptree.c  -fno-common -DPIC -o .libs/shptree.o
+mv -f .deps/shptree.Tpo .deps/shptree.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/   -o libsupport_shapefile.la  dbfopen.lo shpopen.lo shptree.lo  -lm
+libtool: link: ar cru .libs/libsupport_shapefile.a .libs/dbfopen.o .libs/shpopen.o .libs/shptree.o 
+libtool: link: ranlib .libs/libsupport_shapefile.a
+libtool: link: ( cd ".libs" && rm -f "libsupport_shapefile.la" && ln -s "../libsupport_shapefile.la" "libsupport_shapefile.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in .
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT announcement.lo -MD -MP -MF .deps/announcement.Tpo -c -o announcement.lo announcement.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT announcement.lo -MD -MP -MF .deps/announcement.Tpo -c announcement.c  -fno-common -DPIC -o .libs/announcement.o
+mv -f .deps/announcement.Tpo .deps/announcement.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT atom.lo -MD -MP -MF .deps/atom.Tpo -c -o atom.lo atom.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT atom.lo -MD -MP -MF .deps/atom.Tpo -c atom.c  -fno-common -DPIC -o .libs/atom.o
+mv -f .deps/atom.Tpo .deps/atom.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT attr.lo -MD -MP -MF .deps/attr.Tpo -c -o attr.lo attr.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT attr.lo -MD -MP -MF .deps/attr.Tpo -c attr.c  -fno-common -DPIC -o .libs/attr.o
+mv -f .deps/attr.Tpo .deps/attr.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT cache.lo -MD -MP -MF .deps/cache.Tpo -c -o cache.lo cache.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT cache.lo -MD -MP -MF .deps/cache.Tpo -c cache.c  -fno-common -DPIC -o .libs/cache.o
+mv -f .deps/cache.Tpo .deps/cache.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT callback.lo -MD -MP -MF .deps/callback.Tpo -c -o callback.lo callback.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT callback.lo -MD -MP -MF .deps/callback.Tpo -c callback.c  -fno-common -DPIC -o .libs/callback.o
+callback.c:27: warning: function declaration isn't a prototype
+mv -f .deps/callback.Tpo .deps/callback.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT command.lo -MD -MP -MF .deps/command.Tpo -c -o command.lo command.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT command.lo -MD -MP -MF .deps/command.Tpo -c command.c  -fno-common -DPIC -o .libs/command.o
+command.c: In function 'command_register_callbacks':
+command.c:1119: warning: 'cb' may be used uninitialized in this function
+mv -f .deps/command.Tpo .deps/command.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT compass.lo -MD -MP -MF .deps/compass.Tpo -c -o compass.lo compass.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT compass.lo -MD -MP -MF .deps/compass.Tpo -c compass.c  -fno-common -DPIC -o .libs/compass.o
+mv -f .deps/compass.Tpo .deps/compass.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT config_.lo -MD -MP -MF .deps/config_.Tpo -c -o config_.lo config_.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT config_.lo -MD -MP -MF .deps/config_.Tpo -c config_.c  -fno-common -DPIC -o .libs/config_.o
+mv -f .deps/config_.Tpo .deps/config_.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT coord.lo -MD -MP -MF .deps/coord.Tpo -c -o coord.lo coord.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT coord.lo -MD -MP -MF .deps/coord.Tpo -c coord.c  -fno-common -DPIC -o .libs/coord.o
+mv -f .deps/coord.Tpo .deps/coord.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT country.lo -MD -MP -MF .deps/country.Tpo -c -o country.lo country.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT country.lo -MD -MP -MF .deps/country.Tpo -c country.c  -fno-common -DPIC -o .libs/country.o
+country.c: In function 'match':
+country.c:381: warning: 'g_strncasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:177)
+country.c:383: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+mv -f .deps/country.Tpo .deps/country.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT data_window.lo -MD -MP -MF .deps/data_window.Tpo -c -o data_window.lo data_window.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT data_window.lo -MD -MP -MF .deps/data_window.Tpo -c data_window.c  -fno-common -DPIC -o .libs/data_window.o
+mv -f .deps/data_window.Tpo .deps/data_window.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT debug.lo -MD -MP -MF .deps/debug.Tpo -c -o debug.lo debug.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT debug.lo -MD -MP -MF .deps/debug.Tpo -c debug.c  -fno-common -DPIC -o .libs/debug.o
+debug.c:109: warning: no previous prototype for 'debug_set_global_level'
+mv -f .deps/debug.Tpo .deps/debug.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT event.lo -MD -MP -MF .deps/event.Tpo -c -o event.lo event.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT event.lo -MD -MP -MF .deps/event.Tpo -c event.c  -fno-common -DPIC -o .libs/event.o
+mv -f .deps/event.Tpo .deps/event.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT file.lo -MD -MP -MF .deps/file.Tpo -c -o file.lo file.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT file.lo -MD -MP -MF .deps/file.Tpo -c file.c  -fno-common -DPIC -o .libs/file.o
+file.c: In function 'file_create_caseinsensitive':
+file.c:795: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+mv -f .deps/file.Tpo .deps/file.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT graphics.lo -MD -MP -MF .deps/graphics.Tpo -c -o graphics.lo graphics.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT graphics.lo -MD -MP -MF .deps/graphics.Tpo -c graphics.c  -fno-common -DPIC -o .libs/graphics.o
+mv -f .deps/graphics.Tpo .deps/graphics.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT gui.lo -MD -MP -MF .deps/gui.Tpo -c -o gui.lo gui.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT gui.lo -MD -MP -MF .deps/gui.Tpo -c gui.c  -fno-common -DPIC -o .libs/gui.o
+mv -f .deps/gui.Tpo .deps/gui.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT item.lo -MD -MP -MF .deps/item.Tpo -c -o item.lo item.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT item.lo -MD -MP -MF .deps/item.Tpo -c item.c  -fno-common -DPIC -o .libs/item.o
+mv -f .deps/item.Tpo .deps/item.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT layout.lo -MD -MP -MF .deps/layout.Tpo -c -o layout.lo layout.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT layout.lo -MD -MP -MF .deps/layout.Tpo -c layout.c  -fno-common -DPIC -o .libs/layout.o
+mv -f .deps/layout.Tpo .deps/layout.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT log.lo -MD -MP -MF .deps/log.Tpo -c -o log.lo log.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT log.lo -MD -MP -MF .deps/log.Tpo -c log.c  -fno-common -DPIC -o .libs/log.o
+mv -f .deps/log.Tpo .deps/log.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT main.lo -MD -MP -MF .deps/main.Tpo -c -o main.lo main.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT main.lo -MD -MP -MF .deps/main.Tpo -c main.c  -fno-common -DPIC -o .libs/main.o
+mv -f .deps/main.Tpo .deps/main.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT map.lo -MD -MP -MF .deps/map.Tpo -c -o map.lo map.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT map.lo -MD -MP -MF .deps/map.Tpo -c map.c  -fno-common -DPIC -o .libs/map.o
+mv -f .deps/map.Tpo .deps/map.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT maps.lo -MD -MP -MF .deps/maps.Tpo -c -o maps.lo maps.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT maps.lo -MD -MP -MF .deps/maps.Tpo -c maps.c  -fno-common -DPIC -o .libs/maps.o
+maps.c:32: warning: no previous prototype for 'maps_new'
+mv -f .deps/maps.Tpo .deps/maps.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT linguistics.lo -MD -MP -MF .deps/linguistics.Tpo -c -o linguistics.lo linguistics.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT linguistics.lo -MD -MP -MF .deps/linguistics.Tpo -c linguistics.c  -fno-common -DPIC -o .libs/linguistics.o
+linguistics.c: In function 'linguistics_search':
+linguistics.c:301: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+linguistics.c:303: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+linguistics.c:305: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+linguistics.c:307: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+mv -f .deps/linguistics.Tpo .deps/linguistics.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT mapset.lo -MD -MP -MF .deps/mapset.Tpo -c -o mapset.lo mapset.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT mapset.lo -MD -MP -MF .deps/mapset.Tpo -c mapset.c  -fno-common -DPIC -o .libs/mapset.o
+mapset.c:165: warning: no previous prototype for 'mapset_ref'
+mapset.c:173: warning: no previous prototype for 'mapset_unref'
+mv -f .deps/mapset.Tpo .deps/mapset.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT maptype.lo -MD -MP -MF .deps/maptype.Tpo -c -o maptype.lo maptype.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT maptype.lo -MD -MP -MF .deps/maptype.Tpo -c maptype.c  -fno-common -DPIC -o .libs/maptype.o
+mv -f .deps/maptype.Tpo .deps/maptype.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT menu.lo -MD -MP -MF .deps/menu.Tpo -c -o menu.lo menu.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT menu.lo -MD -MP -MF .deps/menu.Tpo -c menu.c  -fno-common -DPIC -o .libs/menu.o
+mv -f .deps/menu.Tpo .deps/menu.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT messages.lo -MD -MP -MF .deps/messages.Tpo -c -o messages.lo messages.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT messages.lo -MD -MP -MF .deps/messages.Tpo -c messages.c  -fno-common -DPIC -o .libs/messages.o
+mv -f .deps/messages.Tpo .deps/messages.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT bookmarks.lo -MD -MP -MF .deps/bookmarks.Tpo -c -o bookmarks.lo bookmarks.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT bookmarks.lo -MD -MP -MF .deps/bookmarks.Tpo -c bookmarks.c  -fno-common -DPIC -o .libs/bookmarks.o
+bookmarks.c: In function 'bookmarks_new':
+bookmarks.c:262: warning: initialization makes pointer from integer without a cast
+bookmarks.c: In function 'bookmarks_set_center_from_file':
+bookmarks.c:430: warning: implicit declaration of function 'getline'
+mv -f .deps/bookmarks.Tpo .deps/bookmarks.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT navit.lo -MD -MP -MF .deps/navit.Tpo -c -o navit.lo navit.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT navit.lo -MD -MP -MF .deps/navit.Tpo -c navit.c  -fno-common -DPIC -o .libs/navit.o
+mv -f .deps/navit.Tpo .deps/navit.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT navigation.lo -MD -MP -MF .deps/navigation.Tpo -c -o navigation.lo navigation.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT navigation.lo -MD -MP -MF .deps/navigation.Tpo -c navigation.c  -fno-common -DPIC -o .libs/navigation.o
+navigation.c: In function 'contains_suffix':
+navigation.c:1386: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+mv -f .deps/navigation.Tpo .deps/navigation.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT osd.lo -MD -MP -MF .deps/osd.Tpo -c -o osd.lo osd.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT osd.lo -MD -MP -MF .deps/osd.Tpo -c osd.c  -fno-common -DPIC -o .libs/osd.o
+mv -f .deps/osd.Tpo .deps/osd.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT param.lo -MD -MP -MF .deps/param.Tpo -c -o param.lo param.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT param.lo -MD -MP -MF .deps/param.Tpo -c param.c  -fno-common -DPIC -o .libs/param.o
+mv -f .deps/param.Tpo .deps/param.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT phrase.lo -MD -MP -MF .deps/phrase.Tpo -c -o phrase.lo phrase.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT phrase.lo -MD -MP -MF .deps/phrase.Tpo -c phrase.c  -fno-common -DPIC -o .libs/phrase.o
+mv -f .deps/phrase.Tpo .deps/phrase.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT plugin.lo -MD -MP -MF .deps/plugin.Tpo -c -o plugin.lo plugin.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT plugin.lo -MD -MP -MF .deps/plugin.Tpo -c plugin.c  -fno-common -DPIC -o .libs/plugin.o
+mv -f .deps/plugin.Tpo .deps/plugin.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT popup.lo -MD -MP -MF .deps/popup.Tpo -c -o popup.lo popup.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT popup.lo -MD -MP -MF .deps/popup.Tpo -c popup.c  -fno-common -DPIC -o .libs/popup.o
+mv -f .deps/popup.Tpo .deps/popup.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT profile.lo -MD -MP -MF .deps/profile.Tpo -c -o profile.lo profile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT profile.lo -MD -MP -MF .deps/profile.Tpo -c profile.c  -fno-common -DPIC -o .libs/profile.o
+mv -f .deps/profile.Tpo .deps/profile.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT projection.lo -MD -MP -MF .deps/projection.Tpo -c -o projection.lo projection.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT projection.lo -MD -MP -MF .deps/projection.Tpo -c projection.c  -fno-common -DPIC -o .libs/projection.o
+mv -f .deps/projection.Tpo .deps/projection.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT roadprofile.lo -MD -MP -MF .deps/roadprofile.Tpo -c -o roadprofile.lo roadprofile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT roadprofile.lo -MD -MP -MF .deps/roadprofile.Tpo -c roadprofile.c  -fno-common -DPIC -o .libs/roadprofile.o
+mv -f .deps/roadprofile.Tpo .deps/roadprofile.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT route.lo -MD -MP -MF .deps/route.Tpo -c -o route.lo route.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT route.lo -MD -MP -MF .deps/route.Tpo -c route.c  -fno-common -DPIC -o .libs/route.o
+mv -f .deps/route.Tpo .deps/route.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT routech.lo -MD -MP -MF .deps/routech.Tpo -c -o routech.lo routech.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT routech.lo -MD -MP -MF .deps/routech.Tpo -c routech.c  -fno-common -DPIC -o .libs/routech.o
+mv -f .deps/routech.Tpo .deps/routech.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT search.lo -MD -MP -MF .deps/search.Tpo -c -o search.lo search.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT search.lo -MD -MP -MF .deps/search.Tpo -c search.c  -fno-common -DPIC -o .libs/search.o
+search.c: In function 'search_match':
+search.c:693: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+search.c:695: warning: 'g_strncasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:177)
+mv -f .deps/search.Tpo .deps/search.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT speech.lo -MD -MP -MF .deps/speech.Tpo -c -o speech.lo speech.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT speech.lo -MD -MP -MF .deps/speech.Tpo -c speech.c  -fno-common -DPIC -o .libs/speech.o
+mv -f .deps/speech.Tpo .deps/speech.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT start_real.lo -MD -MP -MF .deps/start_real.Tpo -c -o start_real.lo start_real.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT start_real.lo -MD -MP -MF .deps/start_real.Tpo -c start_real.c  -fno-common -DPIC -o .libs/start_real.o
+start_real.c: In function 'main_real':
+start_real.c:138: warning: implicit declaration of function 'debug_set_global_level'
+mv -f .deps/start_real.Tpo .deps/start_real.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT transform.lo -MD -MP -MF .deps/transform.Tpo -c -o transform.lo transform.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT transform.lo -MD -MP -MF .deps/transform.Tpo -c transform.c  -fno-common -DPIC -o .libs/transform.o
+transform.c: In function 'transform':
+transform.c:514: warning: implicit declaration of function 'abs'
+mv -f .deps/transform.Tpo .deps/transform.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT track.lo -MD -MP -MF .deps/track.Tpo -c -o track.lo track.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT track.lo -MD -MP -MF .deps/track.Tpo -c track.c  -fno-common -DPIC -o .libs/track.o
+mv -f .deps/track.Tpo .deps/track.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT util.lo -MD -MP -MF .deps/util.Tpo -c -o util.lo util.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT util.lo -MD -MP -MF .deps/util.Tpo -c util.c  -fno-common -DPIC -o .libs/util.o
+util.c:123: warning: no previous prototype for 'stristr'
+util.c:188: warning: no previous prototype for 'getdelim'
+util.c:265: warning: no previous prototype for 'getline'
+util.c: In function 'getdelim':
+util.c:189: warning: 'result' may be used uninitialized in this function
+mv -f .deps/util.Tpo .deps/util.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT vehicle.lo -MD -MP -MF .deps/vehicle.Tpo -c -o vehicle.lo vehicle.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT vehicle.lo -MD -MP -MF .deps/vehicle.Tpo -c vehicle.c  -fno-common -DPIC -o .libs/vehicle.o
+mv -f .deps/vehicle.Tpo .deps/vehicle.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT vehicleprofile.lo -MD -MP -MF .deps/vehicleprofile.Tpo -c -o vehicleprofile.lo vehicleprofile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT vehicleprofile.lo -MD -MP -MF .deps/vehicleprofile.Tpo -c vehicleprofile.c  -fno-common -DPIC -o .libs/vehicleprofile.o
+vehicleprofile.c: In function 'vehicleprofile_attr_iter_new':
+vehicleprofile.c:109: warning: return from incompatible pointer type
+mv -f .deps/vehicleprofile.Tpo .deps/vehicleprofile.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT xmlconfig.lo -MD -MP -MF .deps/xmlconfig.Tpo -c -o xmlconfig.lo xmlconfig.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT xmlconfig.lo -MD -MP -MF .deps/xmlconfig.Tpo -c xmlconfig.c  -fno-common -DPIC -o .libs/xmlconfig.o
+xmlconfig.c: In function 'xml_parse_text':
+xmlconfig.c:1050: warning: initialization from incompatible pointer type
+xmlconfig.c:1050: warning: initialization from incompatible pointer type
+xmlconfig.c:1050: warning: initialization from incompatible pointer type
+mv -f .deps/xmlconfig.Tpo .deps/xmlconfig.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT sunriset.lo -MD -MP -MF .deps/sunriset.Tpo -c -o sunriset.lo sunriset.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT sunriset.lo -MD -MP -MF .deps/sunriset.Tpo -c sunriset.c  -fno-common -DPIC -o .libs/sunriset.o
+mv -f .deps/sunriset.Tpo .deps/sunriset.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT event_glib.lo -MD -MP -MF .deps/event_glib.Tpo -c -o event_glib.lo event_glib.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT event_glib.lo -MD -MP -MF .deps/event_glib.Tpo -c event_glib.c  -fno-common -DPIC -o .libs/event_glib.o
+mv -f .deps/event_glib.Tpo .deps/event_glib.Plo
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/   -o libnavit.la  announcement.lo atom.lo attr.lo cache.lo callback.lo command.lo compass.lo config_.lo coord.lo country.lo data_window.lo debug.lo event.lo file.lo graphics.lo gui.lo item.lo layout.lo log.lo main.lo map.lo maps.lo linguistics.lo mapset.lo maptype.lo menu.lo messages.lo bookmarks.lo navit.lo navigation.lo osd.lo param.lo phrase.lo plugin.lo popup.lo profile.lo projection.lo roadprofile.lo route.lo routech.lo search.lo speech.lo start_real.lo transform.lo track.lo util.lo vehicle.lo vehicleprofile.lo xmlconfig.lo sunriset.lo  event_glib.lo  -L/opt/local/lib -lgthread-2.0 -lglib-2.0 -lintl   -L/opt/local/lib -lgmodule-2.0 -lglib-2.0 -lintl   -L/opt/local/lib -lintl -liconv -lc   -lz -L/opt/local/lib -lintl -liconv -lc  -Lfib-1.1 -lfib  -lcrypto   -lm
+libtool: link: (cd .libs/libnavit.lax/libfib.a && ar x "/Users/jbranden/navit/navit/fib-1.1/.libs/libfib.a")
+libtool: link: ar cru .libs/libnavit.a .libs/announcement.o .libs/atom.o .libs/attr.o .libs/cache.o .libs/callback.o .libs/command.o .libs/compass.o .libs/config_.o .libs/coord.o .libs/country.o .libs/data_window.o .libs/debug.o .libs/event.o .libs/file.o .libs/graphics.o .libs/gui.o .libs/item.o .libs/layout.o .libs/log.o .libs/main.o .libs/map.o .libs/maps.o .libs/linguistics.o .libs/mapset.o .libs/maptype.o .libs/menu.o .libs/messages.o .libs/bookmarks.o .libs/navit.o .libs/navigation.o .libs/osd.o .libs/param.o .libs/phrase.o .libs/plugin.o .libs/popup.o .libs/profile.o .libs/projection.o .libs/roadprofile.o .libs/route.o .libs/routech.o .libs/search.o .libs/speech.o .libs/start_real.o .libs/transform.o .libs/track.o .libs/util.o .libs/vehicle.o .libs/vehicleprofile.o .libs/xmlconfig.o .libs/sunriset.o .libs/event_glib.o   .libs/libnavit.lax/libfib.a/fib.o 
+ranlib: file: .libs/libnavit.a(compass.o) has no symbols
+libtool: link: ranlib .libs/libnavit.a
+ranlib: file: .libs/libnavit.a(compass.o) has no symbols
+libtool: link: rm -fr .libs/libnavit.lax
+libtool: link: ( cd ".libs" && rm -f "libnavit.la" && ln -s "../libnavit.la" "libnavit.la" )
+gcc -DHAVE_CONFIG_H -I. -I..  -I../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -DPREFIX=\"/opt/local\" -DLIBDIR=\"/opt/local/lib\" -DMODULE=navit -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -MT start.o -MD -MP -MF .deps/start.Tpo -c -o start.o start.c
+mv -f .deps/start.Tpo .deps/start.Po
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -export-dynamic  -o navit start.o libnavit.la  -L/opt/local/lib -lgthread-2.0 -lglib-2.0 -lintl   -L/opt/local/lib -lgmodule-2.0 -lglib-2.0 -lintl   -L/opt/local/lib -lintl -liconv -lc -lz -lcrypto -L/opt/local/lib -lintl -liconv -lc    -lm
+libtool: link: gcc -g -O2 -I/opt/local/include -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -o navit start.o  -L/opt/local/lib ./.libs/libnavit.a -Lfib-1.1 /opt/local/lib/libgthread-2.0.dylib /opt/local/lib/libgmodule-2.0.dylib /opt/local/lib/libglib-2.0.dylib -lresolv -lz -lcrypto /opt/local/lib/libintl.dylib /opt/local/lib/libiconv.dylib -lc -lm -framework Foundation -framework Carbon
+echo "no Android support"
+no Android support
+cp navit_shipped.xml navit.xml.new
+if [ ! -f navit.dtd ]; then cp -f ../navit/navit.dtd .; fi
+for i in navit_shipped.xml navit_android_xml; do if [ "${i%.xslt}" != "$i" ]; then echo "Applying $i" ; saxon -snone navit.xml.new $i >navit.xml.tmp || exit ; mv -f navit.xml.tmp navit.xml.new || exit ; fi ; done
+mv -f navit.xml.new navit.xml
+rm -f navit.xml.tmp
+Making all in autoload
+make[5]: Nothing to be done for `all-am'.
+Making all in binding
+make[5]: Nothing to be done for `all-am'.
+Making all in map
+Making all in binfile
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_binfile -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT binfile.lo -MD -MP -MF .deps/binfile.Tpo -c -o binfile.lo binfile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_binfile -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT binfile.lo -MD -MP -MF .deps/binfile.Tpo -c binfile.c  -fno-common -DPIC -o .libs/binfile.o
+mv -f .deps/binfile.Tpo .deps/binfile.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libmap_binfile.la -rpath /opt/local/lib/navit/map binfile.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libmap_binfile.so -bundle  .libs/binfile.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libmap_binfile.so || :
+libtool: link: ( cd ".libs" && rm -f "libmap_binfile.la" && ln -s "../libmap_binfile.la" "libmap_binfile.la" )
+Making all in filter
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_filter -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT filter.lo -MD -MP -MF .deps/filter.Tpo -c -o filter.lo filter.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_filter -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT filter.lo -MD -MP -MF .deps/filter.Tpo -c filter.c  -fno-common -DPIC -o .libs/filter.o
+filter.c: In function 'filter_type':
+filter.c:71: warning: 'entry' may be used uninitialized in this function
+mv -f .deps/filter.Tpo .deps/filter.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libmap_filter.la -rpath /opt/local/lib/navit/map filter.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libmap_filter.so -bundle  .libs/filter.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libmap_filter.so || :
+libtool: link: ( cd ".libs" && rm -f "libmap_filter.la" && ln -s "../libmap_filter.la" "libmap_filter.la" )
+Making all in mg
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_mg -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT map.lo -MD -MP -MF .deps/map.Tpo -c -o map.lo map.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_mg -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT map.lo -MD -MP -MF .deps/map.Tpo -c map.c  -fno-common -DPIC -o .libs/map.o
+mv -f .deps/map.Tpo .deps/map.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_mg -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT block.lo -MD -MP -MF .deps/block.Tpo -c -o block.lo block.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_mg -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT block.lo -MD -MP -MF .deps/block.Tpo -c block.c  -fno-common -DPIC -o .libs/block.o
+mv -f .deps/block.Tpo .deps/block.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_mg -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT town.lo -MD -MP -MF .deps/town.Tpo -c -o town.lo town.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_mg -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT town.lo -MD -MP -MF .deps/town.Tpo -c town.c  -fno-common -DPIC -o .libs/town.o
+mv -f .deps/town.Tpo .deps/town.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_mg -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT tree.lo -MD -MP -MF .deps/tree.Tpo -c -o tree.lo tree.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_mg -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT tree.lo -MD -MP -MF .deps/tree.Tpo -c tree.c  -fno-common -DPIC -o .libs/tree.o
+mv -f .deps/tree.Tpo .deps/tree.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_mg -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT poly.lo -MD -MP -MF .deps/poly.Tpo -c -o poly.lo poly.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_mg -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT poly.lo -MD -MP -MF .deps/poly.Tpo -c poly.c  -fno-common -DPIC -o .libs/poly.o
+mv -f .deps/poly.Tpo .deps/poly.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_mg -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT street.lo -MD -MP -MF .deps/street.Tpo -c -o street.lo street.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_mg -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT street.lo -MD -MP -MF .deps/street.Tpo -c street.c  -fno-common -DPIC -o .libs/street.o
+street.c:134: warning: 'street_name_numbers_get_byid' defined but not used
+street.c:163: warning: 'street_name_number_get_byid' defined but not used
+street.c:597: warning: 'street_get_housenumber' defined but not used
+street.c:956: warning: 'street_name_numbers_meth' defined but not used
+street.c:1207: warning: 'street_search_get_item_street_name_district' defined but not used
+mv -f .deps/street.Tpo .deps/street.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libmap_mg.la -rpath /opt/local/lib/navit/map map.lo block.lo town.lo tree.lo poly.lo street.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libmap_mg.so -bundle  .libs/map.o .libs/block.o .libs/town.o .libs/tree.o .libs/poly.o .libs/street.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libmap_mg.so || :
+libtool: link: ( cd ".libs" && rm -f "libmap_mg.la" && ln -s "../libmap_mg.la" "libmap_mg.la" )
+Making all in shapefile
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit/support/shapefile -I../../../navit -DMODULE=map_shapefile -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT shapefile.lo -MD -MP -MF .deps/shapefile.Tpo -c -o shapefile.lo shapefile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit/support/shapefile -I../../../navit -DMODULE=map_shapefile -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT shapefile.lo -MD -MP -MF .deps/shapefile.Tpo -c shapefile.c  -fno-common -DPIC -o .libs/shapefile.o
+mv -f .deps/shapefile.Tpo .deps/shapefile.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libmap_shapefile.la -rpath /opt/local/lib/navit/map shapefile.lo ../../../navit/support/shapefile/libsupport_shapefile.la -lm
+libtool: link: (cd .libs/libmap_shapefile.lax/libsupport_shapefile.a && ar x "/Users/jbranden/navit/navit/map/shapefile/../../../navit/support/shapefile/.libs/libsupport_shapefile.a")
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libmap_shapefile.so -bundle  .libs/shapefile.o   .libs/libmap_shapefile.lax/libsupport_shapefile.a/dbfopen.o .libs/libmap_shapefile.lax/libsupport_shapefile.a/shpopen.o .libs/libmap_shapefile.lax/libsupport_shapefile.a/shptree.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libmap_shapefile.so || :
+libtool: link: rm -fr .libs/libmap_shapefile.lax
+libtool: link: ( cd ".libs" && rm -f "libmap_shapefile.la" && ln -s "../libmap_shapefile.la" "libmap_shapefile.la" )
+Making all in textfile
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_textfile -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT textfile.lo -MD -MP -MF .deps/textfile.Tpo -c -o textfile.lo textfile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_textfile -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT textfile.lo -MD -MP -MF .deps/textfile.Tpo -c textfile.c  -fno-common -DPIC -o .libs/textfile.o
+textfile.c: In function 'remove_comment_line':
+textfile.c:43: warning: comparison between pointer and integer
+mv -f .deps/textfile.Tpo .deps/textfile.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libmap_textfile.la -rpath /opt/local/lib/navit/map textfile.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libmap_textfile.so -bundle  .libs/textfile.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libmap_textfile.so || :
+libtool: link: ( cd ".libs" && rm -f "libmap_textfile.la" && ln -s "../libmap_textfile.la" "libmap_textfile.la" )
+Making all in csv
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_csv -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT csv.lo -MD -MP -MF .deps/csv.Tpo -c -o csv.lo csv.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_csv -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT csv.lo -MD -MP -MF .deps/csv.Tpo -c csv.c  -fno-common -DPIC -o .libs/csv.o
+csv.c:64: warning: no previous prototype for 'quadtree_data_dup'
+csv.c:474: warning: 'map_csv_debug_dump' defined but not used
+mv -f .deps/csv.Tpo .deps/csv.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=map_csv -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT quadtree.lo -MD -MP -MF .deps/quadtree.Tpo -c -o quadtree.lo quadtree.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=map_csv -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT quadtree.lo -MD -MP -MF .deps/quadtree.Tpo -c quadtree.c  -fno-common -DPIC -o .libs/quadtree.o
+quadtree.c:379: warning: no previous prototype for 'quadtree_node_drop_garbage'
+mv -f .deps/quadtree.Tpo .deps/quadtree.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libmap_csv.la -rpath /opt/local/lib/navit/map csv.lo quadtree.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libmap_csv.so -bundle  .libs/csv.o .libs/quadtree.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libmap_csv.so || :
+libtool: link: ( cd ".libs" && rm -f "libmap_csv.la" && ln -s "../libmap_csv.la" "libmap_csv.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in font
+Making all in freetype
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I/opt/local/include/freetype2 -I/opt/local/include   -I/opt/local/include     -I../../../navit -DMODULE=font_freetype -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT font_freetype.lo -MD -MP -MF .deps/font_freetype.Tpo -c -o font_freetype.lo font_freetype.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I/opt/local/include/freetype2 -I/opt/local/include -I/opt/local/include -I../../../navit -DMODULE=font_freetype -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT font_freetype.lo -MD -MP -MF .deps/font_freetype.Tpo -c font_freetype.c  -fno-common -DPIC -o .libs/font_freetype.o
+mv -f .deps/font_freetype.Tpo .deps/font_freetype.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -L/opt/local/lib -lfreetype   -L/opt/local/lib -lfontconfig     -module -avoid-version  -o libfont_freetype.la -rpath /opt/local/lib/navit/font font_freetype.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libfont_freetype.so -bundle  .libs/font_freetype.o   -L/opt/local/lib /opt/local/lib/libfontconfig.dylib /opt/local/lib/libiconv.dylib /opt/local/lib/libfreetype.dylib -lz -lbz2 /opt/local/lib/libexpat.dylib -lm  -O2  
+libtool: link: dsymutil .libs/libfont_freetype.so || :
+libtool: link: ( cd ".libs" && rm -f "libfont_freetype.la" && ln -s "../libfont_freetype.la" "libfont_freetype.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in gui
+Making all in internal
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -I../../.. -I../../../navit -I../../../navit/fib-1.1  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -DMODULE=gui_internal -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_internal.lo -MD -MP -MF .deps/gui_internal.Tpo -c -o gui_internal.lo gui_internal.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -I../../.. -I../../../navit -I../../../navit/fib-1.1 -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -DMODULE=gui_internal -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_internal.lo -MD -MP -MF .deps/gui_internal.Tpo -c gui_internal.c  -fno-common -DPIC -o .libs/gui_internal.o
+gui_internal.c: In function 'image_new_scaled':
+gui_internal.c:515: warning: passing argument 1 of 'graphics_icon_path' discards qualifiers from pointer target type
+gui_internal.c: At top level:
+gui_internal.c:2864: warning: no previous prototype for 'gui_internal_compose_item_address_string'
+gui_internal.c: In function 'gui_internal_cmd_position_do':
+gui_internal.c:3699: warning: passing argument 2 of 'gui_internal_button_new_with_callback' discards qualifiers from pointer target type
+gui_internal.c: In function 'gui_internal_set':
+gui_internal.c:5174: warning: implicit declaration of function 'getline'
+gui_internal.c: In function 'find_attr':
+gui_internal.c:5784: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+gui_internal.c: In function 'gui_internal_html_start':
+gui_internal.c:5953: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+gui_internal.c:5970: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+gui_internal.c: In function 'gui_internal_html_end':
+gui_internal.c:6046: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+gui_internal.c: At top level:
+gui_internal.c:1548: warning: 'gui_internal_widget_insert_before' defined but not used
+gui_internal.c:7231: warning: 'gui_internal_widget_table_is_empty' defined but not used
+mv -f .deps/gui_internal.Tpo .deps/gui_internal.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libgui_internal.la -rpath /opt/local/lib/navit/gui gui_internal.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libgui_internal.so -bundle  .libs/gui_internal.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libgui_internal.so || :
+libtool: link: ( cd ".libs" && rm -f "libgui_internal.la" && ln -s "../libgui_internal.la" "libgui_internal.la" )
+Making all in gtk
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -I../../../navit  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14   -DMODULE=gui_gtk -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT datawindow.lo -MD -MP -MF .deps/datawindow.Tpo -c -o datawindow.lo datawindow.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -I../../../navit -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14 -DMODULE=gui_gtk -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT datawindow.lo -MD -MP -MF .deps/datawindow.Tpo -c datawindow.c  -fno-common -DPIC -o .libs/datawindow.o
+In file included from /opt/local/include/gtk-2.0/gtk/gtk.h:234,
+                 from datawindow.c:24:
+/opt/local/include/gtk-2.0/gtk/gtkitemfactory.h:47: warning: function declaration isn't a prototype
+mv -f .deps/datawindow.Tpo .deps/datawindow.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -I../../../navit  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14   -DMODULE=gui_gtk -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT destination.lo -MD -MP -MF .deps/destination.Tpo -c -o destination.lo destination.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -I../../../navit -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14 -DMODULE=gui_gtk -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT destination.lo -MD -MP -MF .deps/destination.Tpo -c destination.c  -fno-common -DPIC -o .libs/destination.o
+In file included from /opt/local/include/gtk-2.0/gtk/gtk.h:234,
+                 from destination.c:24:
+/opt/local/include/gtk-2.0/gtk/gtkitemfactory.h:47: warning: function declaration isn't a prototype
+mv -f .deps/destination.Tpo .deps/destination.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -I../../../navit  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14   -DMODULE=gui_gtk -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_gtk_statusbar.lo -MD -MP -MF .deps/gui_gtk_statusbar.Tpo -c -o gui_gtk_statusbar.lo gui_gtk_statusbar.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -I../../../navit -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14 -DMODULE=gui_gtk -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_gtk_statusbar.lo -MD -MP -MF .deps/gui_gtk_statusbar.Tpo -c gui_gtk_statusbar.c  -fno-common -DPIC -o .libs/gui_gtk_statusbar.o
+In file included from /opt/local/include/gtk-2.0/gtk/gtk.h:234,
+                 from gui_gtk_statusbar.c:24:
+/opt/local/include/gtk-2.0/gtk/gtkitemfactory.h:47: warning: function declaration isn't a prototype
+mv -f .deps/gui_gtk_statusbar.Tpo .deps/gui_gtk_statusbar.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -I../../../navit  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14   -DMODULE=gui_gtk -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_gtk_action.lo -MD -MP -MF .deps/gui_gtk_action.Tpo -c -o gui_gtk_action.lo gui_gtk_action.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -I../../../navit -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14 -DMODULE=gui_gtk -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_gtk_action.lo -MD -MP -MF .deps/gui_gtk_action.Tpo -c gui_gtk_action.c  -fno-common -DPIC -o .libs/gui_gtk_action.o
+In file included from /opt/local/include/gtk-2.0/gtk/gtk.h:234,
+                 from gui_gtk_action.c:21:
+/opt/local/include/gtk-2.0/gtk/gtkitemfactory.h:47: warning: function declaration isn't a prototype
+mv -f .deps/gui_gtk_action.Tpo .deps/gui_gtk_action.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -I../../../navit  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14   -DMODULE=gui_gtk -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_gtk_window.lo -MD -MP -MF .deps/gui_gtk_window.Tpo -c -o gui_gtk_window.lo gui_gtk_window.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -I../../../navit -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14 -DMODULE=gui_gtk -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT gui_gtk_window.lo -MD -MP -MF .deps/gui_gtk_window.Tpo -c gui_gtk_window.c  -fno-common -DPIC -o .libs/gui_gtk_window.o
+In file included from /opt/local/include/gtk-2.0/gtk/gtk.h:234,
+                 from gui_gtk_window.c:29:
+/opt/local/include/gtk-2.0/gtk/gtkitemfactory.h:47: warning: function declaration isn't a prototype
+mv -f .deps/gui_gtk_window.Tpo .deps/gui_gtk_window.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version  -o libgui_gtk.la -rpath /opt/local/lib/navit/gui datawindow.lo destination.lo gui_gtk_statusbar.lo gui_gtk_action.lo gui_gtk_window.lo -L/opt/local/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgdk_pixbuf-2.0 -lpangoft2-1.0 -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lm -lfreetype -lfontconfig -lgobject-2.0 -lglib-2.0 -lintl   -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libgui_gtk.so -bundle  .libs/datawindow.o .libs/destination.o .libs/gui_gtk_statusbar.o .libs/gui_gtk_action.o .libs/gui_gtk_window.o   -L/opt/local/lib /opt/local/lib/libgtk-x11-2.0.dylib /opt/local/lib/libgdk-x11-2.0.dylib /opt/local/lib/libatk-1.0.dylib /opt/local/lib/libpangocairo-1.0.dylib /opt/local/lib/libXinerama.dylib /opt/local/lib/libXi.dylib /opt/local/lib/libXrandr.dylib /opt/local/lib/libXext.dylib /opt/local/lib/libXcursor.dylib /opt/local/lib/libXcomposite.dylib /opt/local/lib/libXdamage.dylib /opt/local/lib/libgdk_pixbuf-2.0.dylib /opt/local/lib/libpangoft2-1.0.dylib /opt/local/lib/libgio-2.0.dylib /opt/local/lib/libXfixes.dylib /opt/local/lib/libcairo.dylib /opt/local/lib/libpixman-1.dylib -lpthread /opt/local/lib/libpng14.dylib /opt/local/lib/libxcb-shm.dylib /opt/local/lib/libX11-xcb.dylib /opt/local/lib/libxcb-render.dylib /opt/local/lib/libXrender.dylib /opt/local/lib/libX11.dylib /opt/local/lib/libxcb.dylib /opt/local/lib/libXau.dylib /opt/local/lib/libXdmcp.dylib /opt/local/lib/libpango-1.0.dylib /opt/local/lib/libgmodule-2.0.dylib /opt/local/lib/libfontconfig.dylib /opt/local/lib/libfreetype.dylib -lz -lbz2 /opt/local/lib/libexpat.dylib /opt/local/lib/libgobject-2.0.dylib /opt/local/lib/libgthread-2.0.dylib /opt/local/lib/libffi.dylib /opt/local/lib/libglib-2.0.dylib -lresolv /opt/local/lib/libintl.dylib /opt/local/lib/libiconv.dylib -lc -lm  -O2   -framework Carbon -framework Foundation -lpthread
+libtool: link: dsymutil .libs/libgui_gtk.so || :
+libtool: link: ( cd ".libs" && rm -f "libgui_gtk.la" && ln -s "../libgui_gtk.la" "libgui_gtk.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in graphics
+Making all in gtk_drawing_area
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14   -I../../.. -I../../../navit -DMODULE=graphics_gtk_drawing_area -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT graphics_gtk_drawing_area.lo -MD -MP -MF .deps/graphics_gtk_drawing_area.Tpo -c -o graphics_gtk_drawing_area.lo graphics_gtk_drawing_area.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/gtk-2.0 -I/opt/local/lib/gtk-2.0/include -I/opt/local/include/atk-1.0 -I/opt/local/include/cairo -I/opt/local/include/gdk-pixbuf-2.0 -I/opt/local/include/pango-1.0 -I/opt/local/include/gio-unix-2.0/ -I/opt/local/include -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include/pixman-1 -I/opt/local/include/freetype2 -I/opt/local/include/libpng14 -I../../.. -I../../../navit -DMODULE=graphics_gtk_drawing_area -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT graphics_gtk_drawing_area.lo -MD -MP -MF .deps/graphics_gtk_drawing_area.Tpo -c graphics_gtk_drawing_area.c  -fno-common -DPIC -o .libs/graphics_gtk_drawing_area.o
+In file included from /opt/local/include/gtk-2.0/gtk/gtk.h:234,
+                 from graphics_gtk_drawing_area.c:25:
+/opt/local/include/gtk-2.0/gtk/gtkitemfactory.h:47: warning: function declaration isn't a prototype
+graphics_gtk_drawing_area.c: In function 'graphics_gtk_drawing_area_new_helper':
+graphics_gtk_drawing_area.c:1209: warning: assignment from incompatible pointer type
+mv -f .deps/graphics_gtk_drawing_area.Tpo .deps/graphics_gtk_drawing_area.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -L/opt/local/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lpangocairo-1.0 -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lgdk_pixbuf-2.0 -lpangoft2-1.0 -lgio-2.0 -lXfixes -lcairo -lX11 -lpango-1.0 -lm -lfreetype -lfontconfig -lgobject-2.0 -lglib-2.0 -lintl    -module -avoid-version  -o libgraphics_gtk_drawing_area.la -rpath /opt/local/lib/navit/graphics graphics_gtk_drawing_area.lo  -lm
+^[[Alibtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libgraphics_gtk_drawing_area.so -bundle  .libs/graphics_gtk_drawing_area.o   -L/opt/local/lib /opt/local/lib/libgtk-x11-2.0.dylib /opt/local/lib/libgdk-x11-2.0.dylib /opt/local/lib/libatk-1.0.dylib /opt/local/lib/libpangocairo-1.0.dylib /opt/local/lib/libXinerama.dylib /opt/local/lib/libXi.dylib /opt/local/lib/libXrandr.dylib /opt/local/lib/libXext.dylib /opt/local/lib/libXcursor.dylib /opt/local/lib/libXcomposite.dylib /opt/local/lib/libXdamage.dylib /opt/local/lib/libgdk_pixbuf-2.0.dylib /opt/local/lib/libpangoft2-1.0.dylib /opt/local/lib/libgio-2.0.dylib /opt/local/lib/libXfixes.dylib /opt/local/lib/libcairo.dylib /opt/local/lib/libpixman-1.dylib -lpthread /opt/local/lib/libpng14.dylib /opt/local/lib/libxcb-shm.dylib /opt/local/lib/libX11-xcb.dylib /opt/local/lib/libxcb-render.dylib /opt/local/lib/libXrender.dylib /opt/local/lib/libX11.dylib /opt/local/lib/libxcb.dylib /opt/local/lib/libXau.dylib /opt/local/lib/libXdmcp.dylib /opt/local/lib/libpango-1.0.dylib /opt/local/lib/libgmodule-2.0.dylib /opt/local/lib/libfontconfig.dylib /opt/local/lib/libfreetype.dylib -lz -lbz2 /opt/local/lib/libexpat.dylib /opt/local/lib/libgobject-2.0.dylib /opt/local/lib/libgthread-2.0.dylib /opt/local/lib/libffi.dylib /opt/local/lib/libglib-2.0.dylib -lresolv /opt/local/lib/libintl.dylib /opt/local/lib/libiconv.dylib -lc -lm  -O2   -framework Carbon -framework Foundation -lpthread
+libtool: link: dsymutil .libs/libgraphics_gtk_drawing_area.so || :
+libtool: link: ( cd ".libs" && rm -f "libgraphics_gtk_drawing_area.la" && ln -s "../libgraphics_gtk_drawing_area.la" "libgraphics_gtk_drawing_area.la" )
+Making all in null
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=graphics_null -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT graphics_null.lo -MD -MP -MF .deps/graphics_null.Tpo -c -o graphics_null.lo graphics_null.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=graphics_null -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT graphics_null.lo -MD -MP -MF .deps/graphics_null.Tpo -c graphics_null.c  -fno-common -DPIC -o .libs/graphics_null.o
+mv -f .deps/graphics_null.Tpo .deps/graphics_null.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libgraphics_null.la -rpath /opt/local/lib/navit/graphics graphics_null.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libgraphics_null.so -bundle  .libs/graphics_null.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libgraphics_null.so || :
+libtool: link: ( cd ".libs" && rm -f "libgraphics_null.la" && ln -s "../libgraphics_null.la" "libgraphics_null.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in osd
+Making all in core
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=osd_core -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT osd_core.lo -MD -MP -MF .deps/osd_core.Tpo -c -o osd_core.lo osd_core.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=osd_core -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT osd_core.lo -MD -MP -MF .deps/osd_core.Tpo -c osd_core.c  -fno-common -DPIC -o .libs/osd_core.o
+mv -f .deps/osd_core.Tpo .deps/osd_core.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libosd_core.la -rpath /opt/local/lib/navit/osd osd_core.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libosd_core.so -bundle  .libs/osd_core.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libosd_core.so || :
+libtool: link: ( cd ".libs" && rm -f "libosd_core.la" && ln -s "../libosd_core.la" "libosd_core.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in plugin
+make[5]: Nothing to be done for `all-am'.
+Making all in speech
+Making all in cmdline
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=speech_cmdline -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT speech_cmdline.lo -MD -MP -MF .deps/speech_cmdline.Tpo -c -o speech_cmdline.lo speech_cmdline.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=speech_cmdline -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT speech_cmdline.lo -MD -MP -MF .deps/speech_cmdline.Tpo -c speech_cmdline.c  -fno-common -DPIC -o .libs/speech_cmdline.o
+speech_cmdline.c: In function 'speech_cmdline_search':
+speech_cmdline.c:71: warning: 'g_strncasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:177)
+mv -f .deps/speech_cmdline.Tpo .deps/speech_cmdline.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libspeech_cmdline.la -rpath /opt/local/lib/navit/speech speech_cmdline.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libspeech_cmdline.so -bundle  .libs/speech_cmdline.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libspeech_cmdline.so || :
+libtool: link: ( cd ".libs" && rm -f "libspeech_cmdline.la" && ln -s "../libspeech_cmdline.la" "libspeech_cmdline.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in vehicle
+Making all in demo
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -DMODULE=vehicle_demo -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT vehicle_demo.lo -MD -MP -MF .deps/vehicle_demo.Tpo -c -o vehicle_demo.lo vehicle_demo.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=vehicle_demo -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT vehicle_demo.lo -MD -MP -MF .deps/vehicle_demo.Tpo -c vehicle_demo.c  -fno-common -DPIC -o .libs/vehicle_demo.o
+mv -f .deps/vehicle_demo.Tpo .deps/vehicle_demo.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libvehicle_demo.la -rpath /opt/local/lib/navit/vehicle vehicle_demo.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libvehicle_demo.so -bundle  .libs/vehicle_demo.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libvehicle_demo.so || :
+libtool: link: ( cd ".libs" && rm -f "libvehicle_demo.la" && ln -s "../libvehicle_demo.la" "libvehicle_demo.la" )
+Making all in file
+/bin/sh ../../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -I/opt/local/include -DMODULE=vehicle_file -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_file_la-vehicle_file.lo -MD -MP -MF .deps/libvehicle_file_la-vehicle_file.Tpo -c -o libvehicle_file_la-vehicle_file.lo `test -f 'vehicle_file.c' || echo './'`vehicle_file.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -I/opt/local/include -DMODULE=vehicle_file -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_file_la-vehicle_file.lo -MD -MP -MF .deps/libvehicle_file_la-vehicle_file.Tpo -c vehicle_file.c  -fno-common -DPIC -o .libs/libvehicle_file_la-vehicle_file.o
+vehicle_file.c: In function 'vehicle_file_parse':
+vehicle_file.c:462: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+vehicle_file.c:470: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+vehicle_file.c: In function 'vehicle_file_destroy':
+vehicle_file.c:761: warning: pointer targets in passing argument 4 of 'file_data_write' differ in signedness
+vehicle_file.c: In function 'vehicle_file_new_file':
+vehicle_file.c:1002: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+vehicle_file.c:1004: warning: 'g_strcasecmp' is deprecated (declared at /opt/local/include/glib-2.0/glib/gstrfuncs.h:173)
+mv -f .deps/libvehicle_file_la-vehicle_file.Tpo .deps/libvehicle_file_la-vehicle_file.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc -DMODULE=vehicle_file -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version    -o libvehicle_file.la -rpath /opt/local/lib/navit/vehicle libvehicle_file_la-vehicle_file.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libvehicle_file.so -bundle  .libs/libvehicle_file_la-vehicle_file.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libvehicle_file.so || :
+libtool: link: ( cd ".libs" && rm -f "libvehicle_file.la" && ln -s "../libvehicle_file.la" "libvehicle_file.la" )
+/bin/sh ../../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -I/opt/local/include -DMODULE=vehicle_pipe -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_pipe_la-vehicle_pipe.lo -MD -MP -MF .deps/libvehicle_pipe_la-vehicle_pipe.Tpo -c -o libvehicle_pipe_la-vehicle_pipe.lo `test -f 'vehicle_pipe.c' || echo './'`vehicle_pipe.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -I/opt/local/include -DMODULE=vehicle_pipe -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_pipe_la-vehicle_pipe.lo -MD -MP -MF .deps/libvehicle_pipe_la-vehicle_pipe.Tpo -c vehicle_pipe.c  -fno-common -DPIC -o .libs/libvehicle_pipe_la-vehicle_pipe.o
+mv -f .deps/libvehicle_pipe_la-vehicle_pipe.Tpo .deps/libvehicle_pipe_la-vehicle_pipe.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc -DMODULE=vehicle_pipe -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libvehicle_pipe.la -rpath /opt/local/lib/navit/vehicle libvehicle_pipe_la-vehicle_pipe.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libvehicle_pipe.so -bundle  .libs/libvehicle_pipe_la-vehicle_pipe.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libvehicle_pipe.so || :
+libtool: link: ( cd ".libs" && rm -f "libvehicle_pipe.la" && ln -s "../libvehicle_pipe.la" "libvehicle_pipe.la" )
+/bin/sh ../../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -I/opt/local/include -DMODULE=vehicle_socket -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_socket_la-vehicle_socket.lo -MD -MP -MF .deps/libvehicle_socket_la-vehicle_socket.Tpo -c -o libvehicle_socket_la-vehicle_socket.lo `test -f 'vehicle_socket.c' || echo './'`vehicle_socket.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -I/opt/local/include -DMODULE=vehicle_socket -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_socket_la-vehicle_socket.lo -MD -MP -MF .deps/libvehicle_socket_la-vehicle_socket.Tpo -c vehicle_socket.c  -fno-common -DPIC -o .libs/libvehicle_socket_la-vehicle_socket.o
+mv -f .deps/libvehicle_socket_la-vehicle_socket.Tpo .deps/libvehicle_socket_la-vehicle_socket.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc -DMODULE=vehicle_socket -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libvehicle_socket.la -rpath /opt/local/lib/navit/vehicle libvehicle_socket_la-vehicle_socket.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libvehicle_socket.so -bundle  .libs/libvehicle_socket_la-vehicle_socket.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libvehicle_socket.so || :
+libtool: link: ( cd ".libs" && rm -f "libvehicle_socket.la" && ln -s "../libvehicle_socket.la" "libvehicle_socket.la" )
+/bin/sh ../../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -I../../../navit -I/opt/local/include -DMODULE=vehicle_serial -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_serial_la-vehicle_serial.lo -MD -MP -MF .deps/libvehicle_serial_la-vehicle_serial.Tpo -c -o libvehicle_serial_la-vehicle_serial.lo `test -f 'vehicle_serial.c' || echo './'`vehicle_serial.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -I/opt/local/include -DMODULE=vehicle_serial -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT libvehicle_serial_la-vehicle_serial.lo -MD -MP -MF .deps/libvehicle_serial_la-vehicle_serial.Tpo -c vehicle_serial.c  -fno-common -DPIC -o .libs/libvehicle_serial_la-vehicle_serial.o
+mv -f .deps/libvehicle_serial_la-vehicle_serial.Tpo .deps/libvehicle_serial_la-vehicle_serial.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc -DMODULE=vehicle_serial -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version   -o libvehicle_serial.la -rpath /opt/local/lib/navit/vehicle libvehicle_serial_la-vehicle_serial.lo  -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libvehicle_serial.so -bundle  .libs/libvehicle_serial_la-vehicle_serial.o   -L/opt/local/lib -lm  -O2  
+libtool: link: dsymutil .libs/libvehicle_serial.so || :
+libtool: link: ( cd ".libs" && rm -f "libvehicle_serial.la" && ln -s "../libvehicle_serial.la" "libvehicle_serial.la" )
+Making all in gpsd
+/bin/sh ../../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..  -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include   -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include    -I../../../navit -DMODULE=vehicle_gpsd -I/opt/local/include  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT vehicle_gpsd.lo -MD -MP -MF .deps/vehicle_gpsd.Tpo -c -o vehicle_gpsd.lo vehicle_gpsd.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -D_REENTRANT -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include -I../../../navit -DMODULE=vehicle_gpsd -I/opt/local/include -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -MT vehicle_gpsd.lo -MD -MP -MF .deps/vehicle_gpsd.Tpo -c vehicle_gpsd.c  -fno-common -DPIC -o .libs/vehicle_gpsd.o
+vehicle_gpsd.c: In function 'vehicle_gpsd_io':
+vehicle_gpsd.c:321: warning: assignment discards qualifiers from pointer target type
+mv -f .deps/vehicle_gpsd.Tpo .deps/vehicle_gpsd.Plo
+/bin/sh ../../../libtool --tag=CC   --mode=link gcc  -g -O2 -I/opt/local/include -L/opt/local/lib -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../../../intl/ -module -avoid-version  -o libvehicle_gpsd.la -rpath /opt/local/lib/navit/vehicle vehicle_gpsd.lo -L/opt/local/lib -lgps    -lm
+libtool: link: gcc -Wl,-undefined -Wl,dynamic_lookup -o .libs/libvehicle_gpsd.so -bundle  .libs/vehicle_gpsd.o   -L/opt/local/lib -lgps -lm  -O2  
+libtool: link: dsymutil .libs/libvehicle_gpsd.so || :
+libtool: link: ( cd ".libs" && rm -f "libvehicle_gpsd.la" && ln -s "../libvehicle_gpsd.la" "libvehicle_gpsd.la" )
+make[5]: Nothing to be done for `all-am'.
+Making all in xpm
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_about.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_actions.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_active.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_bookmark.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_formerdests.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_display.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_help.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_home.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_inactive.png"
+SRCDIR=/Users/jbranden/navit/navit/xpm BUILDDIR=/Users/jbranden/navit/navit/xpm ./navit_svg2png "/usr/local/bin/convert" "gui_map.png"
+convert: unable to open image `62169F0D.png': No such file or directory.
+convert: unable to open file `62169F0D.png'.
+convert: unable to open image `62169F0E.png': No such file or directory.
+convert: unable to open file `62169F0E.png'.
+convert: unable to open image `62169F0F.png': No such file or directory.
+convert: unable to open file `62169F0F.png'.
+convert: unable to open image `62169F10.png': No such file or directory.
+convert: unable to open file `62169F10.png'.
+convert: unable to open image `62169F11.png': No such file or directory.
+convert: unable to open file `62169F11.png'.
+convert: unable to open image `62169F12.png': No such file or directory.
+convert: unable to open file `62169F12.png'.
+convert: unable to open image `62169F13.png': No such file or directory.
+convert: unable to open file `62169F13.png'.
+convert: unable to open image `62169F14.png': No such file or directory.
+convert: unable to open file `62169F14.png'.
+convert: unable to open image `2D44FCEC.png': No such file or directory.
+convert: unable to open file `2D44FCEC.png'.
+convert: unable to open image `2D44FCED.png': No such file or directory.
+convert: unable to open file `2D44FCED.png'.
+convert: unable to open image `2D44FCEE.png': No such file or directory.
+convert: unable to open file `2D44FCEE.png'.
+convert: unable to open image `2D44FCEF.png': No such file or directory.
+convert: unable to open file `2D44FCEF.png'.
+convert: unable to open image `2D44FCF0.png': No such file or directory.
+convert: unable to open file `2D44FCF0.png'.
+convert: unable to open image `2D44FCF1.png': No such file or directory.
+convert: unable to open file `2D44FCF1.png'.
+convert: unable to open image `2D44FCF2.png': No such file or directory.
+convert: unable to open file `2D44FCF2.png'.
+convert: unable to open image `2D44FCF3.png': No such file or directory.
+convert: unable to open file `2D44FCF3.png'.
+convert: unable to open image `2D44FCF4.png': No such file or directory.
+convert: unable to open file `2D44FCF4.png'.
+convert: unable to open image `2D44FCF5.png': No such file or directory.
+convert: unable to open file `2D44FCF5.png'.
+convert: unable to open image `2D44FD11.png': No such file or directory.
+convert: unable to open file `2D44FD11.png'.
+convert: unable to open image `2D44FD12.png': No such file or directory.
+convert: unable to open file `2D44FD12.png'.

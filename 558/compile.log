@@ -1,0 +1,70 @@
+make  all-recursive
+make[1]: Entering directory `/home/thomas/navit_src/navit'
+Making all in intl
+make[2]: Entering directory `/home/thomas/navit_src/navit/intl'
+: -y -d --name-prefix=__gettext --output plural.c plural.y
+rm -f plural.h
+make[2]: Leaving directory `/home/thomas/navit_src/navit/intl'
+Making all in po
+make[2]: Entering directory `/home/thomas/navit_src/navit/po'
+make[2]: Für das Ziel »all« ist nichts zu tun.
+make[2]: Leaving directory `/home/thomas/navit_src/navit/po'
+Making all in navit
+make[2]: Entering directory `/home/thomas/navit_src/navit/navit'
+echo "#include \"config.h\"" >version.h.tmp
+echo "#define SVN_VERSION \"$(LANG=C svnversion 2>/dev/null)\"" >>version.h.tmp
+echo "#define NAVIT_VARIANT \"\"" >>version.h.tmp
+if ! diff version.h.tmp version.h >/dev/null 2>/dev/null; \
+	then \
+		mv version.h.tmp version.h; \
+	fi
+make  all-recursive
+make[3]: Entering directory `/home/thomas/navit_src/navit/navit'
+Making all in fib-1.1
+make[4]: Entering directory `/home/thomas/navit_src/navit/navit/fib-1.1'
+make[4]: Für das Ziel »all« ist nichts zu tun.
+make[4]: Leaving directory `/home/thomas/navit_src/navit/navit/fib-1.1'
+Making all in support
+make[4]: Entering directory `/home/thomas/navit_src/navit/navit/support'
+Making all in ezxml
+make[5]: Entering directory `/home/thomas/navit_src/navit/navit/support/ezxml'
+make[5]: Für das Ziel »all« ist nichts zu tun.
+make[5]: Leaving directory `/home/thomas/navit_src/navit/navit/support/ezxml'
+Making all in glib
+make[5]: Entering directory `/home/thomas/navit_src/navit/navit/support/glib'
+make[5]: Für das Ziel »all« ist nichts zu tun.
+make[5]: Leaving directory `/home/thomas/navit_src/navit/navit/support/glib'
+Making all in wordexp
+make[5]: Entering directory `/home/thomas/navit_src/navit/navit/support/wordexp'
+make[5]: Für das Ziel »all« ist nichts zu tun.
+make[5]: Leaving directory `/home/thomas/navit_src/navit/navit/support/wordexp'
+make[5]: Entering directory `/home/thomas/navit_src/navit/navit/support'
+make[5]: Für das Ziel »all-am« ist nichts zu tun.
+make[5]: Leaving directory `/home/thomas/navit_src/navit/navit/support'
+make[4]: Leaving directory `/home/thomas/navit_src/navit/navit/support'
+Making all in .
+make[4]: Entering directory `/home/thomas/navit_src/navit/navit'
+echo "#include \"config.h\"" >version.h.tmp
+echo "#define SVN_VERSION \"$(LANG=C svnversion 2>/dev/null)\"" >>version.h.tmp
+echo "#define NAVIT_VARIANT \"\"" >>version.h.tmp
+if ! diff version.h.tmp version.h >/dev/null 2>/dev/null; \
+	then \
+		mv version.h.tmp version.h; \
+	fi
+/bin/sh ../libtool --tag=CC   --mode=link arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include  -g -O2 -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE -ffast-math -I../intl/ -avoid-version -module -Xcompiler -nostdlib -no-undefined -Wl,--no-undefined  -o libnavit.la -rpath /usr/local/lib announcement.lo atom.lo attr.lo cache.lo callback.lo command.lo compass.lo config_.lo coord.lo country.lo data_window.lo debug.lo event.lo file.lo graphics.lo gui.lo item.lo layout.lo log.lo main.lo map.lo linguistics.lo mapset.lo maptype.lo menu.lo messages.lo bookmarks.lo navit.lo navigation.lo osd.lo param.lo phrase.lo plugin.lo popup.lo profile.lo projection.lo roadprofile.lo route.lo routech.lo search.lo speech.lo start_real.lo transform.lo track.lo util.lo vehicle.lo vehicleprofile.lo xmlconfig.lo sunriset.lo android.lo  -L../navit/support/glib -lsupport_glib -L../navit/support/ezxml -lsupport_ezxml -ldl ../intl//libintl.a  -L../navit/support/wordexp -lsupport_wordexp -lz ../intl//libintl.a  -Lfib-1.1 -lfib -llog -lm -rdynamic
+
+*** Warning: Linking the shared library libnavit.la against the
+*** static library ../intl//libintl.a is not portable!
+arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include -shared  .libs/announcement.o .libs/atom.o .libs/attr.o .libs/cache.o .libs/callback.o .libs/command.o .libs/compass.o .libs/config_.o .libs/coord.o .libs/country.o .libs/data_window.o .libs/debug.o .libs/event.o .libs/file.o .libs/graphics.o .libs/gui.o .libs/item.o .libs/layout.o .libs/log.o .libs/main.o .libs/map.o .libs/linguistics.o .libs/mapset.o .libs/maptype.o .libs/menu.o .libs/messages.o .libs/bookmarks.o .libs/navit.o .libs/navigation.o .libs/osd.o .libs/param.o .libs/phrase.o .libs/plugin.o .libs/popup.o .libs/profile.o .libs/projection.o .libs/roadprofile.o .libs/route.o .libs/routech.o .libs/search.o .libs/speech.o .libs/start_real.o .libs/transform.o .libs/track.o .libs/util.o .libs/vehicle.o .libs/vehicleprofile.o .libs/xmlconfig.o .libs/sunriset.o .libs/android.o -Wl,--whole-archive /home/thomas/navit_src/navit/navit/support/glib/.libs/libsupport_glib.a /home/thomas/navit_src/navit/navit/support/ezxml/.libs/libsupport_ezxml.a /home/thomas/navit_src/navit/navit/support/wordexp/.libs/libsupport_wordexp.a /home/thomas/navit_src/navit/navit/fib-1.1/.libs/libfib.a -Wl,--no-whole-archive  -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L/home/thomas/navit_src/navit/navit -L/home/thomas/navit_src/navit/navit/support/glib -L/home/thomas/navit_src/navit/navit/support/ezxml -ldl -L/home/thomas/navit_src/navit/navit/support/wordexp -lz ../intl//libintl.a -L/home/thomas/navit_src/navit/navit/fib-1.1 -llog -lm -lc  -nostdlib -Wl,--no-undefined -Wl,-soname -Wl,libnavit.so -o .libs/libnavit.so
+.libs/bookmarks.o: In function `bookmarks_store_bookmarks_to_file':
+/home/thomas/navit_src/navit/navit/bookmarks.c:161: undefined reference to `getline'
+collect2: ld returned 1 exit status
+make[4]: *** [libnavit.la] Fehler 1
+make[4]: Leaving directory `/home/thomas/navit_src/navit/navit'
+make[3]: *** [all-recursive] Fehler 1
+make[3]: Leaving directory `/home/thomas/navit_src/navit/navit'
+make[2]: *** [all] Fehler 2
+make[2]: Leaving directory `/home/thomas/navit_src/navit/navit'
+make[1]: *** [all-recursive] Fehler 1
+make[1]: Leaving directory `/home/thomas/navit_src/navit'
+make: *** [all] Fehler 2

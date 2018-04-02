@@ -1,0 +1,45 @@
+Index: navit/gui/internal/gui_internal.c
+===================================================================
+--- navit/gui/internal/gui_internal.c	(revision 4643)
++++ navit/gui/internal/gui_internal.c	(working copy)
+@@ -2256,7 +2256,40 @@
+ removecase(char *s) 
+ {
+ 	char *r;
++#if HAVE_GLIB
++	gchar *p1,*p2,*pp;	
++	r=g_utf8_normalize(s,-1,G_NORMALIZE_ALL);
++	if(!r) {
++		pp=g_strdup(s);
++		if(!g_utf8_validate(pp,-1,&p1)) {
++			if(p1) {
++				dbg(0,"Invalid utf8 string %s will be cut at byte pos %d\n", p1-pp);
++				*p1=0;
++				r=g_utf8_normalize(s,-1,G_NORMALIZE_ALL);
++			}
++			if(!r) {
++				dbg(0,"Unable to fix broken utf8 string %s\n",s);
++				r=g_strdup("");
++			}
++		}
++		g_free(pp);
++	}
++	for(p1=r,p2=r;*p1;) {
++		gunichar c=g_utf8_get_char(p1);
++		pp=g_utf8_next_char(p1);
++		if(!g_unichar_iszerowidth(c)) {
++			memmove(p2,p1,pp-p1);
++			p2+=pp-p1;
++		}
++		p1=pp;
++	}
++	*p2=0;
++	pp=g_utf8_casefold(r,-1);
++	g_free(r);
++	r=pp;
++#else
+ 	r=g_utf8_casefold(s,-1);
++#endif
+ 	return r;
+ }
+ 

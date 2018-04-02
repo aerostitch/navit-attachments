@@ -1,0 +1,17 @@
+Description: Fix an uninitialized read error reported by valgrind
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/872
+Last-Update: 2011-05-30
+Index: navit/navit/bookmarks.c
+===================================================================
+--- navit.orig/navit/bookmarks.c	2011-05-25 00:27:40.000000000 +0200
++++ navit/navit/bookmarks.c	2011-05-25 00:29:17.000000000 +0200
+@@ -670,7 +670,7 @@
+ 		int offset_pos=0;
+ 		int offset;
+ 		char buffer[4096];
+-		memset(offsets, 0, sizeof(offsets));
++		memset(offsets, 0, sizeof(int)*limit);
+ 		for (;;) {
+ 			offset=ftell(f);
+ 			if (!fgets(buffer, sizeof(buffer), f))

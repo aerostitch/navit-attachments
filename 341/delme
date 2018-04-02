@@ -1,0 +1,74 @@
+Index: navit/route.c
+===================================================================
+--- navit/route.c	(revision 2189)
++++ navit/route.c	(working copy)
+@@ -72,7 +72,7 @@
+ 	struct route *route;
+ };
+ 
+-int debug_route=0;
++int debug_route=1;
+ 
+ /**
+  * @brief A point in the route graph
+@@ -1453,12 +1453,16 @@
+ static int
+ route_value_seg(struct route_preferences *preferences, struct route_graph_point *from, struct route_segment_data *over, int dir)
+ {
++	int res;
+ #if 0
+ 	dbg(0,"flags 0x%x mask 0x%x flags 0x%x\n", over->flags, dir >= 0 ? preferences->flags_forward_mask : preferences->flags_reverse_mask, preferences->flags);
+ #endif
+ 	if ((over->flags & (dir >= 0 ? preferences->flags_forward_mask : preferences->flags_reverse_mask)) != preferences->flags)
+ 		return INT_MAX;
+-	return route_time_seg(preferences, over);
++	res = route_time_seg(preferences, over);
++	if (res < 0)
++		printf("cost is under 0\n");
++	return res;
+ }
+ 
+ /**
+@@ -1587,7 +1591,7 @@
+ {
+ 	struct route_graph_point *p_min;
+ 	struct route_graph_segment *s;
+-	int min,new,old,val;
++	int min = -INT_MAX,new,old,val;
+ 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs */
+ 
+ 	heap = fh_makeheap();   
+@@ -1617,6 +1621,10 @@
+ 		p_min=fh_extractmin(heap); /* Starting Dijkstra by selecting the point with the minimum costs on the heap */
+ 		if (! p_min) /* There are no more points with temporarily calculated costs, Dijkstra has finished */
+ 			break;
++		if (p_min->value < min) {
++			printf("got smaller than minimum, something is wrong here\n");
++			exit(1);
++		}
+ 		min=p_min->value;
+ 		if (debug_route)
+ 			printf("extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min, p_min->el, min, p_min->c.x, p_min->c.y);
+@@ -1626,6 +1634,11 @@
+ 			val=route_value_seg(preferences, p_min, &s->data, -1);
+ 			if (val != INT_MAX) {
+ 				new=min+val;
++				if (new<min) {
++					printf("underflow?\n");
++					exit(1);
++				}
++
+ 				if (debug_route)
+ 					printf("begin %d len %d vs %d (0x%x,0x%x)\n",new,val,s->end->value, s->end->c.x, s->end->c.y);
+ 				if (new < s->end->value) { /* We've found a less costly way to reach the end of s, update it */
+@@ -1654,6 +1667,10 @@
+ 			val=route_value_seg(preferences, p_min, &s->data, 1);
+ 			if (val != INT_MAX) {
+ 				new=min+val;
++				if (new<min) {
++					printf("underflow?\n");
++					exit(1);
++				}
+ 				if (debug_route)
+ 					printf("end %d len %d vs %d (0x%x,0x%x)\n",new,val,s->start->value,s->start->c.x, s->start->c.y);
+ 				if (new < s->start->value) {

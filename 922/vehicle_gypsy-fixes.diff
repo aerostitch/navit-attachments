@@ -1,0 +1,58 @@
+Index: navit/vehicle/gypsy/vehicle_gypsy.c
+===================================================================
+--- navit/vehicle/gypsy/vehicle_gypsy.c	(Revision 4712)
++++ navit/vehicle/gypsy/vehicle_gypsy.c	(Arbeitskopie)
+@@ -47,6 +47,9 @@
+ #include "item.h"
+ #include "vehicle.h"
+ 
++/* knots to km/h */
++#define KNOTS_TO_KMPH (1.852)
++
+ static struct vehicle_priv {
+ 	char *source;
+ 	GypsyControl *control;
+@@ -230,7 +233,7 @@
+ 
+ 	if (fields & GYPSY_COURSE_FIELDS_SPEED)
+ 	{
+-		priv->speed = speed;
++		priv->speed = speed * KNOTS_TO_KMPH; // Gypsy reports speed in knots, convert to km/h
+ 		cb = TRUE;
+ 	}
+ 	if (fields & GYPSY_COURSE_FIELDS_DIRECTION)
+@@ -263,7 +266,7 @@
+ 	priv->control = gypsy_control_get_default(); 
+ 	priv->path = gypsy_control_create(priv->control, source+8, &error); 
+ 	if (priv->path == NULL) { 
+-		g_warning ("Error creating gypsy conrtol path for %s: %s", source+8, error->message); 
++		g_warning ("Error creating gypsy control path for %s: %s", source+8, error->message); 
+ 		return TRUE; 
+ 	}
+ 	
+@@ -322,20 +325,11 @@
+ 	if (priv->path)
+ 		g_free(priv->path);
+ 	
+-	if (priv->position)
+-		g_free(priv->position);
+-	
+-	if (priv->satellite)
+-		g_free(priv->satellite);
+-
+-	if (priv->course)
+-		g_free(priv->course);
+-
+-	if (priv->device)
+-		g_free(priv->device);
+-	
+-	if (priv->control)
+-		g_object_unref(G_OBJECT (priv->control));
++	if (priv->position)  g_object_unref(priv->position);
++	if (priv->satellite) g_object_unref(priv->satellite);
++	if (priv->course)    g_object_unref(priv->course);
++	if (priv->device)    g_object_unref(priv->device);
++	if (priv->control)   g_object_unref(priv->control);
+ }
+ 
+ /**

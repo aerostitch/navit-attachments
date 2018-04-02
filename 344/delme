@@ -1,0 +1,13 @@
+Index: navit/osm2navit.c
+===================================================================
+--- navit/osm2navit.c	(revision 2198)
++++ navit/osm2navit.c	(working copy)
+@@ -2731,7 +2734,7 @@
+ 	char filename[filelen+1];
+ 	int error,crc,len,comp_size=data_size;
+ 	uLongf destlen=data_size+data_size/500+12;
+-	char compbuffer[destlen];
++	char *compbuffer = malloc(destlen);
+ 
+ 	crc=crc32(0, NULL, 0);
+ 	crc=crc32(crc, (unsigned char *)data, data_size);

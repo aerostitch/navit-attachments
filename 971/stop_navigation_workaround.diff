@@ -1,0 +1,28 @@
+Index: bookmarks.c
+===================================================================
+--- bookmarks.c	(revision 4847)
++++ bookmarks.c	(working copy)
+@@ -731,14 +731,15 @@
+ 
+ 	former_destinations = read_former_destination_map_as_list(former_destination_map);
+ 
+- 	new_dest = g_new(struct former_destination, 1);
+- 	new_dest->type = type;
+- 	new_dest->description = g_strdup(description);
+- 	new_dest->c.x = c->x;
+- 	new_dest->c.y = c->y;
+-	former_destinations = remove_destination_from_list(new_dest, former_destinations);
+- 	former_destinations = g_list_append(former_destinations, new_dest);
+-
++	if(c) {
++ 		new_dest = g_new(struct former_destination, 1);
++	 	new_dest->type = type;
++ 		new_dest->description = g_strdup(description);
++	 	new_dest->c.x = c->x;
++ 		new_dest->c.y = c->y;
++		former_destinations = remove_destination_from_list(new_dest, former_destinations);
++ 		former_destinations = g_list_append(former_destinations, new_dest);
++	}
+ 	no_of_former_destinations = g_list_length(former_destinations);
+ 	if (limit > 0 && no_of_former_destinations > limit)
+ 		former_destinations_shortened = g_list_nth(former_destinations, no_of_former_destinations - limit);

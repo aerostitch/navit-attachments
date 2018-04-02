@@ -1,0 +1,3 @@
+mg:0x1df49c 0x602998 type=bookmark label="Start" path="Start"
+mg:0x17bce5 0x620654 type=bookmark label="Bad" path="Bad"
+mg:0x17e3b3 0x6225dd type=bookmark label="Good" path="Good"

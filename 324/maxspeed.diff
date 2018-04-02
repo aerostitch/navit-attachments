@@ -1,0 +1,16 @@
+--- osm2navit.c.2131	2009-03-24 02:15:59.000000000 -0500
++++ osm2navit.c	2009-03-24 02:32:28.000000000 -0500
+@@ -760,7 +760,11 @@
+ 			flags[0] |= AF_ONEWAY | AF_ROUNDABOUT | AF_ROUNDABOUT_VALID;
+ 	}
+ 	if (! strcmp(k,"maxspeed")) {
+-		maxspeed_attr_value = atoi(v);
++		if (strstr(v, "mph")) {
++			maxspeed_attr_value = (int)floor(atof(v) * 1.609344);
++		} else {
++			maxspeed_attr_value = atoi(v);
++		}
+ 		if (maxspeed_attr_value) {
+ 			maxspeed_attr.len = 2;
+ 			flags[0] |= AF_SPEED_LIMIT;
+

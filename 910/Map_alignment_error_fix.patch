@@ -1,0 +1,230 @@
+Index: navit/file.c
+===================================================================
+--- navit/file.c	(revision 4672)
++++ navit/file.c	(working copy)
+@@ -78,20 +78,21 @@
+ 
+ static struct cache *file_cache;
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct file_cache_id {
+ 	long long offset;
+ 	int size;
+ 	int file_name_id;
+ 	int method;
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ #ifdef HAVE_SOCKET
+ static int
+Index: navit/zipfile.h
+===================================================================
+--- navit/zipfile.h	(revision 4672)
++++ navit/zipfile.h	(working copy)
+@@ -18,11 +18,6 @@
+  */
+ 
+ #ifndef __ZIPFILE_H__
+-#ifdef HAVE_API_WIN32_CE
+-/* cegcc doesn't honor the __attribute__(packed) need pragma to work */
+-#pragma pack(push)
+-#pragma pack(1)
+-#endif
+ 
+ #define zip_split_sig 0x08074b50
+ 
+@@ -32,9 +27,10 @@
+ 
+ #define zip_lfh_sig 0x04034b50
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip_lfh {
+ 	int ziplocsig;
+ 	short zipver; 		// 4
+@@ -48,18 +44,19 @@
+ 	unsigned short zipfnln; // 26
+ 	unsigned short zipxtraln; // 30
+ 	char zipname[0]; // 34
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ #define zip_cd_sig 0x02014b50
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip_cd {
+ 	int zipcensig;
+ 	char zipcver;
+@@ -81,31 +78,33 @@
+ 	unsigned int zipext;
+ 	unsigned int zipofst;
+ 	char zipcfn[0];	
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip_cd_ext {
+ 	short tag;
+ 	short size;
+ 	unsigned long long zipofst;
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip_enc {
+ 	short efield_header;
+ 	short efield_size;
+@@ -113,18 +112,19 @@
+ 	char vendor_id1,vendor_id2;
+ 	char encryption_strength;
+ 	short compress_method; 
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ #define zip_eoc_sig 0x6054b50
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip_eoc {
+ 	int zipesig; 		/* end of central dir signature */
+ 	unsigned short zipedsk; /* number of this disk */
+@@ -135,18 +135,19 @@
+ 	unsigned int zipeofst; 	/* offset of start of central directory with respect to the starting disk number */
+ 	short zipecoml; 	/* .ZIP file comment length */
+ 	char zipecom[0];	/* .ZIP file comment */
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ #define zip64_eoc_sig 0x6064b50
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip64_eoc {
+ 	int zip64esig;			/* zip64 end of central dir signature */
+ 	unsigned long long zip64esize;	/* size of zip64 end of central directory record */
+@@ -159,33 +160,31 @@
+ 	unsigned long long zip64ecsz;	/* size of the central directory */
+ 	unsigned long long zip64eofst;	/* offset of start of central directory with respect to the starting disk number */
+ 	char zip64ecom[0];		/* zip64 extensible data sector */
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ #define zip64_eocl_sig 0x07064b50
+ 
+-#ifdef _MSC_VER
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
++/* some compilers like cegcc don't honor the __attribute__(packed), so we need pragma to work */
+ #pragma pack(push,1)
+-#endif /* _MSC_VER */
++#endif
+ struct zip64_eocl {
+ 	int zip64lsig;
+ 	int zip64ldsk;
+ 	long long zip64lofst;
+ 	int zip74lnum;
+-#ifndef _MSC_VER
+-}__attribute__ ((packed));
+-#else /* _MSC_VER */
++#if defined (_MSC_VER) || defined (HAVE_API_WIN32) || defined (HAVE_API_WIN32_CE)
+ };
+ #pragma pack(pop)
+-#endif /* _MSC_VER */
++#else
++}__attribute__ ((packed));
++#endif
+ 
+ #define __ZIPFILE_H__
+-#ifdef __CEGCC__
+-#pragma pack(pop)
+-#endif
+ 
+ #endif

@@ -1,0 +1,140 @@
+10:00:12.021|navit:callback_call:cb->pcount=1
+10:00:12.028|navit:callback_call:cb->p[0]=0x71d90
+10:00:12.037|navit:callback_call:pcount=0
+10:00:12.047|vehicle_file:vehicle_file_io:vehicle_file_io : enter
+10:00:12.055|vehicle_file:vehicle_file_io:size=152 pos=152 buffer='$GPGGA,100014.00,,,,,0,00,5.0,,M,0.491010,M,-14.8540540,0130*48
+$GPRMC,100014.00,V,,,,,,,050611,,,N*7A
+$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:12.062|vehicle_file:vehicle_file_io:line='$GPGGA,100014.00,,,,,0,00,5.0,,M,0.491010,M,-14.8540540,0130*48
+'
+10:00:12.072|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,100014.00,,,,,0,00,5.0,,M,0.491010,M,-14.8540540,0130*48
+'
+10:00:12.082|vehicle_file:vehicle_file_io:line='$GPRMC,100014.00,V,,,,,,,050611,,,N*7A
+'
+10:00:12.091|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,100014.00,V,,,,,,,050611,,,N*7A
+'
+10:00:12.098|vehicle_file:vehicle_file_io:line='$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:12.107|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:12.117|vehicle_file:vehicle_file_io:now pos=0 buffer=''
+10:00:12.125|navit:callback_call:cb->pcount=2
+10:00:12.132|navit:callback_call:cb->p[0]=0x6a4f8
+10:00:12.141|navit:callback_call:pcount=0
+10:00:12.152|navit:tracking_get_attr:enter position_valid
+10:00:12.160|navit:callback_call:cb->pcount=1
+10:00:12.167|navit:callback_call:cb->p[0]=0x6d908
+10:00:12.176|navit:callback_call:pcount=0
+10:00:12.186|navit:callback_call:cb->pcount=2
+10:00:12.195|navit:callback_call:cb->p[0]=0x1820d8
+10:00:12.202|navit:callback_call:pcount=0
+10:00:12.475|navit:cache_entry_destroy:destroy 0xfd2584 0x0 0x483a 0x7d900 0x1
+10:00:12.485|navit:coord_rect_overlap:0xe27f6,0x6317bc - 0xe4e1c,0x62f197 vs 0xffe75bd1,0x7b34ec - 0x2747fe,0xffe75bd1
+10:00:12.493|navit:coord_rect_overlap:0xe27f6,0x6317bc - 0xe4e1c,0x62f197 vs 0xffff63c0,0x9c40 - 0x9c40,0xffff63c0
+10:00:12.501|navit:coord_rect_overlap:0xe27f6,0x6317bc - 0xe4e1c,0x62f197 vs 0xffffd8f0,0x2710 - 0x2710,0xffffd8f0
+10:00:12.510|navit:coord_rect_overlap:0xe27f6,0x6317bc - 0xe4e1c,0x62f197 vs 0xe078f,0x632cfd - 0xf400f,0x61f47d
+10:00:12.521|navit:cache_lookup:get 31038370
+10:00:12.529|navit:cache_lookup:not in cache
+10:00:12.536|navit:cache_insert:insert 0x1d99ba2 0x0 0x3c 0x7d900 0x0
+10:00:12.546|navit:cache_lookup:get 16608702
+10:00:12.556|navit:cache_lookup:not in cache
+10:00:12.565|navit:cache_insert:insert 0xfd6dbe 0x0 0x1e 0x7d900 0x0
+10:00:12.572|navit:cache_lookup:get 16608732
+10:00:12.581|navit:cache_lookup:not in cache
+10:00:12.604|navit:cache_insert:insert 0xfd6ddc 0x0 0xe 0x7d900 0x0
+10:00:12.612|navit:cache_lookup:get 16608746
+10:00:12.619|navit:cache_lookup:not in cache
+10:00:12.630|navit:cache_insert:insert 0xfd6dea 0x0 0x5dd6 0x7d900 0x1
+10:00:12.655|navit:cache_entry_destroy:destroy 0xfd6ddc 0x0 0xe 0x7d900 0x0
+10:00:12.664|navit:cache_entry_destroy:destroy 0xfd6dbe 0x0 0x1e 0x7d900 0x0
+10:00:12.672|navit:cache_entry_destroy:destroy 0x1d99ba2 0x0 0x3c 0x7d900 0x0
+10:00:12.954|navit:callback_call:cb->pcount=2
+10:00:12.964|navit:callback_call:cb->p[0]=0x1820d8
+10:00:12.972|navit:callback_call:pcount=0
+10:00:12.985|navit:cache_entry_destroy:destroy 0xfd6dea 0x0 0x5dd6 0x7d900 0x1
+10:00:12.993|navit:coord_rect_overlap:0xe01d0,0x633de2 - 0xe27f6,0x6317bc vs 0xffe75bd1,0x7b34ec - 0x2747fe,0xffe75bd1
+10:00:13.003|navit:coord_rect_overlap:0xe01d0,0x633de2 - 0xe27f6,0x6317bc vs 0xffff63c0,0x9c40 - 0x9c40,0xffff63c0
+10:00:13.012|navit:coord_rect_overlap:0xe01d0,0x633de2 - 0xe27f6,0x6317bc vs 0xffffd8f0,0x2710 - 0x2710,0xffffd8f0
+10:00:13.019|navit:coord_rect_overlap:0xe01d0,0x633de2 - 0xe27f6,0x6317bc vs 0xe078f,0x632cfd - 0xf400f,0x61f47d
+10:00:13.031|navit:cache_lookup:get 31038430
+10:00:13.042|navit:cache_lookup:not in cache
+10:00:13.051|navit:cache_insert:insert 0x1d99bde 0x0 0x3c 0x7d900 0x0
+10:00:13.060|navit:cache_lookup:get 16632768
+10:00:13.072|navit:cache_lookup:not in cache
+10:00:13.081|navit:cache_insert:insert 0xfdcbc0 0x0 0x1e 0x7d900 0x0
+10:00:13.090|navit:cache_lookup:get 16632798
+10:00:13.097|navit:cache_lookup:not in cache
+10:00:13.108|navit:cache_insert:insert 0xfdcbde 0x0 0xe 0x7d900 0x0
+10:00:13.117|navit:cache_lookup:get 16632812
+10:00:13.124|navit:cache_lookup:not in cache
+10:00:13.135|navit:cache_insert:insert 0xfdcbec 0x0 0x4574 0x7d900 0x1
+10:00:13.163|navit:cache_entry_destroy:destroy 0xfdcbde 0x0 0xe 0x7d900 0x0
+10:00:13.177|navit:cache_entry_destroy:destroy 0xfdcbc0 0x0 0x1e 0x7d900 0x0
+10:00:13.195|navit:cache_entry_destroy:destroy 0x1d99bde 0x0 0x3c 0x7d900 0x0
+10:00:13.520|navit:cache_entry_destroy:destroy 0xfdcbec 0x0 0x4574 0x7d900 0x1
+10:00:13.536|navit:coord_rect_overlap:0xe27f6,0x633de2 - 0xe4e1c,0x6317bc vs 0xffe75bd1,0x7b34ec - 0x2747fe,0xffe75bd1
+10:00:13.555|navit:coord_rect_overlap:0xe27f6,0x633de2 - 0xe4e1c,0x6317bc vs 0xffff63c0,0x9c40 - 0x9c40,0xffff63c0
+10:00:13.562|navit:coord_rect_overlap:0xe27f6,0x633de2 - 0xe4e1c,0x6317bc vs 0xffffd8f0,0x2710 - 0x2710,0xffffd8f0
+10:00:13.570|navit:coord_rect_overlap:0xe27f6,0x633de2 - 0xe4e1c,0x6317bc vs 0xe078f,0x632cfd - 0xf400f,0x61f47d
+10:00:13.580|navit:cache_lookup:get 31038490
+10:00:13.604|navit:cache_lookup:not in cache
+10:00:13.618|navit:cache_insert:insert 0x1d99c1a 0x0 0x3c 0x7d900 0x0
+10:00:13.655|navit:cache_lookup:get 16650592
+10:00:13.666|navit:cache_lookup:not in cache
+10:00:13.676|navit:cache_insert:insert 0xfe1160 0x0 0x1e 0x7d900 0x0
+10:00:13.687|navit:cache_lookup:get 16650622
+10:00:13.698|navit:cache_lookup:not in cache
+10:00:13.708|navit:cache_insert:insert 0xfe117e 0x0 0xe 0x7d900 0x0
+10:00:13.717|navit:cache_lookup:get 16650636
+10:00:13.727|navit:cache_lookup:not in cache
+10:00:13.752|navit:cache_insert:insert 0xfe118c 0x0 0x57e4 0x7d900 0x1
+10:00:14.014|navit:cache_entry_destroy:destroy 0xfe117e 0x0 0xe 0x7d900 0x0
+10:00:14.023|navit:cache_entry_destroy:destroy 0xfe1160 0x0 0x1e 0x7d900 0x0
+10:00:14.045|navit:cache_entry_destroy:destroy 0x1d99c1a 0x0 0x3c 0x7d900 0x0
+10:00:15.547|navit:callback_call:cb->pcount=1
+10:00:15.560|navit:callback_call:cb->p[0]=0x71d90
+10:00:15.572|navit:callback_call:pcount=0
+10:00:15.588|vehicle_file:vehicle_file_io:vehicle_file_io : enter
+10:00:15.597|vehicle_file:vehicle_file_io:size=304 pos=304 buffer='$GPGGA,100016.00,,,,,0,00,5.0,,M,0.491015,M,-14.8540540,0130*4F
+$GPRMC,100016.00,V,,,,,,,050611,,,N*78
+$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+$GPGGA,100018.00,,,,,0,00,5.0,,M,0.491019,M,-14.8540540,0130*4D
+$GPRMC,100018.00,V,,,,,,,050611,,,N*76
+$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:15.604|vehicle_file:vehicle_file_io:line='$GPGGA,100016.00,,,,,0,00,5.0,,M,0.491015,M,-14.8540540,0130*4F
+'
+10:00:15.613|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,100016.00,,,,,0,00,5.0,,M,0.491015,M,-14.8540540,0130*4F
+'
+10:00:15.657|vehicle_file:vehicle_file_io:line='$GPRMC,100016.00,V,,,,,,,050611,,,N*78
+'
+10:00:15.666|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,100016.00,V,,,,,,,050611,,,N*78
+'
+10:00:15.675|vehicle_file:vehicle_file_io:line='$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:15.684|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:15.694|vehicle_file:vehicle_file_io:line='$GPGGA,100018.00,,,,,0,00,5.0,,M,0.491019,M,-14.8540540,0130*4D
+'
+10:00:15.703|vehicle_file:vehicle_file_parse:enter: buffer='$GPGGA,100018.00,,,,,0,00,5.0,,M,0.491019,M,-14.8540540,0130*4D
+'
+10:00:15.710|vehicle_file:vehicle_file_io:line='$GPRMC,100018.00,V,,,,,,,050611,,,N*76
+'
+10:00:15.719|vehicle_file:vehicle_file_parse:enter: buffer='$GPRMC,100018.00,V,,,,,,,050611,,,N*76
+'
+10:00:15.729|vehicle_file:vehicle_file_io:line='$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:15.737|vehicle_file:vehicle_file_parse:enter: buffer='$GPGSA,A,1,02,05,26,,,,,,,,,,11.2,5.0,10.0*35
+'
+10:00:15.744|vehicle_file:vehicle_file_io:now pos=0 buffer=''
+10:00:15.753|navit:callback_call:cb->pcount=2
+10:00:15.762|navit:callback_call:cb->p[0]=0x6a4f8
+10:00:15.771|navit:callback_call:pcount=0
+10:00:16.046|navit:tracking_get_attr:enter position_valid
+10:00:16.064|navit:callback_call:cb->pcount=1
+10:00:16.082|navit:callback_call:cb->p[0]=0x6d908
+10:00:16.118|navit:callback_call:pcount=0
+10:00:16.492|navit:callback_call:cb->pcount=1
+10:00:16.504|navit:callback_call:cb->p[0]=0x6d908
+10:00:16.519|navit:callback_call:pcount=0

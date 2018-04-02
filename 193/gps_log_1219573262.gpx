@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx
+ version="1.0"
+creator="GPSBabel - http://www.gpsbabel.org"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.topografix.com/GPX/1/0"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<time>2008-08-24T12:51:06Z</time>
+<bounds minlat="52.914000000" minlon="6.400000000" maxlat="52.917000000" maxlon="6.612801667"/>
+<trk>
+<trkseg>
+<trkpt lat="52.915018333" lon="6.412456667">
+  <ele>70.500000</ele>
+<time>2008-08-24T10:25:29.884Z</time>
+  <course>296.540009</course>
+  <speed>15.666667</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915078333" lon="6.412250000">
+  <ele>70.700000</ele>
+<time>2008-08-24T10:25:30.884Z</time>
+  <course>295.140015</course>
+  <speed>14.972222</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915136667" lon="6.412045000">
+  <ele>71.100000</ele>
+<time>2008-08-24T10:25:31.884Z</time>
+  <course>294.589996</course>
+  <speed>15.138889</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915196667" lon="6.411841667">
+  <ele>71.500000</ele>
+<time>2008-08-24T10:25:32.884Z</time>
+  <course>297.059998</course>
+  <speed>15.027778</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915258333" lon="6.411640000">
+  <ele>71.900000</ele>
+<time>2008-08-24T10:25:33.884Z</time>
+  <course>295.899994</course>
+  <speed>15.222222</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+  <vdop>7.600000</vdop>
+  <pdop>8.200000</pdop>
+</trkpt>
+<trkpt lat="52.915318333" lon="6.411431667">
+  <ele>72.500000</ele>
+<time>2008-08-24T10:25:34.884Z</time>
+  <course>293.429993</course>
+  <speed>15.333333</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915375000" lon="6.411223333">
+  <ele>72.800000</ele>
+<time>2008-08-24T10:25:35.884Z</time>
+  <course>295.100006</course>
+  <speed>15.083333</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915435000" lon="6.411021667">
+  <ele>73.200000</ele>
+<time>2008-08-24T10:25:36.884Z</time>
+  <course>296.309998</course>
+  <speed>14.916667</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915496667" lon="6.410820000">
+  <ele>73.600000</ele>
+<time>2008-08-24T10:25:37.884Z</time>
+  <course>296.739990</course>
+  <speed>14.972222</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915558333" lon="6.410618333">
+  <ele>73.900000</ele>
+<time>2008-08-24T10:25:38.884Z</time>
+  <course>296.929993</course>
+  <speed>15.138889</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+  <vdop>7.600000</vdop>
+  <pdop>8.200000</pdop>
+</trkpt>
+<trkpt lat="52.915616667" lon="6.410420000">
+  <ele>74.100000</ele>
+<time>2008-08-24T10:25:39.884Z</time>
+  <course>294.709991</course>
+  <speed>14.555555</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915671667" lon="6.410225000">
+  <ele>74.200000</ele>
+<time>2008-08-24T10:25:40.884Z</time>
+  <course>296.109985</course>
+  <speed>14.055555</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915728333" lon="6.410048333">
+  <ele>74.400000</ele>
+<time>2008-08-24T10:25:41.884Z</time>
+  <course>298.549988</course>
+  <speed>12.583333</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915781667" lon="6.409895000">
+  <ele>74.700000</ele>
+<time>2008-08-24T10:25:42.884Z</time>
+  <course>299.519989</course>
+  <speed>11.361111</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915830000" lon="6.409756667">
+  <ele>74.900000</ele>
+<time>2008-08-24T10:25:43.884Z</time>
+  <course>299.940002</course>
+  <speed>10.416667</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+  <vdop>7.600000</vdop>
+  <pdop>8.200000</pdop>
+</trkpt>
+<trkpt lat="52.915876667" lon="6.409641667">
+  <ele>75.200000</ele>
+<time>2008-08-24T10:25:44.884Z</time>
+  <course>305.820007</course>
+  <speed>8.472222</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915926667" lon="6.409558333">
+  <ele>75.300000</ele>
+<time>2008-08-24T10:25:45.884Z</time>
+  <course>318.890015</course>
+  <speed>7.555555</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.915986667" lon="6.409496667">
+  <ele>75.600000</ele>
+<time>2008-08-24T10:25:46.884Z</time>
+  <course>327.339996</course>
+  <speed>7.722222</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916046667" lon="6.409438333">
+  <ele>75.700000</ele>
+<time>2008-08-24T10:25:47.884Z</time>
+  <course>323.269989</course>
+  <speed>7.583333</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916108333" lon="6.409381667">
+  <ele>75.900000</ele>
+<time>2008-08-24T10:25:48.884Z</time>
+  <course>317.839996</course>
+  <speed>7.166667</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+  <vdop>7.600000</vdop>
+  <pdop>8.200000</pdop>
+</trkpt>
+<trkpt lat="52.916160000" lon="6.409323333">
+  <ele>76.300000</ele>
+<time>2008-08-24T10:25:49.884Z</time>
+  <course>310.299988</course>
+  <speed>6.388889</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916201667" lon="6.409270000">
+  <ele>76.800000</ele>
+<time>2008-08-24T10:25:50.884Z</time>
+  <course>309.010010</course>
+  <speed>5.250000</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916231667" lon="6.409230000">
+  <ele>77.100000</ele>
+<time>2008-08-24T10:25:51.884Z</time>
+  <course>304.170013</course>
+  <speed>3.888889</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916256667" lon="6.409198333">
+  <ele>77.300000</ele>
+<time>2008-08-24T10:25:52.884Z</time>
+  <course>311.829987</course>
+  <speed>3.500000</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916285000" lon="6.409173333">
+  <ele>77.100000</ele>
+<time>2008-08-24T10:25:53.884Z</time>
+  <course>330.790009</course>
+  <speed>3.861111</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+  <vdop>7.600000</vdop>
+  <pdop>8.200000</pdop>
+</trkpt>
+<trkpt lat="52.916320000" lon="6.409166667">
+  <ele>76.500000</ele>
+<time>2008-08-24T10:25:54.884Z</time>
+  <course>353.109985</course>
+  <speed>4.166667</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916361667" lon="6.409188333">
+  <ele>75.900000</ele>
+<time>2008-08-24T10:25:55.884Z</time>
+  <course>21.360001</course>
+  <speed>5.000000</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916413333" lon="6.409248333">
+  <ele>75.400000</ele>
+<time>2008-08-24T10:25:56.884Z</time>
+  <course>33.840000</course>
+  <speed>6.972222</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916475000" lon="6.409325000">
+  <ele>74.700000</ele>
+<time>2008-08-24T10:25:57.884Z</time>
+  <course>29.990000</course>
+  <speed>8.250000</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916548333" lon="6.409413333">
+  <ele>74.200000</ele>
+<time>2008-08-24T10:25:58.883Z</time>
+  <course>35.540001</course>
+  <speed>9.555555</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+  <vdop>7.600000</vdop>
+  <pdop>8.200000</pdop>
+</trkpt>
+<trkpt lat="52.916628333" lon="6.409513333">
+  <ele>73.700000</ele>
+<time>2008-08-24T10:25:59.883Z</time>
+  <course>33.599998</course>
+  <speed>10.583333</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916716667" lon="6.409620000">
+  <ele>73.200000</ele>
+<time>2008-08-24T10:26:00.883Z</time>
+  <course>33.740002</course>
+  <speed>11.694445</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916813333" lon="6.409726667">
+  <ele>72.800000</ele>
+<time>2008-08-24T10:26:01.883Z</time>
+  <course>33.480000</course>
+  <speed>12.750000</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+<trkpt lat="52.916918333" lon="6.409841667">
+  <ele>72.200000</ele>
+<time>2008-08-24T10:26:02.883Z</time>
+  <course>33.380001</course>
+  <speed>13.666667</speed>
+  <fix>3d</fix>
+  <sat>5</sat>
+  <hdop>3.100000</hdop>
+</trkpt>
+</trkseg>
+</trk>
+</gpx>

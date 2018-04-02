@@ -1,0 +1,47 @@
+Index: navit/android/src/org/navitproject/navit/Navit.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/Navit.java	(revision 5655)
++++ navit/android/src/org/navitproject/navit/Navit.java	(working copy)
+@@ -623,6 +623,15 @@
+ 		// code review
+ 		NavitDestroy();
+ 	}
++	
++	@Override
++	public boolean onSearchRequested() {
++		/* Launch the internal Search Activity */
++        Intent search_intent = new Intent(this, NavitAddressSearchActivity.class);
++        this.startActivityForResult(search_intent, NavitAddressSearch_id);
++        
++		return true;
++	}
+ 
+ 	public void disableSuspend()
+ 	{
+Index: navit/android/src/org/navitproject/navit/NavitGraphics.java
+===================================================================
+--- navit/android/src/org/navitproject/navit/NavitGraphics.java	(revision 5655)
++++ navit/android/src/org/navitproject/navit/NavitGraphics.java	(working copy)
+@@ -439,6 +439,10 @@
+ 				}
+ 				else if (keyCode == android.view.KeyEvent.KEYCODE_SEARCH)
+ 				{
++					/* Handle event in Main Activity if map is shown */
++					if(in_map)
++						return false;
++					
+ 					s = java.lang.String.valueOf((char) 19);
+ 				}
+ 				else if (keyCode == android.view.KeyEvent.KEYCODE_BACK)
+@@ -561,6 +565,11 @@
+ 						return handled;
+ 					}
+ 				}
++				else if (keyCode == android.view.KeyEvent.KEYCODE_SEARCH) {
++					/* Handle event in Main Activity if map is shown */
++					if(in_map)
++						return false;
++				}
+ 				else if (keyCode == android.view.KeyEvent.KEYCODE_BACK)
+ 				{
+ 					if (Navit.show_soft_keyboard_now_showing)

@@ -1,0 +1,11 @@
+Index: Makefile.am
+===================================================================
+--- Makefile.am	(revision 2260)
++++ Makefile.am	(working copy)
+@@ -1,5 +1,5 @@
+ include $(top_srcdir)/Makefile.inc
+-AM_CPPFLAGS = @NAVIT_CFLAGS@ -I$(top_srcdir)/navit -DMODULE=graphics_win32
++AM_CPPFLAGS = @NAVIT_CFLAGS@ -I$(top_srcdir)/navit -I$(top_srcdir)/navit/gui/win32 -DMODULE=graphics_win32
+ if PLUGINS
+ modulegraphics_LTLIBRARIES = libgraphics_win32.la
+ else

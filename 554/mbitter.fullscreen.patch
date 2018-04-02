@@ -1,0 +1,87 @@
+Index: navit/graphics/win32/graphics_win32.c
+===================================================================
+--- navit/graphics/win32/graphics_win32.c	(Revision 3733)
++++ navit/graphics/win32/graphics_win32.c	(Arbeitskopie)
+@@ -20,6 +20,10 @@
+ #include "profile.h"
+ #include "keys.h"
+ 
++#ifdef HAVE_API_WIN32_CE
++#include <aygshell.h>
++#endif
++
+ //#define FAST_TRANSPARENCY 1
+ 
+ typedef BOOL (WINAPI *FP_AlphaBlend) ( HDC hdcDest,
+@@ -529,34 +523,34 @@
+ {
+ 
+ #ifdef HAVE_API_WIN32_CE
+-    HWND hwndTaskbar = FindWindow(L"HHTaskBar", NULL);
+-    HWND hwndSip = FindWindow(L"MS_SIPBUTTON", NULL);
+-	if (on) {
+-        ShowWindow(hwndTaskbar, SW_HIDE);
+-        MoveWindow(g_hwnd, 0, 0, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), FALSE);
+-	
+-	// deactivate the SIP button
+-	ShowWindow(hwndSip, SW_HIDE);
+-	
+-	} else {
+-        ShowWindow(hwndTaskbar, SW_SHOW);
+-        RECT taskbar_rect;
+-        GetWindowRect(  hwndTaskbar, &taskbar_rect);
+-        MoveWindow(g_hwnd, 0, taskbar_rect.bottom, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN) - taskbar_rect.bottom, FALSE);
+-    
+-	// activate the SIP button
+-	ShowWindow(hwndSip, SW_SHOW);
++    // From the MSDN example at http://msdn.microsoft.com/en-us/library/aa930139.aspx
++    DWORD dwState;
++    RECT rc;
++  
++    if (on) {
++      // To switch to full screen mode, first hide all of the shell parts.
++      dwState = (SHFS_HIDETASKBAR | SHFS_HIDESTARTICON | SHFS_HIDESIPBUTTON);
++      SHFullScreen(g_hwnd, dwState);
++      // Next resize the main window to the size of the screen.
++      SetRect(&rc, 0, 0, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
++      MoveWindow(g_hwnd, rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top, TRUE);
++    } else {
++      // To switch to normal mode, first show all of the shell parts.
++      dwState = (SHFS_SHOWTASKBAR | SHFS_SHOWSTARTICON | SHFS_SHOWSIPBUTTON);
++      SHFullScreen(g_hwnd, dwState);
++      // Next resize the main window to the size of the work area.
++      SystemParametersInfo(SPI_GETWORKAREA, 0, &rc, FALSE);
++      MoveWindow(g_hwnd, rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top, TRUE);
+     }
+ 
+ #else
+-	if (on) {
+-        ShowWindow(g_hwnd, SW_MAXIMIZE);
+-	} else {
+-        ShowWindow(g_hwnd, SW_RESTORE);
++    if (on) {
++      ShowWindow(g_hwnd, SW_MAXIMIZE);
++    } else {
++      ShowWindow(g_hwnd, SW_RESTORE);
+     }
+ 
+ #endif
+-
+     return 0;
+ }
+ 
+ 
+ static GList *timers;
+Index: navit/Makefile.am
+===================================================================
+--- navit/Makefile.am	(Revision 3733)
++++ navit/Makefile.am	(Arbeitskopie)
+@@ -126,7 +126,7 @@
+ if SUPPORT_WIN32
+   navit_LDADD += resource.rsc
+ if SUPPORT_WIN32CE
+-  navit_LDADD += -lcommctrl -Lsupport/libc
++  navit_LDADD += -lcommctrl -laygshell -Lsupport/libc
+ else
+   navit_LDADD += -lgdi32 -lcomctl32 -lwinmm
+ endif

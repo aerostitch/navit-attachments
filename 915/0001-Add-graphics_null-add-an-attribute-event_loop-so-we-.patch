@@ -1,0 +1,74 @@
+From b850d276c356d899006e07d9af6b568351ecae93 Mon Sep 17 00:00:00 2001
+From: woglinde <heinold@inf.fu-berlin.de>
+Date: Fri, 12 Aug 2011 11:42:50 +0200
+Subject: [PATCH] Add:graphics_null: add an attribute event_loop, so we can
+ choose if the null graphics can have events, usefull if you
+ want run navit as a routing-enginge with dbus and no
+ graphics
+
+---
+ navit/navit/attr_def.h                    |    1 +
+ navit/navit/graphics/null/graphics_null.c |   15 +++++++++++++--
+ navit/navit/navit.dtd                     |    1 +
+ 3 files changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/navit/navit/attr_def.h b/navit/navit/attr_def.h
+index 600bdd9..19cae39 100644
+--- a/navit/navit/attr_def.h
++++ b/navit/navit/attr_def.h
+@@ -232,6 +232,7 @@ ATTR(readwrite)
+ ATTR(cache)
+ ATTR(create)
+ ATTR(persistent)
++ATTR(event_loop)
+ ATTR2(0x0002ffff,type_int_end)
+ ATTR2(0x00030000,type_string_begin)
+ ATTR(type)
+diff --git a/navit/navit/graphics/null/graphics_null.c b/navit/navit/graphics/null/graphics_null.c
+index f69530b..5c1a2cd 100644
+--- a/navit/navit/graphics/null/graphics_null.c
++++ b/navit/navit/graphics/null/graphics_null.c
+@@ -22,6 +22,7 @@
+ #ifdef HAVE_UNISTD_H
+ #include <unistd.h>
+ #endif
++#include "item.h"
+ #include "point.h"
+ #include "graphics.h"
+ #include "color.h"
+@@ -230,8 +231,18 @@ static struct graphics_priv *
+ graphics_null_new(struct navit *nav, struct graphics_methods *meth, struct attr **attrs, struct callback_list *cbl)
+ {
+ 	*meth=graphics_methods;
+-	if (!event_request_system("null","graphics_null"))
+-		return NULL;
++	struct attr *event_loop = NULL;
++
++        event_loop = attr_search(attrs, NULL, attr_event_loop);
++
++	if ((event_loop != NULL) && (event_loop->u.num == 1)) {
++		if (!event_request_system("glib", "graphics_null"))
++			return NULL;
++	} else {
++		if (!event_request_system("null", "graphics_null"))
++                        return NULL;
++	}
++
+ 	return &graphics_priv;
+ }
+ 
+diff --git a/navit/navit/navit.dtd b/navit/navit/navit.dtd
+index 33b6e3c..5d9c144 100644
+--- a/navit/navit/navit.dtd
++++ b/navit/navit/navit.dtd
+@@ -33,6 +33,7 @@
+ <!ATTLIST gui enabled CDATA #IMPLIED>
+ <!ELEMENT graphics EMPTY>
+ <!ATTLIST graphics type CDATA #REQUIRED>
++<!ATTLIST graphics event_loop CDATA #IMPLIED>
+ <!ELEMENT vehicle (log*)>
+ <!ATTLIST vehicle name CDATA #REQUIRED>
+ <!ATTLIST vehicle source CDATA #REQUIRED>
+-- 
+1.7.5.4
+

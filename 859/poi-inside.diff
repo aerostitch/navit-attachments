@@ -1,0 +1,88 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revision 4597)
++++ navit/maptool/osm.c	(working copy)
+@@ -2136,12 +2136,20 @@
+ 	struct item_bin *ib;
+ 	while ((ib=read_item(in))) {
+ 		if(ib->clen>2 && ib->type<type_line) {
+-			struct coord *c=(struct coord *)(ib+1);
+-			if(ib->clen/2>2) {
+-				if(!geom_poly_centroid(c, ib->clen/2, c)) {
++			struct coord *c=(struct coord *)(ib+1), c1, c2;
++			int count=ib->clen/2;
++			if(count>2) {
++				if(!geom_poly_centroid(c, count, &c1)) {
+ 					// we have poly with zero area
+ 					// Falling back to coordinates of its first vertex...
+ 					osm_warning("way",item_bin_get_wayid(ib),0,"Broken polygon, area is 0\n");
++				} else {
++					if(geom_poly_point_inside(c, count, &c1)) {
++						c[0]=c1;
++					} else {
++						geom_poly_closest_point(c, count, &c1, &c2);
++						c[0]=c2;
++					}
+ 				}
+ 			} else if (ib->clen/2==2) {
+ 				osm_warning("way",item_bin_get_wayid(ib),0, "Expected polygon, but only two points defined\n");
+Index: navit/maptool/maptool.h
+===================================================================
+--- navit/maptool/maptool.h	(revision 4597)
++++ navit/maptool/maptool.h	(working copy)
+@@ -145,6 +145,7 @@
+ void geom_coord_revert(struct coord *c, int count);
+ long long geom_poly_area(struct coord *c, int count);
+ int geom_poly_centroid(struct coord *c, int count, struct coord *r);
++int geom_poly_point_inside(struct coord *cp, int count, struct coord *c);
+ int geom_poly_closest_point(struct coord *pl, int count, struct coord *p, struct coord *c);
+ GList *geom_poly_segments_insert(GList *list, struct geom_poly_segment *first, struct geom_poly_segment *second, struct geom_poly_segment *third);
+ void geom_poly_segment_destroy(struct geom_poly_segment *seg);
+Index: navit/maptool/geom.c
+===================================================================
+--- navit/maptool/geom.c	(revision 4597)
++++ navit/maptool/geom.c	(working copy)
+@@ -148,7 +148,29 @@
+ 	return vertex;
+ }
+ 
++/**
++  * Check if point is inside polgone.
++  * @param in *cp array of polygon vertex coordinates
++  * @param in count count of polygon vertexes
++  * @param in *c point coordinates 
++  * @returns 1 - inside, 0 - outside
++  */
++int
++geom_poly_point_inside(struct coord *cp, int count, struct coord *c)
++{
++	int ret=0;
++	struct coord *last=cp+count-1;
++	while (cp < last) {
++		if ((cp[0].y > c->y) != (cp[1].y > c->y) &&
++			c->x < (cp[1].x-cp[0].x)*(c->y-cp[0].y)/(cp[1].y-cp[0].y)+cp[0].x)
++			ret=!ret;
++		cp++;
++	}
++	return ret;
++}
+ 
++
++
+ GList *
+ geom_poly_segments_insert(GList *list, struct geom_poly_segment *first, struct geom_poly_segment *second, struct geom_poly_segment *third)
+ {
+@@ -294,12 +316,7 @@
+ 	while (in) {
+ 		struct geom_poly_segment *seg=in->data;
+ 		cp=seg->first;
+-		while (cp < seg->last) {
+-			if ((cp[0].y > c->y) != (cp[1].y > c->y) &&
+-				c->x < (cp[1].x-cp[0].x)*(c->y-cp[0].y)/(cp[1].y-cp[0].y)+cp[0].x)
+-				ret=!ret;
+-			cp++;
+-		}
++		ret^=geom_poly_point_inside(seg->first, seg->last-seg->first+1, c);
+ 		in=g_list_next(in);
+ 	}
+ 	return ret;

@@ -1,0 +1,27 @@
+Index: graphics_null.c
+===================================================================
+--- graphics_null.c	(revision 2448)
++++ graphics_null.c	(working copy)
+@@ -27,6 +27,10 @@
+ #include "event.h"
+ #include "debug.h"
+ 
++#ifdef _WIN32
++#include <windows.h>
++#endif
++
+ static int dummy;
+ static struct graphics_priv {
+ 	int dummy;
+@@ -235,7 +239,11 @@
+ 
+         dbg(0,"enter\n");
+ 	for (;;)
++#ifdef _WIN32
++		Sleep(1);
++#else
+ 		sleep(1);
++#endif
+ 
+ }
+ 

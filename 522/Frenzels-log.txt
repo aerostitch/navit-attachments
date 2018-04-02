@@ -1,0 +1,65 @@
+
+I/ActivityManager(   59): Starting activity: Intent { action=android.intent.action.MAIN categories={android.intent.category.LAUNCHER} flags=0x10200000 comp={org.navitproject.navit/org.navitproject.navit.Navit} }
+I/ActivityManager(   59): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=821 uid=10057 gids={3003}
+I/dalvikvm(  821): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/WindowManager(   59): Screen status=true, current orientation=-1, SensorEnabled=false
+I/WindowManager(   59): needSensorRunningLp, mCurrentAppOrientation =-1
+D/AK8973  (   41): Compass Start
+D/Sensors (   59): open_akm, fd=122
+D/Sensors (   59): sensors=00000001, real=00000001
+D/dalvikvm(   36): GC freed 275 objects / 10368 bytes in 194ms
+D/Sensors (   59): using /dev/input/event4 (name=compass)
+D/Sensors (   59): data__data_open: fd = 127
+I/WindowManager(   59): Enabling listeners
+I/dalvikvm(  821): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=48)
+D/dalvikvm(   36): GC freed 52 objects / 2240 bytes in 191ms
+D/dalvikvm(   36): GC freed 2 objects / 48 bytes in 143ms
+D/dalvikvm(  821): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4354add0
+D/dalvikvm(  821): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4354add0
+D/dalvikvm(  821): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x4354add0
+E/Navit   (  821): Country NL
+E/Navit   (  821): Language nl
+E/Navit   (  821): Res Name nl
+E/Navit   (  821): result /data/data/org.navitproject.navit/local
+E/nl/LC_MESSAGES/navit.mo
+E/Navit   (  821): Res ID 2130903064
+E/Navit   (  821): Checking /data
+E/Navit   (  821): Checking /data/data
+E/Navit   (  821): Checking /data/data/org.navitproject.navit
+E/Navit   (  821): Checking /data/data/org.navitproject.navit/locale
+E/Navit   (  821): Checking /data/data/org.navitproject.navit/local
+E/nl
+E/Navit   (  821): Checking /data/data/org.navitproject.navit/local
+E/nl/LC_MESSAGES
+E/Navit   (  821): Res Name navit
+E/Navit   (  821): result /data/data/org.navitproject.navit/shar
+E/navit.xml
+E/Navit   (  821): Res ID 2130903061
+E/Navit   (  821): Checking /data
+E/Navit   (  821): Checking /data/data
+E/Navit   (  821): Checking /data/data/org.navitproject.navit
+E/Navit   (  821): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm(  821): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm(  821): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    (  821): called
+E/navit   (  821): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c8 thiz=0x43596558 activity=0x43596558 lang=nl_NL
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgraphics_android.so') returned 33
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libvehicle_android.so') returned 33
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libspeech_android.so') returned 33
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libgui_internal.so') returned 33
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_textfile.so') returned 33
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libmap_binfile.so') returned 33
+E/navit   (  821): navit:file_wordexp_new:wordexp('$NAVIT_PREFIX/lib/libosd_core.so') returned 33
+E/navit   (  821): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot find library'
+E/navit   (  821): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot find library'
+E/navit   (  821): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot find library'
+E/navit   (  821): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot find library'
+E/navit   (  821): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot find library'
+E/navit   (  821): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot find library'
+I/ActivityManager(   59): Process org.navitproject.navit (pid 821) has died.
+I/WindowManager(   59): Screen status=true, current orientation=1, SensorEnabled=true
+I/WindowManager(   59): needSensorRunningLp, mCurrentAppOrientation =1
+I/WindowManager(   59): needSensorRunningLp, SCREEN_ORIENTATION_PORTRAIT
+D/Sensors (   59): close_akm, fd=122
+D/Sensors (   59): sensors=00000000, real=00000000
+D/Zygote  (   36): Process 821 exited cleanly (1)

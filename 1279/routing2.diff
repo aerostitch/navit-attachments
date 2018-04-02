@@ -1,0 +1,445 @@
+Index: route.c
+===================================================================
+--- route.c	(revision 6011)
++++ route.c	(working copy)
+@@ -311,6 +311,7 @@
+ static void route_path_update(struct route *this, int cancel, int async);
+ static int route_time_seg(struct vehicleprofile *profile, struct route_segment_data *over, struct route_traffic_distortion *dist);
+ static void route_graph_flood(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb);
++static void route_graph_flood_frugal(struct route_graph *this, struct route_info *dst, struct route_info *pos, struct vehicleprofile *profile, struct callback *cb);
+ static void route_graph_reset(struct route_graph *this);
+ 
+ 
+@@ -807,7 +808,8 @@
+ 			this->link_path=1;
+ 			this->current_dst=prev_dst;
+ 			route_graph_reset(this->graph);
+-			route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb);
++/*			route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, this->route_graph_flood_done_cb); */
++			route_graph_flood_frugal(this->graph, this->current_dst, this->pos, this->vehicleprofile, this->route_graph_flood_done_cb);
+ 			return;
+ 		}
+ 		if (!new_graph && this->path2->updated)
+@@ -1331,7 +1333,8 @@
+ 		this->reached_destinations_count++;
+ 		route_graph_reset(this->graph);
+ 		this->current_dst = this->destinations->data;
+-		route_graph_flood(this->graph, this->current_dst, this->vehicleprofile,	this->route_graph_flood_done_cb);
++/*		route_graph_flood(this->graph, this->current_dst, this->vehicleprofile,	this->route_graph_flood_done_cb); */
++		route_graph_flood_frugal(this->graph, this->current_dst, this->pos, this->vehicleprofile,	this->route_graph_flood_done_cb);
+ 	}
+ }
+ 
+@@ -1916,7 +1919,10 @@
+  * @brief Returns the estimated speed on a segment
+  *
+  * This function returns the estimated speed to be driven on a segment, 0=not passable
++ * Uses route_weight, roundabout_weight and link_weight from the roadprofile in navit.xml to
++ * modify the speed or OSM maxspeed
+  *
++ *
+  * @param profile The routing preferences
+  * @param over The segment which is passed
+  * @param dist A traffic distortion if applicable
+@@ -1927,23 +1933,48 @@
+ {
+ 	struct roadprofile *roadprofile=vehicleprofile_get_roadprofile(profile, over->item.type);
+ 	int speed,maxspeed;
+-	if (!roadprofile || !roadprofile->route_weight)
+-		return 0;
+-	/* maxspeed_handling: 0=always, 1 only if maxspeed restricts the speed, 2 never */
+-	speed=roadprofile->route_weight;
+-	if (profile->maxspeed_handling != 2) {
+-		if (over->flags & AF_SPEED_LIMIT) {
++	int route_averaging = 100;
++	if (!roadprofile || !roadprofile->speed)
++			return 0;
++	/* maxspeed_handling: 0=always, 1 only if maxspeed restricts the speed,
++	 *  2 never
++	 *  */
++
++
++	if (roadprofile->route_weight)
++		route_averaging =roadprofile->route_weight;
++
++	if ((over->flags & AF_ROUNDABOUT) && roadprofile->roundabout_weight)
++		route_averaging = (route_averaging * roadprofile->roundabout_weight)/100;
++	else
++		if ((over->flags & AF_LINK) && roadprofile->link_weight)
++			{
++			route_averaging = (route_averaging * roadprofile->link_weight)/100;
++		/*	dbg (0,"link weight=%i\n",roadprofile->link_weight); */
++			}
++	speed=(roadprofile->speed * route_averaging)/100 ;
++	if (profile->maxspeed_handling != 2)
++	{
++		if (over->flags & AF_SPEED_LIMIT)
++		{
+ 			maxspeed=RSD_MAXSPEED(over);
+-			if (!profile->maxspeed_handling)
+-				speed=maxspeed;
+-		} else
++			if (!profile->maxspeed_handling) /*always handle maxspeed*/
++				maxspeed=(maxspeed * route_averaging)/100 ;
++		}
++		else
+ 			maxspeed=INT_MAX;
++
+ 		if (dist && maxspeed > dist->maxspeed)
+ 			maxspeed=dist->maxspeed;
+-		if (maxspeed != INT_MAX && (profile->maxspeed_handling != 1 || maxspeed < speed))
++
++		/*below handling 0=always or 1=restricting */
++		if (maxspeed != INT_MAX && (profile->maxspeed_handling == 0 || maxspeed < speed))
+ 			speed=maxspeed;
+ 	}
+-	if (over->flags & AF_DANGEROUS_GOODS) {
++	else /* handling=2, don't use maxspeed*/
++		speed=(roadprofile->speed * route_averaging)/100 ;
++	if (over->flags & AF_DANGEROUS_GOODS)
++	{
+ 		if (profile->dangerous_goods & RSD_DANGEROUS_GOODS(over))
+ 			return 0;
+ 	}
+@@ -2049,7 +2080,10 @@
+ 		route_get_traffic_distortion(over, &dist) && dir != 2 && dir != -2) {
+ 			distp=&dist;
+ 	}
+-	ret=route_time_seg(profile, &over->data, distp);
++	if (profile->mode != 3)/*not new shortest*/
++		ret=route_time_seg(profile, &over->data, distp);
++	else ret = over->data.len; /*new shortest mode*/
++
+ 	if (ret == INT_MAX)
+ 		return ret;
+ 	if (!route_through_traffic_allowed(profile, over) && from && route_through_traffic_allowed(profile, from->seg)) 
+@@ -2327,8 +2361,166 @@
+  * 
+  * This function uses Dijkstra's algorithm to do the routing. To understand it you should have a look
+  * at this algorithm.
++ *
++ * This version uses the cost of an already found path as upper limit for further exploration
++ *
++ *
++ *
+  */
+ static void
++route_graph_flood_frugal(struct route_graph *this, struct route_info *dst, struct route_info *pos, struct vehicleprofile *profile, struct callback *cb)
++{
++	struct route_graph_point *p_min;
++	struct route_graph_segment *s=NULL;
++	struct route_graph_segment *pos_segment=NULL;
++	int min,new,val;
++	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs */
++	int edges_count=0;
++	int max_cost= INT_MAX;
++
++	dbg(0,"starting route_graph_flood_frugal\n");
++
++	pos_segment=route_graph_get_segment(this, pos->street, pos_segment);
++
++	heap = fh_makekeyheap();
++
++	while ((s=route_graph_get_segment(this, dst->street, s)))
++	{
++		val=route_value_seg(profile, NULL, s, -1);
++		if (val != INT_MAX)
++		{
++			val=val*(100-dst->percent)/100;
++			s->end->seg=s;
++			s->end->value=val;
++			s->end->el=fh_insertkey(heap, s->end->value, s->end);
++		}
++		val=route_value_seg(profile, NULL, s, 1);
++		if (val != INT_MAX)
++		{
++			val=val*dst->percent/100;
++			s->start->seg=s;
++			s->start->value=val;
++			s->start->el=fh_insertkey(heap, s->start->value, s->start);
++		}
++	}
++	for (;;)
++	{
++		p_min=fh_extractmin(heap); /* Starting Dijkstra by selecting the point with the minimum costs on the heap */
++		if (! p_min) /* There are no more points with temporarily calculated costs, Dijkstra has finished */
++			break;
++		min=p_min->value;
++		dbg(lvl_debug,"extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min, p_min->el, min, p_min->c.x, p_min->c.y);
++		p_min->el=NULL; /* This point is permanently calculated now, we've taken it out of the heap */
++		s=p_min->start;
++		while (s)
++		{ /* Iterating all the segments leading away from our point to update the points at their ends */
++			edges_count ++;
++			val=route_value_seg(profile, p_min, s, -1);
++			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item))
++			{
++				if (profile->turn_around_penalty2)
++					val+=profile->turn_around_penalty2;
++				else
++					val=INT_MAX;
++			}
++			if (val != INT_MAX)
++			{
++				new=min+val;
++				if (new <= max_cost) /*check if it is worth exploring */
++				{
++					dbg(lvl_debug,"begin %d len %d vs %d (0x%x,0x%x)\n",new,val,s->end->value, s->end->c.x, s->end->c.y);
++					if (new < s->end->value)
++					{ /* We've found a less costly way to reach the end of s, update it */
++						s->end->value=new;
++						s->end->seg=s;
++						if (! s->end->el)
++						{
++							dbg(lvl_debug,"insert_end p=%p el=%p val=%d ", s->end, s->end->el, s->end->value);
++							s->end->el=fh_insertkey(heap, new, s->end);
++						}
++						else
++						{
++							dbg(lvl_debug,"replace_end p=%p el=%p val=%d\n", s->end, s->end->el, s->end->value);
++							fh_replacekey(heap, s->end->el, new);
++						}
++					}
++					if (item_is_equal(pos_segment->data.item,s->data.item))
++					{
++						max_cost=new;
++						dbg(lvl_debug,"new shortest path cost = %i\n",new)
++					}
++				}
++
++			}
++			s=s->start_next;
++		}
++
++
++		s=p_min->end;
++		while (s)
++		{ /* Doing the same as above with the segments leading towards our point */
++			edges_count ++;
++			val=route_value_seg(profile, p_min, s, 1);
++			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item))
++			{
++				if (profile->turn_around_penalty2)
++					val+=profile->turn_around_penalty2;
++				else
++					val=INT_MAX;
++			}
++			if (val != INT_MAX)
++			{
++				new=min+val;
++				if (new <= max_cost)
++				{
++					dbg(lvl_debug,"end %d len %d vs %d (0x%x,0x%x)\n",new,val,s->start->value,s->start->c.x, s->start->c.y);
++					if (new < s->start->value)
++					{
++						s->start->value=new;
++						s->start->seg=s;
++						if (! s->start->el)
++						{
++							dbg(lvl_debug,"insert_start p=%p el=%p val=%d ", s->start, s->start->el, s->start->value);
++							s->start->el=fh_insertkey(heap, new, s->start);
++						}
++						else
++						{
++							dbg(lvl_debug,"replace_start p=%p el=%p val=%d\n", s->start, s->start->el, s->start->value);
++							fh_replacekey(heap, s->start->el, new);
++						}
++					}
++					if (item_is_equal(pos_segment->data.item,s->data.item))
++					{
++						max_cost=new;
++						dbg(lvl_debug,"new shortest path cost = %i\n",new)
++					}
++				}
++			}
++			s=s->end_next;
++		}
++	}
++	dbg(lvl_debug,"number of edges visited =%i\n",edges_count);
++	fh_deleteheap(heap);
++	callback_call_0(cb);
++	dbg(lvl_debug,"return\n");
++}
++
++
++/**
++ * @brief Calculates the routing costs for each point
++ *
++ * This function is the heart of routing. It assigns each point in the route graph a
++ * cost at which one can reach the destination from this point on. Additionally it assigns
++ * each point a segment one should follow from this point on to reach the destination at the
++ * stated costs.
++ *
++ * This function uses Dijkstra's algorithm to do the routing. To understand it you should have a look
++ * at this algorithm.
++ *
++ * This version calculates everything, even if the cost is higher than and already found path
++ *
++ */
++static void
+ route_graph_flood(struct route_graph *this, struct route_info *dst, struct vehicleprofile *profile, struct callback *cb)
+ {
+ 	struct route_graph_point *p_min;
+@@ -2335,12 +2527,16 @@
+ 	struct route_graph_segment *s=NULL;
+ 	int min,new,val;
+ 	struct fibheap *heap; /* This heap will hold all points with "temporarily" calculated costs */
++	int edges_count=0;
+ 
+ 	heap = fh_makekeyheap();   
+ 
+-	while ((s=route_graph_get_segment(this, dst->street, s))) {
++	while ((s=route_graph_get_segment(this, dst->street, s)))
++	{
++
+ 		val=route_value_seg(profile, NULL, s, -1);
+-		if (val != INT_MAX) {
++		if (val != INT_MAX)
++		{
+ 			val=val*(100-dst->percent)/100;
+ 			s->end->seg=s;
+ 			s->end->value=val;
+@@ -2347,7 +2543,8 @@
+ 			s->end->el=fh_insertkey(heap, s->end->value, s->end);
+ 		}
+ 		val=route_value_seg(profile, NULL, s, 1);
+-		if (val != INT_MAX) {
++		if (val != INT_MAX)
++		{
+ 			val=val*dst->percent/100;
+ 			s->start->seg=s;
+ 			s->start->value=val;
+@@ -2363,15 +2560,19 @@
+ 			printf("extract p=%p free el=%p min=%d, 0x%x, 0x%x\n", p_min, p_min->el, min, p_min->c.x, p_min->c.y);
+ 		p_min->el=NULL; /* This point is permanently calculated now, we've taken it out of the heap */
+ 		s=p_min->start;
+-		while (s) { /* Iterating all the segments leading away from our point to update the points at their ends */
++		while (s)
++		{ /* Iterating all the segments leading away from our point to update the points at their ends */
++			edges_count ++;
+ 			val=route_value_seg(profile, p_min, s, -1);
+-			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
++			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item))
++			{
+ 				if (profile->turn_around_penalty2)
+ 					val+=profile->turn_around_penalty2;
+ 				else
+ 					val=INT_MAX;
+ 			}
+-			if (val != INT_MAX) {
++			if (val != INT_MAX)
++			{
+ 				new=min+val;
+ 				if (debug_route)
+ 					printf("begin %d len %d vs %d (0x%x,0x%x)\n",new,val,s->end->value, s->end->c.x, s->end->c.y);
+@@ -2378,7 +2579,8 @@
+ 				if (new < s->end->value) { /* We've found a less costly way to reach the end of s, update it */
+ 					s->end->value=new;
+ 					s->end->seg=s;
+-					if (! s->end->el) {
++					if (! s->end->el)
++					{
+ 						if (debug_route)
+ 							printf("insert_end p=%p el=%p val=%d ", s->end, s->end->el, s->end->value);
+ 						s->end->el=fh_insertkey(heap, new, s->end);
+@@ -2385,7 +2587,8 @@
+ 						if (debug_route)
+ 							printf("el new=%p\n", s->end->el);
+ 					}
+-					else {
++					else
++					{
+ 						if (debug_route)
+ 							printf("replace_end p=%p el=%p val=%d\n", s->end, s->end->el, s->end->value);
+ 						fh_replacekey(heap, s->end->el, new);
+@@ -2396,8 +2599,10 @@
+ 			}
+ 			s=s->start_next;
+ 		}
++
+ 		s=p_min->end;
+ 		while (s) { /* Doing the same as above with the segments leading towards our point */
++			edges_count ++;
+ 			val=route_value_seg(profile, p_min, s, 1);
+ 			if (val != INT_MAX && item_is_equal(s->data.item,p_min->seg->data.item)) {
+ 				if (profile->turn_around_penalty2)
+@@ -2431,6 +2636,7 @@
+ 			s=s->end_next;
+ 		}
+ 	}
++	dbg(0,"number of edges visited =%i\n",edges_count);
+ 	fh_deleteheap(heap);
+ 	callback_call_0(cb);
+ 	dbg(lvl_debug,"return\n");
+@@ -2550,6 +2756,7 @@
+ 
+ 	if (profile->mode == 2 || (profile->mode == 0 && pos->lenextra + dst->lenextra > transform_distance(map_projection(pos->street->item.map), &pos->c, &dst->c)))
+ 		return route_path_new_offroad(this, pos, dst);
++	if (profile->mode != 3) /*not shortest on-road*/{
+ 	while ((s=route_graph_get_segment(this, pos->street, s))) {
+ 		val=route_value_seg(profile, NULL, s, 2);
+ 		if (val != INT_MAX && s->end->value != INT_MAX) {
+@@ -2580,6 +2787,43 @@
+ 			}
+ 		}
+ 	}
++	}
++	else /*experimental shortest route*/
++	{
++		dbg(lvl_debug,"experimental shortest route calc\n")
++		while ((s=route_graph_get_segment(this, pos->street, s)))
++		{
++			val = s->data.len;
++			if (val != INT_MAX && s->end->value != INT_MAX)
++			{
++				val=val*(100-pos->percent)/100;
++				dbg(lvl_debug,"val1 %d\n",val);
++				val1_new=s->end->value+val;
++				dbg(lvl_debug,"val1 +%d=%d\n",s->end->value,val1_new);
++				if (val1_new < val1)
++				{
++					val1=val1_new;
++					s1=s;
++				}
++			}
++			dbg(lvl_debug,"val=%i\n",val);
++			val = s->data.len;
++			if (val != INT_MAX && s->start->value != INT_MAX)
++			{
++				val=val*pos->percent/100;
++				dbg(lvl_debug,"val2 %d\n",val);
++				val2_new=s->start->value+val;
++				dbg(lvl_debug,"val2 +%d=%d\n",s->start->value,val2_new);
++				if (val2_new < val2)
++				{
++					val2=val2_new;
++					s2=s;
++				}
++			}
++		}
++	}
++
++
+ 	if (val1 == INT_MAX && val2 == INT_MAX) {
+ 		dbg(lvl_error,"no route found, pos blocked\n");
+ 		return NULL;
+@@ -2605,7 +2849,8 @@
+ 			this->avoid_seg=s;
+ 			route_graph_set_traffic_distortion(this, this->avoid_seg, profile->turn_around_penalty);
+ 			route_graph_reset(this);
+-			route_graph_flood(this, dst, profile, NULL);
++	/*		route_graph_flood(this, dst, profile, NULL);*/
++			route_graph_flood_frugal(this, dst, pos, profile, NULL);
+ 			return route_path_new(this, oldpath, pos, dst, profile);
+ 		}
+ 	}
+@@ -2900,7 +3145,8 @@
+ static void
+ route_graph_update_done(struct route *this, struct callback *cb)
+ {
+-	route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, cb);
++/*	route_graph_flood(this->graph, this->current_dst, this->vehicleprofile, cb); */
++	route_graph_flood_frugal(this->graph, this->current_dst, this->pos, this->vehicleprofile, cb);
+ }
+ 
+ /**

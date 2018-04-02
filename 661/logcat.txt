@@ -1,0 +1,850 @@
+D/dalvikvm( 2177): GC freed 2706 objects / 270656 bytes in 99ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm(  156): GC freed 343 objects / 16912 bytes in 114ms
+D/dalvikvm(  595): GC freed 378 objects / 41784 bytes in 97ms
+D/dalvikvm(  218): GC freed 2500 objects / 136424 bytes in 112ms
+D/dalvikvm( 2177): GC freed 1750 objects / 175112 bytes in 120ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm(  218): GC freed 161 objects / 6344 bytes in 108ms
+D/dalvikvm( 2177): GC freed 2921 objects / 294120 bytes in 101ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm( 2177): GC freed 1741 objects / 157520 bytes in 97ms
+D/dalvikvm(   78): GC freed 54206 objects / 2562432 bytes in 289ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm(  218): GC freed 174 objects / 6984 bytes in 257ms
+D/dalvikvm( 2177): GC freed 1520 objects / 147616 bytes in 98ms
+D/dalvikvm(  595): GC freed 301 objects / 39208 bytes in 77ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm(  218): GC freed 230 objects / 8624 bytes in 109ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm( 2177): GC freed 2710 objects / 267872 bytes in 113ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm( 2177): GC freed 1639 objects / 152056 bytes in 109ms
+D/dalvikvm(  218): GC freed 161 objects / 6448 bytes in 110ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm( 2177): GC freed 1520 objects / 147712 bytes in 107ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm( 2177): GC freed 1520 objects / 147784 bytes in 98ms
+D/dalvikvm(  595): GC freed 301 objects / 39192 bytes in 87ms
+D/dalvikvm(  218): GC freed 161 objects / 6360 bytes in 109ms
+D/DragLayer(  167): touch event action ACTION_DOWN
+D/DragLayer(  167): touch event action ACTION_UP
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=2319288 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 91 msecs, 30 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+W/Rosie   (  167): mAddHtcWidgetByOtherActivity = false, mIsOpenSlideWhenLeaveLaunch = false
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 4->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/DragLayer(  167): touch event action ACTION_DOWN
+D/DragLayer(  167): touch event action ACTION_UP
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit bnds=[243,138][317,217] }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=9077 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 91 msecs, 31 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/ActivityManager(   78): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=2306 uid=10049 gids={1006, 3003, 1015}
+I/dalvikvm( 2306): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+D/Sensors (   78): open_akm, fd=141
+D/AK8973  (   62): Compass Start
+I/dalvikvm( 2306): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=48)
+D/dalvikvm( 2306): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x445382c0
+D/dalvikvm( 2306): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x445382c0
+D/dalvikvm( 2306): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x445382c0
+E/Navit   ( 2306): Country DE
+E/Navit   ( 2306): Language de
+E/Navit   ( 2306): Res Name de
+E/Navit   ( 2306): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 2306): Res ID 2130903047
+E/Navit   ( 2306): Checking /data
+E/Navit   ( 2306): Checking /data/data
+E/Navit   ( 2306): Checking /data/data/org.navitproject.navit
+E/Navit   ( 2306): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 2306): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 2306): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 2306): Res Name navit
+E/Navit   ( 2306): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 2306): Res ID 2130903069
+E/Navit   ( 2306): Checking /data
+E/Navit   ( 2306): Checking /data/data
+E/Navit   ( 2306): Checking /data/data/org.navitproject.navit
+E/Navit   ( 2306): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'NavitMain' (wrong CL)
+E/test    ( 2306): called
+E/navit   ( 2306): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xaa98 thiz=0x44590040 activity=0x44590040 lang=de_DE
+E/navit   ( 2306): graphics_android:plugin_init:enter
+E/navit   ( 2306): vehicle_android:plugin_init:enter
+E/navit   ( 2306): graphics_android:event_android_new:enter
+E/navit   ( 2306): graphics_android:event_android_new:ok
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/NavitGraphics( 2306): FocusChange true
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x445969d8
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x4459a160
+E/navit   ( 2306): graphics_android:graphics_android_new:returning 0x2a04d8
+E/navit   ( 2306): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 2306): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 2306): vehicle_android:vehicle_android_init:at 4 android_activity=0x44590040
+D/LocationManager( 2306): Constructor: service = android.location.ILocationManager$Stub$Proxy@4459a990
+D/LocationManager( 2306): getAllProviders
+E/NavitVehicle( 2306): Providers [network, gps]
+E/NavitVehicle( 2306): Provider gps
+W/GpsLocationProvider(   78): Duplicate add listener for org.navitproject.navit
+D/GpsLocationProvider(   78): setMinTime 0
+D/GpsLocationProvider(   78): startNavigating
+D/libgps  (   78): qct_gps_set_qos_time_out(standalone = 2, agps = 89)
+D/libgps  (   78): qct_gps_set_position_mode = 1, fix_frequency = 1
+D/libgps  (   78): qct_gps_start
+E/navit   ( 2306): vehicle_android:vehicle_android_init:result=0x4459a488
+E/navit   ( 2306): vehicle_android:vehicle_android_new_android:return
+D/libgps  (   78): report status : 1
+D/GpsLocationProvider(   78): Acquiring wakelock
+I/ActivityManager(   78): Launch activity, postpone broadcast intents
+E/navit   ( 2306): speech_android:speech_android_init:at 3
+E/navit   ( 2306): speech_android:speech_android_init:at 4 android_activity=0x44590040
+D/libgps  (   78): report status : 3
+D/libgps  (   78): calling sAGpsStatusCallback GPS_REQUEST_AGPS_DATA_CONN
+D/ConnectivityService(   78): startUsingNetworkFeature for net 0: enableSUPL
+D/ConnectivityService(   78): Disconnect in 60000ms
+D/ConnectivityService(   78): reconnecting to special network
+D/ConnectivityService(   78): issue reconnect to special network:3
+D/GpsLocationProvider(   78): mConnMgr.startUsingNetworkFeature result: 1
+I/logger  (  625): gps status change event 1
+D/DataConnectionTracker(  159): enableApnType(supl), isApnTypeActive = true and state = CONNECTED
+D/DataConnectionTracker(  159): setEnabled(2, true) with old state = false and enabledCount = 1
+D/ConnectivityService(   78): ConnectivityChange for MOBILE_SUPL: CONNECTED/CONNECTED
+D/ConnectivityService(   78): handleConnect() networkinfo=NetworkInfo: type: MOBILE_SUPL[EDGE], state: CONNECTED/CONNECTED, reason: apnChanged, extra: internet.t-mobile, roaming: false, failover: false, isAvailable: true, isFailover=false
+V/NetworkStateTracker(   78): Setting TCP values: [4093,26280,35040,4096,16384,35040] which comes from [net.tcp.buffersize.edge]
+D/ConnectivityService(   78): adding dns 193.254.160.1 for MOBILE
+D/ConnectivityService(   78): adding dns 10.74.83.22 for MOBILE
+D/NetworkStateTracker(   78): addPrivateDnsRoutes for Mobile data state: CONNECTED(rmnet0) - mPrivateDnsRouteSet = true
+D/ConnectivityService(   78): ConnectivityChange for MOBILE_SUPL: CONNECTED/CONNECTED
+D/ConnectivityService(   78): handleConnect() networkinfo=NetworkInfo: type: MOBILE_SUPL[EDGE], state: CONNECTED/CONNECTED, reason: apnChanged, extra: internet.t-mobile, roaming: false, failover: false, isAvailable: true, isFailover=false
+V/NetworkStateTracker(   78): Setting TCP values: [4093,26280,35040,4096,16384,35040] which comes from [net.tcp.buffersize.edge]
+D/ConnectivityService(   78): adding dns 193.254.160.1 for MOBILE
+D/ConnectivityService(   78): adding dns 10.74.83.22 for MOBILE
+D/NetworkStateTracker(   78): addPrivateDnsRoutes for Mobile data state: CONNECTED(rmnet0) - mPrivateDnsRouteSet = true
+D/dalvikvm( 2306): GC freed 3061 objects / 202424 bytes in 256ms
+E/navit   ( 2306): speech_android:speech_android_init:result=0x445a0238
+E/navit   ( 2306): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+E/NavitSpeech( 2306): In Demnaechst der Strasse folgen
+V/TtsService( 1619): TtsService.onCreate()
+E/TTS is loading( 1619): /data/data/com.google.tts/lib/libttspico.so
+I/AudioPolicyService(   56): startOutput(): before lock
+V/SynthProxy( 1619): AudioTrack started
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->2
+E/navit   ( 2306): navit:main_real:Using '/sdcard/navit.xml'
+E/navit   ( 2306): graphics_android:event_android_main_loop_run:enter
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'NavitActivity' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitActivity' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'NavitActivity' (wrong CL)
+E/navit   ( 2306): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 3
+E/Navit   ( 2306): OnStart
+E/navit   ( 2306): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 2
+E/Navit   ( 2306): OnResume
+E/navit   ( 2306): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter 1
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+V/TtsService( 1619): TtsService.setLanguage(deu, DEU, )
+D/dalvikvm( 2306): GC freed 1339 objects / 76136 bytes in 132ms
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'SizeChangedCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'SizeChangedCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'SizeChangedCallback' (wrong CL)
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_SizeChangedCallback:enter 0x2a5f68 320 430
+E/navit   ( 2306): graphics_android:resize_callback:w=320 h=430 ok
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x4453c0d0
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44584938
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3c2b00
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44538ee0
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44584818
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3c6f28
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x445370b0
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x445846f8
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3c7370
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44532e10
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x445845d0
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3cb978
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44532e70
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x445843b0
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3cc860
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44532ed0
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44584290
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3cce40
+E/navit   ( 2306): graphics_android:graphics_android_init:at 2 jnienv=0xaa98
+E/navit   ( 2306): graphics_android:graphics_android_init:at 3
+E/navit   ( 2306): graphics_android:graphics_android_init:at 4 android_activity=0x44590040
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44532f30
+E/navit   ( 2306): graphics_android:graphics_android_init:result=0x44583e50
+E/navit   ( 2306): graphics_android:overlay_new:returning 0x3cd348
+I/logger  (  625): gps status change event 4
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/ActivityManager(   78): Process com.google.android.apps.maps:LocationFriendService (pid 2177) has died.
+I/SVOX Pico Engine( 1619): loaded de-DE successfully
+I/SynthProxy( 1619): setting speech rate to 140
+I/ActivityManager(   78): Process de.mdiener.rain (pid 146) has died.
+E/navit   ( 2306): graphics_android:image_new:Failed to open res/drawable/fish.xpm
+E/navit   ( 2306): navit:displayitem_draw:failed to load icon 'res/drawable/fish.xpm'
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'TimeoutCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'TimeoutCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'TimeoutCallback' (wrong CL)
+I/ActivityManager(   78): Displayed activity org.navitproject.navit/.Navit: 6955 ms (total 6955 ms)
+D/libgps  (   78): qct_agps_data_conn_open: internet.t-mobile
+D/libgps  (   78): DeferredActionThread calling send_pdsm_atl_post_event PDSM_ATL_EVENT_OPEN_SUCCESS internet.t-mobile
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+E/NavitGraphics( 2306): onKeyDown 4 0
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'KeypressCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'KeypressCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'KeypressCallback' (wrong CL)
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_KeypressCallback:enter 0x2a5fb0 0x4453efa8
+D/JBtlAg  (  159): setIndicatorValue: exiting
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_KeypressCallback:key=
+E/navit   ( 2306): graphics_android:keypress_callback:enter 
+D/libgps  (   78): PDSM_PD_EVENT_COMM_CONNECTED 
+I/ActivityManager(   78): Start proc de.mdiener.rain for broadcast de.mdiener.rain/.RainAppWidgetProvider: pid=2316 uid=10052 gids={3003}
+I/dalvikvm( 2316): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+E/NavitGraphics( 2306): onKeyUp 4
+D/Smack   (  156): [XMPPConn] close connection, notifyClosed=false
+E/TtsService( 1619): onCreate completed.
+W/Smack/Packet(  156): notify conn break (IOEx), close connection
+I/dalvikvm( 2316): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=34)
+I/logger  (  625): gps status change event 4
+D/libgps  (   78): calling sAGpsStatusCallback GPS_RELEASE_AGPS_DATA_CONN
+D/ConnectivityService(   78): stopUsingNetworkFeature for net 0: enableSUPL
+D/ConnectivityService(   78): reassessPidDns for pid 78
+D/ConnectivityService(   78): issue teardown to special network:3, null
+D/DataConnectionTracker(  159): disableApnType(supl)
+D/DataConnectionTracker(  159): setEnabled(2, false) with old state = true and enabledCount = 2
+D/libgps  (   78): qct_agps_data_conn_closed
+D/Smack   (  156): [XMPPConn] close: socket already closed, bail
+I/logger  (  625): gps status change event 4
+E/NavitGraphics( 2306): onKeyDown 82 0
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_KeypressCallback:enter 0x2a5fb0 0x44568780
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_KeypressCallback:key=
+E/navit   ( 2306): graphics_android:keypress_callback:enter 
+E/navit   ( 2306): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+E/NavitGraphics( 2306): onKeyUp 82
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/ActivityManager(   78): Start proc com.htc.htcMessageUploader for broadcast com.htc.htcMessageUploader/.UploadMessageReceiver: pid=2322 uid=10062 gids={3003}
+I/dalvikvm( 2322): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 2322): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=56)
+V/htcMessageUploader( 2322): [UploadMessageReceiver] UploadMessageReceiver() constructor !!!
+I/htcMessageUploader( 2322): Start thread to upload fota event message:com.htc.htcMessageUploader.UploadMessageReceiver
+I/ActivityManager(   78): Process de.mdiener.rain (pid 2316) has died.
+I/logger  (  625): gps status change event 4
+I/htcMessageUploader( 2322): == UploadMessageReceiver finished ==
+D/UploadManager(  317): Action android.net.conn.CONNECTIVITY_CHANGE
+I/GTalkService(  156): [ServiceAutoStarter] --- start GTalk service ---
+D/UploadNotification(  317): updateNotification1
+V/AutoSetting(  218): receiver - ***onReceive: android.net.conn.CONNECTIVITY_CHANGE
+D/AutoSetting(  218): receiver - ***Data call is avaiable
+D/AutoSetting(  218): *****fireNow=false
+V/AutoSetting(  218): receiver - scheduleLocation, action: android.net.conn.CONNECTIVITY_CHANGE, runImmediately: true
+V/AutoSetting(  218): receiver - Next check location in 10s, repeating every 10800s
+I/MediaUploader(  331): No need to wake up
+D/UploadNotification(  317): item =null
+D/UploadService(  317): UpdateThread is looping
+D/SocialUpdate(  218): Start SocialUpdate service with android.net.conn.CONNECTIVITY_CHANGE
+D/UploadService(  317): mUpload.size 0
+D/UploadService(  317): 2updateNotification no batch id
+D/UploadNotification(  317): updateNotification1
+I/ActivityManager(   78): Start proc de.mdiener.rain for broadcast de.mdiener.rain/.RainAppWidgetProvider: pid=2333 uid=10052 gids={3003}
+D/dalvikvm(   55): GC freed 284 objects / 10800 bytes in 162ms
+D/dalvikvm(   55): GC freed 52 objects / 2280 bytes in 115ms
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'ButtonCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'ButtonCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'ButtonCallback' (wrong CL)
+I/dalvikvm( 2333): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libwebcore.so' for 'MotionCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libmedia_jni.so' for 'MotionCallback' (wrong CL)
+D/dalvikvm( 2306): +++ not scanning '/system/lib/libexif.so' for 'MotionCallback' (wrong CL)
+D/dalvikvm(   55): GC freed 2 objects / 48 bytes in 308ms
+I/logger  (  625): gps status change event 4
+I/dalvikvm( 2333): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=34)
+E/navit   ( 2306): graphics_android:image_new:Failed to open res/drawable/fish.xpm
+E/navit   ( 2306): navit:displayitem_draw:failed to load icon 'res/drawable/fish.xpm'
+D/SocialUpdate(  218): UpdateService onCreate START. time: 2011-01-01 17:41:33
+I/ActivityManager(   78): Process com.htc.htcMessageUploader (pid 2322) has died.
+D/SocialUpdate(  218): UpdateService onCreate END. time: 2011-01-01 17:41:33
+I/logger  (  625): gps status change event 4
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->2
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/ActivityManager(   78): Start proc com.htc.htcMessageUploader for broadcast com.htc.htcMessageUploader/.UploadMessageReceiver: pid=2339 uid=10062 gids={3003}
+I/dalvikvm( 2339): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 2339): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=56)
+V/htcMessageUploader( 2339): [UploadMessageReceiver] UploadMessageReceiver() constructor !!!
+I/htcMessageUploader( 2339): Start thread to upload fota event message:com.htc.htcMessageUploader.UploadMessageReceiver
+D/UploadManager(  317): Action android.net.conn.CONNECTIVITY_CHANGE
+I/GTalkService(  156): [ServiceAutoStarter] --- start GTalk service ---
+I/logger  (  625): gps status change event 4
+V/AutoSetting(  218): receiver - ***onReceive: android.net.conn.CONNECTIVITY_CHANGE
+I/MediaUploader(  331): No need to wake up
+D/SocialUpdate(  218): Start SocialUpdate service with android.net.conn.CONNECTIVITY_CHANGE
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/SocialUpdate(  218): UpdateService onCreate START. time: 2011-01-01 17:41:34
+I/ActivityManager(   78): Process de.mdiener.rain (pid 2333) has died.
+I/htcMessageUploader( 2339): == UploadMessageReceiver finished ==
+D/SocialUpdate(  218): UpdateService onCreate END. time: 2011-01-01 17:41:34
+D/AutoSetting(  218): receiver - ***Data call is avaiable
+D/AutoSetting(  218): *****fireNow=false
+V/AutoSetting(  218): receiver - scheduleLocation, action: android.net.conn.CONNECTIVITY_CHANGE, runImmediately: false
+V/AutoSetting(  218): receiver - Next check location in 10017s, repeating every 10800s
+D/UploadNotification(  317): item =null
+E/NavitGraphics( 2306): onKeyDown 82 0
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_KeypressCallback:enter 0x2a5fb0 0x445e2370
+E/navit   ( 2306): navit:Java_org_navitproject_navit_NavitGraphics_KeypressCallback:key=
+E/navit   ( 2306): graphics_android:keypress_callback:enter 
+E/navit   ( 2306): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+D/UploadService(  317): UpdateThread is looping
+E/NavitGraphics( 2306): onKeyUp 82
+D/UploadService(  317): mUpload.size 0
+D/UploadService(  317): 2updateNotification no batch id
+D/UploadNotification(  317): updateNotification1
+D/UploadNotification(  317): item =null
+D/UploadService(  317): UpdateThread is looping
+I/logger  (  625): gps status change event 4
+E/navit   ( 2306): gui_internal:gui_internal_set_refresh_callback:cond=(null)
+I/logger  (  625): gps status change event 4
+E/navit   ( 2306): vehicle_android:vehicle_android_destroy:enter
+E/navit   ( 2306): graphics_android:event_android_main_loop_quit:enter
+E/Navit   ( 2306): OnPause
+E/navit   ( 2306): navit:Java_org_navitproject_navit_Navit_NavitActivity:enter -1
+D/Sensors (   78): close_akm, fd=141
+D/dalvikvm(  153): GC freed 7204 objects / 519336 bytes in 343ms
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/logger  (  625): gps status change event 4
+D/AK8973  (   62): Compass CLOSE 
+D/dalvikvm(   78): GC freed 29612 objects / 1419328 bytes in 297ms
+I/logger  (  625): gps status change event 4
+I/ActivityManager(   78): Process org.navitproject.navit (pid 2306) has died.
+W/GpsLocationProvider(   78): Unneeded remove listener for android.uid.system:1000
+D/GpsLocationProvider(   78): stopNavigating
+D/libgps  (   78): qct_gps_stop
+D/libgps  (   78): report status : 2
+I/WindowManager(   78): WIN DEATH: Window{44875938 org.navitproject.navit/org.navitproject.navit.Navit paused=false}
+I/logger  (  625): gps status change event 2
+I/AudioPolicyService(   56): stopOutput(): before lock
+D/Zygote  (   55): Process 2306 exited cleanly (1)
+V/TtsService( 1619): onDestroy() completed
+I/ActivityManager(   78): Start proc com.google.android.apps.maps:LocationFriendService for service com.google.android.apps.maps/com.google.googlenav.friend.android.LocationFriendService: pid=2354 uid=10032 gids={3003, 1015}
+D/DragLayer(  167): touch event action ACTION_DOWN
+I/dalvikvm( 2354): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+D/DragLayer(  167): touch event action ACTION_UP
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.htc.htctwitter/.TwidroidSplash bnds=[243,238][317,317] }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=18809 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/dalvikvm( 2354): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=104)
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 92 msecs, 32 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+D/LocationManagerService(   78): Acquired wakelock
+I/ActivityManager(   78): Start proc com.htc.htctwitter for activity com.htc.htctwitter/.TwidroidSplash: pid=2360 uid=10063 gids={3003, 1006, 1015}
+D/LocationManagerService(   78): Released wakelock
+I/dalvikvm( 2360): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+D/Sensors (   78): open_akm, fd=146
+I/dalvikvm( 2360): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=40)
+I/ActivityThread( 2360): Publishing provider com.htc.htctwitter.misc.SuggestionProvider: com.htc.htctwitter.misc.TwitterSearchSuggestionProvider
+W/dalvikvm( 2360): Refusing to reopen boot DEX '/system/framework/com.htc.framework.jar'
+D/AK8973  (   62): Compass Start
+D/TwidroidSplash( 2360): onCreate
+I/basedb  (  625): open db sys_data /data/data/com.miian.android.logger/databases/sys_data
+I/basedb  (  625): trace cursor 18
+I/basedb  (  625): _id, path, external, current
+I/basedb  (  625): 1, /sdcard/ideamatters/georecorder/locationdata/data1, 1, 0
+I/basedb  (  625): 2, /sdcard/ideamatters/georecorder/locationdata/data2, 1, 0
+I/basedb  (  625): 3, /data/data/com.miian.android.logger/databases/data3, 0, 1
+D/dalvikvm( 2360): GC freed 1174 objects / 87112 bytes in 119ms
+D/TwidroidActivity( 2360): onCreate
+I/basedb  (  625): 4, /data/data/com.miian.android.logger/databases/data4, 0, 1
+I/basedb  (  625): 5, /data/data/com.miian.android.logger/databases/data5, 0, 1
+I/basedb  (  625): 6, /sdcard/ideamatters/georecorder/locationdata/data6, 1, 0
+I/basedb  (  625): 7, /sdcard/ideamatters/georecorder/locationdata/data7, 1, 0
+I/basedb  (  625): 8, /sdcard/ideamatters/georecorder/locationdata/data8, 1, 0
+I/basedb  (  625): 9, /sdcard/ideamatters/georecorder/locationdata/data9, 1, 0
+I/basedb  (  625): 10, /sdcard/ideamatters/georecorder/locationdata/data10, 1, 0
+I/basedb  (  625): 11, /sdcard/ideamatters/georecorder/locationdata/data11, 1, 0
+I/basedb  (  625): 12, /sdcard/ideamatters/georecorder/locationdata/data12, 1, 0
+I/basedb  (  625): 13, /sdcard/ideamatters/georecorder/locationdata/data13, 1, 0
+I/basedb  (  625): 14, /sdcard/ideamatters/georecorder/locationdata/data14, 1, 0
+I/basedb  (  625): 15, /sdcard/ideamatters/georecorder/locationdata/data15, 1, 0
+I/basedb  (  625): 16, /sdcard/ideamatters/georecorder/locationdata/data16, 1, 0
+I/basedb  (  625): 17, /sdcard/ideamatters/georecorder/locationdata/data17, 1, 0
+I/basedb  (  625): 18, /data/data/com.miian.android.logger/databases/data18, 0, 1
+I/WindowManager(   78): Setting rotation to 1, animFlags=0
+I/ActivityManager(   78): Config changed: { scale=1.0 imsi=262/1 loc=de_DE touch=3 keys=1/1/2 nav=3/1 orien=2 layout=18}
+D/dalvikvm( 2360): GC freed 1135 objects / 86528 bytes in 285ms
+D/JLNDBG  ( 2360): 1836
+D/TwidroidActivity( 2360): getCachedApi
+D/ActivityThread( 2360): Loading provider com.htc.chirp.provider.Tweet: com.htc.htctwitter.TwitterProvider
+I/logger  (  625): init datalogger
+I/basedb  (  625): trace cursor 1
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/basedb  (  625): max(_id)
+I/basedb  (  625): 18
+I/logger  (  625): current id = 18
+I/logger  (  625): create loc helper 18
+I/basedb  (  625): open db data18 /data/data/com.miian.android.logger/databases/data18
+I/ActivityManager(   78): Launch activity, postpone broadcast intents
+D/apiurl  ( 2360): apiurl twitter.com
+D/TwidroidClient( 2360): position = -1
+D/TwidroidSplash( 2360): onResume
+D/TwidroidActivity( 2360): follow htc = false
+D/apiurl  ( 2360): apiurl twitter.com
+I/TwidroidSplash( 2360): keyguard not exist
+D/TwidroidSplash( 2360): isUpdating false
+D/apiurl  ( 2360): apiurl twitter.com
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.VIEW cmp=com.htc.htctwitter/.Twitter_login }
+D/PhoneWindow( 2360): couldn't save which view has focus because the focused view com.android.internal.policy.impl.PhoneWindow$DecorView@445398a0 has no id.
+D/TwidroidSplash( 2360): isUpdating false
+I/TwidroidActivity( 2360): Stop Twidroid Location listener
+I/AccountsProvider(  317): Backup Socialnetwork, data changed, delete
+V/AccountsProvider(  317): Added account rowId = 1
+I/AccountsProvider(  317): Backup Socialnetwork, data changed, insert
+D/dalvikvm(   78): GC freed 4613 objects / 203200 bytes in 530ms
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+D/AccountsProvider(  317): Add account in AM to db: account = jff.advent@googlemail.com
+D/GTalkService(  156): [RosterMgr] roster not modified
+D/libgps  (   78): report status : 4
+D/GpsLocationProvider(   78): Releasing wakelock
+V/AccountsProvider(  317): Added account rowId = 2
+I/AccountsProvider(  317): Backup Socialnetwork, data changed, insert
+D/BaseLoginActivity( 2360): isShowPassword = 0
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->3
+D/BaseLoginActivity( 2360): onFinish is called
+W/InputManagerService(   78): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@44a03ab0 (uid=10063 pid=2360)
+W/InputManagerService(   78): Client not active, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@44886390
+D/TwidroidSplash( 2360): on result login
+D/apiurl  ( 2360): apiurl twitter.com
+D/TwidroidSplash( 2360): not login
+D/Sensors (   78): close_akm, fd=146
+I/WindowManager(   78): Setting rotation to 0, animFlags=0
+I/ActivityManager(   78): Config changed: { scale=1.0 imsi=262/1 loc=de_DE touch=3 keys=1/1/2 nav=3/1 orien=1 layout=18}
+W/InputManagerService(   78): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@44821540
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+E/BaseLoginActivity( 2360): No callback IBinder
+W/ActivityManager(   78): Activity destroy timeout for HistoryRecord{44751e80 org.navitproject.navit/.Navit}
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): update locale:DEU
+I/CalendarProvider(  218): Locale doesn't change, so return it
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): updateCalendarNameByLocale
+E/HTCIMEService(  153): [onFinishInput] mData.mCurrIM.finishInput(); Exception = java.lang.NullPointerException
+I/CalendarProvider(  218): update locale:DEU
+I/CalendarProvider(  218): Locale doesn't change, so return it
+I/TwidroidActivity( 2360): Stop Twidroid Location listener
+D/AK8973  (   62): Compass CLOSE 
+D/GTalkService(  156): [OtrMgr] OTR not modified
+D/dalvikvm(   78): GC freed 2619 objects / 122872 bytes in 247ms
+D/dalvikvm( 2354): GC freed 1882 objects / 149624 bytes in 218ms
+I/        (  625): total = 45994
+I/logger  (  625): save track 1293810500000
+I/logger  (  625): save track 1293810500000
+I/logger  (  625): save track 1293810500000
+I/logger  (  625): save track 1293810500000
+I/logger  (  625): save track 1293810500000
+I/logger  (  625): save track 1293810500000
+D/JOGBALL (   78): Jogball, + set_jogball_mode mode=0
+I/basedb  (  625): close db data18
+I/basedb  (  625): close db sys_data
+D/dalvikvm( 2354): GC freed 2465 objects / 143880 bytes in 100ms
+I/TwidroidActivity( 2360): Stop Twidroid Location listener
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->4
+D/BT HS/HF(  159): gsmAsuToSignal=25
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/dalvikvm(  317): GC freed 4571 objects / 209784 bytes in 159ms
+D/dalvikvm( 1619): GC freed 7926 objects / 449664 bytes in 121ms
+D/dalvikvm(  300): GC freed 3630 objects / 165144 bytes in 159ms
+D/dalvikvm(  331): GC freed 3642 objects / 169112 bytes in 119ms
+D/dalvikvm(  193): GC freed 4615 objects / 213984 bytes in 170ms
+D/ConnectivityService(   78): ConnectivityService FeatureUser expire(0, enableSUPL, android.os.Binder@44b53600), created 60004 mSec ago
+D/ConnectivityService(   78): stopUsingNetworkFeature for net 0: enableSUPL
+D/dalvikvm(  156): GC freed 3501 objects / 196200 bytes in 286ms
+D/OpenSSLSessionImpl(  156): Freeing OpenSSL session
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+D/dalvikvm( 2354): GC freed 2642 objects / 263976 bytes in 118ms
+D/DragLayer(  167): touch event action ACTION_DOWN
+D/DragLayer(  167): touch event action ACTION_UP
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=78603 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 92 msecs, 33 delayed writes, thread 0xd918
+E/HTCIMEService(  153): [onFinishInput] mData.mCurrIM.finishInput(); Exception = java.lang.NullPointerException
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+W/Rosie   (  167): mAddHtcWidgetByOtherActivity = false, mIsOpenSlideWhenLeaveLaunch = false
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 4->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/dalvikvm(  218): GC freed 1352 objects / 60008 bytes in 303ms
+D/DragLayer(  167): touch event action ACTION_DOWN
+D/DragLayer(  167): touch event action ACTION_UP
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=10912 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 93 msecs, 34 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+D/DragLayer(  167): touch event action ACTION_DOWN
+D/DragLayer(  167): touch event action ACTION_UP
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.speedsoftware.explorer/.Explorer }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=3511 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/ActivityManager(   78): Start proc com.speedsoftware.explorer for activity com.speedsoftware.explorer/.Explorer: pid=2387 uid=10066 gids={1015}
+I/dalvikvm( 2387): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+D/Sensors (   78): open_akm, fd=142
+D/AK8973  (   62): Compass Start
+I/dalvikvm( 2387): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=56)
+W/Rosie   (  167): mAddHtcWidgetByOtherActivity = false, mIsOpenSlideWhenLeaveLaunch = true
+I/ActivityManager(   78): Process com.google.android.apps.maps:LocationFriendService (pid 2354) has died.
+D/dalvikvm( 2387): GC freed 5354 objects / 329936 bytes in 117ms
+I/ActivityManager(   78): Displayed activity com.speedsoftware.explorer/.Explorer: 2253 ms (total 95541 ms)
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->2
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+D/dalvikvm( 2387): GC freed 943 objects / 50128 bytes in 188ms
+D/dalvikvm(  167): GC freed 19105 objects / 880696 bytes in 932ms
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=11257 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 98 msecs, 35 delayed writes, thread 0xd918
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->1
+D/BT HS/HF(  159): gsmAsuToSignal=2
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=131 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+D/NetworkLocationProvider(   78): onCellLocationChanged [26377,12153]
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=4914 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+I/AudioPolicyService(   56): stopOutput(): before lock
+D/dalvikvm( 2387): GC freed 8289 objects / 446520 bytes in 105ms
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 1->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->4
+D/BT HS/HF(  159): gsmAsuToSignal=25
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 4->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=13012 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 96 msecs, 36 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+D/NetworkLocationProvider(   78): onCellLocationChanged [26377,12153]
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+D/LocationMasfClient(   78): getNetworkLocation(): Returning cache location with accuracy 2531.0
+I/ActivityManager(   78): Start proc com.google.android.apps.maps:LocationFriendService for service com.google.android.apps.maps/com.google.googlenav.friend.android.LocationFriendService: pid=2432 uid=10032 gids={3003, 1015}
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.VIEW dat=file:///sdcard/download/navit-svn-3842.apk typ=application/vnd.android.package-archive cmp=com.android.packageinstaller/.PackageInstallerActivity }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=7002 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/ActivityManager(   78): Start proc com.android.packageinstaller for activity com.android.packageinstaller/.PackageInstallerActivity: pid=2438 uid=10022 gids={}
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 97 msecs, 37 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/dalvikvm( 2432): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 2438): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 2432): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=104)
+W/InputManagerService(   78): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@447b32b8
+I/dalvikvm( 2438): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=60)
+I/PackageParser( 2438): org.navitproject.navit: compat added android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_PHONE_STATE
+I/installd(   58): free_cache(12899772) avail 75317248
+I/ActivityManager(   78): Launch activity, postpone broadcast intents
+I/ActivityManager(   78): Displayed activity com.android.packageinstaller/.PackageInstallerActivity: 1182 ms (total 1182 ms)
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+W/InputManagerService(   78): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@447fe278 (uid=10066 pid=2387)
+I/ActivityManager(   78): Process com.google.tts (pid 1619) has died.
+D/AudioFlinger(   56): binderDied() 0x14698, tid 138, calling tid 56
+D/AudioFlinger(   56): Removing notification client 0x14698
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+D/dalvikvm( 2432): GC freed 1953 objects / 152544 bytes in 195ms
+D/dalvikvm( 2432): GC freed 2450 objects / 143440 bytes in 115ms
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/ActivityManager(   78): Process com.htc.htcMessageUploader (pid 2339) has died.
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=3778 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+I/AudioPolicyService(   56): stopOutput(): before lock
+W/InputManagerService(   78): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4472f750
+D/LocationManager( 2432): Constructor: service = android.location.ILocationManager$Stub$Proxy@4466bea0
+D/LocationManager( 2432): getAllProviders
+D/NetworkLocationProvider(   78): setMinTime: 60000
+D/NetworkLocationProvider(   78): onCellLocationChanged [26377,12153]
+D/LocationManager( 2432): getAllProviders
+D/dalvikvm( 2432): GC freed 4267 objects / 398000 bytes in 113ms
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+D/dalvikvm(  156): GC freed 633 objects / 30504 bytes in 122ms
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { dat=file:///sdcard/download/navit-svn-3842.apk cmp=com.android.packageinstaller/.InstallAppProgress (has extras) }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=10857 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 103 msecs, 38 delayed writes, thread 0xd918
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=105 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+W/InstallAppProgress( 2438): Replacing package:org.navitproject.navit
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->2
+I/ActivityManager(   78): Launch activity, postpone broadcast intents
+I/ActivityManager(   78): Process com.google.android.apps.maps:LocationFriendService (pid 2432) has died.
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+E/HTCIMEService(  153): [onFinishInput] mData.mCurrIM.finishInput(); Exception = java.lang.NullPointerException
+I/ActivityManager(   78): Displayed activity com.android.packageinstaller/.InstallAppProgress: 4088 ms (total 4088 ms)
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/PackageParser(   78): Scanning package: /data/app/vmdl45454.tmp
+I/PackageParser(   78): org.navitproject.navit: compat added android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_PHONE_STATE
+D/dalvikvm(   78): GC freed 12890 objects / 1092432 bytes in 436ms
+D/dalvikvm(   78): GC freed 2767 objects / 348136 bytes in 261ms
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->1
+D/BT HS/HF(  159): gsmAsuToSignal=2
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/dalvikvm(   78): GC freed 15564 objects / 1082728 bytes in 314ms
+D/dalvikvm(   78): GC freed 35491 objects / 1511648 bytes in 376ms
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 1->2
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->2
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+I/WindowManager(   78): Setting rotation to 1, animFlags=0
+I/ActivityManager(   78): Config changed: { scale=1.0 imsi=262/1 loc=de_DE touch=3 keys=1/1/2 nav=3/1 orien=2 layout=18}
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): update locale:DEU
+I/CalendarProvider(  218): Locale doesn't change, so return it
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->3
+D/BT HS/HF(  159): gsmAsuToSignal=12
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/dalvikvm(   78): GC freed 33390 objects / 1594952 bytes in 283ms
+I/WindowManager(   78): Setting rotation to 0, animFlags=0
+I/ActivityManager(   78): Config changed: { scale=1.0 imsi=262/1 loc=de_DE touch=3 keys=1/1/2 nav=3/1 orien=1 layout=18}
+E/HTCIMEService(  153): [onFinishInput] mData.mCurrIM.finishInput(); Exception = java.lang.NullPointerException
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): updateCalendarNameByLocale
+I/CalendarProvider(  218): update locale:DEU
+I/CalendarProvider(  218): Locale doesn't change, so return it
+D/dalvikvm(   78): GC freed 2202 objects / 110496 bytes in 293ms
+I/InstallAppProgress( 2438): Finished installing org.navitproject.navit
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=55707 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 97 msecs, 39 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+W/IInputConnectionWrapper( 2438): showStatusIcon on inactive InputConnection
+D/NetworkLocationProvider(   78): onCellLocationChanged [26377,12153]
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=1707 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioPolicyService(   56): stopOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { act=android.intent.action.VIEW dat=file:///sdcard/download/navit-svn-3842.apk typ=application/vnd.android.package-archive cmp=com.android.packageinstaller/.PackageInstallerActivity }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=1546 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioPolicyService(   56): stopOutput(): before lock
+I/PackageParser( 2438): org.navitproject.navit: compat added android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_PHONE_STATE
+I/installd(   58): free_cache(12899772) avail 75317248
+I/ActivityManager(   78): Launch activity, postpone broadcast intents
+W/InputManagerService(   78): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@447fe278 (uid=10066 pid=2387)
+I/ActivityManager(   78): Displayed activity com.android.packageinstaller/.PackageInstallerActivity: 337 ms (total 337 ms)
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/ActivityManager(   78): Start proc com.google.android.apps.maps:LocationFriendService for service com.google.android.apps.maps/com.google.googlenav.friend.android.LocationFriendService: pid=2457 uid=10032 gids={3003, 1015}
+D/LocationManagerService(   78): Acquired wakelock
+D/LocationManagerService(   78): Released wakelock
+I/dalvikvm( 2457): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=38)
+I/dalvikvm( 2457): Debugger thread not active, ignoring DDM send (t=0x41504e4d l=104)
+D/dalvikvm( 2457): GC freed 2000 objects / 154344 bytes in 105ms
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+D/dalvikvm( 2457): GC freed 2449 objects / 143384 bytes in 114ms
+D/LocationManager( 2457): Constructor: service = android.location.ILocationManager$Stub$Proxy@4466be48
+D/LocationManager( 2457): getAllProviders
+D/NetworkLocationProvider(   78): setMinTime: 60000
+D/LocationManager( 2457): getAllProviders
+D/NetworkLocationProvider(   78): onCellLocationChanged [26377,12153]
+D/dalvikvm( 2457): GC freed 4268 objects / 397744 bytes in 104ms
+D/dalvikvm( 2387): GC freed 2955 objects / 210864 bytes in 119ms
+D/dalvikvm(  167): GC freed 2061 objects / 70128 bytes in 169ms
+D/dalvikvm(  156): GC freed 151 objects / 6040 bytes in 117ms
+I/AudioPolicyService(   56): startOutput(): before lock
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=28188 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+W/AudioFlinger(   56): write blocked for 91 msecs, 40 delayed writes, thread 0xd918
+I/AudioPolicyService(   56): stopOutput(): before lock
+W/InputManagerService(   78): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@44649300
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioPolicyService(   56): startOutput(): before lock
+W/dalvikvm(   78): disableGcForExternalAlloc: true
+I/ActivityManager(   78): Starting activity: Intent { dat=file:///sdcard/download/navit-svn-3842.apk cmp=com.android.packageinstaller/.InstallAppProgress (has extras) }
+D/StreamProcess(   56): +ProcessAOLC ResetAOLC delta=5176 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/AudioHardwareMSM72XX(   56): AUDIO_START: start kernel pcm_out driver.
+I/AudioPolicyService(   56): stopOutput(): before lock
+D/dalvikvm( 2438): GC freed 3505 objects / 238736 bytes in 120ms
+W/InstallAppProgress( 2438): Replacing package:org.navitproject.navit
+I/ActivityManager(   78): Process com.google.android.apps.maps:LocationFriendService (pid 2457) has died.
+E/HTCIMEService(  153): [onFinishInput] mData.mCurrIM.finishInput(); Exception = java.lang.NullPointerException
+I/ActivityManager(   78): Displayed activity com.android.packageinstaller/.InstallAppProgress: 2740 ms (total 2740 ms)
+W/dalvikvm(   78): disableGcForExternalAlloc: false
+I/AudioHardwareMSM72XX(   56): AudioHardware pcm playback is going to standby.
+D/StreamProcess(   56): OutputStreamProcess::ResetAOLC()
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 3->2
+D/BT HS/HF(  159): gsmAsuToSignal=6
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/PackageParser(   78): Scanning package: /data/app/vmdl45455.tmp
+I/PackageParser(   78): org.navitproject.navit: compat added android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_PHONE_STATE
+D/dalvikvm(   78): GC freed 5936 objects / 746232 bytes in 286ms
+D/dalvikvm(   78): GC freed 1040 objects / 259264 bytes in 248ms
+D/NetworkLocationProvider(   78): onCellLocationChanged [26370,579]
+I/BatteryStatsImpl(   78): notePhoneSignalStrengthLocked: 2->4
+D/BT HS/HF(  159): gsmAsuToSignal=25
+D/JBtlAg  (  159): setIndicatorValue: entered
+I/JBtlAg  (  159): After NativeJBtlAg_SetIndicatorValue, status = SUCCESS
+D/JBtlAg  (  159): setIndicatorValue: exiting
+D/dalvikvm(   78): GC freed 15190 objects / 1066744 bytes in 309ms
+D/dalvikvm(   78): GC freed 35817 objects / 1525064 bytes in 339ms
+D/dalvikvm(  595): GC freed 398 objects / 42432 bytes in 132ms

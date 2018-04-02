@@ -1,0 +1,128 @@
+Index: navit/navit/attr_def.h
+===================================================================
+--- navit/navit/attr_def.h	(revision 5923)
++++ navit/navit/attr_def.h	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2009 Navit Team
++ * Copyright (C) 2005-2014 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Library General Public License
+@@ -187,11 +187,11 @@
+ ATTR2(0x00027500,type_rel_abs_begin)
+ /* These attributes are int that can either hold relative		*
+  * or absolute values. A relative value is indicated by 		*
+- * adding 0x60000000.																				*
+- *																													*
++ * adding 0x60000000.											*
++ *																*
+  * The range of valid absolute values is -0x40000000 to			*
+- * 0x40000000, the range of relative values is from					*
+- * -0x20000000 to 0x20000000.																*/
++ * 0x40000000, the range of relative values is from				*
++ * -0x20000000 to 0x20000000.									*/
+ ATTR(h)
+ ATTR(w)
+ ATTR(x)
+@@ -380,6 +380,11 @@
+  * exclude the end nodes, because these are imported as separate nodes. */
+ ATTR(house_number_interpolation_no_ends_incrmt_1)
+ ATTR(house_number_interpolation_no_ends_incrmt_2)
++ATTR(street_name_systematic_nat)
++ATTR(street_name_systematic_int)
++ATTR(street_lanes)
++ATTR(street_destination)
++ATTR(exit_to)
+ ATTR2(0x0003ffff,type_string_end)
+ ATTR2(0x00040000,type_special_begin)
+ ATTR(order)
+Index: navit/navit/item_def.h
+===================================================================
+--- navit/navit/item_def.h	(revision 5923)
++++ navit/navit/item_def.h	(working copy)
+@@ -350,6 +350,11 @@
+ ITEM(poi_buddhist)
+ ITEM(poi_bahai)
+ ITEM(found_item)
++ITEM(nav_exit)
++ITEM(nav_merge_left)
++ITEM(nav_merge_right)
++ITEM(nav_turnaround_left)
++ITEM(nav_turnaround_right)
+ ITEM2(0x7ffffff0,poi_custom0)
+ ITEM(poi_custom1)
+ ITEM(poi_custom2)
+Index: navit/navit/maptool/osm.c
+===================================================================
+--- navit/navit/maptool/osm.c	(revision 5923)
++++ navit/navit/maptool/osm.c	(working copy)
+@@ -101,6 +101,11 @@
+ 	attr_string_district_name,
+ 	attr_string_street_name,
+ 	attr_string_street_name_systematic,
++	attr_string_street_name_systematic_nat,
++	attr_string_street_lanes,
++	attr_string_ref,
++	attr_string_exit_to,
++	attr_string_street_destination,
+ 	attr_string_house_number,
+ 	attr_string_label,
+ 	attr_string_postal,
+@@ -1161,8 +1166,27 @@
+ 	if (! strcmp(k,"ref")) {
+ 		if (in_way)
+ 			attr_strings_save(attr_string_street_name_systematic, v);
++		/* for exit number of highway_exit poi */
++		else attr_strings_save(attr_string_ref, v);
+ 		level=5;
+ 	}
++	if (! strcmp(k,"nat_ref")) {
++			if (in_way)
++				attr_strings_save(attr_string_street_name_systematic_nat, v);
++			level=5;
++		}
++
++
++	if (! strcmp(k,"destination")) {
++			if (in_way)
++				attr_strings_save(attr_string_street_destination, v);
++			level=5;
++		}
++	if (! strcmp(k,"exit_to")) {
++			attr_strings_save(attr_string_exit_to, v);
++			level=5;
++		}
++
+ 	if (! strcmp(k,"openGeoDB:is_in")) { 
+ 		if (!is_in_buffer[0]) 
+ 			g_strlcpy(is_in_buffer, v, sizeof(is_in_buffer)); 
+@@ -1202,6 +1226,8 @@
+ 		level=5;
+ 	}
+ 	if (! strcmp(k,"lanes")) {
++		if (in_way)
++		attr_strings_save(attr_string_street_lanes, v);
+ 		level=5;
+ 	}
+ 	if (attr_debug_level >= level) {
+@@ -1750,6 +1776,9 @@
+ 		item_bin_add_attr_string(item_bin, def_flags ? attr_street_name : attr_label, attr_strings[attr_string_label]);
+ 		item_bin_add_attr_string(item_bin, attr_district_name, attr_strings[attr_string_district_name]);
+ 		item_bin_add_attr_string(item_bin, attr_street_name_systematic, attr_strings[attr_string_street_name_systematic]);
++		item_bin_add_attr_string(item_bin, attr_street_name_systematic_nat, attr_strings[attr_string_street_name_systematic_nat]);
++		item_bin_add_attr_string(item_bin, attr_street_lanes, attr_strings[attr_string_street_lanes]);
++		item_bin_add_attr_string(item_bin, attr_street_destination, attr_strings[attr_string_street_destination]);
+ 		item_bin_add_attr_longlong(item_bin, attr_osm_wayid, osmid_attr_value);
+ 		if (debug_attr_buffer[0])
+ 			item_bin_add_attr_string(item_bin, attr_debug, debug_attr_buffer);
+@@ -1831,6 +1860,8 @@
+ 		item_bin_add_attr_string(item_bin, attr_county_name, attr_strings[attr_string_county_name]);
+ 		item_bin_add_attr_string(item_bin, attr_url, attr_strings[attr_string_url]);
+ 		item_bin_add_attr_longlong(item_bin, attr_osm_nodeid, osmid_attr_value);
++		item_bin_add_attr_string(item_bin, attr_ref, attr_strings[attr_string_ref]);
++		item_bin_add_attr_string(item_bin, attr_exit_to, attr_strings[attr_string_exit_to]);
+ 		item_bin_add_attr_string(item_bin, attr_debug, debug_attr_buffer);
+ 		postal=attr_strings[attr_string_postal];
+ 		if (postal) {

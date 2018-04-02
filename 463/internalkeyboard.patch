@@ -1,0 +1,131 @@
+--- navit/gui/internal/gui_internal.c	2009-08-18 22:22:47.000000000 +0200
++++ /tmp/gui_internal.c	2009-09-04 20:40:07.000000000 +0200
+@@ -2571,10 +2571,59 @@
+ 	max_h=max_h/6;
+ 
+ 	if (mode >= 0 && mode < 8) {
+-		for (i = 0 ; i < 26 ; i++) {
+-			char text[]={'A'+i,'\0'};
+-			KEY(text);
+-		}
++		char text0[]={'Q','\0'};
++		KEY(text0);
++		char text1[]={'W','\0'};
++		KEY(text1);
++		char text2[]={'E','\0'};
++		KEY(text2);
++		char text3[]={'R','\0'};
++		KEY(text3);
++		char text4[]={'T','\0'};
++		KEY(text4);
++		char text5[]={'Y','\0'};
++		KEY(text5);
++		char text6[]={'U','\0'};
++		KEY(text6);
++		char text7[]={'I','\0'};
++		KEY(text7);
++		char text8[]={'O','\0'};
++		KEY(text8);
++		char text9[]={'P','\0'};
++		KEY(text9);
++		char text10[]={'A','\0'};
++		KEY(text10);
++		char text11[]={'S','\0'};
++		KEY(text11);
++		char text12[]={'D','\0'};
++		KEY(text12);
++		char text13[]={'F','\0'};
++		KEY(text13);
++		char text14[]={'G','\0'};
++		KEY(text14);
++		char text15[]={'H','\0'};
++		KEY(text15);
++		char text16[]={'J','\0'};
++		KEY(text16);
++		char text17[]={'K','\0'};
++		KEY(text17);
++		char text18[]={'L','\0'};
++		KEY(text18);
++		char text19[]={'Y','\0'};
++		KEY(text19);
++		char text20[]={'X','\0'};
++		KEY(text20);
++		char text21[]={'C','\0'};
++		KEY(text21);
++		char text22[]={'V','\0'};
++		KEY(text22);
++		char text23[]={'B','\0'};
++		KEY(text23);
++		char text24[]={'N','\0'};
++		KEY(text24);
++		char text25[]={'M','\0'};
++		KEY(text25);
++		
+ 		gui_internal_keyboard_key(this, wkbd, "_"," ",max_w,max_h);
+ 		if (mode == 0) {
+ 			KEY("-");
+@@ -2592,10 +2641,60 @@
+ 		gui_internal_keyboard_key(this, wkbd, "<-","\b",max_w,max_h);
+ 	}
+ 	if (mode >= 8 && mode < 16) {
+-		for (i = 0 ; i < 26 ; i++) {
+-			char text[]={'a'+i,'\0'};
+-			KEY(text);
+-		}
++		char text0[]={'q','\0'};
++		KEY(text0);
++		char text1[]={'w','\0'};
++		KEY(text1);
++		char text2[]={'e','\0'};
++		KEY(text2);
++		char text3[]={'r','\0'};
++		KEY(text3);
++		char text4[]={'t','\0'};
++		KEY(text4);
++		char text5[]={'y','\0'};
++		KEY(text5);
++		char text6[]={'u','\0'};
++		KEY(text6);
++		char text7[]={'i','\0'};
++		KEY(text7);
++		char text8[]={'o','\0'};
++		KEY(text8);
++		char text9[]={'p','\0'};
++		KEY(text9);
++		char text10[]={'a','\0'};
++		KEY(text10);
++		char text11[]={'s','\0'};
++		KEY(text11);
++		char text12[]={'d','\0'};
++		KEY(text12);
++		char text13[]={'f','\0'};
++		KEY(text13);
++		char text14[]={'g','\0'};
++		KEY(text14);
++		char text15[]={'h','\0'};
++		KEY(text15);
++		char text16[]={'j','\0'};
++		KEY(text16);
++		char text17[]={'k','\0'};
++		KEY(text17);
++		char text18[]={'l','\0'};
++		KEY(text18);
++		char text19[]={'y','\0'};
++		KEY(text19);
++		char text20[]={'x','\0'};
++		KEY(text20);
++		char text21[]={'c','\0'};
++		KEY(text21);
++		char text22[]={'v','\0'};
++		KEY(text22);
++		char text23[]={'b','\0'};
++		KEY(text23);
++		char text24[]={'n','\0'};
++		KEY(text24);
++		char text25[]={'m','\0'};
++		KEY(text25);
++
++		
+ 		gui_internal_keyboard_key(this, wkbd, "_"," ",max_w,max_h);
+ 		if (mode == 8) {
+ 			KEY("-");

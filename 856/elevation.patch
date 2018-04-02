@@ -1,0 +1,16 @@
+Index: maemo/vehicle_maemo.c
+===================================================================
+--- maemo/vehicle_maemo.c	(Revision 4468)
++++ maemo/vehicle_maemo.c	(Arbeitskopie)
+@@ -105,6 +105,11 @@
+ 			dbg(1,"Time: %f\n",priv->fix_time);
+ 		}
+ 
++		if (device->fix->fields & LOCATION_GPS_DEVICE_ALTITUDE_SET) {
++			priv->height=device->fix->altitude;
++			dbg(1,"Elevation: %f\n",priv->height);
++		}
++
+ 	}
+ 
+ 	return;

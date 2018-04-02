@@ -1,0 +1,12 @@
+Index: navit.c
+===================================================================
+--- navit.c	(revision 2279)
++++ navit.c	(working copy)
+@@ -2037,6 +2037,7 @@
+ 		if (tracking_update(this_->tracking, this_->vehicleprofile, &cursor_pc, nv->dir, attr_hdop.u.numd, nv->speed, fixtime)) {
+ 			nv->coord.x=cursor_pc.x;
+ 			nv->coord.y=cursor_pc.y;
++                        nv->dir=tracking_get_angle(this_->tracking);
+ 		}
+ 	}
+ 	if (this_->route) {

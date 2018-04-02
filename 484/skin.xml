@@ -1,0 +1,37 @@
+<!--                                >
+<  Mineque_003 skin for Navit       >
+<                                   >
+<  Need some help with skin?        >
+<  Visit #navit at freenode.net     >
+<                                 -->
+
+
+<!-- ${{navigation.item.destination_length[named]}}\n${{navigation.item.destination_time[arrival]}} -->
+<osd enabled="yes" type="button" x="10" y="80" w="300" h="100" command="hallo" src="/usr/local/share/navit/box.png" />
+<osd enabled="yes" type="text" label="${navigation.item[1].street_name}" x="90" y="120" w="480" h="90" 
+     align="5" background_color="#00000000" font_size="250" />
+<osd enabled="yes" type="navigation_next_turn" x="20" y="90"  w="80" h="60" align="15" background_color="#a60c0f00" /> 
+<osd enabled="yes" type="text" label="${navigation.item[1].navigation_short}" x="90" y="100" w="200" h="40" align="5"
+     background_color="#00000000" font_size="200"/>
+
+<osd enabled="yes" type="button" x="10" y="200" w="300" h="100" command="hallo" src="/usr/local/share/navit/box.png" />
+<osd enabled="yes" type="text" label="${navigation.item[2].street_name}" x="90" y="240" w="480" h="90" 
+     align="5" background_color="#00000000" font_size="250" />
+<osd enabled="yes" level="1" type="navigation_next_turn" x="20" y="210"  w="80" h="60" align="15" background_color="#a60c0f00" /> 
+<osd enabled="yes" type="text" label="${navigation.item[2].navigation_short}" x="90" y="220" w="200" h="80" align="5"
+     background_color="#00000000" font_size="200"/>
+
+<osd enabled="yes" type="button" x="10" y="320" w="300" h="100" command="hallo" src="/usr/local/share/navit/box.png" />
+<osd enabled="yes" type="text" label="${navigation.item[3].street_name}" x="90" y="360" w="480" h="90" 
+     align="5" background_color="#00000000" font_size="250" />
+<osd enabled="yes" level="2" type="navigation_next_turn" x="20" y="330"  w="80" h="60" align="15" background_color="#a60c0f00" /> 
+<osd enabled="yes" type="text" label="${navigation.item[3].navigation_short}" x="90" y="340" w="200" h="80" align="5"
+     background_color="#00000000" font_size="200"/>
+
+<osd enabled="yes" type="gps_status" x="735" y="0" w="65" h="30" align="0" background_color="#a60c0f00" font_size="300" />
+  
+<osd enabled="yes" type="text" x="10" y="0" w="800" h="35" align="5" background_color="#00000000" font_size="350" label="${navigation.item[1].navigation_speech}" />
+<osd enabled="yes" type="text" x="10" y="-50" w="800" h="30" align="5" background_color="#00000000" font_size="250" label="ETA:${navigation.item.destination_time[arrival]}  TL:${navigation.item.destination_time[remaining]}  Dist:${navigation.item.destination_length[named]}  ${vehicle.position_speed} / ${tracking.item.route_speed}  Position: ${navigation.item.street_name} ${navigation.item[0].street_name_systematic}" />
+       <osd enabled="yes" type="button" x="0" y="0" w="800" h="35" command="hallo" src="/usr/local/share/navit/M_003_02.png" />                  
+       <osd enabled="yes" type="button" x="0" y="-30" w="800" h="35" command="hallo" src="/usr/local/share/navit/M_003_02.png" />                  
+     

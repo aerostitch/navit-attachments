@@ -1,0 +1,18 @@
+Index: gui/internal/gui_internal.c
+===================================================================
+--- gui/internal/gui_internal.c	(revision 4403)
++++ gui/internal/gui_internal.c	(working copy)
+@@ -2301,11 +2301,11 @@
+ 	get_direction(dirbuf, transform_get_angle_delta(center, c, 0), 1);
+ 	type=item_to_name(item->type);
+ 	if (name[0]) {
+-		wl->name=g_strdup_printf("%s %s",type,name);
++		wl->name=g_strdup_printf("%s (%s)",name,type);
+ 	} else {
+ 		wl->name=g_strdup(type);
+ 	}
+-	text=g_strdup_printf("%s %s %s %s", distbuf, dirbuf, type, name);
++	text=g_strdup_printf("%s %s (%s %s)", distbuf, name, dirbuf, type);
+ 	wt=gui_internal_label_new(this, text);
+ 	wt->datai=dist;
+ 	gui_internal_widget_append(wl, wt);

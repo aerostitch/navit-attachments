@@ -1,0 +1,17 @@
+    bugfix: do not call fclose() if fopen() failed.
+    
+    Fixes crash if destination.txt is not writable.
+
+--- a/navit/bookmarks.c
++++ b/navit/bookmarks.c
+@@ -698,7 +698,9 @@ bookmarks_append_coord(char *file, struct pcoord *c, int count, const char *type
+ 			}
+ 		} else
+ 			fprintf(f,"\n");
++		fclose(f);
++	} else {
++		fprintf(stderr, "Error updating destinations file %s: %s\n", former_destination_file, strerror(errno));
+ 	}
+-	fclose(f);
+ }
+ 

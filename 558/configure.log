@@ -1,0 +1,440 @@
+Compile host Debian Lenny Amd64
+Android NDK 1.6_r1
+
+commandline for configure:
+./configure PKG_CONFIG=arm-eabi-pkgconfig RANLIB=arm-eabi-ranlib AR=arm-eabi-ar CC="arm-eabi-gcc -L$NDK/build/platforms/android-3/arch-arm/usr/lib -L. -I$NDK/build/platforms/android-3/arch-arm/usr/include" CXX=arm-eabi-g++ --host=arm-eabi-linux_android --enable-avoid-float --enable-avoid-unaligned --enable-cache-size=20971520 --enable-svg2png-scaling=8,16,32,48,64,96 --enable-svg2png-scaling-nav=59 --enable-svg2png-scaling-flag=32 --with-xslts=android --with-saxon=saxonb-xslt
+
+configure output:
+
+configure: WARNING: If you wanted to set the --build type, don't use --host.
+    If a cross compiler is detected then cross compile mode will be used.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for arm-eabi-linux_android-strip... no
+checking for strip... strip
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... arm-eabi-linux-gnu_android
+checking for style of include used by make... GNU
+checking for arm-eabi-linux_android-gcc... arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include accepts -g... yes
+checking for arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include option to accept ISO C89... none needed
+checking dependency style of arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include... gcc3
+checking how to run the C preprocessor... arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for AIX... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for arm-eabi-linux_android-gcc... no
+checking for arm-eabi-linux_android-objcc... no
+checking for arm-eabi-linux_android-objc... no
+checking for arm-eabi-linux_android-cc... no
+checking for arm-eabi-linux_android-CC... no
+checking for gcc... gcc
+configure: WARNING: In the future, Autoconf will not detect cross-tools
+whose name does not start with the host triplet.  If you think this
+configuration is useful to you, please write to autoconf@gnu.org.
+checking whether we are using the GNU Objective C compiler... no
+checking whether gcc accepts -g... no
+checking dependency style of gcc... gcc3
+checking for arm-eabi-linux_android-gcc... (cached) arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include accepts -g... (cached) yes
+checking for arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include option to accept ISO C89... (cached) none needed
+checking dependency style of arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include... (cached) gcc3
+checking for arm-eabi-linux_android-gcc... gcc
+checking whether we are using the GNU Objective C compiler... (cached) no
+checking whether gcc accepts -g... (cached) no
+checking dependency style of gcc... (cached) gcc3
+checking whether arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include and cc understand -c and -o together... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-eabi-g++ accepts -g... yes
+checking dependency style of arm-eabi-g++... gcc3
+checking pkg-config is at least version 0.9.0... ./configure: line 7524: arm-eabi-pkgconfig: command not found
+no
+checking for a C compiler for build tools... checking for gcc... gcc
+checking whether byte ordering is bigendian... no
+checking for HILDON... no
+checking for GPSBT... no
+checking for bzcat... /bin/bzcat
+checking for GLIB... checking for GMODULE... checking for dlopen in -ldl... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for ld used by arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include... /home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld
+checking if the linker (/home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld) is GNU ld... yes
+checking for /home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... nm
+checking whether ln -s works... yes
+checking how to recognize dependent libraries... pass_all
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking how to run the C++ preprocessor... /lib/cpp
+checking for arm-eabi-linux_android-g77... no
+checking for arm-eabi-linux_android-xlf... no
+checking for arm-eabi-linux_android-f77... no
+checking for arm-eabi-linux_android-frt... no
+checking for arm-eabi-linux_android-pgf77... no
+checking for arm-eabi-linux_android-cf77... no
+checking for arm-eabi-linux_android-fort77... no
+checking for arm-eabi-linux_android-fl32... no
+checking for arm-eabi-linux_android-af77... no
+checking for arm-eabi-linux_android-xlf90... no
+checking for arm-eabi-linux_android-f90... no
+checking for arm-eabi-linux_android-pgf90... no
+checking for arm-eabi-linux_android-pghpf... no
+checking for arm-eabi-linux_android-epcf90... no
+checking for arm-eabi-linux_android-gfortran... no
+checking for arm-eabi-linux_android-g95... no
+checking for arm-eabi-linux_android-xlf95... no
+checking for arm-eabi-linux_android-f95... no
+checking for arm-eabi-linux_android-fort... no
+checking for arm-eabi-linux_android-ifort... no
+checking for arm-eabi-linux_android-ifc... no
+checking for arm-eabi-linux_android-efc... no
+checking for arm-eabi-linux_android-pgf95... no
+checking for arm-eabi-linux_android-lf95... no
+checking for arm-eabi-linux_android-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 98304
+checking command to parse nm output from arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include object... ok
+checking for objdir... .libs
+checking for arm-eabi-linux_android-ar... arm-eabi-ar
+checking for arm-eabi-linux_android-ranlib... arm-eabi-ranlib
+checking for arm-eabi-linux_android-strip... strip
+checking if arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include supports -fno-rtti -fno-exceptions... no
+checking for arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include option to produce PIC... -fPIC
+checking if arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include PIC flag -fPIC works... yes
+checking if arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include static flag -static works... no
+checking if arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include supports -c -o file.o... yes
+checking whether the arm-eabi-gcc -L/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/lib -L. -I/home/thomas/android-ndk-1.6_r1/build/platforms/android-3/arch-arm/usr/include linker (/home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-eabi-g++... /home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld
+checking if the linker (/home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld) is GNU ld... yes
+checking whether the arm-eabi-g++ linker (/home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld) supports shared libraries... yes
+checking for arm-eabi-g++ option to produce PIC... -fPIC
+checking if arm-eabi-g++ PIC flag -fPIC works... yes
+checking if arm-eabi-g++ static flag -static works... no
+checking if arm-eabi-g++ supports -c -o file.o... yes
+checking whether the arm-eabi-g++ linker (/home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+(cached) (cached) checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for GTK2... checking for fsync... yes
+checking for system... yes
+checking for CreateProcess... no
+checking for SDL... checking for FREETYPE2... checking for FONTCONFIG... checking for IMLIB2... checking SDL/SDL.h usability... no
+checking SDL/SDL.h presence... no
+checking for SDL/SDL.h... no
+configure: WARNING: *** no SDL/SDL.h -- SDL support disabled
+checking X11/Xmu/Xmu.h usability... no
+checking X11/Xmu/Xmu.h presence... no
+checking for X11/Xmu/Xmu.h... no
+configure: WARNING: *** no X11/Xmu/Xmu.h -- opengl and SDL support disabled
+checking GL/gl.h usability... no
+checking GL/gl.h presence... no
+checking for GL/gl.h... no
+configure: WARNING: *** no GL/gl.h -- opengl and SDL support disabled;graphics_opengl=no;graphics_opengl_reason="Headers missing"
+checking GL/glut.h usability... no
+checking GL/glut.h presence... no
+checking for GL/glut.h... no
+configure: WARNING: *** no GL/glut.h -- opengl and SDL support disabled
+checking GL/glc.h usability... no
+checking GL/glc.h presence... no
+checking for GL/glc.h... no
+configure: WARNING: *** no GL/glc.h -- opengl and SDL support disabled
+checking for LIBGARMIN... checking for DBUS... checking for rsvg-convert... no
+checking for ksvgtopng... no
+checking for ksvgtopng4... no
+checking for inkscape... /usr/bin/inkscape
+checking for gettext... no
+checking for xgettext... xgettext
+checking for msgmerge... msgmerge
+checking for msgfmt... msgfmt
+xgettext and gettext() exist; will build i18n support for af ar bg ca cs da de el en_GB eo es et fi fo fr gl he hu id it ja lt lv mk nb nds nl nn pl pt pt_BR ro ru sk sl sv te th tr uk vi zh_CN zh_HK 
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for arm-eabi-linux_android-ranlib... (cached) arm-eabi-ranlib
+checking for strerror in -lcposix... no
+checking for an ANSI C-conforming const... yes
+checking for signed... yes
+checking for inline... inline
+checking for off_t... yes
+checking for size_t... yes
+checking for long long... yes
+checking for long double... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking whether printf() supports POSIX/XSI format strings... guessing yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... no
+checking for working mmap... no
+checking whether we are using the GNU C Library 2.1 or newer... no
+checking whether integer division by zero raises SIGFPE... guessing no
+checking for unsigned long long... yes
+checking for inttypes.h... yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for stdint.h... (cached) yes
+checking for ld used by GCC... /home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld
+checking if the linker (/home/thomas/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/arm-eabi/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for ptrdiff_t... yes
+checking argz.h usability... no
+checking argz.h presence... no
+checking for argz.h... no
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking nl_types.h usability... no
+checking nl_types.h presence... no
+checking for nl_types.h... no
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for asprintf... yes
+checking for fwprintf... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... no
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for snprintf... yes
+checking for stpcpy... no
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... no
+checking for wcslen... yes
+checking for __argz_count... no
+checking for __argz_stringify... no
+checking for __argz_next... no
+checking for __fsetlocking... no
+checking whether _snprintf is declared... no
+checking whether _snwprintf is declared... no
+checking whether feof_unlocked is declared... no
+checking whether fgets_unlocked is declared... no
+checking whether getc_unlocked is declared... yes
+checking for iconv... no, consider installing GNU libiconv
+checking for nl_langinfo and CODESET... no
+checking for LC_MESSAGES... yes
+checking for bison... no
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking for GNU gettext in libc... no
+checking for GNU gettext in libintl... no
+checking whether to use NLS... yes
+checking where the gettext function comes from... included intl directory
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking wordexp.h usability... no
+checking wordexp.h presence... no
+checking for wordexp.h... no
+checking for QT_GUI... checking for QT_GUI... checking libspeechd.h usability... no
+checking libspeechd.h presence... no
+checking for libspeechd.h... no
+checking for GPSD... checking gps.h usability... no
+checking gps.h presence... no
+checking for gps.h... no
+checking for GYPSY... configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating navit/Makefile
+config.status: creating navit/binding/Makefile
+config.status: creating navit/binding/python/Makefile
+config.status: creating navit/binding/dbus/Makefile
+config.status: creating navit/map/Makefile
+config.status: creating navit/map/mg/Makefile
+config.status: creating navit/map/textfile/Makefile
+config.status: creating navit/map/shapefile/Makefile
+config.status: creating navit/map/filter/Makefile
+config.status: creating navit/map/binfile/Makefile
+config.status: creating navit/map/garmin/Makefile
+config.status: creating navit/maptool/Makefile
+config.status: creating navit/fib-1.1/Makefile
+config.status: creating navit/font/Makefile
+config.status: creating navit/font/freetype/Makefile
+config.status: creating navit/fonts/Makefile
+config.status: creating navit/graphics/Makefile
+config.status: creating navit/graphics/android/Makefile
+config.status: creating navit/graphics/gd/Makefile
+config.status: creating navit/graphics/gtk_drawing_area/Makefile
+config.status: creating navit/graphics/opengl/Makefile
+config.status: creating navit/graphics/null/Makefile
+config.status: creating navit/graphics/sdl/Makefile
+config.status: creating navit/graphics/qt_qpainter/Makefile
+config.status: creating navit/graphics/win32/Makefile
+config.status: creating navit/gui/Makefile
+config.status: creating navit/gui/gtk/Makefile
+config.status: creating navit/gui/internal/Makefile
+config.status: creating navit/gui/win32/Makefile
+config.status: creating navit/osd/Makefile
+config.status: creating navit/osd/core/Makefile
+config.status: creating navit/plugin/Makefile
+config.status: creating navit/plugin/pedestrian/Makefile
+config.status: creating navit/speech/Makefile
+config.status: creating navit/speech/android/Makefile
+config.status: creating navit/speech/cmdline/Makefile
+config.status: creating navit/speech/dbus/Makefile
+config.status: creating navit/speech/espeak/Makefile
+config.status: creating navit/speech/speech_dispatcher/Makefile
+config.status: creating navit/support/Makefile
+config.status: creating navit/support/espeak/Makefile
+config.status: creating navit/support/ezxml/Makefile
+config.status: creating navit/support/glib/Makefile
+config.status: creating navit/support/libc/Makefile
+config.status: creating navit/support/libpng/Makefile
+config.status: creating navit/support/win32/Makefile
+config.status: creating navit/support/wordexp/Makefile
+config.status: creating navit/support/zlib/Makefile
+config.status: creating navit/vehicle/Makefile
+config.status: creating navit/vehicle/android/Makefile
+config.status: creating navit/vehicle/file/Makefile
+config.status: creating navit/vehicle/gpsd/Makefile
+config.status: creating navit/vehicle/gpsd_dbus/Makefile
+config.status: creating navit/vehicle/gypsy/Makefile
+config.status: creating navit/vehicle/maemo/Makefile
+config.status: creating navit/vehicle/null/Makefile
+config.status: creating navit/vehicle/demo/Makefile
+config.status: creating navit/vehicle/wince/Makefile
+config.status: creating navit/vehicle/iphone/Makefile
+config.status: creating navit/xpm/Makefile
+config.status: creating navit/maps/Makefile
+config.status: creating intl/Makefile
+config.status: WARNING:  intl/Makefile.in seems to ignore the --datarootdir setting
+config.status: creating po/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+
+
+Summary of your installation :
+OpenGL gui  : DISABLED : you are missing (libsdl maybe?) libxmu glut quesoglc 
+Maemo/Hildon: DISABLED
+Garmin IMG  : DISABLED (you don't have libgarmin)
+Plugins:             yes (default, via dlopen)
+Postgresql:          no (not supported for cross compiling)
+Samplemap:           no (not supported for cross compiling)
+NLS Support:         yes ($(top_builddir)/intl//libintl.a )
+Font renderers:
+  freetype:          no (Package freetype2 missing)
+Graphics types:
+  android:  yes (host_os is android)
+  gtk_drawing_area:  no (default)
+  qt_qpainter:       no (Package qt-mt present)
+  win32:             no (default)
+  OpenGL:            no (Headers missing)
+  gd:                no (default)
+  sdl:               no (sdl not available)
+GUI types:
+  gtk:               no (default)
+  internal:          yes (default)
+  win32:             no (default)
+Bindings:
+  dbus:              no (default)
+  python:            no (not supported for cross compiling)
+Plugins:
+  pedestrian:	   no (default)
+Speech types:
+  android:           yes (host_os is android)
+  cmdline:           yes (default)
+  dbus:              no (default)
+  espeak:            no (default)
+  speech_dispatcher: no (libspeechd.h missing)
+Vehicle types:
+  android:           yes (host_os is android)
+  demo:              yes (default)
+  file:              yes (default)
+  gpsd:              no (no gps.h and no gpsd pkgconfig)
+  gpsd_dbus:         no (default)
+  gypsy:             no (package gypsy missing)
+  maemo:             no (default)
+  null:              no (default)
+  wince:             no (default)
+  iphone:            no (default)

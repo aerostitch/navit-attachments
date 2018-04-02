@@ -1,0 +1,274 @@
+pere@x1000:~/Tomtom/Navegadors/navit/navit$ ./navit -c /mnt/sdcard/navit/share/navit.xml2
+Running from source directory
+config file n is set to `/mnt/sdcard/navit/share/navit.xml2'
+vehicle_file:vehicle_file_new_file:on_eof=0
+vehicle_file:vehicle_file_new_file:Failed to open 'file:/var/run/gpspipe'
+
+(process:11100): GLib-WARNING **: /build/buildd-glib2.0_2.24.0-1-i386-o5zIuQ/glib2.0-2.24.0/glib/giounix.c:406Error while getting flags for FD: El descriptor de fitxer no és vàlid (9)
+
+vehicle_file:vehicle_file_new_file:on_eof=0
+map_binfile:map_binfile_zip_setup:num_disk 0
+map_binfile:map_binfile_zip_setup:num_disk 0
+navit:main_real:Using '/mnt/sdcard/navit/share/navit.xml2'
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+navit:osd_set_std_graphic:accesskey (null)
+GNU gdb 6.8-debian
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i486-linux-gnu"...
+Attaching to program: /home/pere/Tomtom/Navegadors/navit/navit/navit, process 11100
+Reading symbols from /usr/lib/libgthread-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgthread-2.0.so.0
+Reading symbols from /usr/lib/libgmodule-2.0.so.0...done.
+Loaded symbols for /usr/lib/libgmodule-2.0.so.0
+Reading symbols from /lib/i686/cmov/librt.so.1...Reading symbols from /usr/lib/debug/lib/i686/cmov/librt-2.11.2.so...done.
+done.
+Loaded symbols for /lib/i686/cmov/librt.so.1
+Reading symbols from /lib/libglib-2.0.so.0...done.
+Loaded symbols for /lib/libglib-2.0.so.0
+Reading symbols from /usr/lib/libz.so.1...done.
+Loaded symbols for /usr/lib/libz.so.1
+Reading symbols from /lib/i686/cmov/libm.so.6...Reading symbols from /usr/lib/debug/lib/i686/cmov/libm-2.11.2.so...done.
+done.
+Loaded symbols for /lib/i686/cmov/libm.so.6
+Reading symbols from /lib/i686/cmov/libpthread.so.0...Reading symbols from /usr/lib/debug/lib/i686/cmov/libpthread-2.11.2.so...done.
+[Thread debugging using libthread_db enabled]
+[New Thread 0xb7ce6a00 (LWP 11100)]
+done.
+Loaded symbols for /lib/i686/cmov/libpthread.so.0
+Reading symbols from /lib/i686/cmov/libc.so.6...Reading symbols from /usr/lib/debug/lib/i686/cmov/libc-2.11.2.so...done.
+done.
+Loaded symbols for /lib/i686/cmov/libc.so.6
+Reading symbols from /usr/lib/libpcre.so.3...done.
+Loaded symbols for /usr/lib/libpcre.so.3
+Reading symbols from /lib/i686/cmov/libdl.so.2...Reading symbols from /usr/lib/debug/lib/i686/cmov/libdl-2.11.2.so...done.
+done.
+Loaded symbols for /lib/i686/cmov/libdl.so.2
+Reading symbols from /lib/ld-linux.so.2...Reading symbols from /usr/lib/debug/lib/ld-2.11.2.so...done.
+done.
+Loaded symbols for /lib/ld-linux.so.2
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/map/textfile/.libs/libmap_textfile.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/map/textfile/.libs/libmap_textfile.so
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/graphics/sdl/.libs/libgraphics_sdl.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/graphics/sdl/.libs/libgraphics_sdl.so
+Reading symbols from /usr/lib/libSDL-1.2.so.0...done.
+Loaded symbols for /usr/lib/libSDL-1.2.so.0
+Reading symbols from /usr/lib/libSDL_image-1.2.so.0...done.
+Loaded symbols for /usr/lib/libSDL_image-1.2.so.0
+Reading symbols from /usr/lib/libfreetype.so.6...done.
+Loaded symbols for /usr/lib/libfreetype.so.6
+Reading symbols from /usr/lib/libfontconfig.so.1...done.
+Loaded symbols for /usr/lib/libfontconfig.so.1
+Reading symbols from /usr/lib/libasound.so.2...done.
+Loaded symbols for /usr/lib/libasound.so.2
+Reading symbols from /usr/lib/libdirectfb-1.2.so.0...done.
+Loaded symbols for /usr/lib/libdirectfb-1.2.so.0
+Reading symbols from /usr/lib/libfusion-1.2.so.0...done.
+Loaded symbols for /usr/lib/libfusion-1.2.so.0
+Reading symbols from /usr/lib/libdirect-1.2.so.0...done.
+Loaded symbols for /usr/lib/libdirect-1.2.so.0
+Reading symbols from /usr/lib/libvga.so.1...done.
+Loaded symbols for /usr/lib/libvga.so.1
+Reading symbols from /usr/lib/libtiff.so.4...done.
+Loaded symbols for /usr/lib/libtiff.so.4
+Reading symbols from /usr/lib/libjpeg.so.62...done.
+Loaded symbols for /usr/lib/libjpeg.so.62
+Reading symbols from /usr/lib/libexpat.so.1...done.
+Loaded symbols for /usr/lib/libexpat.so.1
+Reading symbols from /lib/libx86.so.1...done.
+Loaded symbols for /lib/libx86.so.1
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/font/freetype/.libs/libfont_freetype.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/font/freetype/.libs/libfont_freetype.so
+Reading symbols from /usr/lib/libfribidi.so.0...done.
+Loaded symbols for /usr/lib/libfribidi.so.0
+Reading symbols from /usr/lib/libX11.so.6...done.
+Loaded symbols for /usr/lib/libX11.so.6
+Reading symbols from /usr/lib/libxcb.so.1...done.
+Loaded symbols for /usr/lib/libxcb.so.1
+Reading symbols from /usr/lib/libXau.so.6...done.
+Loaded symbols for /usr/lib/libXau.so.6
+Reading symbols from /usr/lib/libXdmcp.so.6...done.
+Loaded symbols for /usr/lib/libXdmcp.so.6
+Reading symbols from /usr/lib/libXext.so.6...done.
+Loaded symbols for /usr/lib/libXext.so.6
+Reading symbols from /usr/lib/libXrender.so.1...done.
+Loaded symbols for /usr/lib/libXrender.so.1
+Reading symbols from /usr/lib/libXrandr.so.2...done.
+Loaded symbols for /usr/lib/libXrandr.so.2
+Reading symbols from /usr/lib/libXcursor.so.1...done.
+Loaded symbols for /usr/lib/libXcursor.so.1
+Reading symbols from /usr/lib/libXfixes.so.3...done.
+Loaded symbols for /usr/lib/libXfixes.so.3
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/gui/internal/.libs/libgui_internal.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/gui/internal/.libs/libgui_internal.so
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/osd/core/.libs/libosd_core.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/osd/core/.libs/libosd_core.so
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/vehicle/file/.libs/libvehicle_file.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/vehicle/file/.libs/libvehicle_file.so
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/speech/cmdline/.libs/libspeech_cmdline.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/speech/cmdline/.libs/libspeech_cmdline.so
+Reading symbols from /home/pere/Tomtom/Navegadors/navit/navit/map/binfile/.libs/libmap_binfile.so...done.
+Loaded symbols for /home/pere/Tomtom/Navegadors/navit/navit/map/binfile/.libs/libmap_binfile.so
+Reading symbols from /lib/libpng12.so.0...done.
+Loaded symbols for /lib/libpng12.so.0
+0xb7fad424 in __kernel_vsyscall ()
+#0  0xb7fad424 in __kernel_vsyscall ()
+#1  0xb7db32a3 in __waitpid_nocancel () at ../sysdeps/unix/syscall-template.S:82
+#2  0xb7d54ee3 in do_system (line=<value optimized out>) at ../sysdeps/posix/system.c:149
+#3  0xb7e723bd in system (line=0xbf7ca810 "gdb -ex bt ./navit 11100") at pt-system.c:29
+#4  0x080607f8 in sigsegv (sig=11) at debug.c:80
+#5  <signal handler called>
+#6  0x08062f5e in draw_circle (pnt=0xbf7cb980, diameter=291, scale=5, start=1244, len=-512, res=0xbf7caed0, pos=0xfffffe85, dir=-1) at graphics.c:1129
+#7  0x080649e2 in graphics_draw_polyline_as_polygon (gra=0x857d388, gc=0x8751ed8, pnt=0xbf7cb740, count=73, width=0xbf7cb600, step=1) at graphics.c:1312
+#8  0x08065338 in graphics_draw_polyline_clipped (gra=0x857d388, gc=0x8751ed8, pa=0xbf7cba50, count=73, width=0xbf7eba60, step=1, poly=1)
+    at graphics.c:1470
+#9  0x08066271 in displayitem_draw (di=0x874df98, dummy=<value optimized out>, dc=0x8578014) at graphics.c:1719
+#10 0x08066a99 in graphics_displaylist_draw (gra=0x857d388, displaylist=0x8578000, trans=0x8572b88, l=0x8618420, flags=<value optimized out>)
+    at graphics.c:1828
+#11 0x08066d95 in do_draw (displaylist=0x8578000, cancel=0, flags=1) at graphics.c:2069
+#12 0x0805d9d7 in callback_call (cb=0x8757f60, pcount=0, p=0xbf81bd10) at callback.c:175
+#13 0x0805dcc8 in callback_call_args (cb=0x8757f60, count=0) at callback.c:202
+#14 0x0805b0b8 in event_glib_call_idle (ev=0x8696db8) at event_glib.c:139
+#15 0xb7ef1361 in ?? () from /lib/libglib-2.0.so.0
+#16 0x08696db8 in ?? ()
+#17 0x086a11a8 in ?? ()
+#18 0xbf81bd88 in ?? ()
+#19 0xb7f80228 in ?? () from /lib/libglib-2.0.so.0
+#20 0xb7f80228 in ?? () from /lib/libglib-2.0.so.0
+#21 0xb7f80228 in ?? () from /lib/libglib-2.0.so.0
+#22 0xbf81bde8 in ?? ()
+#23 0xb7ef32e5 in g_main_context_dispatch () from /lib/libglib-2.0.so.0
+Backtrace stopped: frame did not save the PC
+(gdb) bt full
+#0  0xb7fad424 in __kernel_vsyscall ()
+No symbol table info available.
+#1  0xb7db32a3 in __waitpid_nocancel () at ../sysdeps/unix/syscall-template.S:82
+No locals.
+#2  0xb7d54ee3 in do_system (line=<value optimized out>) at ../sysdeps/posix/system.c:149
+	__result = -512
+	_buffer = {__routine = 0xb7d55280 <cancel_handler>, __arg = 0xbf7ca7d4, __canceltype = 0, __prev = 0x0}
+	_avail = 1
+	status = <value optimized out>
+	save = <value optimized out>
+	pid = 11101
+	sa = {__sigaction_handler = {sa_handler = 0x1, sa_sigaction = 0x1}, sa_mask = {__val = {65536, 0 <repeats 31 times>}}, sa_flags = 0, 
+  sa_restorer = 0xbf7ca778}
+	omask = {__val = {1024, 0, 3086527176, 0, 3212617620, 3212617768, 3085332713, 0, 4294967295, 0, 134547808, 0, 0, 0, 3212617864, 0, 3084413362, 
+    3084002212, 3086527872, 3212617652, 4294967295, 3086786548, 3085332713, 1, 3212617680, 3086726838, 3086527616, 3085319408, 1, 1, 0, 1}}
+#3  0xb7e723bd in system (line=0xbf7ca810 "gdb -ex bt ./navit 11100") at pt-system.c:29
+No locals.
+#4  0x080607f8 in sigsegv (sig=11) at debug.c:80
+	buffer = "gdb -ex bt ./navit 11100\000\001\000\000]\000\000\000�\001\000\000f\000\000\000�\001\000\000\200�\225X�\001\000\000|\000\000\000\000��� �\t\b�C\t\b\006\000\000\000x�|�m�\005\b0�V\b��|���|�\204\\\t\bK�\005\b �\t\b��|���\005\b��|�\204\\\t\b�C\t\b�m\t\b\201\000\000\000\024\000\000\000\205\000\000\000\227�\005\bnavit:transform\000�\233u\b\001\000\000\000\b\000\000\000��Է�\233u\b`�|���|�΢Է��|���|�"...
+#5  <signal handler called>
+No symbol table info available.
+#6  0x08062f5e in draw_circle (pnt=0xbf7cb980, diameter=291, scale=5, start=1244, len=-512, res=0xbf7caed0, pos=0xfffffe85, dir=-1) at graphics.c:1129
+	end = 732
+	i = <value optimized out>
+	step = 1
+#7  0x080649e2 in graphics_draw_polyline_as_polygon (gra=0x857d388, gc=0x8751ed8, pnt=0xbf7cb740, count=73, width=0xbf7cb600, step=1) at graphics.c:1312
+	pos = {x = -406, y = 2332}
+	poso = {x = -267, y = 1937}
+	neg = {x = -127, y = 2411}
+	nego = {x = -34, y = 1995}
+	i = 72
+	dx = -116
+	dy = 406
+	l = 6752
+	dxo = 116
+	dyo = -406
+---Type <return> to continue, or q <return> to quit---
+	o = {px = -40, py = 139, nx = 39, ny = -140}
+	oo = {px = -40, py = 139, nx = 39, ny = -140}
+	fow = 732
+	fowo = 732
+	delta = 2
+	wi = 291
+	ppos = 170
+	npos = -2
+	state = 2
+	lscale = 16
+	__PRETTY_FUNCTION__ = "graphics_draw_polyline_as_polygon"
+#8  0x08065338 in graphics_draw_polyline_clipped (gra=0x857d388, gc=0x8751ed8, pa=0xbf7cba50, count=73, width=0xbf7eba60, step=1, poly=1)
+    at graphics.c:1470
+	i = 72
+	code = 5
+	out = 73
+	wmax = <value optimized out>
+#9  0x08066271 in displayitem_draw (di=0x874df98, dummy=<value optimized out>, dc=0x8578014) at graphics.c:1719
+	i = <value optimized out>
+	count = 73
+	mindist = 11
+	gra = (struct graphics *) 0x857d388
+	gc = (struct graphics_gc *) 0x8751ed8
+	e = (struct element *) 0x862c620
+	img = (struct graphics_image *) 0x0
+	p = {x = -1082147960, y = 134624664}
+	path = <value optimized out>
+	__PRETTY_FUNCTION__ = "displayitem_draw"
+#10 0x08066a99 in graphics_displaylist_draw (gra=0x857d388, displaylist=0x8578000, trans=0x8572b88, l=0x8618420, flags=<value optimized out>)
+    at graphics.c:1828
+	order = 14
+#11 0x08066d95 in do_draw (displaylist=0x8578000, cancel=0, flags=1) at graphics.c:2069
+	item = (struct item *) 0x0
+	count = 0
+	max = 16384
+	workload = 12
+	attr = {type = attr_label, u = {str = 0x8762404 "", data = 0x8762404, num = 141960196, item = 0x8762404, item_type = 141960196, 
+    projection = 141960196, numd = 0x8762404, color = 0x8762404, coord_geo = 0x8762404, navit = 0x8762404, callback = 0x8762404, 
+---Type <return> to continue, or q <return> to quit---
+    callback_list = 0x8762404, vehicle = 0x8762404, layout = 0x8762404, layer = 0x8762404, map = 0x8762404, mapset = 0x8762404, log = 0x8762404, 
+    route = 0x8762404, navigation = 0x8762404, coord = 0x8762404, pcoord = 0x8762404, gui = 0x8762404, graphics = 0x8762404, tracking = 0x8762404, 
+    itemgra = 0x8762404, plugin = 0x8762404, plugins = 0x8762404, polygon = 0x8762404, polyline = 0x8762404, circle = 0x8762404, text = 0x8762404, 
+    icon = 0x8762404, image = 0x8762404, arrows = 0x8762404, element = 0x8762404, speech = 0x8762404, cursor = 0x8762404, displaylist = 0x8762404, 
+    transformation = 0x8762404, vehicleprofile = 0x8762404, roadprofile = 0x8762404, bookmarks = 0x8762404, range = {min = 9220, max = 2166}, 
+    dash = 0x8762404, item_types = 0x8762404, attr_types = 0x8762404, num64 = 0x8762404, attrs = 0x8762404}}
+	attr2 = {type = 134813848, u = {str = 0xd <Address 0xd out of bounds>, data = 0xd, num = 13, item = 0xd, item_type = 13, projection = 13, 
+    numd = 0xd, color = 0xd, coord_geo = 0xd, navit = 0xd, callback = 0xd, callback_list = 0xd, vehicle = 0xd, layout = 0xd, layer = 0xd, map = 0xd, 
+    mapset = 0xd, log = 0xd, route = 0xd, navigation = 0xd, coord = 0xd, pcoord = 0xd, gui = 0xd, graphics = 0xd, tracking = 0xd, itemgra = 0xd, 
+    plugin = 0xd, plugins = 0xd, polygon = 0xd, polyline = 0xd, circle = 0xd, text = 0xd, icon = 0xd, image = 0xd, arrows = 0xd, element = 0xd, 
+    speech = 0xd, cursor = 0xd, displaylist = 0xd, transformation = 0xd, vehicleprofile = 0xd, roadprofile = 0xd, bookmarks = 0xd, range = {min = 13, 
+      max = 0}, dash = 0xd, item_types = 0xd, attr_types = 0xd, num64 = 0xd, attrs = 0xd}}
+	pro = projection_mg
+	__PRETTY_FUNCTION__ = "do_draw"
+#12 0x0805d9d7 in callback_call (cb=0x8757f60, pcount=0, p=0xbf81bd10) at callback.c:175
+	i = <value optimized out>
+	pf = {0x8578000, 0x0, 0x1, 0x87584c8, 0xb7f1d07e, 0xb7fa8284, 0xb7fa816b, 0x4d49e2c1}
+	__PRETTY_FUNCTION__ = "callback_call"
+#13 0x0805dcc8 in callback_call_args (cb=0x8757f60, count=0) at callback.c:202
+	i = -2
+#14 0x0805b0b8 in event_glib_call_idle (ev=0x8696db8) at event_glib.c:139
+No locals.
+#15 0xb7ef1361 in ?? () from /lib/libglib-2.0.so.0
+No symbol table info available.
+#16 0x08696db8 in ?? ()
+No symbol table info available.
+#17 0x086a11a8 in ?? ()
+No symbol table info available.
+#18 0xbf81bd88 in ?? ()
+No symbol table info available.
+#19 0xb7f80228 in ?? () from /lib/libglib-2.0.so.0
+No symbol table info available.
+#20 0xb7f80228 in ?? () from /lib/libglib-2.0.so.0
+No symbol table info available.
+#21 0xb7f80228 in ?? () from /lib/libglib-2.0.so.0
+No symbol table info available.
+#22 0xbf81bde8 in ?? ()
+No symbol table info available.
+---Type <return> to continue, or q <return> to quit---
+#23 0xb7ef32e5 in g_main_context_dispatch () from /lib/libglib-2.0.so.0
+No symbol table info available.
+Backtrace stopped: frame did not save the PC
+(gdb) 

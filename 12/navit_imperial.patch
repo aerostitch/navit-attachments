@@ -1,0 +1,266 @@
+Index: navit/osd/core/osd_core.c
+===================================================================
+--- navit/osd/core/osd_core.c	(revision 2391)
++++ navit/osd/core/osd_core.c	(working copy)
+@@ -96,21 +96,31 @@
+ 	graphics_draw_lines(gr, gc, ph, 3);
+ }
+ 
++
+ static char *
+ format_distance(double distance, char *sep)
+ {
+-	if (distance >= 100000)
+-		return g_strdup_printf("%.0f%skm", distance / 1000, sep);
+-	else if (distance >= 10000)
+-		return g_strdup_printf("%.1f%skm", distance / 1000, sep);
+-	else if (distance >= 300)
+-		return g_strdup_printf("%.0f%sm", round(distance / 25) * 25, sep);
+-	else if (distance >= 50)
+-		return g_strdup_printf("%.0f%sm", round(distance / 10) * 10, sep);
+-	else if (distance >= 10)
+-		return g_strdup_printf("%.0f%sm", distance, sep);
+-	else
+-		return g_strdup_printf("%.1f%sm", distance, sep);
++	if (!strcmp(sep,"US")){
++		distance *= FEET_PER_METER;
++		if(distance <= 1500){
++			return g_strdup_printf("%.0f ft", round(distance / 10) * 10 );
++		} else {
++			return g_strdup_printf("%.1f mi", distance / FEET_PER_MILE );
++		}
++	} else {
++		if (distance >= 100000)
++			return g_strdup_printf("%.0f%skm", distance / 1000, sep);
++		else if (distance >= 10000)
++			return g_strdup_printf("%.1f%skm", distance / 1000, sep);
++		else if (distance >= 300)
++			return g_strdup_printf("%.0f%sm", round(distance / 25) * 25, sep);
++		else if (distance >= 50)
++			return g_strdup_printf("%.0f%sm", round(distance / 10) * 10, sep);
++		else if (distance >= 10)
++			return g_strdup_printf("%.0f%sm", distance, sep);
++		else
++			return g_strdup_printf("%.1f%sm", distance, sep);
++	}
+ }
+ 
+ static char * 
+@@ -693,6 +703,9 @@
+ 			break;
+ 		if (!strcmp(format,"named"))
+ 			return format_distance(attr->u.num,"");
++		if(!strcmp(format,"miles")){
++			return format_distance(attr->u.num,"US");
++		}
+ 		if (!strcmp(format,"value") || !strcmp(format,"unit")) {
+ 			char *ret,*tmp=format_distance(attr->u.num," ");
+ 			char *pos=strchr(tmp,' ');
+Index: navit/attr_def.h
+===================================================================
+--- navit/attr_def.h	(revision 2391)
++++ navit/attr_def.h	(working copy)
+@@ -106,6 +106,7 @@
+ ATTR(message_maxage)
+ ATTR(message_maxnum)
+ ATTR(pitch)
++ATTR(imperial)
+ ATTR(roll)
+ ATTR(yaw)
+ ATTR(route_status)
+Index: navit/navigation.c
+===================================================================
+--- navit/navigation.c	(revision 2391)
++++ navit/navigation.c	(working copy)
+@@ -307,33 +307,65 @@
+ }
+ 
+ static char *
+-get_distance(int dist, enum attr_type type, int is_length)
++get_distance(struct navigation *nav, int dist, enum attr_type type, int is_length)
+ {
+-	if (type == attr_navigation_long) {
+-		if (is_length)
+-			return g_strdup_printf(_("%d m"), dist);
++	int dist_ft, dist_mi;
++	struct attr attr;
++
++	navit_get_attr(nav->navit, attr_imperial, &attr, NULL);
++	if (attr.u.num == 1)  {
++
++		dist_ft = dist * FEET_PER_METER;
++		dist_mi = dist_ft / FEET_PER_MILE;
++		if (dist_ft < 1000) {
++			if (is_length)
++				return g_strdup_printf(_("%d feet"), dist_ft);
++			else
++				return g_strdup_printf(_("in %d feet"), dist_ft);
++		}
++		if (dist_ft < 5000) {
++			int rem=(dist_ft/528)%10;
++			if (rem) {
++				if (is_length)
++					return g_strdup_printf(_("%d.%d miles"), dist_mi, rem);
++				else
++					return g_strdup_printf(_("in %d.%d miles"), dist_mi, rem);
++			}
++		}
++		if (is_length) 
++			return g_strdup_printf(ngettext("one mile","%d miles", dist_mi), dist_mi);
+ 		else
+-			return g_strdup_printf(_("in %d m"), dist);
+-	}
+-	if (dist < 1000) {
+-		if (is_length)
+-			return g_strdup_printf(_("%d meters"), dist);
+-		else
+-			return g_strdup_printf(_("in %d meters"), dist);
+-	}
+-	if (dist < 5000) {
+-		int rem=(dist/100)%10;
+-		if (rem) {
++			return g_strdup_printf(ngettext("in one mile","in %d miles", dist_mi), dist_mi);
++
++
++	} else {
++
++		if (type == attr_navigation_long) {
+ 			if (is_length)
+-				return g_strdup_printf(_("%d.%d kilometer"), dist/1000, rem);
++				return g_strdup_printf(_("%d m"), dist);
+ 			else
+-				return g_strdup_printf(_("in %d.%d kilometers"), dist/1000, rem);
++				return g_strdup_printf(_("in %d m"), dist);
+ 		}
++		if (dist < 1000) {
++			if (is_length)
++				return g_strdup_printf(_("%d meters"), dist);
++			else
++				return g_strdup_printf(_("in %d meters"), dist);
++		}
++		if (dist < 5000) {
++			int rem=(dist/100)%10;
++			if (rem) {
++				if (is_length)
++					return g_strdup_printf(_("%d.%d kilometer"), dist/1000, rem);
++				else
++					return g_strdup_printf(_("in %d.%d kilometers"), dist/1000, rem);
++			}
++		}
++		if (is_length) 
++			return g_strdup_printf(ngettext("one kilometer","%d kilometers", dist/1000), dist/1000);
++		else
++			return g_strdup_printf(ngettext("in one kilometer","in %d kilometers", dist/1000), dist/1000);
+ 	}
+-	if (is_length) 
+-		return g_strdup_printf(ngettext("one kilometer","%d kilometers", dist/1000), dist/1000);
+-	else
+-		return g_strdup_printf(ngettext("in one kilometer","in %d kilometers", dist/1000), dist/1000);
+ }
+ 
+ 
+@@ -1412,7 +1444,7 @@
+ 		case 2:
+ 			return g_strdup(_("Enter the roundabout soon"));
+ 		case 1:
+-			d = get_distance(distance, type, 1);
++			d = get_distance(nav, distance, type, 1);
+ 			/* TRANSLATORS: %s is the distance to the roundabout */
+ 			ret = g_strdup_printf(_("In %s, enter the roundabout"), d);
+ 			g_free(d);
+@@ -1441,7 +1473,7 @@
+ 
+ 	switch(level) {
+ 	case 3:
+-		d=get_distance(distance, type, 1);
++		d=get_distance(nav, distance, type, 1);
+ 		ret=g_strdup_printf(_("Follow the road for the next %s"), d);
+ 		g_free(d);
+ 		return ret;
+@@ -1449,7 +1481,7 @@
+ 		d=g_strdup(_("soon"));
+ 		break;
+ 	case 1:
+-		d=get_distance(distance, type, 0);
++		d=get_distance(nav, distance, type, 0);
+ 		break;
+ 	case 0:
+ 		skip_roads = count_possible_turns(nav->first,cmd->itm,cmd->delta);
+Index: navit/navigation.h
+===================================================================
+--- navit/navigation.h	(revision 2391)
++++ navit/navigation.h	(working copy)
+@@ -20,6 +20,9 @@
+ #ifndef NAVIT_NAVIGATION_H
+ #define NAVIT_NAVIGATION_H
+ 
++#define FEET_PER_METER 3.2808399;
++#define FEET_PER_MILE  5280
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+Index: navit/navit.c
+===================================================================
+--- navit/navit.c	(revision 2391)
++++ navit/navit.c	(working copy)
+@@ -138,6 +138,7 @@
+ 	struct vehicleprofile *vehicleprofile;
+ 	GList *vehicleprofiles;
+ 	int pitch;
++	int imperial;
+ };
+ 
+ struct gui *main_loop_gui;
+@@ -1600,6 +1601,10 @@
+ 		if (!init && attr_updated && this_->ready == 3)
+ 			navit_draw(this_);
+ 		break;
++	case attr_imperial:
++		attr_updated=(this_->imperial != attr->u.num);
++		this_->imperial=attr->u.num;
++		break;
+ 	case attr_projection:
+ 		if(this_->trans && transform_get_projection(this_->trans) != attr->u.projection) {
+ 			navit_projection_set(this_, attr->u.projection);
+@@ -1735,6 +1740,9 @@
+ 		attr->u.gui=this_->gui;
+ 		ret=(attr->u.gui != NULL);
+ 		break;
++	case attr_imperial:
++		attr->u.num=this_->imperial;
++		break;
+ 	case attr_layout:
+ 		if (iter) {
+ 			if (iter->u.list) {
+Index: configure.in
+===================================================================
+--- configure.in	(revision 2391)
++++ configure.in	(working copy)
+@@ -62,6 +62,9 @@
+ AC_USE_SYSTEM_EXTENSIONS
+ 
+ AC_PROG_CC
++if eval "test x`uname` = xDarwin"; then
++	CFLAGS="$CFLAGS -I/opt/local/include -L/opt/local/lib"
++fi
+ if eval "test x$GCC = xyes"; then
+         CFLAGS="$CFLAGS -Wall -Wcast-align -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wpointer-arith -Wreturn-type -D_GNU_SOURCE"
+ fi
+Index: autogen.sh
+===================================================================
+--- autogen.sh	(revision 2391)
++++ autogen.sh	(working copy)
+@@ -1,5 +1,11 @@
+ #!/bin/sh
+-for pkg in pkg-config libtool automake aclocal autoreconf:autoconf autopoint:gettext
++if [ `uname` == Darwin ]; then
++	LIBTOOL=glibtool
++else
++	LIBTOOL=libtool
++fi
++
++for pkg in pkg-config $LIBTOOL automake aclocal autoreconf:autoconf autopoint:gettext
+ do
+ 	if ! ${pkg%%:*} --version >/dev/null 
+ 	then

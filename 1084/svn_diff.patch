@@ -1,0 +1,140 @@
+Index: navit/maptool/osm.c
+===================================================================
+--- navit/maptool/osm.c	(revisione 5285)
++++ navit/maptool/osm.c	(copia locale)
+@@ -94,6 +94,16 @@
+ 	attr_string_fax,
+ 	attr_string_email,
+ 	attr_string_url,
++	attr_string_capacity,
++	attr_string_fee,
++	attr_string_lpg,
++	attr_string_description,
++	attr_string_operated_by,
++	attr_string_cuisine,
++	attr_string_opening_hours,
++	attr_string_stars,
++	attr_string_dispensing,
++	attr_string_atm,
+ 	attr_string_street_name,
+ 	attr_string_street_name_systematic,
+ 	attr_string_house_number,
+@@ -1084,10 +1094,54 @@
+ 		attr_strings_save(attr_string_label, v);
+ 		level=5;
+ 	}
+-	if (! strcmp(k,"addr:email")) {
++	if (! strcmp(k,"website")) {
++		attr_strings_save(attr_string_url, v);
++		level=5;
++	}
++	if (! strcmp(k,"email")) {
+ 		attr_strings_save(attr_string_email, v);
+ 		level=5;
+ 	}
++	if (! strcmp(k,"capacity")) {
++		attr_strings_save(attr_string_capacity, v);
++		level=5;
++	}
++	if (! strcmp(k,"fee")) {
++		attr_strings_save(attr_string_fee, v);
++		level=5;
++	}
++	if (! strcmp(k,"fuel:lpg")) {
++		attr_strings_save(attr_string_lpg, v);
++		level=5;
++	}
++	if (! strcmp(k,"description")) {
++		attr_strings_save(attr_string_description, v);
++		level=5;
++	}
++	if (! strcmp(k,"operator")) {
++		attr_strings_save(attr_string_operated_by, v);
++		level=5;
++	}
++	if (! strcmp(k,"cuisine")) {
++		attr_strings_save(attr_string_cuisine, v);
++		level=5;
++	}
++	if (! strcmp(k,"opening_hours")) {
++		attr_strings_save(attr_string_opening_hours, v);
++		level=5;
++	}
++	if (! strcmp(k,"stars")) {
++		attr_strings_save(attr_string_stars, v);
++		level=5;
++	}
++	if (! strcmp(k,"dispensing")) {
++		attr_strings_save(attr_string_dispensing, v);
++		level=5;
++	}
++	if (! strcmp(k,"atm")) {
++		attr_strings_save(attr_string_atm, v);
++		level=5;
++	}
+ 	if (! strcmp(k,"addr:housenumber")) {
+ 		attr_strings_save(attr_string_house_number, v);
+ 		level=5;
+@@ -1691,6 +1745,16 @@
+ 			item_bin_add_attr_string(item_bin, attr_phone, attr_strings[attr_string_phone]);
+ 			item_bin_add_attr_string(item_bin, attr_fax, attr_strings[attr_string_fax]);
+ 			item_bin_add_attr_string(item_bin, attr_email, attr_strings[attr_string_email]);
++			item_bin_add_attr_string(item_bin, attr_capacity, attr_strings[attr_string_capacity]);
++			item_bin_add_attr_string(item_bin, attr_fee, attr_strings[attr_string_fee]);
++			item_bin_add_attr_string(item_bin, attr_lpg, attr_strings[attr_string_lpg]);
++			item_bin_add_attr_string(item_bin, attr_description, attr_strings[attr_string_description]);
++			item_bin_add_attr_string(item_bin, attr_operated_by, attr_strings[attr_string_operated_by]);
++			item_bin_add_attr_string(item_bin, attr_cuisine, attr_strings[attr_string_cuisine]);
++			item_bin_add_attr_string(item_bin, attr_opening_hours, attr_strings[attr_string_opening_hours]);
++			item_bin_add_attr_string(item_bin, attr_stars, attr_strings[attr_string_stars]);
++			item_bin_add_attr_string(item_bin, attr_dispensing, attr_strings[attr_string_dispensing]);
++			item_bin_add_attr_string(item_bin, attr_atm, attr_strings[attr_string_atm]);
+ 			item_bin_add_attr_string(item_bin, attr_county_name, attr_strings[attr_string_county_name]); 
+ 			item_bin_add_attr_string(item_bin, attr_url, attr_strings[attr_string_url]);
+ 			item_bin_add_attr_longlong(item_bin, attr_osm_wayid, osmid_attr_value);
+@@ -1732,6 +1796,16 @@
+ 		item_bin_add_attr_string(item_bin, attr_phone, attr_strings[attr_string_phone]);
+ 		item_bin_add_attr_string(item_bin, attr_fax, attr_strings[attr_string_fax]);
+ 		item_bin_add_attr_string(item_bin, attr_email, attr_strings[attr_string_email]);
++		item_bin_add_attr_string(item_bin, attr_capacity, attr_strings[attr_string_capacity]);
++		item_bin_add_attr_string(item_bin, attr_fee, attr_strings[attr_string_fee]);
++		item_bin_add_attr_string(item_bin, attr_lpg, attr_strings[attr_string_lpg]);
++		item_bin_add_attr_string(item_bin, attr_description, attr_strings[attr_string_description]);
++		item_bin_add_attr_string(item_bin, attr_operated_by, attr_strings[attr_string_operated_by]);
++		item_bin_add_attr_string(item_bin, attr_cuisine, attr_strings[attr_string_cuisine]);
++		item_bin_add_attr_string(item_bin, attr_opening_hours, attr_strings[attr_string_opening_hours]);
++		item_bin_add_attr_string(item_bin, attr_stars, attr_strings[attr_string_stars]);
++		item_bin_add_attr_string(item_bin, attr_dispensing, attr_strings[attr_string_dispensing]);
++		item_bin_add_attr_string(item_bin, attr_atm, attr_strings[attr_string_atm]);
+ 		item_bin_add_attr_string(item_bin, attr_county_name, attr_strings[attr_string_county_name]);
+ 		item_bin_add_attr_string(item_bin, attr_url, attr_strings[attr_string_url]);
+ 		item_bin_add_attr_longlong(item_bin, attr_osm_nodeid, osmid_attr_value);
+Index: navit/attr_def.h
+===================================================================
+--- navit/attr_def.h	(revisione 5285)
++++ navit/attr_def.h	(copia locale)
+@@ -257,7 +257,9 @@
+ ATTR(address)
+ ATTR(phone)
+ ATTR(entry_fee)
++ATTR(fee)
+ ATTR(open_hours)
++ATTR(opening_hours)
+ ATTR(skin)
+ ATTR(fullscreen_removeme)
+ ATTR(view_mode)
+@@ -305,6 +307,13 @@
+ ATTR(fax)
+ ATTR(email)
+ ATTR(url)
++ATTR(capacity)
++ATTR(lpg)
++ATTR(operated_by)
++ATTR(cuisine)
++ATTR(stars)
++ATTR(dispensing)
++ATTR(atm)
+ ATTR(profilename)
+ ATTR(projectionname)
+ ATTR(town_or_district_name)
+

@@ -1,0 +1,43 @@
+commit 7d1d82d8b4f338f76974887f15cf69eecae3713f
+Author: Sebastian Leske <Sebastian.Leske@sleske.name>
+Date:   Fri Jul 20 08:04:58 2012 +0200
+
+    Interim:Patch aus trac
+
+diff --git a/navit/navit/start_real.c b/navit/navit/start_real.c
+index 7171af0..a18aef3 100644
+--- a/navit/navit/start_real.c
++++ b/navit/navit/start_real.c
+@@ -161,12 +161,17 @@ int main_real(int argc, char **argv)
+ 	}
+ 
+ 	// if config file is explicitely given only look for it, otherwise try std paths
++	char * cfg_dir = getenv("NAVIT_CONFIGDIR") ? getenv("NAVIT_CONFIGDIR") : ".";
+ 	if (config_file) {
+-		list = g_list_append(list,g_strdup(config_file));
++		list = g_list_append(list,
++			g_path_is_absolute(config_file)
++				? g_strdup(config_file)
++				: g_strjoin("/", cfg_dir, config_file)
++		);
+ 	} else {
+-		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_USER_DATADIR"), "/navit.xml" , NULL));
+-		list = g_list_append(list,g_strdup("navit.xml.local"));
+-		list = g_list_append(list,g_strdup("navit.xml"));
++		list = g_list_append(list,g_strjoin(NULL,getenv("NAVIT_USER_DATADIR"), "/navit.xml", NULL));
++		list = g_list_append(list,g_strjoin("/", cfg_dir, "navit.xml.local"));
++		list = g_list_append(list,g_strjoin("/", cfg_dir, "navit.xml"));
+ #ifdef HAVE_API_ANDROID
+ 		// new preferred location (the new one should have priority over the legacy!)
+ 		list = g_list_append(list,g_strdup("/sdcard/navit/navit.xml"));
+@@ -190,6 +195,10 @@ int main_real(int argc, char **argv)
+ 		config_file = li->data;
+ 		dbg(1,"trying %s\n",config_file);
+ 		if (file_exists(config_file)) {
++			gchar *dir = g_dirname(config_file);
++			setenv("NAVIT_CONFIGDIR", dir, 1);
++			dbg(0, "NAVIT_CONFIGDIR = '%s'\n", getenv("NAVIT_CONFIGDIR"));
++			g_free(dir);
+ 			break;
+ 		}
+ 		g_free(config_file);

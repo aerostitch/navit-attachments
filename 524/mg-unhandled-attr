@@ -1,0 +1,15 @@
+Workaround for unhandled attrs in MG
+Index: navit/navit/map/mg/town.c
+===================================================================
+--- navit.orig/navit/map/mg/town.c	2010-01-11 12:28:41.000000000 +0100
++++ navit/navit/map/mg/town.c	2010-01-11 15:31:54.000000000 +0100
+@@ -105,7 +105,8 @@
+ 		twn->attr_next=attr_none;
+ 		return 1;
+ 	default:
+-		dbg_assert(1==0);
++                dbg(1, "Don't know about attribute %d[%04X]=%s yet\n",
++			attr_type, attr_type, attr_to_name(attr_type));
+ 		return 0;
+ 	}
+ 	return 1;

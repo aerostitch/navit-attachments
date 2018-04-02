@@ -1,0 +1,134 @@
+Index: route.h
+===================================================================
+--- route.h	(revision 3609)
++++ route.h	(working copy)
+@@ -96,6 +96,7 @@
+ void route_set_destinations(struct route *this_, struct pcoord *dst, int count, int async);
+ int route_get_destinations(struct route *this_, struct pcoord *pc, int count);
+ void route_set_destination(struct route *this_, struct pcoord *dst, int async);
++void route_add_destination(struct route *this, struct pcoord *dst, int async);
+ void route_remove_waypoint(struct route *this_);
+ struct coord route_get_coord_dist(struct route *this_, int dist);
+ struct street_data *street_get_data(struct item *item);
+Index: route.c
+===================================================================
+--- route.c	(revision 3609)
++++ route.c	(working copy)
+@@ -1059,7 +1059,22 @@
+ 	route_set_destinations(this, dst, dst?1:0, async);
+ }
+ 
++ 
+ void
++route_add_destination(struct route *this, struct pcoord *dst, int async)
++{
++	const int pcs_max_size = 100;
++	struct pcoord pcs[pcs_max_size];
++	int dstnum = 0;
++	dstnum = route_get_destinations(this, pcs, pcs_max_size);
++	pcs[dstnum].x=dst->x;
++	pcs[dstnum].y=dst->y;
++	pcs[dstnum].pro=projection_mg; /* FIXME */
++	route_set_destinations(this, pcs, dstnum + (dst?1:0), async);
++	//route_set_destinations(this, dst, dst?1:0, async);
++}
++
++void
+ route_remove_waypoint(struct route *this)
+ {
+ 	struct route_path *path=this->path2;
+Index: navit.h
+===================================================================
+--- navit.h	(revision 3609)
++++ navit.h	(working copy)
+@@ -71,6 +71,7 @@
+ struct vehicleprofile *navit_get_vehicleprofile(struct navit *this_);
+ GList *navit_get_vehicleprofiles(struct navit *this_);
+ void navit_set_destination(struct navit *this_, struct pcoord *c, const char *description, int async);
++void navit_add_destination(struct navit *this_, struct pcoord *c, const char *description, int async);
+ void navit_set_destinations(struct navit *this_, struct pcoord *c, int count, const char *description, int async);
+ int navit_check_route(struct navit *this_);
+ void navit_textfile_debug_log(struct navit *this_, const char *fmt, ...);
+Index: navit.c
+===================================================================
+--- navit.c	(revision 3609)
++++ navit.c	(working copy)
+@@ -853,7 +853,26 @@
+ 	callback_list_call_attr_0(this_->attr_cbl, attr_destination);
+ 	if (this_->route) {
+ 		route_set_destination(this_->route, c, async);
++		if (this_->ready == 3)
++			navit_draw(this_);
++	}
++}
+ 
++void
++navit_add_destination(struct navit *this_, struct pcoord *c, const char *description, int async)
++{
++	if (c) {
++		this_->destination=*c;
++		this_->destination_valid=1;
++	} else
++		this_->destination_valid=0;
++	char *destination_file = bookmarks_get_destination_file(TRUE);
++	bookmarks_append_coord(this_->bookmarks, destination_file, c, 1, "former_destination", description, NULL, this_->recentdest_count);
++	g_free(destination_file);
++	callback_list_call_attr_0(this_->attr_cbl, attr_destination);
++	if (this_->route) {
++		route_add_destination(this_->route, c, async);
++
+ 		if (this_->ready == 3)
+ 			navit_draw(this_);
+ 	}
+@@ -2062,7 +2081,7 @@
+ 		navit_vehicle_draw(this_, nv, NULL);
+ 		profile(0,"return 3\n");
+ 		return;
+-	}
++	}
+ 	cursor_pc.x = nv->coord.x;
+ 	cursor_pc.y = nv->coord.y;
+ 	cursor_pc.pro = pro;
+Index: gui/internal/gui_internal.c
+===================================================================
+--- gui/internal/gui_internal.c	(revision 3609)
++++ gui/internal/gui_internal.c	(working copy)
+@@ -1901,6 +1901,23 @@
+ }
+ 
+ static void
++gui_internal_cmd_add_destination(struct gui_priv *this, struct widget *wm, void *data)
++{
++	char *name=data;
++	dbg(0,"c=%d:0x%x,0x%x\n", wm->c.pro, wm->c.x, wm->c.y);
++	navit_add_destination(this->nav, &wm->c, name, 1);
++	if (this->flags & 512) {
++		struct attr follow;
++		follow.type=attr_follow;
++		follow.u.num=180;
++		navit_set_attr(this->nav, &this->osd_configuration);
++		navit_set_attr(this->nav, &follow);
++		navit_zoom_to_route(this->nav, 0);
++	}
++	gui_internal_prune_menu(this, NULL);
++}
++
++static void
+ gui_internal_cmd_set_position(struct gui_priv *this, struct widget *wm, void *data)
+ {
+ 	navit_set_position(this->nav, &wm->c);
+@@ -2674,6 +2691,14 @@
+ 				gui_internal_cmd_delete_bookmark, NULL));
+ 		wbc->text=g_strdup(wm->text);
+ 	}
++	if (flags & 1024) {
++		gui_internal_widget_append(w,
++			wbc=gui_internal_button_new_with_callback(this, _("Add destination"),
++				image_new_xs(this, "gui_active"), gravity_left_center|orientation_horizontal|flags_fill,
++				gui_internal_cmd_add_destination, g_strdup(name)));
++		wbc->data_free=g_free_func;
++		wbc->c=pc;
++	}
+ 	gui_internal_menu_render(this);
+ }
+ 

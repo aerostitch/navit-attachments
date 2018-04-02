@@ -1,0 +1,83 @@
+I/ActivityManager(   92): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit bnds=[125,234][235,352] }
+D/SurfaceFlinger(   92): Layer::setBuffers(this=0x6af078), pid=92, w=1, h=1
+D/SurfaceFlinger(   92): Layer::setBuffers(this=0x6af078), pid=92, w=1, h=1
+D/SurfaceFlinger(   92): Layer::requestBuffer(this=0x6af078), index=0, pid=92, w=480, h=800 success
+I/ActivityManager(   92): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=1651 uid=10071 gids={1006, 3003, 1015}
+D/AK8973  (   72): Compass Start
+D/Sensors (   92): open_akm, fd=129
+D/dalvikvm( 1651): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4630f768
+D/dalvikvm( 1651): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x4630f768
+D/dalvikvm( 1651): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x4630f768, skipping init
+E/Navit   ( 1651): Country DE
+E/Navit   ( 1651): Language de
+E/Navit   ( 1651): Res Name de
+E/Navit   ( 1651): result /data/data/org.navitproject.navit/locale/de/LC_MESSAGES/navit.mo
+E/Navit   ( 1651): Res ID 2130903047
+E/Navit   ( 1651): Checking /data
+E/Navit   ( 1651): Checking /data/data
+E/Navit   ( 1651): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1651): Checking /data/data/org.navitproject.navit/locale
+E/Navit   ( 1651): Checking /data/data/org.navitproject.navit/locale/de
+E/Navit   ( 1651): Checking /data/data/org.navitproject.navit/locale/de/LC_MESSAGES
+E/Navit   ( 1651): Res Name navit
+E/Navit   ( 1651): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   ( 1651): Res ID 2130903069
+E/Navit   ( 1651): Checking /data
+E/Navit   ( 1651): Checking /data/data
+E/Navit   ( 1651): Checking /data/data/org.navitproject.navit
+E/Navit   ( 1651): Checking /data/data/org.navitproject.navit/share
+E/test    ( 1651): called
+E/navit   ( 1651): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xaa50 thiz=0x4635e7b0 activity=0x4635e7b0 lang=de_DE
+E/navit   ( 1651): graphics_android:plugin_init:enter
+E/navit   ( 1651): vehicle_android:plugin_init:enter
+E/navit   ( 1651): graphics_android:event_android_new:enter
+E/navit   ( 1651): graphics_android:event_android_new:ok
+E/navit   ( 1651): graphics_android:graphics_android_init:at 2 jnienv=0xaa50
+E/navit   ( 1651): graphics_android:graphics_android_init:at 3
+E/navit   ( 1651): graphics_android:graphics_android_init:at 4 android_activity=0x4635e7b0
+E/NavitGraphics( 1651): FocusChange true
+E/navit   ( 1651): graphics_android:graphics_android_init:result=0x46366658
+E/navit   ( 1651): graphics_android:graphics_android_init:result=0x46368e78
+E/navit   ( 1651): graphics_android:graphics_android_new:returning 0x2ba6f8
+E/navit   ( 1651): vehicle_android:vehicle_android_new_android:enter
+E/navit   ( 1651): vehicle_android:vehicle_android_init:at 3
+E/navit   ( 1651): vehicle_android:vehicle_android_init:at 4 android_activity=0x4635e7b0
+E/NavitVehicle( 1651): Providers [network, passive, gps]
+V/LocationManagerService(   92): getAllProviders
+V/LocationManagerService(   92): getProviders
+E/NavitVehicle( 1651): Provider gps
+D/LocationManager( 1651): requestLocationUpdates: provider = gps, listener = org.navitproject.navit.NavitVehicle$1@46369558
+E/navit   ( 1651): vehicle_android:vehicle_android_init:result=0x46369198
+E/navit   ( 1651): vehicle_android:vehicle_android_new_android:return
+V/LocationManagerService(   92): _requestLocationUpdates: listener = Receiver{466b9d38 Listener android.os.BinderProxy@466b9cf0}
+W/GpsLocationProvider(   92): Duplicate add listener for org.navitproject.navit
+E/navit   ( 1651): speech_android:speech_android_init:at 3
+E/navit   ( 1651): speech_android:speech_android_init:at 4 android_activity=0x4635e7b0
+W/System.err( 1651): android.content.pm.PackageManager$NameNotFoundException: Application package com.google.tts not found
+W/System.err( 1651): 	at android.app.ContextImpl.createPackageContext(ContextImpl.java:1475)
+W/System.err( 1651): 	at android.content.ContextWrapper.createPackageContext(ContextWrapper.java:460)
+W/System.err( 1651): 	at com.google.tts.TTS.dataFilesCheck(TTS.java:115)
+W/System.err( 1651): 	at com.google.tts.TTS.<init>(TTS.java:82)
+W/System.err( 1651): 	at org.navitproject.navit.NavitSpeech.<init>(NavitSpeech.java:46)
+W/System.err( 1651): 	at org.navitproject.navit.Navit.NavitMain(Native Method)
+W/System.err( 1651): 	at org.navitproject.navit.Navit.onCreate(Navit.java:151)
+W/System.err( 1651): 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1069)
+W/System.err( 1651): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2751)
+W/System.err( 1651): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2803)
+W/System.err( 1651): 	at android.app.ActivityThread.access$2300(ActivityThread.java:135)
+W/System.err( 1651): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2136)
+W/System.err( 1651): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+W/System.err( 1651): 	at android.os.Looper.loop(Looper.java:144)
+W/System.err( 1651): 	at android.app.ActivityThread.main(ActivityThread.java:4937)
+W/System.err( 1651): 	at java.lang.reflect.Method.invokeNative(Native Method)
+W/System.err( 1651): 	at java.lang.reflect.Method.invoke(Method.java:521)
+W/System.err( 1651): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:868)
+W/System.err( 1651): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:626)
+W/System.err( 1651): 	at dalvik.system.NativeStart.main(Native Method)
+W/ActivityManager(   92): Unable to start service Intent { act=android.intent.action.USE_TTS cat=[android.intent.category.TTS] }: not found
+E/navit   ( 1651): speech_android:speech_android_init:result=0x4636f6d8
+E/navit   ( 1651): speech_android:speech_android_say:enter Demnaechst der Strasse folgen
+E/navit   ( 1651): navit:file_data_read_compressed:uncompress failed
+W/ActivityManager(   92): Launch timeout has expired, giving up wake lock!
+W/ActivityManager(   92): Activity idle timeout for HistoryRecord{466dbe90 org.navitproject.navit/.Navit}
+

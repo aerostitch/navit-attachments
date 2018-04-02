@@ -1,0 +1,32 @@
+Index: graphics_sdl.c
+===================================================================
+--- graphics_sdl.c	(revision 3577)
++++ graphics_sdl.c	(working copy)
+@@ -50,7 +50,7 @@
+ #undef DEBUG
+ #undef PROFILE
+ 
+-#define OVERLAY_MAX 16
++#define OVERLAY_MAX 64
+ 
+ #ifdef RASTER
+ #include "raster.h"
+@@ -2009,7 +2009,8 @@
+                     }
+                     default:
+                     {
+-                        key = 0;
++                        //return unicode chars when they can be converted to ascii
++                        key = ev.key.keysym.unicode<=127 ? ev.key.keysym.unicode : 0;
+                         break;
+                     }
+                 }
+@@ -2161,7 +2162,7 @@
+     }
+ 
+     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
+-
++    SDL_EnableUNICODE(1);
+     SDL_WM_SetCaption("navit", NULL);
+ 
+ #ifdef LINUX_TOUCHSCREEN

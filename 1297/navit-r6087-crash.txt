@@ -1,0 +1,347 @@
+F/libc    ( 3829): Fatal signal 11 (SIGSEGV) at 0x00700072 (code=1), thread 3829 (itproject.navit)
+I/DEBUG   (  211): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (  211): Build fingerprint: 'oneplus/bacon/A0001:4.4.2/KVT49L/XNPH25R:user/release-keys'
+I/DEBUG   (  211): Revision: '0'
+I/DEBUG   (  211): pid: 3829, tid: 3829, name: itproject.navit  >>> org.navitproject.navit <<<
+I/DEBUG   (  211): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 00700072
+I/DEBUG   (  211):     r0 48a306a8  r1 00080018  r2 00080006  r3 00700073
+I/DEBUG   (  211):     r4 bedee6b8  r5 bedee6d0  r6 00000001  r7 48836520
+I/DEBUG   (  211):     r8 0005510c  r9 0005511c  sl 0005f184  fp bedef0c8
+I/DEBUG   (  211):     ip 487e96b4  sp bedee6a8  lr 487cdec4  pc 00700072  cpsr 20070030
+I/DEBUG   (  211):     d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (  211):     d2  616e5f7463656a6f  d3  6976614e5f746976
+I/DEBUG   (  211):     d4  64d5c58864d5c428  d5  0000000064d5c338
+I/DEBUG   (  211):     d6  4296000000000000  d7  0000000080000000
+I/DEBUG   (  211):     d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (  211):     d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (  211):     d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (  211):     d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (  211):     d16 6b6e755f656c6966  d17 6878785f6e776f6e
+I/DEBUG   (  211):     d18 6e656c69666f7270  d19 78785f222b656d61
+I/DEBUG   (  211):     d20 676e702e69706468  d21 616364732f223a22
+I/DEBUG   (  211):     d22 746976616e2f6472  d23 6f72702f64736f2f
+I/DEBUG   (  211):     d24 ff9f9f9fff9f9f9f  d25 3fb153b7cbd793c1
+I/DEBUG   (  211):     d26 0707070703030303  d27 0000000006000000
+I/DEBUG   (  211):     d28 0b0000000f000000  d29 3fc2ba87438f4ed1
+I/DEBUG   (  211):     d30 3fc289ef1cb8daf0  d31 3f95ec2ee55cba6e
+I/DEBUG   (  211):     scr 60000010
+I/DEBUG   (  211): 
+I/DEBUG   (  211): backtrace:
+I/DEBUG   (  211):     #00  pc 00700072  <unknown>
+I/DEBUG   (  211):     #01  pc 00014ec0  /data/app-lib/org.navitproject.navit-1/libnavit.so (attr_dup_content+312)
+I/DEBUG   (  211): 
+I/DEBUG   (  211): stack:
+I/DEBUG   (  211):          bedee668  bedeea88  [stack]
+I/DEBUG   (  211):          bedee66c  487d1c20  /data/app-lib/org.navitproject.navit-1/libnavit.so (get_op+152)
+I/DEBUG   (  211):          bedee670  bedee800  [stack]
+I/DEBUG   (  211):          bedee674  bedee6a4  [stack]
+I/DEBUG   (  211):          bedee678  00000000  
+I/DEBUG   (  211):          bedee67c  bedeea88  [stack]
+I/DEBUG   (  211):          bedee680  bedee800  [stack]
+I/DEBUG   (  211):          bedee684  48836520  /data/app-lib/org.navitproject.navit-1/libnavit.so
+I/DEBUG   (  211):          bedee688  488355f0  /data/app-lib/org.navitproject.navit-1/libnavit.so
+I/DEBUG   (  211):          bedee68c  48836520  /data/app-lib/org.navitproject.navit-1/libnavit.so
+I/DEBUG   (  211):          bedee690  00000156  
+I/DEBUG   (  211):          bedee694  bedee6a8  [stack]
+I/DEBUG   (  211):          bedee698  bedeee70  [stack]
+I/DEBUG   (  211):          bedee69c  bedee6d0  [stack]
+I/DEBUG   (  211):          bedee6a0  bedeee70  [stack]
+I/DEBUG   (  211):          bedee6a4  00080006  
+I/DEBUG   (  211):     #00  bedee6a8  bedee6d0  [stack]
+I/DEBUG   (  211):          ........  ........
+I/DEBUG   (  211):     #01  bedee6a8  bedee6d0  [stack]
+I/DEBUG   (  211):          bedee6ac  bedee6b8  [stack]
+I/DEBUG   (  211):          bedee6b0  00000001  
+I/DEBUG   (  211):          bedee6b4  487d1594  /data/app-lib/org.navitproject.navit-1/libnavit.so (command_object_get_attr+104)
+I/DEBUG   (  211):          bedee6b8  00080006  
+I/DEBUG   (  211):          bedee6bc  48a306a8  [anon:libc_malloc]
+I/DEBUG   (  211):          bedee6c0  bedeee70  [stack]
+I/DEBUG   (  211):          bedee6c4  bedee6d0  [stack]
+I/DEBUG   (  211):          bedee6c8  bedeefa0  [stack]
+I/DEBUG   (  211):          bedee6cc  487d1658  /data/app-lib/org.navitproject.navit-1/libnavit.so (resolve+132)
+I/DEBUG   (  211):          bedee6d0  00080006  
+I/DEBUG   (  211):          bedee6d4  00000000  
+I/DEBUG   (  211):          bedee6d8  00000000  
+I/DEBUG   (  211):          bedee6dc  00000000  
+I/DEBUG   (  211):          bedee6e0  00000000  
+I/DEBUG   (  211):          bedee6e4  00000000  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r0:
+I/DEBUG   (  211):     48a30688 00000000 0000001b 48a1efc4 00000001  
+I/DEBUG   (  211):     48a30698 000b0007 48a304a0 00000000 00000069  
+I/DEBUG   (  211):     48a306a8 48aebf68 48a3e190 488504b0 489e3ad0  
+I/DEBUG   (  211):     48a306b8 489e38ac 00000000 48a30740 489dce98  
+I/DEBUG   (  211):     48a306c8 00000000 00000000 00000000 48a43d88  
+I/DEBUG   (  211):     48a306d8 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48a306e8 00000000 00000000 00000000 48a31918  
+I/DEBUG   (  211):     48a306f8 00000000 00000000 00000000 48846c08  
+I/DEBUG   (  211):     48a30708 00000068 00000022 489e4184 00000001  
+I/DEBUG   (  211):     48a30718 00000000 48a30740 48a30730 00000000  
+I/DEBUG   (  211):     48a30728 00000020 00000121 48a2d178 48a2d178  
+I/DEBUG   (  211):     48a30738 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48a30748 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48a30758 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48a30768 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48a30778 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r1:
+I/DEBUG   (  211):     0007fff8 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080008 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080018 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080028 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080038 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080048 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080058 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080068 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080078 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080088 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080098 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800a8 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800b8 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800c8 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800d8 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800e8 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r2:
+I/DEBUG   (  211):     0007ffe4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0007fff4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080004 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080014 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080024 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080034 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080044 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080054 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080064 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080074 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080084 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00080094 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800a4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800b4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800c4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000800d4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r3:
+I/DEBUG   (  211):     00700050 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700060 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700070 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700080 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700090 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000a0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000b0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000c0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000d0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000e0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000f0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700100 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700110 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700120 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700130 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700140 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r4:
+I/DEBUG   (  211):     bedee698 bedeee70 bedee6d0 bedeee70 00080006  
+I/DEBUG   (  211):     bedee6a8 bedee6d0 bedee6b8 00000001 487d1594  
+I/DEBUG   (  211):     bedee6b8 00080006 48a306a8 bedeee70 bedee6d0  
+I/DEBUG   (  211):     bedee6c8 bedeefa0 487d1658 00080006 00000000  
+I/DEBUG   (  211):     bedee6d8 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee6e8 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee6f8 bedeefa0 bedeee70 48836520 487d3b08  
+I/DEBUG   (  211):     bedee708 48828b94 00000000 bedee738 00000000  
+I/DEBUG   (  211):     bedee718 48828bd8 bedeefa4 487d3e70 00000000  
+I/DEBUG   (  211):     bedee728 488355f0 bedee740 48828b98 4882d9a4  
+I/DEBUG   (  211):     bedee738 48828930 48828bc8 00000000 00000000  
+I/DEBUG   (  211):     bedee748 00000000 00000000 48849431 0000000b  
+I/DEBUG   (  211):     bedee758 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee768 bedeeac0 bedee800 00000000 bedeefa0  
+I/DEBUG   (  211):     bedee778 bedee7a0 bedeee70 bedeee70 bedeee70  
+I/DEBUG   (  211):     bedee788 bedeee70 bedeee70 bedef0c8 487d3e18  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r5:
+I/DEBUG   (  211):     bedee6b0 00000001 487d1594 00080006 48a306a8  
+I/DEBUG   (  211):     bedee6c0 bedeee70 bedee6d0 bedeefa0 487d1658  
+I/DEBUG   (  211):     bedee6d0 00080006 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee6e0 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee6f0 00000000 00000000 bedeefa0 bedeee70  
+I/DEBUG   (  211):     bedee700 48836520 487d3b08 48828b94 00000000  
+I/DEBUG   (  211):     bedee710 bedee738 00000000 48828bd8 bedeefa4  
+I/DEBUG   (  211):     bedee720 487d3e70 00000000 488355f0 bedee740  
+I/DEBUG   (  211):     bedee730 48828b98 4882d9a4 48828930 48828bc8  
+I/DEBUG   (  211):     bedee740 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee750 48849431 0000000b 00000000 00000000  
+I/DEBUG   (  211):     bedee760 00000000 00000000 bedeeac0 bedee800  
+I/DEBUG   (  211):     bedee770 00000000 bedeefa0 bedee7a0 bedeee70  
+I/DEBUG   (  211):     bedee780 bedeee70 bedeee70 bedeee70 bedeee70  
+I/DEBUG   (  211):     bedee790 bedef0c8 487d3e18 48828be4 48833890  
+I/DEBUG   (  211):     bedee7a0 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r7:
+I/DEBUG   (  211):     48836500 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48836510 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     48836520 0007d428 00000000 00000000 400fb039  
+I/DEBUG   (  211):     48836530 40108f19 4014e160 40147378 400bfdc9  
+I/DEBUG   (  211):     48836540 400f9ce9 4010c20d 4010e82b 401071d4  
+I/DEBUG   (  211):     48836550 400f3950 400f9419 40108499 4010c3c9  
+I/DEBUG   (  211):     48836560 401063e4 400fa449 4010ed49 40155668  
+I/DEBUG   (  211):     48836570 4029b820 4010264d 40120fa8 00000000  
+I/DEBUG   (  211):     48836580 400fbeb7 40147368 400fa7b5 400faba1  
+I/DEBUG   (  211):     48836590 40107f71 401591cc 40113b7d 400fb081  
+I/DEBUG   (  211):     488365a0 4010ea41 4010ebed 40111401 4010b3a5  
+I/DEBUG   (  211):     488365b0 400f3c3d 40121140 4010e7d5 40111125  
+I/DEBUG   (  211):     488365c0 4010716c 400f80ad 400e2525 4010ec4d  
+I/DEBUG   (  211):     488365d0 4010b5f5 40106690 400f8c81 400bfe19  
+I/DEBUG   (  211):     488365e0 4011c8b5 401077e4 40110fe1 40120fa4  
+I/DEBUG   (  211):     488365f0 40106b20 400f3c65 4010f8a1 4011c8a1  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r8:
+I/DEBUG   (  211):     000550ec ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000550fc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005510c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005511c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005512c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005513c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005514c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005515c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005516c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005517c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005518c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005519c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551ac ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551bc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551cc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551dc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near r9:
+I/DEBUG   (  211):     000550fc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005510c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005511c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005512c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005513c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005514c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005515c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005516c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005517c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005518c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005519c ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551ac ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551bc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551cc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551dc ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     000551ec ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near sl:
+I/DEBUG   (  211):     0005f164 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f174 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f184 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f194 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f1a4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f1b4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f1c4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f1d4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f1e4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f1f4 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f204 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f214 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f224 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f234 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f244 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     0005f254 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near fp:
+I/DEBUG   (  211):     bedef0a8 64d40418 487d1244 00000000 64d40418  
+I/DEBUG   (  211):     bedef0b8 00000000 bedef0d0 4948f828 00000000  
+I/DEBUG   (  211):     bedef0c8 489dedf8 00000000 4881cde4 00000000  
+I/DEBUG   (  211):     bedef0d8 4948f828 488114f0 00000038 00000001  
+I/DEBUG   (  211):     bedef0e8 48833350 64d67288 4948f828 417bb530  
+I/DEBUG   (  211):     bedef0f8 000001e2 64d67288 4948f828 487b522c  
+I/DEBUG   (  211):     bedef108 64d40368 00000001 bedef54c 64d67288  
+I/DEBUG   (  211):     bedef118 00000005 64d67288 4948f828 000007d0  
+I/DEBUG   (  211):     bedef128 00000000 64d40418 00000000 487b5341  
+I/DEBUG   (  211):     bedef138 64d40418 64d67288 4948f828 64d5d8c8  
+I/DEBUG   (  211):     bedef148 00000000 00000000 64d67288 64d5d8c8  
+I/DEBUG   (  211):     bedef158 00000000 64d67288 64d67288 64d5d8c8  
+I/DEBUG   (  211):     bedef168 64d40b80 00000000 60691fc8 62eb347f  
+I/DEBUG   (  211):     bedef178 60516e98 00000000 00000027 075a0ac9  
+I/DEBUG   (  211):     bedef188 00000000 64d67288 64d5d8c8 62eb34f9  
+I/DEBUG   (  211):     bedef198 605170a0 00000ef5 7fffffff 00000000  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near ip:
+I/DEBUG   (  211):     487e9694 00020003 00030001 e5900038 e3500000  
+I/DEBUG   (  211):     487e96a4 012fff1e ea003a32 e5900108 eafff172  
+I/DEBUG   (  211):     487e96b4 e92d45f0 e1a04001 e59f15cc e24dd00c  
+I/DEBUG   (  211):     487e96c4 e1540001 e1a05002 e1a06003 e1a0a000  
+I/DEBUG   (  211):     487e96d4 0a0000ca 9a000013 e59f35b0 e1540003  
+I/DEBUG   (  211):     487e96e4 0a0000d8 9a000046 e59f35a4 e1540003  
+I/DEBUG   (  211):     487e96f4 0a0000b5 9a000086 e59f3598 e1540003  
+I/DEBUG   (  211):     487e9704 0a0000ed 3a0000e8 e2833006 e1540003  
+I/DEBUG   (  211):     487e9714 0a0000a0 e59f3580 e1540003 0a000095  
+I/DEBUG   (  211):     487e9724 e3a03000 ea000033 e59f3570 e1540003  
+I/DEBUG   (  211):     487e9734 0a0000c0 9a000048 e59f3564 e1540003  
+I/DEBUG   (  211):     487e9744 0a0000e5 9a000055 e59f3558 e1540003  
+I/DEBUG   (  211):     487e9754 0a000106 8a000128 e59f354c e1540003  
+I/DEBUG   (  211):     487e9764 1affffee ebffffcf e2507000 0affffeb  
+I/DEBUG   (  211):     487e9774 e3a08000 e597000c ebff8e49 e5977000  
+I/DEBUG   (  211):     487e9784 e3570000 e2800001 e0808008 1afffff8  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory near sp:
+I/DEBUG   (  211):     bedee688 488355f0 48836520 00000156 bedee6a8  
+I/DEBUG   (  211):     bedee698 bedeee70 bedee6d0 bedeee70 00080006  
+I/DEBUG   (  211):     bedee6a8 bedee6d0 bedee6b8 00000001 487d1594  
+I/DEBUG   (  211):     bedee6b8 00080006 48a306a8 bedeee70 bedee6d0  
+I/DEBUG   (  211):     bedee6c8 bedeefa0 487d1658 00080006 00000000  
+I/DEBUG   (  211):     bedee6d8 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee6e8 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee6f8 bedeefa0 bedeee70 48836520 487d3b08  
+I/DEBUG   (  211):     bedee708 48828b94 00000000 bedee738 00000000  
+I/DEBUG   (  211):     bedee718 48828bd8 bedeefa4 487d3e70 00000000  
+I/DEBUG   (  211):     bedee728 488355f0 bedee740 48828b98 4882d9a4  
+I/DEBUG   (  211):     bedee738 48828930 48828bc8 00000000 00000000  
+I/DEBUG   (  211):     bedee748 00000000 00000000 48849431 0000000b  
+I/DEBUG   (  211):     bedee758 00000000 00000000 00000000 00000000  
+I/DEBUG   (  211):     bedee768 bedeeac0 bedee800 00000000 bedeefa0  
+I/DEBUG   (  211):     bedee778 bedee7a0 bedeee70 bedeee70 bedeee70  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): code around pc:
+I/DEBUG   (  211):     00700050 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700060 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700070 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700080 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700090 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000a0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000b0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000c0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000d0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000e0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     007000f0 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700100 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700110 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700120 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700130 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211):     00700140 ffffffff ffffffff ffffffff ffffffff  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): code around lr:
+I/DEBUG   (  211):     487cdea4 0a000011 e5903000 e3530000 0a00000e  
+I/DEBUG   (  211):     487cdeb4 e593302c e3530000 0a00000b e12fff33  
+I/DEBUG   (  211):     487cdec4 e5850004 e8bd8070 ebfffe20 e2506000  
+I/DEBUG   (  211):     487cded4 08bd8070 eb012d3c e1a02006 e5850004  
+I/DEBUG   (  211):     487cdee4 e5941004 e8bd4070 eafffb44 e5850004  
+I/DEBUG   (  211):     487cdef4 e8bd8070 0000ffff 00080007 00080018  
+I/DEBUG   (  211):     487cdf04 e92d4070 e1a05000 e3a00008 eb012d1c  
+I/DEBUG   (  211):     487cdf14 e1a04000 e1a01004 e1a00005 ebffff98  
+I/DEBUG   (  211):     487cdf24 e1a00004 e8bd8070 e92d47f0 e2507000  
+I/DEBUG   (  211):     487cdf34 01a0a007 0a000015 e5973000 e3530000  
+I/DEBUG   (  211):     487cdf44 0a000014 e1a03007 e3a05000 e5b34004  
+I/DEBUG   (  211):     487cdf54 e2855001 e3540000 1afffffb e2850001  
+I/DEBUG   (  211):     487cdf64 e1a00100 eb012d06 e1a06004 e1a08000  
+I/DEBUG   (  211):     487cdf74 e1a0a000 e7970004 ebffffe0 e2866001  
+I/DEBUG   (  211):     487cdf84 e1560005 e7880004 e2844004 1afffff8  
+I/DEBUG   (  211):     487cdf94 e1a0000a e8bd87f0 e3a00004 e8bd47f0  
+I/DEBUG   (  211): 
+I/DEBUG   (  211): memory map around fault addr 00700072:
+I/DEBUG   (  211):     (no map below)
+I/DEBUG   (  211):     (no map for address)
+I/DEBUG   (  211):     400bb000-400bd000 r-x /system/bin/app_process
+I/BootReceiver(  772): Copying /data/tombstones/tombstone_05 to DropBox (SYSTEM_TOMBSTONE)
+I/ActivityManager(  772): Process org.navitproject.navit (pid 3829) has died.
+I/WindowState(  772): WIN DEATH: Window{65612350 u0 org.navitproject.navit/org.navitproject.navit.Navit}
+I/art     (  214): Process 3829 terminated by signal (11)
+

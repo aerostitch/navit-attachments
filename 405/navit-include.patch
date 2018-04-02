@@ -1,0 +1,22 @@
+diff -Naur navit.old/navit/vehicle/demo/vehicle_demo.c navit/navit/vehicle/demo/vehicle_demo.c
+--- navit.old/navit/vehicle/demo/vehicle_demo.c	2009-07-15 08:45:54.000000000 +0200
++++ navit/navit/vehicle/demo/vehicle_demo.c	2009-07-15 09:44:16.000000000 +0200
+@@ -31,6 +31,7 @@
+ #include "plugin.h"
+ #include "vehicle.h"
+ #include "event.h"
++#include "util.h"
+ 
+ struct vehicle_priv {
+ 	int interval;
+diff -Naur navit.old/navit/vehicle.c navit/navit/vehicle.c
+--- navit.old/navit/vehicle.c	2009-07-15 08:46:15.000000000 +0200
++++ navit/navit/vehicle.c	2009-07-15 09:44:40.000000000 +0200
+@@ -29,6 +29,7 @@
+ #include "callback.h"
+ #include "plugin.h"
+ #include "vehicle.h"
++#include "util.h"
+ 
+ struct vehicle {
+ 	struct vehicle_priv *priv;

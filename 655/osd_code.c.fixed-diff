@@ -1,0 +1,20 @@
+Index: osd_core.c
+===================================================================
+--- osd_core.c	(revision 3559)
++++ osd_core.c	(working copy)
+@@ -1,6 +1,6 @@
+ /**
+  * Navit, a modular navigation system.
+- * Copyright (C) 2005-2008 Navit Team
++ * Copyright (C) 2005-2008, 2010 Navit Team
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -1233,6 +1233,7 @@
+ 			g_free(tmp);
+ 			return ret;
+ 		}
++		break;
+ 	case attr_position_time_iso8601:
+ 		if ((!format) || (!strcmp(format,"iso8601")))
+ 		{ 

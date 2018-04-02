@@ -1,0 +1,12 @@
+Index: navit/data/binfile/binfile.c
+===================================================================
+--- navit/data/binfile/binfile.c	(revision 1357)
++++ navit/data/binfile/binfile.c	(working copy)
+@@ -22,6 +22,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <math.h>
++#include <stdint.h>
+ #include "config.h"
+ #include "debug.h"
+ #include "plugin.h"

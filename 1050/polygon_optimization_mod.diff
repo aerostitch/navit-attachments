@@ -1,0 +1,16 @@
+Index: graphics.c
+===================================================================
+--- graphics.c	(revision 5147)
++++ graphics.c	(working copy)
+@@ -1870,9 +1870,9 @@
+ 	if (dc->type == type_poly_water_tiled)
+ 		mindist=0;
+ 	if (dc->e->type == element_polyline)
+-		count=transform(dc->trans, dc->pro, di->c, pa, count, mindist, e->u.polyline.width, width);
++		count=transform(dc->trans, dc->pro, di->c, pa, count, count<40 ? 0 : mindist, e->u.polyline.width, width);
+ 	else
+-		count=transform(dc->trans, dc->pro, di->c, pa, count, mindist, 0, NULL);
++		count=transform(dc->trans, dc->pro, di->c, pa, count, count<40 ? 0 : mindist, 0, NULL);
+ 	switch (e->type) {
+ 	case element_polygon:
+ 		graphics_draw_polygon_clipped(gra, gc, pa, count);

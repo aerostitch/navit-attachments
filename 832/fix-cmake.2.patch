@@ -1,0 +1,52 @@
+Description: Fix cmake config to produce same packages as with the autotools
+ This patch apply various fixes and workaround so that the generated binary
+ packages are close to the one generated with the autotools configuration.
+Author: Gilles Filippini <pini@debian.org>
+Forwarded: http://trac.navit-project.org/ticket/832
+Last-Update: 2011-05-16
+Index: navit/navit/CMakeLists.txt
+===================================================================
+--- navit.orig/navit/CMakeLists.txt	2011-05-15 23:43:33.000000000 +0200
++++ navit/navit/CMakeLists.txt	2011-05-15 23:45:17.000000000 +0200
+@@ -138,7 +138,9 @@
+ add_subdirectory (maptool)
+ add_subdirectory (xpm)
+ add_subdirectory (maps)
+-add_subdirectory (android)
++if (ANDROID)
++   add_subdirectory (android)
++endif()
+ 
+ install(TARGETS navit
+         DESTINATION ${BIN_DIR}
+Index: navit/CMakeLists.txt
+===================================================================
+--- navit.orig/CMakeLists.txt	2011-05-15 23:45:17.000000000 +0200
++++ navit/CMakeLists.txt	2011-05-15 23:45:17.000000000 +0200
+@@ -574,7 +574,7 @@
+ 
+ if (GETTEXT_FOUND)
+    add_subdirectory (po)
+-   #install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/locale DESTINATION ${LOCALE_DIR})
++   install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/locale DESTINATION ${LOCALE_DIR})
+ endif(GETTEXT_FOUND)
+ 
+ 
+Index: navit/cmake/navit_macros.cmake
+===================================================================
+--- navit.orig/cmake/navit_macros.cmake	2011-05-16 13:40:54.000000000 +0200
++++ navit/cmake/navit_macros.cmake	2011-05-16 13:41:09.000000000 +0200
+@@ -11,11 +11,11 @@
+    if (DEFINED ${VARIABLE}_REASON AND NOT ${VARIABLE}_REASON STREQUAL "User defined")
+       set(${VARIABLE} ${ENABLE})
+       set(${VARIABLE}_REASON ${REASON})
+-      string(REPLACE "/" "_" VARIABLE_NAMES ${VARIABLE})
+-      set(${VARIABLE_NAMES}_LIBS ${ARGN})
+    else()
+       message("Do not change user defined settings for ${VARIABLE}")
+    endif()
++   string(REPLACE "/" "_" VARIABLE_NAMES ${VARIABLE})
++   set(${VARIABLE_NAMES}_LIBS ${ARGN})
+ endmacro()
+ 
+ macro(add_feature FEATURE REASON ENABLE)

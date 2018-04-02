@@ -1,0 +1,40 @@
+I/ActivityManager(  147): Starting activity: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=org.navitproject.navit/.Navit }
+I/ActivityManager(  147): Start proc org.navitproject.navit for activity org.navitproject.navit/.Navit: pid=10138 uid=10131 gids={3003, 1015}
+D/dalvikvm(10138): Trying to load lib /data/data/org.navitproject.navit/lib/libnavit.so 0x439fcb38
+D/dalvikvm(10138): Added shared lib /data/data/org.navitproject.navit/lib/libnavit.so 0x439fcb38
+D/dalvikvm(10138): No JNI_OnLoad found in /data/data/org.navitproject.navit/lib/libnavit.so 0x439fcb38
+E/Navit   (10138): Country PL
+E/Navit   (10138): Language pl
+E/Navit   (10138): Res Name pl
+E/Navit   (10138): result /data/data/org.navitproject.navit/locale/pl/LC_MESSAGES/navit.mo
+E/Navit   (10138): Res ID 2130903069
+E/Navit   (10138): Checking /data
+E/Navit   (10138): Checking /data/data
+E/Navit   (10138): Checking /data/data/org.navitproject.navit
+E/Navit   (10138): Checking /data/data/org.navitproject.navit/locale
+E/Navit   (10138): Checking /data/data/org.navitproject.navit/locale/pl
+E/Navit   (10138): Checking /data/data/org.navitproject.navit/locale/pl/LC_MESSAGES
+E/Navit   (10138): Res Name navit
+E/Navit   (10138): result /data/data/org.navitproject.navit/share/navit.xml
+E/Navit   (10138): Res ID 2130903064
+E/Navit   (10138): Checking /data
+E/Navit   (10138): Checking /data/data
+E/Navit   (10138): Checking /data/data/org.navitproject.navit
+E/Navit   (10138): Checking /data/data/org.navitproject.navit/share
+D/dalvikvm(10138): +++ not scanning '/system/lib/libwebcore.so' for 'NavitMain' (wrong CL)
+D/dalvikvm(10138): +++ not scanning '/system/lib/libexif.so' for 'NavitMain' (wrong CL)
+D/dalvikvm(10138): +++ not scanning '/system/lib/libFFTEm.so' for 'NavitMain' (wrong CL)
+D/dalvikvm(10138): +++ not scanning '/system/lib/libmedia_jni.so' for 'NavitMain' (wrong CL)
+E/test    (10138): called
+E/navit   (10138): navit:Java_org_navitproject_navit_Navit_NavitMain:enter env=0xa9c0 thiz=0x43a49928 activity=0x43a49928 lang=pl_PL
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgraphics_android.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'g_malloc0'...'
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libvehicle_android.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'plugin_register_vehicle_type'...'
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libspeech_android.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'g_malloc'...'
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libgui_internal.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'g_strdup_printf'...'
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_textfile.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'g_strdup_printf'...'
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libmap_binfile.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'map_priv_is'...'
+E/navit   (10138): navit:plugin_load:can't load '/data/data/org.navitproject.navit/lib/libosd_core.so', Error 'Cannot load library: reloc_library[1245]:   129 cannot locate 'g_strdup_printf'...'
+I/ActivityManager(  147): Process org.navitproject.navit (pid 10138) has died.
+W/UsageStats(  147): Unexpected resume of com.android.launcher while already resumed in org.navitproject.navit
+D/Zygote  (  129): Process 10138 exited cleanly (1)
+W/InputManagerService(  147): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@43fa1868

@@ -1,0 +1,52 @@
+   dh_shlibdeps
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/plugin/libplugin_pedestrian.so contains an unresolvable reference to symbol map_rect_get_item: it's probably a plugin
+dpkg-shlibdeps: warning: 80 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/graphics/libgraphics_null.so contains an unresolvable reference to symbol plugin_register_event_type: it's probably a plugin
+dpkg-shlibdeps: warning: 7 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/speech/libspeech_dbus.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 4 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/speech/libspeech_cmdline.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 21 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_textfile.so contains an unresolvable reference to symbol file_wordexp_get_array: it's probably a plugin
+dpkg-shlibdeps: warning: 15 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_pipe.so contains an unresolvable reference to symbol plugin_get_vehicle_type: it's probably a plugin
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/font/libfont_freetype.so contains an unresolvable reference to symbol FTC_ImageCache_LookupScaler: it's probably a plugin
+dpkg-shlibdeps: warning: 46 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_socket.so contains an unresolvable reference to symbol plugin_get_vehicle_type: it's probably a plugin
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_demo.so contains an unresolvable reference to symbol map_rect_get_item: it's probably a plugin
+dpkg-shlibdeps: warning: 22 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_shapefile.so contains an unresolvable reference to symbol file_wordexp_get_array: it's probably a plugin
+dpkg-shlibdeps: warning: 37 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/binding/libbinding_dbus.so contains an unresolvable reference to symbol dbus_bus_request_name: it's probably a plugin
+dpkg-shlibdeps: warning: 111 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_serial.so contains an unresolvable reference to symbol plugin_get_vehicle_type: it's probably a plugin
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_garmin.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 28 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/osd/libosd_core.so contains an unresolvable reference to symbol map_rect_get_item: it's probably a plugin
+dpkg-shlibdeps: warning: 110 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/speech/libspeech_speech_dispatcher.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 2 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_mg.so contains an unresolvable reference to symbol file_wordexp_get_array: it's probably a plugin
+dpkg-shlibdeps: warning: 32 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_null.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 6 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_gpsd_dbus.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 6 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_csv.so contains an unresolvable reference to symbol file_wordexp_get_array: it's probably a plugin
+dpkg-shlibdeps: warning: 31 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_file.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 24 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_binfile.so contains an unresolvable reference to symbol file_wordexp_get_array: it's probably a plugin
+dpkg-shlibdeps: warning: 57 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/map/libmap_filter.so contains an unresolvable reference to symbol map_rect_get_item: it's probably a plugin
+dpkg-shlibdeps: warning: 22 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-svn/usr/lib/navit/vehicle/libvehicle_gpsd.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 19 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-gui-gtk/usr/lib/navit/gui/libgui_gtk.so contains an unresolvable reference to symbol map_rect_get_item: it's probably a plugin
+dpkg-shlibdeps: warning: 194 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-gui-internal/usr/lib/navit/gui/libgui_internal.so contains an unresolvable reference to symbol graphics_font_new: it's probably a plugin
+dpkg-shlibdeps: warning: 216 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-graphics-gtk-drawing-area/usr/lib/navit/graphics/libgraphics_gtk_drawing_area.so contains an unresolvable reference to symbol g_free: it's probably a plugin
+dpkg-shlibdeps: warning: 11 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: debian/navit-graphics-qt-qpainter/usr/lib/navit/graphics/libgraphics_qt_qpainter.so contains an unresolvable reference to symbol _ZNK7QWidget14heightForWidthEi: it's probably a plugin
+dpkg-shlibdeps: warning: 155 other similar warnings have been skipped (use -v to see them all)

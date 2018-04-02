@@ -1,0 +1,717 @@
+Handle endianness while reading data from mmapped mg files.
+Index: navit-0.1.1.0+dfsg.1/navit/data.h
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/navit/data.h	2009-06-28 20:08:53.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/navit/data.h	2009-06-28 20:08:55.000000000 +0200
+@@ -20,6 +20,12 @@
+ #ifndef NAVIT_DATA_H
+ #define NAVIT_DATA_H
+ 
++#include "config.h"
++
++#ifdef WORDS_BIGENDIAN
++#include <byteswap.h>
++#endif
++
+ static inline unsigned char
+ get_u8(unsigned char **p)
+ {
+@@ -31,7 +37,11 @@
+ 	unsigned short ret;
+ 	ret=*((unsigned short *)*p);
+ 	*p+=sizeof(unsigned short);
++#ifdef WORDS_BIGENDIAN
++	return __bswap_16(ret);
++#else
+ 	return ret;
++#endif
+ }
+ 
+ static inline unsigned short
+@@ -66,7 +76,11 @@
+ 	unsigned long ret;
+ 	ret=*((unsigned int *)*p);
+ 	*p+=sizeof(unsigned int);
++#ifdef WORDS_BIGENDIAN
++	return __bswap_32(ret);
++#else
+ 	return ret;
++#endif
+ }
+ 
+ static inline unsigned int
+Index: navit-0.1.1.0+dfsg.1/navit/map/mg/block.c
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/navit/map/mg/block.c	2009-06-28 20:08:53.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/navit/map/mg/block.c	2009-06-28 20:08:55.000000000 +0200
+@@ -26,16 +26,24 @@
+ int block_lin_count,block_idx_count,block_active_count,block_mem,block_active_mem;
+ 
+ struct block_index_item {
+-	unsigned int blocknum;
+-	unsigned int blocks;
++	/*unsigned int blocknum;
++	unsigned int blocks;*/
++	unsigned char p[8];
+ };
++static inline unsigned int block_index_item_get_blocknum(struct block_index_item * blk) { unsigned char *p = blk->p; return get_u32(&p); }
++static inline unsigned int block_index_item_get_blocks(struct block_index_item * blk) { unsigned char *p = blk->p+4; return get_u32(&p); }
+ 
+ struct block_index {
+-	unsigned int blocks;
++/*	unsigned int blocks;
+         unsigned int size;
+         unsigned int next;      
+-	struct block_index_item list[0];
++	struct block_index_item list[0];*/
++	unsigned char p[12];
+ };
++static inline unsigned int block_index_get_blocks(struct block_index * blk) { unsigned char *p = blk->p; return get_u32(&p); }
++static inline unsigned int block_index_get_size(struct block_index * blk) { unsigned char *p = blk->p+4; return get_u32(&p); }
++static inline unsigned int block_index_get_next(struct block_index * blk) { unsigned char *p = blk->p+8; return get_u32(&p); }
++static inline struct block_index_item * block_index_get_list(struct block_index * blk) { return (struct block_index_item *)(blk->p+12); }
+ 
+ static struct block *
+ block_get(unsigned char **p)
+@@ -54,13 +62,13 @@
+ 
+ 
+ 	blk_idx=(struct block_index *)(file->begin+0x1000);
+-	max=(blk_idx->size-sizeof(struct block_index))/sizeof(struct block_index_item);
++	max=(block_index_get_size(blk_idx)-sizeof(struct block_index))/sizeof(struct block_index_item);
+ 	block_mem+=24;
+ 	while (id >= max) {
+-		blk_idx=(struct block_index *)(file->begin+blk_idx->next*512);
++		blk_idx=(struct block_index *)(file->begin+block_index_get_next(blk_idx)*512);
+ 		id-=max;
+ 	}
+-	blk_num=blk_idx->list[id].blocknum;
++	blk_num=block_index_item_get_blocknum(&block_index_get_list(blk_idx)[id]);
+ 
+ 	*p_ret=file->begin+blk_num*512;
+ 	return block_get(p_ret);
+@@ -73,7 +81,7 @@
+ 	blk->b=block_get_byid(file, idx, &blk->p);
+ 	blk->block_start=(unsigned char *)(blk->b);
+ 	blk->p_start=blk->p;
+-	blk->end=blk->block_start+blk->b->size;
++	blk->end=blk->block_start+block_get_size(blk->b);
+ 
+ 	return 1;
+ }
+@@ -159,6 +167,7 @@
+ int
+ block_next_lin(struct map_rect_priv *mr)
+ {
++	struct coord_rect r;
+ 	for (;;) {
+ 		block_lin_count++;
+ 		block_mem+=sizeof(struct block *);
+@@ -166,7 +175,7 @@
+ 		if (! mr->b.block_num) 
+ 			mr->b.p=mr->file->begin+0x2000;
+ 		else
+-			mr->b.p=mr->b.block_start+mr->b.b->blocks*512;
++			mr->b.p=mr->b.block_start+block_get_blocks(mr->b.b)*512;
+ 		if (mr->b.p >= mr->file->end) {
+ 			dbg(1,"end of blocks %p vs %p\n", mr->b.p, mr->file->end);
+ 			return 0;
+@@ -174,14 +183,15 @@
+ 		mr->b.block_start=mr->b.p;
+ 		mr->b.b=block_get(&mr->b.p);
+ 		mr->b.p_start=mr->b.p;
+-		mr->b.end=mr->b.block_start+mr->b.b->size;
+-		if (mr->b.b->count == -1) {
++		mr->b.end=mr->b.block_start+block_get_size(mr->b.b);
++		if (block_get_count(mr->b.b) == -1) {
+ 			dbg(1,"empty blocks\n");
+ 			return 0;
+ 		}
+-		if (!mr->cur_sel || coord_rect_overlap(&mr->cur_sel->u.c_rect, &mr->b.b->r)) {
++		block_get_r(mr->b.b, &r);
++		if (!mr->cur_sel || coord_rect_overlap(&mr->cur_sel->u.c_rect, &r)) {
+ 			block_active_count++;
+-			block_active_mem+=mr->b.b->blocks*512-sizeof(struct block *);
++			block_active_mem+=block_get_blocks(mr->b.b)*512-sizeof(struct block *);
+ 			dbg(1,"block ok\n");
+ 			return 1;
+ 		}
+@@ -194,6 +204,7 @@
+ {
+ 	int blk_num,coord,r_h,r_w;
+ 	struct block_bt_priv *bt=&mr->b.bt;
++	struct coord_rect r;
+ 
+ 	if (!mr->b.binarytree || ! mr->cur_sel)
+ 		return block_next_lin(mr);
+@@ -203,10 +214,10 @@
+ 			if (bt->next == -1)
+ 				return 0;
+ 			bt->b=block_get_byid(mr->file, bt->next, &bt->p);
+-			bt->end=(unsigned char *)mr->b.bt.b+mr->b.bt.b->size;
+-			bt->next=bt->b->next;
++			bt->end=(unsigned char *)mr->b.bt.b+block_get_size(mr->b.bt.b);
++			bt->next=block_get_next(bt->b);
+ 			bt->order=0;
+-			dbg(1,"size 0x%x next 0x%x\n", bt->b->size, bt->b->next);
++			dbg(1,"size 0x%x next 0x%x\n", block_get_size(bt->b), block_get_next(bt->b));
+ 			if (! mr->b.bt.block_count) {
+ #if 0
+ 				if (debug) {
+@@ -214,7 +225,7 @@
+ 					block_rect_print(&mr->b.bt.b->r);
+ 				}
+ #endif
+-				bt->r=bt->b->r;
++				block_get_r(bt->b, &bt->r);
+ 				bt->r_curr=bt->r;
+ 				coord=get_u32(&mr->b.bt.p);
+ 			} else {
+@@ -248,8 +259,9 @@
+ 					dbg_assert(mr->b.b != NULL);
+ 					mr->b.block_start=(unsigned char *)(mr->b.b);
+ 					mr->b.p_start=mr->b.p;
+-					mr->b.end=mr->b.block_start+mr->b.b->size;
+-					block_rect_same(&mr->b.b->r, &bt->r_curr);
++					mr->b.end=mr->b.block_start+block_get_size(mr->b.b);
++					block_get_r(mr->b.b, &r);
++					block_rect_same(&r, &bt->r_curr);
+ 				}
+ 			}
+ 			if (coord != -1) {
+@@ -276,7 +288,7 @@
+ 			}
+ 			if (mr->b.b) {
+ 				block_active_count++;
+-				block_active_mem+=mr->b.b->blocks*512;
++				block_active_mem+=block_get_blocks(mr->b.b)*512;
+ 				return 1;
+ 			}
+ 		}
+Index: navit-0.1.1.0+dfsg.1/navit/map/mg/mg.h
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/navit/map/mg/mg.h	2009-06-28 20:08:53.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/navit/map/mg/mg.h	2009-06-28 21:47:37.000000000 +0200
+@@ -31,12 +31,18 @@
+ };
+ 
+ struct block {
+-	int blocks;
++/*	int blocks;
+ 	int size;
+ 	int next;
+ 	struct coord_rect r;
+-	int count;
++	int count;*/
++	unsigned char p[32];
+ };
++static inline int block_get_blocks(struct block * blk) { unsigned char *p = blk->p; return get_u32(&p); }
++static inline int block_get_size(struct block * blk) { unsigned char *p = blk->p+4; return get_u32(&p); }
++static inline int block_get_next(struct block * blk) { unsigned char *p = blk->p+8; return get_u32(&p); }
++static inline int block_get_count(struct block * blk) { unsigned char *p = blk->p+28; return get_u32(&p); }
++static inline void block_get_r(struct block * blk, struct coord_rect * r) { unsigned char *p = blk->p+12; r ->lu.x = get_u32(&p); r ->lu.y = get_u32(&p); r ->rl.x = get_u32(&p); r ->rl.y = get_u32(&p); }
+ 
+ struct item_priv {
+ 	int cidx;
+@@ -93,14 +99,20 @@
+ };
+ 
+ struct street_header {
+-        unsigned char order;
+-        int count;
++        /*unsigned char order;
++        int count;*/
++	unsigned char p[5];
+ } __attribute__((packed));
++static inline unsigned char street_header_get_order(struct street_header * str) { return *str->p; }
++static inline int street_header_get_count(struct street_header * str) { unsigned char *p = str->p+1; return get_u32_unal(&p); }
+ 
+ struct street_type {
+-        unsigned char order;
+-        unsigned short country;
++        /*unsigned char order;
++        unsigned short country;*/
++	unsigned char p[3];
+ } __attribute__((packed));
++static inline unsigned char street_type_get_order(struct street_type * str) { return *str->p; }
++static inline unsigned short street_type_get_country(struct street_type * str) { unsigned char *p = str->p+1; return get_u16_unal(&p); }
+ 
+ struct street_header_type {
+ 	struct street_header *header;
+@@ -109,13 +121,20 @@
+ };
+ 
+ struct street_str {
+-        int segid;
+-        unsigned char limit;            /* 0x03,0x30=One Way,0x33=No Passing */
+-        unsigned char unknown2;
++        /*int segid;
++        unsigned char limit;*/            /* 0x03,0x30=One Way,0x33=No Passing */
++        /*unsigned char unknown2;
+         unsigned char unknown3;
+         unsigned char type;
+-        unsigned int nameid;
++        unsigned int nameid;*/
++	unsigned char p[12];
+ };
++static inline int street_str_get_segid(struct street_str * str) { unsigned char *p = str->p; return get_u32_unal(&p); }
++static inline unsigned char street_str_get_limit(struct street_str * str) { return str->p[4]; }
++static inline unsigned char street_str_get_unknown2(struct street_str * str) { return str->p[5]; }
++static inline unsigned char street_str_get_unknown3(struct street_str * str) { return str->p[6]; }
++static inline unsigned char street_str_get_type(struct street_str * str) { return str->p[7]; }
++static inline unsigned int street_str_get_nameid(struct street_str * str) { unsigned char *p = str->p+8; return get_u32_unal(&p); }
+ 
+ struct street_name_segment {
+ 	int segid;
+@@ -187,7 +206,7 @@
+ 	unsigned char *next;
+ 	int status;
+ 	int status_rewind;
+-	struct coord *ref;
++	struct coord_rect ref;
+ 	int bytes;
+ 	int more;
+ 	int flags;
+Index: navit-0.1.1.0+dfsg.1/configure.in
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/configure.in	2009-06-28 20:08:55.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/configure.in	2009-06-28 21:46:24.000000000 +0200
+@@ -87,6 +87,10 @@
+ AC_SUBST(CC_FOR_BUILD)
+ AC_SUBST(CCLD_FOR_BUILD)
+ 
++# Endianness
++# defines WORDS_BIGENDIAN for big-endian systems
++AC_C_BIGENDIAN
++
+ AC_ARG_ENABLE(variant, [  --enable-variant=something          set variant], NAVIT_VARIANT=$enableval)
+ AC_SUBST(NAVIT_VARIANT)
+ 
+Index: navit-0.1.1.0+dfsg.1/navit/map/mg/poly.c
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/navit/map/mg/poly.c	2009-06-28 20:08:53.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/navit/map/mg/poly.c	2009-06-28 20:08:55.000000000 +0200
+@@ -122,7 +122,7 @@
+ 			poly->poly_next=mr->b.p;
+ 			item->meth=&poly_meth;
+ 		}
+-		if (poly->poly_num >= mr->b.b->count)
++		if (poly->poly_num >= block_get_count(mr->b.b))
+ 			return 0;
+ 		if (!poly->subpoly_num) {
+ 			mr->b.p=poly->poly_next;
+Index: navit-0.1.1.0+dfsg.1/navit/map/mg/street.c
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/navit/map/mg/street.c	2009-06-28 20:08:53.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/navit/map/mg/street.c	2009-06-28 20:08:55.000000000 +0200
+@@ -198,7 +198,7 @@
+ 	return bytes;
+ }
+ 
+-static int street_get_coord(unsigned char **pos, int bytes, struct coord *ref, struct coord *f)
++static int street_get_coord(unsigned char **pos, int bytes, struct coord_rect *ref, struct coord *f)
+ {
+ 	unsigned char *p;
+ 	int x,y,flags=0;
+@@ -235,9 +235,9 @@
+ 		y|=(*p++) << 24;
+ 	}
+ 	if (f) {
+-		f->x=ref[0].x+x;
+-		f->y=ref[1].y+y;
+-		dbg(1,"0x%x,0x%x + 0x%x,0x%x = 0x%x,0x%x\n", x, y, ref[0].x, ref[1].y, f->x, f->y);
++		f->x=ref->lu.x+x;
++		f->y=ref->rl.y+y;
++		dbg(1,"0x%x,0x%x + 0x%x,0x%x = 0x%x,0x%x\n", x, y, ref->lu.x, ref->rl.y, f->x, f->y);
+ 	}
+ 	*pos=p;
+ 	return flags;
+@@ -249,7 +249,7 @@
+ 	struct street_str *str;
+ 
+ 	str=(struct street_str *)(*p);
+-	while (L(str->segid)) {
++	while (street_str_get_segid(str)) {
+ 		str++;
+ 	}
+ 	(*p)=(unsigned char *)str;
+@@ -275,7 +275,7 @@
+ 	if (street->status >= 4)
+ 		return 0;
+ 	n=street->p;
+-	if (street_get_coord(&street->p, street->bytes, street->ref, c)) {
++	if (street_get_coord(&street->p, street->bytes, &street->ref, c)) {
+ 		if (street->status)
+ 			street->next=n;
+ 		street->status+=2;
+@@ -298,14 +298,14 @@
+ 		street->p=street->coord_begin;
+ 		scount=street->str-street->str_start;
+ 		for (i = 0 ; i < scount ; i++) {
+-			street->status=L(street->str[i+1].segid) >= 0 ? 0:1;
++			street->status=street_str_get_segid(&street->str[i+1]) >= 0 ? 0:1;
+ 			while (street_coord_get_helper(street, c));
+ 			street->p=street->next;
+ 		}
+-		street->status_rewind=street->status=L(street->str[1].segid) >= 0 ? 0:1;
++		street->status_rewind=street->status=street_str_get_segid(&street->str[1]) >= 0 ? 0:1;
+ 	}
+ #ifdef DEBUG_COORD_GET
+-	segid=street->str[0].segid;
++	segid=street_str_get_segid(&street->str[0]);
+ 	if (segid < 0)
+ 		segid=-segid;
+ 	if (segid == 0x15)
+@@ -345,7 +345,7 @@
+ 	struct street_priv *street=priv_data;
+ 	int nameid;
+ 
+-	dbg(1,"segid 0x%x\n", L(street->str->segid));
++	dbg(1,"segid 0x%x\n", street_str_get_segid(street->str));
+ 	attr->type=attr_type;
+ 	switch (attr_type) {
+ 	case attr_any:
+@@ -356,7 +356,7 @@
+ 		return 0;
+ 	case attr_label:
+ 		street->attr_next=attr_street_name;
+-		nameid=L(street->str->nameid);
++		nameid=street_str_get_nameid(street->str);
+ 		if (! nameid)
+ 			return 0;
+ 		if (! street->name.len)
+@@ -370,7 +370,7 @@
+ 		return 0;
+ 	case attr_street_name:
+ 		street->attr_next=attr_street_name_systematic;
+-		nameid=L(street->str->nameid);
++		nameid=street_str_get_nameid(street->str);
+ 		if (! nameid)
+ 			return 0;
+ 		if (! street->name.len)
+@@ -379,7 +379,7 @@
+ 		return ((attr->u.str && attr->u.str[0]) ? 1:0);
+ 	case attr_street_name_systematic:
+ 		street->attr_next=attr_flags;
+-		nameid=L(street->str->nameid);
++		nameid=street_str_get_nameid(street->str);
+ 		if (! nameid)
+ 			return 0;
+ 		if (! street->name.len)
+@@ -392,7 +392,7 @@
+ 		return 1;
+ 	case attr_country_id:
+ 		street->attr_next=attr_debug;
+-		nameid=L(street->str->nameid);
++		nameid=street_str_get_nameid(street->str);
+ 		if (! nameid)
+ 			return 0;
+ 		if (! street->name.len)
+@@ -403,7 +403,7 @@
+ 		street->attr_next=attr_none;
+ 		{
+ 		struct street_str *str=street->str;
+-		sprintf(street->debug,"order:0x%x\nsegid:0x%x\nlimit:0x%x\nunknown2:0x%x\nunknown3:0x%x\ntype:0x%x\nnameid:0x%x\ntownassoc:0x%x",street->header->order,str->segid,str->limit,str->unknown2,str->unknown3,str->type,str->nameid, street->name.len ? street->name.townassoc : 0);
++		sprintf(street->debug,"order:0x%x\nsegid:0x%x\nlimit:0x%x\nunknown2:0x%x\nunknown3:0x%x\ntype:0x%x\nnameid:0x%x\ntownassoc:0x%x",street_header_get_order(street->header),street_str_get_segid(str),street_str_get_limit(str),street_str_get_unknown2(str),street_str_get_unknown3(str),street_str_get_type(str),street_str_get_nameid(str), street->name.len ? street->name.townassoc : 0);
+ 		attr->u.str=street->debug;
+ 		}
+ 		return 1;
+@@ -425,7 +425,7 @@
+ {
+ 	street->header=(struct street_header *)(*p);
+ 	(*p)+=sizeof(struct street_header);
+-	street->type_count=street->header->count;
++	street->type_count=street_header_get_count(street->header);
+ 	street->type=(struct street_type *)(*p);	
+ 	(*p)+=street->type_count*sizeof(struct street_type);
+ }
+@@ -570,7 +570,7 @@
+ 						continue;
+ #endif
+ 					}
+-					if (street->str->type & 0x40) {
++					if (street_str_get_type(street->str) & 0x40) {
+ 						dir=-dir;
+ 						dlr=-dlr;
+ 					}
+@@ -596,7 +596,7 @@
+ street_get_housenumber(struct map_rect_priv *mr, struct street_priv *street, struct item *item)
+ {
+ 	int nameid;
+-	nameid=L(street->str->nameid);
++	nameid=street_str_get_nameid(street->str);
+ 	if (! nameid)
+ 		return 0;
+ 	if (! street->name.len)
+@@ -622,6 +622,7 @@
+ street_get(struct map_rect_priv *mr, struct street_priv *street, struct item *item)
+ {	
+ 	int *flags;
++	struct coord_rect r;
+ 	for (;;) {
+ 		while (street->more) {
+ 			struct coord c;
+@@ -637,11 +638,12 @@
+ 		if (mr->b.p == mr->b.p_start) {
+ 			street_get_data(street, &mr->b.p);
+ 			street->name_file=mr->m->file[file_strname_stn];
+-			if (mr->cur_sel && street->header->order > limit[mr->cur_sel->order])
++			if (mr->cur_sel && street_header_get_order(street->header) > limit[mr->cur_sel->order])
+ 				return 0;
+ 			street->end=mr->b.end;
+-			street->ref=&mr->b.b->r.lu;
+-			street->bytes=street_get_bytes(&mr->b.b->r);
++			block_get_r(mr->b.b, &r);
++			street->ref=r;
++			street->bytes=street_get_bytes(&r);
+ 			street->str_start=street->str=(struct street_str *)mr->b.p;
+ 			street->coord_begin=mr->b.p;
+ 			street_coord_get_begin(&street->coord_begin);
+@@ -653,25 +655,25 @@
+ 			street->str++;
+ 			street->p=street->next;
+ 		}
+-		if (! L(street->str->segid))
++		if (! street_str_get_segid(street->str))
+ 			return 0;
+-		if (L(street->str->segid) < 0)
++		if (street_str_get_segid(street->str) < 0)
+ 			street->type++;
+ #if 0
+ 		dbg_assert(street->p != NULL);
+ #endif
+ 		street->next=NULL;
+-		street->status_rewind=street->status=L(street->str[1].segid) >= 0 ? 0:1;
++		street->status_rewind=street->status=street_str_get_segid(&street->str[1]) >= 0 ? 0:1;
+ #if 0
+ 		if (street->type->country != 0x31) {
+ 			printf("country=0x%x\n", street->type->country);
+ 		}
+ #endif
+-		item->id_hi=street->type->country | (mr->current_file << 16);
+-		item->id_lo=L(street->str->segid) > 0 ? L(street->str->segid) : -L(street->str->segid);
+-		switch(street->str->type & 0x1f) {
++		item->id_hi=street_type_get_country(street->type) | (mr->current_file << 16);
++		item->id_lo=street_str_get_segid(street->str) > 0 ? street_str_get_segid(street->str) : -street_str_get_segid(street->str);
++		switch(street_str_get_type(street->str) & 0x1f) {
+ 		case 0xf: /* very small street */
+-			if (street->str->limit == 0x33) 
++			if (street_str_get_limit(street->str) == 0x33) 
+ 				item->type=type_street_nopass;
+ 			else
+ 				item->type=type_street_0;
+@@ -686,15 +688,15 @@
+ 			item->type=type_street_2_city;
+ 			break;
+ 		case 0xa:
+-			if ((street->str->limit == 0x03 || street->str->limit == 0x30) && street->header->order < 4)
++			if ((street_str_get_limit(street->str) == 0x03 || street_str_get_limit(street->str) == 0x30) && street_header_get_order(street->header) < 4)
+ 				item->type=type_street_4_city;
+ 			else	
+ 				item->type=type_street_3_city;
+ 			break;
+ 		case 0x9:
+-			if (street->header->order < 5)
++			if (street_header_get_order(street->header) < 5)
+ 				item->type=type_street_4_city;
+-			else if (street->header->order < 7)
++			else if (street_header_get_order(street->header) < 7)
+ 				item->type=type_street_2_city;
+ 			else
+ 				item->type=type_street_1_city;
+@@ -703,7 +705,7 @@
+ 			item->type=type_street_2_land;
+ 			break;
+ 		case 0x7:
+-			if ((street->str->limit == 0x03 || street->str->limit == 0x30) && street->header->order < 4)
++			if ((street_str_get_limit(street->str) == 0x03 || street_str_get_limit(street->str) == 0x30) && street_header_get_order(street->header) < 4)
+ 				item->type=type_street_4_city;
+ 			else
+ 				item->type=type_street_3_land;
+@@ -728,19 +730,19 @@
+ 			break;
+ 		default:
+ 			item->type=type_street_unkn;
+-			dbg(0,"unknown type 0x%x\n",street->str->type);
++			dbg(0,"unknown type 0x%x\n",street_str_get_type(street->str));
+ 		}
+ 		flags=item_get_default_flags(item->type);
+ 		if (flags)
+ 			street->flags=*flags;
+ 		else
+ 			street->flags=0;
+-		if (street->str->type & 0x40) {
+-			street->flags|=(street->str->limit & 0x30) ? AF_ONEWAYREV:0;
+-			street->flags|=(street->str->limit & 0x03) ? AF_ONEWAY:0;
++		if (street_str_get_type(street->str) & 0x40) {
++			street->flags|=(street_str_get_limit(street->str) & 0x30) ? AF_ONEWAYREV:0;
++			street->flags|=(street_str_get_limit(street->str) & 0x03) ? AF_ONEWAY:0;
+ 		} else {
+-			street->flags|=(street->str->limit & 0x30) ? AF_ONEWAY:0;
+-			street->flags|=(street->str->limit & 0x03) ? AF_ONEWAYREV:0;
++			street->flags|=(street_str_get_limit(street->str) & 0x30) ? AF_ONEWAY:0;
++			street->flags|=(street_str_get_limit(street->str) & 0x03) ? AF_ONEWAYREV:0;
+ 		}
+ #if 0
+ 		coord_debug=(street->str->unknown2 != 0x40 || street->str->unknown3 != 0x40);
+@@ -768,6 +770,7 @@
+ {
+         int country=id_hi & 0xffff;
+         int res;
++	struct coord_rect r;
+ 	dbg(1,"enter(%p,%p,0x%x,0x%x,%p)\n", mr, street, id_hi, id_lo, item);
+ 	if (! country)
+ 		return 0;
+@@ -777,8 +780,9 @@
+ 	street_get_data(street, &mr->b.p);
+ 	street->name_file=mr->m->file[file_strname_stn];
+ 	street->end=mr->b.end;
+-	street->ref=&mr->b.b->r.lu;
+-	street->bytes=street_get_bytes(&mr->b.b->r);
++	block_get_r(mr->b.b, &r);
++	street->ref=r;
++	street->bytes=street_get_bytes(&r);
+ 	street->str_start=street->str=(struct street_str *)mr->b.p;
+ 	street->coord_begin=mr->b.p;
+ 	street_coord_get_begin(&street->coord_begin);
+@@ -787,7 +791,7 @@
+ 	item->meth=&street_meth;
+ 	item->priv_data=street;
+ 	street->str+=(res & 0xfff)-1;
+-	dbg(1,"segid 0x%x\n", L(street->str[1].segid));
++	dbg(1,"segid 0x%x\n", street_str_get_segid(&street->str[1]));
+ 	return street_get(mr, street, item);
+ #if 0
+         mr->b.p=mr->b.block_start+(res & 0xffff);
+Index: navit-0.1.1.0+dfsg.1/navit/map/mg/tree.c
+===================================================================
+--- navit-0.1.1.0+dfsg.1.orig/navit/map/mg/tree.c	2009-06-28 20:08:53.000000000 +0200
++++ navit-0.1.1.0+dfsg.1/navit/map/mg/tree.c	2009-06-28 20:08:55.000000000 +0200
+@@ -23,34 +23,52 @@
+ #include "mg.h"
+ 
+ struct tree_hdr {
+-	unsigned int addr;
++	/*unsigned int addr;
+ 	unsigned int size;
+-	unsigned int low;
++	unsigned int low;*/
++	unsigned char p[12];
+ };
++static inline unsigned int tree_hdr_get_addr(struct tree_hdr * tree) { unsigned char *p = tree->p; return get_u32(&p); }
++static inline unsigned int tree_hdr_get_size(struct tree_hdr * tree) { unsigned char *p = tree->p+4; return get_u32(&p); }
++static inline unsigned int tree_hdr_get_low(struct tree_hdr * tree) { unsigned char *p = tree->p+8; return get_u32(&p); }
+ 
+ struct tree_hdr_h {
+-	unsigned int addr;
+-	unsigned int size;
++/*	unsigned int addr;
++	unsigned int size;*/
++	unsigned char p[8];
+ };
++static inline unsigned int tree_hdr_h_get_addr(struct tree_hdr_h * tree) { unsigned char *p = tree->p; return get_u32(&p); }
++static inline unsigned int tree_hdr_h_get_size(struct tree_hdr_h * tree) { unsigned char *p = tree->p+4; return get_u32(&p); }
+ 
+ struct tree_leaf_h {
+-	unsigned int lower;
++/*	unsigned int lower;
+ 	unsigned int higher;
+ 	unsigned int match;
+-	unsigned int value;
++	unsigned int value;*/
++	unsigned char p[16];
+ };
++static inline unsigned int tree_leaf_h_get_lower(struct tree_leaf_h * tree) { unsigned char *p = tree->p; return get_u32(&p); }
++static inline unsigned int tree_leaf_h_get_higher(struct tree_leaf_h * tree) { unsigned char *p = tree->p+4; return get_u32(&p); }
++static inline unsigned int tree_leaf_h_get_match(struct tree_leaf_h * tree) { unsigned char *p = tree->p+8; return get_u32(&p); }
++static inline unsigned int tree_leaf_h_get_value(struct tree_leaf_h * tree) { unsigned char *p = tree->p+12; return get_u32(&p); }
+ 
+ 
+ struct tree_hdr_v {
+-	unsigned int count;
++	/*unsigned int count;
+ 	unsigned int next;
+-	unsigned int unknown;
++	unsigned int unknown;*/
++	unsigned char p[12];
+ };
++static inline unsigned int tree_hdr_v_get_count(struct tree_hdr_v * tree) { unsigned char *p = tree->p; return get_u32_unal(&p); }
++static inline unsigned int tree_hdr_v_get_next(struct tree_hdr_v * tree) { unsigned char *p = tree->p+4; return get_u32_unal(&p); }
++static inline unsigned int tree_hdr_v_get_unknown(struct tree_hdr_v * tree) { unsigned char *p = tree->p+8; return get_u32_unal(&p); }
+ 
+ struct tree_leaf_v {
+ 	unsigned char key;
+-	int value;
++	/*int value;*/
++	unsigned char p[4];
+ } __attribute__((packed));
++static inline int tree_leaf_v_get_value(struct tree_leaf_v * tree) { unsigned char *p = tree->p; return get_u32_unal(&p); }
+ 
+ static int
+ tree_search_h(struct file *file, unsigned int search)
+@@ -64,24 +82,24 @@
+ 	while (i++ < 1000) {
+ 		thdr=(struct tree_hdr_h *)p;
+ 		p+=sizeof(*thdr);
+-		end=p+thdr->size;
++		end=p+tree_hdr_h_get_size(thdr);
+ 		dbg(1,"@0x%x\n", p-file->begin);
+ 		last=0;
+ 		while (p < end) {
+ 			tleaf=(struct tree_leaf_h *)p;
+ 			p+=sizeof(*tleaf);
+-			dbg(1,"low:0x%x high:0x%x match:0x%x val:0x%x search:0x%x\n", tleaf->lower, tleaf->higher, tleaf->match, tleaf->value, search);
+-			value=tleaf->value;
++			dbg(1,"low:0x%x high:0x%x match:0x%x val:0x%x search:0x%x\n", tree_leaf_h_get_lower(tleaf), tree_leaf_h_get_higher(tleaf), tree_leaf_h_get_match(tleaf), tree_leaf_h_get_value(tleaf), search);
++			value=tree_leaf_h_get_value(tleaf);
+ 			if (value == search)
+-				return tleaf->match;
++				return tree_leaf_h_get_match(tleaf);
+ 			if (value > search) {
+ 				dbg(1,"lower\n");
+-				lower=tleaf->lower;
++				lower=tree_leaf_h_get_lower(tleaf);
+ 				if (lower)
+ 					last=lower;
+ 				break;
+ 			}
+-			last=tleaf->higher;
++			last=tree_leaf_h_get_higher(tleaf);
+ 		}
+ 		if (! last || last == -1)
+ 			return 0;
+@@ -100,16 +118,16 @@
+ 	while (i++ < 1000) {
+ 		thdr=(struct tree_hdr_v *)p;
+ 		p+=sizeof(*thdr);
+-		count=L(thdr->count);
++		count=tree_hdr_v_get_count(thdr);
+ 		dbg(1,"offset=0x%x count=0x%x\n", p-file->begin, count);
+ 		while (count--) {
+ 			tleaf=(struct tree_leaf_v *)p;
+ 			p+=sizeof(*tleaf);
+ 			dbg(1,"0x%x 0x%x\n", tleaf->key, search);
+ 			if (tleaf->key == search)
+-				return L(tleaf->value);
++				return tree_leaf_v_get_value(tleaf);
+ 		}
+-		next=L(thdr->next);
++		next=tree_hdr_v_get_next(thdr);
+ 		if (! next)
+ 			break;
+ 		p=file->begin+next;
+@@ -164,10 +182,10 @@
+ 	tsn->hdr=(struct tree_hdr *)p;
+ 	tsn->p=p+sizeof(struct tree_hdr);
+ 	tsn->last=tsn->p;
+-	tsn->end=p+tsn->hdr->size;
+-	tsn->low=tsn->hdr->low;
+-	tsn->high=tsn->hdr->low;
+-	dbg(1,"pos 0x%x addr 0x%x size 0x%x low 0x%x end 0x%x\n", p-ts->f->begin, tsn->hdr->addr, tsn->hdr->size, tsn->hdr->low, tsn->end-ts->f->begin);
++	tsn->end=p+tree_hdr_get_size(tsn->hdr);
++	tsn->low=tree_hdr_get_low(tsn->hdr);
++	tsn->high=tree_hdr_get_low(tsn->hdr);
++	dbg(1,"pos 0x%x addr 0x%x size 0x%x low 0x%x end 0x%x\n", p-ts->f->begin, tree_hdr_get_addr(tsn->hdr), tree_hdr_get_size(tsn->hdr), tree_hdr_get_low(tsn->hdr), tsn->end-ts->f->begin);
+ 	return tsn;
+ }
+ 

@@ -1,0 +1,10 @@
+79d78
+< 				<a href='#Settings RoutingAlgorithm'><img src='gui_maps'><text>Routing Algorithm</text></img></a>
+142,148d140
+< 			
+< 			<a name='Settings RoutingAlgorithm' class='clist'><text>Select Routing Algorithm</text>
+< 				<img src='gui_maps' onclick='setting_RoutingAlgorithm("st")'><text>Navit Standard</text></img>
+< 				<img src='gui_maps' onclick='setting_RoutingAlgorithm("1T")'><text>Bidirectional 1T</text></img>
+< 				<img src='gui_maps' onclick='setting_RoutingAlgorithm("2T")'><text>Bidirectional 2T</text></img>
+< 			</a>
+< 			

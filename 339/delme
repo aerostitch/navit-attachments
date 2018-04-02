@@ -1,0 +1,14 @@
+Index: navit/navigation.c
+===================================================================
+--- navit/navigation.c	(revision 2187)
++++ navit/navigation.c	(working copy)
+@@ -1389,6 +1389,9 @@
+ 		} else if (delta < 165) {
+ 			/* TRANSLATORS: Don't forget the ending space */
+ 			strength=_("strongly ");
++		} else if (delta < 180) {
++			/* TRANSLATORS: Don't forget the ending space */
++			strength=_("really strongly ");
+ 		} else {
+ 			dbg(1,"delta=%d\n", delta);
+ 			/* TRANSLATORS: Don't forget the ending space */

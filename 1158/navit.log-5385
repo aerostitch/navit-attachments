@@ -1,0 +1,99 @@
+Navit log started
+navit:main_real:Loading \SDMMC\navit/navit.xml
+navit:convert_to_attrs:failed to create attribute 'cache_size' with value '512000'
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+navit:tracking_update:failed to get position data 1 1 1 0
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 194 intervals delay.
+vehicle_wince:vehicle_wince_parse:wrong checksum in '$GPGSV,4,1,16,03,85,19,67,121,,21,17,066,,08,17,318,,09,13,317,*73'
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+navit:command_new:entry 341 exit 275
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 124 intervals delay.
+vehicle_wince:vehicle_wince_parse:wrong checksum in '$GPGSV,4,1,16,03,84,192,33,27,79,113,32,06,66,121,30,19,63,29117,35*73'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 5 intervals delay.
+Navit log started
+navit:main_real:Loading \SDMMC\navit/navit.xml
+navit:convert_to_attrs:failed to create attribute 'cache_size' with value '512000'
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in '033,14,01,06,243,,33,29,197,,37,26,151,*75'
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 194 intervals delay.
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 12 intervals delay.
+vehicle_wince:vehicle_wince_parse:wrong checksum in '$GPGSA,A,3, 3, 6, 7, 8, 9,15,16,18,19,21,2.7972,N,00128.3761,W,000.0,307.5,040913,,,A*73'
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 5 intervals delay.
+Navit log started
+navit:main_real:Loading \SDMMC\navit/navit.xml
+navit:convert_to_attrs:failed to create attribute 'cache_size' with value '256000'
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 
+vehicle_wince:wince_reader_thread:Will main thread ever be ready for the GPS data? Already 200 intervals gone.
+graphics_win32:create_memory_dc:resize memDC to: 70 70 
+graphics_win32:create_memory_dc:resize memDC to: 60 80 
+navit:main_real:Using config file '\SDMMC\navit/navit.xml'
+graphics_win32:event_win32_main_loop_run:enter
+vehicle_wince:vehicle_wince_parse:no leading $ in ',03,00.0,,M,,M,,0000*4F'
+navit:tracking_update:failed to get position data 1 1 1 0
+vehicle_wince:wince_reader_thread:Sent GPS data to the main thread after 205 intervals delay.
+vehicle_wince:vehicle_wince_parse:wrong checksum in '$GPRMC,153058.000,V,5147.7972,N,00128.3761,W,000.0,00,000.0,000.0,040913,,,N*6F'
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+graphics_win32:create_memory_dc:resize memDC to: 26 26 
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+navit:tracking_update:failed to get position data 1 1 1 0
+Navit log started
+navit:main_real:Loading \SDMMC\navit/navit.xml
+navit:convert_to_attrs:failed to create attribute 'cache_size' with value '256000'
+navit:file_wordexp_new:wordexp('%s_wh_32_32.png') returned 1
+vehicle_wince:vehicle_wince_new:on_eof=0
+navit:file_wordexp_new:wordexp('\SDMMC\navit\track_%Y%m%d-%%i.gpx') returned 1
+vehicle_wince:wince_reader_thread:GPS Port:[com7:]
+vehicle_wince:initDevice:Init Device
+speech_espeak:espeak_new:path_home set to \SDMMC\navit/espeak-data
+speech_espeak:espeak_new:Testing \SDMMC\navit/espeak-data/voices/en-gb and \SDMMC\navit/espeak-data/voices/en/en-gb
+speech_espeak:espeak_new:Language full en-gb lang en result en
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:create_memory_dc:resize memDC to: 320 240 
+graphics_win32:WndProc:resize gfx to: 320 240 

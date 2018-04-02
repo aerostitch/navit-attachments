@@ -1,0 +1,332 @@
+dh build
+   dh_testdir
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory `/tmp/buildd/navit-svn-5.0'
+dh_auto_configure -- -DCMAKE_BUILD_TYPE=debian -DCMAKE_C_FLAGS_DEBIAN="" -DCMAKE_C_FLAGS_DEBIAN="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2" -DCMAKE_CXX_FLAGS_DEBIAN="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2" -DCMAKE_MODULE_LINKER_FLAGS="-Wl,-Bsymbolic-functions -Wl,-z,relro" -DCMAKE_SHARED_LINKER_FLAGS="-Wl,-Bsymbolic-functions -Wl,-z,relro" -DCMAKE_EXE_LINKER_FLAGS="-Wl,-Bsymbolic-functions -Wl,-z,relro" -DNATIVE_CC=gcc -Dfont/freetype=TRUE -Dsvg2png_scaling=0,8,16,32,48,96 -Dsvg2png_scaling_flag=8,16,32,48,96 -Dsvg2png_scaling_nav=8,16,32,48,96 -DIMAGE_CONVERTER_SVGZ=rsvg-convert -Dgui/gtk=TRUE -Dgui/internal=TRUE -Dgui/qml=FALSE -Dbinding/dbus=TRUE -Dgraphics/gtk_drawing_area=TRUE -Dgraphics/qt_qpainter=TRUE -Dgraphics/null=TRUE -Dgraphics/android=FALSE -Dgraphics/gd=FALSE -Dgraphics/sdl=FALSE -Dgraphics/opengl=FALSE -DSAMPLE_MAP=FALSE -Dmap/garmin=TRUE -Dmap/mg=TRUE -Dmap/binfile=TRUE -Dmap/csv=TRUE -Dmap/shapefile=TRUE -Dvehicle/null=TRUE -Dvehicle/demo=TRUE -Dvehicle/gpsd=TRUE -Dvehicle/gypsy=FALSE -Dplugin/pedestrian=TRUE -Dsupport/shapefile=TRUE -DLIBDIR=lib
+-- The C compiler identification is GNU 4.8.1
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- The CXX compiler identification is GNU 4.8.1
+-- Check for working CXX compiler: /usr/bin/g++
+-- Check for working CXX compiler: /usr/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+--    LIB_DIR (highest subdirectory if LIBDIR) is set to 'lib'
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.26") 
+-- checking for module 'glib-2.0'
+--   found glib-2.0, version 2.38.0
+-- Found Glib 
+-- checking for module 'gmodule-2.0'
+--   found gmodule-2.0, version 2.38.0
+-- Found Gmodule 
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.4.12") 
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found SDL: /usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread (found version "1.2.15") 
+-- Could NOT find SDL_ttf (missing:  SDL_TTF_LIBRARIES SDL_TTF_INCLUDE_DIRS) 
+-- Found SDL_image: /usr/lib/x86_64-linux-gnu/libSDL_image.so (found version "1.2.12") 
+-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for connect
+-- Looking for connect - found
+-- Looking for remove
+-- Looking for remove - found
+-- Looking for shmat
+-- Looking for shmat - found
+-- Looking for IceConnectionNumber in ICE
+-- Looking for IceConnectionNumber in ICE - found
+-- Found X11: /usr/lib/x86_64-linux-gnu/libX11.so
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so  
+-- Found GLUT: /usr/lib/x86_64-linux-gnu/libglut.so  
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GTK_INCLUDE_DIR is /usr/include/gtk-2.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GLIBCONFIG_INCLUDE_DIR is /usr/lib/x86_64-linux-gnu/glib-2.0/include
+-- (DEBUG) GTK2_GLIB_INCLUDE_DIR is /usr/include/glib-2.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_GDK_INCLUDE_DIR is /usr/lib/x86_64-linux-gnu/gtk-2.0/include
+-- (DEBUG) GTK2_GTKGL_INCLUDE_DIR is GTK2_GTKGL_INCLUDE_DIR-NOTFOUND
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_PANGO_INCLUDE_DIR is /usr/include/pango-1.0
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is /usr/include/cairo
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_CAIRO_INCLUDE_DIR is /usr/include/cairo
+-- WARNING: you are using the obsolete 'PKGCONFIG' macro, use FindPkgConfig
+-- (DEBUG) GTK2_ATK_INCLUDE_DIR is /usr/include/atk-1.0
+-- (DEBUG) GTK2_GTK_LIBRARY is /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so
+-- (DEBUG) GTK2_GDK_LIBRARY is /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so
+-- (DEBUG) GTK2_GDK_PIXBUF_LIBRARY is /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so
+-- (DEBUG) GTK2_GMODULE_LIBRARY is /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so
+-- (DEBUG) GTK2_GTHREAD_LIBRARY is /usr/lib/x86_64-linux-gnu/libgthread-2.0.so
+-- (DEBUG) GTK2_GOBJECT_LIBRARY is /usr/lib/x86_64-linux-gnu/libgobject-2.0.so
+-- (DEBUG) GTK2_GLIB_LIBRARY is /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+-- (DEBUG) GTK2_GTKGL_LIBRARY is GTK2_GTKGL_LIBRARY-NOTFOUND
+-- (DEBUG) GTK2_PANGO_LIBRARY is /usr/lib/x86_64-linux-gnu/libpango-1.0.so
+-- (DEBUG) GTK2_PANGO_LIBRARY is /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so
+-- (DEBUG) GTK2_ATK_LIBRARY is /usr/lib/x86_64-linux-gnu/libatk-1.0.so
+-- Found GTK2: /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so;/usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so;/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so;/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so;/usr/lib/x86_64-linux-gnu/libgthread-2.0.so;/usr/lib/x86_64-linux-gnu/libgobject-2.0.so;/usr/lib/x86_64-linux-gnu/libpango-1.0.so;/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so;/usr/lib/x86_64-linux-gnu/libatk-1.0.so
+-- Found Gettext: /usr/bin/msgmerge (found version "0.18.1") 
+-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.2.49") 
+-- checking for module 'dbus-1'
+--   found dbus-1, version 1.6.12
+-- Found DBus 
+-- checking for module 'dbus-glib-1'
+--   found dbus-glib-1, version 0.100.2
+-- Found DBusGLib 
+-- Could NOT find PythonLibs (missing:  PYTHON_LIBRARIES PYTHON_INCLUDE_DIRS) 
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libssl.so;/usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.0.1e") 
+-- checking for module 'fontconfig'
+--   found fontconfig, version 2.10.93
+-- Looking for Q_WS_X11
+-- Looking for Q_WS_X11 - found
+-- Looking for Q_WS_WIN
+-- Looking for Q_WS_WIN - not found
+-- Looking for Q_WS_QWS
+-- Looking for Q_WS_QWS - not found
+-- Looking for Q_WS_MAC
+-- Looking for Q_WS_MAC - not found
+-- Found Qt4: /usr/bin/qmake (found suitable version "4.8.4", minimum required is "4.7") 
+-- checking for module 'quesoglc'
+--   found quesoglc, version 0.7.2
+-- checking for module 'liblocation'
+--   package 'liblocation' not found
+-- checking for module 'libosso'
+--   package 'libosso' not found
+-- checking for module 'libgps'
+--   found libgps, version 3.9
+-- checking for module 'libgps>=2.90'
+--   found libgps, version 3.9
+-- checking for module 'libgps>=3.1'
+--   found libgps, version 3.9
+-- checking for module 'libgarmin'
+--   found libgarmin, version 0.1
+-- checking for module 'imlib2'
+--   found imlib2, version 1.4.5
+-- Looking for include file wordexp.h
+-- Looking for include file wordexp.h - found
+-- Looking for include file endian.h
+-- Looking for include file endian.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file byteswap.h
+-- Looking for include file byteswap.h - found
+-- Looking for gypsy_control_get_default in gypsy
+-- Looking for gypsy_control_get_default in gypsy - not found
+-- Looking for include file libspeechd.h
+-- Looking for include file libspeechd.h - found
+-- Looking for include file sys/socket.h
+-- Looking for include file sys/socket.h - found
+-- Looking for include file sys/shm.h
+-- Looking for include file sys/shm.h - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for include file locale.h
+-- Looking for include file locale.h - found
+-- Looking for include file libintl.h
+-- Looking for include file libintl.h - found
+-- Looking for include file sys/time.h
+-- Looking for include file sys/time.h - found
+-- Looking for include file getopt.h
+-- Looking for include file getopt.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for system
+-- Looking for system - found
+-- Looking for CreateProcess
+-- Looking for CreateProcess - not found
+-- Looking for stpcpy
+-- Looking for stpcpy - found
+-- Looking for sbrk
+-- Looking for sbrk - found
+-- Looking for getdelim
+-- Looking for getdelim - found
+-- Looking for getline
+-- Looking for getline - found
+-- Looking for fsync
+-- Looking for fsync - found
+-- Looking for libintl_fprintf in intl
+-- Looking for libintl_fprintf in intl - not found
+-- checking for module 'fribidi'
+--   found fribidi, version 0.19.5
+-- checking for module 'fribidi>=0.19.0'
+--   found fribidi, version 0.19.5
+-- Looking for FreeImage_Load in freeimage
+-- Looking for FreeImage_Load in freeimage - not found
+-- opengl found: /usr/lib/x86_64-linux-gnu/libGL.so
+-- Found XSLT processor: /usr/bin/xsltproc
+Usage: /usr/bin/xsltproc [options] stylesheet file [file ...]
+   Options:
+	--version or -V: show the version of libxml and libxslt used
+	--verbose or -v: show logs of what's happening
+	--output file or -o file: save to a given file
+	--timing: display the time used
+	--repeat: run the transformation 20 times
+	--debug: dump the tree of the result instead
+	--dumpextensions: dump the registered extension elements and functions to stdout
+	--novalid skip the DTD loading phase
+	--nodtdattr do not default attributes from the DTD
+	--noout: do not dump the result
+	--maxdepth val : increase the maximum depth (default 3000)
+	--maxvars val : increase the maximum variables (default 15000)
+	--maxparserdepth val : increase the maximum parser depth
+	--seed-rand val : initialize pseudo random number generator with specific seed
+	--html: the input document is(are) an HTML file(s)
+	--encoding: the input document character encoding
+	--param name value : pass a (parameter,value) pair
+	       value is an UTF8 XPath expression.
+	       string values must be quoted like "'string'"
+ or	       use stringparam to avoid it
+	--stringparam name value : pass a (parameter, UTF8 string value) pair
+	--path 'paths': provide a set of paths for resources
+	--nonet : refuse to fetch DTDs or entities over network
+	--nowrite : refuse to write to any file or resource
+	--nomkdir : refuse to create directories
+	--writesubtree path : allow file write only with the path subtree
+	--catalogs : use SGML catalogs from $SGML_CATALOG_FILES
+	             otherwise XML Catalogs starting from 
+	         file:///etc/xml/catalog are activated by default
+	--xinclude : do XInclude processing on document input
+	--xincludestyle : do XInclude processing on stylesheets
+	--load-trace : print trace of all external entites loaded
+	--profile or --norman : dump profiling information 
+
+Project libxslt home page: http://xmlsoft.org/XSLT/
+To report bugs and get help: http://xmlsoft.org/XSLT/bugs.html
+-- SVG2PNG-Converter: rsvg-convert
+-- Use plugins: MODULE
+-- Looking for include file malloc.h
+-- Looking for include file malloc.h - found
+-- Looking for include files sys/param.h, sys/mount.h
+-- Looking for include files sys/param.h, sys/mount.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for getcwd
+-- Looking for getcwd - found
+-- Looking for memalign
+-- Looking for memalign - found
+-- Looking for valloc
+-- Looking for valloc - found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for popen
+-- Looking for popen - found
+-- Looking for _atoi64
+-- Looking for _atoi64 - not found
+-- Performing Test HAS_NO_MISSING_FIELD_INI
+-- Performing Test HAS_NO_MISSING_FIELD_INI - Success
+
+Summary:
+
+
+--->>> autoload
+Disabled  osso ( Default )
+
+--->>> binding
+Enabled   dbus ( User defined )
+Disabled  python ( python libraries not found )
+Disabled  win32 ( Default )
+
+--->>> font
+Enabled   freetype ( User defined )
+
+--->>> graphics
+Disabled  android ( User defined )
+Disabled  cocoa ( Default )
+Disabled  gd ( User defined )
+Enabled   gtk_drawing_area ( User defined )
+Enabled   null ( User defined )
+Disabled  opengl ( User defined )
+Enabled   qt_qpainter ( User defined )
+Disabled  sdl ( User defined )
+
+--->>> gui
+Enabled   gtk ( User defined )
+Enabled   internal ( User defined )
+Disabled  qml ( User defined )
+
+--->>> map
+Enabled   binfile ( User defined )
+Enabled   csv ( User defined )
+Enabled   filter ( Default )
+Enabled   garmin ( User defined )
+Enabled   mg ( User defined )
+Enabled   shapefile ( User defined )
+Enabled   textfile ( Default )
+
+--->>> osd
+Enabled   core ( Default )
+
+--->>> plugin
+Enabled   pedestrian ( User defined )
+
+--->>> speech
+Disabled  android ( Default )
+Enabled   cmdline ( system() call is available )
+Enabled   dbus ( dbus-glib-1 found )
+Disabled  espeak ( Default )
+Disabled  iphone ( Default )
+Enabled   speech_dispatcher ( speech_dispatcher lib found )
+
+--->>> support
+Disabled  espeak ( Default )
+Disabled  ezxml ( native Glib found )
+Disabled  gettext_intl ( native libintl found )
+Disabled  glib ( native Glib found )
+Disabled  libpng ( native libpng found )
+Enabled   shapefile ( User defined )
+Disabled  wordexp ( native wordexp found )
+Disabled  zlib ( native zlib found )
+
+--->>> vehicle
+Disabled  android ( Default )
+Enabled   demo ( User defined )
+Enabled   file ( Default )
+Enabled   gpsd ( User defined )
+Enabled   gpsd_dbus ( dbus-glib-1 found )
+Disabled  gypsy ( User defined )
+Disabled  iphone ( Default )
+Disabled  maemo ( Default )
+Enabled   null ( User defined )
+Disabled  wince ( Default )
+
+--->>> Features
+Enabled   BUILD_MAPTOOL ( default )
+Disabled  DBUS_USE_SYSTEM_BUS ( default )
+Disabled  SAMPLE_MAP ( User defined )
+Disabled  SHARED_LIBNAVIT ( default )
+Enabled   SVG2PNG ( default )
+Enabled   USE_NATIVE_LANGUAGE_SUPPORT ( Gettext found )
+Enabled   USE_PLUGINS ( default )
+Enabled   USE_ROUTING ( default )
+Enabled   USE_SVG ( default )
+Enabled   XSL_PROCESSING ( default )
+
+Processing XSLT files: NONE
+See navit/xslt for available XSLT files, and put them into cache variable 'XSLTS' (without extension .xslt).
+
+To configure your build use 'cmake -L' to find changeable variables and run cmake again with 'cmake -D <var-name>=<your value> ...'.
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_SHARED_LINKER_FLAGS
+    NATIVE_CC
+
+
