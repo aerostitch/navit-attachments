@@ -1,0 +1,133 @@
+﻿CID,Type,Impact,Status,First Detected,Owner,Classification,Severity,Action,Component,Category,File,Function
+262887,Resource leak,High,New,02/12/18,Unassigned,Unclassified,Unspecified,Undecided,maptool,Resource leaks,/root/project/navit/maptool/buffer.c,load_buffer
+172038,Unchecked return value,Medium,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/osd/core/osd_core.c,osd_volume_click
+172037,Out-of-bounds access,High,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,Other,Memory - corruptions,/root/project/navit/graphics.c,graphics_draw_polyline_as_polygon
+172036,Uninitialized scalar variable,High,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/osd/core/osd_core.c,osd_text_format_attr
+172035,Copy into fixed size buffer,Low,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,Other,Security best practices violations,/root/project/navit/debug.c,debug_vprintf
+172034,Missing break in switch,Medium,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/osd/core/osd_core.c,draw_aligned_osd_text
+172033,Unchecked return value,Medium,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/support/shapefile/dbfopen.c,DBFClose
+172032,Various,Medium,New,09/12/17,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/osm.c,osm_process_towns
+138973,Dereference after null check,Medium,New,12/02/16,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/gui/internal/gui_internal_menu.c,gui_internal_menu
+119695,Dereference before null check,Medium,New,11/13/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/osd/core/osd_core.c,osd_navigation_status_init
+119694,Logically dead code,Medium,New,11/13/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/attr.c,attr_to_text_ext
+105504,Dereference before null check,Medium,New,08/13/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/navigation.c,show_next_maneuvers
+83382,Logically dead code,Medium,New,05/14/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/navigation.c,show_maneuver
+83381,Logically dead code,Medium,New,05/14/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/navigation.c,navigation_map_item_attr_get
+40106,Dereference before null check,Medium,New,03/07/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/navigation.c,navigation_analyze_roundabout
+34806,Dereference after null check,Medium,New,02/22/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/navigation.c,command_new
+25428,Various,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/boundaries.c,process_boundaries_setup
+25427,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/misc.c,process_binfile
+25426,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/map/binfile/binfile.c,push_modified_item
+25425,Use of untrusted scalar value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/map/binfile/binfile.c,push_zipfile_tile
+25424,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/map/binfile/binfile.c,binfile_attr_set
+25423,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/osm.c,resolve_ways
+25422,Various,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/map/binfile/binfile.c,download_finish
+25421,Result is not floating-point,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/track.c,tracking_value
+25420,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Uninitialized variables,/root/project/navit/maptool/google/protobuf-c/protobuf-c.c,protobuf_c_message_unpack
+25419,Copy into fixed size buffer,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Security best practices violations,/root/project/navit/map/shapefile/shapefile.c,attr_resolve
+25418,Various,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/misc.c,phase34_process_file
+25417,Copy into fixed size buffer,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Security best practices violations,/root/project/navit/maptool/tile.c,merge_tiles
+25415,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/gui/internal/gui_internal_search.c,gui_internal_get_match_quality
+25414,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/osm.c,write_countrydir
+25413,Various,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/misc.c,phase34_process_file_range
+25412,Various,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/ch.c,ch_copy_to_tiles
+25411,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Uninitialized variables,/root/project/navit/maptool/osm_protobufdb.c,osm_protobufdb_timestamp
+25410,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/track.c,tracking_update
+25409,Copy into fixed size buffer,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Security best practices violations,/root/project/navit/map/textfile/textfile.c,parse_line
+25407,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/itembin.c,item_bin_sort_file
+25405,Structurally dead code,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/util.c,spawn_process_check_status
+25401,Use of untrusted string value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/main.c,main_init
+25400,Use of untrusted scalar value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/map/binfile/binfile.c,binfile_read_cd
+25398,Structurally dead code,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/map/mg/street.c,street_search_get_item
+25394,Structurally dead code,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/transform.c,transform_get_attr
+25393,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/map/binfile/binfile.c,binfile_coord_set
+25391,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/itembin.c,item_bin_read
+25390,Use of untrusted scalar value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/map/binfile/binfile.c,download
+25389,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/map/binfile/binfile.c,load_changes
+25387,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/util.c,iso8601_to_secs
+25386,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/map/binfile/binfile.c,push_zipfile_tile_do
+25385,Untrusted value as argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/osm.c,map_resolve_coords_and_split_at_intersections
+25384,Unused value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/gui/internal/gui_internal.c,gui_internal_time_help
+25383,Unused value,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Code maintainability issues,/root/project/navit/osd/core/osd_core.c,osd_text_prepare
+25381,Use after free,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Memory - illegal accesses,/root/project/navit/file.c,file_remap_readonly
+25379,Uninitialized pointer read,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Memory - illegal accesses,/root/project/navit/maptool/maptool.c,maptool_generate_tiles
+25378,Use of untrusted string value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/xmlconfig.c,parse_file
+25377,Unused value,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Code maintainability issues,/root/project/navit/osd/core/osd_core.c,osd_speed_cam_draw
+25376,Uninitialized pointer read,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Memory - illegal accesses,/root/project/navit/maptool/maptool.c,maptool_assemble_map
+25375,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/vehicle/file/vehicle_file.c,vehicle_file_open
+25374,Unused value,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Code maintainability issues,/root/project/navit/map/mg/block.c,block_next
+25371,Uninitialized scalar variable,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Uninitialized variables,/root/project/navit/map/binfile/binfile.c,map_rect_new_binfile
+25368,Unintended sign extension,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Integer handling issues,/root/project/navit/data.h,get_u32_unal
+25366,Array compared against 0,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/callback.c,callback_call
+25365,Resource leak,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Resource leaks,/root/project/navit/file.c,file_remap_readonly
+25354,Array compared against 0,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/navit.c,navit_former_destinations_active
+25353,Improper use of negative value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Integer handling issues,/root/project/navit/file.c,file_request_do
+25349,Dereference null return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/maps.c,maps_new
+25341,Dereference before null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/mapset.c,mapset_search_get_item
+25339,Dereference before null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/map/csv/csv.c,csv_attr_set
+25338,Argument cannot be negative,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/zip.c,zip_write_index
+25331,Dereference null return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Null pointer dereferences,/root/project/navit/maptool/osm_relations.c,relations_process
+25329,Argument cannot be negative,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/log.c,log_flush
+25328,String not null terminated,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Memory - illegal accesses,/root/project/navit/file.c,file_data_read_special
+25327,Nesting level does not match indentation,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/util.c,spawn_process_check_status
+25326,Argument cannot be negative,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/vehicle/file/vehicle_file.c,vehicle_file_open
+25319,Resource leak,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Resource leaks,/root/project/navit/gui/internal/gui_internal.c,gui_internal_cmd_map_download
+25309,Dereference after null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/track.c,tracking_update
+25305,'Constant' variable guards dead code,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Possible Control flow issues,/root/project/navit/maptool/coastline.c,tile_collector_add_siblings2
+25304,Logically dead code,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/route.c,route_process_turn_restriction
+25302,'Constant' variable guards dead code,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Possible Control flow issues,/root/project/navit/gui/internal/gui_internal.c,gui_internal_cmd_bookmarks
+25301,'Constant' variable guards dead code,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Possible Control flow issues,/root/project/navit/map/mg/map.c,file_next
+25299,Dereference after null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/osd/core/osd_core.c,osd_text_draw
+25298,Logically dead code,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/gui/internal/gui_internal_search.c,gui_internal_search_cmp
+25297,Explicit null dereferenced,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/map/binfile/binfile.c,binfile_read_eoc64
+25294,'Constant' variable guards dead code,Low,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Possible Control flow issues,/root/project/navit/maptool/coastline.c,tile_collector_add_siblings
+25293,Dereference after null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/osd.c,osd_get_attr
+25292,Missing break in switch,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/route.c,rm_get_item
+25291,Dereference after null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/osd/core/osd_core.c,osd_route_guard_draw
+25289,Explicit null dereferenced,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/map/shapefile/shapefile.c,process_fields
+25287,Dereference after null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/navigation.c,navigation_map_item_attr_get
+25286,Missing break in switch,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/gui/internal/gui_internal.c,gui_internal_match
+25285,Integer overflowed argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Insecure data handling,/root/project/navit/map/binfile/binfile.c,load_changes
+25284,Failure to restore non-local value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/route.c,rm_get_item
+25282,Various,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/command.c,command_call_function
+25281,Identical code for different branches,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/gui/internal/gui_internal.c,gui_internal_apply_config
+25278,Copy-paste error,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/route.c,route_path_add_item_from_graph
+25274,Division or modulo by zero,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Integer handling issues,/root/project/navit/command.c,result_op
+25273,Missing break in switch,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/osd/core/osd_core.c,osd_text_draw
+25272,Dereference after null check,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Null pointer dereferences,/root/project/navit/osd.c,osd_set_attr
+25270,Missing break in switch,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/gui/internal/gui_internal.c,gui_internal_cmd_match_expand
+25269,Missing break in switch,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Control flow issues,/root/project/navit/gui/internal/gui_internal_html.c,gui_internal_html_end
+25268,Integer overflowed argument,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Insecure data handling,/root/project/navit/maptool/itembin.c,item_bin_read
+25267,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/osm_o5m.c,map_collect_data_osm_o5m
+25265,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/log.c,log_flush
+25264,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/file.c,file_data_read
+25263,Ignoring number of bytes read,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/buffer.c,load_buffer
+25261,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/bookmarks.c,bookmarks_load_hash
+25260,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/gtk/gui_gtk_poi.c,model_poi
+25259,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/file.c,file_data_read_compressed
+25258,Ignoring number of bytes read,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/ch.c,ch_assemble_map
+25257,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/internal/gui_internal.c,gui_internal_cmd_view_attribute_details
+25256,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/internal/gui_internal.c,gui_internal_cmd_set_active_profile
+25255,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/debug.c,debug_vprintf
+25254,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/maptool.c,main
+25252,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/gtk/datawindow.c,select_row
+25251,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/file.c,file_data_write
+25250,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/internal/gui_internal_command.c,gui_internal_cmd2_setting_vehicle
+25248,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/tile.c,write_item
+25247,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/navit.c,navit_window_roadbook_update
+25245,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/navit.c,navit_set_vehicle_by_name
+25244,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/map/csv/csv.c,save_map_csv
+25243,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/bookmarks.c,read_former_destination_map_as_list
+25242,Same on both sides,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Incorrect expression,/root/project/navit/search.c,search_fix_spaces
+25241,Ignoring number of bytes read,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/ch.c,ch_generate_ddsg
+25238,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/map/textfile/textfile.c,map_rect_get_item_byid_textfile
+25237,Unchecked return value from library,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/buffer.c,load_buffer
+25236,Ignoring number of bytes read,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/zip.c,zip_write_index
+25235,Ignoring number of bytes read,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/tile.c,write_aux_tiles
+25234,Ignoring number of bytes read,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Error handling issues,/root/project/navit/maptool/itembin.c,item_bin_read
+25233,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/gtk/gui_gtk_window.c,gui_gtk_vehicles_update
+25232,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/gtk/gui_gtk_window.c,gui_gtk_destinations_update
+25231,Unchecked return value,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Error handling issues,/root/project/navit/gui/gtk/gui_gtk_window.c,gui_gtk_bookmarks_update
+25230,Buffer not null terminated,High,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,Other,Memory - illegal accesses,/root/project/navit/vehicle/file/vehicle_file.c,vehicle_file_parse
+25226,Side effect in assertion,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Incorrect expression,/root/project/navit/maptool/ch.c,ch_generate_ddsg
+25225,Side effect in assertion,Medium,New,02/06/15,Unassigned,Unclassified,Unspecified,Undecided,maptool,Incorrect expression,/root/project/navit/maptool/ch.c,ch_generate_ddsg
